@@ -1,3 +1,8 @@
+/*
+** DEPRECIATED: Use Datei > Beispiele > Firmata > StandardFirmata
+**              with http://www.pjrc.com/teensy/firmata_test/firmata_test.64bit
+*/
+
 int ledPin = 13; 
 
 void setup()
