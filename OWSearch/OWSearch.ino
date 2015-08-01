@@ -41,23 +41,32 @@ void loop(void) {
   delay(1000);
 
   ds.reset_search();
-  if ( !ds.search(addr)) {
-      Serial.print("No more addresses.\n");
-      ds.reset_search();
-      return;
-  }
 
-  Serial.print("R=");
-  for( i = 0; i < 8; i++) {
-    Serial.print(addr[i], HEX);
-    Serial.print(" ");
-  }
+  // http://www.hacktronics.com/Tutorials/arduino-1-wire-address-finder.html
+  while(ds.search(addr)) {
+    Serial.print("\nFound \'1-Wire\' device with address:\n");
 
-  if ( OneWire::crc8( addr, 7) != addr[7]) {
+    Serial.print("R=");
+    for( i = 0; i < 8; i++) {
+      Serial.print(addr[i], HEX);
+      Serial.print(" ");
+    }
+
+    if ( OneWire::crc8( addr, 7) != addr[7]) {
       Serial.print("CRC is not valid!\n");
       return;
+    }
+
+    checkFamily(addr);
   }
 
+  Serial.print("No more addresses.\n");
+  ds.reset_search();
+//  ds.depower();
+  return;
+}
+
+void checkFamily(byte* addr) {
   if ( addr[0] == 0x10) {
       Serial.print("Device is a DS18S20 family device.\n");
   }
@@ -140,7 +149,7 @@ void loop(void) {
       Serial.print("Device is a DS2432 family device.\n");
   }
   else if ( addr[0] == 0x23) {
-      Serial.print("Device is a DS2433 family device.\n");
+      Serial.print("Device is a DS2433/DS28EC20 family device.\n");
   }
   else if ( addr[0] == 0x1B) {
       Serial.print("Device is a DS2436 family device.\n");
@@ -198,7 +207,4 @@ void loop(void) {
       Serial.println(addr[0],HEX);
       return;
   }
-
-  // (the delay here is VERY CRRUCIAL for the Yun no to get bricked!)
-  ds.depower();
 }
