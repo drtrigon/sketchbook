@@ -3,50 +3,41 @@
 //#include <PinChangeInterrupt.h>
 /********************************************************************************
     
-    Program. . . . OWHumidity2
-    Author . . . . Ian Evans
-    Written. . . . 27 May 2014.
-    Description. . Act as One Wire Slave
-                   Read the sensor and return the Relative humidity * 100
-                   Returns Humidity% * 100 (4 Bytes)
-                           Sensor value    (2 bytes)
-                           Supply value    (2 bytes)
-
-            ATTiny85 Pin Layout
-                 ---_---
-        ADC0 PB5 |1   8| VCC
- Supply ADC3 PB3 |2   7| PB2 ADC1
- Sensor ADC2 PB4 |3   6| PB1      One Wire
-             GND |4   5| PB0      LED
-                 -------
+    Program. . . . OWGeneric
+    Author . . . . Ursin Solèr (according to design by Ian Evans)
+    Written. . . . 1 Aug 2015.
+    Description. . Act as One Wire Slave (emulates RTC DS2415)
+                   Read all the analog inputs (A0-A5) and return values on demand
+                       Returns Value (5 Bytes) depending on value written last (5 Bytes)
+                       1 Device Control Byte and 4 Data Bytes
 
             AT.... Pin Layout (Arduino UNO)
-                 ---_---
-        ADC0 PB5 |?   ?| 5V        VCC
- Supply ADC3 PB3 |?   ?| PB2 ADC1
-                 .     .
- Sensor ADC2 PB4 |?   ?| PD02      One Wire
-             GND |?   ?| PD13      LED
-                 -------
+                  ---_---
+                  .     .
+ VCC    B_5V   5V |?   ?| PD13       LED
+ Ground BGND  GND |?   ?| PD12
+                  .     .
+ Sens 1 B_S01  A0 |?   ?| PD07
+ Sens 2 B_S02  A1 |?   ?| PD06 
+                  .     .
+ Sens 4 B_S04  A3 |?   ?| PD02       One Wire
+ Sens 5 B_S05  A4 |?   ?| PD01      
+ Sens 6 B_S06  A5 |?   ?| PD00      
+                  -------
 
+Most simple read/write device with 4 byte (32 bit) memory: RTC DS2415
+http://pdfserv.maximintegrated.com/en/ds/DS2415.pdf
+http://owfs.sourceforge.net/DS2415.3.html
+
+********************************************************************************
+
+Alternative more sophisticated devices:
 ADC -> 1-Wire Quad A/D Converter: http://datasheets.maximintegrated.com/en/ds/DS2450.pdf
                                   http://owfs.sourceforge.net/DS2450.3.html
 GPIO -> 1-Wire 8-Channel Addressable Switch: http://datasheets.maximintegrated.com/en/ds/DS2408.pdf
                                              http://owfs.sourceforge.net/DS2408.3.html
 (when emulating multiple devices, ALL presence pulses have to be sent
- at the same time/in parallel which is not easily possible, so use plan B
- below)
-
-(Emulate generic 1wire slave (owfs compatible); DS2433 / DS28EC20 comp. w. DS2423)
-http://datasheets.maximintegrated.com/en/ds/DS2433.pdf
-http://owfs.org/index.php?page=ds2433
-(http://www.maximintegrated.com/en/products/digital/memory-products/DS24B33.html)
-(http://www.maximintegrated.com/en/products/digital/memory-products/DS28EC20.html)
-(http://www.maximintegrated.com/en/products/power/battery-management/DS2438.html)
-
-Most simple read/write device with 4 byte (32 bit) memory: RTC DS2415
-http://pdfserv.maximintegrated.com/en/ds/DS2415.pdf
-http://owfs.sourceforge.net/DS2415.3.html
+ at the same time/in parallel which is not easily possible with 1 Arduino)
 
 Family codes:
 http://owfs.sourceforge.net/commands.html
@@ -80,8 +71,6 @@ char ctrlbyte = B00000000;    // U4 U3 U2 U1 OSC OSC 0 0
 #define LEDPin    13
 #define OWPin      2
 #define OWPinInt   0
-#define supplyPin A3
-#define sensorPin A2
 
 // LED Flash Variables
 volatile long    flash       = 0;         // Flash achnowledgement counter
@@ -150,7 +139,6 @@ void owHandler(void) {
             //emuDS2450(cmd);
             //emuDS2408(cmd);
             //emuDS2408(cmd);
-            //emuDS2433(cmd);
             emuDS2415(cmd);
         }
     }
@@ -229,37 +217,6 @@ void emuDS2408(uint8_t cmd){
         // ...
     }
     if (cmd == 0xC3) {   // Reset Activity Latches
-        // ...
-    }*/
-}
-
-/********************************************************************************
-    Emulate DS2433
-    http://datasheets.maximintegrated.com/en/ds/DS2433.pdf
-
-  TRANSACTION SEQUENCE 
-  The protocol for accessing the DS2433 via the 1-Wire port is as follows: 
-  * Initialization 
-  * ROM Function Command 
-  * Memory Function Command 
-  * Transaction/Data 
-********************************************************************************/
-void emuDS2433(uint8_t cmd){
-/*    if (cmd == 0x0F) {   // WRITE SCRATCHPAD COMMAND
-        uint8_t TA1 = ds.recv();
-        uint8_t TA2 = ds.recv();
-        // ...
-    }
-    if (cmd == 0xAA) {   // READ SCRATCHPAD COMMAND
-        for( int i = 0; i < 33; i++) {
-            ds.send(scratchpad[i]);
-        }
-        flash++;
-    }
-    if (cmd == 0x55) {   // COPY SCRATCHPAD 
-        // ...
-    }
-    if (cmd == 0xF0) {   // READ MEMORY
         // ...
     }*/
 }
