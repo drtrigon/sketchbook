@@ -1,5 +1,5 @@
-#include <OWSlave.h>
-//#include <OneWireSlave.h>
+//#include <OWSlave.h>
+#include <OneWireSlave.h>
 //#include <PinChangeInterrupt.h>
 /********************************************************************************
     
@@ -54,8 +54,8 @@ http://owfs.sourceforge.net/DS2415.3.html
 ********************************************************************************/
 //    One Wire Slave Data
 //                          {Fami, <---, ----, ----, ID--, ----, --->,  CRC} 
-unsigned char rom[8]      = {0x24, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
-//         char rom[8]      = {0x24, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
+unsigned char rom[8]      = {0x24, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
+//         char rom[8]      = {0x24, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 //                          {MEM0, MEM1, MEM2, MEM3}
   char rtccountr_in[4]    = {0x00, 0x00, 0x00, 0x00};
 //  char rtccountr_out[4]   = {0x01, 0x00, 0x00, 0x04};
@@ -89,8 +89,11 @@ long             flashStop   = 0;
 volatile long prevInt    = 0;      // Previous Interrupt micros
 volatile boolean owReset = false;
 
-OWSlave ds(OWPin); 
-//OneWireSlave ds(OWPin); 
+//OWSlave ds(OWPin); 
+OneWireSlave ds(OWPin); 
+
+            uint8_t cmd[10] = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00,};
+            uint8_t ii;
 
 /********************************************************************************
     Initiate the Environment
@@ -115,7 +118,12 @@ void setup() {
     attachInterrupt(OWPinInt,onewireInterrupt,CHANGE);
     
     // Initialise the One Wire Slave Library
-    ds.setRom(rom);
+//    ds.setRom(rom);
+    ds.init(rom);
+//    ds.setDebug();
+
+    // Debug serial output
+    Serial.begin(9600);
 
     flash +=2;
 }
@@ -138,14 +146,24 @@ void owHandler(void) {
     owReset=false;
 //    detachPcInterrupt(OWPin);
     detachInterrupt(OWPinInt);
-    
-    if (ds.presence()) {
-        if (ds.recvAndProcessCmd()) {
-//    if (ds.waitForRequest(false)) {
-            uint8_t cmd = ds.recv();
-            emuDS2415(cmd);
+
+//    if (ds.presence()) {
+//        if (ds.recvAndProcessCmd()) {
+    if (ds.waitForRequest(false)) {
+//    if (ds.waitForRequestInterrupt(false)) {
+        delayMicroseconds(2000);
+//            cmd = ds.recv();
+        for( int ii = 0; ii < 10; ii++) {
+            cmd[ii] = ds.recv();
         }
-    }
+        for( int ii = 0; ii < 10; ii++) {
+            Serial.print(cmd[ii], HEX);
+            Serial.print(' ');
+        }
+//            emuDS2415(cmd);
+        flash +=1;
+        }
+//    }
 //    attachPcInterrupt(OWPin,onewireInterrupt,CHANGE);
     pinMode(OWPin, INPUT);   // recover the output mode in case of error in ds.send (should work without; error test)
     attachInterrupt(OWPinInt,onewireInterrupt,CHANGE);

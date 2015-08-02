@@ -1,4 +1,15 @@
 /*
+OneWireSlave.cpp
+  Version 1.2
+  Modified: 04/24/2015
+  By: Jim Mayhugh
+  
+  Version 1.2 - added support for Teensy-LC
+                added debug support
+                cleaned up code
+  
+OneWireSlave v1.1 by Joshua Fuller - Modified based on versions noted below for Digispark
+
 OneWireSlave v1.0 by Alexander Gordeyev
 
 It is based on Jim's Studt OneWire library v2.0
@@ -52,283 +63,686 @@ sample code bearing this copyright.
 // Except as contained in this notice, the name of Dallas Semiconductor
 // shall not be used except as stated in the Dallas Semiconductor
 // Branding Policy.
-//--------------------------------------------------------------------------
+//---------------------------------------------------------------------------
 */
 
 #include "OneWireSlave.h"
-#include "pins_arduino.h"
-#include "Arduino.h"
 
-extern "C" {
-//#include "WConstants.h"
-#include "Arduino.h"
-#include <avr/io.h>
-#include <avr/interrupt.h>
-#include <avr/pgmspace.h>
+//#define microsecondsToClockCycles(a) ( (a) * clockCyclesPerMicrosecond() )
+
+//ORIG: #define TIMESLOT_WAIT_RETRY_COUNT microsecondsToClockCycles(120) / 10L
+//FULL: #define TIMESLOT_WAIT_RETRY_COUNT ( ((120) * (8000000L / 1000L)) / 1000L )
+//WORKING: #define TIMESLOT_WAIT_RETRY_COUNT microsecondsToClockCycles(240000) / 10L
+
+//These are the major change from original, we now wait quite a bit longer for some things
+#define TIMESLOT_WAIT_RETRY_COUNT microsecondsToClockCycles(120) / 10L
+//This TIMESLOT_WAIT_READ_RETRY_COUNT is new, and only used when waiting for the line to go low on a read
+//It was derived from knowing that the Arduino based master may go up to 130 micros more than our wait after reset
+#define TIMESLOT_WAIT_READ_RETRY_COUNT microsecondsToClockCycles(135)
+
+void OneWireSlave::ISRPIN() {
+  (*static_OWS_instance).MasterResetPulseDetection();
 }
 
-#define DIRECT_READ(base, mask)        (((*(base)) & (mask)) ? 1 : 0)
-#define DIRECT_MODE_INPUT(base, mask)  ((*(base+1)) &= ~(mask))
-#define DIRECT_MODE_OUTPUT(base, mask) ((*(base+1)) |= (mask))
-#define DIRECT_WRITE_LOW(base, mask)   ((*(base+2)) &= ~(mask))
-#define DIRECT_WRITE_HIGH(base, mask)  ((*(base+2)) |= (mask))
-
-/* тайм слот ожидается 120 микросекунд (стандартная длина тайм-слота 60-120 micrs)
- * при компиляции с флагом -Os в цикле ожидания присутствуют следующие команды:
- * ld, ldi, and, and, or, breq, subi, sbci
- * общая продолжительность цикла составляет 10 тактов.
- * Таблицу соответствия между командами микроконтроллера и количеством тактов
- * можно найти в даташите на микроконтроллер, см. раздел
- * Instruction Set Summary в конце даташита. */
-#define TIMESLOT_WAIT_RETRY_COUNT microsecondsToClockCycles(120) / 10L
+uint8_t _pin;
 
 OneWireSlave::OneWireSlave(uint8_t pin) {
-    pin_bitmask = digitalPinToBitMask(pin);
-    baseReg = portInputRegister(digitalPinToPort(pin));
+	_pin = pin;
+	pinMode(_pin, INPUT);
+	pin_bitmask = PIN_TO_BITMASK(_pin);
+	baseReg = PIN_TO_BASEREG(_pin);
 }
 
-void OneWireSlave::setRom(char rom[8]) {
-#if ONEWIRESLAVE_CRC
-    for (int i=0; i<7; i++)
-        this->rom[i] = rom[i];
-    this->rom[7] = crc8(this->rom, 7);
-#else
-    for (int i=0; i<8; i++)
-        this->rom[i] = rom[i];
-#endif
+void OneWireSlave::setDebug(void)
+{
+  debug = 1;
+  Serial.println(F("debug = 1"));
+}
+
+void OneWireSlave::resetDebug(void)
+{
+  debug = 0;
+  Serial.println(F("debug = 0"));
+}
+
+volatile long previous = 0;
+volatile long old_previous = 0;
+volatile long diff = 0;
+
+void OneWireSlave::MasterResetPulseDetection() {
+  old_previous = previous;
+  previous = micros();
+  diff = previous - old_previous;
+  if (diff >= lowmark && diff <= highmark) {
+    if(debug == 1)
+    {
+      Serial.print(F("MasterResetPulse, diff = "));
+      Serial.println(diff);
+    }
+    waitForRequestInterrupt(false);
+  }
+}
+
+bool OneWireSlave::owsprint() {
+	//waitForRequestInterrupt(false);
+	//Serial.println("done");
+  delayMicroseconds(25);
+  
+  IO_REG_TYPE mask = pin_bitmask;
+	volatile IO_REG_TYPE *reg IO_REG_ASM = PIN_TO_BASEREG(_pin);
+
+  errno = ONEWIRE_NO_ERROR;
+  noInterrupts();
+  DIRECT_WRITE_LOW(reg, mask);
+  DIRECT_MODE_OUTPUT(reg, mask);    // drive output low
+  interrupts();
+
+  delayMicroseconds(125);
+  noInterrupts();
+  DIRECT_MODE_INPUT(reg, mask);     // allow it to float
+  interrupts();
+
+  delayMicroseconds(300 - 50);
+  
+  uint8_t retries = 25;
+  	
+	delayMicroseconds(50);
+
+	recvAndProcessCmd();
+}
+
+void OneWireSlave::init(unsigned char rom[8])
+{
+	for (int i=0; i<7; i++)
+    this->rom[i] = rom[i];
+  this->rom[7] = crc8(this->rom, 7);
+  if(debug == 1)
+  {
+    Serial.print(F("init - dsslavepin = "));
+    Serial.println(_pin);
+  }
+}
+
+void OneWireSlave::setScratchpad(unsigned char scratchpad[9]) {
+  for (int i=0; i<8; i++)
+    this->scratchpad[i] = scratchpad[i];
+  this->scratchpad[8] = crc8(this->scratchpad, 8);
+}
+
+void OneWireSlave::setPower(uint8_t power) {
+  this->power = power;
+}
+
+void OneWireSlave::setResolution(uint8_t resolution) {
+	switch (resolution) {
+      case 12:
+      	this->scratchpad[4] = TEMP_12_BIT;
+        break;
+      case 11:
+      	this->scratchpad[4] = TEMP_11_BIT;
+        break;
+      case 10:
+      	this->scratchpad[4] = TEMP_10_BIT;
+        break;
+      case 9:
+      	this->scratchpad[4] = TEMP_9_BIT;
+        break;
+	}
+	this->scratchpad[8] = crc8(this->scratchpad, 8);
+}
+
+uint8_t OneWireSlave::getResolution() {
+	switch (scratchpad[4]) {
+      case TEMP_12_BIT:
+        return 12;
+        
+      case TEMP_11_BIT:
+        return 11;
+        
+      case TEMP_10_BIT:
+        return 10;
+        
+      case TEMP_9_BIT:
+        return 9;
+	}
+}
+
+void (*user0FhFunc)(void);
+
+void OneWireSlave::attach0Fh(void (*userFunction0Fh)(void)) {
+	user0FhFunc = userFunction0Fh;
+}
+
+void (*user44hFunc)(void);
+
+void OneWireSlave::attach44h(void (*userFunction44h)(void)) {
+	user44hFunc = userFunction44h;
+	this->scratchpad[8] = crc8(this->scratchpad, 8);
+}
+
+void (*user48hFunc)(void);
+
+void OneWireSlave::attach48h(void (*userFunction48h)(void)) {
+	user48hFunc = userFunction48h;
+}
+
+void (*userB8hFunc)(void);
+
+void OneWireSlave::attachB8h(void (*userFunctionB8h)(void)) {
+	userB8hFunc = userFunctionB8h;
 }
 
 bool OneWireSlave::waitForRequest(bool ignore_errors) {
-    errno = ONEWIRE_NO_ERROR;
-    for (;;) {
-        if (!waitReset(0) )
-            continue;
-        if (!presence() )
-            continue;
-        if (recvAndProcessCmd() )
-            return TRUE;
-        else if ((errno == ONEWIRE_NO_ERROR) || ignore_errors)
-            continue;
-        else
-            return FALSE;
+  errno = ONEWIRE_NO_ERROR;
+    if(debug == 1)
+    {
+      Serial.println(F("Enter waitForRequest"));
     }
+
+  for (;;) {
+    //delayMicroseconds(40);
+    //Once reset is done, it waits another 30 micros
+    //Master wait is 65, so we have 35 more to send our presence now that reset is done
+    if (!waitReset(0) ) {
+      continue;
+    }
+    //Reset is complete, tell the master we are prsent
+    // This will pull the line low for 125 micros (155 micros since the reset) and 
+    //  then wait another 275 plus whatever wait for the line to go high to a max of 480
+    // This has been modified from original to wait for the line to go high to a max of 480.
+    if (!presence() ) {
+      continue;
+    }
+    //Now that the master should know we are here, we will get a command from the line
+    //Because of our changes to the presence code, the line should be guranteed to be high
+    if (recvAndProcessCmd() )
+    {
+      if(debug == 1)
+      {
+        Serial.println(F("waitForRequest=TRUE"));
+      }
+      return TRUE;
+    }
+    else if ((errno == ONEWIRE_NO_ERROR) || ignore_errors) {
+      continue;
+    }
+    else {
+      if(debug == 1)
+      {
+        Serial.println(F("waitForRequest=FALSE"));
+      }
+      return FALSE;
+    }
+  }
+}
+
+bool OneWireSlave::waitForRequestInterrupt(bool ignore_errors) {
+  errno = ONEWIRE_NO_ERROR;
+#if defined(__MK20DX128__) || defined(__MK20DX256__)
+  if(debug == 1)
+  {
+    Serial.println(F("Enter waitForRequestInterrupt"));
+  }
+#endif
+  //owsprint();
+  //Reset is detected from the Interrupt by counting time between the Level-Changes
+  //Once reset is done, it waits another 30 micros
+  //Master wait is 65, so we have 35 more to send our presence now that reset is done
+#if defined(__MK20DX128__) || defined(__MK20DX256__)
+	delayMicroseconds(25);
+#endif
+  //Reset is complete, tell the master we are prsent
+  // This will pull the line low for 125 micros (155 micros since the reset) and 
+  //  then wait another 275 plus whatever wait for the line to go high to a max of 480
+  // This has been modified from original to wait for the line to go high to a max of 480.
+  //Now that the master should know we are here, we will get a command from the line
+  //Because of our changes to the presence code, the line should be guranteed to be high
+
+  presence();
+  while (recvAndProcessCmd() ) {};
+  if ((errno == ONEWIRE_NO_ERROR) || ignore_errors) {
+    //continue;
+  }else{
+#if defined(__MK20DX128__) || defined(__MK20DX256__)
+    if(debug == 1)
+    {
+      Serial.println(F("waitForRequestInterrupt=FALSE"));
+    }
+#endif
+    return FALSE;
+  }
 }
 
 bool OneWireSlave::recvAndProcessCmd() {
-    char addr[8];
+	char addr[8];
+  uint8_t oldSREG = 0;
+  uint16_t raw = 0;
 
-    for (;;) {
-      switch (recv() ) {
-        case 0xF0: // SEARCH ROM
-            search();
+  for (;;) {
+    uint8_t cmd = recv();
+    switch (cmd) {
+      case 0xF0: // SEARCH ROM
+        search();
+        //delayMicroseconds(6900);
+        return FALSE;
+      case 0xEC: // ALARM SEARCH
+      	raw = ((scratchpad[1] << 8) | scratchpad[0]) >> 4;
+      	if ( raw <= scratchpad[3] || raw >= scratchpad[2] )
+      		search();
+        return FALSE;
+      case 0x33: // READ ROM
+        sendData(rom, 8);
+        if (errno != ONEWIRE_NO_ERROR)
+          return FALSE;
+        break;
+      case 0x55: // MATCH ROM - Choose/Select ROM
+        recvData(addr, 8);
+        if (errno != ONEWIRE_NO_ERROR)
+          return FALSE;
+        for (int i=0; i<8; i++)
+          if (rom[i] != addr[i])
             return FALSE;
-        case 0x33: // READ ROM
-            sendData(rom, 8);
-            if (errno != ONEWIRE_NO_ERROR)
-                return FALSE;
-            break;
-        case 0x55: // MATCH ROM
-            recvData(addr, 8);
-            if (errno != ONEWIRE_NO_ERROR)
-                return FALSE;
-            for (int i=0; i<8; i++)
-                if (rom[i] != addr[i])
-                    return FALSE;
-            return TRUE;
-        case 0xCC: // SKIP ROM
-            return TRUE;
-        default: // Unknow command
-            if (errno == ONEWIRE_NO_ERROR)
-                break; // skip if no error
-            else
-                return FALSE;
-      }
+        duty();
+      case 0xCC: // SKIP ROM
+      	duty();
+      	if (errno != ONEWIRE_NO_ERROR)
+          return FALSE;
+        return TRUE;
+      default: // Unknown command
+        if (errno == ONEWIRE_NO_ERROR)
+          break; // skip if no error
+        else
+          return FALSE;
     }
+  }
+}
+
+bool OneWireSlave::duty()
+{
+	uint8_t done = recv();
+	
+	switch (done)
+	{
+		case 0x0F: // WRITE To DEVICE
+			user0FhFunc();
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		case 0xBE: // READ SCREATCHPAD
+			sendData(scratchpad, 9);
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		case 0xB4: // READ POWERSOURCE
+			sendBit(power);
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		case 0x44: // CONVERT SENSOR
+			user44hFunc();
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		case 0x48: // CONVERT SENSOR
+			user48hFunc();
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		case 0xB8: // CONVERT SENSOR
+			userB8hFunc();
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		case 0x4E: // WRITE SCREATCHPAD
+			recvData(temp_scratchpad, 3);
+			setScratchpad_external(temp_scratchpad);
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		default:
+			break;
+			if (errno == ONEWIRE_NO_ERROR)
+				break; // skip if no error
+			else
+				return FALSE;
+	return TRUE;
+	}
+}
+
+void OneWireSlave::setScratchpad_external(char temp_scratchpad[3]) {
+  for (int i=2; i<5; i++)
+    this->scratchpad[i] = temp_scratchpad[i-2];
+  this->scratchpad[8] = crc8(this->scratchpad, 8);
+}
+
+void OneWireSlave::setTemperature(unsigned char scratchpadtemperature[2]) {
+	for (int i=0; i<2; i++)
+    this->scratchpad[i] = scratchpadtemperature[i];
+  this->scratchpad[8] = crc8(this->scratchpad, 8);
 }
 
 bool OneWireSlave::search() {
-    uint8_t bitmask;
-    uint8_t bit_send, bit_recv;
+  uint8_t bitmask;
+  uint8_t bit_send, bit_recv;
 
-    for (int i=0; i<8; i++) {
-        for (bitmask = 0x01; bitmask; bitmask <<= 1) {
-            bit_send = (bitmask & rom[i])?1:0;
-            sendBit(bit_send);
-            sendBit(!bit_send);
-            bit_recv = recvBit();
-            if (errno != ONEWIRE_NO_ERROR)
-                return FALSE;
-            if (bit_recv != bit_send)
-                return FALSE;
-        }
+  for (int i=0; i<8; i++) {
+    for (bitmask = 0x01; bitmask; bitmask <<= 1) {
+      bit_send = (bitmask & rom[i])?1:0;
+      sendBit(bit_send);
+      sendBit(!bit_send);
+      bit_recv = recvBit();
+      if (errno != ONEWIRE_NO_ERROR)
+        return FALSE;
+      if (bit_recv != bit_send)
+        return FALSE;
     }
-    return TRUE;
+  }
+  return TRUE;
 }
 
 bool OneWireSlave::waitReset(uint16_t timeout_ms) {
-    uint8_t mask = pin_bitmask;
-    volatile uint8_t *reg asm("r30") = baseReg;
-    unsigned long time_stamp;
+  IO_REG_TYPE mask = pin_bitmask;
+	volatile IO_REG_TYPE *reg IO_REG_ASM = baseReg;
+	//volatile IO_REG_TYPE *reg IO_REG_ASM = PIN_TO_BASEREG(_pin);
+	
+  unsigned long time_stamp;
 
-    errno = ONEWIRE_NO_ERROR;
-    cli();
-    DIRECT_MODE_INPUT(reg, mask);
-    sei();
-    if (timeout_ms != 0) {
-        time_stamp = micros() + timeout_ms*1000;
-        while (DIRECT_READ(reg, mask)) {
-            if (micros() > time_stamp) {
-                errno = ONEWIRE_WAIT_RESET_TIMEOUT;
-                return FALSE;
-            }
+  errno = ONEWIRE_NO_ERROR;
+  noInterrupts();
+  DIRECT_MODE_INPUT(reg, mask);
+  interrupts();
+  if(debug == 1)
+  {
+    Serial.println(F("Enter waitReset"));
+  }
+  //Wait for the line to fall
+  if (timeout_ms != 0) {
+    time_stamp = micros() + timeout_ms*1000;
+    while (DIRECT_READ(reg, mask)) {
+      if (micros() > time_stamp) {
+        errno = ONEWIRE_WAIT_RESET_TIMEOUT;
+        if(debug == 1)
+        {
+          Serial.println(F("waitReset=ONEWIRE_WAIT_RESET_TIMEOUT"));
         }
-    } else
-        while (DIRECT_READ(reg, mask)) {};
-    time_stamp = micros() + 540;
-    while (DIRECT_READ(reg, mask) == 0) {
-        if (micros() > time_stamp) {
-            errno = ONEWIRE_VERY_LONG_RESET;
-            return FALSE;
-        }
-    }
-    if ((time_stamp - micros()) > 70) {
-        errno = ONEWIRE_VERY_SHORT_RESET;
         return FALSE;
+      }
     }
-    delayMicroseconds(30);
-    return TRUE;
+  } else {
+    //Will wait forever for the line to fall
+    while (DIRECT_READ(reg, mask)) {};
+  }
+  
+  //Set to wait for rise up to 540 micros
+  //Master code sets the line low for 500 micros
+  //TODO The actual documented max is 640, not 540
+  time_stamp = micros() + 540;
+  
+  //Wait for the rise on the line up to 540 micros
+  while (DIRECT_READ(reg, mask) == 0) {
+    if (micros() > time_stamp) {
+      errno = ONEWIRE_VERY_LONG_RESET;
+      if(debug == 1)
+      {
+        Serial.println(F("waitReset=ONEWIRE_VERY_LONG_RESET"));
+      }
+      return FALSE;
+    }
+  }
+  
+  //If the master pulled low for exactly 500, then this will be 40 wait time
+  // Recommended for master is 480, which would be 60 here then
+  // Max is 640, which makes this negative, but it returns above as a "ONEWIRE_VERY_LONG_RESET"
+  // this gives an extra 10 to 30 micros befor calling the reset invalid
+  if ((time_stamp - micros()) > 70) {
+    errno = ONEWIRE_VERY_SHORT_RESET;
+    if(debug == 1)
+    {
+      Serial.println(F("waitReset=ONEWIRE_VERY_SHORT_RESET"));
+    }
+    return FALSE;
+  }
+  
+  //Master will now delay for 65 to 70 recommended or max of 75 before it's "presence" check
+  // and then read the pin value (checking for a presence on the line)
+  // then wait another 490 (so, 500 + 64 + 490 = 1054 total without consideration of actual op time) on Arduino, 
+  // but recommended is 410 with total reset length of 480 + 70 + 410 (or 480x2=960)
+  delayMicroseconds(30);
+  //Master wait is 65, so we have 35 more to send our presence now that reset is done
+  if(debug == 1)
+  {
+    Serial.println(F("waitReset=TRUE"));
+  }
+  return TRUE;
 }
 bool OneWireSlave::waitReset() {
-    return waitReset(1000);
+  return waitReset(1000);
 }
 
 bool OneWireSlave::presence(uint8_t delta) {
-    uint8_t mask = pin_bitmask;
-    volatile uint8_t *reg asm("r30") = baseReg;
+  IO_REG_TYPE mask = pin_bitmask;
+	volatile IO_REG_TYPE *reg IO_REG_ASM = baseReg;
+	//volatile IO_REG_TYPE *reg IO_REG_ASM = PIN_TO_BASEREG(_pin);
+#if defined(__MK20DX128__) || defined(__MK20DX256__)
+  if(debug == 1)
+  {
+    Serial.print(F("Enter presence, delta="));
+    Serial.println(delta);
+  }
+#endif
+  //Reset code already waited 30 prior to calling this
+  // Master will not read until 70 recommended, but could read as early as 60
+  // so we should be well enough ahead of that. Arduino waits 65
+  errno = ONEWIRE_NO_ERROR;
+  noInterrupts();
+  DIRECT_WRITE_LOW(reg, mask);
+  DIRECT_MODE_OUTPUT(reg, mask);    // drive output low
+  interrupts();
 
-    errno = ONEWIRE_NO_ERROR;
-    cli();
-    DIRECT_WRITE_LOW(reg, mask);
-    DIRECT_MODE_OUTPUT(reg, mask);    // drive output low
-    sei();
-    delayMicroseconds(120);
-    cli();
-    DIRECT_MODE_INPUT(reg, mask);     // allow it to float
-    sei();
-    delayMicroseconds(300 - delta);
-    if ( !DIRECT_READ(reg, mask)) {
-        errno = ONEWIRE_PRESENCE_LOW_ON_LINE;
-        return FALSE;
-    } else
-        return TRUE;
+  //Delaying for another 125 (orignal was 120) with the line set low is a total of at least 155 micros
+  // total since reset high depends on commands done prior, is technically a little longer
+  delayMicroseconds(125);
+
+  noInterrupts();
+  DIRECT_MODE_INPUT(reg, mask);     // allow it to float
+  interrupts();
+
+  //Default "delta" is 25, so this is 275 in that condition, totaling to 155+275=430 since the reset rise
+  // docs call for a total of 480 possible from start of rise before reset timing is completed
+  //This gives us 50 micros to play with, but being early is probably best for timing on read later
+  //delayMicroseconds(300 - delta);
+  delayMicroseconds(300 - delta);
+  
+  //Modified to wait a while (roughly 50 micros) for the line to go high
+  // since the above wait is about 430 micros, this makes this 480 closer
+  // to the 480 standard spec and the 490 used on the Arduino master code
+  // anything longer then is most likely something going wrong.
+  uint8_t retries = 25;
+  while (!DIRECT_READ(reg, mask));
+  /*
+  do{
+	  if ( retries-- == 0)
+      //return FALSE;
+	  delayMicroseconds(2); 
+  } while(!DIRECT_READ(reg, mask));
+  /*
+  if ( !DIRECT_READ(reg, mask)) {
+      errno = ONEWIRE_PRESENCE_LOW_ON_LINE;
+      return FALSE;
+  } else
+      return TRUE;
+  */
+#if defined(__MK20DX128__) || defined(__MK20DX256__)
+  if(debug == 1)
+  {
+    Serial.print(F("exit presence, retries ="));
+    Serial.println(retries);
+  }
+#endif
 }
+
+
 bool OneWireSlave::presence() {
-    return presence(25);
+  return presence(25);
 }
 
 uint8_t OneWireSlave::sendData(char buf[], uint8_t len) {
-    uint8_t bytes_sended = 0;
+  uint8_t bytes_sended = 0;
 
-    for (int i=0; i<len; i++) {
-        send(buf[i]);
-        if (errno != ONEWIRE_NO_ERROR)
-            break;
-        bytes_sended++;
-    }
-    return bytes_sended;
+  for (int i=0; i<len; i++) {
+    send(buf[i]);
+    if (errno != ONEWIRE_NO_ERROR)
+      break;
+    bytes_sended++;
+  }
+  return bytes_sended;
 }
 
 uint8_t OneWireSlave::recvData(char buf[], uint8_t len) {
-    uint8_t bytes_received = 0;
-    
-    for (int i=0; i<len; i++) {
-        buf[i] = recv();
-        if (errno != ONEWIRE_NO_ERROR)
-            break;
-        bytes_received++;
-    }
-    return bytes_received;
+  uint8_t bytes_received = 0;
+  
+  for (int i=0; i<len; i++) {
+    buf[i] = recv();
+    if (errno != ONEWIRE_NO_ERROR)
+      break;
+    bytes_received++;
+  }
+  return bytes_received;
 }
 
 void OneWireSlave::send(uint8_t v) {
-    errno = ONEWIRE_NO_ERROR;
-    for (uint8_t bitmask = 0x01; bitmask && (errno == ONEWIRE_NO_ERROR); bitmask <<= 1)
-        sendBit((bitmask & v)?1:0);
+  errno = ONEWIRE_NO_ERROR;
+  for (uint8_t bitmask = 0x01; bitmask && (errno == ONEWIRE_NO_ERROR); bitmask <<= 1)
+  	sendBit((bitmask & v)?1:0);
 }
 
 uint8_t OneWireSlave::recv() {
-    uint8_t r = 0;
+  uint8_t r = 0;
 
-    errno = ONEWIRE_NO_ERROR;
-    for (uint8_t bitmask = 0x01; bitmask && (errno == ONEWIRE_NO_ERROR); bitmask <<= 1)
-        if (recvBit())
-            r |= bitmask;
-    return r;
+  errno = ONEWIRE_NO_ERROR;
+  for (uint8_t bitmask = 0x01; bitmask && (errno == ONEWIRE_NO_ERROR); bitmask <<= 1)
+    if (recvBit())
+      r |= bitmask;
+  return r;
 }
 
 void OneWireSlave::sendBit(uint8_t v) {
-    uint8_t mask = pin_bitmask;
-    volatile uint8_t *reg asm("r30") = baseReg;
+  IO_REG_TYPE mask = pin_bitmask;
+	volatile IO_REG_TYPE *reg IO_REG_ASM = baseReg;
+	//volatile IO_REG_TYPE *reg IO_REG_ASM = PIN_TO_BASEREG(_pin);
 
-    cli();
-    DIRECT_MODE_INPUT(reg, mask);
-    if (!waitTimeSlot() ) {
-        errno = ONEWIRE_WRITE_TIMESLOT_TIMEOUT;
-        sei();
-        return;
+  noInterrupts();
+  DIRECT_MODE_INPUT(reg, mask);
+  //waitTimeSlot waits for a low to high transition followed by a high to low within the time-out
+  uint8_t wt = waitTimeSlot();
+  if (wt != 1 ) { //1 is success, others are failure
+    if (wt == 10) {
+      errno = ONEWIRE_READ_TIMESLOT_TIMEOUT_LOW;
+    } else {
+      errno = ONEWIRE_READ_TIMESLOT_TIMEOUT_HIGH;
     }
-    if (v & 1)
-        delayMicroseconds(30);
-    else {
-        cli();
-        DIRECT_WRITE_LOW(reg, mask);
-        DIRECT_MODE_OUTPUT(reg, mask);
-        delayMicroseconds(30);
-        DIRECT_WRITE_HIGH(reg, mask);
-        sei();
-    }
-    sei();
+    interrupts();
     return;
+  }
+  if (v & 1)
+    delayMicroseconds(30);
+  else {
+  	noInterrupts();
+    DIRECT_WRITE_LOW(reg, mask);
+    DIRECT_MODE_OUTPUT(reg, mask);
+    delayMicroseconds(30);
+    DIRECT_WRITE_HIGH(reg, mask);
+    interrupts();
+  }
+  interrupts();
+  return;
 }
 
 uint8_t OneWireSlave::recvBit(void) {
-    uint8_t mask = pin_bitmask;
-    volatile uint8_t *reg asm("r30") = baseReg;
-    uint8_t r;
+  IO_REG_TYPE mask = pin_bitmask;
+	volatile IO_REG_TYPE *reg IO_REG_ASM = baseReg;
+	//volatile IO_REG_TYPE *reg IO_REG_ASM = PIN_TO_BASEREG(_pin);
+  uint8_t r;
 
-    cli();
-    DIRECT_MODE_INPUT(reg, mask);
-    if (!waitTimeSlot() ) {
-        errno = ONEWIRE_READ_TIMESLOT_TIMEOUT;
-        sei();
-        return 0;
+  noInterrupts();
+  DIRECT_MODE_INPUT(reg, mask);
+  //waitTimeSlotRead is a customized version of the original which was also
+  // used by the "write" side of things.
+  uint8_t wt = waitTimeSlotRead();
+  if (wt != 1 ) { //1 is success, others are failure
+    if (wt == 10) {
+      errno = ONEWIRE_READ_TIMESLOT_TIMEOUT_LOW;
+    } else {
+      errno = ONEWIRE_READ_TIMESLOT_TIMEOUT_HIGH;
     }
-    delayMicroseconds(30);
-    r = DIRECT_READ(reg, mask);
-    sei();
-    return r;
+    interrupts();
+    return 0;
+  }
+  delayMicroseconds(30);
+  //TODO Consider reading earlier: delayMicroseconds(15);
+  r = DIRECT_READ(reg, mask);
+  interrupts();
+  return r;
 }
 
-bool OneWireSlave::waitTimeSlot() {
-    uint8_t mask = pin_bitmask;
-    volatile uint8_t *reg asm("r30") = baseReg;
-    uint16_t retries;
+uint8_t OneWireSlave::waitTimeSlot() {
+  IO_REG_TYPE mask = pin_bitmask;
+	volatile IO_REG_TYPE *reg IO_REG_ASM = baseReg;
+	//volatile IO_REG_TYPE *reg IO_REG_ASM = PIN_TO_BASEREG(_pin);
+  uint16_t retries;
 
-    retries = TIMESLOT_WAIT_RETRY_COUNT;
-    while ( !DIRECT_READ(reg, mask))
-        if (--retries == 0)
-            return FALSE;
-    retries = TIMESLOT_WAIT_RETRY_COUNT;
-    while ( DIRECT_READ(reg, mask))
-        if (--retries == 0)
-            return FALSE;
-    return TRUE;
+  //Wait for a 0 to rise to 1 on the line for timeout duration
+  //If the line is already high, this is basically skipped
+  retries = TIMESLOT_WAIT_RETRY_COUNT;
+  //While line is low, retry
+  while ( !DIRECT_READ(reg, mask))
+    if (--retries == 0)
+      return 10;
+          
+  //Wait for a fall form 1 to 0 on the line for timeout duration
+  retries = TIMESLOT_WAIT_RETRY_COUNT;
+  while ( DIRECT_READ(reg, mask));
+    if (--retries == 0)
+      return 20;
+
+  return 1;
+}
+
+//This is a copy of what was orig just "waitTimeSlot"
+// it is customized for the reading side of things
+uint8_t OneWireSlave::waitTimeSlotRead() {
+  IO_REG_TYPE mask = pin_bitmask;
+	volatile IO_REG_TYPE *reg IO_REG_ASM = baseReg;
+	//volatile IO_REG_TYPE *reg IO_REG_ASM = PIN_TO_BASEREG(_pin);
+	
+  uint16_t retries;
+
+  //Wait for a 0 to rise to 1 on the line for timeout duration
+  //If the line is already high, this is basically skipped
+  retries = TIMESLOT_WAIT_RETRY_COUNT;
+  //While line is low, retry
+  while ( !DIRECT_READ(reg, mask))
+    if (--retries == 0)
+      return 10;
+          
+  //TODO Seems to me that the above loop should drop out immediately because
+  // The line is already high as our wait after presence is relatively short
+  // So now it just waits a short period for the write of a bit to start
+  // Unfortunately per "recommended" this is 55 micros to 130 micros more
+  // more than what we may have already waited.
+          
+  //Wait for a fall form 1 to 0 on the line for timeout duration
+  retries = TIMESLOT_WAIT_READ_RETRY_COUNT;
+  while ( DIRECT_READ(reg, mask));
+    if (--retries == 0)
+      return 20;
+
+  return 1;
 }
 
 #if ONEWIRESLAVE_CRC
 // The 1-Wire CRC scheme is described in Maxim Application Note 27:
 // "Understanding and Using Cyclic Redundancy Checks with Maxim iButton Products"
-//
 
 #if ONEWIRESLAVE_CRC8_TABLE
 // This table comes from Dallas sample code where it is freely reusable,
@@ -358,33 +772,31 @@ static const uint8_t PROGMEM dscrc_table[] = {
 // compared to all those delayMicrosecond() calls.  But I got
 // confused, so I use this table from the examples.)
 //
-uint8_t OneWireSlave::crc8(char addr[], uint8_t len)
-{
-    uint8_t crc = 0;
+uint8_t OneWireSlave::crc8(char addr[], uint8_t len) {
+  uint8_t crc = 0;
 
-    while (len--) {
-        crc = pgm_read_byte(dscrc_table + (crc ^ *addr++));
-    }
-    return crc;
+  while (len--) {
+    crc = pgm_read_byte(dscrc_table + (crc ^ *addr++));
+  }
+  return crc;
 }
 #else
 //
 // Compute a Dallas Semiconductor 8 bit CRC directly.
 //
-uint8_t OneWireSlave::crc8(char addr[], uint8_t len)
-{
-    uint8_t crc = 0;
-    
-    while (len--) {
-        uint8_t inbyte = *addr++;
-        for (uint8_t i = 8; i; i--) {
-            uint8_t mix = (crc ^ inbyte) & 0x01;
-            crc >>= 1;
-            if (mix) crc ^= 0x8C;
-            inbyte >>= 1;
-        }
+uint8_t OneWireSlave::crc8(char addr[], uint8_t len) {
+  uint8_t crc = 0;
+  
+  while (len--) {
+    uint8_t inbyte = *addr++;
+    for (uint8_t i = 8; i; i--) {
+      uint8_t mix = (crc ^ inbyte) & 0x01;
+      crc >>= 1;
+      if (mix) crc ^= 0x8C;
+        inbyte >>= 1;
     }
-    return crc;
+  }
+  return crc;
 }
 #endif
 
