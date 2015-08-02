@@ -66,7 +66,7 @@ void loop(void) {
       return;
   }
 
-  for ( j = 0; j < 7; j++) {           // we need 7 channels
+  for ( j = 0; j < 11; j++) {           // we need 7 channels
     ds.reset();
     ds.select(addr);
     ds.write(0x99,1);         // select sensor and start conversion, with parasite power on at the end (WRITE CLOCK)
