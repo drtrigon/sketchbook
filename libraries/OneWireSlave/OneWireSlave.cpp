@@ -232,6 +232,12 @@ void OneWireSlave::attachB8h(void (*userFunctionB8h)(void)) {
 	userB8hFunc = userFunctionB8h;
 }
 
+void (*user99hFunc)(void);
+
+void OneWireSlave::attach99h(void (*userFunction99h)(void)) {
+	user99hFunc = userFunction99h;
+}
+
 bool OneWireSlave::waitForRequest(bool ignore_errors) {
   errno = ONEWIRE_NO_ERROR;
     if(debug == 1)
@@ -357,6 +363,10 @@ bool OneWireSlave::recvAndProcessCmd() {
   }
 }
 
+// TODO: move these parts vvv
+char temp_buf[6];
+uint8_t size;
+
 bool OneWireSlave::duty()
 {
 	uint8_t done = recv();
@@ -399,6 +409,24 @@ bool OneWireSlave::duty()
 			if (errno != ONEWIRE_NO_ERROR)
 				return FALSE;
 			break;
+		case 0x66: // READ CLOCK
+			sendData(rtccounter_out, 5);
+//			errno = ONEWIRE_NO_ERROR;
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
+		case 0x99: // WRITE CLOCK
+			size = recvData(temp_buf, 6);
+			if (size != 5)
+				return FALSE;
+			for (int i=0; i<5; i++)
+				rtccounter_in[i] = temp_buf[i];
+			//	rtccounter_out[i] = temp_buf[i];
+//			errno = ONEWIRE_NO_ERROR;
+			user99hFunc();
+			if (errno != ONEWIRE_NO_ERROR)
+				return FALSE;
+			break;
 		default:
 			break;
 			if (errno == ONEWIRE_NO_ERROR)
@@ -419,6 +447,21 @@ void OneWireSlave::setTemperature(unsigned char scratchpadtemperature[2]) {
 	for (int i=0; i<2; i++)
     this->scratchpad[i] = scratchpadtemperature[i];
   this->scratchpad[8] = crc8(this->scratchpad, 8);
+}
+
+void OneWireSlave::setRTCCounter(char rtccounter_out[5]) {
+  // If the oscillator is intentionally stopped the 
+  // real time clock counter behaves as a 4-byte nonvolatile
+  // memory. -> OSC = 0 ALWAYS / U4:U1 memory
+  //         -> set device ctrlbyte most-right 4 bits to 0
+  rtccounter_out[0] = rtccounter_out[0] & 0xF0;  
+  for (int i=0; i<5; i++)
+    this->rtccounter_out[i] = rtccounter_out[i];
+}
+
+void OneWireSlave::getRTCCounter(char rtccounter_in[5]) {
+  for (int i=0; i<5; i++)
+    rtccounter_in[i] = this->rtccounter_in[i];
 }
 
 bool OneWireSlave::search() {

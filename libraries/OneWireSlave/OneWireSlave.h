@@ -290,6 +290,8 @@ class OneWireSlave {
     char scratchpad[9];
     char temp_scratchpad[3];
     char scratchpadtemperature[2];
+    char rtccounter_in[5];
+    char rtccounter_out[5];
     char debug;
   public:
     OneWireSlave(uint8_t pin);
@@ -300,6 +302,8 @@ class OneWireSlave {
     void setScratchpad_external(char temp_scratchpad[3]);
     void setPower(uint8_t power);
     void setTemperature(unsigned char scratchpadtemperature[2]);
+    void setRTCCounter(char rtccounter_out[5]);
+    void getRTCCounter(char rtccounter_in[5]);
     bool waitForRequest(bool ignore_errors);
     bool waitForRequestInterrupt(bool ignore_errors);
     bool waitReset(uint16_t timeout_ms);
@@ -315,6 +319,7 @@ class OneWireSlave {
     void attach44h (void (*)(void));
     void attach48h (void (*)(void));
     void attachB8h (void (*)(void));
+    void attach99h (void (*)(void));
     uint8_t sendData(char buf[], uint8_t data_len);
     uint8_t recvData(char buf[], uint8_t data_len);
     void send(uint8_t v);
