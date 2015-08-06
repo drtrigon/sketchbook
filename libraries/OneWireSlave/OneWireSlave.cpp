@@ -416,7 +416,7 @@ bool OneWireSlave::duty()
 				return FALSE;
 			break;
 		case 0x99: // WRITE CLOCK
-			size = recvData(temp_buf, 6);
+			size = recvData(temp_buf, 5);
 			if (size != 5)
 				return FALSE;
 			for (int i=0; i<5; i++)

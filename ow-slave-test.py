@@ -4,11 +4,15 @@
 ...
 """
 
-import time, struct
+import time, struct, os
 
 offset = int(time.mktime(time.strptime("Thu Jan  1 00:00:00 1970", "%a %b %d %H:%M:%S %Y")))
 
 def init():
+        os.system("ls /mnt/1wire/")
+        os.system("ls /mnt/1wire/uncached/")    # (check for sensor !)
+        os.system("ls /mnt/1wire/uncached/24.E20000000002/")
+
         f = open("/mnt/1wire/uncached/24.E20000000002/running", "w")
         f.write("1\n")
         f.close()
@@ -47,7 +51,7 @@ def read():
                 b = unpack_val(val)[1]
                 if not (-1 == struct.unpack('i', b)[0]) or (i > 10):
                         break
-        return val
+        return (val, i)
 
 def pack_val(val):
         b = struct.pack('i', val)
@@ -73,7 +77,7 @@ def readall():
 
 #               time.sleep(.1)
 
-                s = read()
+                s = read()[0]
                 print s
                 b = unpack_val(s)[1]
 
@@ -95,9 +99,12 @@ def readall2():
                         write(s)
                         write(s)
                         time.sleep(.1)
-                        s2 = read()
+                        (s2, tries) = read()
                         if not (unpack_val(s2)[0] == -1):
                                 break
+                        if (tries == 11):
+                                time.sleep(1.)
+                                init()  # reset 'error' and restart reading (owfs)
                 b = unpack_val(s2)[1]
 
                 # http://stackoverflow.com/questions/12214801/print-a-string-as-hex-bytes
