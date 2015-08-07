@@ -106,7 +106,8 @@ def receive_data(slave):
                 s = pack_val(i)[1]
                 if debug:
                         print s
-                while True:
+                #while True:
+                for t in range(3):
                         write(slave, s)
                         write(slave, s)
                         write(slave, s)
@@ -117,6 +118,8 @@ def receive_data(slave):
                         if (tries == 11):
                                 time.sleep(1.)
                                 init(slave)  # reset 'error' and restart reading (owfs)
+                if (unpack_val(s2)[0] == -1):   # not successfull after 3 tries - stop the script to stop occupying the bus
+                        return None
                 b = unpack_val(s2)[1]
 
                 if debug:
@@ -176,10 +179,30 @@ if __name__ == '__main__':
                         if slave not in slaves:
                                 shutil.rmtree(os.path.join(owgeneric_root, slave))
 
+# when re-entering the script; how to know which sensor to read next??
+# the one with oldes 'all' file !
+                min_mtime = time.time()
                 for slave in slaves:
                         dev = os.path.join(owgeneric_root, slave)
                         if not os.path.exists(dev):
                                 os.mkdir(dev)
+
+                                fn = os.path.join(dev, "error")
+                                f = open(fn, "w")
+                                f.write("0")
+                                f.close()
+
+                        (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat(os.path.join(dev, "all"))
+                        print mtime
+                        if mtime < min_mtime:
+                                min_mtime = mtime
+                                process_slave = slave
+
+                print process_slave
+
+                #for slave in slaves:
+                for slave in [process_slave]:
+                        dev = os.path.join(owgeneric_root, slave)
 
                         tic = time.time()
                         data = receive_data(slave)
@@ -189,7 +212,15 @@ if __name__ == '__main__':
                                 print data
                                 print toc-tic
 
-                        fn = os.path.join(dev, "all")
+                        if (data == None):
+                                fn = os.path.join(dev, "error")
+                                f = open(fn, "r")
+                                err_count = int(f.read())
+                                f.close()
+                                data = [ (err_count+1,) ]
+                        else:
+                                fn = os.path.join(dev, "all")
+
                         fn_temp = fn + "-" + str(time.time())
                         f = open(fn_temp, "w")
                         f.write(" ".join([str(d[0]) for d in data]))
@@ -207,5 +238,3 @@ if __name__ == '__main__':
 
 #                       time.sleep(max((60. - (toc-tic)), 0.)
                 break
-# when re-entering the script; how to know which sensor to read next??
-# the one with oldes 'all' file !
