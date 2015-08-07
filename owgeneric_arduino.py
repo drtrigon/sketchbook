@@ -106,16 +106,19 @@ def receive_data(slave):
                 s = pack_val(i)[1]
                 if debug:
                         print s
+                process_delay = 0.1
                 #while True:
                 for t in range(3):
                         write(slave, s)
                         write(slave, s)
                         write(slave, s)
-                        time.sleep(.1)
+                        time.sleep(process_delay)
                         (s2, tries) = read(slave)
                         if not (unpack_val(s2)[0] == -1):
                                 break
                         if (tries == 11):
+                                if (t > 0):
+                                        process_delay = 3.0
                                 time.sleep(1.)
                                 init(slave)  # reset 'error' and restart reading (owfs)
                 if (unpack_val(s2)[0] == -1):   # not successfull after 3 tries - stop the script to stop occupying the bus
