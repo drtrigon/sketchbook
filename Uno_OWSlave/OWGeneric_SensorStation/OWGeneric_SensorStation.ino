@@ -39,12 +39,12 @@ http://owfs.sourceforge.net/DS2415.3.html
 
 0x 00 00 00 00   [last value]    nop/pass
 
-0x 01 00 00 00   01 00 MSB LSB   read MQ-135 (A0) and return int
-0x 02 00 00 00   02 00 MSB LSB   read MQ-7 (A1) and return int
-0x 03 00 00 00   03 00 MSB LSB   read MQ-5 (A2) and return int
-0x 04 00 00 00   04 00 MSB LSB   read MQ-2 (A3) and return int
-0x 05 00 00 00   05 00 MSB LSB   read MQ-3 (A4) and return int
-0x 06 00 00 00   06 00 MSB LSB   read MQ-8 (A5) and return int
+0x 01 00 00 00   01 00 MSB LSB   read MQ-135 (A0) and return int / Air Quality
+0x 02 00 00 00   02 00 MSB LSB   read MQ-7 (A1) and return int / CO (!!! The heater uses an alternating voltage of 5V and 1.4V. !!! http://playground.arduino.cc/Main/MQGasSensors !!!)
+0x 03 00 00 00   03 00 MSB LSB   read MQ-5 (A2) and return int / Natural gas
+0x 04 00 00 00   04 00 MSB LSB   read MQ-2 (A3) and return int / Flamable/Combustible gas
+0x 05 00 00 00   05 00 MSB LSB   read MQ-3 (A4) and return int / Alcohol (Smoke)
+0x 06 00 00 00   06 00 MSB LSB   read MQ-8 (A5) and return int / Hydrogen
 
 0x 07 00 00 00   07 00 MSB LSB   read TCS3200D (100% Red) and return int        ! LOW VALUES TAKE MORE THAN 100ms TO CONVERT
 0x 08 00 00 00   08 00 MSB LSB   read TCS3200D (100% Blue) and return int       !
