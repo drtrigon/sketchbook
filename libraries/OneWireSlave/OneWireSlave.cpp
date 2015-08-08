@@ -366,6 +366,7 @@ bool OneWireSlave::recvAndProcessCmd() {
 bool OneWireSlave::duty()
 {
 	uint8_t done = recv();
+	uint8_t size;
 	
 	switch (done)
 	{
@@ -412,7 +413,7 @@ bool OneWireSlave::duty()
 				return FALSE;
 			break;
 		case 0x99: // WRITE CLOCK
-			uint8_t size = recvData(temp_rtccounter, 5);
+			size = recvData(temp_rtccounter, 5);
 			if (size != 5)
 				return FALSE;
 			for (int i=0; i<5; i++)
