@@ -3,7 +3,7 @@
 //#include <PinChangeInterrupt.h>
 /********************************************************************************
     
-    Program. . . . OWGeneric
+    Program. . . . OWGeneric_SensorStation
     Author . . . . Ursin Solèr (according to design by Ian Evans)
     Written. . . . 1 Aug 2015.
     Description. . Act as One Wire Slave (emulates RTC DS2415)
