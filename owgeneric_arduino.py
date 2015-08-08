@@ -15,7 +15,7 @@ http://serverfault.com/questions/82857/prevent-duplicate-cron-jobs-running
 crontab -e
 #* * * * * /usr/bin/flock -n /tmp/fcj.lockfile /usr/local/bin/frequent_cron_job --minutely
 * * * * * /usr/bin/flock -n /tmp/fcj.lockfile python /home/pi/owgeneric_arduino.py 
-#*/5 * * * * /usr/bin/flock -n /tmp/fcj.lockfile python /home/pi/owgeneric_arduino.py
+#*/2 * * * * /usr/bin/flock -n /tmp/fcj.lockfile python /home/pi/owgeneric_arduino.py
 """
 
 ow_root        = "/mnt/1wire/"
@@ -171,7 +171,7 @@ if __name__ == '__main__':
 
         slaves = []
         while True:
-#               slaves_old = slaves
+                #slaves_old = slaves
                 slaves_old = os.listdir(owgeneric_root)
                 slaves = get_slaves()
 
@@ -182,8 +182,8 @@ if __name__ == '__main__':
                         if slave not in slaves:
                                 shutil.rmtree(os.path.join(owgeneric_root, slave))
 
-# when re-entering the script; how to know which sensor to read next??
-# the one with oldes 'all' file !
+                # when re-entering the script; how to know which sensor to read next? 
+                # find the one with oldest 'all' file to know what to update
                 min_mtime = time.time()
                 for slave in slaves:
                         dev = os.path.join(owgeneric_root, slave)
@@ -196,12 +196,12 @@ if __name__ == '__main__':
                                 f.close()
 
                         (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat(os.path.join(dev, "all"))
-                        print mtime
                         if mtime < min_mtime:
                                 min_mtime = mtime
                                 process_slave = slave
 
-                print process_slave
+                if debug:
+                        print process_slave
 
                 #for slave in slaves:
                 for slave in [process_slave]:
