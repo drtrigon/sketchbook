@@ -190,6 +190,11 @@ if __name__ == '__main__':
                         if not os.path.exists(dev):
                                 os.mkdir(dev)
 
+                                fn = os.path.join(dev, "all")
+                                f = open(fn, "w")
+                                f.write("")
+                                f.close()
+
                                 fn = os.path.join(dev, "error")
                                 f = open(fn, "w")
                                 f.write("0")
