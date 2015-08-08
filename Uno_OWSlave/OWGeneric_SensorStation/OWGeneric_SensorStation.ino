@@ -47,9 +47,11 @@ http://owfs.sourceforge.net/DS2415.3.html
 0x 06 00 00 00   06 00 MSB LSB   read MQ-8 (A5) and return int / Hydrogen
 
 0x 07 00 00 00   07 00 MSB LSB   read TCS3200D (100% Red) and return int        ! LOW VALUES TAKE MORE THAN 100ms TO CONVERT
-0x 08 00 00 00   08 00 MSB LSB   read TCS3200D (100% Blue) and return int       !
-0x 09 00 00 00   09 00 MSB LSB   read TCS3200D (100% Clear/All) and return int  !
+0x 08 00 00 00   08 00 MSB LSB   read TCS3200D (100% Blue) and return int       ! (added desperate 3s delay in python script
+0x 09 00 00 00   09 00 MSB LSB   read TCS3200D (100% Clear/All) and return int  !  owgeneric_arduino.py)
 0x 0A 00 00 00   0A 00 MSB LSB   read TCS3200D (100% Green) and return int      !
+
+0x FF 01 00 00   FF 01 MSB LSB   get number of sensors available
 
 ********************************************************************************/
 //    One Wire Slave Data
@@ -162,9 +164,17 @@ void owHandler(void) {
 void process(){
     ds.getRTCCounter(rtccountr_in);
 
-    // process LSB only ... 256 are enough commands for now
-    // (rtccountr_in[1] == 0x00)           // nop/pass
-    if (rtccountr_in[1] == 0x01) {         // A0 (MQ-135)
+    // process LSB only ... 256 are enough commands for now (with ISC 256**2)
+    if (rtccountr_in[1] == 0xFF) {         // Internal "System" Commands (ISC)
+        if (rtccountr_in[2] == 0x01) {     // ISC: get number of sensors
+            unsigned int val = 10;
+            rtccountr_out[1] = rtccountr_in[1];
+            rtccountr_out[2] = rtccountr_in[2];
+            rtccountr_out[3] = (val >> 8) & 0xFF;
+            rtccountr_out[4] = val & 0xFF;
+        }
+    //} else if (rtccountr_in[1] == 0x00) {  // nop/pass
+    } else if (rtccountr_in[1] == 0x01) {  // A0 (MQ-135)
         unsigned int val = analogRead(A0);
         // http://stackoverflow.com/questions/3784263/converting-an-int-into-a-4-byte-char-array-c
 //        bytes[0] = (val >> 24) & 0xFF;

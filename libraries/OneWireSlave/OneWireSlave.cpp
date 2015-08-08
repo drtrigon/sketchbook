@@ -363,10 +363,6 @@ bool OneWireSlave::recvAndProcessCmd() {
   }
 }
 
-// TODO: move these parts vvv
-char temp_buf[6];
-uint8_t size;
-
 bool OneWireSlave::duty()
 {
 	uint8_t done = recv();
@@ -416,12 +412,12 @@ bool OneWireSlave::duty()
 				return FALSE;
 			break;
 		case 0x99: // WRITE CLOCK
-			size = recvData(temp_buf, 5);
+			uint8_t size = recvData(temp_rtccounter, 5);
 			if (size != 5)
 				return FALSE;
 			for (int i=0; i<5; i++)
-				rtccounter_in[i] = temp_buf[i];
-			//	rtccounter_out[i] = temp_buf[i];
+				rtccounter_in[i] = temp_rtccounter[i];
+			//	rtccounter_out[i] = temp_rtccounter[i];
 //			errno = ONEWIRE_NO_ERROR;
 			user99hFunc();
 			if (errno != ONEWIRE_NO_ERROR)

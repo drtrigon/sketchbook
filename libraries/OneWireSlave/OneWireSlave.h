@@ -292,6 +292,7 @@ class OneWireSlave {
     char scratchpadtemperature[2];
     char rtccounter_in[5];
     char rtccounter_out[5];
+    char temp_rtccounter[5];
     char debug;
   public:
     OneWireSlave(uint8_t pin);
