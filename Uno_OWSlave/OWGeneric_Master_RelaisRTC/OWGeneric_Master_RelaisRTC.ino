@@ -1,6 +1,13 @@
 #include <OneWireSlave.h>
 #include <OneWire.h>
+#include <TimerOne.h>
 /********************************************************************************
+
+UNFINISHED CODE ISSUES; * sync to clock WHILE keeping 1wire communication running
+                        * as ever with OWFS send WRITE command and react properly
+                          (it's about to trigger the write in owfs)
+
+********************************************************************************
     
     Program. . . . OWGeneric_Master_RelaisRTC
                    derived from Uno_OWSlave/OWGeneric & Uno_OWMaster/OWReadRTC
@@ -139,7 +146,7 @@ void setup() {
     dss.setPower(SOURCED);
     //dss.setDebug();
 //    dss.setRTCCounter(rtccountr);
-//    dss.attach99h(process);
+    dss.attach99h(process);
 
     if (DEBUG) {
         present = dsm.reset();
@@ -159,7 +166,17 @@ void setup() {
         Serial.print("\n");*/
     }
 
+    Timer1.initialize(1000000);         // initialize timer1, and set a 1/2 second period
+    Timer1.attachInterrupt(callback);  // attaches callback() as a timer overflow interrupt
+
     flash +=2;
+}
+
+void callback()
+{
+//    digitalWrite(10, digitalRead(10) ^ 1);
+    sync();                      // ...
+    digitalWrite(LEDPin, digitalRead(LEDPin) ^ 1);
 }
 
 /********************************************************************************
@@ -167,11 +184,11 @@ void setup() {
 ********************************************************************************/
 void loop() {
     
-    if (flash > 0) FlashLED();    // Control the flashing of the LED
+//    if (flash > 0) FlashLED();    // Control the flashing of the LED
 
     if (owReset) owHandler();    // Handle the OW reset that was received
 
-    sync();                      // ...
+//    sync();                      // ...
 
 /*    if (DEBUG) {
         if (Serial.available() > 0) {
@@ -229,6 +246,7 @@ void sync(){
 //    Serial.print(present,HEX);
 //    Serial.print(" ");
     for ( i = 0; i < 5; i++) {   // we need 5 bytes
+//        if (owReset) return;
         rtccountr[i] = dsm.read();
     }
 
@@ -273,6 +291,11 @@ void process(){
 
     flash++;
     flash++;
+    digitalWrite(LEDPin, digitalRead(LEDPin) ^ 1);
+    delay(500);
+    digitalWrite(LEDPin, digitalRead(LEDPin) ^ 1);
+    delay(500);
+    digitalWrite(LEDPin, digitalRead(LEDPin) ^ 1);
 
     /*if (DEBUG) {
         Serial.print(0x99, HEX);
