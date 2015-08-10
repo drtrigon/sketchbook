@@ -185,6 +185,7 @@ if __name__ == '__main__':
                 # when re-entering the script; how to know which sensor to read next? 
                 # find the one with oldest 'all' file to know what to update
                 min_mtime = time.time()
+                process_slaves = []
                 for slave in slaves:
                         dev = os.path.join(owgeneric_root, slave)
                         if not os.path.exists(dev):
@@ -203,13 +204,13 @@ if __name__ == '__main__':
                         (mode, ino, dev, nlink, uid, gid, size, atime, mtime, ctime) = os.stat(os.path.join(dev, "all"))
                         if mtime < min_mtime:
                                 min_mtime = mtime
-                                process_slave = slave
+                                process_slaves.append(slave)
 
                 if debug:
-                        print process_slave
+                        print process_slaves
 
                 #for slave in slaves:
-                for slave in [process_slave]:
+                for slave in process_slaves:
                         dev = os.path.join(owgeneric_root, slave)
 
                         tic = time.time()
