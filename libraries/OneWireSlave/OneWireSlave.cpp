@@ -1,13 +1,17 @@
 /*
 OneWireSlave.cpp
-  Version 1.2
-  Modified: 04/24/2015
-  By: Jim Mayhugh
+  Version 1.3
+  Modified: 20150820
+  By: Ursin Solèr
   
-  Version 1.2 - added support for Teensy-LC
-                added debug support
-                cleaned up code
-  
+  Version 1.3 - added support for DS2415
+                working with OWServer 2 ENET & OWFS
+
+OneWireSlave v1.2 by Jim Mayhugh - Modified based on versions noted below
+  (04/24/2015)                     added support for Teensy-LC
+                                   added debug support
+                                   cleaned up code
+
 OneWireSlave v1.1 by Joshua Fuller - Modified based on versions noted below for Digispark
 
 OneWireSlave v1.0 by Alexander Gordeyev

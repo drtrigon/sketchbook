@@ -110,8 +110,6 @@ def receive_data(slave):
                 #while True:
                 for t in range(3):
                         write(slave, s)
-                        write(slave, s)
-                        write(slave, s)
                         time.sleep(process_delay)
                         (s2, tries) = read(slave)
                         if not (unpack_val(s2)[0] == -1):

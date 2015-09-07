@@ -1,6 +1,5 @@
 //#include <OWSlave.h>
 #include <OneWireSlave.h>
-//#include <PinChangeInterrupt.h>
 /********************************************************************************
     
     Program. . . . OWGeneric_SensorStation
@@ -10,7 +9,8 @@
                    Read all the analog inputs (A0-A5) and return values on demand
                        Returns Value (5 Bytes) depending on value written last (5 Bytes)
                        1 Device Control Byte and 4 Data Bytes
-
+    Hardware . . . Arduino Uno/Nano
+    Hardware . . .
             AT.... Pin Layout (Arduino UNO)
                   ---_---
                   .     .
@@ -54,38 +54,29 @@ http://owfs.sourceforge.net/DS2415.3.html
 0x FF 01 00 00   FF 01 MSB LSB   get number of sensors available
 
 ********************************************************************************/
-//    One Wire Slave Data
-//                          {Fami, <---, ----, ----, ID--, ----, --->,  CRC} 
-unsigned char rom[8]      = {0x24, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
+//  One Wire Slave Data
+//                          {Family, <---, ----, ----, ID--, ----, --->,  CRC}
+unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 //                          {     CTRL, MEM0, MEM1, MEM2, MEM3}   CTRL = U4 U3 U2 U1 OSC OSC 0 0
   char rtccountr_in[5]    = {     0x00, 0x00, 0x00, 0x00, 0x00};
   char rtccountr_out[5]   = {B11110000, 0x01, 0x23, 0xCD, 0xEF};
-// If the oscillator is intentionally stopped the 
+// "If the oscillator is intentionally stopped the 
 // real time clock counter behaves as a 4-byte nonvolatile
-// memory. -> OSC = 0 ALWAYS / U4:U1 memory
+// memory." -> OSC = 0 ALWAYS / U4:U1 memory
 
-
-//    Pin Layouts
+//  Pin Layouts
 #define LEDPin    13
 #define OWPin      2
-#define OWPinInt   0
-// A0-A5: MQ-135, ...
+//  A0-A5: MQ-135, ...
 #define TCS_S0    11
 #define TCS_S1    10
 #define TCS_S2     9
 #define TCS_S3     8
 #define TCS_OUT    7
 
-// LED Flash Variables
-volatile long    flash       = 0;         // Flash achnowledgement counter
-long             flashPause  = 100;       // LED between flash delay
+//  LED Flash Variables
+#define          flashPause  100          // LED between flash delay
 #define          flashLength 50           // Flash length
-long             flashStart  = 0;
-long             flashStop   = 0;
-
-// OW Interrupt Variables
-volatile long prevInt    = 0;      // Previous Interrupt micros
-volatile boolean owReset = false;
 
 //OWSlave ds(OWPin); 
 OneWireSlave ds(OWPin); 
@@ -95,73 +86,48 @@ OneWireSlave ds(OWPin);
 ********************************************************************************/
 void setup() {
     // Initialise the Pn usage
-    pinMode(LEDPin, OUTPUT); 
-    pinMode(OWPin, INPUT); 
+    pinMode(LEDPin, OUTPUT);
+    pinMode(OWPin, INPUT);
 
-    pinMode(TCS_S0, OUTPUT); 
-    pinMode(TCS_S1, OUTPUT); 
-    pinMode(TCS_S2, OUTPUT); 
-    pinMode(TCS_S3, OUTPUT); 
-    pinMode(TCS_OUT, INPUT); 
+    pinMode(TCS_S0, OUTPUT);
+    pinMode(TCS_S1, OUTPUT);
+    pinMode(TCS_S2, OUTPUT);
+    pinMode(TCS_S3, OUTPUT);
+    pinMode(TCS_OUT, INPUT);
 
-    digitalWrite(LEDPin, LOW);    
+    digitalWrite(LEDPin, LOW);
 
     digitalWrite(TCS_S0, LOW);   // Output scaling/gain:
     digitalWrite(TCS_S1, LOW);   // Power down
 
-//    attachPcInterrupt(OWPin,onewireInterrupt,CHANGE);
-    attachInterrupt(OWPinInt,onewireInterrupt,CHANGE);
-    
     // Initialise the One Wire Slave Library
     ds.init(rom);
     ds.setPower(SOURCED);
     //ds.setDebug();
     ds.setRTCCounter(rtccountr_out);
-//    ds.attach99h(test);
     ds.attach99h(process);
 
-    // Debug serial output
-//    Serial.begin(9600);
-
-    flash +=2;
+    // Debug output
+    //Serial.begin(9600);
+    FlashLED_blocking();
+    delay(flashPause);
+    FlashLED_blocking();
 }
 
 /********************************************************************************
-    Repeatedly check for action to execute
+    Repeatedly process One Wire Handling
 ********************************************************************************/
 void loop() {
     
-    if (flash > 0) FlashLED();    // Control the flashing of the LED
-
-    if (owReset) owHandler();    // Handle the OW reset that was received
-}
-
-//************************************************************
-// Process One Wire Handling
-//************************************************************
-void owHandler(void) {
-
-    owReset=false;
-//    detachPcInterrupt(OWPin);
-    detachInterrupt(OWPinInt);
-
-    if (ds.waitForRequest(false)) {
-//    if (ds.waitForRequestInterrupt(false)) {
-// ds.waitForRequest(false) does NOT return with TRUE for the first about 7 iterations ! (from 0x66, 0x99, else ...?)
-//        flash++;   // ...when it return with true and enters here the flash following seems to lag it so much that it crashes...
-//        Serial.println("!");
-// at the moment the sensor listing loop gets struc (<10) with true here and then flash++ and the following call...
-    }
-
-//    attachPcInterrupt(OWPin,onewireInterrupt,CHANGE);
-    pinMode(OWPin, INPUT);   // recover the output mode in case of error in ds.send (should work without; error test)
-    attachInterrupt(OWPinInt,onewireInterrupt,CHANGE);
+    ds.waitForRequest(false);
 }
 
 /********************************************************************************
     Process WRITE CLOCK 0x99 and prepare sensor readings
 ********************************************************************************/
 void process(){
+//    digitalWrite(LEDPin, HIGH);
+
     ds.getRTCCounter(rtccountr_in);
 
     // process LSB only ... 256 are enough commands for now (with ISC 256**2)
@@ -288,37 +254,30 @@ void process(){
 
     //ds.setRTCCounter(rtccountr_in);
     ds.setRTCCounter(rtccountr_out);
-    flash++;
+
+//    digitalWrite(LEDPin, LOW);
+//    ToggleLED();
+    FlashLED_blocking();
+    //Serial.print(0x99, HEX);
 }
 
-//************************************************************
-// Onw WireInterrupt handling 
-//************************************************************
-void onewireInterrupt(void) {
-    volatile long lastMicros = micros() - prevInt;
-    prevInt = micros();
-    if (lastMicros >= 410 && lastMicros <= 550) { //  OneWire Reset Detected
-        owReset=true;
-    }
+/********************************************************************************
+    Flash the LED
+    [in a blocking manner]
+********************************************************************************/
+void FlashLED_blocking(void) {
+//    digitalWrite(LEDPin, LOW);
+//    delay(flashPause);
+    digitalWrite(LEDPin, HIGH);
+    delay(flashLength);
+    digitalWrite(LEDPin, LOW);
 }
 
-
-//************************************************************
-// Flash the LED
-//************************************************************
-void FlashLED(void) {
-    if (flashStart == 0 && flashStop == 0) {
-        flashStart = millis();
-    }
-    else if (flashStart > 0 && (millis()-flashStart > flashPause)) {
-        digitalWrite(LEDPin, HIGH);
-        flashStart = 0;
-        flashStop = millis() ;
-    }
-    else if (flashStop > 0 && (millis() - flashStop > flashLength)) {
-        digitalWrite(LEDPin, LOW);
-        flashStop = 0;
-        flash--;
-    }
-}
+/********************************************************************************
+    Toggle the LED ("Flash" the LED)
+    [by definition nonblocking]
+********************************************************************************/
+/*void ToggleLED(void) {
+    digitalWrite(LEDPin, not digitalRead(LEDPin));
+}*/
 
