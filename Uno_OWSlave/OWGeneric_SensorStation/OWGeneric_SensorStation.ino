@@ -1,7 +1,7 @@
-//#include <OWSlave.h>
 #include <OneWireSlave.h>
 /********************************************************************************
-    
+ TODO: NEED error handling, at least some bit that show state (ok/error) of every sensor/channel
+
     Program. . . . OWGeneric_SensorStation
     Author . . . . Ursin Solèr (according to design by Ian Evans)
     Written. . . . 1 Aug 2015.
@@ -9,7 +9,7 @@
                    Read all the analog inputs (A0-A5) and return values on demand
                        Returns Value (5 Bytes) depending on value written last (5 Bytes)
                        1 Device Control Byte and 4 Data Bytes
-    Hardware . . . Arduino Uno/Nano
+    Hardware . . . Arduino Uno/Nano (w/ ATmega328)
     Hardware . . .
             AT.... Pin Layout (Arduino UNO)
                   ---_---
@@ -37,21 +37,39 @@ http://owfs.sourceforge.net/DS2415.3.html
 
    Write 0x99    Read  0x66      Function
 
-0x 00 00 00 00   [last value]    nop/pass
+0x 00 00 00 00   [last value]  nop/pass
 
-0x 01 00 00 00   01 00 MSB LSB   read MQ-135 (A0) and return int / Air Quality
-0x 02 00 00 00   02 00 MSB LSB   read MQ-7 (A1) and return int / CO (!!! The heater uses an alternating voltage of 5V and 1.4V. !!! http://playground.arduino.cc/Main/MQGasSensors !!!)
-0x 03 00 00 00   03 00 MSB LSB   read MQ-5 (A2) and return int / Natural gas
-0x 04 00 00 00   04 00 MSB LSB   read MQ-2 (A3) and return int / Flamable/Combustible gas
-0x 05 00 00 00   05 00 MSB LSB   read MQ-3 (A4) and return int / Alcohol (Smoke)
-0x 06 00 00 00   06 00 MSB LSB   read MQ-8 (A5) and return int / Hydrogen
+0x 01 00 00 00   -- float --   read MQ-135 (A0) and return float / Air Quality
+0x 02 00 00 00   -- float --   read MQ-7 (A1) and return float / CO (!!! The heater uses an alternating voltage of 5V and 1.4V. !!! http://playground.arduino.cc/Main/MQGasSensors !!!)
+0x 03 00 00 00   -- float --   read MQ-5 (A2) and return float / Natural gas
+0x 04 00 00 00   -- float --   read MQ-2 (A3) and return float / Flamable/Combustible gas
+0x 05 00 00 00   -- float --   read MQ-3 (A4) and return float / Alcohol (Smoke)
+0x 06 00 00 00   -- float --   read MQ-8 (A5) and return float / Hydrogen
+0x 07 00 00 00   -- float --   read TCS3200D (100% Red) and return float        ! LOW VALUES TAKE MORE THAN 100ms TO CONVERT
+0x 08 00 00 00   -- float --   read TCS3200D (100% Blue) and return float       ! (added desperate 3s delay in python script
+0x 09 00 00 00   -- float --   read TCS3200D (100% Clear/All) and return float  !  owgeneric_arduino.py)
+0x 0A 00 00 00   -- float --   read TCS3200D (100% Green) and return float      !
+0x 0B 00 00 00   -- float --   read UV sensor and return float
+0x 0C 00 00 00   -- float --   read MIC "sensor" and return float
+0x 0D 00 00 00   -- float --   read TSL2561 and return float
+0x 0E 00 00 00   -- float --   read TSL2561 (broadband) and return float
+0x 0F 00 00 00   -- float --   read TSL2561 (IR) and return float
+0x 10 00 00 00   -- float --   read LSM9DS0 (Accel x) and return float
+0x 11 00 00 00   -- float --   read LSM9DS0 (Accel y) and return float
+0x 12 00 00 00   -- float --   read LSM9DS0 (Accel z) and return float
+0x 13 00 00 00   -- float --   read LSM9DS0 (Magn x) and return float
+0x 14 00 00 00   -- float --   read LSM9DS0 (Magn y) and return float
+0x 15 00 00 00   -- float --   read LSM9DS0 (Magn z) and return float
+0x 16 00 00 00   -- float --   read LSM9DS0 (Gyro x) and return float
+0x 17 00 00 00   -- float --   read LSM9DS0 (Gyro y) and return float
+0x 18 00 00 00   -- float --   read LSM9DS0 (Gyro z) and return float
+0x 19 00 00 00   -- float --   read LSM9DS0 (Temp) and return float
+0x 1A 00 00 00   -- float --   read BMP183 and return float
+0x 1B 00 00 00   -- float --   read BMP183 (Temp) and return float
 
-0x 07 00 00 00   07 00 MSB LSB   read TCS3200D (100% Red) and return int        ! LOW VALUES TAKE MORE THAN 100ms TO CONVERT
-0x 08 00 00 00   08 00 MSB LSB   read TCS3200D (100% Blue) and return int       ! (added desperate 3s delay in python script
-0x 09 00 00 00   09 00 MSB LSB   read TCS3200D (100% Clear/All) and return int  !  owgeneric_arduino.py)
-0x 0A 00 00 00   0A 00 MSB LSB   read TCS3200D (100% Green) and return int      !
-
-0x FF 01 00 00   FF 01 MSB LSB   get number of sensors available
+0x FF 01 00 00   -- float --   get number of sensors available
+0x FF 02 00 00   -- float --   get "RTC" counts: millis()/1000.
+0x FF 03 00 00   -- float --   measure supply voltage Vcc
 
 ********************************************************************************/
 //  One Wire Slave Data
@@ -64,41 +82,154 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 // real time clock counter behaves as a 4-byte nonvolatile
 // memory." -> OSC = 0 ALWAYS / U4:U1 memory
 
+// In DEBUG mode 1wire interface is replaced by serial ouput
+#define DEBUG         1
+
+#define SensorCount  27
+
 //  Pin Layouts
-#define LEDPin    13
-#define OWPin      2
-//  A0-A5: MQ-135, ...
-#define TCS_S0    11
-#define TCS_S1    10
-#define TCS_S2     9
-#define TCS_S3     8
-#define TCS_OUT    7
+#define LEDPin       13
+#define OWPin         2
+//  MeasPin, MUX, TCS, software SPI (define your own pins; use A2 instead of 13 as clk)
+//#define MeasPin      A0    // Uno & Nano compatible
+#define MeasPin      A7    // Nano only (current config)
+#define MUX_S0        6
+#define MUX_S1        5
+#define MUX_S2        4
+#define MUX_S3        3
+//#define TCS_S0        9
+//#define TCS_S1       10
+#define TCS_S0S1     A1    // use A1 as digital pin (but pulseIn does not work)
+#define TCS_S2        8
+#define TCS_S3        9
+#define TCS_OUT       7
+//#define BMP183_CLK  13
+#define BMP183_CLK  A2     // CLK (hardware SPI needs pin 13 here!)
+#define BMP183_SDO  12     // AKA MISO
+#define BMP183_SDI  11     // AKA MOSI
+#define BMP183_CS   10     // chip-select pin (use any pin)
 
-//  LED Flash Variables
-#define          flashPause  100          // LED between flash delay
-#define          flashLength 50           // Flash length
+//  LED Flash Parameters
+#define flashPause  100    // LED between flash delay
+#define flashLength  50    // Flash length
 
-//OWSlave ds(OWPin); 
-OneWireSlave ds(OWPin); 
+#include <Adafruit_Sensor.h>
+
+// based on Adafruit_TSL2561 sensor driver
+#include <Wire.h>
+#include <Adafruit_TSL2561_U.h>
+// based on Adafruit_LSM9DS0 sensor driver
+#include <Adafruit_LSM9DS0.h>
+
+// based on Adafruit_BMP183 sensor driver
+#include <SPI.h>
+#include <Adafruit_BMP183.h>
+
+Adafruit_TSL2561_Unified tsl = Adafruit_TSL2561_Unified(TSL2561_ADDR_FLOAT, 12345);
+Adafruit_LSM9DS0 lsm = Adafruit_LSM9DS0(1000);  // Use I2C, ID #1000
+//Adafruit_BMP183 bmp = Adafruit_BMP183(BMP183_CS);    // initialize with hardware SPI
+Adafruit_BMP183 bmp = Adafruit_BMP183(BMP183_CLK, BMP183_SDO, BMP183_SDI, BMP183_CS);    // or initialize with software SPI and use any 4 pins
+
+//  Commonly used variables
+unsigned int mmin, mmax, val;
+uint16_t broadband, infrared;
+sensors_event_t event, accel, mag, gyro, temp;
+
+// OneWire Slave class object
+OneWireSlave ds(OWPin);
 
 /********************************************************************************
     Initiate the Environment
 ********************************************************************************/
 void setup() {
-    // Initialise the Pn usage
+    // Initialise the Pin usage
     pinMode(LEDPin, OUTPUT);
     pinMode(OWPin, INPUT);
 
-    pinMode(TCS_S0, OUTPUT);
-    pinMode(TCS_S1, OUTPUT);
-    pinMode(TCS_S2, OUTPUT);
-    pinMode(TCS_S3, OUTPUT);
-    pinMode(TCS_OUT, INPUT);
+    pinMode(MeasPin, INPUT);    // enables analogRead() and digitalRead() (but NOT pulseIn!)
 
+    pinMode(MUX_S0, OUTPUT);
+    pinMode(MUX_S1, OUTPUT);
+    pinMode(MUX_S2, OUTPUT);
+    pinMode(MUX_S3, OUTPUT);
+
+    pinMode(TCS_S0S1, OUTPUT);
+    pinMode(TCS_S2,   OUTPUT);
+    pinMode(TCS_S3,   OUTPUT);
+    pinMode(TCS_OUT,  INPUT);
+
+    // Initialise the Pin output
     digitalWrite(LEDPin, LOW);
 
-    digitalWrite(TCS_S0, LOW);   // Output scaling/gain:
-    digitalWrite(TCS_S1, LOW);   // Power down
+    // mux does not need to be initialized, channel gets selected later
+
+    digitalWrite(TCS_S0S1, LOW);   // Output scaling/gain: Power down
+
+#ifdef DEBUG
+    // Start serial port at 9600 bps and wait for port to open:
+    Serial.begin(9600);
+    Serial.println("Nano_OWSlave/OWGeneric_SensorStation:");
+    Serial.println("(send any byte to trigger proccessing/conversion)");
+#endif
+
+    /* Initialise the TSL2561 sensor */
+    if(!tsl.begin())
+    {
+#ifdef DEBUG
+        /* There was a problem detecting the ADXL345 ... check your connections */
+        Serial.print("Ooops, no TSL2561 detected ... Check your wiring or I2C ADDR!");
+        while(1);
+#endif
+    }
+    /* Display some basic information on this sensor */
+//    displaySensorDetailsTSL();
+    /* Setup the sensor gain and integration time */
+    /* You can also manually set the gain or enable auto-gain support */
+    // tsl.setGain(TSL2561_GAIN_1X);      /* No gain ... use in bright light to avoid sensor saturation */
+    // tsl.setGain(TSL2561_GAIN_16X);     /* 16x gain ... use in low light to boost sensitivity */
+    tsl.enableAutoRange(true);            /* Auto-gain ... switches automatically between 1x and 16x */
+    /* Changing the integration time gives you better sensor resolution (402ms = 16-bit data) */
+    tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_13MS);      /* fast but low resolution */
+    // tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_101MS);  /* medium resolution and speed   */
+    // tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_402MS);  /* 16-bit data but slowest conversions */
+
+    /* Initialise the LSM9DS0 sensor */
+    if(!lsm.begin())
+    {
+#ifdef DEBUG
+        /* There was a problem detecting the LSM9DS0 ... check your connections */
+        Serial.print(F("Ooops, no LSM9DS0 detected ... Check your wiring or I2C ADDR!"));
+        while(1);
+#endif
+    }
+    /* Display some basic information on this sensor */
+//    displaySensorDetailsLSM();
+    /* Setup the sensor gain and integration time */
+    // 1.) Set the accelerometer range
+    lsm.setupAccel(lsm.LSM9DS0_ACCELRANGE_2G);
+    //lsm.setupAccel(lsm.LSM9DS0_ACCELRANGE_4G);
+    //lsm.setupAccel(lsm.LSM9DS0_ACCELRANGE_6G);
+    //lsm.setupAccel(lsm.LSM9DS0_ACCELRANGE_8G);
+    //lsm.setupAccel(lsm.LSM9DS0_ACCELRANGE_16G);
+    // 2.) Set the magnetometer sensitivity
+    lsm.setupMag(lsm.LSM9DS0_MAGGAIN_2GAUSS);
+    //lsm.setupMag(lsm.LSM9DS0_MAGGAIN_4GAUSS);
+    //lsm.setupMag(lsm.LSM9DS0_MAGGAIN_8GAUSS);
+    //lsm.setupMag(lsm.LSM9DS0_MAGGAIN_12GAUSS);
+    // 3.) Setup the gyroscope
+    lsm.setupGyro(lsm.LSM9DS0_GYROSCALE_245DPS);
+    //lsm.setupGyro(lsm.LSM9DS0_GYROSCALE_500DPS);
+    //lsm.setupGyro(lsm.LSM9DS0_GYROSCALE_2000DPS);
+
+    /* Initialise the BMP183 sensor */
+    if(!bmp.begin())
+    {
+#ifdef DEBUG
+        /* There was a problem detecting the BMP183 ... check your connections */
+        Serial.print("Ooops, no BMP183 detected ... Check your wiring!");
+        while(1);
+#endif
+    }
 
     // Initialise the One Wire Slave Library
     ds.init(rom);
@@ -107,8 +238,7 @@ void setup() {
     ds.setRTCCounter(rtccountr_out);
     ds.attach99h(process);
 
-    // Debug output
-    //Serial.begin(9600);
+    // Status output: init done, ready now.
     FlashLED_blocking();
     delay(flashPause);
     FlashLED_blocking();
@@ -117,9 +247,47 @@ void setup() {
 /********************************************************************************
     Repeatedly process One Wire Handling
 ********************************************************************************/
-void loop() {
-    
+void loop(void) {
+
+    // dss.waitForRequest(false) returns in case of:
+    //  * error - dss.waitForRequest(true) prevents this and keeps executing
+    //  * successfully executed command (SKIP ROM) with TRUE
+    //  * successfully executed SEARCH ROM, ALARM SEARCH or unkown command with FALSE
+    //  * not successfully executed MATCH ROM (address not matching) with FALSE
+    //  (SKIP ROM and MATCH ROM execute duty functions like 99h:process)
+    //  (sucessfull MATCH ROM does not return and continues executing)
+    //
+    // TODO; in the case of THIS sketch it looks like:
+    //  * at the moment the sensor listing loop gets struc (<10) with true here and then flashes
+    //  * ds.waitForRequest(false) does NOT return with TRUE for the first about 7 iterations (from 0x66, 0x99, else ...?)
+    //  * when it finally returns with TRUE (and enters the if condition) a 1wire communication error has occured
+    //    (otherwise - no error occured - it does NEVER return!)
+#ifndef DEBUG
     ds.waitForRequest(false);
+#else
+    if (Serial.available() > 0) {
+        // get incoming byte to empty the buffer
+        int inByte = Serial.read();
+
+        // test ISC
+        rtccountr_in[1] = 0xFF;
+        for(int i=0; i<3; ++i) {
+            rtccountr_in[2] = i+1;
+            int tic = millis();
+            process();
+            int toc = millis();
+            debugPrint(toc-tic);
+        }
+        // test sensors
+        for(int i=0; i<(SensorCount+1); ++i) {
+            rtccountr_in[1] = i+1;
+            int tic = millis();
+            process();
+            int toc = millis();
+            debugPrint(toc-tic);
+        }
+    }
+#endif
 }
 
 /********************************************************************************
@@ -128,128 +296,200 @@ void loop() {
 void process(){
 //    digitalWrite(LEDPin, HIGH);
 
+#ifndef DEBUG
     ds.getRTCCounter(rtccountr_in);
+#endif
 
     // process LSB only ... 256 are enough commands for now (with ISC 256**2)
-    if (rtccountr_in[1] == 0xFF) {         // Internal "System" Commands (ISC)
-        if (rtccountr_in[2] == 0x01) {     // ISC: get number of sensors
-            unsigned int val = 10;
-            rtccountr_out[1] = rtccountr_in[1];
-            rtccountr_out[2] = rtccountr_in[2];
-            rtccountr_out[3] = (val >> 8) & 0xFF;
-            rtccountr_out[4] = val & 0xFF;
-        }
-    //} else if (rtccountr_in[1] == 0x00) {  // nop/pass
-    } else if (rtccountr_in[1] == 0x01) {  // A0 (MQ-135)
-        unsigned int val = analogRead(A0);
-        // http://stackoverflow.com/questions/3784263/converting-an-int-into-a-4-byte-char-array-c
-//        bytes[0] = (val >> 24) & 0xFF;
-//        bytes[1] = (val >> 16) & 0xFF;
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x02) {  // A1 (MQ-7)
-        unsigned int val = analogRead(A1);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x03) {  // A2 (MQ-5)
-        unsigned int val = analogRead(A2);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x04) {  // A3 (MQ-2)
-        unsigned int val = analogRead(A3);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x05) {  // A4 (MQ-3)
-        unsigned int val = analogRead(A4);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x06) {  // A5 (MQ-8)
-        unsigned int val = analogRead(A5);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x07) {  // P7 freq. (TCS3200D)
-        /*digitalWrite(TCS_S0, LOW);    // Output scaling/gain:
-        digitalWrite(TCS_S1, HIGH);   // 2%
-        digitalWrite(TCS_S0, HIGH);   // Output scaling/gain:
-        digitalWrite(TCS_S1, LOW);    // 20%*/
-        digitalWrite(TCS_S0, HIGH);   // Output scaling/gain:
-        digitalWrite(TCS_S1, HIGH);   // 100%
-        digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
-        digitalWrite(TCS_S3, LOW);    // Red
-        //freq = 500000/pulseIn(TCS_OUT, LOW);
-        //unsigned int val = pulseIn(TCS_OUT, LOW);
-        unsigned int val = 0;
-        for( int i = 0; i < 10; i++) {
-            val += pulseIn(TCS_OUT, LOW);
-        }
-        val = val/10;
-        rtccountr_out[1] = rtccountr_in[1];
-        //rtccountr_out[1] = (val >> 24) & 0xFF;
-        rtccountr_out[2] = (val >> 16) & 0xFF;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-        digitalWrite(TCS_S0, LOW);    // Output scaling/gain:
-        digitalWrite(TCS_S1, LOW);    // Power down
-    } else if (rtccountr_in[1] == 0x08) {  // P7 freq. (TCS3200D)
-        digitalWrite(TCS_S0, HIGH);   // Output scaling/gain:
-        digitalWrite(TCS_S1, HIGH);   // 100%
-        digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
-        digitalWrite(TCS_S3, HIGH);   // Blue
-        unsigned int val = 0;
-        for( int i = 0; i < 10; i++) {
-            val += pulseIn(TCS_OUT, LOW);
-        }
-        val = val/10;
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = (val >> 16) & 0xFF;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-        digitalWrite(TCS_S0, LOW);    // Output scaling/gain:
-        digitalWrite(TCS_S1, LOW);    // Power down
-    } else if (rtccountr_in[1] == 0x09) {  // P7 freq. (TCS3200D)
-        digitalWrite(TCS_S0, HIGH);   // Output scaling/gain:
-        digitalWrite(TCS_S1, HIGH);   // 100%
-        digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
-        digitalWrite(TCS_S3, LOW);    // Clear/All
-        unsigned int val = 0;
-        for( int i = 0; i < 10; i++) {
-            val += pulseIn(TCS_OUT, LOW);
-        }
-        val = val/10;
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = (val >> 16) & 0xFF;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-        digitalWrite(TCS_S0, LOW);    // Output scaling/gain:
-        digitalWrite(TCS_S1, LOW);    // Power down
-    } else if (rtccountr_in[1] == 0x0A) {  // P7 freq. (TCS3200D)
-        digitalWrite(TCS_S0, HIGH);   // Output scaling/gain:
-        digitalWrite(TCS_S1, HIGH);   // 100%
-        digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
-        digitalWrite(TCS_S3, HIGH);   // Green
-        unsigned int val = 0;
-        for( int i = 0; i < 10; i++) {
-            val += pulseIn(TCS_OUT, LOW);
-        }
-        val = val/10;
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = (val >> 16) & 0xFF;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-        digitalWrite(TCS_S0, LOW);    // Output scaling/gain:
-        digitalWrite(TCS_S1, LOW);    // Power down
+    // (otherwise unpack it to long)
+    switch ((unsigned char)rtccountr_in[1]) {
+        case 0xFF:                                 // Internal "System" Commands (ISC)
+            if (rtccountr_in[2] == 0x01) {         // ISC: get number of sensors
+                /*unsigned int val = SensorCount;
+                rtccountr_out[1] = rtccountr_in[1];
+                rtccountr_out[2] = rtccountr_in[2];
+                rtccountr_out[3] = (val >> 8) & 0xFF;
+                rtccountr_out[4] = val & 0xFF;*/
+                pack(SensorCount);
+            } else if (rtccountr_in[2] == 0x02) {  // ISC: "RTC"
+                pack(millis()/1000.);
+            } else if (rtccountr_in[2] == 0x03) {  // ISC: Arduino Supply Voltage Level
+                /* Measure and calculate supply voltage on Arduino 168 or 328 [V] */
+                pack(readVcc()/1000.);
+            }
+            // no error handling here (yet)
+            break;
+        case 0x00:                                 // nop/pass
+            break;
+        case 0x01:                                 // "A0" (MQ-135)
+            selectMUXch(5);
+            pack(analogRead(MeasPin)/1023.);
+            // unit ppm, calibration needed
+            break;
+        case 0x02:                                 // "A1" (MQ-7)
+            selectMUXch(4);
+            pack(analogRead(MeasPin)/1023.);
+            // unit ppm, calibration needed
+            break;
+        case 0x03:                                 // "A2" (MQ-5)
+            selectMUXch(3);
+            pack(analogRead(MeasPin)/1023.);
+            // unit ppm, calibration needed
+            break;
+        case 0x04:                                 // "A3" (MQ-2)
+            selectMUXch(2);
+            pack(analogRead(MeasPin)/1023.);
+            // unit ppm, calibration needed
+            break;
+        case 0x05:                                 // "A4" (MQ-3)
+            selectMUXch(1);
+            pack(analogRead(MeasPin)/1023.);
+            // unit ppm, calibration needed
+            break;
+        case 0x06:                                 // "A5" (MQ-8)
+            selectMUXch(0);
+            pack(analogRead(MeasPin)/1023.);
+            // unit ppm, calibration needed
+            break;
+        case 0x07:                                 // freq. (TCS3200D)
+            digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
+            digitalWrite(TCS_S3, LOW);    // Red
+            pack(measFreq());
+            // avg. unit time counts, calibration needed
+            break;
+        case 0x08:                                 // freq. (TCS3200D)
+            digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
+            digitalWrite(TCS_S3, HIGH);   // Blue
+            pack(measFreq());
+            // avg. unit time counts, calibration needed
+            break;
+        case 0x09:                                 // freq. (TCS3200D)
+            digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
+            digitalWrite(TCS_S3, LOW);    // Clear/All
+            pack(measFreq());
+            // avg. unit time counts, calibration needed
+            break;
+        case 0x0A:                                 // freq. (TCS3200D)
+            digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
+            digitalWrite(TCS_S3, HIGH);   // Green
+            pack(measFreq());
+            // avg. unit time counts, calibration needed
+            break;
+        case 0x0B:                                 // UV sensor: Adafruit ...
+            selectMUXch(15);
+            pack(analogRead(MeasPin)/1023.);
+            // unit amplitude in rel. voltage, calibration needed
+            break;
+        case 0x0C:                                 // MIC "sensor": Sparkfun ...
+            selectMUXch(14);
+            mmin = 1023;
+            mmax = 0;
+            //for(unsigned long i=0; i<10000; ++i) {
+            for(unsigned long i=0; i<1000; ++i) {
+                val = analogRead(MeasPin);
+                mmin = min(mmin, val);
+                mmax = max(mmax, val);
+                //delayMicroseconds(1);
+            }
+            pack((mmax-mmin)/1023.);
+            // unit amplitude in rel. voltage, calibration needed
+            break;
+        case 0x0D:                                 // Light sensor: Adafruit_TSL2561
+            /* Get a new sensor event */
+            tsl.getEvent(&event);
+            /* Display the results [lux] */
+            pack(event.light);  // 0 = "sensor overload"
+            break;
+        case 0x0E:                                 // Light sensor: Adafruit_TSL2561
+            /* Get a new sensor event */
+            broadband = 0;
+            infrared = 0;
+            /* Populate broadband and infrared with the latest values */
+            tsl.getLuminosity (&broadband, &infrared);
+            pack(broadband);
+            break;
+        case 0x0F:                                 // Light sensor: Adafruit_TSL2561
+            /* Get a new sensor event */
+            broadband = 0;
+            infrared = 0;
+            /* Populate broadband and infrared with the latest values */
+            tsl.getLuminosity (&broadband, &infrared);
+            pack(infrared);
+            break;
+        case 0x10:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out accelleration data [m/s^2]
+            pack(accel.acceleration.x);
+            break;
+        case 0x11:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out accelleration data [m/s^2]
+            pack(accel.acceleration.y);
+            break;
+        case 0x12:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out accelleration data [m/s^2]
+            pack(accel.acceleration.z);
+            break;
+        case 0x13:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out magnetometer data [gauss]
+            pack(mag.magnetic.x);
+            break;
+        case 0x14:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out magnetometer data [gauss]
+            pack(mag.magnetic.y);
+            break;
+        case 0x15:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out magnetometer data [gauss]
+            pack(mag.magnetic.z);
+            break;
+        case 0x16:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out gyroscopic data [dps]
+            pack(gyro.gyro.x);
+            break;
+        case 0x17:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out gyroscopic data [dps]
+            pack(gyro.gyro.y);
+            break;
+        case 0x18:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out gyroscopic data [dps]
+            pack(gyro.gyro.z);
+            break;
+        case 0x19:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0
+            /* Get a new sensor event */
+            lsm.getEvent(&accel, &mag, &gyro, &temp);
+            // print out temperature data [*C]
+            pack(temp.temperature);
+            break;
+        case 0x1A:                                 // Barometric pressure sensor: Adafruit_BMP183
+            /* Display atmospheric pressue in Hecto-Pascals [mbar] */
+            pack(bmp.getPressure() / 100);
+            break;
+        case 0x1B:                                 // Barometric pressure sensor: Adafruit_BMP183
+            /* First we get the current temperature from the BMP085 [*C] */
+            pack(bmp.getTemperature());
+            break;
+        default: // Unknown command
+            rtccountr_out[1] = 0xFF;
+            rtccountr_out[2] = 0xFF;
+            rtccountr_out[3] = 0xFF;
+            rtccountr_out[4] = 0xFF;
+            break;
     }
 
     //ds.setRTCCounter(rtccountr_in);
@@ -258,8 +498,68 @@ void process(){
 //    digitalWrite(LEDPin, LOW);
 //    ToggleLED();
     FlashLED_blocking();
-    //Serial.print(0x99, HEX);
 }
+
+/********************************************************************************
+    Pack float into 4 byte representation (compatible with python)
+********************************************************************************/
+void pack(float val) {
+    // http://stackoverflow.com/questions/3784263/converting-an-int-into-a-4-byte-char-array-c
+//    bytes[0] = (val >> 24) & 0xFF;
+//    bytes[1] = (val >> 16) & 0xFF;
+    /*unsigned int val = 4242;
+    rtccountr_out[1] = rtccountr_in[1];
+    rtccountr_out[2] = 0x00;
+    rtccountr_out[3] = (val >> 8) & 0xFF;
+    rtccountr_out[4] = val & 0xFF;*/
+    // http://forum.arduino.cc/index.php?topic=42466.0
+    byte  *ArrayOfFourBytes;
+    ArrayOfFourBytes = (byte*) & val;
+    rtccountr_out[1] = ArrayOfFourBytes[0];
+    rtccountr_out[2] = ArrayOfFourBytes[1];
+    rtccountr_out[3] = ArrayOfFourBytes[2];
+    rtccountr_out[4] = ArrayOfFourBytes[3];
+    // http://stackoverflow.com/questions/3991478/building-a-32bit-float-out-of-its-4-composite-bytes-c
+}
+
+/********************************************************************************
+    Select Multiplexer channel to connect to ADC
+********************************************************************************/
+void selectMUXch(char ch) {
+    // S0 = bit[0]
+    digitalWrite(MUX_S0, ((ch & B00000001) != 0));
+    // S1 = bit[1]
+    digitalWrite(MUX_S1, ((ch & B00000010) != 0));
+    // S2 = bit[2]
+    digitalWrite(MUX_S2, ((ch & B00000100) != 0));
+    // S3 = bit[3]
+    digitalWrite(MUX_S3, ((ch & B00001000) != 0));
+
+    // wait for MUX/switch to settle
+    //delay(1);  // according to datasheet can switch with 10E7 Hz, so 0.1us is enough
+    delayMicroseconds(10);  // according to datasheet can switch with 10E7 Hz, so 0.1us is enough
+
+/*#ifdef DEBUG
+    Serial.print(ch, BIN);
+#endif*/
+}
+
+/********************************************************************************
+    Measure frequency by averaging pulseIn results
+********************************************************************************/
+float measFreq(void) {
+    digitalWrite(TCS_S0S1, HIGH); // Output scaling/gain: 100%
+    delayMicroseconds(1000);      // give some time to turn on
+    //freq = 500000/pulseIn(TCS_OUT, LOW);
+    //unsigned int val = pulseIn(TCS_OUT, LOW);
+    val = 0;
+    for( int i = 0; i < 10; i++) {
+        val += pulseIn(TCS_OUT, LOW, 10000);
+    }
+    digitalWrite(TCS_S0S1, LOW);  // Output scaling/gain: Power down
+    return (val/10.);
+}
+
 
 /********************************************************************************
     Flash the LED
@@ -273,11 +573,47 @@ void FlashLED_blocking(void) {
     digitalWrite(LEDPin, LOW);
 }
 
+
 /********************************************************************************
-    Toggle the LED ("Flash" the LED)
-    [by definition nonblocking]
+    Print debug info to serial output
 ********************************************************************************/
-/*void ToggleLED(void) {
-    digitalWrite(LEDPin, not digitalRead(LEDPin));
-}*/
+void debugPrint(int time) {
+    Serial.print(byte(rtccountr_in[1]), HEX);
+    Serial.print("  ");
+
+    Serial.print(byte(rtccountr_out[1]), HEX);
+    Serial.print(" ");
+    Serial.print(byte(rtccountr_out[2]), HEX);
+    Serial.print(" ");
+    Serial.print(byte(rtccountr_out[3]), HEX);
+    Serial.print(" ");
+    Serial.print(byte(rtccountr_out[4]), HEX);
+    Serial.print("  ");
+
+    Serial.print(time);
+    Serial.print("  ");
+
+    float val = *(float*) (rtccountr_out+1);
+    Serial.print(val);
+    Serial.print("\n");
+}
+
+
+/********************************************************************************
+    Configures the gain and integration time for the TSL2561
+    [Accessing the secret voltmeter on the Arduino 168 or 328]
+    http://code.google.com/p/tinkerit/wiki/SecretVoltmeter
+********************************************************************************/
+long readVcc() {
+  long result;
+  // Read 1.1V reference against AVcc
+  ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
+  delay(2); // Wait for Vref to settle
+  ADCSRA |= _BV(ADSC); // Convert
+  while (bit_is_set(ADCSRA,ADSC));
+  result = ADCL;
+  result |= ADCH<<8;
+  result = 1126400L / result; // Back-calculate AVcc in mV
+  return result;
+}
 
