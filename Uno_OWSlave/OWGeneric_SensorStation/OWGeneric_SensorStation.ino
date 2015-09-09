@@ -83,7 +83,7 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 // memory." -> OSC = 0 ALWAYS / U4:U1 memory
 
 // In DEBUG mode 1wire interface is replaced by serial ouput
-#define DEBUG         1
+//#define DEBUG
 
 #define SensorCount  27
 
