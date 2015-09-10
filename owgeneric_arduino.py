@@ -14,7 +14,7 @@ http://serverfault.com/questions/82857/prevent-duplicate-cron-jobs-running
 
 crontab -e
 #* * * * * /usr/bin/flock -n /tmp/fcj.lockfile /usr/local/bin/frequent_cron_job --minutely
-* * * * * /usr/bin/flock -n /tmp/fcj.lockfile python /home/pi/owgeneric_arduino.py 
+* * * * * /usr/bin/flock -n /tmp/fcj.lockfile python /home/pi/owgeneric_arduino.py
 #*/2 * * * * /usr/bin/flock -n /tmp/fcj.lockfile python /home/pi/owgeneric_arduino.py
 """
 
@@ -31,18 +31,18 @@ import os, shutil
 
 offset = int(time.mktime(time.strptime("Thu Jan  1 00:00:00 1970", "%a %b %d %H:%M:%S %Y")))
 
-debug = False
+__debug = False
 
 def debug(switch):
-        global debug
-        debug = switch
+        global __debug
+        __debug = switch
 
 #def cleanup():
 #       shutil.rmtree(owgeneric_root)
 #       print "exit"
 
 def init(slave):
-        if debug:
+        if __debug:
                 dbg = ""
         else:
                 dbg = " >/dev/null"
@@ -73,7 +73,7 @@ def read(slave):
                 val = f.read()
                 f.close()
 
-                if debug:
+                if __debug:
                         print i, val
 
                 # check whether the value is valid
@@ -95,48 +95,64 @@ def unpack_val(val):
         return (v, b)
 #       return (v, b, u)
 
-def receive_data(slave):
+def receive_data(address):
+#       s = pack_val(address)[1]
+        (b, s) = pack_val(address)
+        if __debug:
+                print address
+#               print " ".join("{:02x}".format(ord(c)) for c in b),
+                print s
+#       process_delay = 0.1
+        process_delay = 0.2
+        #while True:
+        for t in range(3):
+# TODO: why is the first read needed here; optimize/debug arduino code
+                read(slave)    # needed; otherwise the write/read sequence fails resp. lacks behind (?!) - but 1 write is enough now (3x faster!)
+                write(slave, s)
+                time.sleep(process_delay)
+                (s2, tries) = read(slave)
+                if not (unpack_val(s2)[0] == -1):
+                        break
+                if (tries == 11):
+#                       if (t > 0):
+#                               process_delay = 3.0
+                        time.sleep(1.)
+                        init(slave)  # reset 'error' and restart reading (owfs)
+        if (unpack_val(s2)[0] == -1):   # not successfull after 3 tries - stop the script to stop occupying the bus
+                return None
+        b = unpack_val(s2)[1]
+
+        if __debug:
+                # http://stackoverflow.com/questions/12214801/print-a-string-as-hex-bytes
+                print " ".join("{:02x}".format(ord(c)) for c in b)
+
+#       v = struct.unpack('i', (b[::-1][:-1]+'\x00'))[0]
+        v = struct.unpack('f', b)[0]
+        if __debug:
+                print v
+
+        return (v, b, s2)
+
+def read_slave_sensors(slave):
+        sensor_count = receive_data(struct.unpack('i', "\xFF\x01\x00\x00")[0])[0]
+        ver = receive_data(struct.unpack('i', "\xFF\x02\x00\x00")[0])[0]
+        rtc = receive_data(struct.unpack('i', "\xFF\x03\x00\x00")[0])[0]
+        vcc = receive_data(struct.unpack('i', "\xFF\x04\x00\x00")[0])[0]
+        if __debug:
+                print "Sensor Count:", sensor_count
+                print "Software Ver:", ver
+                print "     Up-Time:", rtc
+                print "         Vcc:", vcc
+        meta = [sensor_count, ver, rtc, vcc]
+
         data = []
-# TODO: implement way to ask for number of sensors,
-#       e.g. \xFF\x??\x??\x?? are device info/status commands
-#       e.g. \xFF\x01\x00\x00 for number of sensors
-#       (then add further info like; version number, may be statistics about runtime, ...)
-#       (etc.)
-        for i in range(11):
-                s = pack_val(i)[1]
-                if debug:
-                        print s
-                process_delay = 0.1
-                #while True:
-                for t in range(3):
-                        write(slave, s)
-                        time.sleep(process_delay)
-                        (s2, tries) = read(slave)
-                        if not (unpack_val(s2)[0] == -1):
-                                break
-                        if (tries == 11):
-                                if (t > 0):
-                                        process_delay = 3.0
-                                time.sleep(1.)
-                                init(slave)  # reset 'error' and restart reading (owfs)
-                if (unpack_val(s2)[0] == -1):   # not successfull after 3 tries - stop the script to stop occupying the bus
-                        return None
-                b = unpack_val(s2)[1]
+        for i in range(1, int(sensor_count)+1):
+                data.append( receive_data(i) )
 
-                if debug:
-                        # http://stackoverflow.com/questions/12214801/print-a-string-as-hex-bytes
-                        print " ".join("{:02x}".format(ord(c)) for c in b)
-
-                v = struct.unpack('i', (b[::-1][:-1]+'\x00'))[0]
-                if debug:
-                        print v, (v/1023.*5.)
-
-                data.append( (v, b, s2) )
-
-        return data
+        return (data, meta)
 
 def get_slaves():
-        if debug:
+        if __debug:
                 dbg = ""
         else:
                 dbg = " >/dev/null"
@@ -149,7 +165,7 @@ def get_slaves():
                 if "24.E2" in c:
                         # ... and may be check os.path.join(ow_root, "uncached", c, "running") for '0' as well
                         # OWGeneric_... Arduino Uno device
-                        if debug:
+                        if __debug:
                                 print "OWGeneric Arduino Uno device"
                         slaves.append(c)
         return slaves
@@ -164,6 +180,7 @@ if __name__ == '__main__':
 #       signal.signal(signal.SIGINT, lambda signum, stack_frame: exit(1))
 
         debug(False)
+#       debug(True)
 
 #       os.makedirs(owgeneric_root)
 
@@ -173,14 +190,14 @@ if __name__ == '__main__':
                 slaves_old = os.listdir(owgeneric_root)
                 slaves = get_slaves()
 
-                if debug:
+                if __debug:
                         print slaves
 
                 for slave in slaves_old:
                         if slave not in slaves:
                                 shutil.rmtree(os.path.join(owgeneric_root, slave))
 
-                # when re-entering the script; how to know which sensor to read next? 
+                # when re-entering the script; how to know which sensor to read next?
                 # find the one with oldest 'all' file to know what to update
                 min_mtime = time.time()
                 process_slaves = []
@@ -204,7 +221,7 @@ if __name__ == '__main__':
                                 min_mtime = mtime
                                 process_slaves.append(slave)
 
-                if debug:
+                if __debug:
                         print process_slaves
 
                 #for slave in slaves:
@@ -212,10 +229,10 @@ if __name__ == '__main__':
                         dev = os.path.join(owgeneric_root, slave)
 
                         tic = time.time()
-                        data = receive_data(slave)
+                        (data, meta) = read_slave_sensors(slave)
                         toc = time.time()
 
-                        if debug:
+                        if __debug:
                                 print data
                                 print toc-tic
 

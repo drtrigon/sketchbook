@@ -85,6 +85,7 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 // In DEBUG mode 1wire interface is replaced by serial ouput
 //#define DEBUG
 
+#define SoftwareVer 1.0
 #define SensorCount  27
 
 //  Pin Layouts
@@ -104,10 +105,10 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 #define TCS_S3        9
 #define TCS_OUT       7
 //#define BMP183_CLK  13
-#define BMP183_CLK  A2     // CLK (hardware SPI needs pin 13 here!)
-#define BMP183_SDO  12     // AKA MISO
-#define BMP183_SDI  11     // AKA MOSI
-#define BMP183_CS   10     // chip-select pin (use any pin)
+#define BMP183_CLK   A2    // CLK (hardware SPI needs pin 13 here!)
+#define BMP183_SDO   12    // AKA MISO
+#define BMP183_SDI   11    // AKA MOSI
+#define BMP183_CS    10    // chip-select pin (use any pin)
 
 //  LED Flash Parameters
 #define flashPause  100    // LED between flash delay
@@ -271,7 +272,7 @@ void loop(void) {
 
         // test ISC
         rtccountr_in[1] = 0xFF;
-        for(int i=0; i<3; ++i) {
+        for(int i=0; i<4; ++i) {
             rtccountr_in[2] = i+1;
             int tic = millis();
             process();
@@ -311,9 +312,11 @@ void process(){
                 rtccountr_out[3] = (val >> 8) & 0xFF;
                 rtccountr_out[4] = val & 0xFF;*/
                 pack(SensorCount);
-            } else if (rtccountr_in[2] == 0x02) {  // ISC: "RTC"
+            } else if (rtccountr_in[2] == 0x02) {  // ISC: Software Version
+                pack(SoftwareVer);
+            } else if (rtccountr_in[2] == 0x03) {  // ISC: "RTC"
                 pack(millis()/1000.);
-            } else if (rtccountr_in[2] == 0x03) {  // ISC: Arduino Supply Voltage Level
+            } else if (rtccountr_in[2] == 0x04) {  // ISC: Arduino Supply Voltage Level
                 /* Measure and calculate supply voltage on Arduino 168 or 328 [V] */
                 pack(readVcc()/1000.);
             }
@@ -484,11 +487,11 @@ void process(){
             /* First we get the current temperature from the BMP085 [*C] */
             pack(bmp.getTemperature());
             break;
-        default: // Unknown command
-            rtccountr_out[1] = 0xFF;
-            rtccountr_out[2] = 0xFF;
-            rtccountr_out[3] = 0xFF;
-            rtccountr_out[4] = 0xFF;
+        default: // Unknown command (DO NOT USE FFFFFFFF since that is the same as a dead bus!)
+            rtccountr_out[1] = 0xFE;
+            rtccountr_out[2] = 0xFE;
+            rtccountr_out[3] = 0xFE;
+            rtccountr_out[4] = 0xFE;
             break;
     }
 
