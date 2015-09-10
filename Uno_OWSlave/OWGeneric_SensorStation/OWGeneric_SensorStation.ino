@@ -603,8 +603,7 @@ void debugPrint(int time) {
 
 
 /********************************************************************************
-    Configures the gain and integration time for the TSL2561
-    [Accessing the secret voltmeter on the Arduino 168 or 328]
+    Accessing the secret voltmeter on the Arduino 168 or 328
     http://code.google.com/p/tinkerit/wiki/SecretVoltmeter
 ********************************************************************************/
 long readVcc() {
