@@ -1,11 +1,6 @@
 #include <OneWireSlave.h>
 /********************************************************************************
 
- TODO: change to 'select ... case' structure in 'process'
- TODO: add button2, button3, and bcd output
-
- > A5 is th OWPin here ! <
-
     Program. . . . OWGeneric_SensorStation
     Author . . . . Ursin Solèr (according to design by Ian Evans)
     Written. . . . 1 Aug 2015.
@@ -16,7 +11,7 @@
                    Danger Shield Example Sketch, SparkFun Electronics, Chris Taylor
     Hardware . . . Arduino Uno/Nano (w/ ATmega328)
     Hardware . . .
-            AT.... Pin Layout (Arduino UNO)
+            AT.... Pin Layout (Arduino UNO) & Danger Shield v1.7
                   ---_---
                   .     .
               RST |?   ?| PD13       LED
@@ -27,9 +22,9 @@
               Vin |?   ?| PD08 B_DS3 TCS3200D S3 (Photodiode type/color)
  Sens 1 B_S01  A0 |?   ?| PD07 B_S11 Sens 11 (TCS3200D)
                   .     .
- Sens 4 B_S04  A3 |?   ?| PD02       One Wire
+ Sens 4 B_S04  A3 |?   ?| PD02       
  Sens 5 B_S05  A4 |?   ?| PD01      
- Sens 6 B_S06  A5 |?   ?| PD00      
+OneWire        A5 |?   ?| PD00      
                   -------
 
 Most simple read/write device with 4 byte (32 bit) memory: RTC DS2415
@@ -64,17 +59,24 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x03, 0x00};
 // real time clock counter behaves as a 4-byte nonvolatile
 // memory." -> OSC = 0 ALWAYS / U4:U1 memory
 
-// Shift register bit values to display 0-9 on the seven-segment display
-const byte ledCharSet[10] = {
+// Shift register bit values to display 0-9 on the seven-segment display: DP G F E D C B A
+//  *-A-*
+//  F   B           ledCharSet[0]...ledCharSet[9]:  numbers 0..9
+//  *-G-*           ledCharSet[10]..ledCharSet[15]: letters A..F (distinct to numbers due to decimal point)
+//  E   C                           ledCharSet[16]: all OFF
+//  *-D-* DP
+const byte ledCharSet[17] = {
 
-  B00111111,B00000110,B01011011,B01001111,B01100110,B01101101,B01111101,B00000111,B01111111,B01101111
+  B00111111,B00000110,B01011011,B01001111,B01100110,B01101101,B01111101,B00000111,B01111111,B01101111, 
+  B11110111,B11111111,B10111001,B10111111,B11111001,B11110001,
+  B00000000
 };
 
 // In DEBUG mode 1wire interface is replaced by serial ouput
 //#define DEBUG
 
 #define SoftwareVer 1.0
-#define SensorCount  10
+#define SensorCount   9
 
 //  Pin Layouts
 #define LEDPin       13
@@ -89,50 +91,29 @@ const byte ledCharSet[10] = {
 //CapSense   cs_9_2 = CapSense(9,2);   //Initializes CapSense pins
 CapacitiveSensor   cs_9_2 = CapacitiveSensor(9,2);   //Initializes CapSense pins
 
-// Global variables
-int val = 0;
-int state = 0;
-int x = 0;
-int i = 0;
-
 // Pin definitions
-#define SLIDER1  0
-#define SLIDER2  1
-#define SLIDER3  2
-
-//#define KNOCK    5
-
+#define SLIDER1   0
+#define SLIDER2   1
+#define SLIDER3   2
+//#define KNOCK     5
 #define BUTTON1  10
 #define BUTTON2  11
 #define BUTTON3  12
-
-#define LED1  5
-#define LED2  6
-
-#define BUZZER   3
-
-#define TEMP  4
-
-#define LIGHT  3
-
-#define LATCH 7
-#define CLOCK 8
-#define DATA 4
-
-// State machine values
-#define SLIDER_TEST 1
-#define BUZZER_TEST 2
-#define CAPSENSE_TEST  3
-#define TEMP_TEST  4
-#define LIGHT_TEST 5
-#define BUTTON_TEST 6
-#define SEVENSEG_TEST 7
+#define LED1      5
+#define LED2      6
+#define BUZZER    3
+#define TEMP      4
+#define LIGHT     3
+#define LATCH     7
+#define CLOCK     8
+#define DATA      4
 
 #include <TimerOne.h>
   
 volatile unsigned long ctr1 = 0;
 volatile unsigned long ctr2 = 0;
 volatile unsigned long ctr3 = 0;
+unsigned long d, t;
 
 // OneWire Slave class object
 OneWireSlave ds(OWPin); 
@@ -165,12 +146,9 @@ void setup() {
   digitalWrite(BUTTON2,HIGH);
   digitalWrite(BUTTON3,HIGH);
   
-  
   pinMode(BUZZER, OUTPUT);
   pinMode(LED1, OUTPUT);
   pinMode(LED2, OUTPUT);
-  digitalWrite(LED1,HIGH);
-  digitalWrite(LED2,HIGH);
   pinMode(LATCH, OUTPUT);
   pinMode(CLOCK, OUTPUT);
   pinMode(DATA,OUTPUT);
@@ -184,6 +162,15 @@ void setup() {
     //ds.setDebug();
     ds.setRTCCounter(rtccountr_out);
     ds.attach99h(process);
+
+    // Test all LEDs
+    digitalWrite(LED1,HIGH);
+    digitalWrite(LED2,HIGH);
+    SetBCD(0x0B);
+    delay(500);
+    digitalWrite(LED1,LOW);
+    digitalWrite(LED2,LOW);
+    SetBCD(16);
 
     // Status output: init done, ready now.
     FlashLED_blocking();
@@ -217,34 +204,67 @@ void loop() {
         int inByte = Serial.read();
 
         // test ISC
+        int tic, toc;
         rtccountr_in[1] = 0xFF;
         for(int i=0; i<4; ++i) {
             rtccountr_in[2] = i+1;
-            int tic = millis();
+            tic = millis();
             process();
-            int toc = millis();
+            toc = millis();
             debugPrint(toc-tic);
         }
         // test sensors
-        for(int i=0; i<(SensorCount+1); ++i) {
+        //for(int i=0; i<(SensorCount+1); ++i) {
+        for(int i=0; i<(SensorCount); ++i) {
             rtccountr_in[1] = i+1;
-            int tic = millis();
+            tic = millis();
             process();
-            int toc = millis();
+            toc = millis();
             debugPrint(toc-tic);
         }
+        // Activates buzzer
+        rtccountr_in[1] = 0x0A;
+        rtccountr_in[3] = 50;    // "duration" (50*10=500 cycles/pulses)
+        rtccountr_in[4] = 1;     // "frequency" [1..100]
+        tic = millis();
+        process();
+        toc = millis();
+        debugPrint(toc-tic);
+        // Set LED state
+        rtccountr_in[1] = 0x0B;
+        rtccountr_in[3] = 26;
+        rtccountr_in[4] = 255;
+        tic = millis();
+        process();
+        toc = millis();
+        debugPrint(toc-tic);
+        // Set the seven-segment display
+        rtccountr_in[1] = 0x0C;
+        rtccountr_in[4] = 0x0F;
+        tic = millis();
+        process();
+        toc = millis();
+        debugPrint(toc-tic);
+        // Test error handling
+        rtccountr_in[1] = SensorCount+4;
+        tic = millis();
+        process();
+        toc = millis();
+        debugPrint(toc-tic);
     }
 #endif
 }
 
 /// --------------------------
 /// Custom ISR Timer Routine
+/// (will reduce 1wire stability and performance - but by how much - usable for RTC relais?)
 /// --------------------------
 void timerIsr()
 {
     ctr1 += int(!(digitalRead(BUTTON1)));
     ctr2 += int(!(digitalRead(BUTTON2)));
     ctr3 += int(!(digitalRead(BUTTON3)));
+    // speed up and improve stability by using: https://www.arduino.cc/en/Reference/PortManipulation
 }
 
 /********************************************************************************
@@ -258,8 +278,11 @@ void process(){
 #endif
 
     // process LSB only ... 256 are enough commands for now (with ISC 256**2)
-    if (rtccountr_in[1] == 0xFF) {         // Internal "System" Commands (ISC)
+    // (otherwise unpack it to long)
+    switch ((unsigned char)rtccountr_in[1]) {
+        case 0xFF:                                 // Internal "System" Commands (ISC)
             if (rtccountr_in[2] == 0x01) {         // ISC: get number of sensors
+                SetBCD(10);
                 /*unsigned int val = SensorCount;
                 rtccountr_out[1] = rtccountr_in[1];
                 rtccountr_out[2] = rtccountr_in[2];
@@ -267,89 +290,86 @@ void process(){
                 rtccountr_out[4] = val & 0xFF;*/
                 pack(SensorCount);
             } else if (rtccountr_in[2] == 0x02) {  // ISC: Software Version
+                SetBCD(11);
                 pack(SoftwareVer);
             } else if (rtccountr_in[2] == 0x03) {  // ISC: "RTC"
+                SetBCD(12);
                 pack(millis()/1000.);
             } else if (rtccountr_in[2] == 0x04) {  // ISC: Arduino Supply Voltage Level
+                SetBCD(13);
                 /* Measure and calculate supply voltage on Arduino 168 or 328 [V] */
                 pack(readVcc()/1000.);
             }
-    //} else if (rtccountr_in[1] == 0x00) {  // nop/pass
-    } else if (rtccountr_in[1] == 0x01) {  // Read value of SLIDER1
-      SetBCD(1);
-        unsigned int val = analogRead(SLIDER1);
-        // http://stackoverflow.com/questions/3784263/converting-an-int-into-a-4-byte-char-array-c
-//        bytes[0] = (val >> 24) & 0xFF;
-//        bytes[1] = (val >> 16) & 0xFF;
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x02) {  // Read value of SLIDER2
-      SetBCD(2);
-        unsigned int val = analogRead(SLIDER2);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x03) {  // Read value of SLIDER3
-      SetBCD(3);
-        unsigned int val = analogRead(SLIDER3);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x04) {  // Activates buzzer
-      SetBCD(4);
-    for(int x = 0; x < 100; x++)
-    {
-      digitalWrite(BUZZER, HIGH);
-      delay(1);
-      digitalWrite(BUZZER, LOW);
-      delay(1);
-    }
-    } else if (rtccountr_in[1] == 0x05) {  // Tests CapSense pad
-      SetBCD(5);
-//    long start = millis();
-        unsigned int val =  cs_9_2.capacitiveSensor(30);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x06) {  // Reads temp sensor values
-      SetBCD(6);
-        unsigned int val = analogRead(TEMP);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x07) {  // Reads light sensor values
-      SetBCD(7);
-        unsigned int val = analogRead(LIGHT);
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-    } else if (rtccountr_in[1] == 0x08) {  // Set LED state
-      SetBCD(8);
-/*        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = 0x00;
-        rtccountr_out[4] = 0x00;*/
-      digitalWrite(LED1,rtccountr_in[3]);
-      digitalWrite(LED2,rtccountr_in[3]);
-      // use PWM to dim LEDs
-    } else if (rtccountr_in[1] == 0x09) {  // Reads button1 state counter
-      SetBCD(9);
-        unsigned int val = ctr1;
-        rtccountr_out[1] = rtccountr_in[1];
-        rtccountr_out[2] = 0x00;
-        rtccountr_out[3] = (val >> 8) & 0xFF;
-        rtccountr_out[4] = val & 0xFF;
-/*    } else if (rtccountr_in[1] == 0x0A) {  // Reads button2 state counter
-    } else if (rtccountr_in[1] == 0x0B) {  // Reads button3 state counter
-    } else if (rtccountr_in[1] == 0x0C) {  // Set the seven-segment display
-      SetBCD(rtccountr_in[4]);*/
+            // no error handling here (yet)
+            break;
+        case 0x00:                                 // nop/pass
+            break;
+        case 0x01:                                 // Read value of SLIDER1
+            SetBCD(0);
+            pack(analogRead(SLIDER1)/1023.);
+            break;
+        case 0x02:                                 // Read value of SLIDER2
+            SetBCD(1);
+            pack(analogRead(SLIDER2)/1023.);
+            break;
+        case 0x03:                                 // Read value of SLIDER3
+            SetBCD(2);
+            pack(analogRead(SLIDER3)/1023.);
+            break;
+        case 0x04:                                 // Tests/Reads CapSense pad
+            SetBCD(3);
+            pack(cs_9_2.capacitiveSensor(30));
+            break;
+        case 0x05:                                 // Reads temp sensor values
+            SetBCD(4);
+            pack(analogRead(TEMP)/1023.);
+            break;
+        case 0x06:                                 // Reads light sensor values
+            SetBCD(5);
+            pack(analogRead(LIGHT)/1023.);
+            break;
+        case 0x07:                                 // Reads button1 state counter
+            SetBCD(6);
+            pack(ctr1);
+            break;
+        case 0x08:                                 // Reads button2 state counter
+            SetBCD(7);
+            pack(ctr2);
+            break;
+        case 0x09:                                 // Reads button3 state counter
+            SetBCD(8);
+            pack(ctr3);
+            break;
+        case 0x0A:                                 // Activates buzzer
+            SetBCD(16);
+            d = 10*(unsigned char)rtccountr_in[3];
+            t = 100*(unsigned char)rtccountr_in[4];
+            for(int x = 0; x < d; x++)
+            {
+                digitalWrite(BUZZER, HIGH);
+                delayMicroseconds(t);
+                digitalWrite(BUZZER, LOW);
+                delayMicroseconds(t);
+            }
+            break;
+        case 0x0B:                                 // Set LED state
+            SetBCD(16);
+            //digitalWrite(LED1,rtccountr_in[3]);
+            //digitalWrite(LED2,rtccountr_in[4]);
+            // use PWM to dim LEDs
+            analogWrite(LED1,(unsigned char)rtccountr_in[3]);
+            analogWrite(LED2,(unsigned char)rtccountr_in[4]);
+            break;
+        case 0x0C:                                 // Set the seven-segment display
+            //SetBCD(16);
+            SetBCD(rtccountr_in[4]);
+            break;
+        default: // Unknown command (DO NOT USE FFFFFFFF since that is the same as a dead bus!)
+            rtccountr_out[1] = 0xFE;
+            rtccountr_out[2] = 0xFE;
+            rtccountr_out[3] = 0xFE;
+            rtccountr_out[4] = 0xFE;
+            break;
     }
 
     //ds.setRTCCounter(rtccountr_in);
@@ -399,9 +419,9 @@ void SetBCD(byte val) {
 void FlashLED_blocking(void) {
 //    digitalWrite(LEDPin, LOW);
 //    delay(flashPause);
-    digitalWrite(LEDPin, HIGH);
+/*    digitalWrite(LEDPin, HIGH);
     delay(flashLength);
-    digitalWrite(LEDPin, LOW);
+    digitalWrite(LEDPin, LOW);*/
 }
 
 
