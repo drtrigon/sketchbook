@@ -378,10 +378,11 @@ void process(){
             pack(measFreq());
             // avg. unit time counts, calibration needed
             break;
-        case 0x0B:                                 // UV sensor: Adafruit ...
+        case 0x0B:                                 // UV sensor: Adafruit GUVA-S12SD
             selectMUXch(15);
-            pack(analogRead(MeasPin)/1023.);
-            // unit amplitude in rel. voltage, calibration needed
+            /* Display the results [mW/cm^2] or [UV index] */
+            pack( (analogRead(MeasPin) * 0.01) );  // mW/cm^2
+            //pack( (analogRead(MeasPin) * 0.049) ); // UV index
             break;
         case 0x0C:                                 // MIC "sensor": Sparkfun ...
             selectMUXch(14);
