@@ -4,7 +4,18 @@
     Author . . . . Ursin Solèr (according to design by Ian Evans)
     Written. . . . 5 Sep 2015.
     Description. . Hack HP Photosmart C4280 to work in case of faulty ink cartridge
-    Hardware . . . Arduino Uno/Nano
+    Hardware . . . Arduino Uno/Nano (w/ ATmega328)
+    Hardware . . . ATtiny84 (needs Arduino IDE 1.6.5)
+                     IDE: http://highlowtech.org/?p=1695
+                          Programming an ATtiny w/ Arduino 1.6 (or 1.0)
+                          (20150809)
+                     Platine: ATtiny
+                     Prozessor: ATtiny84
+                     Clock: 8MHz (internal)
+                     Port: /dev/ttyACM0 (Arduino Uno)
+                     Programmer: Arduino as ISP
+                     (upload first: Datei > Beispiele > ArduinoISP)
+    Schematic. . . Uno_HP-C4280_Enabler.fzz
 
 ********************************************************************************
 
@@ -56,13 +67,16 @@ interrupt but can be done by simple polling in the main loop.
 
 ********************************************************************************/
 
+// In ATTINY mode Serial interface is disabled
+#define ATTINY
+
 // Buttons controlled by I/O pins
 //#define POWER       12
-#define CANCEL      11
-#define CANCEL_IN   A0
-#define BLUE        10
-#define GRAY         9
-#define GREEN        8
+#define CANCEL      10
+#define CANCEL_IN   A1
+#define BLUE         9
+#define GRAY         8
+#define GREEN        7
 
 #define pushDelay   30    // delay in 1/10th seconds (30*0.1 = 3s)
 // we have to check/poll the line state every 1/100th
@@ -86,15 +100,21 @@ void setup() {
   digitalWrite( GREEN, LOW);
 
   // start serial port at 9600 bps and wait for port to open:
+#ifndef ATTINY
   Serial.begin(9600);
   Serial.println("HP C4280 Unblock Sequence Chip:");
+#endif
 }
 
 // the loop routine runs over and over again forever:
 void loop() {
   // detect button press (need to poll every 1/10th second - 100ms since line is oscillating)
   for(int i=0; i<pushDelay; ++i) {
+#ifndef ATTINY
     delay(100);
+#else
+    delay(10);
+#endif
 //    if (!((digitalRead(POWER) == LOW) && (digitalRead(CANCEL) == LOW))) {
 //    if (!(digitalRead(CANCEL) == LOW)) {
     if (digitalRead(CANCEL_IN) == LOW) {
@@ -105,53 +125,85 @@ void loop() {
 
   // do the "1xBLUE", "1xGREEN", "1xGRAY" sequence once ("blink the LED")
   // this results in a short screen flash, which you can recognize as "ready"
+#ifndef ATTINY
   Serial.println("Ready to run sequence. Wait for button to release.");
   Serial.println("1xBLUE");
+#endif
   pushButton(BLUE);
+#ifndef ATTINY
   Serial.println("1xGREEN");
+#endif
   pushButton(GREEN);
+#ifndef ATTINY
   Serial.println("1xGRAY");
+#endif
   pushButton(GRAY);
 
   // wait for button to release
 //  while((digitalRead(POWER) == LOW) || (digitalRead(CANCEL) == LOW)) {
 //  while(digitalRead(CANCEL) == LOW) {
   while(digitalRead(CANCEL_IN) == HIGH) {
+#ifndef ATTINY
     delay(100);
+#else
+    delay(10);
+#endif
   }
+#ifndef ATTINY
   delay(1000);
+#else
+  delay(100);
+#endif
 
   // run button press sequence
+#ifndef ATTINY
   Serial.println("Sequence: ");
   Serial.println("1xBLUE");
+#endif
   pushButton(BLUE);
+#ifndef ATTINY
   Serial.println("1xGREEN");
+#endif
   pushButton(GREEN);
+#ifndef ATTINY
   Serial.println("1xGRAY");
+#endif
   pushButton(GRAY);
+#ifndef ATTINY
   Serial.println("");
   Serial.println("1xBLUE");
+#endif
   pushButton(BLUE);
+#ifndef ATTINY
   Serial.println("");
   Serial.println("1xGREEN");
+#endif
   pushButton(GREEN);
+#ifndef ATTINY
   Serial.println("");
 //  Serial.println("11xBLUE");
   Serial.println("5xGRAY");
+#endif
   pushButton(GRAY);
   pushButton(GRAY);
   pushButton(GRAY);
   pushButton(GRAY);
   pushButton(GRAY);
+#ifndef ATTINY
   Serial.println("");
   Serial.println("1xGREEN");
+#endif
   pushButton(GREEN);
+#ifndef ATTINY
   Serial.println("");
   Serial.println("3xCANCEL");
+#endif
   pushButton(CANCEL);
   pushButton(CANCEL);
   pushButton(CANCEL);
+#ifndef ATTINY
   Serial.println("OK");
+#endif
 }
 
 void pushButton(int pin) {
@@ -165,7 +217,15 @@ void pushButton(int pin) {
   pinMode(pin, INPUT);
   delay(500);*/
   digitalWrite(pin, HIGH);
+#ifndef ATTINY
   delay(100);
+#else
+  delay(10);
+#endif
   digitalWrite(pin, LOW);
+#ifndef ATTINY
   delay(200);
+#else
+  delay(20);
+#endif
 }
