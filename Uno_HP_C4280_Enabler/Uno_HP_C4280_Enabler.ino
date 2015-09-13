@@ -64,8 +64,6 @@ interrupt but can be done by simple polling in the main loop.
 #define GRAY         9
 #define GREEN        8
 
-#define LED         13
-
 #define pushDelay   30    // delay in 1/10th seconds (30*0.1 = 3s)
 // we have to check/poll the line state every 1/100th
 // second since the line idle state is oscillating
@@ -74,15 +72,7 @@ char inByte;
 
 void setup() {
   // initialize the digital pin as an output.
-  pinMode(LED, OUTPUT);
-
-  digitalWrite(LED, LOW);
-
 //  pinMode(POWER, INPUT);
-/*  pinMode(CANCEL, INPUT);
-  pinMode(  BLUE, INPUT);
-  pinMode(  GRAY, INPUT);
-  pinMode( GREEN, INPUT);*/
   pinMode(CANCEL,    OUTPUT);
   pinMode(CANCEL_IN, INPUT);
   pinMode(BLUE,      OUTPUT);
@@ -113,14 +103,15 @@ void loop() {
     }
   }
 
-  // blink LED to report successfully recognized button press
+  // do the "1xBLUE", "1xGREEN", "1xGRAY" sequence once ("blink the LED")
+  // this results in a short screen flash, which you can recognize as "ready"
   Serial.println("Ready to run sequence. Wait for button to release.");
-  digitalWrite(LED, HIGH);
-  delay(50);
-  digitalWrite(LED, LOW);
-// TODO: consider doing the "1xBLUE", "1xGREEN", "1xGRAY" sequence here
-//       (does it work with CANCEL hold down) to signal the recognized
-//       sequence start...?!
+  Serial.println("1xBLUE");
+  pushButton(BLUE);
+  Serial.println("1xGREEN");
+  pushButton(GREEN);
+  Serial.println("1xGRAY");
+  pushButton(GRAY);
 
   // wait for button to release
 //  while((digitalRead(POWER) == LOW) || (digitalRead(CANCEL) == LOW)) {
