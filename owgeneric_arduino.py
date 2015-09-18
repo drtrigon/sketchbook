@@ -160,14 +160,15 @@ def get_slaves():
                 os.system("ls %s%s" % (os.path.join(ow_root, ""), dbg))
                 os.system("ls %s%s" % (os.path.join(ow_root, "uncached", ""), dbg))   # (check for sensor !)
         slaves = []
-        contents = os.listdir(os.path.join(ow_root, "uncached"))
-        for c in contents:
-                if "24.E2" in c:
-                        # ... and may be check os.path.join(ow_root, "uncached", c, "running") for '0' as well
-                        # OWGeneric_... Arduino Uno device
-                        if __debug:
-                                print "OWGeneric Arduino Uno device"
-                        slaves.append(c)
+        if os.path.exists(os.path.join(ow_root, "uncached")):
+                contents = os.listdir(os.path.join(ow_root, "uncached"))
+                for c in contents:
+                        if "24.E2" in c:
+                                # ... and may be check os.path.join(ow_root, "uncached", c, "running") for '0' as well
+                                # OWGeneric_... Arduino Uno device
+                                if __debug:
+                                        print "OWGeneric Arduino Uno device"
+                                slaves.append(c)
         return slaves
 
 
