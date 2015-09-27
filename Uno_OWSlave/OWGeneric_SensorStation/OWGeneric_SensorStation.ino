@@ -386,21 +386,21 @@ void process(){
             // * values from 0-10000 (us) expected, this fits roughly with 16-bits for the algo.
             // * calibration for "TCS3414CS"
             // http://ams.com/chi/content/download/251586/993227/version/2
-            /*digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
-            digitalWrite(TCS_S3, LOW);    // Clear/All
-            float white = measFreq();*/     // (white balance)
-            digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
-            digitalWrite(TCS_S3, LOW);    // Red
-            //float R = measFreq()/white;   // values from 0-1 (can e.g. by multiplied by 255)
-            R = 10000/measFreq();         // values from 1-10000 (us) expected <16bits
-            digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
-            digitalWrite(TCS_S3, HIGH);   // Green
-            //float G = measFreq()/white;   // values from 0-1 (can e.g. by multiplied by 255)
-            G = 10000/measFreq();         // values from 1-10000 (us) expected <16bits
-            digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
-            digitalWrite(TCS_S3, HIGH);   // Blue
-            //float B = measFreq()/white;   // values from 0-1 (can e.g. by multiplied by 255)
-            B = 10000/measFreq();         // values from 1-10000 (us) expected <16bits
+            /*digitalWrite(TCS_S2, HIGH);     // Photodiode type/color:
+            digitalWrite(TCS_S3, LOW);      // Clear/All
+            float white = measFreq();*/       // (white balance)
+            digitalWrite(TCS_S2, LOW);      // Photodiode type/color:
+            digitalWrite(TCS_S3, LOW);      // Red
+            //float R = measFreq()/(white+1); // values from 0-1 (can e.g. by multiplied by 255)
+            R = 10000/(measFreq()+1);       // values from 0-10000 (us) expected <16bits
+            digitalWrite(TCS_S2, HIGH);     // Photodiode type/color:
+            digitalWrite(TCS_S3, HIGH);     // Green
+            //float G = measFreq()/(white+1); // values from 0-1 (can e.g. by multiplied by 255)
+            G = 10000/(measFreq()+1);       // values from 0-10000 (us) expected <16bits
+            digitalWrite(TCS_S2, LOW);      // Photodiode type/color:
+            digitalWrite(TCS_S3, HIGH);     // Blue
+            //float B = measFreq()/(white+1); // values from 0-1 (can e.g. by multiplied by 255)
+            B = 10000/(measFreq()+1);       // values from 0-10000 (us) expected <16bits
             // (calibration matrix for "TCS3414CS")
             X = (-0.14282)*R + (1.54924)*G + (-0.95641)*B;
             Y = (-0.32466)*R + (1.57837)*G + (-0.73191)*B;  // Illuminance
@@ -614,7 +614,7 @@ float measFreq(void) {
         val += pulseIn(TCS_OUT, LOW, 10000);
     }
     digitalWrite(TCS_S0S1, LOW);  // Output scaling/gain: Power down
-    return (val/10.);
+    return (val/10.);             // timeout results in 0 (!)
 }
 
 /********************************************************************************
