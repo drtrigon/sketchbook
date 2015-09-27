@@ -1,7 +1,10 @@
 #include <OneWireSlave.h>
 /********************************************************************************
  TODO: NEED error handling, at least some bit that show state (ok/error) of every sensor/channel
-
+ TODO: does NOT work with OW-ENV-THPL on same master
+ TODO: does NOT work with LinkHubE
+ [increase version number when solving one of these issues!!]
+ 
     Program. . . . OWGeneric_SensorStation
     Author . . . . Ursin Solèr (according to design by Ian Evans)
     Written. . . . 1 Aug 2015.
@@ -41,14 +44,14 @@ http://owfs.sourceforge.net/DS2415.3.html
 
 0x 01 00 00 00   -- float --   read MQ-135 (A0) and return float / Air Quality
 0x 02 00 00 00   -- float --   read MQ-7 (A1) and return float / CO (!!! The heater uses an alternating voltage of 5V and 1.4V. !!! http://playground.arduino.cc/Main/MQGasSensors !!!)
-0x 03 00 00 00   -- float --   read MQ-5 (A2) and return float / Natural gas
+0x 03 00 00 00   -- float --   read Sharp dust sensor and return float / Smoke and dust
 0x 04 00 00 00   -- float --   read MQ-2 (A3) and return float / Flamable/Combustible gas
-0x 05 00 00 00   -- float --   read MQ-3 (A4) and return float / Alcohol (Smoke)
-0x 06 00 00 00   -- float --   read MQ-8 (A5) and return float / Hydrogen
-0x 07 00 00 00   -- float --   read TCS3200D (100% Red) and return float        ! LOW VALUES TAKE MORE THAN 100ms TO CONVERT
-0x 08 00 00 00   -- float --   read TCS3200D (100% Blue) and return float       ! (added desperate 3s delay in python script
-0x 09 00 00 00   -- float --   read TCS3200D (100% Clear/All) and return float  !  owgeneric_arduino.py)
-0x 0A 00 00 00   -- float --   read TCS3200D (100% Green) and return float      !
+0x 05 00 00 00   -- float --   read SEN113104 and return float / Water/Rain and damp (Grove)
+0x 06 00 00 00   -- float --   read SEN02281P and return float / Loudness (Grove)
+0x 07 00 00 00   -- float --   read TCS3200D color temperature in K and return float
+0x 08 00 00 00   -- float --   read TCS3200D (100% Blue) and return float
+0x 09 00 00 00   -- float --   read TCS3200D (100% Clear/All) and return float
+0x 0A 00 00 00   -- float --   read TCS3200D (100% Green) and return float
 0x 0B 00 00 00   -- float --   read UV sensor and return float
 0x 0C 00 00 00   -- float --   read MIC "sensor" and return float
 0x 0D 00 00 00   -- float --   read TSL2561 and return float
@@ -104,6 +107,8 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 #define TCS_S2        8
 #define TCS_S3        9
 #define TCS_OUT       7
+#define DUST_LED     A3
+//I2C (Wire) library occupies A4 (SDA), A5 (SCL)
 //#define BMP183_CLK  13
 #define BMP183_CLK   A2    // CLK (hardware SPI needs pin 13 here!)
 #define BMP183_SDO   12    // AKA MISO
@@ -113,6 +118,10 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 //  LED Flash Parameters
 #define flashPause  100    // LED between flash delay
 #define flashLength  50    // Flash length
+//  Dust IR LED Parameters
+#define dustDPreM   280    // pre-measurement delay
+#define dustDPostM   40    // post-measurement delay
+#define dustDOff   9680    // in-between-measurement/off delay
 
 #include <Adafruit_Sensor.h>
 
@@ -132,7 +141,8 @@ Adafruit_LSM9DS0 lsm = Adafruit_LSM9DS0(1000);  // Use I2C, ID #1000
 Adafruit_BMP183 bmp = Adafruit_BMP183(BMP183_CLK, BMP183_SDO, BMP183_SDI, BMP183_CS);    // or initialize with software SPI and use any 4 pins
 
 //  Commonly used variables
-unsigned int mmin, mmax, val;
+unsigned int mmin, mmax, val, mavg;
+float R, B, G, X, Y, Z, x, y, n, CCT;
 uint16_t broadband, infrared;
 sensors_event_t event, accel, mag, gyro, temp;
 
@@ -159,12 +169,16 @@ void setup() {
     pinMode(TCS_S3,   OUTPUT);
     pinMode(TCS_OUT,  INPUT);
 
+    pinMode(DUST_LED, OUTPUT);
+
     // Initialise the Pin output
     digitalWrite(LEDPin, LOW);
 
     // mux does not need to be initialized, channel gets selected later
 
     digitalWrite(TCS_S0S1, LOW);   // Output scaling/gain: Power down
+
+    digitalWrite(DUST_LED, HIGH);  // IR LED: off
 
 #ifdef DEBUG
     // Start serial port at 9600 bps and wait for port to open:
@@ -334,31 +348,70 @@ void process(){
             pack(analogRead(MeasPin)/1023.);
             // unit ppm, calibration needed
             break;
-        case 0x03:                                 // "A2" (MQ-5)
-            selectMUXch(3);
-            pack(analogRead(MeasPin)/1023.);
-            // unit ppm, calibration needed
-            break;
         case 0x04:                                 // "A3" (MQ-2)
             selectMUXch(2);
             pack(analogRead(MeasPin)/1023.);
             // unit ppm, calibration needed
             break;
-        case 0x05:                                 // "A4" (MQ-3)
+        case 0x03:                                 // Particles (dust, smoke, etc.) sensor: Sharp GP2Y1010AU0F
+            selectMUXch(3);
+            mmin = 1023;
+            mmax = 0;
+            mavg = 0;
+            for(int i=0; i<3; ++i) {    // init (30ms)
+                measDust();
+            }
+            for(int i=0; i<10; ++i) {   // 10 * 10ms = 100ms
+                val = measDust();       // read the dust value
+                mmin  = min(mmin, val);
+                mmax  = max(mmax, val);
+                mavg += val;
+            }
+            // print out data [ug/m^3]
+            pack(172. * (5.*((mavg/100.)/1023.)) - 99.9);  // average value
+//            pack(172. * (5.*((mmax-mmin)/1023.)));         // fluctuation between pulses (smoke or house dust)
+            break;
+        case 0x05:                                 // "A4" (SEN113104; Water/Rain and damp (Grove))
             selectMUXch(1);
             pack(analogRead(MeasPin)/1023.);
-            // unit ppm, calibration needed
+            // arbitrary unit
             break;
-        case 0x06:                                 // "A5" (MQ-8)
+        case 0x06:                                 // "A5" (SEN02281P; Loudness (Grove))
             selectMUXch(0);
             pack(analogRead(MeasPin)/1023.);
-            // unit ppm, calibration needed
+            // arbitrary unit
             break;
-        case 0x07:                                 // freq. (TCS3200D)
+        case 0x07:                                 // CCT calculated from RGB from freq. (TCS3200D)
+            // * no (calibrated) white balance
+            // * values from 0-10000 (us) expected, this fits roughly with 16-bits for the algo.
+            // * calibration for "TCS3414CS"
+            // http://ams.com/chi/content/download/251586/993227/version/2
+            /*digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
+            digitalWrite(TCS_S3, LOW);    // Clear/All
+            float white = measFreq();*/     // (white balance)
             digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
             digitalWrite(TCS_S3, LOW);    // Red
-            pack(measFreq());
-            // avg. unit time counts, calibration needed
+            //float R = measFreq()/white;   // values from 0-1 (can e.g. by multiplied by 255)
+            R = 10000/measFreq();         // values from 1-10000 (us) expected <16bits
+            digitalWrite(TCS_S2, HIGH);   // Photodiode type/color:
+            digitalWrite(TCS_S3, HIGH);   // Green
+            //float G = measFreq()/white;   // values from 0-1 (can e.g. by multiplied by 255)
+            G = 10000/measFreq();         // values from 1-10000 (us) expected <16bits
+            digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
+            digitalWrite(TCS_S3, HIGH);   // Blue
+            //float B = measFreq()/white;   // values from 0-1 (can e.g. by multiplied by 255)
+            B = 10000/measFreq();         // values from 1-10000 (us) expected <16bits
+            // (calibration matrix for "TCS3414CS")
+            X = (-0.14282)*R + (1.54924)*G + (-0.95641)*B;
+            Y = (-0.32466)*R + (1.57837)*G + (-0.73191)*B;  // Illuminance
+            Z = (-0.68202)*R + (0.77073)*G + (0.56332)*B;
+            // map to 2D chromaticity diagram
+            x = X/(X+Y+Z);
+            y = Y/(X+Y+Z);
+            // map to CCT using McCamy’s formula (+/-2K in 2,856 to 6,500 K), corresponding to CIE illuminants
+            n = (x - 0.3320) / (0.1858 - y);
+            CCT = 449*n*n*n + 3525*n*n + 6823.3*n + 5520.33;  // CCT in K
+            pack(CCT);
             break;
         case 0x08:                                 // freq. (TCS3200D)
             digitalWrite(TCS_S2, LOW);    // Photodiode type/color:
@@ -562,6 +615,22 @@ float measFreq(void) {
     }
     digitalWrite(TCS_S0S1, LOW);  // Output scaling/gain: Power down
     return (val/10.);
+}
+
+/********************************************************************************
+    Measure pulse detector response for Sharp GP2Y1010AU0F
+    (sensor for particles like dust, smoke, etc.)
+********************************************************************************/
+unsigned long measDust(void) {
+    //need to set selectMUXch(8); before calling this function
+    digitalWrite(DUST_LED, LOW);    //  (ON) POWER ON the LED via pin 3 on the sensor
+    delayMicroseconds(dustDPreM);   //  (ON)
+    val = analogRead(MeasPin);      //  (ON) read the dust value via pin 5 on the sensor
+    delayMicroseconds(dustDPostM);  //  (ON)
+    digitalWrite(DUST_LED, HIGH);   // (OFF) POWER OFF the LED
+    delayMicroseconds(dustDOff);    // (OFF)
+    // ...or use http://playground.arduino.cc/Code/ElapsedMillis alternatively
+    return val;
 }
 
 
