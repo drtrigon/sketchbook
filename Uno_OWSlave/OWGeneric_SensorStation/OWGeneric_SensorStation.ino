@@ -118,6 +118,8 @@ unsigned char rom[8]      = {DS2415, 0xE2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00};
 //  LED Flash Parameters
 #define flashPause  100    // LED between flash delay
 #define flashLength  50    // Flash length
+//  Frequency measurements Parameters
+#define timeout   10000
 //  Dust IR LED Parameters
 #define dustDPreM   280    // pre-measurement delay
 #define dustDPostM   40    // post-measurement delay
@@ -392,15 +394,15 @@ void process(){
             digitalWrite(TCS_S2, LOW);      // Photodiode type/color:
             digitalWrite(TCS_S3, LOW);      // Red
             //float R = measFreq()/(white+1); // values from 0-1 (can e.g. by multiplied by 255)
-            R = 10000/(measFreq()+1);       // values from 0-10000 (us) expected <16bits
+            R = timeout/(measFreq()+1);     // values from 0-10000 (us) expected <16bits
             digitalWrite(TCS_S2, HIGH);     // Photodiode type/color:
             digitalWrite(TCS_S3, HIGH);     // Green
             //float G = measFreq()/(white+1); // values from 0-1 (can e.g. by multiplied by 255)
-            G = 10000/(measFreq()+1);       // values from 0-10000 (us) expected <16bits
+            G = timeout/(measFreq()+1);     // values from 0-10000 (us) expected <16bits
             digitalWrite(TCS_S2, LOW);      // Photodiode type/color:
             digitalWrite(TCS_S3, HIGH);     // Blue
             //float B = measFreq()/(white+1); // values from 0-1 (can e.g. by multiplied by 255)
-            B = 10000/(measFreq()+1);       // values from 0-10000 (us) expected <16bits
+            B = timeout/(measFreq()+1);     // values from 0-10000 (us) expected <16bits
             // (calibration matrix for "TCS3414CS")
             X = (-0.14282)*R + (1.54924)*G + (-0.95641)*B;
             Y = (-0.32466)*R + (1.57837)*G + (-0.73191)*B;  // Illuminance
@@ -609,12 +611,17 @@ float measFreq(void) {
     delayMicroseconds(1000);      // give some time to turn on
     //freq = 500000/pulseIn(TCS_OUT, LOW);
     //unsigned int val = pulseIn(TCS_OUT, LOW);
-    val = 0;
-    for( int i = 0; i < 10; i++) {
-        val += pulseIn(TCS_OUT, LOW, 10000);
+    mavg = 0;
+    for(int i = 0; i < 10; i++) {
+        val = pulseIn(TCS_OUT, LOW, timeout);
+        if (val == 0) {           // timeout results in 0 (!)
+            mavg += timeout;
+        } else {
+            mavg += val;
+        }
     }
     digitalWrite(TCS_S0S1, LOW);  // Output scaling/gain: Power down
-    return (val/10.);             // timeout results in 0 (!)
+    return (mavg/10.);
 }
 
 /********************************************************************************
