@@ -107,17 +107,18 @@ def receive_data(address):
         #while True:
         for t in range(3):
 # TODO: why is the first read needed here; optimize/debug arduino code
-                read(slave)    # needed; otherwise the write/read sequence fails resp. lacks behind (?!) - but 1 write is enough now (3x faster!)
+# TODO: why is the first read try faulty
+                read(slave)      # needed; otherwise the write/read sequence fails resp. lacks behind (?!) - but 1 write is enough now (3x faster!)
                 write(slave, s)
                 time.sleep(process_delay)
                 (s2, tries) = read(slave)
-                if not (unpack_val(s2)[0] == -1):
-                        break
-                if (tries == 11):
+                if (tries == 11) or (tries == 1):       # first read try faulty
 #                       if (t > 0):
 #                               process_delay = 3.0
                         time.sleep(1.)
                         init(slave)  # reset 'error' and restart reading (owfs)
+                if not (unpack_val(s2)[0] == -1):
+                        break
         if (unpack_val(s2)[0] == -1):   # not successfull after 3 tries - stop the script to stop occupying the bus
                 return None
         b = unpack_val(s2)[1]
