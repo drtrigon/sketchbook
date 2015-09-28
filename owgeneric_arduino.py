@@ -115,8 +115,13 @@ def receive_data(address):
                 if (tries == 11) or (tries == 1):       # first read try faulty
 #                       if (t > 0):
 #                               process_delay = 3.0
-                        time.sleep(1.)
-                        init(slave)  # reset 'error' and restart reading (owfs)
+#                       time.sleep(1.)
+                        time.sleep(2.)
+                        init(slave)      # reset 'error' and restart reading (owfs)
+                        read(slave)
+                        write(slave, s)
+                        time.sleep(process_delay)
+                        read(slave)
                 if not (unpack_val(s2)[0] == -1):
                         break
         if (unpack_val(s2)[0] == -1):   # not successfull after 3 tries - stop the script to stop occupying the bus
