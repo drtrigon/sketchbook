@@ -53,7 +53,7 @@ http://owfs.sourceforge.net/DS2415.3.html
 0x 09 00 00 00   -- float --   read TCS3200D (100% Clear/All) and return float
 0x 0A 00 00 00   -- float --   read TCS3200D (100% Green) and return float
 0x 0B 00 00 00   -- float --   read UV sensor and return float
-0x 0C 00 00 00   -- float --   read MIC "sensor" and return float
+0x 0C 00 00 00   -- float --   read MIC "sensor" as log and return float
 0x 0D 00 00 00   -- float --   read TSL2561 and return float
 0x 0E 00 00 00   -- float --   read TSL2561 (broadband) and return float
 0x 0F 00 00 00   -- float --   read TSL2561 (IR) and return float
@@ -259,6 +259,10 @@ void setup() {
     FlashLED_blocking();
     delay(flashPause);
     FlashLED_blocking();
+#ifdef DEBUG
+    delay(flashPause);
+    FlashLED_blocking();
+#endif
 }
 
 /********************************************************************************
@@ -370,7 +374,7 @@ void process(){
                 mavg += val;
             }
             // print out data [ug/m^3]
-            pack(172. * (5.*((mavg/100.)/1023.)) - 99.9);  // average value
+            pack(172. * (5.*((mavg/10.)/1023.)) - 99.9);  // average value
 //            pack(172. * (5.*((mmax-mmin)/1023.)));         // fluctuation between pulses (smoke or house dust)
             break;
         case 0x05:                                 // "A4" (SEN113104; Water/Rain and damp (Grove))
@@ -403,7 +407,7 @@ void process(){
             digitalWrite(TCS_S3, HIGH);     // Blue
             //float B = measFreq()/white;     // values from 0-1 (can e.g. by multiplied by 255)
             B = timeout/measFreq();         // values from 1-10000 (us) expected <16bits
-            // (calibration matrix for "TCS3414CS")
+            // (calibration matrix for "TCS3414CS" - may be better to use the one for sRGB)
             X = (-0.14282)*R + (1.54924)*G + (-0.95641)*B;
             Y = (-0.32466)*R + (1.57837)*G + (-0.73191)*B;  // Illuminance
             Z = (-0.68202)*R + (0.77073)*G + (0.56332)*B;
@@ -413,6 +417,9 @@ void process(){
             // map to CCT using McCamy’s formula (+/-2K in 2,856 to 6,500 K), corresponding to CIE illuminants
             n = (x - 0.3320) / (0.1858 - y);
             CCT = 449*n*n*n + 3525*n*n + 6823.3*n + 5520.33;  // CCT in K
+            if((CCT < 0) || (10000 < CCT)) {
+                CCT = -1;
+            }
             pack(CCT);
             break;
         case 0x08:                                 // freq. (TCS3200D)
@@ -446,11 +453,11 @@ void process(){
             //for(unsigned long i=0; i<10000; ++i) {
             for(unsigned long i=0; i<1000; ++i) {
                 val = analogRead(MeasPin);
-                mmin = min(mmin, val);
-                mmax = max(mmax, val);
+                mmin = min(mmin, val);   // simple if ... < should be faster...
+                mmax = max(mmax, val);   // "
                 //delayMicroseconds(1);
             }
-            pack((mmax-mmin)/1023.);
+            pack(log((mmax-mmin)/1023.));
             // unit amplitude in rel. voltage, calibration needed
             break;
         case 0x0D:                                 // Light sensor: Adafruit_TSL2561
@@ -465,6 +472,8 @@ void process(){
             infrared = 0;
             /* Populate broadband and infrared with the latest values */
             tsl.getLuminosity (&broadband, &infrared);
+            /* Scale for gain (1x or 16x) */
+            if (!tsl._tsl2561Gain) broadband *= 16;
             pack(broadband);
             break;
         case 0x0F:                                 // Light sensor: Adafruit_TSL2561
@@ -473,6 +482,8 @@ void process(){
             infrared = 0;
             /* Populate broadband and infrared with the latest values */
             tsl.getLuminosity (&broadband, &infrared);
+            /* Scale for gain (1x or 16x) */
+            if (!tsl._tsl2561Gain) infrared *= 16;
             pack(infrared);
             break;
         case 0x10:                                 // Accel/Magn/Gyro/Temp sensor: Adafruit_LSM9DS0

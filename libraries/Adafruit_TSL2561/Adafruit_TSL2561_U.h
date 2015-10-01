@@ -177,6 +177,8 @@ tsl2561Gain_t;
 
 class Adafruit_TSL2561_Unified : public Adafruit_Sensor {
  public:
+  tsl2561Gain_t _tsl2561Gain;  // most simple hacky solution - better 'getGain()'
+
   Adafruit_TSL2561_Unified(uint8_t addr, int32_t sensorID = -1);
   boolean begin(void);
   
@@ -196,7 +198,7 @@ class Adafruit_TSL2561_Unified : public Adafruit_Sensor {
   boolean _tsl2561Initialised;
   boolean _tsl2561AutoGain;
   tsl2561IntegrationTime_t _tsl2561IntegrationTime;
-  tsl2561Gain_t _tsl2561Gain;
+//  tsl2561Gain_t _tsl2561Gain;
   int32_t _tsl2561SensorID;
   
   void     enable (void);
