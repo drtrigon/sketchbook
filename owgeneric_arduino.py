@@ -120,6 +120,8 @@ def receive_data(address):
                         init(slave)      # reset 'error' and restart reading (owfs)
                         read(slave)
                         write(slave, s)
+                        write(slave, s)
+                        write(slave, s)
                         time.sleep(process_delay)
                         read(slave)
                 if not (unpack_val(s2)[0] == -1):
