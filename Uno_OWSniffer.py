@@ -25,6 +25,7 @@
 # * read/write 0 detection (write 0 0x80 ? vs. read 0 0xFE and lower ? saw a lot of 0xfc and 0x80 ...)
 # * buffering of data on all levels for debug access/view
 # * detect RESET w/o PRESENCE (0x00 all other commands give at least a 0x80 - with Arduino Uno on OWServer ENET)
+# * make it work with adaptive LinkHubE properly (currently working with OW_SERVER_ENET only)
 
 
 RESET       = ['\xF0', '\xE0', '\x90',]
