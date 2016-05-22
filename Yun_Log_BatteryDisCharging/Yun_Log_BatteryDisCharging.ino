@@ -20,6 +20,10 @@
 
  * "/arduino/adc/01"         -> ads.readADC_Differential_0_1()
  * "/arduino/adc/23"         -> ads.readADC_Differential_2_3()
+ * "/arduino/adc/0"          -> ads.readADC_SingleEnded(0)
+ * "/arduino/adc/1"          -> ads.readADC_SingleEnded(1)
+ * "/arduino/adc/2"          -> ads.readADC_SingleEnded(2)
+ * "/arduino/adc/3"          -> ads.readADC_SingleEnded(3)
 
  This example code is part of the public domain
 
@@ -81,6 +85,7 @@ void setup() {
 //  Serial.println("Hello!");
 //  
 //  Serial.println("Getting differential reading from AIN0 (P) and AIN1 (N)");
+//  Serial.println("Getting single-ended readings from AIN0..3");
 //  Serial.println("ADC Range: +/- 6.144V (1 bit = 3mV/ADS1015, 0.1875mV/ADS1115)");
 //  
   // The ADC input range (or gain) can be changed via the following
@@ -278,6 +283,82 @@ void adcCommand(YunClient client) {
   if (pins == "23") {
     // Read adc diff. pins
     results = ads.readADC_Differential_2_3();
+
+    // Send feedback to client
+    client.print(F("Pin ADC"));
+    client.print(pins);
+    client.print(F(" reads analog diff "));
+    client.print(results);
+    client.print(F(" (")); client.print(results * multiplier); client.println(F("mV)"));
+
+    // Update datastore key with the current pin value
+    String key = "ADC";
+    key += pins;
+    Bridge.put(key, String(results));
+
+    return;
+  }
+
+  if (pins == "0") {
+    // Read adc single-end. pins
+    results = ads.readADC_SingleEnded(0);
+
+    // Send feedback to client
+    client.print(F("Pin ADC"));
+    client.print(pins);
+    client.print(F(" reads analog diff "));
+    client.print(results);
+    client.print(F(" (")); client.print(results * multiplier); client.println(F("mV)"));
+
+    // Update datastore key with the current pin value
+    String key = "ADC";
+    key += pins;
+    Bridge.put(key, String(results));
+
+    return;
+  }
+
+  if (pins == "1") {
+    // Read adc single-end. pins
+    results = ads.readADC_SingleEnded(1);
+
+    // Send feedback to client
+    client.print(F("Pin ADC"));
+    client.print(pins);
+    client.print(F(" reads analog diff "));
+    client.print(results);
+    client.print(F(" (")); client.print(results * multiplier); client.println(F("mV)"));
+
+    // Update datastore key with the current pin value
+    String key = "ADC";
+    key += pins;
+    Bridge.put(key, String(results));
+
+    return;
+  }
+
+  if (pins == "2") {
+    // Read adc single-end. pins
+    results = ads.readADC_SingleEnded(2);
+
+    // Send feedback to client
+    client.print(F("Pin ADC"));
+    client.print(pins);
+    client.print(F(" reads analog diff "));
+    client.print(results);
+    client.print(F(" (")); client.print(results * multiplier); client.println(F("mV)"));
+
+    // Update datastore key with the current pin value
+    String key = "ADC";
+    key += pins;
+    Bridge.put(key, String(results));
+
+    return;
+  }
+
+  if (pins == "3") {
+    // Read adc single-end. pins
+    results = ads.readADC_SingleEnded(3);
 
     // Send feedback to client
     client.print(F("Pin ADC"));
