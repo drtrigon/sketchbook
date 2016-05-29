@@ -39,11 +39,11 @@ while True:
     resistance = voltage / (current*1.E-3)
     power = voltage * (current*1.E-3)
 
-    #output = "%s, %014.3f, %06.3f V, %09.3f mA, %8.3f Ohm, %7.3f W" % (ts + (voltage, current, resistance, power))
-    output = "%s, %14.3f, %6.3f V, %9.3f mA, %8.3f Ohm, %7.3f W" % (ts + (voltage, current, resistance, power))
+    #output = "%s, %014.3f, %09.3f V, %09.3f mA, %9.3f Ohm, %9.3f W" % (ts + (voltage, current, resistance, power))
+    output = "%s, %14.3f, %9.3f V, %9.3f mA, %9.3f Ohm, %9.3f W" % (ts + (voltage, current, resistance, power))
     print output
 
-    output = "%s, %14.3f, %06.3f, %09.3f, %08.3f, %07.3f" % (ts + (voltage, current, resistance, power))
+    output = "%s, %14.3f, %09.3f, %09.3f, %09.3f, %09.3f" % (ts + (voltage, current, resistance, power))
     log = open("Yun_Log_BatteryDisCharging.log", "a")
     log.write(output + "\n")
     log.close()
