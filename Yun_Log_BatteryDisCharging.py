@@ -8,6 +8,9 @@
 import urllib2
 import time
 
+import numpy as np
+import matplotlib.pyplot as plt
+
 calibration = {
     'V': lambda V: 9.3 * V            * 1.E-3,  #  ~0.1V/V [returns V]
     'I': lambda I: (I - 2502.) / 225. * 1.E+3,  # ~200mV/A, offset ~2500mV [returns mA]
@@ -19,8 +22,13 @@ def read_adc_value(adc):
 
 print "Please make sure to connect to 'ArduinoYun-XXXXXXXXXXXX' wifi/wlan first!"
 
+#plt.axis([0, 10, 0, 1])
+plt.ylim([0., 15.])
+plt.ion()
+
+i = 0
 while True:
-    ts = time.asctime()
+    ts = (time.asctime(), time.time())
 
     adc0 = read_adc_value(0)
     voltage = calibration['V'](adc0[1])
@@ -28,13 +36,19 @@ while True:
     adc1 = read_adc_value(1)
     current = calibration['I'](adc1[1])
 
-    #output = "%s, %09.3f V, %09.3f mA" % (ts, voltage, current)
-    output = "%s, %9.3f V, %9.3f mA" % (ts, voltage, current)
+    #output = "%s, %014.3f, %09.3f V, %09.3f mA" % (ts + (voltage, current))
+    output = "%s, %14.3f, %9.3f V, %9.3f mA" % (ts + (voltage, current))
     print output
 
-    output = "%s, %09.3f, %09.3f" % (ts, voltage, current)
+    output = "%s, %14.3f, %09.3f, %09.3f" % (ts + (voltage, current))
     log = open("Yun_Log_BatteryDisCharging.log", "a")
     log.write(output + "\n")
     log.close()
 
-    time.sleep(10.)
+    #plt.scatter(i, voltage)
+    plt.scatter([i]*2, [voltage, current*1.E-3], color=['b', 'r'])
+
+    #time.sleep(10.)
+    plt.pause(10.)
+
+    i += 1
