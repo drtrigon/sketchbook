@@ -24,6 +24,7 @@ print "Please make sure to connect to 'ArduinoYun-XXXXXXXXXXXX' wifi/wlan first!
 
 #plt.axis([0, 10, 0, 1])
 plt.ylim([0., 15.])
+plt.grid(True)
 plt.ion()
 
 i = 0
