@@ -36,11 +36,14 @@ while True:
     adc1 = read_adc_value(1)
     current = calibration['I'](adc1[1])
 
-    #output = "%s, %014.3f, %09.3f V, %09.3f mA" % (ts + (voltage, current))
-    output = "%s, %14.3f, %9.3f V, %9.3f mA" % (ts + (voltage, current))
+    resistance = voltage / (current*1.E-3)
+    power = voltage * (current*1.E-3)
+
+    #output = "%s, %014.3f, %06.3f V, %09.3f mA, %8.3f Ohm, %7.3f W" % (ts + (voltage, current, resistance, power))
+    output = "%s, %14.3f, %6.3f V, %9.3f mA, %8.3f Ohm, %7.3f W" % (ts + (voltage, current, resistance, power))
     print output
 
-    output = "%s, %14.3f, %09.3f, %09.3f" % (ts + (voltage, current))
+    output = "%s, %14.3f, %06.3f, %09.3f, %08.3f, %07.3f" % (ts + (voltage, current, resistance, power))
     log = open("Yun_Log_BatteryDisCharging.log", "a")
     log.write(output + "\n")
     log.close()
