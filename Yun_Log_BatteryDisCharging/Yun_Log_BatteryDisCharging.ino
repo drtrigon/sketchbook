@@ -24,6 +24,10 @@
  * "/arduino/adc/1"          -> ads.readADC_SingleEnded(1)
  * "/arduino/adc/2"          -> ads.readADC_SingleEnded(2)
  * "/arduino/adc/3"          -> ads.readADC_SingleEnded(3)
+ (* "/arduino/mon/U"          -> return calibrated voltage reading)
+ (* "/arduino/mon/I"          -> return calibrated current reading)
+ (* "/arduino/log/U"          -> return most recent voltage log)
+ (* "/arduino/log/I"          -> return most recent current log)
 
  This example code is part of the public domain
 
