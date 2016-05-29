@@ -9,8 +9,8 @@ import urllib2
 import time
 
 calibration = {
-    'V': lambda V: 9.4 * V            * 1.E-3,  #  ~0.1V/V [returns V]
-    'I': lambda I: (I - 2504.) / 210. * 1.E+3,  # ~200mV/A, offset ~2500mV [returns mA]
+    'V': lambda V: 9.3 * V            * 1.E-3,  #  ~0.1V/V [returns V]
+    'I': lambda I: (I - 2502.) / 225. * 1.E+3,  # ~200mV/A, offset ~2500mV [returns mA]
     }
 
 def read_adc_value(adc):
