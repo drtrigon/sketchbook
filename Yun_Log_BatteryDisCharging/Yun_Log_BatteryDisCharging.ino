@@ -1,7 +1,8 @@
 // monitor vs log - add storage capabilities! (sd card needed?)
 
 /*
-  Arduino Yún Bridge example
+  Arduino Yún Battery Dis-/Charge Monitor and Logger
+  (derived from Arduino Yún Bridge example, SD card datalogger)
 
  This example for the Arduino Yún shows how to use the
  Bridge library to access the digital and analog pins
@@ -57,6 +58,7 @@
 //     http://arduino.local/arduino/digital/13/1
 // 8.) use browser: http://arduino.local/arduino/adc/01
 //                  http://arduino.local/arduino/adc/23
+//                  http://arduino.local/arduino/mon/log
 
 // https://www.arduino.cc/en/Guide/ArduinoYun
 // https://www.arduino.cc/en/Tutorial/Bridge
@@ -74,26 +76,30 @@
 #include <Wire.h>
 #include <Adafruit_ADS1015.h>
 
-#define AVERAGE    1
-#define LOG_SIZE   10
-//#define LOG_TIME   300.0
+//#define DEBUG
+
+#define AVERAGE    10      // NOISY thus average! investigate why hardware is noisy!
+#define LOG_SIZE   20
+#ifndef DEBUG
+#define LOG_TIME   300.0
+#else
 #define LOG_TIME   30.0
+#endif
 /* Be sure to update this value based on the IC and the gain settings! */
 //#define multiplier 3.0F    /* ADS1015 @ +/- 6.144V gain (12-bit results) */
 #define multiplier 0.1875F /* ADS1115  @ +/- 6.144V gain (16-bit results) */
 
 static inline float calibration_V(float V) { return 9.3 * V            * 1.E-3; }  //  ~0.1V/V [returns V]
-static inline float calibration_I(float I) { return (I - 2502.) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+//static inline float calibration_I(float I) { return (I - 2502.) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+static inline float calibration_I(float I) { return (I - 2501.5) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
 
 unsigned long const MAX_unsigned_long = -1;
 
 float ADC_SE_0, ADC_SE_1;
-float U, I, R, P, C, E, T, lI;
+float U, I, R, P, C, E, T, lI, lT;
 unsigned long t  = 0;
 unsigned long lt = 0;
-
-float bU[LOG_SIZE], bI[LOG_SIZE], bR[LOG_SIZE], bP[LOG_SIZE], bC[LOG_SIZE], bE[LOG_SIZE], bT[LOG_SIZE];
-int bindex = LOG_SIZE - 1;  // such that +1 -> 0
+int dsindex = LOG_SIZE - 1;  // such that +1 -> 0
 
 // Listen to the default port 5555, the Yún webserver
 // will forward there all the HTTP requests you send
@@ -137,8 +143,6 @@ void setup() {
   ads.begin();
 
 //  FileSystem.begin();
-
-  bT[bindex] = -LOG_TIME;   // -5min
 }
 
 void loop() {
@@ -154,7 +158,7 @@ void loop() {
     client.stop();
   }
 
-  // Measure data (with averaging?)
+  // Measure data
   monitor_func();
   // Log data
   log_func();
@@ -430,11 +434,11 @@ void monCommand(YunClient client) {
   if (pins == "U") {
     // Send feedback to client
     client.print(F("Voltage reads "));
-    client.print(U);
+    client.print(U, 3);
     client.println(F("V"));
 
     // Update datastore key with the current pin value
-    Bridge.put("U", String(U));
+    Bridge.put("U", String(U, 3));
 
     return;
   }
@@ -442,11 +446,11 @@ void monCommand(YunClient client) {
   if (pins == "I") {
     // Send feedback to client
     client.print(F("Current reads "));
-    client.print(I);
+    client.print(I, 3);
     client.println(F("A"));
 
     // Update datastore key with the current pin value
-    Bridge.put("I", String(I));
+    Bridge.put("I", String(I, 3));
 
     return;
   }
@@ -454,11 +458,11 @@ void monCommand(YunClient client) {
   if (pins == "R") {
     // Send feedback to client
     client.print(F("Resistance reads "));
-    client.print(R);
+    client.print(R, 3);
     client.println(F("Ohm"));
 
     // Update datastore key with the current pin value
-    Bridge.put("R", String(R));
+    Bridge.put("R", String(R, 3));
 
     return;
   }
@@ -466,11 +470,11 @@ void monCommand(YunClient client) {
   if (pins == "P") {
     // Send feedback to client
     client.print(F("Power reads "));
-    client.print(P);
+    client.print(P, 3);
     client.println(F("W"));
 
     // Update datastore key with the current pin value
-    Bridge.put("P", String(P));
+    Bridge.put("P", String(P, 3));
 
     return;
   }
@@ -478,11 +482,11 @@ void monCommand(YunClient client) {
   if (pins == "C") {
     // Send feedback to client
     client.print(F("Capacity reads "));
-    client.print(C);
+    client.print(C, 3);
     client.println(F("mAh"));
 
     // Update datastore key with the current pin value
-    Bridge.put("C", String(C));
+    Bridge.put("C", String(C, 3));
 
     return;
   }
@@ -490,11 +494,11 @@ void monCommand(YunClient client) {
   if (pins == "E") {
     // Send feedback to client
     client.print(F("Energy reads "));
-    client.print(E);
+    client.print(E, 3);
     client.println(F("J"));
 
     // Update datastore key with the current pin value
-    Bridge.put("E", String(E));
+    Bridge.put("E", String(E, 3));
 
     return;
   }
@@ -506,34 +510,20 @@ void monCommand(YunClient client) {
 
     // Send feedback to client
     client.print(F("Time reads "));
-    client.print(T);
+    client.print(T, 3);
     client.println(F("s"));
 
     // Update datastore key with the current pin value
-    Bridge.put("t", String(T));
+    Bridge.put("t", String(T, 3));
 
     return;
   }
 
   if (pins == "log") {
     // Send feedback to client
-    int i = (bindex + 1) % LOG_SIZE;
+    int i = (dsindex + 1) % LOG_SIZE;
     char myData[10];
     while (true) {
-      client.print(bT[i]);
-      client.print(F(", "));
-      client.print(bU[i]);
-      client.print(F(", "));
-      client.print(bI[i]);
-      client.print(F(", "));
-      client.print(bR[i]);
-      client.print(F(", "));
-      client.print(bP[i]);
-      client.print(F(", "));
-      client.print(bC[i]);
-      client.print(F(", "));
-      client.println(bE[i]);
-
       // Retrieve value from datastore by key
       // https://www.arduino.cc/en/Reference/YunGet
       Bridge.get((String("bT")+i).c_str(), myData, 10);
@@ -558,7 +548,7 @@ void monCommand(YunClient client) {
       Bridge.get((String("bE")+i).c_str(), myData, 10);
       client.println(myData);
 
-      if (i == bindex) {
+      if (i == dsindex) {
         return;
       }
       i = (i + 1) % LOG_SIZE;
@@ -596,11 +586,12 @@ void monitor_func(void) {
   I = calibration_I(ADC_SE_1);           // unit: A
   R = U / I;                             // unit: Ohm
   P = U * I;                             // unit: W
-  if ((t == lt) || (sgn(lI) != sgn(I))) {  // reset "counters"
+  if ((t == lt) || ((sgn(lI) != sgn(I)) && (abs(I - lI) > 0.010))) {  // reset "counters"
     t = millis() - 1;
     C = 0.0;
     E = 0.0;
     T = 0.0;
+    lT = -LOG_TIME;   // -5min
   }
   lt = t;                                // unit: ms
   t  = millis();                         // unit: ms
@@ -617,30 +608,22 @@ void monitor_func(void) {
 }
 
 void log_func(void) {
-  if ((T - bT[bindex]) < LOG_TIME) {  // storage/buffer delay: 5mins (since 50ms is too fast)  !!!!!
+  if ((T - lT) < LOG_TIME) {  // storage/buffer delay: 5mins (since 50ms is too fast)
     return;
   }
-
-  // Log data
-  bindex = (bindex + 1) % LOG_SIZE;   // ring buffer
-  bU[bindex] = U;
-  bI[bindex] = I;
-  bR[bindex] = R;
-  bP[bindex] = P;
-  bC[bindex] = C;
-  bE[bindex] = E;
-  bT[bindex] = T;
+  lT = T;
 
   // Update datastore key with the data to log (store data on the Linux processor)
   // https://www.arduino.cc/en/Reference/YunPut
   // Reason to prefer over array is here we have virtually infinite memory and does not interfere with program memory
-  Bridge.put(String("bU")+bindex, String(U));
-  Bridge.put(String("bI")+bindex, String(I));
-  Bridge.put(String("bR")+bindex, String(R));
-  Bridge.put(String("bP")+bindex, String(P));
-  Bridge.put(String("bC")+bindex, String(C));
-  Bridge.put(String("bE")+bindex, String(E));
-  Bridge.put(String("bT")+bindex, String(T));
+  dsindex = (dsindex + 1) % LOG_SIZE;    // ring buffer
+  Bridge.put(String("bU")+dsindex, String(U, 3));
+  Bridge.put(String("bI")+dsindex, String(I, 3));
+  Bridge.put(String("bR")+dsindex, String(R, 3));
+  Bridge.put(String("bP")+dsindex, String(P, 3));
+  Bridge.put(String("bC")+dsindex, String(C, 3));
+  Bridge.put(String("bE")+dsindex, String(E, 3));
+  Bridge.put(String("bT")+dsindex, String(T, 3));
 
   // Write to SD card or USB stick
   // https://www.arduino.cc/en/Reference/YunBridgeLibrary
@@ -663,10 +646,11 @@ void log_func(void) {
   }*/
 }
 
-static inline int8_t sgn(int val) {
+//static inline int8_t sgn(int val) {
+static inline int8_t sgn(float val) {
   // http://forum.arduino.cc/index.php?topic=37804.msg279218#msg279218
  if (val < 0) return -1;
- if (val==0) return 0;
+// if (val==0) return 0;
  return 1;
 }
 
