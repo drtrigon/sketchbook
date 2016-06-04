@@ -90,8 +90,8 @@
 #define multiplier 0.1875F /* ADS1115  @ +/- 6.144V gain (16-bit results) */
 
 static inline float calibration_V(float V) { return 9.3 * V            * 1.E-3; }  //  ~0.1V/V [returns V]
-//static inline float calibration_I(float I) { return (I - 2502.) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
-static inline float calibration_I(float I) { return (I - 2501.5) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+static inline float calibration_I(float I) { return (I - 2502.) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+//static inline float calibration_I(float I) { return (I - 2501.25) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
 
 unsigned long const MAX_unsigned_long = -1;
 
@@ -644,6 +644,12 @@ void log_func(void) {
   else {
     Serial.println("error opening datalog.txt");
   }*/
+  // ursin@ursin-ThinkPad-T420:~$ ssh root@arduino.local
+  // (password: arduino)
+  // root@Arduino:~# ls -la /mnt/
+  // http://forum.arduino.cc/index.php?topic=218307.0
+  // http://wiki.openwrt.org/doc/howto/usb.storage
+  // root@Arduino:~# ls -la /dev/ 
 }
 
 //static inline int8_t sgn(int val) {
