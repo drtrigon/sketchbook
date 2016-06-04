@@ -11,12 +11,12 @@
 
  Possible commands created in this shetch:
 
- * "/arduino/digital/13"     -> digitalRead(13)
- * "/arduino/digital/13/1"   -> digitalWrite(13, HIGH)
- * "/arduino/analog/2/123"   -> analogWrite(2, 123)
- * "/arduino/analog/2"       -> analogRead(2)
- * "/arduino/mode/13/input"  -> pinMode(13, INPUT)
- * "/arduino/mode/13/output" -> pinMode(13, OUTPUT)
+ (* "/arduino/digital/13"     -> digitalRead(13) )
+ (* "/arduino/digital/13/1"   -> digitalWrite(13, HIGH) )
+ (* "/arduino/analog/2/123"   -> analogWrite(2, 123) )
+ (* "/arduino/analog/2"       -> analogRead(2) )
+ (* "/arduino/mode/13/input"  -> pinMode(13, INPUT) )
+ (* "/arduino/mode/13/output" -> pinMode(13, OUTPUT) )
 
  * "/arduino/adc/01"         -> ads.readADC_Differential_0_1()
  * "/arduino/adc/23"         -> ads.readADC_Differential_2_3()
@@ -24,10 +24,16 @@
  * "/arduino/adc/1"          -> ads.readADC_SingleEnded(1)
  * "/arduino/adc/2"          -> ads.readADC_SingleEnded(2)
  * "/arduino/adc/3"          -> ads.readADC_SingleEnded(3)
- (* "/arduino/mon/U"          -> return calibrated voltage reading)
- (* "/arduino/mon/I"          -> return calibrated current reading)
- (* "/arduino/log/U"          -> return most recent voltage log)
- (* "/arduino/log/I"          -> return most recent current log)
+
+ * "/arduino/mon/U"          -> return calibrated voltage reading
+ * "/arduino/mon/I"          -> return calibrated current reading
+ * "/arduino/mon/R"          -> return calculated resistance
+ * "/arduino/mon/P"          -> return calculated power
+ * "/arduino/mon/C"          -> return integrated capacity
+ * "/arduino/mon/E"          -> return integrated energy
+ * "/arduino/mon/t"          -> return integrated time
+ * "/arduino/mon/reset"      -> set t, C, E integrators to zero (by lt=t)
+ * "/arduino/mon/log"        -> return most recent log
 
  This example code is part of the public domain
 
@@ -63,8 +69,31 @@
 #include <YunServer.h>
 #include <YunClient.h>
 
+//#include <FileIO.h>
+
 #include <Wire.h>
 #include <Adafruit_ADS1015.h>
+
+#define AVERAGE    1
+#define LOG_SIZE   10
+//#define LOG_TIME   300.0
+#define LOG_TIME   30.0
+/* Be sure to update this value based on the IC and the gain settings! */
+//#define multiplier 3.0F    /* ADS1015 @ +/- 6.144V gain (12-bit results) */
+#define multiplier 0.1875F /* ADS1115  @ +/- 6.144V gain (16-bit results) */
+
+static inline float calibration_V(float V) { return 9.3 * V            * 1.E-3; }  //  ~0.1V/V [returns V]
+static inline float calibration_I(float I) { return (I - 2502.) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+
+unsigned long const MAX_unsigned_long = -1;
+
+float ADC_SE_0, ADC_SE_1;
+float U, I, R, P, C, E, T, lI;
+unsigned long t  = 0;
+unsigned long lt = 0;
+
+float bU[LOG_SIZE], bI[LOG_SIZE], bR[LOG_SIZE], bP[LOG_SIZE], bC[LOG_SIZE], bE[LOG_SIZE], bT[LOG_SIZE];
+int bindex = LOG_SIZE - 1;  // such that +1 -> 0
 
 // Listen to the default port 5555, the Yún webserver
 // will forward there all the HTTP requests you send
@@ -106,6 +135,10 @@ void setup() {
   // ads.setGain(GAIN_SIXTEEN);    // 16x gain  +/- 0.256V  1 bit = 0.125mV  0.0078125mV
   
   ads.begin();
+
+//  FileSystem.begin();
+
+  bT[bindex] = -LOG_TIME;   // -5min
 }
 
 void loop() {
@@ -121,6 +154,11 @@ void loop() {
     client.stop();
   }
 
+  // Measure data (with averaging?)
+  monitor_func();
+  // Log data
+  log_func();
+
   delay(50); // Poll every 50ms
 }
 
@@ -128,7 +166,7 @@ void process(YunClient client) {
   // read the command
   String command = client.readStringUntil('/');
 
-  // is "digital" command?
+/*  // is "digital" command?
   if (command == "digital") {
     digitalCommand(client);
   }
@@ -141,15 +179,20 @@ void process(YunClient client) {
   // is "mode" command?
   if (command == "mode") {
     modeCommand(client);
-  }
+  }*/
 
   // is "adc" command?
   if (command == "adc") {
     adcCommand(client);
   }
+
+  // is "mon" command?
+  if (command == "mon") {
+    monCommand(client);
+  }
 }
 
-void digitalCommand(YunClient client) {
+/*void digitalCommand(YunClient client) {
   int pin, value;
 
   // Read pin number
@@ -252,15 +295,11 @@ void modeCommand(YunClient client) {
 
   client.print(F("error: invalid mode "));
   client.print(mode);
-}
+}*/
 
 // derived from 'analogCommand' and 'modeCommand'
 void adcCommand(YunClient client) {
   int16_t results;
-  
-  /* Be sure to update this value based on the IC and the gain settings! */
-  //float   multiplier = 3.0F;    /* ADS1015 @ +/- 6.144V gain (12-bit results) */
-  float multiplier = 0.1875F; /* ADS1115  @ +/- 6.144V gain (16-bit results) */
 
   // Read pin number
   String pins = client.readStringUntil('\r');
@@ -381,6 +420,254 @@ void adcCommand(YunClient client) {
 
   client.print(F("error: invalid pins "));
   client.print(pins);
+}
+
+// derived from 'adcCommand'
+void monCommand(YunClient client) {
+  // Read pin number
+  String pins = client.readStringUntil('\r');
+
+  if (pins == "U") {
+    // Send feedback to client
+    client.print(F("Voltage reads "));
+    client.print(U);
+    client.println(F("V"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("U", String(U));
+
+    return;
+  }
+
+  if (pins == "I") {
+    // Send feedback to client
+    client.print(F("Current reads "));
+    client.print(I);
+    client.println(F("A"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("I", String(I));
+
+    return;
+  }
+
+  if (pins == "R") {
+    // Send feedback to client
+    client.print(F("Resistance reads "));
+    client.print(R);
+    client.println(F("Ohm"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("R", String(R));
+
+    return;
+  }
+
+  if (pins == "P") {
+    // Send feedback to client
+    client.print(F("Power reads "));
+    client.print(P);
+    client.println(F("W"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("P", String(P));
+
+    return;
+  }
+
+  if (pins == "C") {
+    // Send feedback to client
+    client.print(F("Capacity reads "));
+    client.print(C);
+    client.println(F("mAh"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("C", String(C));
+
+    return;
+  }
+
+  if (pins == "E") {
+    // Send feedback to client
+    client.print(F("Energy reads "));
+    client.print(E);
+    client.println(F("J"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("E", String(E));
+
+    return;
+  }
+
+  if ((pins == "t") || (pins == "reset")) {
+    if (pins == "reset") {
+      lt = t;  // trigger reset in func 'monitor_func'
+    }
+
+    // Send feedback to client
+    client.print(F("Time reads "));
+    client.print(T);
+    client.println(F("s"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("t", String(T));
+
+    return;
+  }
+
+  if (pins == "log") {
+    // Send feedback to client
+    int i = (bindex + 1) % LOG_SIZE;
+    char myData[10];
+    while (true) {
+      client.print(bT[i]);
+      client.print(F(", "));
+      client.print(bU[i]);
+      client.print(F(", "));
+      client.print(bI[i]);
+      client.print(F(", "));
+      client.print(bR[i]);
+      client.print(F(", "));
+      client.print(bP[i]);
+      client.print(F(", "));
+      client.print(bC[i]);
+      client.print(F(", "));
+      client.println(bE[i]);
+
+      // Retrieve value from datastore by key
+      // https://www.arduino.cc/en/Reference/YunGet
+      Bridge.get((String("bT")+i).c_str(), myData, 10);
+      //Serial.println(myData);
+      client.print(myData);
+      client.print(F(", "));
+      Bridge.get((String("bU")+i).c_str(), myData, 10);
+      client.print(myData);
+      client.print(F(", "));
+      Bridge.get((String("bI")+i).c_str(), myData, 10);
+      client.print(myData);
+      client.print(F(", "));
+      Bridge.get((String("bR")+i).c_str(), myData, 10);
+      client.print(myData);
+      client.print(F(", "));
+      Bridge.get((String("bP")+i).c_str(), myData, 10);
+      client.print(myData);
+      client.print(F(", "));
+      Bridge.get((String("bC")+i).c_str(), myData, 10);
+      client.print(myData);
+      client.print(F(", "));
+      Bridge.get((String("bE")+i).c_str(), myData, 10);
+      client.println(myData);
+
+      if (i == bindex) {
+        return;
+      }
+      i = (i + 1) % LOG_SIZE;
+    }
+
+    return;
+  }
+
+  client.print(F("error: invalid value "));
+  client.print(pins);
+}
+
+void monitor_func(void) {
+  // Measure data (with averaging?)
+  int16_t results;
+  float dt, dC, dE;
+
+  // Read adc single-end. pins
+  ADC_SE_0 = 0.0;
+  for (int i=0; i < AVERAGE; ++i) {
+    results = ads.readADC_SingleEnded(0);
+    ADC_SE_0 += results * multiplier;       // NOISY thus average! investigate why hardware is noisy!
+  }
+  ADC_SE_0 /= AVERAGE;
+  // Read adc single-end. pins
+  ADC_SE_1 = 0.0;
+  for (int i=0; i < AVERAGE; ++i) {
+    results = ads.readADC_SingleEnded(1);
+    ADC_SE_1 += results * multiplier;       // NOISY thus average! investigate why hardware is noisy!
+  }
+  ADC_SE_1 /= AVERAGE;
+
+  U = calibration_V(ADC_SE_0);           // unit: V
+  lI = I;
+  I = calibration_I(ADC_SE_1);           // unit: A
+  R = U / I;                             // unit: Ohm
+  P = U * I;                             // unit: W
+  if ((t == lt) || (sgn(lI) != sgn(I))) {  // reset "counters"
+    t = millis() - 1;
+    C = 0.0;
+    E = 0.0;
+    T = 0.0;
+  }
+  lt = t;                                // unit: ms
+  t  = millis();                         // unit: ms
+  dt = (t - lt) * 1E-3;                  // unit: s
+  if (dt < 0.) {
+    // handle wrap of millis()
+    dt = (t - (lt-MAX_unsigned_long-1)) * 1E-3;
+  }
+  dC = I * dt / 3.6;                     // unit: mAh
+  dE = P * dt;                           // unit: J
+  C += dC;                               // unit: mAh
+  E += dE;                               // unit: J
+  T += dt;                               // unit: s
+}
+
+void log_func(void) {
+  if ((T - bT[bindex]) < LOG_TIME) {  // storage/buffer delay: 5mins (since 50ms is too fast)  !!!!!
+    return;
+  }
+
+  // Log data
+  bindex = (bindex + 1) % LOG_SIZE;   // ring buffer
+  bU[bindex] = U;
+  bI[bindex] = I;
+  bR[bindex] = R;
+  bP[bindex] = P;
+  bC[bindex] = C;
+  bE[bindex] = E;
+  bT[bindex] = T;
+
+  // Update datastore key with the data to log (store data on the Linux processor)
+  // https://www.arduino.cc/en/Reference/YunPut
+  // Reason to prefer over array is here we have virtually infinite memory and does not interfere with program memory
+  Bridge.put(String("bU")+bindex, String(U));
+  Bridge.put(String("bI")+bindex, String(I));
+  Bridge.put(String("bR")+bindex, String(R));
+  Bridge.put(String("bP")+bindex, String(P));
+  Bridge.put(String("bC")+bindex, String(C));
+  Bridge.put(String("bE")+bindex, String(E));
+  Bridge.put(String("bT")+bindex, String(T));
+
+  // Write to SD card or USB stick
+  // https://www.arduino.cc/en/Reference/YunBridgeLibrary
+  // https://www.arduino.cc/en/Tutorial/YunDatalogger
+  // open the file. note that only one file can be open at a time,
+  // so you have to close this one before opening another.
+  // The FileSystem card is mounted at the following "/mnt/FileSystema1"
+/*  File dataFile = FileSystem.open("/mnt/sd/datalog.txt", FILE_APPEND);
+
+  // if the file is available, write to it:
+  if (dataFile) {
+    dataFile.println(dataString);
+    dataFile.close();
+    // print to the serial port too:
+    Serial.println(dataString);
+  }
+  // if the file isn't open, pop up an error:
+  else {
+    Serial.println("error opening datalog.txt");
+  }*/
+}
+
+static inline int8_t sgn(int val) {
+  // http://forum.arduino.cc/index.php?topic=37804.msg279218#msg279218
+ if (val < 0) return -1;
+ if (val==0) return 0;
+ return 1;
 }
 
 
