@@ -34,7 +34,7 @@ plt.grid(True)
 plt.ion()
 
 i = 0
-lj, lT = -1, -1
+lW = -1
 while True:
     ts = (time.asctime(), time.time())
 
@@ -64,19 +64,21 @@ while True:
 #
 #        i += 1
 
-    for j, item in enumerate(read_mon_log()):
-        if (j < lj) or ((j == lj) and (lT == item[0])):  # check whether data list got longer or last entry changed
+    for item in read_mon_log():
+        if (lW >= item[0]):
             continue
-        lj, lT = j, item[0]
-        output = "%s, %14.3f, %9.3f s, %9.3f V, %9.3f A, %9.3f Ohm, %9.3f W, %9.3f mAh, %9.3f J" % (ts + tuple(item))
+        lW = item[0]
+        output = "%s, %14.3f, %9.3f s, %9.3f s, %9.3f V, %9.3f A, %9.3f Ohm, %9.3f W, %9.3f mAh, %9.3f J" % (ts + tuple(item))
         print output
 
-        output = "%s, %14.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f" % (ts + tuple(item))
+        output = "%s, %14.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f" % (ts + tuple(item))
         log = open("Yun_Log_BatteryDisCharging.log", "a")
         log.write(output + "\n")
         log.close()
 
-        plt.scatter([300.*i]*2, item[1:3], color=['b', 'r'])
+        #plt.scatter([i]*2, item[2:4], color=['b', 'r'])
+        #plt.scatter([300.*i]*2, item[2:4], color=['b', 'r'])
+        plt.scatter([item[0]]*2, item[2:4], color=['b', 'r'])
 
         i += 1
 

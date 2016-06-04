@@ -97,6 +97,7 @@ unsigned long const MAX_unsigned_long = -1;
 
 float ADC_SE_0, ADC_SE_1;
 float U, I, R, P, C, E, T, lI, lT;
+float W = 0.0;
 unsigned long t  = 0;
 unsigned long lt = 0;
 int dsindex = LOG_SIZE - 1;  // such that +1 -> 0
@@ -503,6 +504,18 @@ void monCommand(YunClient client) {
     return;
   }
 
+  if (pins == "W") {
+    // Send feedback to client
+    client.print(F("Watch reads "));
+    client.print(W, 3);
+    client.println(F("s"));
+
+    // Update datastore key with the current pin value
+    Bridge.put("W", String(W, 3));
+
+    return;
+  }
+
   if ((pins == "t") || (pins == "reset")) {
     if (pins == "reset") {
       lt = t;  // trigger reset in func 'monitor_func'
@@ -526,8 +539,11 @@ void monCommand(YunClient client) {
     while (true) {
       // Retrieve value from datastore by key
       // https://www.arduino.cc/en/Reference/YunGet
-      Bridge.get((String("bT")+i).c_str(), myData, 10);
+      Bridge.get((String("bW")+i).c_str(), myData, 10);
       //Serial.println(myData);
+      client.print(myData);
+      client.print(F(", "));
+      Bridge.get((String("bT")+i).c_str(), myData, 10);
       client.print(myData);
       client.print(F(", "));
       Bridge.get((String("bU")+i).c_str(), myData, 10);
@@ -605,6 +621,7 @@ void monitor_func(void) {
   C += dC;                               // unit: mAh
   E += dE;                               // unit: J
   T += dt;                               // unit: s
+  W += dt;                               // unit: s
 }
 
 void log_func(void) {
@@ -624,6 +641,7 @@ void log_func(void) {
   Bridge.put(String("bC")+dsindex, String(C, 3));
   Bridge.put(String("bE")+dsindex, String(E, 3));
   Bridge.put(String("bT")+dsindex, String(T, 3));
+  Bridge.put(String("bW")+dsindex, String(W, 3));
 
   // Write to SD card or USB stick
   // https://www.arduino.cc/en/Reference/YunBridgeLibrary
