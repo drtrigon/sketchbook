@@ -14,6 +14,8 @@ import matplotlib.pyplot as plt
 
 
 log_file = "Yun_Log_BatteryDisCharging.log"
+fmt_print = "%s, %14.3f, %9.3f s, %9.3f s, %9.3f V, %9.3f A, %9.3f Ohm, %9.3f W, %9.3f mAh, %9.3f J"
+fmt_write = "%s, %14.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f"
 
 #calibration = {
 #    'V': lambda V: 9.3 * V            * 1.E-3,  #  ~0.1V/V [returns V]
@@ -69,25 +71,31 @@ if getlog:
     print "Retrieving log data from Yun ..."
 
     W = read_mon_values()[-1]
-    if (delay < 2*3600) and (W >= row[2]):  # there could still be data in the log we have already
-        lW = row[2]
+    if (delay < 2*3600) and (W >= float(row[2])):  # there could still be data in the log we have already
+        lW = float(row[2])
+        print "Last entry watch value was:", lW
     else:
         lW = -1
 
     ts = (time.asctime(), time.time())
 
+    i = 0
     for item in read_mon_log():
-        if (lW >= item[0]):
+        if (lW >= float(item[0])):
             continue
-        lW = item[0]
-        output = "%s, %14.3f, %9.3f s, %9.3f s, %9.3f V, %9.3f A, %9.3f Ohm, %9.3f W, %9.3f mAh, %9.3f J" % (ts + tuple(item))
+        lW = float(item[0])
+        output = fmt_print % (ts + tuple(item))
         print output
 
-        output = "%s, %14.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f" % (ts + tuple(item))
+        output = fmt_write % (ts + tuple(item))
         with open(log_file, "a") as log:
             log.write(output + "\n")
 
         plt.scatter([item[0]]*2, item[2:4], color=['b', 'r'])
+
+        i += 1
+
+    print "Number of entries retrieved:", i
 
 print "Retrieving live data from Yun, starting ..."
 
@@ -106,10 +114,10 @@ while True:
     power = voltage * current
 
     #output = "%s, %014.3f, %09.3f V, %09.3f mA, %9.3f Ohm, %9.3f W" % (ts + (voltage, current, resistance, power))
-    output = "%s, %14.3f, %9.3f s, %9.3f s, %9.3f V, %9.3f A, %9.3f Ohm, %9.3f W, %9.3f mAh, %9.3f J" % (ts + (W, t, voltage, current, resistance, power, C, E))
+    output = fmt_print % (ts + (W, t, voltage, current, resistance, power, C, E))
     print output
 
-    output = "%s, %14.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f, %9.3f" % (ts + (W, t, voltage, current, resistance, power, C, E))
+    output = fmt_write % (ts + (W, t, voltage, current, resistance, power, C, E))
     with open(log_file, "a") as log:
         log.write(output + "\n")
 
