@@ -1,4 +1,6 @@
-// monitor vs log - add storage capabilities! (sd card needed?)
+// TODO: may be add auto-offset calibration (on power-on)
+// TODO: add edge detection for start/end of dis/charge cycles (reset T)
+// TODO: add storage capabilities (sd card needed? try with usb stick first!)
 
 /*
   Arduino Yún Battery Dis-/Charge Monitor and Logger
@@ -79,7 +81,7 @@
 //#define DEBUG
 
 #define AVERAGE    10      // NOISY thus average! investigate why hardware is noisy!
-#define LOG_SIZE   20
+#define LOG_SIZE   30
 #ifndef DEBUG
 #define LOG_TIME   300.0
 #else
@@ -90,9 +92,10 @@
 #define multiplier 0.1875F /* ADS1115  @ +/- 6.144V gain (16-bit results) */
 
 //static inline float calibration_V(float V) { return 9.3 * V            * 1.E-3; }  //  ~0.1V/V [returns V]
-static inline float calibration_V(float V) { return 9.3 * (V - 62.)    * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
-static inline float calibration_I(float I) { return (I - 2502.) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
-//static inline float calibration_I(float I) { return (I - 2501.25) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+//static inline float calibration_V(float V) { return 9.3 * (V - 62.)    * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
+static inline float calibration_V(float V) { return 9.85 * (V - 57.)   * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
+//static inline float calibration_I(float I) { return (I - 2502.) / 225. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+static inline float calibration_I(float I) { return (I - 2515.) / 235. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
 
 unsigned long const MAX_unsigned_long = -1;
 
