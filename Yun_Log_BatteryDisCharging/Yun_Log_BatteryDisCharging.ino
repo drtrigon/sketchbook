@@ -92,8 +92,8 @@
 #define multiplier 0.1875F /* ADS1115  @ +/- 6.144V gain (16-bit results) */
 
 // tested for discharge
-static inline float calibration_V(float V) { return 10.25 * (V - 57.)   * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
-static inline float calibration_I(float I) { return (I - 2515.) / 163. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+static inline float calibration_V(float V) { return 10.3 * (V - 57.)   * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
+static inline float calibration_I(float I) { return (I - 2515.) / 167. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
 
 unsigned long const MAX_unsigned_long = -1;
 
