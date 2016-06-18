@@ -63,7 +63,7 @@ print "Last timestamp was:", row[0]
 print "Time delay since then:", delay, "( >5mins?:", getlog, ")"
 
 #plt.axis([0, 10, 0, 1])
-plt.ylim([0., 15.])
+plt.ylim([-1., 14.])
 plt.grid(True)
 plt.ion()
 
