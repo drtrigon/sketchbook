@@ -1,5 +1,3 @@
-// TODO: may be add auto-offset calibration (on power-on)
-// TODO: add edge detection for start/end of dis/charge cycles (reset T)
 // TODO: add storage capabilities (sd card needed? try with usb stick first!)
 
 /*
@@ -37,6 +35,7 @@
  * "/arduino/mon/t"          -> return integrated time
  * "/arduino/mon/reset"      -> set t, C, E integrators to zero (by lt=t)
  * "/arduino/mon/log"        -> return most recent log
+ (* "/arduino/mon/calib"      -> set U and I offset)
 
  This example code is part of the public domain
 
@@ -91,9 +90,13 @@
 //#define multiplier 3.0F    /* ADS1015 @ +/- 6.144V gain (12-bit results) */
 #define multiplier 0.1875F /* ADS1115  @ +/- 6.144V gain (16-bit results) */
 
-// tested for discharge
-static inline float calibration_V(float V) { return 10.3 * (V - 57.)   * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
-static inline float calibration_I(float I) { return (I - 2515.) / 167. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+// tested for discharge (single-ended mode)
+//static inline float calibration_V(float V) { return 10.3 * (V - 57.)   * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
+// tested for charge (single-ended mode)
+static inline float calibration_V(float V) { return 9.9 * (V - 79.)   * 1.E-3; }  //  ~0.1V/V, offset ~50mV (why?) [returns V]
+// tested for dis-/charge (single-ended mode)
+static inline float calibration_I(float I) { return (I - 2523.) / 245. * 1.E0;  }  // ~200mV/A, offset ~2500mV [returns A]
+// it looks like we have an additional offset of about +22mV on each channel when running stand-alone (not on PC USB)
 
 unsigned long const MAX_unsigned_long = -1;
 
@@ -604,7 +607,9 @@ void monitor_func(void) {
   I = calibration_I(ADC_SE_1);           // unit: A
   R = U / I;                             // unit: Ohm
   P = U * I;                             // unit: W
-  if ((t == lt) || ((sgn(lI) != sgn(I)) && (abs(I - lI) > 0.010))) {  // reset "counters"
+  //if ((t == lt) || ((sgn(lI) != sgn(I)) && (abs(I - lI) > 0.010))) {  // reset "counters"
+  if ((t == lt) || ((sgn(lI) != sgn(I)) && (abs(I - lI) > 0.020))) {  // reset "counters" (e.g. start/end of dis/charge cycles)
+  //if ((t == lt) || (abs(I - lI) > 0.050)) {  // reset "counters" and edge detection for start/end of dis/charge cycles
     t = millis() - 1;
     C = 0.0;
     E = 0.0;
