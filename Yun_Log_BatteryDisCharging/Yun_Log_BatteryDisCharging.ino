@@ -66,6 +66,10 @@
 // https://www.arduino.cc/en/reference/wire
 // http://www.open-electronics.org/using-rest-with-arduino-yun/
 
+// Hardware: Yun, ADS1115 breakout, LEM breakout, 
+//           10 Mohm 10:1 volt. divider, 
+// For more info and schematic see hand-written notes.
+
  */
 
 #include <Bridge.h>
@@ -608,8 +612,8 @@ void monitor_func(void) {
   R = U / I;                             // unit: Ohm
   P = U * I;                             // unit: W
   //if ((t == lt) || ((sgn(lI) != sgn(I)) && (abs(I - lI) > 0.010))) {  // reset "counters"
-  if ((t == lt) || ((sgn(lI) != sgn(I)) && (abs(I - lI) > 0.020))) {  // reset "counters" (e.g. start/end of dis/charge cycles)
-  //if ((t == lt) || (abs(I - lI) > 0.050)) {  // reset "counters" and edge detection for start/end of dis/charge cycles
+  //if ((t == lt) || ((sgn(lI) != sgn(I)) && (abs(I - lI) > 0.020))) {  // reset "counters" (e.g. start/end of dis/charge cycles)
+  if ((t == lt) || (abs(I - lI) > 0.050)) {  // reset "counters" and edge detection for start/end of dis/charge cycles
     t = millis() - 1;
     C = 0.0;
     E = 0.0;
