@@ -53,8 +53,10 @@ void loop()
     uint8_t ly = tx.getChannel(0, lyul, lyuh, 0, 255);
     uint8_t rx = tx.getChannel(2, rxul, rxuh, 0, 255);
     uint8_t ry = tx.getChannel(1, ryul, ryuh, 0, 255);
+    uint8_t ch5 = tx.getChannel(4, 1105, 1900, 0, 255);
+    uint8_t ch6 = tx.getChannel(5, 1105, 1900, 0, 255);
     
-    joy.writeGame(lx,ly,rx,ry);
+    joy.writeGame(lx,ly,rx,ry,ch5,ch6);
       
   
 }//end loop

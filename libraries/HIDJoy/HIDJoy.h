@@ -9,10 +9,15 @@
 
 struct gamepad_report_t
 {
+  uint8_t buttons;
   int8_t left_x;
   int8_t left_y;
   int8_t right_x;
   int8_t right_y;
+  int8_t ch5;
+  int8_t ch6;
+//  int8_t ch7;
+//  int8_t ch8;
 };
 
 class HIDJoy : public Print {
@@ -21,7 +26,7 @@ public:
   size_t write(uint8_t);  // write one character
   size_t write(const uint8_t *buffer, size_t size); // write a string
 
-  size_t writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry);
+  size_t writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5, int8_t ch6);
 
   static void poll();
   static unsigned char available();
