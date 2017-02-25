@@ -17,8 +17,8 @@ struct gamepad_report_t
   int8_t ch5;
   int8_t ch6;
   int8_t ch7;
-//  int8_t ch8;
-};
+  int8_t ch8;
+};  // size: 9 bytes
 
 class HIDJoy : public Print {
 public:
@@ -26,7 +26,7 @@ public:
   size_t write(uint8_t);  // write one character
   size_t write(const uint8_t *buffer, size_t size); // write a string
 
-  size_t writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5, int8_t ch6, int8_t ch7);
+  size_t writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5, int8_t ch6, int8_t ch7, int8_t ch8);
 
   static void poll();
   static unsigned char available();

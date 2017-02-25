@@ -54,7 +54,7 @@ PROGMEM const char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 0xa1, 0x00,                    //   COLLECTION (Physical)
 0x05, 0x09,                    //     USAGE_PAGE (Button)
 0x19, 0x01,                    //     USAGE_MINIMUM (Button 1)
-0x29, 0x01,                    //     USAGE_MAXIMUM (Button 1)
+0x29, 0x08,                    //     USAGE_MAXIMUM (Button 8)
 0x15, 0x00,                    //     LOGICAL_MINIMUM (0)
 0x25, 0x01,                    //     LOGICAL_MAXIMUM (1)
 0x95, 0x08,                    //     REPORT_COUNT (8)
@@ -64,26 +64,23 @@ PROGMEM const char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 0x09, 0x30,                    //     USAGE (X)
 0x09, 0x31,                    //     USAGE (Y)
 0x09, 0x32,                    //     USAGE (Z) rx
-//0x09, 0x35,                    //     USAGE (Rx) ry
 0x09, 0x33,                    //     USAGE (Rx)
 0x09, 0x34,                    //     USAGE (Ry)
 0x09, 0x35,                    //     USAGE (Rz)
 0x09, 0x36,                    //     USAGE (Slider)
-//0x09, 0x36,                    //     USAGE (Slider)
-//0x09, 0x40,                    //     USAGE (Vx)
-//0x09, 0x41,                    //     USAGE (Vy)
+0x09, 0x36,                    //     USAGE (Slider)
 0x35, 0x00,                    //     PHYSICAL_MINIMUM (0)
 0x46, 0xff, 0x00,              //     PHYSICAL_MAXIMUM (255)
 0x15, 0x00,                    //     LOGICAL_MINIMUM (-127)
 0x26, 0xff, 0x00,              //     LOGICAL_MAXIMUM (127)
 0x75, 0x08,                    //     REPORT_SIZE (8)
-0x95, 0x07,                    //     REPORT_COUNT (7)
-//0x95, 0x08,                    //     REPORT_COUNT (8)
+0x95, 0x08,                    //     REPORT_COUNT (8)
 0x81, 0x02,                    //     INPUT (Data,Var,Abs)
 0xc0,                          //   END_COLLECTION
 0xc0                           // END_COLLECTION
 };
 // see also http://eleccelerator.com/tutorial-about-usb-hid-report-descriptors/
+// see also https://forum.pjrc.com/threads/23681-Many-axis-joystick/page2
 
 /* usbFunctionRead() is called when the host requests a chunk of data from
  * the device. For more information see the documentation in usbdrv/usbdrv.h.
@@ -191,15 +188,14 @@ uchar HIDJoy::read(uchar *buffer)
 
 // write one character
 
-size_t HIDJoy::writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5, int8_t ch6, int8_t ch7)
+size_t HIDJoy::writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5, int8_t ch6, int8_t ch7, int8_t ch8)
 {
   while(!usbInterruptIsReady()) {
     usbPoll();
   }
 
   gameReport.buttons = (Lx<0) | ((Ly<0) << 1) | ((Rx<0) << 2) | ((Ry<0) << 3) |
-//                       ((ch5<0) << 4) | ((ch6<0) << 5) | ((ch7<0) << 6) | ((ch8<0) << 7);
-                       ((ch5<0) << 4) | ((ch6<0) << 5) | ((ch7<0) << 6) | B10000000;
+                       ((ch5<0) << 4) | ((ch6<0) << 5) | ((ch7<0) << 6) | ((ch8<0) << 7);
   gameReport.left_x = Lx;
   gameReport.left_y = Ly;
   gameReport.right_x = Rx;
@@ -207,9 +203,10 @@ size_t HIDJoy::writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5,
   gameReport.ch5 = ch5;
   gameReport.ch6 = ch6;
   gameReport.ch7 = ch7;
-//  gameReport.ch8 = Ly;
+  gameReport.ch8 = ch8;
 
-  usbSetInterrupt((unsigned char *)&gameReport, sizeof(gamepad_report_t));
+//  usbSetInterrupt((unsigned char *)&gameReport, sizeof(gamepad_report_t));  // write max 8 bytes
+  write((uint8_t *)&gameReport, sizeof(gamepad_report_t));  // write more than 8 bytes
   return 1;
 }
 
@@ -225,6 +222,15 @@ size_t HIDJoy::write(uint8_t data)
   return 1;
 }
 
+// You should be able to simulate a 16 byte interrupt transfer with the following procedure:
+//   * Pass the first 8 bytes with usbSetInterrupt().
+//   * Wait until they are transferred with usbInterruptIsReady().
+//   * Pass the next 8 bytes with usbSetInterrupt().
+//   * Wait until the transaction is complete with usbInterruptIsReady().
+//   * Call usbSetInterrupt() with 0 bytes to indicate the end of transfer.
+// If your payload is only 15 bytes, you save the last 0 byte transaction. The end of transfer is indicated by a transaction with less than 8 bytes.
+// see also https://forums.obdev.at/viewtopic.php?p=330&sid=a371f0d9c43f177db4b8f5987f0e5fb2#p330
+
 // write up to 8 characters
 size_t HIDJoy::write8(const uint8_t *buffer, size_t size)
 {
@@ -236,7 +242,8 @@ size_t HIDJoy::write8(const uint8_t *buffer, size_t size)
   for(i=0;i<size && i<8; i++) {
     outBuffer[i] = buffer[i];
   }
-  usbSetInterrupt(outBuffer, 8);
+//  usbSetInterrupt(outBuffer, 8);
+  usbSetInterrupt(outBuffer, (size<8) ? size : 8);
   return (i);
 }
 
@@ -248,5 +255,7 @@ size_t HIDJoy::write(const uint8_t *buffer, size_t size)
   for(i=0; i< (size/8) + 1; i++) {
     count += write8(buffer+i*8, (size<(count+8)) ? (size-count) : 8);
   }
+// also need to call usbSetInterrupt() with 0 bytes to indicate the end of transfer
+// if size is a multiple of 8 (8 excluded; 16, 24, 32, ...)
   return count;
 }

@@ -283,7 +283,7 @@ section at the end of this file).
  //was 29 VVVV
 
 //#define USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH    36
-#define USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH    58
+#define USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH    60
 /* Define this to the length of the HID report descriptor, if you implement
  * an HID device. Otherwise don't define it or define it to 0.
  * If you use this define, you must add a PROGMEM character array named
