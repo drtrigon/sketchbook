@@ -1,0 +1,57 @@
+
+Use EditFC28 with Win7
+
+
+--- Needs the USB interface of Arduino UNO ---
+
+1. Reset UNO; bridge GND - RESET pin => NO SKETCH/CODE FOR ARDUINO NEEDED
+
+2. Connect to FC-28; Uno GND - FC28 Trainer SHIELD
+
+3. Connect to FC-28; Uno pin 0 (RX) - FC28 Trainer pin 3
+   (from USB/serial PC to  FC-28)
+
+4. Connect to FC-28; Uno pin 1 (TX) - FC28 Trainer pin 2
+   (from FC-28 to USB/serial PC)
+
+5. Bridge FC28 Trainer pin 4 - 5 (switches Transmitter ON)
+
+When using the PCB/shield given in the fritzing file/PDF use a 1:1 cable
+with shield=pin7.
+
+
+--- Needs USB driver software ---
+
+A.1. Install Arduino IDE to Win 7; https://www.arduino.cc/en/Main/Software - download the installer file
+
+-or-
+
+B.1. Install Arduino USB Driver only; https://www.arduino.cc/en/Main/Software - download the ZIP file and 
+     decompress it, you will find a driver folder in it
+     (you might have to copy the driver folder from network share to desktop first)
+
+  2. Connect Arduino and watch how the driver install will fail
+
+  3.1. Open the Windows Device Manager (right-click to Computer) and right click onto "Arduino Uno"
+
+  3.2. Choose "Update driver software...", select to search the computer for files and open
+       the driver folder decompressed before
+
+
+--- Needs EditFC28 software ---
+
+1. Run Installer as Admin; http://www.christian-karbacher.de/editfc28download.htm
+
+
+--- Connect Arduino ---
+
+1. Connect to PC and pass-through to VirtualBox Win 7 Guest (Geräte >> USB Geräte > >> Arduino ...) and wait for driver to install
+
+2. Check COM port number (e.g. COM3) from Windows Device Manager
+
+3. Run/Open EditFC28 as Admin
+
+4. Config under Optionen >> Schnittstelle
+
+5. Get Data with Empfangen (FC28->PC)
+
