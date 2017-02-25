@@ -2,6 +2,14 @@
 Use EditFC28 with Win7
 
 
+git: http://192.168.11.24:1234/?p=sketchbook.git;a=tree;f=Uno_EditFC28_USB
+$ git clone file://///data/mount/sshfs/02Data/01Ursin/04Programin_UNS/01git/sketchbook.git/
+$ cd sketchbook/Uno_EditFC28_USB/
+
+smb://192.168.11.22/data_05_raid/06HardwareSetUp/02MicroProcessors/09EditFC28/
+smb://192.168.11.22/data_05_raid/02Data/01Ursin/07Modellbau_UNS/01EditFC28/
+
+
 --- Needs the USB interface of Arduino UNO ---
 
 1. Reset UNO; bridge GND - RESET pin => NO SKETCH/CODE FOR ARDUINO NEEDED
