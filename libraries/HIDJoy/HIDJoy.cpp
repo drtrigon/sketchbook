@@ -57,12 +57,9 @@ PROGMEM const char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 0x29, 0x01,                    //     USAGE_MAXIMUM (Button 1)
 0x15, 0x00,                    //     LOGICAL_MINIMUM (0)
 0x25, 0x01,                    //     LOGICAL_MAXIMUM (1)
-0x95, 0x01,                    //     REPORT_COUNT (1)
+0x95, 0x08,                    //     REPORT_COUNT (8)
 0x75, 0x01,                    //     REPORT_SIZE (1)
 0x81, 0x02,                    //     INPUT (Data,Var,Abs)
-0x95, 0x01,                    //     REPORT_COUNT (1)
-0x75, 0x07,                    //     REPORT_SIZE (7)
-0x81, 0x03,                    //     INPUT (Cnst,Var,Abs)
 0x05, 0x01,                    //     USAGE_PAGE (Generic Desktop)
 0x09, 0x30,                    //     USAGE (X)
 0x09, 0x31,                    //     USAGE (Y)
@@ -71,14 +68,16 @@ PROGMEM const char usbHidReportDescriptor[USB_CFG_HID_REPORT_DESCRIPTOR_LENGTH] 
 0x09, 0x33,                    //     USAGE (Rx)
 0x09, 0x34,                    //     USAGE (Ry)
 0x09, 0x35,                    //     USAGE (Rz)
+0x09, 0x36,                    //     USAGE (Slider)
 //0x09, 0x36,                    //     USAGE (Slider)
-//0x09, 0x37,                    //     USAGE (Slider)
+//0x09, 0x40,                    //     USAGE (Vx)
+//0x09, 0x41,                    //     USAGE (Vy)
 0x35, 0x00,                    //     PHYSICAL_MINIMUM (0)
 0x46, 0xff, 0x00,              //     PHYSICAL_MAXIMUM (255)
 0x15, 0x00,                    //     LOGICAL_MINIMUM (-127)
-0x26, 0xff, 0x00,                    //     LOGICAL_MAXIMUM (127)
+0x26, 0xff, 0x00,              //     LOGICAL_MAXIMUM (127)
 0x75, 0x08,                    //     REPORT_SIZE (8)
-0x95, 0x06,                    //     REPORT_COUNT (6)
+0x95, 0x07,                    //     REPORT_COUNT (7)
 //0x95, 0x08,                    //     REPORT_COUNT (8)
 0x81, 0x02,                    //     INPUT (Data,Var,Abs)
 0xc0,                          //   END_COLLECTION
@@ -192,21 +191,23 @@ uchar HIDJoy::read(uchar *buffer)
 
 // write one character
 
-size_t HIDJoy::writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5, int8_t ch6)
+size_t HIDJoy::writeGame(int8_t Lx, int8_t Ly, int8_t Rx, int8_t Ry, int8_t ch5, int8_t ch6, int8_t ch7)
 {
   while(!usbInterruptIsReady()) {
     usbPoll();
   }
 
-  gameReport.buttons = B00000001;
+  gameReport.buttons = (Lx<0) | ((Ly<0) << 1) | ((Rx<0) << 2) | ((Ry<0) << 3) |
+//                       ((ch5<0) << 4) | ((ch6<0) << 5) | ((ch7<0) << 6) | ((ch8<0) << 7);
+                       ((ch5<0) << 4) | ((ch6<0) << 5) | ((ch7<0) << 6) | B10000000;
   gameReport.left_x = Lx;
   gameReport.left_y = Ly;
   gameReport.right_x = Rx;
   gameReport.right_y = Ry;
   gameReport.ch5 = ch5;
   gameReport.ch6 = ch6;
-//  gameReport.ch7 = 30;
-//  gameReport.ch8 = 40;
+  gameReport.ch7 = ch7;
+//  gameReport.ch8 = Ly;
 
   usbSetInterrupt((unsigned char *)&gameReport, sizeof(gamepad_report_t));
   return 1;
