@@ -1,6 +1,8 @@
 /*
 ** DEPRECIATED: Use Datei > Beispiele > Firmata > StandardFirmata
 **              with http://www.pjrc.com/teensy/firmata_test/firmata_test.64bit
+**
+**          OR: Use Datei > Beispiele > 01.Basics > Blink
 */
 
 int ledPin = 13; 
