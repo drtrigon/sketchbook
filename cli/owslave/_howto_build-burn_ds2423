@@ -1,0 +1,109 @@
+
+( osboxes@osboxes:~/sketchbook/cli/owslave$ sudo apt-get install gcc-avr_4.5.3 )
+
+
+--- using Arduino Nano (atmega328p) ---
+
+create or add you project.cfg (project.cfg.orig) to the folder
+
+osboxes@osboxes:~/sketchbook/cli/owslave$ nano Makefile
+
+change the line
+	$(AVRDUDE) -c $(PROG) -p $(MCU_PROG) -C +$$TF\
+into
+	$(AVRDUDE) -c arduino -p atmega328p -b 57600 -P /dev/ttyUSB0 -C +$$TF\
+save and quit
+
+osboxes@osboxes:~/sketchbook/cli/owslave$ make CFG=project.cfg try1
+make[1]: Entering directory `/home/osboxes/sketchbook/cli/owslave'
+mkdir -p device/try1
+MCU:atmega88
+MCU_PROG:m88
+PROG:avrispmkII
+AVRDUDE:sudo avrdude
+[...]
+make[1]: Leaving directory `/home/osboxes/sketchbook/cli/owslave'
+
+osboxes@osboxes:~/sketchbook/cli/owslave$ make CFG=project.cfg burn_try1
+BURN try1
+make[1]: Entering directory `/home/osboxes/sketchbook/cli/owslave'
+LFUSE:E2
+HFUSE:DC
+EFUSE:00
+EEPROM:1
+MCU:atmega88
+MCU_PROG:m88
+PROG:avrispmkII
+AVRDUDE:sudo avrdude
+[...]
+        sudo avrdude -c arduino -p atmega328p -b 57600 -P /dev/ttyUSB0 -C +$TF\
+                -U flash:w:device/try1/image.hex:i -U eeprom:w:device/try1/eprom.hex:i \
+                -U lfuse:w:0xE2:m \
+                -U hfuse:w:0xDC:m \
+                 \
+        ; X=$?; rm $TF; exit $X
+
+avrdude: AVR device initialized and ready to accept instructions
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: Device signature = 0x1e950f
+avrdude: NOTE: "flash" memory has been specified, an erase cycle will be performed
+         To disable this feature, specify the -D option.
+avrdude: erasing chip
+avrdude: reading input file "device/try1/image.hex"
+avrdude: writing flash (3338 bytes):
+
+Writing | ################################################## | 100% 1.46s
+
+avrdude: 3338 bytes of flash written
+avrdude: verifying flash memory against device/try1/image.hex:
+avrdude: load data flash data from input file device/try1/image.hex:
+avrdude: input file device/try1/image.hex contains 3338 bytes
+avrdude: reading on-chip flash data:
+
+Reading | ################################################## | 100% 0.76s
+
+avrdude: verifying ...
+avrdude: 3338 bytes of flash verified
+avrdude: reading input file "device/try1/eprom.hex"
+avrdude: writing eeprom (26 bytes):
+
+Writing | ################################################## | 100% 0.12s
+
+avrdude: 26 bytes of eeprom written
+avrdude: verifying eeprom memory against device/try1/eprom.hex:
+avrdude: load data eeprom data from input file device/try1/eprom.hex:
+avrdude: input file device/try1/eprom.hex contains 26 bytes
+avrdude: reading on-chip eeprom data:
+
+Reading | ################################################## | 100% 0.05s
+
+avrdude: verifying ...
+avrdude: 26 bytes of eeprom verified
+avrdude: reading input file "0xE2"
+avrdude: writing lfuse (1 bytes):
+
+Writing |                                                    | 0% 0.00s ***failed;  
+Writing | ################################################## | 100% 0.04s
+
+avrdude: 1 bytes of lfuse written
+avrdude: verifying lfuse memory against 0xE2:
+avrdude: load data lfuse data from input file 0xE2:
+avrdude: input file 0xE2 contains 1 bytes
+avrdude: reading on-chip lfuse data:
+
+Reading | ################################################## | 100% 0.00s
+
+avrdude: verifying ...
+avrdude: verification error, first mismatch at byte 0x0000
+         0x00 != 0xe2
+avrdude: verification error; content mismatch
+
+avrdude done.  Thank you.
+
+make[1]: *** [burn] Error 1
+make[1]: Leaving directory `/home/osboxes/sketchbook/cli/owslave'
+make: *** [burn_try1] Error 2
+
+

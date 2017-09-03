@@ -1,0 +1,15 @@
+_include: world.cfg
+env:
+  prog: avrispmkII
+devices:
+  _default:
+    _ref: defaults.target.m88
+    types:
+      _ref: defaults.types
+    code: []
+  try1:
+    _doc: My very first 1wire slave device
+    defs:
+      is_onewire: ds2423
+targets:
+- try1

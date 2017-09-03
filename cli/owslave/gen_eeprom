@@ -1,0 +1,539 @@
+#!/usr/bin/env python3
+# -*- coding: utf8 -*-
+
+## generate / write a device configuration file.
+
+# This file is free software; you can redistribute it and/or
+# modify it under the terms of the GNU General Public License as published
+# by the Free Software Foundation; either version 2.1 of
+# the License, or (at your option) any later version.
+#
+# This library is distributed in the hope that it will be useful, but
+# WITHOUT ANY WARRANTY; without even the implied warranty of
+# MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.
+# See the GNU General Public License for more details.
+             
+# You should have received a copy of the GNU General Public License along
+# with this library; if not, write to the Free Software Foundation, Inc.,
+# 51 Franklin St, Fifth Floor, Boston, MA 02110-1301  USA
+                 
+# Copyright (c) Matthias Urlichs <matthias@urlichs.de>
+
+"""\
+This code generates (or prints) a device configuration file.
+
+A configuration file consists of
+* a signature (4 bytes)
+* a number of binary records
+  1 byte length (=n)
+  1 byte type
+  n bytes data
+* a zero-byte delimiter
+* 2 bytes crc-16
+
+"""
+
+import struct
+import errno
+import binascii
+from random import SystemRandom
+from Cfg import Cfg
+import os
+R=SystemRandom()
+
+cfg = Cfg(os.environ.get('CFG',"moat.cfg"))
+
+#
+# CRC-16, as used by a couple of 1wire devices
+parity_table = [ 0, 1, 1, 0, 1, 0, 0, 1, 1, 0, 0, 1, 0, 1, 1, 0 ]
+def _crc16(crc, a):
+        c = (a ^ (crc & 0xFF))
+        crc >>= 8
+        if parity_table[c & 0x0F] ^ parity_table[(c >> 4) & 0x0F]:
+                crc ^= 0xC001
+        crc ^= (c << 6)
+        crc ^= (c << 7)
+        return crc
+
+def crc16(data, crc=0):
+        for x in data:
+                crc = _crc16(crc,x)
+        return crc
+
+#
+# CRC-8, as used by the 1wire ID
+table=( 0, 94, 188, 226, 97, 63, 221, 131, 194, 156, 126, 32, 163, 253, 31, 65,
+        157, 195, 33, 127, 252, 162, 64, 30, 95, 1, 227, 189, 62, 96, 130, 220,
+        35, 125, 159, 193, 66, 28, 254, 160, 225, 191, 93, 3, 128, 222, 60, 98,
+        190, 224, 2, 92, 223, 129, 99, 61, 124, 34, 192, 158, 29, 67, 161, 255,
+        70, 24, 250, 164, 39, 121, 155, 197, 132, 218, 56, 102, 229, 187, 89, 7,
+        219, 133, 103, 57, 186, 228, 6, 88, 25, 71, 165, 251, 120, 38, 196, 154,
+        101, 59, 217, 135, 4, 90, 184, 230, 167, 249, 27, 69, 198, 152, 122, 36,
+        248, 166, 68, 26, 153, 199, 37, 123, 58, 100, 134, 216, 91, 5, 231, 185,
+        140, 210, 48, 110, 237, 179, 81, 15, 78, 16, 242, 172, 47, 113, 147, 205,
+        17, 79, 173, 243, 112, 46, 204, 146, 211, 141, 111, 49, 178, 236, 14, 80,
+        175, 241, 19, 77, 206, 144, 114, 44, 109, 51, 209, 143, 12, 82, 176, 238,
+        50, 108, 142, 208, 83, 13, 239, 177, 240, 174, 76, 18, 145, 207, 45, 115,
+        202, 148, 118, 40, 171, 245, 23, 73, 8, 86, 180, 234, 105, 55, 213, 139,
+        87, 9, 235, 181, 54, 104, 138, 212, 149, 203, 41, 119, 244, 170, 72, 22,
+        233, 183, 85, 11, 136, 214, 52, 106, 43, 117, 151, 201, 74, 20, 246, 168,
+        116, 42, 200, 150, 21, 75, 169, 247, 182, 232, 10, 84, 215, 137, 107, 53,
+    )
+
+def _crc8(crc,a):
+    return table[crc ^ a]
+
+def crc8(data, crc=0):
+    for x in data:
+        crc = _crc8(crc,x)
+    return crc
+
+_Types = (
+## mirrord in ow_moat.h
+"console",  #0
+"input",    #1
+"output",   #2
+"temp",     #3
+"humid",    #4
+"adc",      #5
+"pid",      #6
+"pwm",      #7
+)
+
+TypeName = {}
+TypeID = {}
+
+BlockName = {}
+BlockID = {}
+BlockStruct = {}
+
+
+class MissingVar(RuntimeError):
+    def __init__(self,block,name):
+        self.block = block
+        self.name = name
+    def __unicode__(self):
+        return u"Need to set '%s' in '%s'" % (self.name,self.block)
+    __str__=__unicode__
+
+
+class Block(object):
+    """Base class for basically any binary block"""
+    SINGLE=False
+    sig = ""; ## Signature, according to Python struct module
+    names = (); ## Field names, one per signature element
+    defaults = {};
+
+    def __init__(self):
+        self.data = {};
+
+    @property
+    def display_names(self):
+        return self.names
+
+    def update(self,**val):
+        """Update this block's values with the keyword args"""
+        self.vars.update(val)
+
+    def get_data(self,name):
+        try:
+            return self.data[name]
+        except KeyError:
+            raise MissingVar(self,name)
+
+    def get_all(self):
+        res = []
+        for k in self.display_names:
+            res.extend((k,self.get_data(k)))
+        return res
+
+    def set_data(self,name,value):
+        if isinstance(value,str):
+            value = int(value,0)
+        self.data[name] = value
+
+    def set_all(self,args):
+        assert not (len(args)%2), "Odd number of arguments"
+        while args:
+            self.set_data(args[0], args[1])
+            args = args[2:]
+
+    def pack(self):
+        """Export me to the config file"""
+        return struct.pack(self.sig, *( self.get_data(x) for x in self.names))
+        
+    def unpack(self,s):
+        """Unpack a config file blob into me"""
+        for a,b in zip(self.names, struct.unpack(self.sig, s)):
+            self.data[a]=b
+    
+    def calcsize(self):
+        return struct.calcsize(self.sig);
+    
+    def usage(self):
+        return ",".join(("%s 0x??" % n) for n in self.display_names)
+
+class TypeBlock(Block):
+    def __init__(self):
+        self.data = [0] * TypeMax
+
+    @property
+    def maxi(self):
+        res = TypeMax-1
+        while res >= 0:
+            if self.data[res] > 0:
+                break
+            res -= 1
+        return res
+
+    @property
+    def display_names(self):
+        for k,v in TypeID.items():
+            if self.data[v] > 0:
+                yield k
+
+    def calcsize(self):
+        i = self.maxi
+        res = 0
+        while i >= 0:
+            if not (i%8):
+                res += 1
+            if self.data[i]:
+                res += 1
+            i -= 1
+        return res
+
+    def get_data(self,name):
+        return self.data[TypeID[name]]
+
+    def set_data(self,name,value):
+        if isinstance(value,str):
+            value = int(value,0)
+        self.data[TypeID[name]] = value
+
+    def pack(self):
+        r = []
+        m = self.maxi
+        if m < 0:
+            return bytes((0,))
+        i = 0
+        while i <= m:
+            b = 0
+            for j in range(i,min(m+1,i+8)):
+                if self.data[j] > 0:
+                    b |= 1<<(j-i)
+            r.append(b)
+            for j in range(i,min(m+1,i+8)):
+                if self.data[j] > 0:
+                    r.append(self.data[j])
+            i += 8
+
+        return bytes(r)
+        
+    def unpack(self,s):
+        i=0
+        off=0
+        while off<len(s):
+            b = s[off]
+            off += 1
+            for j in range(i,i+8):
+                if b & (1<<(j-i)):
+                    self.data[j] = s[off]
+                    off += 1
+        i += 8
+
+class UnknownBlock:
+    pass
+
+
+class BytesBlock(Block):
+    SINGLE=True
+    def __init__(self):
+        self.data = []
+
+    def parse(self,*args):
+        if not args:
+            raise RuntimeError("need some values")
+        self.data = [int(a,0) for a in args]
+    
+    def get_all(self):
+        return ["0x%x"%arg for arg in self.data]
+    
+    def set_all(self,args):
+        self.data = [int(arg,0) for arg in args]
+
+    def pack(self):
+        return struct.pack(str(len(self.data))+"B",*self.data)
+
+    def unpack(self,s):
+        self.data = struct.unpack(str(len(s))+"B",s)
+
+    def usage(self):
+        return u"0x?? …"
+
+class WordBlock(BytesBlock):
+    def pack(self):
+        return struct.pack(">"+str(len(self.data))+"H",*self.data)
+
+    def unpack(self,s):
+        self.data = struct.unpack(">"+str(len(s)//2)+"H",s)
+
+
+class NameBlock(Block):
+    SINGLE=True
+    def __init__(self):
+        self.data = ""
+
+    def parse(self,*args):
+        if not args:
+            raise RuntimeError("need a string")
+        self.data = bytes(" ".join(args), "utf-8")
+    
+    def get_all(self):
+        return [self.data.decode("utf-8")]
+    
+    def set_all(self,args):
+        self.data = bytes(" ".join(args), "utf-8")
+
+    def pack(self):
+        return self.data
+
+    def unpack(self,s):
+        self.data = s
+
+    def usage(self):
+        return u"some_name"
+
+
+#class LoaderBlock(WordBlock):
+#    def set_all(self,args):
+#        assert len(args) == 3
+#        super(LoaderBlock,self).set_all(args)
+
+class LoaderBlock(Block):
+    names = "loader endp crc".split(" ")
+    sig = ">HHH"
+
+
+class EuidBlock(BytesBlock):
+    def set_all(self,args):
+        assert len(args) == 8
+        super(EuidBlock,self).set_all(args)
+
+class CryptoBlock(BytesBlock):
+    def set_all(self,args):
+        assert len(args) == 16
+        super(CryptoBlock,self).set_all(args)
+
+class Rf12Block(Block):
+    ## band:2 collect:1 node:5
+    names = "bcn group speed".split(" ")
+    sig = "BBB"
+
+    def pack(self):
+        if self.data.get("band",868) in (8,868):
+            self.data["band"] = 2
+        elif self.data["band"] in (9,915):
+            self.data["band"] = 3
+        elif self.data["band"] in (4,433):
+            self.data["band"] = 1
+        self.data["bcn"] = (self.data["band"]<<6) | ((1<<5) if self.data.get("collect",0) else 0) | self.data.get("node",2)
+        return super(Rf12Block,self).pack()
+
+    def unpack(self,data):
+        super(Rf12Block,self).unpack(data)
+        x = self.data["bcn"]
+        self.data["band"] = x>>6
+        self.data["collect"] = ((x & (1<<5)) != 0)
+        self.data["node"] = x & 0x1F
+        if self.data["band"] == 1:
+            self.data["band"] = 433
+        elif self.data["band"] == 2:
+            self.data["band"] = 868
+        elif self.data["band"] == 3:
+            self.data["band"] = 915
+
+    def set_data(self,name,value):
+        if name == "collect":
+            if value in ('1','t','y',"yes","true","True",1):
+                value = True
+            elif value in ('0','f','n',"no","false","False",0):
+                value = False
+            else:
+                raise RuntimeError("'%s' is not a truth value I understand" % (value,))
+        super(Rf12Block,self).set_data(name,value)
+
+    @property
+    def display_names(self):
+        for n in self.names:
+            if n == "bcn":
+                yield "band"
+                yield "collect"
+                yield "node"
+                continue
+            yield n
+
+class OwidBlock(Block):
+    names = "type serial crc".split(" ")
+
+    def pack(self):
+        res = [self.data['type']]
+        ser = self.data['serial']
+        res.extend(binascii.unhexlify(ser.encode('utf-8')))
+        res.append(crc8(res))
+        return bytes(res)
+        
+    def unpack(self,data):
+        assert crc8(data) == 0,crc8(data)
+        self.data['type'] = data[0]
+        self.data['serial'] = binascii.hexlify(data[1:7]).decode('utf-8')
+        self.data['crc'] = data[7]
+        
+    def get_data(self,k):
+        if k == "binary":
+            from base64 import b16decode
+            with open("/dev/stdout","wb") as f:
+                f.write(bytes((self.data['type'],))+b16decode(self.data['serial'],True)+bytes((self.data['crc'],)))
+            sys.exit()
+        elif k == "ascii":
+            print("%02x.%s" % (self.data['type'], self.data['serial'])) #  self.data['crc']
+            sys.exit()
+        else:
+            return super(OwidBlock,self).get_data(k)
+    def set_data(self,k,v):
+        if k == "crc":
+            raise SyntaxError("The CRC cannot be set manually.")
+        if k == "serial":
+            if v == "random":
+                vv = R.getrandbits(6*8)
+                v = []
+                for i in range(6):
+                    v.append(vv & 255)
+                    vv >>= 8
+                v = binascii.hexlify(bytes(v)).decode('utf-8')
+            self.data[k] = v
+
+        else:
+            super().set_data(k,v)
+
+    @property
+    def display_names(self):
+        return self.names
+        
+class MainBlock(object):
+    id = None
+    def __init__(self, name=None):
+        self.blocks = []
+        if name is not None:
+            self.setup(name)
+    
+    def setup(self,name):
+        self.name = name
+
+    def pack(self):
+        res = b"MoaT"
+        for b in self.blocks:
+            bp = b.pack()
+            assert len(bp),"%s is empty"%b.__class__.__name__
+            res += bytes((len(bp), b.id)) + bp
+        res += b'\0'
+        crc = crc16(res)
+        res += bytes((crc & 0xFF, crc >> 8))
+        return res
+    
+    def unpack(self,s):
+        assert crc16(s) == 0, "CRC does not match"
+        self.blocks = []
+        if s[0:4] == b"DevC":
+            s = b"MoaT"+s[4:]
+        assert s[0:4] == b"MoaT"
+        off=4
+        while True:
+            x = s[off]
+            if x == 0:
+                break
+            y = s[off+1]
+            b = BlockStruct[y]()
+            b.unpack(s[off+2:off+x+2])
+            self.blocks.append(b)
+            off += 2+x
+        assert len(s)-off == 3, "Nonsense in front of CRC"
+
+i=0
+for b in cfg.subtree('codes','types'):
+    TypeName[i] = b
+    TypeID[b] = i
+    i += 1
+TypeMax = i
+
+i=0
+for b in cfg.subtree('codes','blocks'):
+    if not b.startswith('_'):
+        BlockName[i] = b
+        BlockID[b] = i
+        bcl = globals()[b.capitalize()+"Block"]
+        BlockStruct[i] = bcl
+        bcl.name = b
+        bcl.id = i
+    i += 1
+
+if __name__ == "__main__":
+    import sys
+    if len(sys.argv) < 2:
+        print(u"""\
+Usage: %s <file> [blockname [params …]]
+
+""" % (sys.argv[0],))
+        print("Blocks:"," ".join(str(x) for x in BlockID.keys()))
+        sys.exit(0)
+    
+    b = MainBlock()
+    try:
+        f = open(sys.argv[1],"rb")
+    except EnvironmentError as e:
+        if e.errno != errno.ENOENT:
+            raise
+        if len(sys.argv) < 4:
+            raise
+    else:
+        b.unpack(f.read())
+        f.close()
+
+    if len(sys.argv) < 3:
+        for x in b.blocks:
+            print(x.name, " ".join((str(y) for y in x.get_all())))
+        sys.exit(0)
+
+    bt = BlockStruct[BlockID[sys.argv[2]]]
+    if len(sys.argv) < 4:
+        not_here=1
+        for x in b.blocks:
+            if x.__class__ is bt:
+                print(" ".join((str(y) for y in x.get_all())))
+                not_here=0
+        sys.exit(not_here)
+
+    if len(sys.argv) < 5 and not bt.SINGLE:
+        not_here=1
+        for x in b.blocks:
+            if x.__class__ is bt:
+                print(x.get_data(sys.argv[3]))
+                not_here=0
+        sys.exit(not_here)
+
+    bx = None
+    for x in b.blocks:
+        if x.__class__ is bt:
+            bx = x
+            break
+    if bx is None:
+        bx = bt()
+        b.blocks.append(bx)
+    
+    bx.set_all(sys.argv[3:])
+
+    bp = b.pack()
+    f = open(sys.argv[1],"wb")
+    f.write(bp)
+    f.close()
+
