@@ -1,0 +1,15 @@
+
+Aktuelle Zustand FC-28 CAMPac 64K (E1-E4), per 17.02.2017:
+
+E1.  17.02.2017  16:34             1'878 HTRAINER.FC
+E2.  17.02.2017  16:34             1'878 UNISTAR60.FC
+E3.  17.02.2017  16:34             1'878 ZOOM400.FC
+E4.  17.02.2017  16:34             1'878 MODELE4.FC
+
+
+These are exact copies of the data in 01-03, as shown by:
+
+$ cmp -lb CAMPac-64K/HTRAINER.FC FC28/HTRAINER.FC 
+$ cmp -lb CAMPac-64K/UNISTAR60.FC FC28/UNISTAR60.FC 
+$ cmp -lb CAMPac-64K/ZOOM400.FC FC28/ZOOM400.FC 
+
