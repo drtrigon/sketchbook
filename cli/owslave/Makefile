@@ -106,7 +106,7 @@ burn: burn_cfg all $(EE)
 	TF=$$(mktemp avrdude-cfg.XXXXX); echo "default_safemode = no;" >$$TF; \
 	EFUSE=$(shell $(RUN_CFG) ${CFG} devices.${DEV}.fuse.e); \
 	[ "${EFUSE}" != "" ] && SET_EFUSE="-U efuse:w:0x$(shell $(RUN_CFG) ${CFG} devices.${DEV}.fuse.e):m"; \
-	$(AVRDUDE) -c arduino -p atmega328p -b 57600 -P /dev/ttyUSB0 -C +$$TF\
+	$(AVRDUDE) -c $(PROG) -p t84 -b 19200 -P /dev/ttyACM0 -C +$$TF\
 		-U flash:w:device/${DEV}/image.hex:i ${EEP} \
 		-U lfuse:w:0x$(shell $(RUN_CFG) ${CFG} devices.${DEV}.fuse.l):m \
 		-U hfuse:w:0x$(shell $(RUN_CFG) ${CFG} devices.${DEV}.fuse.h):m \
