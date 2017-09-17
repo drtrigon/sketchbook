@@ -98,6 +98,10 @@ void setup()
     SeeedGrayOled.putString("Vs: ");
     SeeedGrayOled.putNumber(readVcc());
 
+    SeeedGrayOled.setTextXY(8,0);
+    SeeedGrayOled.putString("Ti: ");
+    SeeedGrayOled.putNumber(GetTemp()*1000);
+
     pinMode(pin_led, OUTPUT);
 
     pinMode(pin_button, INPUT_PULLUP);
@@ -124,12 +128,12 @@ void setup()
     // ds2433.clearMemory(); // begin fresh after doing some work*/
 
 //    Serial.println("config done");
-    SeeedGrayOled.setTextXY(8,0);
+    SeeedGrayOled.setTextXY(9,0);
     SeeedGrayOled.putString("config done");
 
     delay(2000);
 
-    for(char i=0; i < 9 ; i++)
+    for(char i=0; i < 10 ; i++)
     {
         SeeedGrayOled.setTextXY(i,0);           //Set the cursor to (i+4)th line, 0th Column  
         SeeedGrayOled.clearDisplay();           //clear the screen and set start position to top left corner
@@ -222,4 +226,40 @@ long readVcc() {
   result |= ADCH<<8;
   result = 1126400L / result; // Back-calculate AVcc in mV
   return result;
+}
+
+/********************************************************************************
+    Internal Temperature Sensor for ATmega328 types
+    https://playground.arduino.cc/Main/InternalTemperatureSensor
+********************************************************************************/
+double GetTemp(void)
+{
+  unsigned int wADC;
+  double t;
+
+  // The internal temperature has to be used
+  // with the internal reference of 1.1V.
+  // Channel 8 can not be selected with
+  // the analogRead function yet.
+
+  // Set the internal reference and mux.
+  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
+  ADCSRA |= _BV(ADEN);  // enable the ADC
+
+  delay(20);            // wait for voltages to become stable.
+
+  ADCSRA |= _BV(ADSC);  // Start the ADC
+
+  // Detect end-of-conversion
+  while (bit_is_set(ADCSRA,ADSC));
+
+  // Reading register "ADCW" takes care of how to read ADCL and ADCH.
+  wADC = ADCW;
+
+  // The offset of 324.31 could be wrong. It is just an indication.
+//  t = (wADC - 324.31 ) / 1.22;
+  t = (wADC - 331.31 ) / 1.22;    // Arduino Uno R3 (mega328)
+
+  // The returned temperature is in degrees Celsius.
+  return (t);
 }

@@ -173,10 +173,10 @@ void SendLCDScreen(const char * text) {
   $lines = explode("|", $text);
 
   // Display löschen
-  $sendbuf .= $this->ClearDisplay();
+//  $sendbuf .= $this->ClearDisplay();
 
   // Cursor ausschalten
-  $sendbuf .= $this->SwitchCursor(false);
+//  $sendbuf .= $this->SwitchCursor(false);
   
   foreach($lines as $line) {
     // Cursor positionieren
