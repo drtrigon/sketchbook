@@ -4,6 +4,8 @@
  *    Tested with:
  *    - https://github.com/PaulStoffregen/OneWire
  *    - DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
+ *    - LinkHubE+owshell, Nano as Slave
+ *    - NOT-WORKING: OW-SERVER ENET+owshell, Nano as Slave
  */
 
 #include "OneWireHub.h"
