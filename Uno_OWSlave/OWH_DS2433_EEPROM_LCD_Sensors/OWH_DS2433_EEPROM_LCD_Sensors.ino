@@ -3,26 +3,28 @@
 *
 *   Tested with
 *    - DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
+*
+*    // add 2 ds18b20 for data like; source voltage, chip temp
 */
 /*
-*    1wire LCD/OLED Display  
-*    
+*    1wire LCD/OLED Display
+*
 *   In order to make it work with my 1wire network
 *   (Raspberry Pi Server with iButton LinkHub-E) I need
 *   to adopt 'libraries/OneWireHub/OneWireHub_config.h'
 *    ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };
 *   this is 10x the default value (may be smaller works too).
-*    
+*
 *   Grove Shield I2C/Wire:
 *    GND GND   black
 *    VCC  5V   red
 *    SDA  A4   white
 *    SCL  A5   yellow
-*    
+*
 *   See also:
 *    http://www.seeedstudio.com/wiki/Grove_-_OLED_Display_1.12%22
 *    http://www.seeedstudio.com/wiki/File:Stem-diagram-sign.jpg
-*    
+*
 *   Test from Raspberry Pi Server:
 *    ursin@ThinkPad-T440-ursin:~$ ssh pi@192.168.11.41
 *    ...
@@ -30,7 +32,7 @@
 *    pi@raspberrypi ~ $ /opt/owfs/bin/owget 2D.00003124DA00/memory
 *
 *    Button: Pin2 to GND (with internal pullup)
-*    
+*
 *    Needs for compilation Arduino IDE >= 1.8.3 !!!
 */
 
@@ -50,25 +52,27 @@ uint8_t mem_buffer[144];
 
 auto hub = OneWireHub(pin_onewire);
 auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);
+//auto ds18b0 = DS18B20(0x28, 0x00, 0x55, 0x33, 0x24, 0xDA, 0x11); // 0x FF 03 00 00   -- float --   measure supply voltage Vcc
+//auto ds18b1 = DS18B20(0x28, 0x01, 0x55, 0x33, 0x24, 0xDA, 0x11); //              ?   -- float --   measure chip temperature
 
 bool blinking(void);
 
 void setup()
 {
 //    Serial.begin(115200);
-    Wire.begin();  
+    Wire.begin();
 //    Serial.println("OneWire-Hub DS2433");
     SeeedGrayOled.init();
     //SeeedGrayOled.setInverseDisplay();    // Set display to inverse mode
     SeeedGrayOled.setNormalDisplay();       //Set display to Normal mode
     SeeedGrayOled.clearDisplay();           //clear the screen and set start position to top left corner
     SeeedGrayOled.setVerticalMode();        // Set to vertical mode for displaying text
-    SeeedGrayOled.setTextXY(0,0);           //Set the cursor to 0th line, 0th Column  
+    SeeedGrayOled.setTextXY(0,0);           //Set the cursor to 0th line, 0th Column
     //SeeedGrayOled.setGrayLevel(15); //Set Grayscale level. Any number between 0 - 15.
     //SeeedGrayOled.putNumber(123);           //Print number
 //    SeeedGrayOled.putString("OneWire-Hub DS2433"); //Print Hello World
     SeeedGrayOled.putString("OWHub DS2433"); //Print Hello World
-//    SeeedGrayOled.setTextXY(1,0);           //Set the cursor to 1st line, 0th Column  
+//    SeeedGrayOled.setTextXY(1,0);           //Set the cursor to 1st line, 0th Column
 //    SeeedGrayOled.putNumber(0xFFFF);        //Print number
     // Bitmap and Scroll modes available also
 
@@ -110,6 +114,8 @@ void setup()
 
     // Setup OneWire
     hub.attach(ds2433);
+//    hub.attach(ds18b0);
+//    hub.attach(ds18b1);
 
 /*    // Test-Cases: the following code is just to show basic functions, can be removed any time
     Serial.println("Test Write Text Data to page 0");
@@ -135,7 +141,7 @@ void setup()
 
     for(char i=0; i < 10 ; i++)
     {
-        SeeedGrayOled.setTextXY(i,0);           //Set the cursor to (i+4)th line, 0th Column  
+        SeeedGrayOled.setTextXY(i,0);           //Set the cursor to (i+4)th line, 0th Column
         SeeedGrayOled.clearDisplay();           //clear the screen and set start position to top left corner
     }
 }
@@ -152,7 +158,7 @@ void loop()
         // HIGH when it's open, and LOW when it's pressed.
         if (digitalRead(pin_button) == LOW) {
             display_mode = (display_mode+1) % 3;
-            //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column  
+            //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column
             //SeeedGrayOled.putNumber(display_mode);
 
             switch (display_mode)  // changes mode only for newly/periodically printed stuff
@@ -175,17 +181,17 @@ void loop()
         // pages are 32 bytes each, but we read in blocks of 12 byte due to the LCD
         for(char i=0; i < 12 ; i++)
         {
-            //SeeedGrayOled.setTextXY(0,1);           //Set the cursor to (i+4)th line, 0th Column  
+            //SeeedGrayOled.setTextXY(0,1);           //Set the cursor to (i+4)th line, 0th Column
             //SeeedGrayOled.putNumber(i);
             ds2433.readMemory(mem_read, 12, i*12);
-            //SeeedGrayOled.setTextXY(0,2);           //Set the cursor to (i+4)th line, 0th Column  
+            //SeeedGrayOled.setTextXY(0,2);           //Set the cursor to (i+4)th line, 0th Column
             //SeeedGrayOled.putNumber(i);
             if(memcmp(mem_read, &mem_buffer[i*12], 12) != 0)  // update display on change only otherwise 1wire becomes unresponsive due to slow output!!
             {
-                //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column  
+                //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column
                 //SeeedGrayOled.putNumber(i);
 
-                SeeedGrayOled.setTextXY(i,0);           //Set the cursor to (i+4)th line, 0th Column  
+                SeeedGrayOled.setTextXY(i,0);           //Set the cursor to (i+4)th line, 0th Column
                 SeeedGrayOled.putString(reinterpret_cast<const char *>(mem_read));
 
                 memcpy(&mem_buffer[i*12], mem_read, 12);
