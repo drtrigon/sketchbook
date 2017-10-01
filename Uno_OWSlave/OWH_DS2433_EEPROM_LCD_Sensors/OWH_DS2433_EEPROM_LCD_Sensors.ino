@@ -4,7 +4,10 @@
 *   Tested with
 *    - DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
 *
-*    // add 2 ds18b20 for data like; source voltage, chip temp
+*    OneWireHub_config.h:
+*    - need to increase ONEWIRE_TIME_MSG_HIGH_TIMEOUT to 150000_us (x10):
+*      //constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 15000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
+*      constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
 */
 /*
 *    1wire LCD/OLED Display
@@ -38,6 +41,7 @@
 
 #include "OneWireHub.h"
 #include "DS2433.h"
+#include "DS18B20.h"
 
 #include <Wire.h>
 #include <SeeedGrayOLED.h>
@@ -51,9 +55,10 @@ uint8_t display_mode = 0;  // 0: normal, 1: inverse; 2: off
 uint8_t mem_buffer[144];
 
 auto hub = OneWireHub(pin_onewire);
-auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);
-//auto ds18b0 = DS18B20(0x28, 0x00, 0x55, 0x33, 0x24, 0xDA, 0x11); // 0x FF 03 00 00   -- float --   measure supply voltage Vcc
-//auto ds18b1 = DS18B20(0x28, 0x01, 0x55, 0x33, 0x24, 0xDA, 0x11); //              ?   -- float --   measure chip temperature
+auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);  // LCD/OLED
+auto ds18b0 = DS18B20(0x28, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);                // supply voltage Vcc
+auto ds18b1 = DS18B20(0x28, 0x01, 0x00, 0x33, 0x24, 0xDA, 0x00);                // chip temperature Ti
+//auto ds18b1 = DS18B20(DS18B20::family_code, 0x01, 0x00, 0x33, 0x24, 0xDA, 0x00);  // chip temperature Ti
 
 bool blinking(void);
 
@@ -114,8 +119,8 @@ void setup()
 
     // Setup OneWire
     hub.attach(ds2433);
-//    hub.attach(ds18b0);
-//    hub.attach(ds18b1);
+    hub.attach(ds18b0);
+    hub.attach(ds18b1);
 
 /*    // Test-Cases: the following code is just to show basic functions, can be removed any time
     Serial.println("Test Write Text Data to page 0");
@@ -197,6 +202,9 @@ void loop()
                 memcpy(&mem_buffer[i*12], mem_read, 12);
             }
         }
+
+        ds18b0.setTemperature(static_cast<float>(readVcc()/1000.));    // -55...125 allowed
+        ds18b1.setTemperature(static_cast<float>(GetTemp()));          // -55...125 allowed
     }
 }
 

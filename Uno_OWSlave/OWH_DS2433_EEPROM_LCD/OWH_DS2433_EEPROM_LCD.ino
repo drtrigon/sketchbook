@@ -3,6 +3,11 @@
 *
 *   Tested with
 *    - DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
+*
+*    OneWireHub_config.h:
+*    - need to increase ONEWIRE_TIME_MSG_HIGH_TIMEOUT to 150000_us (x10):
+*      //constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 15000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
+*      constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
 */
 /*
 *    1wire LCD/OLED Display  

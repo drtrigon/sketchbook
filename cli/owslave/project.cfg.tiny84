@@ -3,7 +3,7 @@ env:
   prog: avrisp
 devices:
   _default:
-    _ref: defaults.target.m88
+    _ref: defaults.target.t84
     types:
       _ref: defaults.types
     code: []
@@ -11,6 +11,5 @@ devices:
     _doc: My very first 1wire slave device
     defs:
       is_onewire: ds2423
-    onewire_id: x49ae6a524a39
 targets:
 - try1

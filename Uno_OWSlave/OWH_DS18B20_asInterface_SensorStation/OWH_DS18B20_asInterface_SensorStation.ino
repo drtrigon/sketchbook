@@ -10,7 +10,16 @@
  *    - OW-SERVER ENET+owshell, Nano as Slave
  *    - LinkHubE + owfshttpd, Nano as Slave
  *      --> ONLY FIRST 8 SLAVES RECOGNIZED !!
+ *      #define HUB_SLAVE_LIMIT     8 // set the limit of the hub HERE, max is 32 devices
  *      --> BMP183 broken?
+ *
+ *    OneWireHub_config.h:
+ *    - need to increase ONEWIRE_TIME_MSG_HIGH_TIMEOUT to 150000_us (x10):
+ *      //constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 15000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
+ *      constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
+ *    - need to increase HUB_SLAVE_LIMIT to 16:
+ *      //#define HUB_SLAVE_LIMIT     8 // set the limit of the hub HERE, max is 32 devices
+ *      #define HUB_SLAVE_LIMIT    16 // set the limit of the hub HERE, max is 32 devices
  */
 /********************************************************************************
     Program. . . . OWH_DS18B20_asInterface_SensorStation

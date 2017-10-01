@@ -11,6 +11,5 @@ devices:
     _doc: My very first 1wire slave device
     defs:
       is_onewire: ds2423
-    onewire_id: x49ae6a524a39
 targets:
 - try1
