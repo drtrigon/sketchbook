@@ -204,7 +204,9 @@ void loop()
         }
 
         ds18b0.setTemperature(static_cast<float>(readVcc()/1000.));    // -55...125 allowed
+        //ds18b0.setTemperatureRaw(static_cast<int16_t>((readVcc()/1000.) * 16.0f));
         ds18b1.setTemperature(static_cast<float>(GetTemp()));          // -55...125 allowed
+        //ds18b1.setTemperatureRaw(static_cast<int16_t>(GetTemp() * 16.0f));
     }
 }
 

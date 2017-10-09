@@ -9,9 +9,6 @@
  *    - DS9490R-Master, atmega328@16MHz as Slave
  *    - OW-SERVER ENET+owshell, Nano as Slave
  *    - LinkHubE + owfshttpd, Nano as Slave
- *      --> ONLY FIRST 8 SLAVES RECOGNIZED !!
- *      #define HUB_SLAVE_LIMIT     8 // set the limit of the hub HERE, max is 32 devices
- *      --> BMP183 broken?
  *
  *    OneWireHub_config.h:
  *    - need to increase ONEWIRE_TIME_MSG_HIGH_TIMEOUT to 150000_us (x10):
@@ -73,15 +70,16 @@ constexpr bool enable_debug = 0;
 #include "OneWireHub.h"
 #include "DS18B20.h"
 
+#include <Wire.h>
 #include <Adafruit_Sensor.h>
 
 // based on Adafruit_TSL2561 sensor driver
-#include <Wire.h>
 #include <Adafruit_TSL2561_U.h>
 
-// based on Adafruit_BMP183 sensor driver
-#include <SPI.h>
-#include <Adafruit_BMP183.h>
+// based on Adafruit_BME280 sensor driver
+#include <Adafruit_BME280.h>
+
+#define SEALEVELPRESSURE_HPA (1013.25)
 
 //  Pin Layouts
 constexpr uint8_t pin_led       { 13 };
@@ -93,17 +91,9 @@ constexpr uint8_t pin_onewire   { 8 };
 #define SEN02281P    A3    // SEN02281P analog pin
 #define GUVAS12SD    A7    // GUVA-S12SD analog pin
 #define MIC          A6    // MIC analog pin
-//I2C (Wire) library occupies A4 (SDA), A5 (SCL)
-//#define BMP183_CLK  13
-#define BMP183_CLK   A2    // CLK (hardware SPI needs pin 13 here!)
-//#define BMP183_CLK    9    // CLK (hardware SPI needs pin 13 here!)
-#define BMP183_SDO   12    // AKA MISO
-#define BMP183_SDI   11    // AKA MOSI
-#define BMP183_CS    10    // chip-select pin (use any pin)
 
 Adafruit_TSL2561_Unified tsl = Adafruit_TSL2561_Unified(TSL2561_ADDR_FLOAT, 12345);
-//Adafruit_BMP183 bmp = Adafruit_BMP183(BMP183_CS);    // initialize with hardware SPI
-Adafruit_BMP183 bmp = Adafruit_BMP183(BMP183_CLK, BMP183_SDO, BMP183_SDI, BMP183_CS);    // or initialize with software SPI and use any 4 pins
+Adafruit_BME280 bme; // I2C
 
 auto hub    = OneWireHub(pin_onewire);
 
@@ -123,18 +113,19 @@ auto ds18b06 = DS18B20(0x28, 0x06, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x 0E 00 00
 // temp, °C*16, int16 from -2048 to +2047 (translates to -128 to 128°C)
 auto ds18b07 = DS18B20(0x28, 0x07, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x 0F 00 00 00   -- float --   read TSL2561 (IR) and return float
 // unused
-auto ds18b08 = DS18B20(0x28, 0x08, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x 1A 00 00 00   -- float --   read BMP183 and return float
+auto ds18b08 = DS18B20(0x28, 0x08, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x 1A 00 00 00   -- float --   read BME280 (Temp) and return float
 // Light, RED, without unit, int16 from 0 to 2047
-auto ds18b09 = DS18B20(0x28, 0x09, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x 1B 00 00 00   -- float --   read BMP183 (Temp) and return float
+auto ds18b09 = DS18B20(0x28, 0x09, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x 1B 00 00 00   -- float --   read BME280 (Press) and return float
 // Light, GREEN, same as above
-auto ds18b10 = DS18B20(0x28, 0x0A, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x FF 02 00 00   -- float --   get "RTC" counts: millis()/1000.
-// Light, BLUE, same as above
-auto ds18b11 = DS18B20(0x28, 0x0B, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x FF 03 00 00   -- float --   measure supply voltage Vcc
+auto ds18b10 = DS18B20(0x28, 0x0A, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x FF 03 00 00   -- float --   read BME280 (Humid.) and return float
 // Light, CLEAR, same as above
-auto ds18b12 = DS18B20(0x28, 0x0C, 0x55, 0x44, 0x33, 0x22, 0x11); //              ?   -- float --   measure chip temperature
+auto ds18b11 = DS18B20(0x28, 0x0B, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x FF 02 00 00   -- float --   get "RTC" counts: millis()/1000.
+// Light, BLUE, same as above
+auto ds18b12 = DS18B20(0x28, 0x0C, 0x55, 0x44, 0x33, 0x22, 0x11); // 0x FF 03 00 00   -- float --   measure supply voltage Vcc
+// Light, CLEAR, same as above
+auto ds18b13 = DS18B20(0x28, 0x0D, 0x55, 0x44, 0x33, 0x22, 0x11); //              ?   -- float --   measure chip temperature
 // unused
-//auto ds18b13 = DS18B20(0x28, 0x0D, 0x55, 0x44, 0x33, 0x22, 0x11); // Pressure, pascal - sealevel (101325), int16 from -2048 to +2047
-//auto ds18b14 = DS18B20(0x28, 0x0E, 0x55, 0x44, 0x33, 0x22, 0x11); // humidity, percent * 16, int16 from 0 to 1600 (translates to 0 to 100%)
+//auto ds18b14 = DS18B20(0x28, 0x0E, 0x55, 0x44, 0x33, 0x22, 0x11); // temp, °C*16, int16 from -2048 to +2047 (translates to -128 to 128°C)
 //auto ds18b15 = DS18B20(0x28, 0x0F, 0x55, 0x44, 0x33, 0x22, 0x11); // temp, °C*16, int16 from -2048 to +2047 (translates to -128 to 128°C)
 
 //#include <avr/wdt.h>    // watchdog
@@ -159,7 +150,7 @@ void setup()
         String stringOne =  String(ds18b00.ID[0], HEX) + String(ds18b00.ID[1], HEX) + String(ds18b00.ID[2], HEX) + String(ds18b00.ID[3], HEX) + String(ds18b00.ID[4], HEX) + String(ds18b00.ID[5], HEX) + String(ds18b00.ID[6], HEX);
         Serial.println(stringOne);
         Serial.println("...");
-        stringOne =  String(ds18b12.ID[0], HEX) + String(ds18b12.ID[1], HEX) + String(ds18b12.ID[2], HEX) + String(ds18b12.ID[3], HEX) + String(ds18b12.ID[4], HEX) + String(ds18b12.ID[5], HEX) + String(ds18b12.ID[6], HEX);
+        stringOne =  String(ds18b13.ID[0], HEX) + String(ds18b13.ID[1], HEX) + String(ds18b13.ID[2], HEX) + String(ds18b13.ID[3], HEX) + String(ds18b13.ID[4], HEX) + String(ds18b13.ID[5], HEX) + String(ds18b13.ID[6], HEX);
         Serial.println(stringOne);
         Serial.println("Version: 1");
         Serial.println("OWHub: 2.2.0");
@@ -179,15 +170,17 @@ void setup()
         if (tsl.begin()) Serial.println("Sensor found");
         else Serial.println("Sensor missing (check your wiring or I2C ADDR)");
 
-        Serial.print("Probe BMP183: ");
-        if (bmp.begin()) Serial.println("Sensor found");
-        else Serial.println("Sensor missing (check your wiring)");
+        Serial.print("Probe BME280: ");
+        if (bme.begin()) Serial.println("Sensor found");
+        else Serial.println("Sensor missing (check your wiring or I2C ADDR)");
     }
     else
     {
         tsl.begin();
-        bmp.begin();
+        bme.begin();
     }
+
+    delay(100); // let sensor boot up
 
     /* Initialise the TSL2561 sensor */
     /* Display some basic information on this sensor */
@@ -226,7 +219,7 @@ void setup()
     hub.attach(ds18b10);
     hub.attach(ds18b11);
     hub.attach(ds18b12);
-    //hub.attach(ds18b13);
+    hub.attach(ds18b13);
     //hub.attach(ds18b14);
     //hub.attach(ds18b15);
 
@@ -250,7 +243,7 @@ void loop()
         static uint8_t process = 0;
         updateSensor(process);
         //if (++process>11)  process = 0;
-        process = (process + 1) % 12;    // sensor update steps 0...11 (more than 1 sensor per step possible)
+        process = (process + 1) % 13;    // sensor update steps 0...12 (more than 1 sensor per step possible)
     }
 }
 
@@ -337,31 +330,35 @@ void updateSensor(uint8_t process){
             pack(ds18b06, broadband);
             pack(ds18b07, infrared);
             break;
-        case 7:                                 // Barometric pressure sensor: Adafruit_BMP183
-            ///* Display atmospheric pressue in Hecto-Pascals [mbar] */
-            //pack(ds18b08, bmp.getPressure() / 100.);
-            /* Display atmospheric pressue in [bar] */
-            pack(ds18b08, bmp.getPressure() / 100000.);
-            break;
-        case 8:                                 // Barometric pressure sensor: Adafruit_BMP183
+        case 7:                                 // Barometric pressure sensor: Adafruit_BME280 (Temp)
             /* First we get the current temperature from the BMP085 [*C] */
-            pack(ds18b09, bmp.getTemperature());
+            pack(ds18b08, bme.readTemperature());
+            break;
+        case 8:                                 // Barometric pressure sensor: Adafruit_BME280 (Press)
+            ///* Display atmospheric pressue in Hecto-Pascals [mbar] */
+            //pack(ds18b08, bme.readPressure() / 100.0F);
+            /* Display atmospheric pressue in [bar] */
+            pack(ds18b09, bme.readPressure() / 100000.0F);
+            break;
+        case 9:                                 // Barometric pressure sensor: Adafruit_BME280 (Humid)
+            /* Display humidity in [%] */
+            pack(ds18b10, bme.readHumidity());
             break;
 
-/*        case 9:                                 // Internal "System" Commands (ISC)
+/*        case 10:                                 // Internal "System" Commands (ISC)
             pack(SoftwareVer);
             break;*/
 
-        case 9:                                 // Internal "System" Commands (ISC)
-            pack(ds18b10, millis()/1000.);
-            break;
         case 10:                                 // Internal "System" Commands (ISC)
-            // Measure and calculate supply voltage on Arduino 168 or 328 [V]
-            pack(ds18b11, readVcc()/1000.);
+            pack(ds18b11, millis()/1000.);
             break;
         case 11:                                 // Internal "System" Commands (ISC)
             // Measure and calculate supply voltage on Arduino 168 or 328 [V]
-            pack(ds18b12, GetTemp());
+            pack(ds18b12, readVcc()/1000.);
+            break;
+        case 12:                                 // Internal "System" Commands (ISC)
+            // Measure and calculate supply voltage on Arduino 168 or 328 [V]
+            pack(ds18b13, GetTemp());
             break;
 
         default: // nop/pass
@@ -385,8 +382,8 @@ void pack(DS18B20& ds18b, float val) {
         Serial.println("");
     }
 
-//    ds18b.setTemperatureRaw(static_cast<int16_t>(val));
     ds18b.setTemperature(val);    // -55...125 allowed
+//    ds18b.setTemperatureRaw(static_cast<int16_t>(val * 16.0f));
 }
 
 /********************************************************************************

@@ -495,6 +495,8 @@ Test the device by connecting it to a 1-wire bus and check for the presence of a
   *   5V to ATmega88 Pin 7 (VCC +)
   *  GND to ATmega88 Pin 8 (GND -)
   *   5V to ATmega88 Pin 20 AVCC
+  * IN_A to ATmega88 Pin 23 PC0 (ADC0/PCINT8)
+  * IN_B to ATmega88 Pin 24 PC1 (ADC1/PCINT9)
 
 BINGO! It works! :))
 
