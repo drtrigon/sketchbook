@@ -8,6 +8,8 @@
 *    - need to increase ONEWIRE_TIME_MSG_HIGH_TIMEOUT to 150000_us (x10):
 *      //constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 15000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
 *      constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
+*    - (last compiled with HUB_SLAVE_LIMIT set to 8):
+*      #define HUB_SLAVE_LIMIT     8 // set the limit of the hub HERE, max is 32 devices
 */
 /*
 *    1wire LCD/OLED Display
@@ -46,6 +48,10 @@
 #include <Wire.h>
 #include <SeeedGrayOLED.h>
 
+// https://bigdanzblog.wordpress.com/2014/10/24/arduino-watchdog-timer-wdt-example-code/
+#include <avr/wdt.h>    // watchdog
+#include <EEPROM.h>
+
 constexpr uint8_t pin_onewire   { 8 };
 constexpr uint8_t pin_led       { 13 };
 constexpr uint8_t pin_button    { 2 };
@@ -53,6 +59,11 @@ constexpr uint8_t pin_button    { 2 };
 uint8_t mem_read[16];
 uint8_t display_mode = 0;  // 0: normal, 1: inverse; 2: off
 uint8_t mem_buffer[144];
+
+unsigned long RAM_lRebootCount0 __attribute__ ((section (".noinit")));  // these variables retain uncanged in memory during reboot
+unsigned long RAM_lRebootCount1 __attribute__ ((section (".noinit")));  // copy for checksum (power-up detection)
+unsigned long EEPROM_lPowerCount0;                                      // these variables retain uncanged in eeprom during power-cycle
+unsigned long EEPROM_lPowerCount1;                                      // copy for checksum (first use detection)
 
 auto hub = OneWireHub(pin_onewire);
 auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);  // LCD/OLED
@@ -64,6 +75,13 @@ bool blinking(void);
 
 void setup()
 {
+    // - immediately disable watchdog timer so set will not get interrupted
+    // - any 'slow' activity needs to be completed before enabling the watchdog timer.
+    // - the following forces a pause before enabling WDT. This gives the IDE a chance to
+    //   call the bootloader in case something dumb happens during development and the WDT
+    //   resets the MCU too quickly. Once the code is solid, remove this.
+    wdt_disable();
+
 //    Serial.begin(115200);
     Wire.begin();
 //    Serial.println("OneWire-Hub DS2433");
@@ -111,6 +129,36 @@ void setup()
     SeeedGrayOled.putString("Ti: ");
     SeeedGrayOled.putNumber(GetTemp()*1000);
 
+    // https://www.arduino.cc/en/Reference/EEPROM
+    EEPROM.get(sizeof(unsigned long)*0, EEPROM_lPowerCount0);
+    EEPROM.get(sizeof(unsigned long)*1, EEPROM_lPowerCount1);
+    if (EEPROM_lPowerCount0 != EEPROM_lPowerCount1)  // setup-up reset
+    {
+        EEPROM_lPowerCount0 = 0; EEPROM_lPowerCount1 = 0;
+    }
+    // https://forum.arduino.cc/index.php?topic=232362.0
+    if (RAM_lRebootCount0 != RAM_lRebootCount1)      // power-up reset
+    {
+        RAM_lRebootCount0 = 0; RAM_lRebootCount1 = 0;
+        //++EEPROM_lPowerCount0; ++EEPROM_lPowerCount1;
+        ++EEPROM_lPowerCount1;
+        //EEPROM.put(sizeof(unsigned long)*0, EEPROM_lPowerCount0);
+// writing to eeprom limited to ~100'000 times thus disabled
+//        EEPROM.put(sizeof(unsigned long)*0, EEPROM_lPowerCount1);
+//        EEPROM.put(sizeof(unsigned long)*1, EEPROM_lPowerCount1);
+// writing to eeprom disabled
+    }
+    SeeedGrayOled.setTextXY(9,0);
+    SeeedGrayOled.putString("P: ");
+// writing to eeprom limited to ~100'000 times thus disabled
+//    SeeedGrayOled.putNumber(EEPROM_lPowerCount0);
+    SeeedGrayOled.putNumber(EEPROM_lPowerCount1);  // while eeprom writing disabled
+// writing to eeprom disabled
+    SeeedGrayOled.setTextXY(9,6);
+    SeeedGrayOled.putString("R: ");
+    SeeedGrayOled.putNumber(RAM_lRebootCount0);
+    ++RAM_lRebootCount0; ++RAM_lRebootCount1;
+
     pinMode(pin_led, OUTPUT);
 
     pinMode(pin_button, INPUT_PULLUP);
@@ -139,20 +187,24 @@ void setup()
     // ds2433.clearMemory(); // begin fresh after doing some work*/
 
 //    Serial.println("config done");
-    SeeedGrayOled.setTextXY(9,0);
+    SeeedGrayOled.setTextXY(10,0);
     SeeedGrayOled.putString("config done");
 
     delay(2000);
 
-    for(char i=0; i < 10 ; i++)
+    for(char i=0; i < 11 ; i++)
     {
         SeeedGrayOled.setTextXY(i,0);           //Set the cursor to (i+4)th line, 0th Column
         SeeedGrayOled.clearDisplay();           //clear the screen and set start position to top left corner
     }
+
+    wdt_reset();
+    wdt_enable(WDTO_8S);
 }
 
 void loop()
 {
+    wdt_reset();
     // following function must be called periodically
     hub.poll();
 
@@ -193,6 +245,8 @@ void loop()
             //SeeedGrayOled.putNumber(i);
             if(memcmp(mem_read, &mem_buffer[i*12], 12) != 0)  // update display on change only otherwise 1wire becomes unresponsive due to slow output!!
             {
+                wdt_reset();
+
                 //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column
                 //SeeedGrayOled.putNumber(i);
 
