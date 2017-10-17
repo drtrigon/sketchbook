@@ -1,0 +1,28 @@
+
+=== dump (read and view) eeprom ===
+
+$ avrdude -c arduino -p atmega328p -P /dev/ttyACM0 -U eeprom:r:main.eep:i
+$ cat main.eep
+
+Konvertieren zu Text z.B.: http://www.rapidtables.com/convert/number/hex-to-ascii.htm
+
+
+=== modify eeprom ===
+
+"But you can always create a hex file (e.g. INTEL Hex records) containing just the single byte with the address you need to change."
+
+$ nano main.eep
+$ avrdude -c arduino -p atmega328p -P /dev/ttyACM0 -U eeprom:w:main.eep
+
+Z.B. um UID mit Informationen wie Herstellungs-/Kaufdatum etc., Beispiel: "=/x2a03000002x0043=,000220=ArduinoUnoR0300=}017001&,16343137393518101C1"
+(Länge = 31)
+
+Soll am Ende des EEPROM stehen. Praktisch ist wenn dazu kein Sketch nötig ist.
+
+Siehe dazu Tabelle: UDI-Generator-v1.0.xlsx
+
+
+== links ==
+
+http://logbuch.dmaertens.de/elektronik-hardware/microcontroller/eeprom-eines-microcontrollers-mit-avrdude-auslesen-und-beschreiben
+https://electronics.stackexchange.com/questions/74673/avrdude-write-eeprom-bytes-without-file
