@@ -5,10 +5,12 @@
  *    - https://github.com/PaulStoffregen/OneWire --> DS18x20-Example, atmega328@16MHz as Slave
  *    - DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
  *    - LinkHubE + owfshttpd, ATtiny85 as Slave
- *    - OW-SERVER ENET + owshell, ATtiny85 as Slave
- *    - low-power mode ... ?
+ *    - OW-SERVER ENET + owshell, ATtiny85 as Slave, Port 3 seems to be broken
+ *    - low-power mode ... ? currently uses < 10 mA not connected to 1wire
  *      http://www.rocketscream.com/blog/2011/07/04/lightweight-low-power-arduino-library/
  *      https://www.seeed.cc/ATTINY%20and%20ATMEGA's%20internal%20temperature%20sensor-p-161.html
+ *    - tune internal OSC for 1wire timing
+ *      http://becomingmaker.com/tuning-attiny-oscillator/
  *
  *    OneWireHub_config.h:
  *    - need to increase ONEWIRE_TIME_MSG_HIGH_TIMEOUT to 150000_us (x10):
@@ -88,6 +90,11 @@
 #include <TinyDebugSerial.h>  // small mem footprint lib
 #endif
 
+// https://bigdanzblog.wordpress.com/2014/10/24/arduino-watchdog-timer-wdt-example-code/
+// https://bigdanzblog.wordpress.com/2015/07/20/resetting-rebooting-attiny85-with-watchdog-timer-wdt/#comment-1297
+// http://www.avrfreaks.net/comment/515785#comment-515785
+#include <avr/wdt.h>    // watchdog
+
 constexpr uint8_t pin_led       { 1 };
 constexpr uint8_t pin_onewire   { 4 };
 
@@ -110,6 +117,14 @@ bool blinking(void);
 
 void setup()
 {
+    // - immediately disable watchdog timer so set will not get interrupted
+    // - any 'slow' activity needs to be completed before enabling the watchdog timer.
+    // - the following forces a pause before enabling WDT. This gives the IDE a chance to
+    //   call the bootloader in case something dumb happens during development and the WDT
+    //   resets the MCU too quickly. Once the code is solid, remove this.
+    MCUSR &= ~(1<<WDRF); // reset status flag (needed for tiny)
+    wdt_disable();
+
 #ifdef ENABLE_DEBUG
     // initialize TinyDebugSerial lib (needs Arduino Board)
     mySerial.begin(115200);
@@ -147,13 +162,19 @@ void setup()
         analogWrite(pin_led, B00000001<<i);
         delay(500);
     }
+
+    wdt_reset();
+    wdt_enable(WDTO_8S);
 }
 
 void loop()
 {
+    wdt_reset();
     // following function must be called periodically
 #ifndef ENABLE_DEBUG
     hub.poll();
+#endif
+#ifdef ENABLE_DEBUG
     // this part is just for debugging (USE_SERIAL_DEBUG in OneWire.h must be enabled for output)
     if (hub.hasError()) hub.printError();
 #endif
@@ -281,7 +302,7 @@ float getVcc(void)
 // per tech note: http://www.atmel.com/Images/doc8108.pdf
 float chipTemp(float raw) {
 //  const float chipTempOffset = 272.9;           // Your value here, it may vary 
-  const float chipTempOffset = 232.9;           // Your value here, it may vary 
+  const float chipTempOffset = 242.9;           // Your value here, it may vary
   const float chipTempCoeff = 1.075;            // Your value here, it may vary
   return((raw - chipTempOffset) / chipTempCoeff);
 }
