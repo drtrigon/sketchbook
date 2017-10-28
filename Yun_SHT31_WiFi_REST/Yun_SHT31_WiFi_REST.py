@@ -11,10 +11,18 @@ import urllib2
 import time
 import matplotlib.pyplot as plt
 
+import sys
 
-log_file = "Yun_SHT31_WiFi_REST.log"
-fmt_print = "%s, %14.3f, %9.3f °C, %9.3f %%rf"
-fmt_write = "%s, %14.3f, %9.3f, %9.3f"
+
+CONF = {
+  'interval_update': 20.,
+  'interval_timeout': 3.,
+
+  'log_file': "Yun_SHT31_WiFi_REST.log",
+  'fmt_print': "%s, %14.3f, %9.3f °C, %9.3f %%rf",
+  'fmt_write': "%s, %14.3f, %9.3f, %9.3f",
+}
+CONF['interval_timeout'] = max(CONF['interval_timeout'], CONF['interval_update']/10)
 
 
 def read_mon_values():
@@ -32,7 +40,13 @@ def read_mon_values():
 #    data = urllib2.urlopen("http://arduino.local/arduino/mon/W").read()
 #    ret.append( data.split()[-1][:-1] )
 
-    data = json.load(urllib2.urlopen("http://192.168.11.12/"))
+    while True:
+        try:
+            data = json.load(urllib2.urlopen("http://192.168.11.12/", timeout = CONF['interval_timeout']))
+            break
+        except:
+            print sys.exc_info()[0], sys.exc_info()[1]
+            #print sys.exc_info()[2]
     #print data["variables"]["temperature"]
     #print data["variables"]["humidity"]
     ret.append( data["variables"]["temperature"] )
@@ -50,6 +64,10 @@ plt.ylim([0., 100.])
 plt.grid(True)
 plt.ion()
 
+print "Run using this configuration:"
+
+print json.dumps(CONF, indent=4, sort_keys=True)
+
 print "Retrieving live data from Yun, starting ..."
 
 parsed = json.load(urllib2.urlopen("http://192.168.11.12/"))
@@ -57,21 +75,18 @@ print json.dumps(parsed, indent=4, sort_keys=True)
 
 blink()
 
-start = time.time()
 while True:
-    ts = (time.asctime(), time.time())
+    temperature, humidity = read_mon_values()    # reading may take some time ...
+    ts = (time.asctime(), time.time())           # ... thus get time afterwards
 
-    temperature, humidity = read_mon_values()
-
-    output = fmt_print % (ts + (temperature, humidity))
+    output = CONF['fmt_print'] % (ts + (temperature, humidity))
     print output
 
-    output = fmt_write % (ts + (temperature, humidity))
-    with open(log_file, "a") as log:
+    output = CONF['fmt_write'] % (ts + (temperature, humidity))
+    with open(CONF['log_file'], "a") as log:
         log.write(output + "\n")
 
-    plt.scatter([time.time()-start]*2, [temperature, humidity], color=['r', 'b'])
+    plt.scatter([ts[1]]*2, [temperature, humidity], color=['r', 'b'])
 
-    #time.sleep(10.)
-    #plt.pause(2.)
-    plt.pause(10.)
+    #time.sleep(CONF['interval_update'])
+    plt.pause(CONF['interval_update'])
