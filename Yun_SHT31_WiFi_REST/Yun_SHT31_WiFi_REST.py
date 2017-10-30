@@ -15,6 +15,8 @@ import sys
 
 
 CONF = {
+  'sensor': "192.168.11.12",
+
   'interval_update': 20.,
   'interval_timeout': 3.,
 
@@ -42,7 +44,7 @@ def read_mon_values():
 
     while True:
         try:
-            data = json.load(urllib2.urlopen("http://192.168.11.12/", timeout = CONF['interval_timeout']))
+            data = json.load(urllib2.urlopen("http://%s/" % CONF['sensor'], timeout = CONF['interval_timeout']))
             break
         except:
             print sys.exc_info()[0], sys.exc_info()[1]
@@ -54,14 +56,17 @@ def read_mon_values():
     return tuple(map(float, ret))
 
 def blink():
-    urllib2.urlopen("http://192.168.11.12/arduino/digital/13/1")
+    urllib2.urlopen("http://%s/arduino/digital/13/1" % CONF['sensor'])
     time.sleep(.25)
-    urllib2.urlopen("http://192.168.11.12/arduino/digital/13/0")
+    urllib2.urlopen("http://%s/arduino/digital/13/0" % CONF['sensor'])
 
 
 #plt.axis([0, 10, 0, 1])
 plt.ylim([0., 100.])
 plt.grid(True)
+ax = plt.gca()
+#ax.set_xticks([1., 2., 3., 4., 5.])
+ax.set_yticks(range(0, 110, 10))
 plt.ion()
 
 print "Run using this configuration:"
@@ -70,7 +75,7 @@ print json.dumps(CONF, indent=4, sort_keys=True)
 
 print "Retrieving live data from Yun, starting ..."
 
-parsed = json.load(urllib2.urlopen("http://192.168.11.12/"))
+parsed = json.load(urllib2.urlopen("http://%s/" % CONF['sensor']))
 print json.dumps(parsed, indent=4, sort_keys=True)
 
 blink()
