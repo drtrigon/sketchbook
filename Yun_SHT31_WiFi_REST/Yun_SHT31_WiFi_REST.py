@@ -46,6 +46,8 @@ def read_mon_values():
         try:
             data = json.load(urllib2.urlopen("http://%s/" % CONF['sensor'], timeout = CONF['interval_timeout']))
             break
+        except exceptions.KeyboardInterrupt:
+            sys.exit()
         except:
             print sys.exc_info()[0], sys.exc_info()[1]
             #print sys.exc_info()[2]
