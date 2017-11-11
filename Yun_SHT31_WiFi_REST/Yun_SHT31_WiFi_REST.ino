@@ -170,7 +170,9 @@ void setup(void)
   rest.variable("temperature",&temperature);
   rest.variable("humidity",&humidity);
   rest.variable("Vs",&Vs);
-  rest.variable("Ti",&Ti);
+// DOES NOT WORK: causes strange issues and then firefox tries to download a bin-file!
+//                (like sDEBUG above - may be a data limit???)
+//  rest.variable("Ti",&Ti);
 #ifdef DEBUG
   Serial.print("Temp *C = "); Serial.println(temperature);
   Serial.print("Hum. % = "); Serial.println(humidity);
@@ -211,6 +213,8 @@ void setup(void)
 
   // Listen for incoming connection only from localhost
   server.begin();
+
+  delay(30000.);  // wait for the other processor (linux/wrt) to come up (else IP is empty)
 
   // Print the IP address
   // From: File > Examples > Bridge > WiFiStatus
