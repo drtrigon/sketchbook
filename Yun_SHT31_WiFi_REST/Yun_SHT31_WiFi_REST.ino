@@ -120,6 +120,8 @@ const String sFILE    = String(__FILE__);
 
 void setup(void)
 {
+  static uint32_t startupMillis  = millis();  // time for startup
+
 #ifdef DEBUG
   // Start Serial
   Serial.begin(115200);
@@ -214,7 +216,27 @@ void setup(void)
   // Listen for incoming connection only from localhost
   server.begin();
 
-  delay(30000.);  // wait for the other processor (linux/wrt) to come up (else IP is empty)
+  startupMillis = (millis() - startupMillis);
+  //Vs = float(startupMillis);  // trick for measuring/debug
+  // startupMillis: power-up ~56269, rebooot/reset ~4588
+  if (startupMillis > 10000)
+  {
+    // power-up (not rebooot/reset)
+
+    // show temperature and humidity while waiting...
+    // (...for about 20s)
+    oled.set2X();
+    oled.setCursor(0,0);
+    oled.println(temperature);
+    oled.setCursor(70,0);
+    oled.println(humidity);
+    oled.set1X();
+    oled.setCursor(0,6);  // put it back to where it was
+
+    // wait for the other processor (linux/wrt) to come up
+    // (else IP below from wifiCheck will be empty)
+    delay(75000.-startupMillis);
+  }
 
   // Print the IP address
   // From: File > Examples > Bridge > WiFiStatus
@@ -310,7 +332,7 @@ int ledControl(String command) {
 
 bool blinking(void)
 {
-    const  uint32_t interval    = 5000;          // interval at which to blink (milliseconds)
+    const  uint32_t interval    = 10000;          // interval at which to blink (milliseconds)
     static uint32_t nextMillis  = millis();     // will store next time LED will updated
 
     if (millis() > nextMillis)
