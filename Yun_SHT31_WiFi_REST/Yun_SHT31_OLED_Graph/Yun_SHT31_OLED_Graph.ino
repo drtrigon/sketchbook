@@ -7,8 +7,26 @@
 // SHT31
 // This code is designed to work with the SHT31_I2CS I2C Module available from Adafruit.
 // Work-a-round for ESP8266_SHT31_WiFi_REST as it has issues with I2C comm.
+
+/*********************************************************************
+This is an example for our Monochrome OLEDs based on SSD1306 drivers
+
+  Pick one up today in the adafruit shop!
+  ------> http://www.adafruit.com/category/63_98
+
+This example is for a 128x64 size display using I2C to communicate
+3 pins are required to interface (2 I2C and one reset)
+
+Adafruit invests time and resources providing this open source code, 
+please support Adafruit and open-source hardware by purchasing 
+products from Adafruit!
+
+Written by Limor Fried/Ladyada  for Adafruit Industries.  
+BSD license, check license.txt for more information
+All text above, and the splash screen must be included in any redistribution
+*********************************************************************
 */
-/***************************************************
+/*************************************************** 
  *    Usage:
  *      - switch it on (my be check with browser)
  *      - run python script:
@@ -37,9 +55,9 @@
  *        - password: arduino
  *      - configure interface: https://www.arduino.cc/en/Guide/ArduinoYun
  *        - Press the Configuration button to proceed.
- *        - By default, the REST API access is password protected. It is possible to change this to access the services without a password. To change this setting, enter the Yún configuration panel. At the bottom of the page, you will see toggles for changing the access.
+ *        - By default, the REST API access is password protected. It is possible to change this to access the services without a password. To change this setting, enter the Yún configuration panel. At the bottom of the page, you will see toggles for changing the access. 
  *          - set REST to open
- *        - Enter the name of the wiFi network you wish to connect to.
+ *        - Enter the name of the wiFi network you wish to connect to. 
  *          - connect to your local ssid using your password
  *
  *    REST interface:
@@ -64,47 +82,41 @@
 // In DEBUG mode additional serial and REST ouput are enabled
 //#define DEBUG
 
-// Import required libraries
-#include <Bridge.h>
-#include <YunServer.h>
-#include <YunClient.h>
-#include <aREST.h>
+#define HORIZONTAL
+//#define VERTICAL
 
+#ifdef VERTICAL
+#define SCALING   1.
+#define OFFSET    0.
+//#define MAX_TIME  128
+#define MAX_TIME  60
+#else  // HORIZONTAL
+#define SCALING   -0.5
+#define OFFSET    50.
+//#define MAX_TIME  64
+#define MAX_TIME  100
+#endif
+
+//#include <SPI.h>
 #include <Wire.h>
 #include "Adafruit_SHT31.h"
-//#include <Adafruit_GFX.h>
-//#include <Adafruit_SSD1306.h>
-#include "SSD1306Ascii.h"
-#include "SSD1306AsciiWire.h"
-
-#include <Process.h>
-
-// Create aREST instance
-aREST rest = aREST();
-
-// on how to use the Yun as client in your existing
-// local wifi network: see "Yun WebInterface" above
-// (compare also to ESP8266_SHT31_WiFi_REST)
-/*// WiFi parameters
-//const char* ssid = "your_wifi_network_name";
-//const char* password = "your_wifi_network_password";*/
-
-// Yun Server
-YunServer server(80);
+#include <Adafruit_GFX.h>
+#include <Adafruit_SSD1306.h>
 
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
-//Adafruit_SSD1306 display(4);  // OLED_RESET = 4
-SSD1306AsciiWire oled;
+Adafruit_SSD1306 display(4);  // OLED_RESET = 4
 
-//#if (SSD1306_LCDHEIGHT != 64)
-//#error("Height incorrect, please fix Adafruit_SSD1306.h!");
-//#endif
+#if (SSD1306_LCDHEIGHT != 64)
+#error("Height incorrect, please fix Adafruit_SSD1306.h!");
+#endif
 
 // Variables to be exposed to the API
 float temperature;
 float humidity;
 float Vs, Ti;
+int t = 0;
+float last_humidity;
 
 const String sDESC    = String("SHT31 I2C WiFi Sensor");
 const String sDATE    = String(__DATE__);
@@ -112,18 +124,8 @@ const String sTIME    = String(__TIME__);
 const String sIDE     = String(ARDUINO, DEC);
 const String sVERSION = String(__VERSION__);
 const String sFILE    = String(__FILE__);
-#ifdef DEBUG
-// DOES NOT WORK: causes strange issues and then firefox tries to download a bin-file!
-//String sDEBUG   = String();
-#endif
 
-//// Declare functions to be exposed to the API
-//int ledControl(String command);
-
-void setup(void)
-{
-  static uint32_t startupMillis  = millis();  // time for startup
-
+void setup()   {                
 #ifdef DEBUG
   // Start Serial
   Serial.begin(115200);
@@ -143,40 +145,10 @@ void setup(void)
   sht31.begin(0x44);   // Set to 0x45 for alternate i2c addr
 #endif
 
-//  // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
-//  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
-//  // Show image buffer on the display hardware.
-//  // Since the buffer is intialized with an Adafruit splashscreen
-//  // internally, this will display the splashscreen.
-//  display.display();
-//  delay(2000);
-//  // Clear the buffer.
-//  display.clearDisplay();
-//
-//  // text display tests
-//  display.setTextSize(1);
-//  display.setTextColor(WHITE);
-//  //display.setTextColor(BLACK, WHITE); // 'inverted' text
-//  display.setCursor(0,0);
-  //Wire.begin();  // sht31.begin() contains Wire.begin()
-  oled.begin(&Adafruit128x64, 0x3C);
-  oled.setFont(System5x7);
-  oled.clear();
-  //oled.set2X();
-
-  // Init variables and expose them to REST API
-  //temperature = 24;
-  //humidity = 40;
   temperature = sht31.readTemperature();
   humidity = sht31.readHumidity();
   Vs = getVcc();
   Ti = getTemp();
-  rest.variable("temperature",&temperature);
-  rest.variable("humidity",&humidity);
-  rest.variable("Vs",&Vs);
-// DOES NOT WORK: causes strange issues and then firefox tries to download a bin-file!
-//                (like sDEBUG above - may be a data limit???)
-//  rest.variable("Ti",&Ti);
 #ifdef DEBUG
   Serial.print("Temp *C = "); Serial.println(temperature);
   Serial.print("Hum. % = "); Serial.println(humidity);
@@ -184,79 +156,48 @@ void setup(void)
   Serial.print("Ti *C = "); Serial.println(Ti);
 #endif
 
-  rest.variable("DESC",&sDESC);
-  rest.variable("DATE",&sDATE);
-  rest.variable("TIME",&sTIME);
-  rest.variable("IDE",&sIDE);
-  rest.variable("VERSION",&sVERSION);
-  rest.variable("FILE",&sFILE);
-#ifdef DEBUG
-  //rest.variable("DEBUG",&sDEBUG);
-#endif
-//  display.println(sDESC);
-//  ...
-  oled.println(sDESC);
-  oled.println(F("Version: 1"));
-  oled.println(sDATE);
-  oled.println(sTIME);
-  oled.print(sIDE);
-  oled.print("/");
-  oled.println(sVERSION);
-  oled.println(sFILE);
+  // by default, we'll generate the high voltage from the 3.3v line internally! (neat!)
+//  display.begin(SSD1306_SWITCHCAPVCC, 0x3D);  // initialize with the I2C addr 0x3D (for the 128x64)
+  display.begin(SSD1306_SWITCHCAPVCC, 0x3C);  // initialize with the I2C addr 0x3D (for the 128x64)
+  // Clear the buffer.
+  display.clearDisplay();
 
-   // DOES NOT WORK PROPERLY: .../led/o, .../led/1, .../led/0, .../led?1, etc.
-  /*// Function to be exposed
-  rest.function("led",ledControl);*/
+  // text display tests
+  display.setTextSize(1);
+  display.setTextColor(WHITE);
+  //display.setTextColor(BLACK, WHITE); // 'inverted' text
+  display.setCursor(0,0);
+  display.println(sDESC);
+  display.println(F("Version: 1"));
+  display.println(sDATE);
+  display.println(sTIME);
+  display.print(sIDE);
+  display.print("/");
+  display.println(sVERSION);
+  //display.println(sFILE);
+//  display.display();
 
-  // Give name & ID to the device (ID should be 6 characters long)
-  rest.set_id("008");
-  rest.set_name("mighty_cat");
-
-  // Bridge startup
-  Bridge.begin();
-
-  // Listen for incoming connection only from localhost
-  server.begin();
-
-  startupMillis = (millis() - startupMillis);
-  //Vs = float(startupMillis);  // trick for measuring/debug
-  // startupMillis: power-up ~56269, rebooot/reset ~4588
-  if (startupMillis > 10000)
-  {
-    // power-up (not rebooot/reset)
-
-    // show temperature and humidity while waiting...
-    // (...for about 20s)
-    oled.set2X();
-    oled.setCursor(0,0);
-    oled.println(temperature);
-    oled.setCursor(70,0);
-    oled.println(humidity);
-    oled.set1X();
-    oled.setCursor(0,6);  // put it back to where it was
-
-    // wait for the other processor (linux/wrt) to come up
-    // (else IP below from wifiCheck will be empty)
-    delay(75000.-startupMillis);
-  }
-
-  // Print the IP address
-  // From: File > Examples > Bridge > WiFiStatus
-//  Serial.println(WiFi.localIP());
-  Process wifiCheck;  // initialize a new process
-  wifiCheck.runShellCommand(F("/usr/bin/pretty-wifi-info.lua | grep 'IP address' | awk -F '[:/]' '{print substr($2,2)}'"));  // command you want to run
-  // while there's any characters coming back from the
-  // process, print them to the serial monitor:
-  while (wifiCheck.available() > 0) {
-    oled.print(wifiCheck.readString());
-  }
-
-  oled.println(F("config done"));
+  display.println(F("config done"));
+  display.display();
 #ifdef DEBUG
   Serial.println(F("config done"));
   Serial.flush();
   //sDEBUG = String("config done");
 #endif
+
+  delay(2000.);
+  display.clearDisplay();
+
+  for(int x=0; x<=MAX_TIME; x+=10) {
+    for(int y=0; y<=100; y+=10) {
+#ifdef VERTICAL
+      display.drawPixel((y*SCALING+OFFSET), x, WHITE);
+#else
+      display.drawPixel(x, (y*SCALING+OFFSET), WHITE);
+#endif
+    }
+  }
+  display.display();
 
   // Flash LED 2x to signal "boot ok"
   pinMode(LED_BUILTIN, OUTPUT);     // Initialize the LED_BUILTIN pin as an output
@@ -268,33 +209,36 @@ void setup(void)
   delay(500);
   digitalWrite(LED_BUILTIN, LOW);
   pinMode(LED_BUILTIN, INPUT);      // reset to default (does not work - freezes)
-
-  oled.clear();
 }
 
 void loop() {
-
-  // Handle REST calls
-  YunClient client = server.accept();
-  rest.handle(client);
-
+  
   // Blink triggers the state-change
   if (blinking())
   {
     // Update Sensor Measurements
+    last_humidity = humidity;
     temperature = sht31.readTemperature();
     humidity = sht31.readHumidity();
     Vs = getVcc();
     Ti = getTemp();
-    oled.set2X();
-    oled.setCursor(0,0);
-    oled.println(temperature);
-    oled.setCursor(70,0);
-    oled.println(humidity);
-    oled.setCursor(0,4);
-    oled.println(Ti);  // internal temp
-    oled.setCursor(70,4);
-    oled.println(Vs);  // supply voltage
+#ifdef VERTICAL
+//    display.drawPixel(int(humidity*SCALING + OFFSET), t, WHITE);
+    display.drawLine(int(last_humidity*SCALING + OFFSET), t-1, int(humidity*SCALING + OFFSET), t, WHITE);
+#else
+//    display.drawPixel(t, int(humidity*SCALING + OFFSET), WHITE);
+    display.drawLine(t-1, int(last_humidity*SCALING + OFFSET), t, int(humidity*SCALING + OFFSET), WHITE);
+
+    display.fillRect(0, 55, 128, 10, BLACK);
+    display.setCursor(0,55);
+    display.print(humidity);
+    display.setCursor(50,55);
+    display.print(temperature);
+    display.setCursor(100,55);
+    display.print(Vs);
+#endif
+    display.display();
+    t = (t + 1) % MAX_TIME;
 #ifdef DEBUG
     Serial.print("Temp *C = "); Serial.println(temperature);
     Serial.print("Hum. % = "); Serial.println(humidity);
@@ -302,35 +246,14 @@ void loop() {
     Serial.print("Ti *C = "); Serial.println(Ti);
 #endif
 
-    oled.set1X();
-    oled.setCursor(0,7);
-    Process date;                 // process used to get the date
-    date.begin(F("/bin/date"));
-    date.addParameter(F("+%Y-%m-%d %H:%M:%S"));
-    date.run();
-    //if there's a result from the date process, get it.
-    while (date.available()>0) {
-      // print the results we got.
-//      Serial.print(date.readString());
-      oled.print(date.readString());
-    }
+  /*for (int16_t i=0; i<display.height()/2; i+=2) {
+    display.drawRect(i, i, display.width()-2*i, display.height()-2*i, WHITE);
+    display.display();
+    delay(1);
+  }*/
   }
 
 }
-
-/*// Custom function accessible by the API
-int ledControl(String command) {
-
-  // Get state from command
-  int state = command.toInt();
-#ifdef DEBUG
-  Serial.println(command);
-  //sDEBUG = String(command);
-#endif
-
-  digitalWrite(LED_BUILTIN,state);
-  return 1;
-}*/
 
 bool blinking(void)
 {
