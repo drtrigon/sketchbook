@@ -59,6 +59,77 @@
  *      SCL   SCL Adafruit_SHT31, SSD1306 OLED
  *      SDA   SDA Adafruit_SHT31, SSD1306 OLED
  *      (USB power by Power/BatteryPack)
+ *
+ *    Setup USB stick/drive:
+ *
+ *    ursin@ThinkPad-T440-ursin:~$ lsblk
+ *    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+ *    [...]
+ *    sdb      8:16   1  1007M  0 disk
+ *    └─sdb1   8:17   1  1006M  0 part
+ *    sr0     11:0    1  1024M  0 rom
+ *    ursin@ThinkPad-T440-ursin:~$ sudo fdisk /dev/sdb
+ *
+ *    Befehl (m für Hilfe): d
+ *    Partition 1 ausgewählt
+ *
+ *    Befehl (m für Hilfe): p
+ *
+ *    Platte /dev/sdb: 1055 MByte, 1055916032 Byte
+ *    33 Köpfe, 30 Sektoren/Spur, 2083 Zylinder, zusammen 2062336 Sektoren
+ *    Einheiten = Sektoren von 1 × 512 = 512 Bytes
+ *    Sector size (logical/physical): 512 bytes / 512 bytes
+ *    I/O size (minimum/optimal): 512 bytes / 512 bytes
+ *    Festplattenidentifikation: 0x89dd17da
+ *
+ *       Gerät  boot.     Anfang        Ende     Blöcke   Id  System
+ *
+ *    Befehl (m für Hilfe): n
+ *    Partition type:
+ *       p   primary (0 primary, 0 extended, 4 free)
+ *       e   extended
+ *    Select (default p):
+ *    Using default response p
+ *    Partitionsnummer (1-4, Vorgabe: 1):
+ *    Benutze den Standardwert 1
+ *    Erster Sektor (2048-2062335, Vorgabe: 2048):
+ *    Benutze den Standardwert 2048
+ *    Last Sektor, +Sektoren or +size{K,M,G} (2048-2062335, Vorgabe: 2062335):
+ *    Benutze den Standardwert 2062335
+ *
+ *    Befehl (m für Hilfe): v
+ *    Remaining 2047 unallocated 512-byte sectors
+ *
+ *    Befehl (m für Hilfe): w
+ *    Die Partitionstabelle wurde verändert!
+ *
+ *    Rufe ioctl() um Partitionstabelle neu einzulesen.
+ *    Synchronisiere Platten.
+ *    ursin@ThinkPad-T440-ursin:~$ sudo mkfs.vfat /dev/sdb1
+ *    mkfs.fat 3.0.26 (2014-03-07)
+ *    ursin@ThinkPad-T440-ursin:~$ lsblk
+ *    NAME   MAJ:MIN RM   SIZE RO TYPE MOUNTPOINT
+ *    [...]
+ *    sdb      8:16   1  1007M  0 disk
+ *    └─sdb1   8:17   1  1006M  0 part /media/ursin/8DDC-2397
+ *    sr0     11:0    1  1024M  0 rom
+ *    ursin@ThinkPad-T440-ursin:~$ sudo fdisk /dev/sdb
+ *    Befehl (m für Hilfe): p
+ *
+ *    Platte /dev/sdb: 1055 MByte, 1055916032 Byte
+ *    6 Köpfe, 16 Sektoren/Spur, 21482 Zylinder, zusammen 2062336 Sektoren
+ *    Einheiten = Sektoren von 1 × 512 = 512 Bytes
+ *    Sector size (logical/physical): 512 bytes / 512 bytes
+ *    I/O size (minimum/optimal): 512 bytes / 512 bytes
+ *    Festplattenidentifikation: 0x89dd17da
+ *
+ *       Gerät  boot.     Anfang        Ende     Blöcke   Id  System
+ *    /dev/sdb1            2048     2062335     1030144   83  Linux
+ *
+ *    Befehl (m für Hilfe): q
+ *
+ *    ursin@ThinkPad-T440-ursin:~$ touch /media/ursin/8DDC-2397/datalog.txt
+ *
  ****************************************************/
 
 // In DEBUG mode additional serial and REST ouput are enabled
@@ -78,6 +149,8 @@
 #include "SSD1306AsciiWire.h"
 
 #include <Process.h>
+
+#include <FileIO.h>
 
 // Create aREST instance
 aREST rest = aREST();
@@ -251,6 +324,8 @@ void setup(void)
     oled.print(wifiCheck.readString());
   }
 
+  FileSystem.begin();
+
   oled.println(F("config done"));
 #ifdef DEBUG
   Serial.println(F("config done"));
@@ -302,17 +377,47 @@ void loop() {
     Serial.print("Ti *C = "); Serial.println(Ti);
 #endif
 
+    // From: File > Examples > Bridge > Datalogger
+    // make a string that start with a timestamp for assembling the data to log:
+    String dataString;
+    dataString += getTimeStamp();
+
     oled.set1X();
     oled.setCursor(0,7);
-    Process date;                 // process used to get the date
-    date.begin(F("/bin/date"));
-    date.addParameter(F("+%Y-%m-%d %H:%M:%S"));
-    date.run();
-    //if there's a result from the date process, get it.
-    while (date.available()>0) {
-      // print the results we got.
-//      Serial.print(date.readString());
-      oled.print(date.readString());
+//    Serial.print(getTimeStamp());
+    //oled.print(getTimeStamp());
+    oled.print(dataString);
+
+    //dataString += " = ";
+    dataString += ",";  // separate the values with a comma
+    // read sensors and append to the string:
+    dataString += String(temperature);
+    dataString += ",";  // separate the values with a comma
+    dataString += String(humidity);
+    dataString += ",";  // separate the values with a comma
+    dataString += String(Vs);
+    dataString += ",";  // separate the values with a comma
+    dataString += String(Ti);
+    //dataString += ",";  // separate the values with a comma
+
+    // open the file. note that only one file can be open at a time,
+    // so you have to close this one before opening another.
+    // The FileSystem card is mounted at the following "/mnt/FileSystema1"
+//    File dataFile = FileSystem.open("/mnt/sd/datalog.txt", FILE_APPEND);
+    File dataFile = FileSystem.open("/mnt/sda1/datalog.txt", FILE_APPEND);
+
+    // if the file is available, write to it:
+    if (dataFile) {
+      dataFile.println(dataString);
+      dataFile.close();
+#ifdef DEBUG
+      // print to the serial port too:
+      Serial.println(dataString);
+    }
+    // if the file isn't open, pop up an error:
+    else {
+      Serial.println("error opening datalog.txt");
+#endif
     }
   }
 
@@ -347,6 +452,32 @@ bool blinking(void)
         return 1;
     }
     return 0;
+}
+
+// This function returns a string with the time stamp
+String getTimeStamp() {
+  String result;
+  Process date;  // process used to get the date
+  // date is a command line utility to get the date and the time
+  // in different formats depending on the additional parameter
+  date.begin(F("date"));
+  //date.begin(F("/bin/date"));
+  //date.addParameter(F("+%D-%T"));  // parameters: D for the complete date mm/dd/yy
+  ////             T for the time hh:mm:ss
+  date.addParameter(F("+%Y-%m-%d %H:%M:%S"));
+  date.run();  // run the command
+
+  // read the output of the command
+  while (date.available() > 0) {
+    char c = date.read();
+    if (c != '\n') {
+      result += c;
+    }
+////    Serial.print(date.readString());
+//    oled.print(date.readString());
+  }
+
+  return result;
 }
 
 /********************************************************************************

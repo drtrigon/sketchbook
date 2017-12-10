@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-...
+Logging script for Yun SHT31 (Arduino IDE) and ESP8266 SHT31 (MicroPython).
 """
 
 import json
@@ -16,11 +16,12 @@ import sys
 
 CONF = {
   'sensor': "192.168.11.7",
+#  'sensor': "192.168.11.13:8080",
 
   'interval_update': 20.,
   'interval_timeout': 3.,
 
-  'log_file': "Yun_SHT31_WiFi_REST.log",
+  'log_file': "Yun_ESP8266_SHT31_WiFi_REST.log",
   'fmt_print': "%s, %14.3f, %9.3f °C, %9.3f %%rf, %9.3f V",
   'fmt_write': "%s, %14.3f, %9.3f, %9.3f, %9.3f",
 }
@@ -44,7 +45,8 @@ def read_mon_values():
 
     while True:
         try:
-            data = json.load(urllib2.urlopen("http://%s/" % CONF['sensor'], timeout = CONF['interval_timeout']))
+#            data = json.load(urllib2.urlopen("http://%s/" % CONF['sensor'], timeout = CONF['interval_timeout']))
+            data = json.loads(unicode(urllib2.urlopen("http://%s/" % CONF['sensor'], timeout = CONF['interval_timeout']).read(), errors='replace'))
             break
         except KeyboardInterrupt:
             print "Ctrl+C: quit."
@@ -80,7 +82,8 @@ print json.dumps(CONF, indent=4, sort_keys=True)
 print "Retrieving live data from Yun, starting ..."
 
 #print urllib2.urlopen("http://%s/" % CONF['sensor']).read()
-parsed = json.load(urllib2.urlopen("http://%s/" % CONF['sensor']))
+#parsed = json.load(urllib2.urlopen("http://%s/" % CONF['sensor']))
+parsed = json.loads(unicode(urllib2.urlopen("http://%s/" % CONF['sensor']).read(), errors='replace'))
 print json.dumps(parsed, indent=4, sort_keys=True)
 
 blink()

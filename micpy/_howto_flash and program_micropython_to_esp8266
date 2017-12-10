@@ -1,0 +1,396 @@
+
+https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/intro.html#intro
+https://github.com/jandelgado/NodeMCU/wiki/ESP8266-01-overview-and-flashing-instructions
+https://github.com/espressif/esptool
+https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/filesystem.html
+https://docs.micropython.org/en/latest/esp8266/esp8266/tutorial/repl.html
+https://learn.adafruit.com/micropython-basics-esp8266-webrepl/access-webrepl
+https://forum.micropython.org/viewtopic.php?t=1940
+https://github.com/cswiger/wipy/blob/master/http-server.py
+
+
+1. use arduino due to flash micropython to esp8266
+2. connect via serial (due) to micropython and enable webrepl
+3. connect via web client to webrepl to test and upload code
+4. enable wifi client mode (and optionally disable access point)
+
+
+ *    - connect ESP8266 to an Arduino Due (PROGRAMMING ATMEGA16U2 port) by wiring:
+ *        Arduino Due Pin   ESP8266 Pin
+ *                    GND   1 GND
+ *                 TX0->1   2 UTXD          --------------------
+ *                          3 GPIO2         |2 1        x--=== |
+ *               3.3V VCC   4 CH_PD         |4 3           === |
+ *                    GND   5 GPIO0         |6 5  ESP8266  === |
+ *                          6 RST           |8 7  board      | |
+ *                 RX0<-0   7 URXD          --------------------
+ *               3.3V VCC   8 VCC
+ *        Arduino Due RESET pin needs to be connected to GND (in order to disable the chip/sketch)
+ *        (ESP8266 RST kann offen bleiben oder PullUp)
+
+osboxes@osboxes:~$ sudo pip install esptool
+
+osboxes@osboxes:~$ esptool.py --port /dev/ttyACM0 erase_flash
+esptool.py v2.1
+Connecting....
+Detecting chip type... ESP8266
+Chip is ESP8266
+Uploading stub...
+Running stub...
+Stub running...
+Erasing flash (this may take a while)...
+Chip erase completed successfully in 2.6s
+Hard resetting...
+
+disconnect and reconnect usb device (due) in order to reset everything
+
+download micropython firmware from http://micropython.org/download#esp8266
+
+osboxes@osboxes:~$ esptool.py --port /dev/ttyACM0 --baud 115200 write_flash --flash_size=detect 0 ~/Downloads/esp8266-20171101-v1.9.3.bin
+esptool.py v2.1
+Connecting....
+Detecting chip type... ESP8266
+Chip is ESP8266
+Uploading stub...
+Running stub...
+Stub running...
+Configuring flash size...
+Auto-detected Flash size: 1MB
+Flash params set to 0x0020
+Compressed 600888 bytes to 392073...
+Wrote 600888 bytes (392073 compressed) at 0x00000000 in 33.9 seconds (effective 141.8 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting...
+osboxes@osboxes:~$ 
+
+open/disconnect Pin 5 GPIO0 to GND connection needed for programming
+
+again; disconnect and reconnect usb device (due) in order to reset everything
+
+osboxes@osboxes:~$ sudo apt-get install screen
+osboxes@osboxes:~$ sudo screen /dev/ttyACM0 115200
+(Ctrl-D for PYB: soft reboot)
+
+PYB: soft reboot
+#6 ets_task(40100130, 3, 3fff837c, 4)
+OSError: [Errno 2] ENOENT
+MicroPython v1.9.3-8-g63826ac5c on 2017-11-01; ESP module with ESP8266
+Type "help()" for more information.
+>>> 
+
+due to missing main.py we get:
+OSError: [Errno 2] ENOENT
+see https://github.com/micropython/micropython-esp32/issues/90
+
+>>> import webrepl_setup
+WebREPL daemon auto-start status: disabled
+
+Would you like to (E)nable or (D)isable it running on boot?
+(Empty line to quit)
+> e
+To enable WebREPL, you must set password for it
+New password (4-9 chars): esp8266
+Confirm password: esp8266
+Changes will be activated after reboot
+Would you like to reboot now? (y/n) y
+>>> 
+ ets Jan  8 2013,rst cause:2, boot mode:(3,6)
+
+load 0x40100000, len 31100, room 16 
+tail 12
+chksum 0xe3
+ho 0 tail 12 room 4
+load 0x3ffe8000, len 1084, room 12 
+tail 0
+chksum 0xc0
+load 0x3ffe8440, len 3248, room 8 
+tail 8
+chksum 0xe1
+csum 0xe1
+l��|��ssnb��l�c�lb쌜���lb�lslll��|��rroc��ll�ps�b�b쌜��cb��lsl�l��|��srnb��l���c�b쌜��c�lcl����o�s��o|��l�prl��r�l�l�l`��r�l�l�l`��r�l���ll`sl��rl���c��b�cbr�sb��n�no�l��l�l��ll������l�n����bll�sp���bl�crlsls�n�����o����brb��b쎜r������lsl��ln�prl�l��|�#4 ets_task(40100130, 3, 3fff837c, 4)
+WebREPL daemon started on ws://192.168.4.1:8266
+Started webrepl in normal mode
+OSError: [Errno 2] ENOENT
+
+MicroPython v1.9.3-8-g63826ac5c on 2017-11-01; ESP module with ESP8266
+Type "help()" for more information.
+>>> 
+
+To use WebREPL connect your computer to the ESP8266’s access point (MicroPython-xxxxxx, see the previous section about this). If you have already reconfigured your ESP8266 to connect to a router then you can skip this part.
+
+To connect to the board's WiFi network look for a WiFi network advertised as MicroPython-*:
+
+Where the * is the a set of numbers and letters unique to each ESP8266 board (based on its MAC address).
+
+You will need to enter the password micropythoN to connect to the board's access point (the N is capitalized!).  If you have trouble see more details on connecting to the board's WiFi network in the official documentation.
+
+Next you'll need to have available the WebREPL client web page on your machine.  You can either access the client webpage from micropython.org (assuming your computer can be connected to both the internet and your MicroPython board's network) or download it from its home on GitHub by clicking the button below and extracting the files:
+
+https://github.com/micropython/webrepl/archive/master.zip
+
+If you download the WebREPL client extract the files and open webrepl.html in your browser (Firefox and Chrome are the officially supported browsers at this time).
+
+Welcome to MicroPython!
+Password: (esp8266)
+WebREPL connected
+>>> import os; os.listdir()
+['boot.py', 'webrepl_cfg.py']
+>>> 
+
+main.py
+vvv
+import machine
+import time
+import os
+
+#CONTENT = """\
+#HTTP/1.0 200 OK
+#Content-Type: text/plain
+#
+#Hello #{} from MicroPython!
+#"""
+CONTENT = """\
+HTTP/1.0 200 OK
+Content-Type: text/plain
+
+{}
+"""
+
+# mimic Arduino IDE ESP8266 code aREST interface
+aREST = {"DESC": "SHT31 Sensor I2C MicroPython Module",
+         #"DESC": os.uname().machine,
+         #"DATE": os.path.getmtime("main.py"),
+         "DATE": str(machine.RTC().datetime()[:3]),   # alternatively use time.localtime()
+         "TIME": str(machine.RTC().datetime()[3:6]),  #
+         "IDE": "",
+         "VERSION": os.uname().version,
+         "RELEASE": os.uname().release,               # new
+         "FILE": "",
+         "ID": machine.unique_id(),
+         "NAME": os.uname().nodename,
+         #"NAME": os.uname().sysname,
+         "variables": {}}
+
+print("Executing main.py")
+
+# http://docs.micropython.org/en/v1.8.7/esp8266/esp8266/tutorial/network_basics.html
+# put in your boot.py file (but I want to change main.py only)
+# switches sta network on, ap network stays on (see comments on how to switch off)
+# NEEDS ONLY TO BE CALLED ONCE - E.G. FROM WEBREPL - AS ESP8266/MICROPYTHON STORES THESE SETTINGS
+def do_connect():
+    import network
+    SSID = 'Buffalo-G-E69A'
+    PASSWORD = '14661655'
+    sta_if = network.WLAN(network.STA_IF)
+    #ap_if = network.WLAN(network.AP_IF)
+    if not sta_if.isconnected():
+        print('connecting to network...')
+        sta_if.active(True)                # switch sta network on (client)
+        sta_if.connect(SSID, PASSWORD)
+        while not sta_if.isconnected():
+            pass
+        #if ap_if.active():
+        #    ap_if.active(False)            # switch ap network off (access point)
+    print('network config:', sta_if.ifconfig())
+
+# https://github.com/micropython/micropython/wiki/Board-Teensy-3.1-3.5-3.6
+def info():
+    import esp
+    #pyb.info()
+    print(machine.unique_id())
+    print(machine.freq())
+    print(machine.reset_cause())
+    print(esp.check_fw())
+    print(os.uname())
+    print(dir())
+
+# https://github.com/kfricke/micropython-sht31
+# https://docs.micropython.org/en/latest/esp8266/esp8266/quickref.html#i2c-bus
+def read_sensor():
+    import sht31
+    i2c = machine.I2C(scl=machine.Pin(2), sda=machine.Pin(0))  # scl:GPIO2, sda:GPIO0
+    sht = sht31.SHT31(i2c)
+    return sht.get_temp_humi()
+
+# https://github.com/cswiger/wipy/blob/master/http-server.py
+def run_server():
+    import usocket as socket
+    import network
+    import json
+
+    sta_if = network.WLAN(network.STA_IF)
+    ip = sta_if.ifconfig()[0]              # get ip in sta mode, z.B. 192.168.11.13
+
+    #ai = socket.getaddrinfo("192.168.1.235", 8080)
+    #ai = socket.getaddrinfo("192.168.4.1", 8080)   # ap mode (access point)
+    ai = socket.getaddrinfo(ip, 8080)      # sta mode (client)
+    addr = ai[0][4]
+    print(addr)
+
+    s = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
+    s.bind(addr)
+    s.listen(5)
+    counter=0
+
+    while True:
+        res = s.accept()
+        client_s = res[0]
+        client_addr = res[1]
+        print("Client address:", client_addr)
+        print("Client socket:", client_s)
+        #print("Request:")
+        req = client_s.recv(4096)
+        #print(req)
+        #client_s.send(bytes(CONTENT.format(counter), "ascii"))
+        dr = read_sensor()
+        d  = dict(zip(('temperature', 'humidity', 'Vs'), dr + (0.,)))
+        #d.update(aREST)
+        aREST["variables"] = d
+        #client_s.send(bytes(CONTENT.format(d), "ascii"))
+        client_s.send(bytes(CONTENT.format(json.dumps(aREST)), "ascii"))
+        client_s.close()
+        parts = req.decode('ascii').split(' ')
+        print(parts)
+        if parts[1] == '/exit':
+            s.close()
+            print("exit!")
+            break
+        counter += 1
+
+time.sleep(2.)  # some boot-up timeout
+
+led = machine.Pin(1, machine.Pin.OUT)  # GPIO1
+
+led.off()  # on
+#machine.delay(100)
+#time.sleep(0.1)
+time.sleep(1.)
+led.on()   # off
+time.sleep(1.)
+led.off()  # on
+time.sleep(1.)
+led.on()   # off
+
+run_server()    # start and run server - blocking call therfore last
+
+^^^
+
+Send a file
+[ Durchsuchen... ] main.py
+main.py - 4074 bytes
+[ Send to device ]
+Sent main.py, 4074 bytes
+
+again; disconnect and reconnect usb device (due) in order to reset everything
+re-connect wifi, re-connect WebREPL client
+
+Welcome to MicroPython!
+Password: (esp8266)
+WebREPL connected
+>>> import os; os.listdir()
+['boot.py', 'webrepl_cfg.py', 'main.py']
+>>> dir()
+['bdev', 'gc', '__name__', 'machine', 'uos', 'info', 'webrepl', 'os']
+>>>
+
+sht31.py from https://github.com/kfricke/micropython-sht31
+
+Send a file
+[ Durchsuchen... ] sht31.py
+sht31.py - 2355 bytes
+[ Send to device ]
+Sent sht31.py, 2355 bytes
+
+ *                      ESP8266 Pin Layout
+ *                    GND   1 GND
+ *                          2 UTXD          --------------------
+ *     Adafruit_SHT31 SDA   3 GPIO2 (wt)    |2 1        .--=== |
+ *               3.3V VCC   4 CH_PD         |4 3           === |
+ *     Adafruit_SHT31 SCL   5 GPIO0 (gr)    |6 5  ESP8266  === |
+ *                          6 RST           |8 7  board      | |
+ *                          7 URXD          --------------------
+ *               3.3V VCC   8 VCC
+ * ( NOTE! - It's very important to use pullups on the SDA & SCL lines! )
+ * (         I2C pullups should be 1-100k, so 4.7k fits well.           )
+>>> ! ATTENTION I2C PINS SWAPPED ! <<<
+ 
+http://esp8266.github.io/Arduino/versions/2.1.0-rc2/doc/libraries.html
+
+I2C (Wire library)
+
+Wire library currently supports master mode up to approximately 450KHz. Before using I2C, pins for SDA and SCL need to be set by calling Wire.begin(int sda, int scl), i.e. Wire.begin(0, 2) on ESP-01, else they default to pins 4(SDA) and 5(SCL).
+SDA->0
+SCL->2
+
+https://docs.micropython.org/en/latest/esp8266/esp8266/quickref.html
+
+I2C bus
+
+The I2C driver is implemented in software and works on all pins, and is accessed via the machine.I2C class:
+
+vvv
+from machine import Pin, I2C
+
+# construct an I2C bus
+#i2c = I2C(scl=Pin(5), sda=Pin(4), freq=100000)
+i2c = I2C(scl=Pin(2), sda=Pin(0), freq=100000)
+
+i2c.readfrom(0x3a, 4)   # read 4 bytes from slave device with address 0x3a
+i2c.writeto(0x3a, '12') # write '12' to slave device with address 0x3a
+
+buf = bytearray(10)     # create a buffer with 10 bytes
+i2c.writeto(0x3a, buf)  # write the given buffer to the slave
+^^^
+
+http://docs.micropython.org/en/v1.8.7/esp8266/esp8266/tutorial/network_basics.html
+
+look at the do_connect() code - we need to call it manually once:
+
+vvv
+# http://docs.micropython.org/en/v1.8.7/esp8266/esp8266/tutorial/network_basics.html
+# put in your boot.py file (but I want to change main.py only)
+# switches sta network on, ap network stays on (see comments on how to switch off)
+# NEEDS ONLY TO BE CALLED ONCE - E.G. FROM WEBREPL - AS ESP8266/MICROPYTHON STORES THESE SETTINGS
+def do_connect():
+    import network
+    SSID = 'Buffalo-G-E69A'
+    PASSWORD = '14661655'
+    sta_if = network.WLAN(network.STA_IF)
+    #ap_if = network.WLAN(network.AP_IF)
+    if not sta_if.isconnected():
+        print('connecting to network...')
+        sta_if.active(True)                # switch sta network on (client)
+        sta_if.connect(SSID, PASSWORD)
+        while not sta_if.isconnected():
+            pass
+        #if ap_if.active():
+        #    ap_if.active(False)            # switch ap network off (access point)
+    print('network config:', sta_if.ifconfig())
+^^^
+
+again; disconnect and reconnect usb device (due) in order to reset everything
+re-connect wifi, re-connect WebREPL client
+
+Welcome to MicroPython!
+Password: (esp8266)
+WebREPL connected
+>>> do_connect()
+
+and check for the new ip that gets printed, here it was 192.168.11.13 (:8266 and :8080)
+
+if you want to switch off ap mode later you can use this code in WebREPL:
+
+>>> import network
+>>> ap_if = network.WLAN(network.AP_IF)
+>>> ap_if.active()
+>>> ap_if.active(False)
+
+now uncomment run_server() at the end of main.py upload, re-start and enjoy
+
+when connecting to WebREPL it will be unresponsive due to run_server() so
+you will have to request/open 92.168.11.13:8080/exit first to quit the server
+
+
+ISSUE: - if sensor is not detected, server crashes on call, try...except would solve that
