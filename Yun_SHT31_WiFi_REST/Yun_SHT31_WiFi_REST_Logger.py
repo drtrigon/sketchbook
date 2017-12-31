@@ -59,9 +59,9 @@ for i, line in enumerate(data):
     output = CONF['fmt_print'] % (ts + (temperature, humidity, Vs))
 #    print output
 
-    output = CONF['fmt_write'] % (ts + (temperature, humidity, Vs))
-    with open(CONF['log_file'], "a") as log:
-        log.write(output + "\n")
+#    output = CONF['fmt_write'] % (ts + (temperature, humidity, Vs))
+#    with open(CONF['log_file'], "a") as log:
+#        log.write(output + "\n")
 
     #plt.scatter([ts[1]]*3, [temperature, humidity, Vs], color=['r', 'b', 'g'])
 
@@ -69,7 +69,7 @@ for i, line in enumerate(data):
     #plt.pause(CONF['interval_update'])
 
 p = np.array(p)
-t = p[:,0]
+t = p[:,1]
 plt.scatter(t, p[:,2], color='r')
 plt.scatter(t, p[:,3], color='b')
 plt.scatter(t, p[:,4], color='g')
