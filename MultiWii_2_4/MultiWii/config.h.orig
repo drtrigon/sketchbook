@@ -36,7 +36,7 @@
     //#define BI
     //#define TRI
     //#define QUADP
-    #define QUADX
+    //#define QUADX
     //#define Y4
     //#define Y6
     //#define HEX6
@@ -170,7 +170,6 @@
       //#define L3G4200D
       //#define MPU6050       //combo + ACC
       //#define LSM330        //combo + ACC
-      #define LSM9DS0        //combo + ACC + MAGN
       
       /* I2C accelerometer */
       //#define MMA7455
@@ -184,7 +183,6 @@
 
       /* I2C barometer */
       //#define BMP085
-      #define BME280
       //#define MS561101BA
 
       /* I2C magnetometer */
