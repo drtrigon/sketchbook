@@ -15,6 +15,7 @@
 
   See also:
     - Adafruit BME280 Breakout: http://www.adafruit.com/products/2650
+    - MultiWii can be compiled from Arduino IDE: http://www.instructables.com/id/DIY-Custom-Multicopter-Flight-Controller/
 
   BSD license, all text above must be included in any redistribution
  ***************************************************************************/

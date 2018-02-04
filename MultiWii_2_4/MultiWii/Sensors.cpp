@@ -1626,8 +1626,10 @@ void Gyro_getADC () {
 #define LSM9DS0_REGISTER_OUT_X_L_A            0x28
 //#define LSM9DS0_ACCELRANGE_2G                 (0b000 << 3)
 #define LSM9DS0_ACCELRANGE_4G                 (0b001 << 3)
-#define LSM9DS0_MAGGAIN_2GAUSS                (0b00 << 5)  // +/- 2 gauss
-#define LSM9DS0_GYROSCALE_245DPS              (0b00 << 4)  // +/- 245 degrees per second rotation
+//#define LSM9DS0_MAGGAIN_2GAUSS                (0b00 << 5)  // +/- 2 gauss
+#define LSM9DS0_MAGGAIN_4GAUSS                (0b01 << 5)  // +/- 4 gauss
+//#define LSM9DS0_GYROSCALE_245DPS              (0b00 << 4)  // +/- 245 degrees per second rotation
+#define LSM9DS0_GYROSCALE_2000DPS             (0b10 << 4)  // +/- 2000 degrees per second rotation -> 70 mdps/digit
 
 ////////////////////////////////////
 //           ACC start            //
@@ -1646,8 +1648,6 @@ void ACC_init () {
   //reg |= LSM9DS0_ACCELRANGE_2G;
   reg |= LSM9DS0_ACCELRANGE_4G;
   i2c_writeReg(LSM9DS0_ADDRESS_ACCELMAG, LSM9DS0_REGISTER_CTRL_REG2_XM, reg );
-  ////_accel_mg_lsb = LSM9DS0_ACCEL_MG_LSB_2G;
-  //_accel_mg_lsb = LSM9DS0_ACCEL_MG_LSB_4G;
 }
 
 //#define ACC_DELIMITER 5 // for 2g
@@ -1687,9 +1687,9 @@ void Gyro_init() {
   //setupGyro(LSM9DS0_GYROSCALE_245DPS);
   uint8_t reg = i2c_readReg(LSM9DS0_ADDRESS_GYRO, LSM9DS0_REGISTER_CTRL_REG4_G);
   reg &= ~(0b00110000);
-  reg |= LSM9DS0_GYROSCALE_245DPS;
+  //reg |= LSM9DS0_GYROSCALE_245DPS;
+  reg |= LSM9DS0_GYROSCALE_2000DPS;
   i2c_writeReg(LSM9DS0_ADDRESS_GYRO, LSM9DS0_REGISTER_CTRL_REG4_G, reg );
-  //_gyro_dps_digit = LSM9DS0_GYRO_DPS_DIGIT_245DPS;
 }
 
 void Gyro_getADC () {
@@ -1727,9 +1727,9 @@ void Gyro_getADC () {
     //setupMag(LSM9DS0_MAGGAIN_2GAUSS);
     uint8_t reg = i2c_readReg(LSM9DS0_ADDRESS_ACCELMAG, LSM9DS0_REGISTER_CTRL_REG6_XM);
     reg &= ~(0b01100000);
-    reg |= LSM9DS0_MAGGAIN_2GAUSS;
+    //reg |= LSM9DS0_MAGGAIN_2GAUSS;
+    reg |= LSM9DS0_MAGGAIN_4GAUSS;
     i2c_writeReg(LSM9DS0_ADDRESS_ACCELMAG, LSM9DS0_REGISTER_CTRL_REG6_XM, reg );
-    //_mag_mgauss_lsb = LSM9DS0_MAG_MGAUSS_2GAUSS;
   }
 
   void Device_Mag_getADC() {
