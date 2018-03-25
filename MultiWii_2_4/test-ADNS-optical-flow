@@ -1,0 +1,48 @@
+
+Optical Flow Sensor - Optische/Laser Maus (LED oder Laser als Lichtquelle für CCD)
+
+Es gibt sehr viele unterschiedliche Sensoren, typ. auf dem Chip nur mit "S[4 Zahlen]"
+bezeichnet meint aber eigntlich immer "ADNS-[4 Zahlen]". Viele verschiedene Gehäuse
+(DIL/DIP).
+
+Sie müssen auf Öffnung in PCB plaziert werden damit CCD freie Sicht nach unten hat.
+PMMA oder PC Optik mit Linsen für CCD (Fokus typ. 2-3mm - muss für Drohnen angepasst
+werden - grosse Tiefenschärfe!) und (rote) LED oder Laser.
+
+* MultiWii supports ADNS-5050 (Optical Mouse Sensor):
+  * http://www.multiwii.com/wiki/index.php?title=Hardware#Optical_Flow_Sensor
+  * http://datasheet.octopart.com/ADNS-5050-Avago-datasheet-10313348.pdf
+  * Specs: 30 ips and up to 8g, Default 500 cpi resolution (125 to 1375 cpi), 5V, Three-wire serial interface (SPI - MISO+MOSI=SDIO)
+* Quite similar to ADNS-5050 is ADNS-3050 (Entry-level Gaming Optical Navigation Sensor):
+  * https://www.tindie.com/products/tom10122/adns-3050-optical-sensor-board/
+  * http://datasheet.octopart.com/ADNS-3050-Avago-datasheet-10314296.pdf
+  * Specs: 60ips and up to 20g, Resolutions up to 2000cpi, 2.8V-3.0V, Four wire Serial Port Interface (SPI)
+* ADNS-5000 (Optical Mouse Sensor, selber wie ADNS-5007? alte PC Maus):
+  * http://datasheet.octopart.com/ADNS-5000-Avago-datasheet-10312879.pdf
+  * Specs: USB HID
+  * Daten nur via USB lesbar (kein SPI oder sonstiges Interface), python skript (pyusb/Get_Vendor_Test/PIX_GRAB)
+    ermöglich lesen der CCD Daten z.B. zum Test von versch. Linsen
+    * https://stackoverflow.com/questions/23229083/acquiring-images-from-a-usb-mouse-single-chip-adns-2700-via-pyusb
+    * https://www.orangecoat.com/how-to/read-and-decode-data-from-your-mouse-using-this-pyusb-hack
+    * https://github.com/pyusb/pyusb
+    * https://github.com/rezeck/MouseCam/blob/master/mouseCam.py
+    * https://pythonexample.com/code/pyusb%20mouse%20read/
+* ADNS-7530 (Integrated molded lead-frame DIP Sensor, alte PC Maus):
+  * http://datasheet.octopart.com/ADNS-7530-Avago-datasheet-10314744.pdf
+  * Specs: 2.7V-3.6V, up to 30 ips and 8g, Selectable 400, 800, 1200, 1600, 2000 cpi resolution, Four wire serial port (SPI), 832-865nm laser (NOT LED)
+
+
+
+
+lens:
+
+https://www.researchgate.net/publication/272238238_Enhanced_Positioning_Systems_Using_Optical_Mouse_Sensors
+https://pickandplace.wordpress.com/2012/05/16/2d-positioning-hacking-an-optical-mouse/
+http://www.multiwii.com/forum/viewtopic.php?f=7&t=1413&sid=b573225f503109fd4e2bcc74c18a351a&start=50
+
+
+read SPI:
+
+https://www.bidouille.org/hack/mousecam (arduino, z.B. ADNS-7530)
+https://hackaday.com/2014/01/14/your-mouse-is-a-terrible-webcam/
+
