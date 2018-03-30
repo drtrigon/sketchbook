@@ -11,7 +11,7 @@ See also; https://steveperkins.com/migrating-projects-from-github-to-gitlab/
 "Option 2: Overload Origin with Both Remotes (needs one single pull/push only)"; in order to clone
 and set this repo up use:
 ```
-$ git clone file://// /data/mount/gvfs/smb-share:server=.../01git/sketchbook.git
+$ git clone file://///data/mount/gvfs/smb-share:server=.../01git/sketchbook.git
 $ cd sketchbook
 $ git remote set-url --add origin https://github.com/drtrigon/sketchbook.git
 ```
