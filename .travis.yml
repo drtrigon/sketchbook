@@ -1,0 +1,45 @@
+language: c
+
+env:
+  global:
+    #- ARDUINO_VERSION=1.6.5
+    #- ARDUINO_VERSION=1.8.1
+    - ARDUINO_VERSION=1.8.2
+  matrix:
+    - BOARD="arduino:avr:uno"
+
+before_install:
+  - "/sbin/start-stop-daemon --start --quiet --pidfile /tmp/custom_xvfb_1.pid --make-pidfile --background --exec /usr/bin/Xvfb -- :1 -ac -screen 0 1280x1024x16"
+  - sleep 3
+  - export DISPLAY=:1.0
+  - wget http://downloads.arduino.cc/arduino-$ARDUINO_VERSION-linux64.tar.xz
+  - tar xf arduino-$ARDUINO_VERSION-linux64.tar.xz
+  - sudo mv arduino-$ARDUINO_VERSION /usr/local/share/arduino
+  - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
+  - sudo apt-get install tree
+  #- sudo pip install ino
+  #- sudo ln -s /usr/local/share/arduino/hardware/arduino/avr/boards.txt /usr/local/share/arduino/hardware/arduino/boards.txt
+
+#install:
+#  - ln -s $PWD /usr/local/share/arduino/libraries/Adafruit_FONA
+#  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
+
+script:
+  #- ls -la
+  #- arduino --verify --board arduino:avr:uno $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
+  - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
+  #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
+
+after_script:
+  - tree
+  - export ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
+  - readelf -a $ELF_FILE
+  #- objdump -x $ELF_FILE
+  #- nm $ELF_FILE || true
+  - strings -d $ELF_FILE
+  - size $ELF_FILE
+
+#notifications:
+#  email:
+#    on_success: change
+#    on_failure: change
