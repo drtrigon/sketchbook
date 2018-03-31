@@ -29,3 +29,9 @@ https://learn.adafruit.com/continuous-integration-arduino-and-you/testing-your-p
 Login to Travis-CI using the GitHub account and enable Travis-CI for the given repo.
 
 Add a .travis.yml file to your project, commit, pull/push and enjoy.
+
+May be split off some sub-directories like MultiWii (for simpler testing),
+see also: https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/.
+
+Consider creating a docker for testing and may be upload of the skechtes,
+see also: https://github.com/tombenke/darduino, https://github.com/suculent/arduino-docker-build
