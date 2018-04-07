@@ -4,7 +4,7 @@
 
 [![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)](https://edrc.me/g/drtrigon/eagle)(https://github.com/drtrigon/eagle)
 
-([detail...](https://github.com/drtrigon/eagle/blob/master/detail.md))
+[detail...](https://github.com/drtrigon/sketchbook/blob/master/detail.md)
 
 (might make sense to split projects off into separate repos/submodules)
 
