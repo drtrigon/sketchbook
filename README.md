@@ -1,5 +1,5 @@
 ## Projekte
-[detail...](https://rawgit.com/drtrigon/sketchbook/master/detail.html)
+[detail...](https://rawgit.com/drtrigon/sketchbook/master/status.html)
 
 ### Drone_MultiWii / FlightController
 [![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/sketchbook)
