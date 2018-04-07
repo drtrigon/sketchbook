@@ -5,6 +5,7 @@
 [![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)](https://edrc.me/g/drtrigon/eagle)(https://github.com/drtrigon/eagle)
 
 [detail...](https://github.com/drtrigon/sketchbook/blob/master/detail.md)
+[full detail...](https://rawgit.com/drtrigon/sketchbook/master/detail.html)
 
 (might make sense to split projects off into separate repos/submodules)
 
@@ -51,6 +52,9 @@ See https://github.com/drtrigon/eagle
 * https://help.github.com/articles/3d-file-viewer/
 * https://blog.github.com/2013-04-09-stl-file-viewing/
 * https://blog.github.com/2013-09-17-3d-file-diffs/
+
+#### Create CAD (.stl) Designs online easily
+See https://www.tinkercad.com/
 
 ### Further Info
 * convert STEP file to .stl online: https://www.makexyz.com/convert/step-to-stl
