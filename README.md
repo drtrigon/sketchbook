@@ -2,22 +2,9 @@
 ### Drone_MultiWii / FlightController
 [![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/sketchbook)
 
-[![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/ethz-pll-eagle/img/status.svg)](https://edrc.me/g/drtrigon/ethz-pll-eagle)
-([details...](https://rawgit.com/ethz-pll/Blattdurchmesser/master/status.html))
-(https://github.com/drtrigon/eagle/tree/master/projects/Drone_MultiWii)
+[![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)](https://edrc.me/g/drtrigon/eagle)(https://github.com/drtrigon/eagle)
 
----
-
-* https://gitlab.ethz.ch/PLL/Blattdurchmesser/blob/master/Catia/40%20mm%20Aluprofil%20v13.stl
-  ([github](https://github.com/ethz-pll/Blattdurchmesser/blob/master/Catia/40%20mm%20Aluprofil%20v13.stl))
-* https://gitlab.ethz.ch/PLL/Blattdurchmesser/blob/master/Catia/Saegeblatt_Anschlag.stl
-  ([github](https://github.com/ethz-pll/Blattdurchmesser/blob/master/Catia/Saegeblatt_Anschlag.stl))
-* https://gitlab.ethz.ch/PLL/Blattdurchmesser/blob/master/Catia/Saegeblatt_Endplatte.stl
-  ([github](https://github.com/ethz-pll/Blattdurchmesser/blob/master/Catia/Saegeblatt_Endplatte.stl))
-* https://gitlab.ethz.ch/PLL/Blattdurchmesser/blob/master/Catia/Saegeblatt_Schlitten.stl
-  ([github](https://github.com/ethz-pll/Blattdurchmesser/blob/master/Catia/Saegeblatt_Schlitten.stl))
-
-[![projects/Blattdurchmesser/Blattdurchmesser.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/ethz-pll-eagle/img/file/projects%2FBlattdurchmesser%2FBlattdurchmesser.png?ref=refs%2Fheads%2Fmaster)](https://edrc.me/g/drtrigon/ethz-pll-eagle)
+([detail...](https://github.com/drtrigon/eagle/blob/master/detail.md))
 
 (might make sense to split projects off into separate repos/submodules)
 
@@ -58,7 +45,7 @@ Consider creating a docker for testing and may be upload of the skechtes,
 see also: https://github.com/tombenke/darduino, https://github.com/suculent/arduino-docker-build
 
 ### Enable EDRC.ME for a Repository (for Eagle)
-See https://gitlab.ethz.ch/PLL/eagle
+See https://github.com/drtrigon/eagle
 
 ### Enable CAD View (for Catia)
 * https://help.github.com/articles/3d-file-viewer/
