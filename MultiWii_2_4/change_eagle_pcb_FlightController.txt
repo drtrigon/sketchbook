@@ -1,0 +1,18 @@
+
+
+todo 1.0 -> 1.1
+
+* more info to silk screen; GND, 5V, PIN NUMBERS (at least first/last in row), 
+
+* ...
+
+
+main changes 1.0 -> 1.1
+
+* silk screen; plugin board shapes
+
+* copper top plane; inverted font for info field
+
+* geometry; size and position of screw holes
+
+* geometry; milled hole to reduce weight
