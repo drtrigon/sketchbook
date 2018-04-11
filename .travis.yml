@@ -1,3 +1,6 @@
+# $TRAVIS_TOKEN (hide) in Settings > Environment Variables
+# Triggering builds (get TOKEN): https://docs.travis-ci.com/user/triggering-builds/
+
 language: c
 
 env:
@@ -39,6 +42,15 @@ after_script:
   #- nm $ELF_FILE || true
   - strings -d $ELF_FILE
   - size $ELF_FILE
+
+after_success:
+  # trigger docker-sketchbook (same tests based on docker-arduino)
+  - |-
+    if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]] ; then
+      if [[ "$DOCKERTAG" == "$LATEST" ]] ; then
+        curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Travis-API-Version: 3" -H "Authorization: token $TRAVIS_TOKEN" -d "{\"request\": {\"branch\":\"master\"}}" https://api.travis-ci.org/repo/drtrigon%2Fdocker-sketchbook/requests ;
+      fi ;
+    fi
 
 #notifications:
 #  email:

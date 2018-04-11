@@ -1,9 +1,9 @@
 ## Projekte
-[detail...](https://rawgit.com/drtrigon/sketchbook/master/status.html)
-
 ### Drone_MultiWii / FlightController
 [![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/sketchbook)
+[![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/docker-sketchbook)
 [![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)](https://edrc.me/g/drtrigon/eagle)
+([detail...](https://rawgit.com/drtrigon/sketchbook/master/MultiWii_2_4/status.html))
 
 https://github.com/drtrigon/eagle
 
