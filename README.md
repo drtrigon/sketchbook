@@ -13,9 +13,24 @@ https://github.com/drtrigon/eagle
 
 [![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)](https://edrc.me/g/drtrigon/eagle)
 
-(might make sense to split projects off into separate repos/submodules)
+#### changelog pcb (eagle)
+
+todo 1.0 -> 1.1
+
+* more info to silk screen; GND, 5V, PIN NUMBERS (at least first/last in row), 
+* name/value the connectors (insead of manually putting text on silk screen)
+* use milling??
+* ...
+
+main changes 1.0 -> 1.1
+
+* silk screen; plugin board shapes
+* copper top plane; inverted font for info field
+* geometry; size and position of screw holes
+* geometry; milled hole to reduce weight
 
 ## Setup
+(might make sense to split projects off into separate repos/submodules)
 
 I would like to use features like CI (continous integration) keep a copy/mirror on e.g. github and more.
 
