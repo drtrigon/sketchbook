@@ -387,9 +387,14 @@ At this moment you can use this function only with WinGUI 2.3 release. MultiWiiC
       //**************************
       //   For Pro Mini, the connector for the Satellite that resides on the FTDI can be unplugged and moved to these three adjacent pins. 
       //#define SPEK_BIND             //Un-Comment for Spektrum Satellie Bind Support.  Code is ~420 bytes smaller without it. 
-      //#define SPEK_BIND_GROUND 4
-      //#define SPEK_BIND_POWER  5
-      //#define SPEK_BIND_DATA   6
+      ////#define SPEK_BIND_GROUND 4    // Extra Pin for Ground is not needed
+      ////#define SPEK_BIND_POWER  5
+      ////#define SPEK_BIND_DATA   6
+      //#define SPEK_BIND_POWER  A0
+      //#define SPEK_BIND_DATA   A1
+
+      //#define SPEK_BIND_NANO        // Enable ORANGERX R614XN DIY NANO RECEIVER mode (needs LOW only)
+      //   (for ORANGERX R614XN DIY NANO RECEIVER consider using cPPM for data - 3 lines only - but as I understand that occupies RX Pin...)
 
     /*******************************    SBUS RECIVER    ************************************/
       /* The following line apply only for Futaba S-Bus Receiver on MEGA boards or PROMICRO boards.

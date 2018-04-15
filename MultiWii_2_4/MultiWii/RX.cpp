@@ -863,13 +863,15 @@ void Read_OpenLRS_RC() {
 
 #if defined(SPEK_BIND)  // Bind Support
 void spekBind() {
-  pinMode(SPEK_BIND_DATA, INPUT);     // Data line from sat
+  pinMode(SPEK_BIND_DATA, INPUT);     // Data line from sat (Data = Bind pin, e.g. cPPM)
   digitalWrite(SPEK_BIND_DATA,LOW);   // Turn off internal Pull Up resistor
 
+#if defined(SPEK_BIND_GROUND)         // Extra Pin for Ground is not needed
   pinMode(SPEK_BIND_GROUND, INPUT);
   digitalWrite(SPEK_BIND_GROUND,LOW);
   pinMode(SPEK_BIND_GROUND, OUTPUT);
   digitalWrite(SPEK_BIND_GROUND,LOW);
+#endif
 
   pinMode(SPEK_BIND_POWER, INPUT);
   digitalWrite(SPEK_BIND_POWER,LOW);
@@ -884,6 +886,7 @@ void spekBind() {
     blinkLED(4,255,1);
     
     digitalWrite(SPEK_BIND_POWER,HIGH); // Power on sat
+#if !defined(SPEK_BIND_NANO)   // ORANGERX R614XN DIY NANO RECEIVER mode (needs LOW only)
     delay(10);
     digitalWrite(SPEK_BIND_DATA,HIGH); 
     delay(60);                 // Keep data pin steady for 20 to 120ms after power up
@@ -896,6 +899,7 @@ void spekBind() {
         delayMicroseconds(122);
     }
     interrupts();
+#endif
     delay(60000);         //Allow one full minute to bind, then try again.
   }
 }

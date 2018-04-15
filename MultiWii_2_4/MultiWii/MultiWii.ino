@@ -13,10 +13,16 @@
  * Added drivers:
  *   * I2C gyroscope: LSM9DS0 (combo + ACC + MAGN)
  *   * I2C barometer: BME280
+ *   * Receiver: ORANGERX R614XN DIY NANO (Spektrum) in 1 wire per channel PWM mode (not cPPM)
  *
  * Hints:
  *   * running MultiWiiConf in VM is too slow, but not needed as it needs java only:
  *     ursin@ThinkPad-T440-ursin:~/Downloads/sketchbook/MultiWii_2_4/MultiWiiConf/application.linux64$ sudo ./MultiWiiConf 
+ *   * Binding procedure; 1. connect Vcc (red) to SPEK_BIND_POWER (A0) and cPPM/BIND (yellow) to SPEK_BIND_DATA (A1)
+ *                        2. bind by pressing "RX BIND" button and carrying out the bind procedure of transmitter
+ *                        3. Restore flying setup by connecting Vcc (red) to +5V and disconnect cPPM/BIND (yellow)
+ *     (actually the best would be a hardware button for binding, because it always needs hardware intervention,
+ *      see MultiWii_2_4/FlightController-bind-RX_PartSim.pdf)
  *
  */
 

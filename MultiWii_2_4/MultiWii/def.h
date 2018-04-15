@@ -1803,7 +1803,7 @@
 
 // Spektrum Satellite
 #define BIND_CAPABLE 0  //Used for Spektrum today; can be used in the future for any RX type that needs a bind and has a MultiWii module. 
-#if defined(SPEKTRUM)
+#if defined(SPEKTRUM) || defined(SPEK_BIND_NANO)
   #define SPEK_FRAME_SIZE 16
   #if (SPEKTRUM == 1024)
     #define SPEK_CHAN_SHIFT  2       // Assumes 10 bit frames, that is 1024 mode.
@@ -1819,9 +1819,9 @@
   #endif
   #if defined(SPEK_BIND)
     #define BIND_CAPABLE 1
-    #if !defined(SPEK_BIND_GROUND)
+    /*#if !defined(SPEK_BIND_GROUND)
       #define SPEK_BIND_GROUND 4
-    #endif  
+    #endif  */
     #if !defined(SPEK_BIND_POWER)
       #define SPEK_BIND_POWER  5
     #endif  
