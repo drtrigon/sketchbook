@@ -3,6 +3,11 @@
 
 language: c
 
+# blocklist
+branches:
+  except:
+  - result/docu
+
 env:
   global:
     #- ARDUINO_VERSION=1.6.5
