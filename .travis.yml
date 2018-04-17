@@ -41,17 +41,16 @@ script:
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
 
-after_script:
+after_success:
   - export ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
   - readelf -a $ELF_FILE
   #- objdump -x $ELF_FILE
   #- nm $ELF_FILE || true
   - strings -d $ELF_FILE
   - size $ELF_FILE
+  # doxygen docu generation
   - cd $PWD/; doxygen Doxyfile
   - cd $PWD/doc/latex/; make
-
-after_success:
   # push result back to git repo
   - git checkout -b result/docu
   - git add $PWD/doc/
