@@ -42,6 +42,10 @@ after_script:
   #- nm $ELF_FILE || true
   - strings -d $ELF_FILE
   - size $ELF_FILE
+  - cd $PWD/; doxygen Doxyfile
+  - cd $PWD/doc/latex/; make
+  - doxygen Doxyfile
+# TODO: commit to branch result/docu (may rename other branch result/travis to result/pcb)
 
 after_success:
   # trigger docker-sketchbook (same tests based on docker-arduino)

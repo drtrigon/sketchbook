@@ -80,3 +80,6 @@ See https://www.tinkercad.com/
 ### Further Info
 * convert STEP file to .stl online: https://www.makexyz.com/convert/step-to-stl
 * convert Catia file to .stl online: https://www.convertcadfiles.com/de/konvertieren/
+* add doxygen to repository
+  * The Well-Automated Arduino Library - Adafruit Learning System: https://learn.adafruit.com/the-well-automated-arduino-library/doxygen
+  * https://stackoverflow.com/questions/35500277/doxygen-for-ino-files-arduino
