@@ -37,7 +37,6 @@ script:
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
 
 after_script:
-  - tree
   - export ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
   - readelf -a $ELF_FILE
   #- objdump -x $ELF_FILE
@@ -46,9 +45,16 @@ after_script:
   - size $ELF_FILE
   - cd $PWD/; doxygen Doxyfile
   - cd $PWD/doc/latex/; make
-# TODO: commit to branch result/docu (may rename other branch result/travis to result/pcb)
 
 after_success:
+  # push result back to git repo
+  - git checkout -b result/docu
+  - git add $PWD/doc/
+  - git status
+  - git config user.email 'travis@travis-ci.org'
+  - git config user.name 'Travis CI'
+  - git commit --message "Travis build $TRAVIS_BUILD_NUMBER"
+  - git push -f https://$GIT_USER:$GIT_PASS@github.com/drtrigon/sketchbook.git result/docu  # dangerous; overwrite remote branch!
   # trigger docker-sketchbook (same tests based on docker-arduino)
   - |-
     if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]] ; then
@@ -56,6 +62,7 @@ after_success:
         curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Travis-API-Version: 3" -H "Authorization: token $TRAVIS_TOKEN" -d "{\"request\": {\"branch\":\"master\"}}" https://api.travis-ci.org/repo/drtrigon%2Fdocker-sketchbook/requests ;
       fi ;
     fi
+  - tree
 
 #notifications:
 #  email:
