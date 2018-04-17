@@ -22,7 +22,7 @@ before_install:
   - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
   - sudo apt-get install tree
   - sudo apt-get install doxygen
-  - sudo apt-get install --no-install-recommends texlive-full
+#  - sudo apt-get install texlive-base
   #- sudo pip install ino
   #- sudo ln -s /usr/local/share/arduino/hardware/arduino/avr/boards.txt /usr/local/share/arduino/hardware/arduino/boards.txt
 
@@ -46,7 +46,6 @@ after_script:
   - size $ELF_FILE
   - cd $PWD/; doxygen Doxyfile
   - cd $PWD/doc/latex/; make
-  - doxygen Doxyfile
 # TODO: commit to branch result/docu (may rename other branch result/travis to result/pcb)
 
 after_success:
