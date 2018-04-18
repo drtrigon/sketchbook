@@ -16,10 +16,6 @@ https://github.com/drtrigon/eagle
 [![projects/Drone_MultiWii/FlightController.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png)](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.png)
 * GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.zip
 * partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.txt
-
-https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
-* https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.gpi
-* https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.dri
 -->
 docu: ![doxygen html](https://raw.githubusercontent.com/drtrigon/sketchbook/result/docu/doc/html/doxygen.png)[...](https://rawgit.com/drtrigon/sketchbook/result/docu/doc/html/index.html)
 
