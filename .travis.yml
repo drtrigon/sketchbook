@@ -49,8 +49,8 @@ after_success:
   - strings -d $ELF_FILE
   - size $ELF_FILE
   # doxygen docu generation
-  - cd $PWD/; doxygen Doxyfile
-  - cd $PWD/doc/latex/; make
+  - doxygen Doxyfile
+  - pushd $PWD/doc/latex/; make; popd
   # push result back to git repo
   - git checkout -b result/docu
   - git add $PWD/doc/
