@@ -1,5 +1,6 @@
 ## Projekte
 ### Drone_MultiWii / FlightController
+<!--
 docu: [![doxygen html](https://raw.githubusercontent.com/drtrigon/sketchbook/result/docu/doc/html/doxygen.png)](https://rawgit.com/drtrigon/sketchbook/result/docu/doc/html/index.html)
 
 [comment]: # (doxygen latex pdf output? https://github.com/drtrigon/sketchbook/blob/result/docu/doc/latex/refman.pdf)
@@ -12,6 +13,19 @@ PCB: [![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/e
 https://github.com/drtrigon/eagle
 
 [![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)](https://edrc.me/g/drtrigon/eagle)
+-->
+docu: <a href="https://rawgit.com/drtrigon/sketchbook/result/docu/doc/html/index.html"><img alt="doxygen html" src="https://raw.githubusercontent.com/drtrigon/sketchbook/result/docu/doc/html/doxygen.png"></a>
+
+[comment]: # (doxygen latex pdf output? https://github.com/drtrigon/sketchbook/blob/result/docu/doc/latex/refman.pdf)
+
+code: <a href="https://travis-ci.org/drtrigon/sketchbook"><img alt="Build Status" src="https://travis-ci.org/drtrigon/sketchbook.svg?branch=master"></a>
+<a href="https://travis-ci.org/drtrigon/docker-sketchbook"><img alt="Build Status" src="https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master"></a>
+
+PCB: <a href="https://edrc.me/g/drtrigon/eagle"><img alt="design rule check status" src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg"></a>
+<a href="https://travis-ci.org/drtrigon/eagle"><img alt="GERBER Build Status" src="https://travis-ci.org/drtrigon/eagle.svg?branch=master"></a>
+https://github.com/drtrigon/eagle
+
+<a href="https://edrc.me/g/drtrigon/eagle"><img alt="projects/Drone_MultiWii/FlightController.brd from EDRC.me" src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster"></a>
 
 CAD:
 * https://github.com/drtrigon/sketchbook/blob/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl
