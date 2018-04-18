@@ -5,8 +5,6 @@
 [![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)](https://travis-ci.org/drtrigon/eagle)
 ([detail...](https://rawgit.com/drtrigon/sketchbook/master/MultiWii_2_4/status.html))
 
-![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)(https://travis-ci.org/drtrigon/sketchbook)
-
 [![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/docker-sketchbook)
 
 https://github.com/drtrigon/eagle
@@ -14,6 +12,91 @@ https://github.com/drtrigon/eagle
 * https://github.com/drtrigon/sketchbook/blob/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl
 
 [![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)](https://edrc.me/g/drtrigon/eagle)
+
+@htmlonly
+    <table>
+      <tr>
+        <td>CAD</td>
+        <td>
+        </td>
+      </tr>
+      <tr>
+        <td>PCB</td>
+        <td>
+          <a href="https://edrc.me/g/drtrigon/eagle">
+            <img alt="design rule check status" src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg" />
+          </a>
+          <a href="https://travis-ci.org/drtrigon/eagle">
+            <img alt="GERBER Build Status" src="https://travis-ci.org/drtrigon/eagle.svg?branch=master" />
+          </a><br>
+        </td>
+      </tr>
+      <tr>
+        <td>code</td>
+        <td>
+          <a href="https://travis-ci.org/drtrigon/sketchbook">
+            <img alt="Build Status" src="https://travis-ci.org/drtrigon/sketchbook.svg?branch=master" />
+          </a><br>
+        </td>
+      </tr>
+      <tr>
+        <td>docu</td>
+        <td>
+          <a href="http://www.doxygen.org/index.html">
+            <img src="https://raw.githubusercontent.com/drtrigon/sketchbook/result/docu/doc/html/doxygen.png" alt="doxygen">
+          </a><br>
+        </td>
+      </tr>
+    </table>
+    <hr>
+    <table>
+      <tr>
+        <td>CAD</td>
+        <td>
+          <script src="https://embed.github.com/view/3d/drtrigon/sketchbook/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl"></script><br>
+        </td>
+      </tr>
+      <tr>
+        <td>PCB</td>
+        <td>
+          <!--<a href="https://edrc.me/g/drtrigon/eagle">
+            <img alt="design rule check status" src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg" />
+          </a><br>-->
+          <a href="https://edrc.me/g/drtrigon/eagle">
+            <img alt="projects/Drone_MultiWii/FlightController.brd from EDRC.me" src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster" />
+          </a><br>
+          <a href="https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.png">
+            <img alt="projects/Drone_MultiWii/FlightController.png" width="600" src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png" />
+          </a><br>
+          GERBER: <a href="https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.zip">FlightController.zip</a><br>
+          partlist: <a href="https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.txt">FlightController.txt</a><br>
+          <br>
+          <a href="https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii">drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii</a> logs:<br>
+          <ul>
+            <li><a href="https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.gpi">FlightController.gpi</a></li>
+            <li><a href="https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.dri">FlightController.dri</a></li>
+          </ul>
+        </td>
+      </tr>
+      <tr>
+        <td>code</td>
+        <td>
+          <!--<a href="https://travis-ci.org/drtrigon/sketchbook">
+            <img alt="Build Status" src="https://travis-ci.org/drtrigon/sketchbook.svg?branch=master" />
+          </a><br>-->
+        </td>
+      </tr>
+      <tr>
+        <td>docu</td>
+        <td>
+          <ul>
+            <li><a href="https://rawgit.com/drtrigon/sketchbook/result/docu/doc/html/index.html">doxygen html</a></li>
+            <!--<li><a href="https://github.com/drtrigon/sketchbook/blob/result/docu/doc/latex/refman.pdf">doxygen pdf</a></li>-->
+          </ul>
+        </td>
+      </tr>
+    </table>
+@endhtmlonly
 
 #### changelog pcb (eagle)
 
