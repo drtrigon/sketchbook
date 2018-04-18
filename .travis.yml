@@ -27,7 +27,6 @@ before_install:
   - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
   - sudo apt-get install tree
   - sudo apt-get install doxygen
-#  - sudo apt-get install texlive-base
   #- sudo pip install ino
   #- sudo ln -s /usr/local/share/arduino/hardware/arduino/avr/boards.txt /usr/local/share/arduino/hardware/arduino/boards.txt
 
@@ -50,7 +49,7 @@ after_success:
   - size $ELF_FILE
   # doxygen docu generation
   - doxygen Doxyfile
-  - pushd $PWD/doc/latex/; make; popd
+  #- pushd $PWD/doc/latex/; make; popd
   # push result back to git repo
   - git checkout -b result/docu
   - git add $PWD/doc/
