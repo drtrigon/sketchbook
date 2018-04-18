@@ -1,61 +1,27 @@
 ## Projekte
 ### Drone_MultiWii / FlightController
-[![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/sketchbook)
-[![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)](https://edrc.me/g/drtrigon/eagle)
-[![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)](https://travis-ci.org/drtrigon/eagle)
-([detail...](https://rawgit.com/drtrigon/sketchbook/master/MultiWii_2_4/status.html))
+docu: [![doxygen html](https://raw.githubusercontent.com/drtrigon/sketchbook/result/docu/doc/html/doxygen.png)](https://rawgit.com/drtrigon/sketchbook/result/docu/doc/html/index.html)
 
+[comment]: # (doxygen latex pdf output? https://github.com/drtrigon/sketchbook/blob/result/docu/doc/latex/refman.pdf)
+
+code: [![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/sketchbook)
 [![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/docker-sketchbook)
 
+PCB: [![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)](https://edrc.me/g/drtrigon/eagle)
+[![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)](https://travis-ci.org/drtrigon/eagle)
 https://github.com/drtrigon/eagle
-
-* https://github.com/drtrigon/sketchbook/blob/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl
 
 [![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)](https://edrc.me/g/drtrigon/eagle)
 
-@htmlonly
+CAD:
+* https://github.com/drtrigon/sketchbook/blob/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl
+
+[comment]: # (@htmlonly
+    <style>
+      table { border-collapse: collapse; }
+      table, td, th { border: 1px solid black; }
+    </style>
     <table>
-      <tr>
-        <td>CAD</td>
-        <td>
-        </td>
-      </tr>
-      <tr>
-        <td>PCB</td>
-        <td>
-          <a href="https://edrc.me/g/drtrigon/eagle">
-            <img alt="design rule check status" src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg" />
-          </a>
-          <a href="https://travis-ci.org/drtrigon/eagle">
-            <img alt="GERBER Build Status" src="https://travis-ci.org/drtrigon/eagle.svg?branch=master" />
-          </a><br>
-        </td>
-      </tr>
-      <tr>
-        <td>code</td>
-        <td>
-          <a href="https://travis-ci.org/drtrigon/sketchbook">
-            <img alt="Build Status" src="https://travis-ci.org/drtrigon/sketchbook.svg?branch=master" />
-          </a><br>
-        </td>
-      </tr>
-      <tr>
-        <td>docu</td>
-        <td>
-          <a href="http://www.doxygen.org/index.html">
-            <img src="https://raw.githubusercontent.com/drtrigon/sketchbook/result/docu/doc/html/doxygen.png" alt="doxygen">
-          </a><br>
-        </td>
-      </tr>
-    </table>
-    <hr>
-    <table>
-      <tr>
-        <td>CAD</td>
-        <td>
-          <script src="https://embed.github.com/view/3d/drtrigon/sketchbook/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl"></script><br>
-        </td>
-      </tr>
       <tr>
         <td>PCB</td>
         <td>
@@ -79,24 +45,13 @@ https://github.com/drtrigon/eagle
         </td>
       </tr>
       <tr>
-        <td>code</td>
+        <td>CAD</td>
         <td>
-          <!--<a href="https://travis-ci.org/drtrigon/sketchbook">
-            <img alt="Build Status" src="https://travis-ci.org/drtrigon/sketchbook.svg?branch=master" />
-          </a><br>-->
-        </td>
-      </tr>
-      <tr>
-        <td>docu</td>
-        <td>
-          <ul>
-            <li><a href="https://rawgit.com/drtrigon/sketchbook/result/docu/doc/html/index.html">doxygen html</a></li>
-            <!--<li><a href="https://github.com/drtrigon/sketchbook/blob/result/docu/doc/latex/refman.pdf">doxygen pdf</a></li>-->
-          </ul>
+          <script src="https://embed.github.com/view/3d/drtrigon/sketchbook/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl"></script><br>
         </td>
       </tr>
     </table>
-@endhtmlonly
+@endhtmlonly)
 
 #### changelog pcb (eagle)
 
