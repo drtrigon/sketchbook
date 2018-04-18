@@ -33,7 +33,8 @@ PCB: ![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/ea
 https://github.com/drtrigon/eagle
 
 ![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
-<!--![projects/Drone_MultiWii/FlightController.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png" width="600">[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.png)
+<!--![projects/Drone_MultiWii/FlightController.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png" width="600">
+[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.png)
 * GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.zip
 * partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.txt
 
@@ -45,7 +46,13 @@ CAD:
 * https://github.com/drtrigon/sketchbook/blob/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl
 
 [comment]: # (@htmlonly
-<script src="https://embed.github.com/view/3d/drtrigon/sketchbook/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl"></script>
+    <table>
+      <tr>
+        <td>
+          <script src="https://embed.github.com/view/3d/drtrigon/sketchbook/master/MultiWii_2_4/Drone-MultiWii_FlightController.stl"></script><br>
+        </td>
+      </tr>
+    </table>
 @endhtmlonly)
 
 #### changelog pcb (eagle)
