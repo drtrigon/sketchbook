@@ -30,15 +30,25 @@ before_install:
   #- sudo pip install ino
   #- sudo ln -s /usr/local/share/arduino/hardware/arduino/avr/boards.txt /usr/local/share/arduino/hardware/arduino/boards.txt
 
-#install:
+install:
 #  - ln -s $PWD /usr/local/share/arduino/libraries/Adafruit_FONA
 #  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
+  - source ~/virtualenv/python2.7/bin/activate
+  - python --version
+  - pip --version
+  - pip install -r requirements.txt
+  - pip install flake8 .
+  - flake8 --version
+  - deactivate
 
 script:
   #- ls -la
   #- arduino --verify --board arduino:avr:uno $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
+  - source ~/virtualenv/python2.7/bin/activate
+  - flake8 --statistics --benchmark --max-complexity=12 Uno_OWSniffer/Uno_OWSniffer.py
+  - deactivate
 
 after_success:
   - export ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`

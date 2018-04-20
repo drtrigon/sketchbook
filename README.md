@@ -30,14 +30,16 @@ docu: ![doxygen html](https://raw.githubusercontent.com/drtrigon/sketchbook/resu
 
 [comment]: # (doxygen latex pdf output? https://github.com/drtrigon/sketchbook/blob/result/docu/doc/latex/refman.pdf)
 
-### Drone_MultiWii / FlightController
-
 code: ![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)[...](https://travis-ci.org/drtrigon/sketchbook)
-![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)[...](https://travis-ci.org/drtrigon/docker-sketchbook)
 
 PCB: ![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)[...](https://edrc.me/g/drtrigon/eagle)
-![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
 https://github.com/drtrigon/eagle
+
+### Drone_MultiWii / FlightController
+
+code: ![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)[...](https://travis-ci.org/drtrigon/docker-sketchbook)
+
+PCB: ![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
 
 <!--![projects/Drone_MultiWii/FlightController_sch.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_sch.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_sch.png" width="600">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController_sch.png)
@@ -83,6 +85,29 @@ main changes 1.0 -> 1.1
 * copper top plane; inverted font for info field
 * geometry; size and position of screw holes
 * geometry; milled hole to reduce weight
+
+### arduino-papilio_1-WireSniffer_Rev1 / Uno_OWSniffer
+
+PCB: [GERBER Build Status]
+
+* https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Leiterplatte.pdf
+* https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Schaltplan.pdf
+* https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.pdf
+
+![Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png](https://raw.githubusercontent.com/drtrigon/sketchbook/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png)[...](https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png)
+
+[projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_sch.png]
+
+![projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2Farduino-papilio_1-WireSniffer_Rev1%2F1-Wire_Sniffer_REV1.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
+[projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.png]
+* GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.zip
+* partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.txt
+
+https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
+* https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.gpi
+* https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.dri
+
+[projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_auto.png]
 
 ## Setup
 (might make sense to split projects off into separate repos/submodules)
