@@ -120,7 +120,7 @@ def sniff_115200():
                 # print "\nRESET",
                 if onewire and (onewire[1] in commands):
                     cmd = commands[onewire[1]]
-                    end = (2+cmd[1])
+                    end = (2 + cmd[1])
                     print ("\n%.3f   " % t) + cmd[0] +\
                           "(" + hex(onewire[1]) + ") " +\
                           "".join(map(chr,
