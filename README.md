@@ -115,11 +115,15 @@ Login to Travis-CI using the GitHub account and enable Travis-CI for the given r
 
 Add a .travis.yml file to your project, commit, pull/push and enjoy.
 
+A word of caution; the travis run will at the end - if successfull - try to push the
+results back to this repo.
+
 May be split off some sub-directories like MultiWii (for simpler testing),
 see also: https://help.github.com/articles/splitting-a-subfolder-out-into-a-new-repository/.
 
-Consider creating a docker for testing and may be upload of the skechtes,
-see also: https://github.com/tombenke/darduino, https://github.com/suculent/arduino-docker-build
+Consider creating a docker for testing and may be upload of the skechtes, using:
+https://github.com/drtrigon/docker-arduino (see also: https://github.com/tombenke/darduino
+and https://github.com/suculent/arduino-docker-build)
 
 ### Enable EDRC.ME for a Repository (for Eagle)
 See https://github.com/drtrigon/eagle
