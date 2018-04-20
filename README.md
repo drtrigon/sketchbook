@@ -70,7 +70,7 @@ CAD:
 todo 1.0 -> 1.1
 
 * more info to silk screen; GND, 5V, PIN NUMBERS (at least first/last in row), 
-* name/value the connectors (insead of manually putting text on silk screen)
+* name/value the connectors (insead of manually putting text on silk screen) - improve schematic also
 * use milling??
 * ...
 
@@ -135,3 +135,7 @@ See https://www.tinkercad.com/
 * add doxygen to repository
   * The Well-Automated Arduino Library - Adafruit Learning System: https://learn.adafruit.com/the-well-automated-arduino-library/doxygen
   * https://stackoverflow.com/questions/35500277/doxygen-for-ino-files-arduino
+
+## License
+
+See the [LICENSE](LICENSE.md) file for license rights and limitations (MIT).
