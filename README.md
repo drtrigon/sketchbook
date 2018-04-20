@@ -90,9 +90,8 @@ main changes 1.0 -> 1.1
 
 PCB: [GERBER Build Status]
 
-* https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Leiterplatte.pdf
 * https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Schaltplan.pdf
-* https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.pdf
+* https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Leiterplatte.pdf
 
 ![Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png](https://raw.githubusercontent.com/drtrigon/sketchbook/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png)[...](https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png)
 
