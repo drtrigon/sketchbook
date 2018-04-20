@@ -22,23 +22,26 @@
 #
 # TODO:
 # * pulse shape/timing analysis - look at bit sequence
-# * read/write 0 detection (write 0 0x80 ? vs. read 0 0xFE and lower ? saw a lot of 0xfc and 0x80 ...)
+# * read/write 0 detection (write 0 0x80 ? vs. read 0 0xFE and lower ? saw a
+#   lot of 0xfc and 0x80 ...)
 # * buffering of data on all levels for debug access/view
-# * detect RESET w/o PRESENCE (0x00 all other commands give at least a 0x80 - with Arduino Uno on OWServer ENET)
-# * make it work with adaptive LinkHubE properly (currently working with OW_SERVER_ENET only)
+# * detect RESET w/o PRESENCE (0x00 all other commands give at least a
+#   0x80 - with Arduino Uno on OWServer ENET)
+# * make it work with adaptive LinkHubE properly (currently working with
+#   OW_SERVER_ENET only)
+
+import serial, time
 
 
-RESET       = ['\xF0', '\xE0', '\x90',]
-RESET115200 = ['\x00\x00',]
+RESET       = ['\xF0', '\xE0', '\x90', ]
+RESET115200 = ['\x00\x00', ]
 
 # http://owfs.sourceforge.net/simple_commands.html
 commands = {
-0x55: ("MATCH_ROM", 7),    # (command, # of data bytes)
-0xF0: ("SEARCH_ROM", 0),
+    0x55: ("MATCH_ROM", 7),    # (command, # of data bytes)
+    0xF0: ("SEARCH_ROM", 0),
 }
 
-
-import serial, time
 
 def sniff_TUT214():
     while True:
@@ -53,13 +56,17 @@ def sniff_TUT214():
         bytes = ser.read(waiting)
 
         # SNIFFER: READ & WRITE DETECTION
-        ser.baudrate = 115200    # do this first - since need to be fast - before new byte comes into buffer
+        # do this first - since need to be fast - before new byte comes
+        # into buffer
+        ser.baudrate = 115200
         ser.flushInput()
 
         if (waiting == 1):
             # F0 - 1111 0000 - Master RESET w/o Slave PRESENCE
-            # E0 - 1110 0000 - Master RESET w Slave PRESENCE (minimum internal timing)
-            # 90 - 1001 0000 - Master RESET w Slave PRESENCE (maximum internal timing)
+            # E0 - 1110 0000 - Master RESET w Slave PRESENCE
+            #                  (minimum internal timing)
+            # 90 - 1001 0000 - Master RESET w Slave PRESENCE
+            #                  (maximum internal timing)
             if (bytes[0] in RESET):
                 print 'RESET-0x' + bytes[0].encode('hex').upper()
             else:
@@ -74,19 +81,19 @@ def sniff_TUT214():
             waiting = ser.inWaiting()
         bytes = ser.read(waiting)
 
-
-        # Do some other work on the data
+        # WORK/PROCESS: Do some other work on the data
         print "SNIFF:"
         a, c = [], []
         for b in bytes:
-            a.append( hex(ord(b)) )
-            c.append( int(ord(b) == 0xff) )
+            a.append(hex(ord(b)))
+            c.append(int(ord(b) == 0xff))
         print a
         print c
 
 #        time.sleep(300) # sleep 5 minutes
 
         # Loop restarts once the sleep is finished
+
 
 def sniff_115200():
     bytes   = ""
@@ -109,14 +116,18 @@ def sniff_115200():
             # RESET & PRESENCE DETECTION
             # @115200: 00 00
             if (bytes[:2] in RESET115200):
-                #print "\nRESET",
+                # print "\nRESET",
                 if onewire and (onewire[1] in commands):
                     cmd = commands[onewire[1]]
                     end = (2+cmd[1])
-                    print ("\n%.3f   " % t) + cmd[0] + "(" + hex(onewire[1]) + ") " + "".join(map(chr, onewire[2:end])).encode('hex').upper(),
-                if (sc%8):
-                    print "\n%.3f   ERROR: %i bits not used! bit/bus-error?" % (t, sc),
-                #print '0x' + bytes[:2].encode('hex').upper()
+                    print ("\n%.3f   " % t) + cmd[0] +\
+                          "(" + hex(onewire[1]) + ") " +\
+                          "".join(map(chr,
+                                      onewire[2:end])).encode('hex').upper(),
+                if (sc % 8):
+                    print "\n%.3f   ERROR: %i bits not used! bit/bus-error?" \
+                          % (t, sc),
+                # print '0x' + bytes[:2].encode('hex').upper()
                 t = time.time()
                 print "\n%.3f RP" % t,
                 onewire = ['RP']
@@ -124,17 +135,18 @@ def sniff_115200():
                 bytes = bytes[2:]
             # SNIFFER: READ & WRITE DETECTION
             else:
-                #print '0x' + bytes[0].encode('hex').upper(),
-                #print int(ord(bytes[0]) == 0xff),
+                # print '0x' + bytes[0].encode('hex').upper(),
+                # print int(ord(bytes[0]) == 0xff),
                 bits = bits>>1
-                if (ord(bytes[0]) == 0xff):    # READ/WRITE 1 (otherwise it's READ/WRITE 0)
+                # READ/WRITE 1 (otherwise it's READ/WRITE 0)
+                if (ord(bytes[0]) == 0xff):
                     bits |= 0b10000000
                 sc = (sc + 1) % 8
                 if (sc == 0):
-                    #print hex(bits),
+                    # print hex(bits),
                     print chr(bits).encode('hex').upper(),
                     onewire.append(bits)
-                    #print bin(bits),
+                    # print bin(bits),
                 bytes = bytes[1:]
 
     # Loop restarts once the sleep is finished
@@ -142,7 +154,10 @@ def sniff_115200():
 
 ser = serial.Serial('/dev/ttyACM0')
 
-#sniff_TUT214()    # sniffer according to official Standards/Specs given in TUTORIAL 214 (RESET @9600)
-sniff_115200()    # sniffer always @115200 (possible to implement)
+# sniffer according to official Standards/Specs given in
+# TUTORIAL 214 (RESET @9600)
+#sniff_TUT214()
+# sniffer always @115200 (possible to implement)
+sniff_115200()
 
-ser.close() # Only executes once the loop exits
+ser.close()  # Only executes once the loop exits
