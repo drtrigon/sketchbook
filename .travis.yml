@@ -44,10 +44,11 @@ install:
 
 script:
   #- ls -la
+  #- astyle  --style=allman  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c
+  - astyle  --style=kr  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino $PWD/MultiWii_2_4/MultiWii/*.cpp $PWD/MultiWii_2_4/MultiWii/*.h $PWD/MultiWii_2_4/MultiWii/*.c
   #- arduino --verify --board arduino:avr:uno $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
-  - astyle  --style=allman  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c
   - source ~/virtualenv/python2.7/bin/activate
   - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 Uno_OWSniffer/Uno_OWSniffer.py
   - deactivate
