@@ -37,7 +37,8 @@ install:
   - python --version
   - pip --version
   #- pip install -r requirements.txt
-  - pip install flake8 .
+  - pip install pip flake8 --upgrade
+  - pip --version
   - flake8 --version
   - deactivate
 
