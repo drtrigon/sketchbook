@@ -30,7 +30,8 @@
 # * make it work with adaptive LinkHubE properly (currently working with
 #   OW_SERVER_ENET only)
 
-import serial, time
+import serial
+import time
 
 
 RESET       = ['\xF0', '\xE0', '\x90', ]
@@ -137,7 +138,7 @@ def sniff_115200():
             else:
                 # print '0x' + bytes[0].encode('hex').upper(),
                 # print int(ord(bytes[0]) == 0xff),
-                bits = bits>>1
+                bits = bits >> 1
                 # READ/WRITE 1 (otherwise it's READ/WRITE 0)
                 if (ord(bytes[0]) == 0xff):
                     bits |= 0b10000000
@@ -156,7 +157,7 @@ ser = serial.Serial('/dev/ttyACM0')
 
 # sniffer according to official Standards/Specs given in
 # TUTORIAL 214 (RESET @9600)
-#sniff_TUT214()
+# sniff_TUT214()
 # sniffer always @115200 (possible to implement)
 sniff_115200()
 

@@ -47,7 +47,7 @@ script:
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
   - source ~/virtualenv/python2.7/bin/activate
-  - flake8 --statistics --benchmark --max-complexity=12 Uno_OWSniffer/Uno_OWSniffer.py
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 Uno_OWSniffer/Uno_OWSniffer.py
   - deactivate
 
 after_success:
