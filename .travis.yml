@@ -25,8 +25,9 @@ before_install:
   - tar xf arduino-$ARDUINO_VERSION-linux64.tar.xz
   - sudo mv arduino-$ARDUINO_VERSION /usr/local/share/arduino
   - sudo ln -s /usr/local/share/arduino/arduino /usr/local/bin/arduino
-  - sudo apt-get install tree
+  - sudo apt-get install astyle
   - sudo apt-get install doxygen
+  - sudo apt-get install tree
   #- sudo pip install ino
   #- sudo ln -s /usr/local/share/arduino/hardware/arduino/avr/boards.txt /usr/local/share/arduino/hardware/arduino/boards.txt
 
@@ -46,6 +47,7 @@ script:
   #- arduino --verify --board arduino:avr:uno $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
+  - astyle  --style=allman  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c
   - source ~/virtualenv/python2.7/bin/activate
   - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 Uno_OWSniffer/Uno_OWSniffer.py
   - deactivate
