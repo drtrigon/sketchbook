@@ -55,8 +55,7 @@ script:
   # MultiWii_2_4/MultiWii
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
-  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c
-  - ls -la $PWD/MultiWii_2_4/MultiWii/
+#  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c
 #  - diff ...
   - source ~/virtualenv/python2.7/bin/activate
   # Uno_OWSniffer
