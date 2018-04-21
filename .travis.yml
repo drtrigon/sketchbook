@@ -46,7 +46,7 @@ script:
   #- ls -la
   # Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
 #  - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=allman  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+  - astyle  --style=allman  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   - diff $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   ### debug ###
   - rm $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig
