@@ -44,11 +44,10 @@ install:
 
 script:
   #- ls -la
-  - astyle  --style=kr  --errors-to-stdout  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - ls -la $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/
-  - astyle  --style=allman  --errors-to-stdout  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - ls -la $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/
-#  - diff $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+  #- arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+#  - astyle  --style=kr  --errors-to-stdout  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+  - astyle  --style=kr  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+  - diff $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   #- arduino --verify --board arduino:avr:uno $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.ino $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
@@ -57,7 +56,7 @@ script:
   - python -m py_compile $PWD/Uno_OWSniffer/Uno_OWSniffer.py
   - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $PWD/Uno_OWSniffer/Uno_OWSniffer.py
   - python -m py_compile $PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
+#  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
   - deactivate
 
 after_success:
