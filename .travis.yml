@@ -47,65 +47,14 @@ script:
   #- ls -la
   # Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
 #  - arduino --verify --board $BOARD --verbose --preserve-temp-files $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=kr  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+  - astyle  --style=ansi  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
   ### debug ###
   - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=kr  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=linux  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=gnu  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=ansi  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=java  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=stroustrup  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=whitesmith  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=banner  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=horstmann  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=1tbs  --indent=spaces=2  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=linux  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=gnu  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=ansi  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=java  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=stroustrup  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=whitesmith  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=banner  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+  - astyle  --style=allman  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
   - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   - astyle  --style=horstmann  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
-  - mv -f $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-  - astyle  --style=1tbs  --indent=spaces=4  --verbose  $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   - diff -u $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.orig $PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino | tee /dev/stderr | diffstat
   ### debug ###
   # MultiWii_2_4/MultiWii
