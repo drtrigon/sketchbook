@@ -53,19 +53,23 @@ script:
   #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE
   #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE
   - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-
+  - mv -f ${FILE}.orig $FILE
+  - astyle  --style=stroustrup  --indent=spaces=4  --verbose  $FILE
+  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
+  - mv -f ${FILE}.orig $FILE
+  - astyle  --style=google  --indent=spaces=4  --verbose  $FILE
+  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
   # Yun_N64_Controller_Pak_Reader
   - FILE=$PWD/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
 #  - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE
-  - astyle  --style=allman  --indent=spaces=2  --verbose  $FILE  # allman=ansi
-  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-  - mv -f ${FILE}.orig $FILE
-  - astyle  --style=horstmann  --indent=spaces=2  --verbose  $FILE
-  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-  - mv -f ${FILE}.orig $FILE
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE
   - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-
+  - mv -f ${FILE}.orig $FILE
+  - astyle  --style=stroustrup  --indent=spaces=2  --verbose  $FILE
+  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
+  - mv -f ${FILE}.orig $FILE
+  - astyle  --style=google  --indent=spaces=2  --verbose  $FILE
+  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
   # MultiWii_2_4/MultiWii
   - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $FILE $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
@@ -79,7 +83,6 @@ script:
   - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE
   # micpy/ESP8266_SHT31_WiFi_pseudoREST
   - FILE=$PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
-  - echo $FILE
   - python -m py_compile $FILE
 #  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE
   - deactivate
