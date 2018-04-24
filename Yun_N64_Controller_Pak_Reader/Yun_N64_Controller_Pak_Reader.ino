@@ -106,7 +106,8 @@ byte sdBuffer[32];
 /******************************************
 Setup
 *****************************************/
-void setup() {
+void setup()
+{
   // Communication with controller on this pin
   // Don't remove these lines, we don't want to push +5V to the controller
   digitalWrite(N64_PIN, LOW);
@@ -154,8 +155,7 @@ void setup() {
   sd.chdir("MPK");
   while (myFile.openNext(sd.vwd(), O_READ)) {
     if (myFile.isHidden()) {
-    }
-    else {
+    } else {
       if (myFile.isDir()) {
         // Indicate a directory.
         Serial.write('/');
@@ -239,7 +239,8 @@ Helper functions
 *****************************************/
 // Prompt a filename from the Serial Monitor
 #ifdef ENABLE_WRITE
-void getfilename() {
+void getfilename()
+{
   Serial.println(F("Please enter a filename in 8.3 format: _"));
   Serial.println("");
   while (Serial.available() == 0) {}
@@ -318,7 +319,8 @@ template <class T> int EEPROM_readAnything(int ee, T& value)
 /******************************************
 CRC Functions
 *****************************************/
-static word addrCRC(word address) {
+static word addrCRC(word address)
+{
   // CRC table
   word xor_table[16] = { 0x0, 0x0, 0x0, 0x0, 0x0, 0x15, 0x1F, 0x0B, 0x16, 0x19, 0x07, 0x0E, 0x1C, 0x0D, 0x1A, 0x01 };
   word crc = 0;
@@ -337,7 +339,8 @@ static word addrCRC(word address) {
   return address | crc;
 }
 
-static byte dataCRC(byte *data) {
+static byte dataCRC(byte *data)
+{
   byte ret = 0;
   for (byte i = 0; i <= 32; i++) {
     for (byte j = 7; j >= 0; j--) {
@@ -360,7 +363,8 @@ static byte dataCRC(byte *data) {
 /******************************************
 N64 Controller Protocol Functions
 *****************************************/
-void N64_send(unsigned char *buffer, char length) {
+void N64_send(unsigned char *buffer, char length)
+{
   // Send these bytes
   char bits;
   bool bit;
@@ -376,12 +380,10 @@ void N64_send(unsigned char *buffer, char length) {
   // with a for loop
 
   asm volatile (";Starting outer for loop");
-  outer_loop:
-  {
+outer_loop: {
     asm volatile (";Starting inner for loop");
     bits = 8;
-    inner_loop:
-    {
+inner_loop: {
       // Starting a bit, set the line low
       asm volatile (";Setting line to low");
       N64_LOW; // 1 op, 2 cycles
@@ -408,8 +410,7 @@ void N64_send(unsigned char *buffer, char length) {
                       "nop\nnop\nnop\nnop\nnop\n"
                      );
 
-      }
-      else {
+      } else {
         asm volatile (";Bit is a 0");
         // 0 bit
         // remain low for 3us, then go high for 1us
@@ -461,7 +462,8 @@ void N64_send(unsigned char *buffer, char length) {
   }
 }
 
-void N64_stop() {
+void N64_stop()
+{
   // send a single stop (1) bit
   // nop block 5
   asm volatile ("nop\nnop\nnop\nnop\n");
@@ -475,7 +477,8 @@ void N64_stop() {
   N64_HIGH;
 }
 
-void N64_get(word bitcount) {
+void N64_get(word bitcount)
+{
   // listen for the expected bitcount/8 bytes of data back from the controller and
   // blast it out to the N64_raw_dump array, one bit per byte for extra speed.
   asm volatile (";Starting to listen");
@@ -484,7 +487,7 @@ void N64_get(word bitcount) {
 
   // Again, using gotos here to make the assembly more predictable and
   // optimization easier (please don't kill me)
-  read_loop:
+read_loop:
   timeout = 0x3f;
   // wait for line to go low
   while (N64_QUERY) {
@@ -493,12 +496,12 @@ void N64_get(word bitcount) {
   }
   // wait approx 2us and poll the line
   asm volatile (
-                "nop\nnop\nnop\nnop\nnop\n"
-                "nop\nnop\nnop\nnop\nnop\n"
-                "nop\nnop\nnop\nnop\nnop\n"
-                "nop\nnop\nnop\nnop\nnop\n"
-                "nop\nnop\nnop\nnop\nnop\n"
-                "nop\nnop\nnop\nnop\nnop\n"
+    "nop\nnop\nnop\nnop\nnop\n"
+    "nop\nnop\nnop\nnop\nnop\n"
+    "nop\nnop\nnop\nnop\nnop\n"
+    "nop\nnop\nnop\nnop\nnop\n"
+    "nop\nnop\nnop\nnop\nnop\n"
+    "nop\nnop\nnop\nnop\nnop\n"
   );
   *bitbin = N64_QUERY;
   ++bitbin;
@@ -520,7 +523,8 @@ void N64_get(word bitcount) {
 N64 Controller Pak Functions
 *****************************************/
 // read 32bytes from controller pak
-void readBlock(word myAddress) {
+void readBlock(word myAddress)
+{
   // Calculate the address CRC
   word myAddressCRC = addrCRC(myAddress);
 
@@ -570,7 +574,8 @@ void readBlock(word myAddress) {
 }
 
 // reads the MPK file to the sd card
-void readMPK() {
+void readMPK()
+{
 #ifndef ARDUINO_YUN
   // Change to root
   sd.chdir("/");
@@ -622,7 +627,8 @@ void readMPK() {
 }
 
 #ifdef ENABLE_WRITE
-void writeMPK() {
+void writeMPK()
+{
 #ifndef ARDUINO_YUN
   // Change to root
   sd.chdir("/");
@@ -674,15 +680,15 @@ void writeMPK() {
     myFile.close();
     Serial.println(F("Done"));
 
-  }
-  else {
+  } else {
     Serial.println(F("SD Error"));
     while (1);
   }
 }
 
 // verifies if write was successful
-void verifyMPK() {
+void verifyMPK()
+{
   writeErrors = 0;
 
   Serial.println(F("Verifying..."));
@@ -714,8 +720,7 @@ void verifyMPK() {
   myFile.close();
   if (writeErrors == 0) {
     Serial.println(F("OK"));
-  }
-  else {
+  } else {
     Serial.print(writeErrors);
     Serial.println(F(" errors"));
   }
@@ -725,7 +730,8 @@ void verifyMPK() {
 /******************************************
 Main loop
 *****************************************/
-void loop() {
+void loop()
+{
   // Print menu to serial monitor
   Serial.println(F("Menu:"));
   Serial.println(F("(0)Read (1)Write"));
@@ -743,21 +749,21 @@ void loop() {
 
   // Execute user choice
   switch (incomingByte) {
-    case 48:  // '0'
-      Serial.println(F("Reading Controller Pak"));
-      readMPK();
-      break;
+  case 48:  // '0'
+    Serial.println(F("Reading Controller Pak"));
+    readMPK();
+    break;
 
-    case 49:  // '1'
+  case 49:  // '1'
 #ifdef ENABLE_WRITE
-      Serial.println(F("Writing Controller Pak"));
-      getfilename();
-      writeMPK();
-      verifyMPK();
+    Serial.println(F("Writing Controller Pak"));
+    getfilename();
+    writeMPK();
+    verifyMPK();
 #else
-      Serial.println(F("Disabled for security - set ENABLE_WRITE to enable."));
+    Serial.println(F("Disabled for security - set ENABLE_WRITE to enable."));
 #endif
-      break;
+    break;
 
   }
   Serial.println("");

@@ -53,22 +53,10 @@ script:
   #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE
   #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE
   - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-  - mv -f ${FILE}.orig $FILE
-  - astyle  --style=stroustrup  --indent=spaces=4  --verbose  $FILE
-  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-  - mv -f ${FILE}.orig $FILE
-  - astyle  --style=google  --indent=spaces=4  --verbose  $FILE
-  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
   # Yun_N64_Controller_Pak_Reader
   - FILE=$PWD/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
 #  - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE
-  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-  - mv -f ${FILE}.orig $FILE
-  - astyle  --style=stroustrup  --indent=spaces=2  --verbose  $FILE
-  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
-  - mv -f ${FILE}.orig $FILE
-  - astyle  --style=google  --indent=spaces=2  --verbose  $FILE
   - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
   # MultiWii_2_4/MultiWii
   - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
