@@ -162,6 +162,11 @@ See https://github.com/drtrigon/eagle
 #### Create CAD (.stl) Designs online easily
 See https://www.tinkercad.com/
 
+#### Create PCB Designs online easily
+See https://easyeda.com/
+
+Do not use upverter or else as it does not allow to export. EasyEDA supports at least netlist export. Locally use KiCAD or eagle.
+
 ### Further Info
 * convert STEP file to .stl online: https://www.makexyz.com/convert/step-to-stl
 * convert Catia file to .stl online: https://www.convertcadfiles.com/de/konvertieren/
