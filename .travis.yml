@@ -35,6 +35,7 @@ before_install:
 install:
 #  - ln -s $PWD /usr/local/share/arduino/libraries/Adafruit_FONA
 #  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
+  - arduino --install-library "OneWireHub"
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
   #- pip install -r requirements.txt
@@ -48,8 +49,8 @@ script:
   #- set -o pipefail  # error in case 'diff' sees differences (get 1st error in pipe), use '+o' to disable/unset
   # Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
   - FILE=$PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
-#NEW
-  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
+#NEW - issue
+  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE || true  >> $FILE.compile
   #- astyle  --style=allman  --indent=spaces=4  --verbose  $FILE; diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat  # allman=ansi
   - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  >> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style  # allman=ansi
   #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  >> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
@@ -57,32 +58,41 @@ script:
   # Yun_N64_Controller_Pak_Reader
   - FILE=$PWD/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
 #NEW
-  - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE || true  >> $FILE.compile
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  >> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
   # MultiWii_2_4/MultiWii
   - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $FILE $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
-  - arduino --verify --board $BOARD --verbose --preserve-temp-files $FILE  >> $FILE.compile
-#  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  >> $FILE.style
+  - arduino --verify --board $BOARD --verbose --preserve-temp-files $FILE || true  >> $FILE.compile
+#NEW
+  - ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
+  - readelf -a $ELF_FILE  >> $FILE.info
+  #- objdump -x $ELF_FILE  >> $FILE.info
+  #- nm $ELF_FILE || true  >> $FILE.info
+  - strings -d $ELF_FILE  >> $FILE.info
+  - size $ELF_FILE  >> $FILE.info
+#NEW
+  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  >> $FILE.style; #diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
   - source ~/virtualenv/python2.7/bin/activate
   # Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
   - python -m py_compile $FILE  &>> $FILE.compile
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE  >> $FILE.style
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE || true  >> $FILE.style
   # micpy/ESP8266_SHT31_WiFi_pseudoREST
   - FILE=$PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
   - python -m py_compile $FILE  &>> $FILE.compile
-#NEW
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE  >> $FILE.style
+#NEW - issue
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE || true  >> $FILE.style
   - deactivate
 
 after_success:
+  - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   - export ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
-  - readelf -a $ELF_FILE
+  - readelf -a $ELF_FILE  >> $FILE.info
   #- objdump -x $ELF_FILE
   #- nm $ELF_FILE || true
-  - strings -d $ELF_FILE
-  - size $ELF_FILE
+  - strings -d $ELF_FILE  >> $FILE.info
+  - size $ELF_FILE  >> $FILE.info
   # doxygen docu generation
   - doxygen Doxyfile
   #- pushd $PWD/doc/latex/; make; popd
