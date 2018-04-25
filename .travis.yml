@@ -35,7 +35,12 @@ before_install:
 install:
 #  - ln -s $PWD /usr/local/share/arduino/libraries/Adafruit_FONA
 #  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
-  - arduino --install-library "OneWireHub,SeeedGrayOLED"
+  - arduino --install-library "OneWireHub"
+  - wget https://github.com/Seeed-Studio/OLED_Display_96X96/archive/v1.0.0.tar.gz
+  - tar xf v1.0.0.tar.gz
+  - ls -la v1.0.0
+  - ls -la /usr/local/share/arduino/
+#  - sudo mv v1.0.0 /usr/local/share/arduino/arduino/
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
   #- pip install -r requirements.txt
@@ -84,6 +89,8 @@ script:
 #NEW - issue
   - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE || true  >> $FILE.style
   - deactivate
+
+after_script:
   # doxygen docu generation
   - doxygen Doxyfile
   #- pushd $PWD/doc/latex/; make; popd
