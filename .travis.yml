@@ -42,8 +42,10 @@ install:
   #- tar xzf v1.0.0.tar.gz
   #- sudo mv $PWD/OLED_Display_96X96-1.0.0 /usr/local/share/arduino/libraries/
 #ISSUE
-  - sudo mv $PWD/libraries/LCD_Display9696 /usr/local/share/arduino/libraries/
+  - sudo cp $PWD/libraries/LCD_Display9696 /usr/local/share/arduino/libraries/
+  - sudo cp $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries
   - ls -la $HOME
+  - ls -la $HOME/Arduino/libraries
   - ls -la /usr/local/share/arduino/libraries/
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
@@ -91,10 +93,11 @@ script:
   - deactivate
 
 after_script:
+  #- tree
   # doxygen docu generation
 #ISSUE; epstopdf missing
   - doxygen Doxyfile
-  #- pushd $PWD/doc/latex/; make; popd
+  - pushd $PWD/doc/latex/; make; popd
   # push result back to git repo
   - git checkout -b result/docu
   #- git add $PWD/doc/
@@ -114,7 +117,6 @@ after_success:
         curl -s -X POST -H "Content-Type: application/json" -H "Accept: application/json" -H "Travis-API-Version: 3" -H "Authorization: token $TRAVIS_TOKEN" -d "{\"request\": {\"branch\":\"master\"}}" https://api.travis-ci.org/repo/drtrigon%2Fdocker-sketchbook/requests ;
       fi ;
     fi
-  #- tree
 
 #notifications:
 #  email:
