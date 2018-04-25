@@ -49,10 +49,11 @@ script:
   # Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
   - FILE=$PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
 #  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE
-  - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  # allman=ansi
+  - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  >> $FILE.style  # allman=ansi
   #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE
   #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE
-  - diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
+  #- diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat
+  - diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
   # Yun_N64_Controller_Pak_Reader
   - FILE=$PWD/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
 #  - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE
@@ -61,7 +62,7 @@ script:
   # MultiWii_2_4/MultiWii
   - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $FILE $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
-  - arduino --verify --board $BOARD --verbose --preserve-temp-files $FILE
+  - arduino --verify --board $BOARD --verbose --preserve-temp-files $FILE  >> $FILE.compile
 #  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c
 #  - diff ...
   - source ~/virtualenv/python2.7/bin/activate
@@ -87,7 +88,8 @@ after_success:
   #- pushd $PWD/doc/latex/; make; popd
   # push result back to git repo
   - git checkout -b result/docu
-  - git add $PWD/doc/
+  #- git add $PWD/doc/
+  - git add --all
   - git status
   - git config user.email 'travis@travis-ci.org'
   - git config user.name 'Travis CI'
