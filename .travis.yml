@@ -38,7 +38,7 @@ install:
   - arduino --install-library "OneWireHub"
   - wget https://github.com/Seeed-Studio/OLED_Display_96X96/archive/v1.0.0.tar.gz
   - tar xf v1.0.0.tar.gz
-  - ls -la v1.0.0
+  - ls -la
   - ls -la /usr/local/share/arduino/
 #  - sudo mv v1.0.0 /usr/local/share/arduino/arduino/
   - source ~/virtualenv/python2.7/bin/activate
@@ -82,12 +82,12 @@ script:
   # Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
   - python -m py_compile $FILE  &>> $FILE.compile
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE || true  >> $FILE.style
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE  >> $FILE.style
   # micpy/ESP8266_SHT31_WiFi_pseudoREST
   - FILE=$PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
   - python -m py_compile $FILE  &>> $FILE.compile
 #NEW - issue
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE || true  >> $FILE.style
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE  >> $FILE.style
   - deactivate
 
 after_script:
