@@ -42,8 +42,8 @@ install:
   #- tar xzf v1.0.0.tar.gz
   #- sudo mv $PWD/OLED_Display_96X96-1.0.0 /usr/local/share/arduino/libraries/
 #ISSUE
-  - sudo cp $PWD/libraries/LCD_Display9696 /usr/local/share/arduino/libraries/
-  - sudo cp $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries
+  - sudo cp -R $PWD/libraries/LCD_Display9696 /usr/local/share/arduino/libraries/
+  - sudo cp -R $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries/
   - ls -la $HOME
   - ls -la $HOME/Arduino/libraries
   - ls -la /usr/local/share/arduino/libraries/
