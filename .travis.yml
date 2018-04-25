@@ -61,14 +61,13 @@ script:
   - readelf -a $ELF_FILE  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
   #- astyle  --style=allman  --indent=spaces=4  --verbose  $FILE; diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat  # allman=ansi
   - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)  # allman=ansi
-  #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
-  #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
+  #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
+  #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
   ## Yun_N64_Controller_Pak_Reader
   - FILE=$PWD/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
   - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Yun_N64_Controller_Pak_Reader.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
-#ISSUE - identical, thus error
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
   ## MultiWii_2_4/MultiWii
   - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
@@ -77,7 +76,7 @@ script:
   - ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
 #NEW
-  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style; #diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
+  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style; #(test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
   - source ~/virtualenv/python2.7/bin/activate
   ## Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
