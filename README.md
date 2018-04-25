@@ -38,6 +38,8 @@ https://github.com/drtrigon/eagle
 ### Drone_MultiWii / FlightController
 
 code: ![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)[...](https://travis-ci.org/drtrigon/docker-sketchbook)
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.style)
 
 PCB: ![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
 
@@ -88,6 +90,10 @@ main changes 1.0 -> 1.1
 
 ### arduino-papilio_1-WireSniffer_Rev1 / Uno_OWSniffer
 
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSniffer/Uno_OWSniffer.py.compile)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSniffer/Uno_OWSniffer.py.style)
+
 PCB: [GERBER Build Status]
 
 * https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Schaltplan.pdf
@@ -109,6 +115,26 @@ https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
 -->
 
 [projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_auto.png]
+
+### Uno_OWSlave - OWH_DS2433_EEPROM_LCD_Sensors
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.style)
+
+### Yun_N64_Controller_Pak_Reader
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino.style)
+
+https://github.com/sanni/cartreader/issues/16
+
+### micpy - ESP8266_SHT31_WiFi_pseudoREST
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.compile)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.style)
 
 ## Setup
 (might make sense to split projects off into separate repos/submodules)
