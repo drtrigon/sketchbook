@@ -1,33 +1,34 @@
-/**********************************************************************************
-@brief Nintendo 64 Controller Pak Reader for Arduino (Yun, Uno+SDcard)
-
-@author sanni, DrTrigon
-@date 2018-04-24
-@version V1C
-
-@see https://github.com/sanni/cartreader/issues/16
-@see https://github.com/sanni/cartreader/blob/master/Cart_Reader/N64.ino
-
-SD lib:
-  @see https://github.com/greiman/SdFat
-Needs EEPROMAnything.h copied into sketch folder:
-  @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
-USB stick can also be used on Arduin Yun, see code.
-  @see Yun_SHT31_WiFi_REST/Yun_SHT31_WiFi_REST.ino for info on how to setup.
-
-Pinout:
-  @see https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
-  view on controller connector:
-    _____
-   /     \    1: GND        -> Arduino GND
-  | 1 2 3 |   2: DATA       -> Arduino Pin 2
-  |_______|   3: VCC (3.3V) -> Arduino 3.3V
-
-Thanks to:
-Andrew Brown/Peter Den Hartog - N64 send/get functions
-Shaun Taylor - address/data CRC functions
-
-**********************************************************************************/
+//*********************************************************************************
+/**
+ * @brief Nintendo 64 Controller Pak Reader for Arduino (Yun, Uno+SDcard)
+ *
+ * @author sanni, DrTrigon
+ * @date 2018-04-24
+ * @version V1C
+ *
+ * @see https://github.com/sanni/cartreader/issues/16
+ * @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/N64.ino
+ *
+ * SD lib:
+ *   @see https://github.com/greiman/SdFat
+ * Needs EEPROMAnything.h copied into sketch folder:
+ *   @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
+ * USB stick can also be used on Arduin Yun, see code.
+ *   @see Yun_SHT31_WiFi_REST/Yun_SHT31_WiFi_REST.ino for info on how to setup.
+ *
+ * Pinout:
+ *   @see https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
+ *   view on controller connector:
+ *     _____
+ *    /     \    1: GND        -> Arduino GND
+ *   | 1 2 3 |   2: DATA       -> Arduino Pin 2
+ *   |_______|   3: VCC (3.3V) -> Arduino 3.3V
+ *
+ * Thanks to:
+ * Andrew Brown/Peter Den Hartog - N64 send/get functions
+ * Shaun Taylor - address/data CRC functions
+ */
+//*********************************************************************************
 
 /******************************************
 Build Configuration
@@ -256,8 +257,8 @@ void setup()
 /******************************************
 Helper functions
 *****************************************/
-// Prompt a filename from the Serial Monitor
 #ifdef ENABLE_WRITE
+/// Prompt a filename from the Serial Monitor
 void getfilename()
 {
   Serial.println(F("Please enter a filename in 8.3 format: _"));
@@ -270,7 +271,7 @@ void getfilename()
 #endif
 
 #ifndef ENABLE_EEPROM
-// Emulate EEPROM write function with help of storage on SD
+/// Emulate EEPROM write function with help of storage on SD
 template <class T> int EEPROM_writeAnything(int ee, const T& value)
 {
   const byte* p = (const byte*)(const void*)&value;
@@ -302,7 +303,7 @@ template <class T> int EEPROM_writeAnything(int ee, const T& value)
   return i;
 }
 
-// Emulate EEPROM read function with help of storage on SD
+/// Emulate EEPROM read function with help of storage on SD
 template <class T> int EEPROM_readAnything(int ee, T& value)
 {
   byte* p = (byte*)(void*)&value;
@@ -653,7 +654,7 @@ void get_button()
 /******************************************
 N64 Controller Pak Functions
 *****************************************/
-// read 32bytes from controller pak
+/// read 32bytes from controller pak
 void readBlock(word myAddress)
 {
   // Calculate the address CRC
@@ -704,7 +705,7 @@ void readBlock(word myAddress)
   }
 }
 
-// reads the MPK file to the sd card
+/// reads the MPK file to the sd card
 void readMPK()
 {
 #ifndef ARDUINO_YUN
@@ -817,7 +818,7 @@ void writeMPK()
   }
 }
 
-// verifies if write was successful
+/// verifies if write was successful
 void verifyMPK()
 {
   writeErrors = 0;
