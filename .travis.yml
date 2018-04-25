@@ -60,9 +60,8 @@ script:
   #- readelf -a $ELF_FILE  >> $FILE.info; objdump -x $ELF_FILE  >> $FILE.info; nm $ELF_FILE || true  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
   - readelf -a $ELF_FILE  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
   #- astyle  --style=allman  --indent=spaces=4  --verbose  $FILE; diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat  # allman=ansi
-  - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style) \
-    || true  # allman=ansi
-# ^^^ test result ignored since not good yet ^^^
+  - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style) || true  # allman=ansi
+# ^^^ test result ignored since not good yet - remove " || true" to enable again ^^^
   #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
   #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
   ## Yun_N64_Controller_Pak_Reader
@@ -77,9 +76,8 @@ script:
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
-  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style; \
-    || true #(test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
-# ^^^ test result ignored since not good yet ^^^
+  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style || true #; (test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)
+# ^^^ test result ignored since not good yet - remove " || true #" to enable again ^^^
   - source ~/virtualenv/python2.7/bin/activate
   ## Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
@@ -88,9 +86,8 @@ script:
   ## micpy/ESP8266_SHT31_WiFi_pseudoREST
   - FILE=$PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
   - python -m py_compile $FILE  &>> $FILE.compile
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE  >> $FILE.style \
-    || true
-# ^^^ test result ignored since not good yet ^^^
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221 $FILE  >> $FILE.style || true
+# ^^^ test result ignored since not good yet - remove " || true" to enable again ^^^
   - deactivate
 
 after_script:
