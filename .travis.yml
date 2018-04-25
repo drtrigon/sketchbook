@@ -37,7 +37,8 @@ install:
 #  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
   - arduino --install-library "OneWireHub"
   - wget https://github.com/Seeed-Studio/OLED_Display_96X96/archive/v1.0.0.tar.gz
-  - tar xf v1.0.0.tar.gz
+#ISSUE
+  - tar xzf v1.0.0.tar.gz
   - ls -la
   - ls -la /usr/local/share/arduino/
 #  - sudo mv v1.0.0 /usr/local/share/arduino/arduino/
@@ -57,27 +58,23 @@ script:
 #NEW - issue; SeeedGrayOLED missing
   - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   #- astyle  --style=allman  --indent=spaces=4  --verbose  $FILE; diff -u ${FILE}.orig $FILE | tee /dev/stderr | diffstat  # allman=ansi
-  - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  >> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style  # allman=ansi
-  #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  >> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
-  #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  >> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
+  - astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style  # allman=ansi
+  #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
+  #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
   # Yun_N64_Controller_Pak_Reader
   - FILE=$PWD/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
-#NEW
   - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE  >> $FILE.compile
-  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  >> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
+#ISSUE - identical, thus error
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style; diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
   # MultiWii_2_4/MultiWii
   - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $FILE $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
   - arduino --verify --board $BOARD --verbose --preserve-temp-files $FILE  >> $FILE.compile
-#NEW
   - ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
-  - readelf -a $ELF_FILE  >> $FILE.info
-  #- objdump -x $ELF_FILE  >> $FILE.info
-  #- nm $ELF_FILE || true  >> $FILE.info
-  - strings -d $ELF_FILE  >> $FILE.info
-  - size $ELF_FILE  >> $FILE.info
+  #- readelf -a $ELF_FILE  >> $FILE.info; objdump -x $ELF_FILE  >> $FILE.info; nm $ELF_FILE || true  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
+  - readelf -a $ELF_FILE  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
 #NEW
-  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  >> $FILE.style; #diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
+  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style; #diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style
   - source ~/virtualenv/python2.7/bin/activate
   # Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
@@ -94,11 +91,10 @@ after_script:
   # doxygen docu generation
   - doxygen Doxyfile
   #- pushd $PWD/doc/latex/; make; popd
-# push here anyway no matter how many errors - re-enable errors
   # push result back to git repo
   - git checkout -b result/docu
   #- git add $PWD/doc/
-# exclude .pyc
+#ISSUE; exclude .pyc
   - git add --all
   - git status
   - git config user.email 'travis@travis-ci.org'
@@ -107,26 +103,6 @@ after_script:
   - git push -f https://$GIT_USER:$GIT_PASS@github.com/drtrigon/sketchbook.git result/docu  # dangerous; overwrite remote branch!
 
 after_success:
-#  - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
-#  - export ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
-#  - readelf -a $ELF_FILE  >> $FILE.info
-#  #- objdump -x $ELF_FILE
-#  #- nm $ELF_FILE || true
-#  - strings -d $ELF_FILE  >> $FILE.info
-#  - size $ELF_FILE  >> $FILE.info
-#  # doxygen docu generation
-#  - doxygen Doxyfile
-  #- pushd $PWD/doc/latex/; make; popd
-#  # push result back to git repo
-#  - git checkout -b result/docu
-#  #- git add $PWD/doc/
-## exclude .pyc
-#  - git add --all
-#  - git status
-#  - git config user.email 'travis@travis-ci.org'
-#  - git config user.name 'Travis CI'
-#  - git commit --message "Travis build $TRAVIS_BUILD_NUMBER"
-#  - git push -f https://$GIT_USER:$GIT_PASS@github.com/drtrigon/sketchbook.git result/docu  # dangerous; overwrite remote branch!
   # trigger docker-sketchbook (same tests based on docker-arduino)
   - |-
     if [[ "$TRAVIS_BRANCH" == "master" && "$TRAVIS_PULL_REQUEST" == "false" ]] ; then
