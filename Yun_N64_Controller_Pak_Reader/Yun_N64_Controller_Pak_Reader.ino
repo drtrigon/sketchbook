@@ -2,6 +2,7 @@
 Nintendo 64 Controller Pak Reader for Arduino (Yun, Uno+SDcard)
 
 https://github.com/sanni/cartreader/issues/16
+https://github.com/sanni/cartreader/blob/master/Cart_Reader/N64.ino
 
 Author: sanni, DrTrigon
 Date: 2018-04-24
@@ -102,6 +103,16 @@ int incomingByte;
 
 // Array that holds the data
 byte sdBuffer[32];
+
+// N64 Controller
+String rawStr = ""; // above char array read into a string
+struct {
+  char stick_x;
+  char stick_y;
+}
+N64_status;
+//stings that hold the buttons
+String button = "N/A";
 
 /******************************************
 Setup
@@ -232,6 +243,14 @@ void setup()
   // Read current folder number out of eeprom
   EEPROM_readAnything(0, foldern);
 #endif
+
+  // Check/Test communication with N64 Controller
+  Serial.print(F("Press any button on the N64 Controller to continue..."));
+  while (button == "N/A") {
+    delay(200);
+    get_button();
+  }
+  Serial.println(button);
 }
 
 /******************************************
@@ -517,6 +536,118 @@ read_loop:
       return;
   }
   goto read_loop;
+}
+
+/******************************************
+   N64 Controller Functions
+ *****************************************/
+void get_button()
+{
+  // Command to send to the gamecube
+  // The last bit is rumble, flip it to rumble
+  // yes this does need to be inside the loop, the
+  // array gets mutilated when it goes through N64_send
+  unsigned char command[] = {
+    0x01
+  };
+
+  // don't want interrupts getting in the way
+  noInterrupts();
+  // send those 3 bytes
+  N64_send(command, 1);
+  N64_stop();
+  // read in 32bits of data and dump it to N64_raw_dump
+  N64_get(32);
+  // end of time sensitive code
+  interrupts();
+
+  // The get_N64_status function sloppily dumps its data 1 bit per byte
+  // into the get_status_extended char array. It's our job to go through
+  // that and put each piece neatly into the struct N64_status
+  int i;
+  memset(&N64_status, 0, sizeof(N64_status));
+
+  // bits: joystick x value
+  // These are 8 bit values centered at 0x80 (128)
+  for (i = 0; i < 8; i++) {
+    N64_status.stick_x |= N64_raw_dump[16 + i] ? (0x80 >> i) : 0;
+  }
+  for (i = 0; i < 8; i++) {
+    N64_status.stick_y |= N64_raw_dump[24 + i] ? (0x80 >> i) : 0;
+  }
+
+  // read char array N64_raw_dump into string rawStr
+  rawStr = "";
+  for (i = 0; i < 16; i++) {
+    rawStr = rawStr + String(N64_raw_dump[i], DEC);
+  }
+
+  // Buttons (A,B,Z,S,DU,DD,DL,DR,0,0,L,R,CU,CD,CL,CR)
+  button = "N/A";
+  if (!(rawStr.substring(0, 16) == "0000000000000000")) {
+    for (int i = 0; i < 16; i++) {
+      // seems to be 16, 8 or 4 depending on what pin is used
+      if (N64_raw_dump[i] == 16) {
+        switch (i) {
+        case 7:
+          button = "D-Right";
+          break;
+
+        case 6:
+          button = "D-Left";
+          break;
+
+        case 5:
+          button = "D-Down";
+          break;
+
+        case 4:
+          button = "D-Up";
+          break;
+
+        case 3:
+          button = "START";
+          break;
+
+        case 2:
+          button = "Z";
+          break;
+
+        case 1:
+          button = "B";
+          break;
+
+        case 0:
+          button = "A";
+          break;
+
+        case 15:
+          button = "C-Right";
+          break;
+
+        case 14:
+          button = "C-Left";
+          break;
+
+        case 13:
+          button = "C-Down";
+          break;
+
+        case 12:
+          button = "C-Up";
+          break;
+
+        case 11:
+          button = "R";
+          break;
+
+        case 10:
+          button = "L";
+          break;
+        }
+      }
+    }
+  }
 }
 
 /******************************************
