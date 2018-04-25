@@ -37,12 +37,13 @@ install:
 #  - ln -s $PWD /usr/local/share/arduino/libraries/Adafruit_FONA
 #  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
   - arduino --install-library "OneWireHub"
-  - wget https://github.com/Seeed-Studio/OLED_Display_96X96/archive/v1.0.0.tar.gz
-  - tar xzf v1.0.0.tar.gz
+  # old version of OLED_Display_96X96 - the one on github is too new and has incompatible constructor
+  #- wget https://github.com/Seeed-Studio/OLED_Display_96X96/archive/v1.0.0.tar.gz
+  #- tar xzf v1.0.0.tar.gz
+  #- sudo mv $PWD/OLED_Display_96X96-1.0.0 /usr/local/share/arduino/libraries/
 #ISSUE
-  - ls -la
-  - ls -la /usr/local/share/arduino/
-  - sudo mv OLED_Display_96X96-1.0.0 /usr/local/share/arduino/libraries/
+  - sudo mv $PWD/libraries/LCD_Display9696 /usr/local/share/arduino/libraries/
+  - ls -la $HOME
   - ls -la /usr/local/share/arduino/libraries/
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
