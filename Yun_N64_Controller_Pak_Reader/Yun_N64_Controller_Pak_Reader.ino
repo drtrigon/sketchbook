@@ -4,14 +4,14 @@
  *
  * @file Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
  *
- * @author sanni, DrTrigon
+ * @author sanni, drtrigon
  * @date 2018-04-24
  * @version V1C
  *
  * @see https://github.com/sanni/cartreader/issues/16
  * @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/N64.ino
  *
- * @code{.unparsed}
+ * @verbatim
  * SD lib:
  *   @see https://github.com/greiman/SdFat
  * Needs EEPROMAnything.h copied into sketch folder:
@@ -30,7 +30,7 @@
  * Thanks to:
  * Andrew Brown/Peter Den Hartog - N64 send/get functions
  * Shaun Taylor - address/data CRC functions
- * @endcode
+ * @endverbatim
  */
 //*********************************************************************************
 
