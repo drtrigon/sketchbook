@@ -2,6 +2,8 @@
 /**
  * @brief Nintendo 64 Controller Pak Reader for Arduino (Yun, Uno+SDcard)
  *
+ * @file Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
+ *
  * @author sanni, DrTrigon
  * @date 2018-04-24
  * @version V1C
@@ -9,12 +11,13 @@
  * @see https://github.com/sanni/cartreader/issues/16
  * @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/N64.ino
  *
+ * @code{.unparsed}
  * SD lib:
  *   @see https://github.com/greiman/SdFat
  * Needs EEPROMAnything.h copied into sketch folder:
  *   @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
- * USB stick can also be used on Arduin Yun, see code.
- *   @see Yun_SHT31_WiFi_REST/Yun_SHT31_WiFi_REST.ino for info on how to setup.
+ * USB stick can also be used on Arduin Yun, see code. For info on how to setup:
+ *   @see Yun_SHT31_WiFi_REST/Yun_SHT31_WiFi_REST.ino
  *
  * Pinout:
  *   @see https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
@@ -27,6 +30,7 @@
  * Thanks to:
  * Andrew Brown/Peter Den Hartog - N64 send/get functions
  * Shaun Taylor - address/data CRC functions
+ * @endcode
  */
 //*********************************************************************************
 
