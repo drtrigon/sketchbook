@@ -1,4 +1,4 @@
-# $TRAVIS_TOKEN (hide) in Settings > Environment Variables
+# $GIT_USER, $GIT_PASS (hide) and $TRAVIS_TOKEN (hide) in Settings > Environment Variables
 # Triggering builds (get TOKEN): https://docs.travis-ci.com/user/triggering-builds/
 
 language: c
