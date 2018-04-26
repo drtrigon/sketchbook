@@ -1,6 +1,6 @@
 //*********************************************************************************
 /**
- * @brief Nintendo 64 Controller Pak Reader for Arduino (Yun, Uno+SDcard)
+ * @brief Nintendo 64 Controller Pak Reader for Arduino (Yun, Uno+SD Card)
  *
  * @file Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
  *
@@ -13,14 +13,17 @@
  *
  * @verbatim
  * SD lib:
- *   @see https://github.com/greiman/SdFat
+ *   https://github.com/greiman/SdFat
  * Needs EEPROMAnything.h copied into sketch folder:
- *   @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
+ *   https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
  * USB stick can also be used on Arduin Yun, see code. For info on how to setup:
- *   @see Yun_SHT31_WiFi_REST/Yun_SHT31_WiFi_REST.ino
+ *   Yun_SHT31_WiFi_REST/Yun_SHT31_WiFi_REST.ino
+ * DIY SD Card interface/adapter:
+ *   http://www.instructables.com/id/Cheap-DIY-SD-card-breadboard-socket/
+ *   http://elasticsheep.com/2010/01/reading-an-sd-card-with-an-atmega168/
  *
  * Pinout:
- *   @see https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
+ *   https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
  *   view on controller connector:
  *     _____
  *    /     \    1: GND        -> Arduino GND
@@ -37,7 +40,7 @@
 /******************************************
 Build Configuration
 ******************************************/
-#define ARDUINO_YUN    // switch to Arduino Yun SDcard/USBstick handling
+#define ARDUINO_YUN    // switch to Arduino Yun SD Card/USB Stick handling
 //#define ENABLE_WRITE   // be cautious not to overwrite your data
 //#define ENABLE_EEPROM  // enable use of EEPROM (for unique ids)
 #define EEPROM_SIZE_EMULATED  8
