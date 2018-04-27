@@ -1,8 +1,8 @@
 //*********************************************************************************
 /**
- * @brief Nintendo 64 Controller Pak Reader for Arduino (Yun, Uno+SD Card)
+ * @brief Nintendo 64 Controller Pak Reader for Arduino (Uno+SD Card)
  *
- * @file Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
+ * @file Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino
  *
  * @author sanni, drtrigon
  * @date 2018-04-24
@@ -10,17 +10,19 @@
  *
  * @see https://github.com/sanni/cartreader/issues/16
  * @see https://github.com/sanni/cartreader/blob/master/Cart_Reader/N64.ino
+ * @see http://www.instructables.com/id/Use-an-Arduino-with-an-N64-controller/
  *
  * @verbatim
  * SD lib:
  *   https://github.com/greiman/SdFat
  * Needs EEPROMAnything.h copied into sketch folder:
  *   https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
- * USB stick can also be used on Arduin Yun, see code. For info on how to setup:
- *   Yun_SHT31_WiFi_REST/Yun_SHT31_WiFi_REST.ino
  * DIY SD Card interface/adapter:
  *   http://www.instructables.com/id/Cheap-DIY-SD-card-breadboard-socket/
  *   http://elasticsheep.com/2010/01/reading-an-sd-card-with-an-atmega168/
+ * Inspect (check/test) MPK data read:
+ *   https://github.com/bryc/mempak
+ *   https://rawgit.com/bryc/mempak/master/index.html
  *
  * Pinout:
  *   https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
@@ -29,6 +31,7 @@
  *    /     \    1: GND        -> Arduino GND
  *   | 1 2 3 |   2: DATA       -> Arduino Pin 2
  *   |_______|   3: VCC (3.3V) -> Arduino 3.3V
+ *   (contacts start after about 5mm inside the hole)
  *
  * Thanks to:
  * Andrew Brown/Peter Den Hartog - N64 send/get functions
@@ -40,10 +43,14 @@
 /******************************************
 Build Configuration
 ******************************************/
-#define ARDUINO_YUN    // switch to Arduino Yun SD Card/USB Stick handling
+#define ENABLE_SD      // enable use of SD Card (and Controller Pak)
 //#define ENABLE_WRITE   // be cautious not to overwrite your data
 //#define ENABLE_EEPROM  // enable use of EEPROM (for unique ids)
 #define EEPROM_SIZE_EMULATED  8
+
+#ifndef ENABLE_SD
+  #undef ENABLE_WRITE
+#endif
 
 /******************************************
 Pinout
@@ -57,21 +64,17 @@ Pinout
 Libraries
 *****************************************/
 // SD Card
-#ifndef ARDUINO_YUN
+#ifdef ENABLE_SD
 #include <SdFat.h>
 #define chipSelectPin 10
 SdFat sd;
 SdFile myFile;
-#else
-#include <Bridge.h>
-#include <Process.h>
-#include <FileIO.h>  // on Yun supports SD cards and USB sticks
-#endif
 
 // AVR Eeprom
 #ifdef ENABLE_EEPROM
 #include <EEPROM.h>
 #include "EEPROMAnything.h"
+#endif
 #endif
 
 /******************************************
@@ -96,15 +99,13 @@ char N64_raw_dump[257];
 byte myBlock[33];
 
 //remember folder number to create a new folder for every save
+#ifdef ENABLE_SD
 int foldern;
-#ifndef ARDUINO_YUN
 char fileName[26];
-#else
-char fileName[46];
-#endif
 
 // Variable to count errors
 unsigned long writeErrors;
+#endif
 
 // For incoming serial data
 int incomingByte;
@@ -117,8 +118,7 @@ String rawStr = ""; // above char array read into a string
 struct {
   char stick_x;
   char stick_y;
-}
-N64_status;
+} N64_status;
 //stings that hold the buttons
 String button = "N/A";
 
@@ -134,33 +134,22 @@ void setup()
 
   // Serial Begin (and wait for port to open)
   Serial.begin(9600);
-#ifdef ARDUINO_YUN
-  while (!Serial)
-    delay(10);     // will pause Zero, Leonardo, etc until serial console opens
-#endif
   Serial.println(F("N64 Controller Pak Reader - 2018 sanni drtrigon"));
   Serial.println("");
 
+#ifdef ENABLE_SD
 #ifdef ENABLE_EEPROM
   // Read current folder number out of eeprom
   EEPROM_readAnything(0, foldern);
 #endif
 
   // Init SD card
-#ifndef ARDUINO_YUN
   if (!sd.begin(chipSelectPin, SPI_FULL_SPEED)) {
     Serial.println(F("SD Error"));
     while (1);
   }
-#else
-  // Bridge startup
-  Bridge.begin();
-
-  FileSystem.begin();
-#endif
 
   // Print SD Info
-#ifndef ARDUINO_YUN
   Serial.print(F("SD Card: "));
   Serial.print(sd.card()->cardSize() * 512E-9);
   Serial.print(F("GB FAT"));
@@ -186,64 +175,23 @@ void setup()
     }
     myFile.close();
   }
-#else
-  Process shell;  // initialize a new process
-  Serial.print(F("SD Card / USB stick: "));
-//  shell.runShellCommand(F("/bin/df --output=size,fstype --block-size=G /mnt/sda1"));  // command you want to run
-////  shell.begin(F("df"));
-////  shell.addParameter(F("--output=size,fstype --block-size=G /mnt/sda1"));
-////  shell.addParameter(F("--help"));
-////  shell.run();  // run the command
-//  // while there's any characters coming back from the
-//  // process, print them to the serial monitor:
-//  while (shell.available() > 0) {
-//    Serial.print(shell.readString());
-////    Serial.print(shell.read());
-//  }
-//  Serial.print(shell.exitValue());
-//  shell.close();
-//  Serial.println("");
-  Serial.println("no idea ...");
-  Serial.println(F("Files:"));
-  // Print all files in root of SD
-  //Serial.println(F("Name - Size"));
-  Serial.println(F("Perm - Group - User - Size - Date - Name"));
-  FileSystem.mkdir("/mnt/sda1/MPK/");
-  // there is a File.rewindDirectory() structure for Yun, but too complex to use here; use Process
-  //shell.runShellCommand(F("/usr/bin/stat -c '%n %s' /mnt/sda1/MPK/*"));  // command you want to run
-  shell.runShellCommand(F("/bin/ls -l /mnt/sda1/MPK/"));  // command you want to run
-  // while there's any characters coming back from the
-  // process, print them to the serial monitor:
-  while (shell.available() > 0) {
-    Serial.print(shell.readString());
-  }
-  shell.close();
-#endif
   Serial.println("");
 
 #ifndef ENABLE_EEPROM
+  // Change to root
+  sd.chdir("/");
+  // Change to MPK directory
+  sd.chdir("MPK");
   // init EEPROM emulation if not existing already
-  if (!FileSystem.exists("/mnt/sda1/MPK/EEPROM")) {
-#ifndef ARDUINO_YUN
-    // Change to root
-    sd.chdir("/");
-    // Change to MPK directory
-    sd.chdir("MPK");
+  if (!myFile.exists("EEPROM")) {
+  //if (!myFile.open("EEPROM", O_READ)) {
     if (!myFile.open("EEPROM", O_RDWR | O_CREAT)) {
-#else
-    File myFile = FileSystem.open("/mnt/sda1/MPK/EEPROM", FILE_WRITE);
-    if (!myFile) {
-#endif
-      Serial.println(F("SD Error"));
+      Serial.println(F("EEPROM/SD Error"));
       while (1);
     }
     for (unsigned int i = 0; i < EEPROM_SIZE_EMULATED; i++) {
-#ifndef ARDUINO_YUN
-      // no idea...
-#else
-      myFile.seek(i);
-#endif
-      myFile.write(0);
+      myFile.seekSet(i);
+      myFile.write(byte(0));
     }
     myFile.close();
   }
@@ -251,7 +199,35 @@ void setup()
   // Read current folder number out of eeprom
   EEPROM_readAnything(0, foldern);
 #endif
+#endif
 
+  // Initialize the gamecube controller by sending it a null byte.
+  // This is unnecessary for a standard controller, but is required for the
+  // Wavebird.
+  unsigned char initialize = 0x00;
+  noInterrupts();
+  N64_send(&initialize, 1);
+
+  // Stupid routine to wait for the gamecube controller to stop
+  // sending its response. We don't care what it is, but we
+  // can't start asking for status if it's still responding
+  int x;
+  for (x=0; x<64; x++) {
+      // make sure the line is idle for 64 iterations, should
+      // be plenty.
+      if (!N64_QUERY)
+          x = 0;
+  }
+
+  // Query for the gamecube controller's status. We do this
+  // to get the 0 point for the control stick.
+  unsigned char command[] = {0x01};
+  N64_send(command, 1);
+  // read in data and dump it to N64_raw_dump
+  N64_get(32);
+  interrupts();
+
+#ifdef ENABLE_SD
   // Check/Test communication with N64 Controller
   Serial.print(F("Press any button on the N64 Controller to continue..."));
   while (button == "N/A") {
@@ -259,11 +235,15 @@ void setup()
     get_button();
   }
   Serial.println(button);
+#else
+  Serial.println(F("Disabled SD Card support (ENABLE_SD) - skipping controller test."));
+#endif
 }
 
 /******************************************
 Helper functions
 *****************************************/
+#ifdef ENABLE_SD
 #ifdef ENABLE_WRITE
 /// Prompt a filename from the Serial Monitor
 void getfilename()
@@ -284,26 +264,17 @@ template <class T> int EEPROM_writeAnything(int ee, const T& value)
   const byte* p = (const byte*)(const void*)&value;
   unsigned int i;
   //open file on sd card
-#ifndef ARDUINO_YUN
   // Change to root
   sd.chdir("/");
   // Change to MPK directory
   sd.chdir("MPK");
   if (!myFile.open("EEPROM", O_RDWR | O_CREAT)) {
-#else
-  File myFile = FileSystem.open("/mnt/sda1/MPK/EEPROM", FILE_WRITE);
-  if (!myFile) {
-#endif
     Serial.println(F("EEPROM/SD Error"));
     while (1);
   }
   // EEPROM_writeAnything emulation
   for (i = 0; i < sizeof(value); i++) {
-#ifndef ARDUINO_YUN
-    // no idea...
-#else
-    myFile.seek(ee++);
-#endif
+    myFile.seekSet(ee++);
     myFile.write(*p++);
   }
   myFile.close();
@@ -316,31 +287,23 @@ template <class T> int EEPROM_readAnything(int ee, T& value)
   byte* p = (byte*)(void*)&value;
   unsigned int i;
   //open file on sd card
-#ifndef ARDUINO_YUN
   // Change to root
   sd.chdir("/");
   // Change to MPK directory
   sd.chdir("MPK");
   if (!myFile.open("EEPROM", O_READ)) {
-#else
-  File myFile = FileSystem.open("/mnt/sda1/MPK/EEPROM", FILE_READ);
-  if (!myFile) {
-#endif
     Serial.println(F("EEPROM/SD Error"));
     while (1);
   }
   // EEPROM_readAnything emulation
   for (i = 0; i < sizeof(value); i++) {
-#ifndef ARDUINO_YUN
-    // no idea...
-#else
-    myFile.seek(ee++);
-#endif
+    myFile.seekSet(ee++);
     *p++ = myFile.read();
   }
   myFile.close();
   return i;
 }
+#endif
 #endif
 
 /******************************************
@@ -366,6 +329,7 @@ static word addrCRC(word address)
   return address | crc;
 }
 
+/*
 static byte dataCRC(byte *data)
 {
   byte ret = 0;
@@ -386,6 +350,7 @@ static byte dataCRC(byte *data)
   }
   return ret;
 }
+*/
 
 /******************************************
 N64 Controller Protocol Functions
@@ -595,7 +560,7 @@ void get_button()
   if (!(rawStr.substring(0, 16) == "0000000000000000")) {
     for (int i = 0; i < 16; i++) {
       // seems to be 16, 8 or 4 depending on what pin is used
-      if (N64_raw_dump[i] == 16) {
+      if (!(N64_raw_dump[i] == 0)) {
         switch (i) {
         case 7:
           button = "D-Right";
@@ -715,20 +680,15 @@ void readBlock(word myAddress)
 /// reads the MPK file to the sd card
 void readMPK()
 {
-#ifndef ARDUINO_YUN
+#ifdef ENABLE_SD
   // Change to root
   sd.chdir("/");
   // Change to MPK directory
   sd.chdir("MPK");
-#endif
 
   // Get name, add extension and convert to char array for sd lib
   EEPROM_readAnything(0, foldern);
-#ifndef ARDUINO_YUN
   sprintf(fileName, "%d", foldern);
-#else
-  sprintf(fileName, "/mnt/sda1/MPK/%d", foldern);
-#endif
   strcat(fileName, ".mpk");
 
   // write new folder number back to eeprom
@@ -736,56 +696,53 @@ void readMPK()
   EEPROM_writeAnything(0, foldern);
 
   //open file on sd card
-#ifndef ARDUINO_YUN
   if (!myFile.open(fileName, O_RDWR | O_CREAT)) {
-#else
-  File myFile = FileSystem.open(fileName, FILE_WRITE);
-  if (!myFile) {
-#endif
     Serial.println(F("SD Error"));
     while (1);
   }
+#endif
 
   Serial.println(F("Please wait..."));
 
   // Controller paks, which all have 32kB of space, are mapped between 0x0000 – 0x7FFF
   for (word i = 0x0000; i < 0x8000; i += 32) {
+    Serial.print(i, HEX);              // progress
+    Serial.print(F(": "));
     // Read one block of the Controller Pak into array myBlock
     readBlock(i);
     // Write block to SD card
     for (byte j = 0; j < 32; j++) {
+#ifdef ENABLE_SD
       myFile.write(myBlock[j]);
-      Serial.print(myBlock[j], HEX);  // read data
+#endif
+      Serial.print(myBlock[j], HEX);   // read data
     }
-    Serial.println(i, HEX);  // progress
+    Serial.print('\n');
   }
+#ifdef ENABLE_SD
   // Close the file:
   myFile.close();
   Serial.print(F("Saved as /MPK/"));
   Serial.println(fileName);
+#else
+  Serial.print(F("Done"));
+#endif
 }
 
 #ifdef ENABLE_WRITE
 void writeMPK()
 {
-#ifndef ARDUINO_YUN
   // Change to root
   sd.chdir("/");
   // Change to MPK directory
   sd.chdir("MPK");
-#endif
 
   Serial.print(F("Writing "));
   Serial.print(fileName);
   Serial.println(F("..."));
 
   // Open file on sd card
-#ifndef ARDUINO_YUN
   if (myFile.open(fileName, O_READ)) {
-#else
-  File myFile = FileSystem.open(fileName, FILE_READ);
-  if (myFile) {
-#endif
     for (word myAddress = 0x0000; myAddress < 0x8000; myAddress += 32) {
       // Read 32 bytes into SD buffer
       myFile.read(sdBuffer, 32);
@@ -833,12 +790,7 @@ void verifyMPK()
   Serial.println(F("Verifying..."));
 
   //open file on sd card
-#ifndef ARDUINO_YUN
   if (!myFile.open(fileName, O_RDWR | O_CREAT)) {
-#else
-  File myFile = FileSystem.open(fileName, FILE_READ);
-  if (!myFile) {
-#endif
     Serial.println(F("SD Error"));
     while (1);
   }
@@ -852,7 +804,7 @@ void verifyMPK()
       if (myFile.read() != myBlock[j]) {
         writeErrors++;
       }
-      Serial.println(i, HEX);  // progress
+      Serial.println(i, HEX);          // progress
     }
   }
   // Close the file:
@@ -873,7 +825,7 @@ void loop()
 {
   // Print menu to serial monitor
   Serial.println(F("Menu:"));
-  Serial.println(F("(0)Read (1)Write"));
+  Serial.println(F("(0)Read (1)Write (2)Test"));
   Serial.println("");
 
   // Wait for user input
@@ -900,8 +852,24 @@ void loop()
     writeMPK();
     verifyMPK();
 #else
-    Serial.println(F("Disabled for security - set ENABLE_WRITE to enable."));
+    Serial.println(F("Disabled for security - set ENABLE_SD, ENABLE_WRITE to enable."));
 #endif
+    break;
+
+  case 50:  // '2'
+    Serial.println(F("Testing Controller (RESET to exit)"));
+    while (1) {
+      delay(100);
+      get_button();
+
+      Serial.print(rawStr);
+      Serial.print(' ');
+      Serial.print(N64_status.stick_x, DEC);
+      Serial.print(' ');
+      Serial.print(N64_status.stick_y, DEC);
+      Serial.print(' ');
+      Serial.println(button);
+    }
     break;
 
   }
