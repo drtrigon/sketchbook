@@ -49,9 +49,9 @@ install:
   - pip --version
   - flake8 --version
   - deactivate
+  - set -o pipefail  # error in case 'diff' sees differences (get 1st error in pipe), use '+o' to disable/unset
 
 script:
-  - set -o pipefail  # error in case 'diff' sees differences (get 1st error in pipe), use '+o' to disable/unset
   #- ls -la
   ## Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
   - FILE=$PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
@@ -65,10 +65,10 @@ script:
 # ^^^ test result ignored since not good yet - remove " || true" to enable again ^^^
   #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   #- astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
-  ## Yun_N64_Controller_Pak_Reader
-  - FILE=$PWD/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino
-  - arduino --verify --board arduino:avr:yun --verbose --preserve-temp-files $FILE  >> $FILE.compile
-  - ELF_FILE=`find /tmp/ -name "Yun_N64_Controller_Pak_Reader.ino.elf"`
+  ## Uno_N64_Controller_Pak_Reader
+  - FILE=$PWD/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino
+  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - ELF_FILE=`find /tmp/ -name "Uno_N64_Controller_Pak_Reader.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## MultiWii_2_4/MultiWii

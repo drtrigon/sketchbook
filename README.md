@@ -122,11 +122,11 @@ code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.info)
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.style)
 
-### Yun_N64_Controller_Pak_Reader
+### Uno_N64_Controller_Pak_Reader
 
 code:
-* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino.info)
-* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Yun_N64_Controller_Pak_Reader/Yun_N64_Controller_Pak_Reader.ino.style)
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.style)
 
 https://github.com/sanni/cartreader/issues/16
 
