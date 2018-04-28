@@ -136,6 +136,22 @@ code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.compile)
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.style)
 
+### N64TinyUSB
+
+code: (attiny45 n64-usb)
+* compile, info
+* style
+
+(update sketchbook travis)
+
+PCB: (Helvetiny 1.0 pcb design)
+* (eagle) ...
+
+(update eagle main README.md, travis)
+
+CAD:
+* ???
+
 ## Setup
 (might make sense to split projects off into separate repos/submodules)
 
