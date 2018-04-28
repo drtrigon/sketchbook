@@ -39,24 +39,16 @@
  *               4: VDD/+3.3V  -> Arduino 3.3V
  *               5: SCK/CLK    -> Arduino Pin 13
  *               7: DO/MISO    -> Arduino Pin 12
- *     Format:
- *       $ lsblk
- *       $ sudo fdisk /dev/mmcblk0
- *         "d" untill all partitions deleted, "n" for new:
- *         Erster Sektor (2048-31116287, Vorgabe: 2048): 4096
- *         Last Sektor, +Sektoren or +size{K,M,G} (4096-31116287, Vorgabe: 31116287): +2G
- *         "w" to write changes
- *       $ sudo mkdosfs -F 16 /dev/mmcblk0p1
- *         use sketch to test SD Card: https://www.arduino.cc/en/Tutorial/CardInfo
- *   (SD Card does get recognized but writing - e.g. mkdir, open - does not work)
+ *     Format: use https://github.com/greiman/SdFat/blob/master/examples/SdFormatter/SdFormatter.ino
  *
- * AS I WAS NOT ABLE TO WRITE SUCCESSFULLY TO SD CARD I USED THE SIMPLE DUMP FEATURE:
- *   1. $ sudo miniterm.py /dev/ttyACM0 | tee n64-controllerpak-01.log
+ * Can also be used for reading WITHOUT SD Card:
+ *   1. uncomment "#define ENABLE_SD" below, then compile/upload the code to an Arduino Uno
+ *   2. $ sudo miniterm.py /dev/ttyACM0 | tee n64-controllerpak-01.log
  *        in the menu chose '0' to dump to console
- *   2. open .log in text-editor (e.g. kate) and remove all lines except
+ *   3. open .log in text-editor (e.g. kate) and remove all lines except
  *        the ones containing the hex dump and store as it .hex - needs to be 1024 lines
- *   3. $ xxd -r -p n64-controllerpak-01.hex n64-controllerpak-01.mpk
- *   4. $ ls -la n64-controllerpak-01.mpk
+ *   4. $ xxd -r -p n64-controllerpak-01.hex n64-controllerpak-01.mpk
+ *   5. $ ls -la n64-controllerpak-01.mpk
  *        check size needs to be 32768 and compare the .hex with .mpk using e.g. mc
  *        finally inspect it on: https://rawgit.com/bryc/mempak/master/index.html
  *
@@ -70,7 +62,7 @@
 /******************************************
 Build Configuration
 ******************************************/
-//#define ENABLE_SD      // enable use of SD Card (and Controller Pak)
+#define ENABLE_SD      // enable use of SD Card (and Controller Pak)
 //#define ENABLE_WRITE   // be cautious not to overwrite your data
 //#define ENABLE_EEPROM  // enable use of EEPROM (for unique ids)
 #define EEPROM_SIZE_EMULATED  8
@@ -171,7 +163,8 @@ void setup()
 #endif
 
   // Init SD card
-  if (!sd.begin(chipSelectPin, SPI_FULL_SPEED)) {
+  //if (!sd.begin(chipSelectPin, SPI_FULL_SPEED)) {
+  if (!sd.begin(chipSelectPin, SPI_HALF_SPEED)) {
     Serial.println(F("SD Error"));
     while (1);
   }
