@@ -1,9 +1,11 @@
 # N64 Controller HID Joystick based on ATTiny (N64TinyUSB)
 
-[Uno_ppmUSBjoy](Uno_ppmUSBjoy/) show how to implement a HID Joystick (no need for driver on most OSes) on AVR platform using VUSB.
+[Uno_ppmUSBjoy](../../Uno_ppmUSBjoy/) shows how to implement a HID Joystick (no need for driver on most OSes) on AVR platform using VUSB.
 That project uses an ATMega328 (Arduino Uno) to connect a PPM source (R/C Transmitter) to a PC.
 
 [Uno_ppmUSBjoy](@ref Uno_ppmUSBjoy)
+
+@ref Uno_ppmUSBjoy
 
 This project should do the same using a N64 Controller on the input. As we want to improve we aim at using minimal hardware
 and ressources and thus want to replace the Arduino Uno by an ATTiny ([Helvetiny](https://github.com/boxtec/helvetiny85)).
