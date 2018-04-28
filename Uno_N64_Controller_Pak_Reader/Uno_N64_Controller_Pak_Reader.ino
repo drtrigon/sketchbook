@@ -19,19 +19,46 @@
  *   https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
  * DIY SD Card interface/adapter:
  *   http://www.instructables.com/id/Cheap-DIY-SD-card-breadboard-socket/
- *   http://elasticsheep.com/2010/01/reading-an-sd-card-with-an-atmega168/
+ *   http://www.bot-thoughts.com/2010/02/logging-data-to-sd-cards.html
+ *   https://www.arduino.cc/en/Reference/SDCardNotes
  * Inspect (check/test) MPK data read:
  *   https://github.com/bryc/mempak
  *   https://rawgit.com/bryc/mempak/master/index.html
  *
  * Pinout:
  *   https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
- *   view on controller connector:
+ *   N64 - view on controller connector:
  *     _____
  *    /     \    1: GND        -> Arduino GND
  *   | 1 2 3 |   2: DATA       -> Arduino Pin 2
  *   |_______|   3: VCC (3.3V) -> Arduino 3.3V
  *   (contacts start after about 5mm inside the hole)
+ *   SD Card:    1: CS         -> Arduino Pin 10
+ *               2: DI/MOSI    -> Arduino Pin 11
+ *               3: VSS/GND    -> Arduino GND
+ *               4: VDD/+3.3V  -> Arduino 3.3V
+ *               5: SCK/CLK    -> Arduino Pin 13
+ *               7: DO/MISO    -> Arduino Pin 12
+ *     Format:
+ *       $ lsblk
+ *       $ sudo fdisk /dev/mmcblk0
+ *         "d" untill all partitions deleted, "n" for new:
+ *         Erster Sektor (2048-31116287, Vorgabe: 2048): 4096
+ *         Last Sektor, +Sektoren or +size{K,M,G} (4096-31116287, Vorgabe: 31116287): +2G
+ *         "w" to write changes
+ *       $ sudo mkdosfs -F 16 /dev/mmcblk0p1
+ *         use sketch to test SD Card: https://www.arduino.cc/en/Tutorial/CardInfo
+ *   (SD Card does get recognized but writing - e.g. mkdir, open - does not work)
+ *
+ * AS I WAS NOT ABLE TO WRITE SUCCESSFULLY TO SD CARD I USED THE SIMPLE DUMP FEATURE:
+ *   1. $ sudo miniterm.py /dev/ttyACM0 | tee n64-controllerpak-01.log
+ *        in the menu chose '0' to dump to console
+ *   2. open .log in text-editor (e.g. kate) and remove all lines except
+ *        the ones containing the hex dump and store as it .hex - needs to be 1024 lines
+ *   3. $ xxd -r -p n64-controllerpak-01.hex n64-controllerpak-01.mpk
+ *   4. $ ls -la n64-controllerpak-01.mpk
+ *        check size needs to be 32768 and compare the .hex with .mpk using e.g. mc
+ *        finally inspect it on: https://rawgit.com/bryc/mempak/master/index.html
  *
  * Thanks to:
  * Andrew Brown/Peter Den Hartog - N64 send/get functions
@@ -43,13 +70,13 @@
 /******************************************
 Build Configuration
 ******************************************/
-#define ENABLE_SD      // enable use of SD Card (and Controller Pak)
+//#define ENABLE_SD      // enable use of SD Card (and Controller Pak)
 //#define ENABLE_WRITE   // be cautious not to overwrite your data
 //#define ENABLE_EEPROM  // enable use of EEPROM (for unique ids)
 #define EEPROM_SIZE_EMULATED  8
 
 #ifndef ENABLE_SD
-  #undef ENABLE_WRITE
+#undef ENABLE_WRITE
 #endif
 
 /******************************************
@@ -66,7 +93,7 @@ Libraries
 // SD Card
 #ifdef ENABLE_SD
 #include <SdFat.h>
-#define chipSelectPin 10
+#define chipSelectPin 10  // SCK/CLK pin 13, DO/MISO pin 12, DI/MOSI pin 11, CS pin 10
 SdFat sd;
 SdFile myFile;
 
@@ -184,7 +211,7 @@ void setup()
   sd.chdir("MPK");
   // init EEPROM emulation if not existing already
   if (!myFile.exists("EEPROM")) {
-  //if (!myFile.open("EEPROM", O_READ)) {
+    //if (!myFile.open("EEPROM", O_READ)) {  // alternative to myFile.exists
     if (!myFile.open("EEPROM", O_RDWR | O_CREAT)) {
       Serial.println(F("EEPROM/SD Error"));
       while (1);
@@ -213,10 +240,10 @@ void setup()
   // can't start asking for status if it's still responding
   int x;
   for (x=0; x<64; x++) {
-      // make sure the line is idle for 64 iterations, should
-      // be plenty.
-      if (!N64_QUERY)
-          x = 0;
+    // make sure the line is idle for 64 iterations, should
+    // be plenty.
+    if (!N64_QUERY)
+      x = 0;
   }
 
   // Query for the gamecube controller's status. We do this
@@ -706,8 +733,8 @@ void readMPK()
 
   // Controller paks, which all have 32kB of space, are mapped between 0x0000 – 0x7FFF
   for (word i = 0x0000; i < 0x8000; i += 32) {
-    Serial.print(i, HEX);              // progress
-    Serial.print(F(": "));
+    //Serial.print(i, HEX);              // progress
+    //Serial.print(F(": "));
     // Read one block of the Controller Pak into array myBlock
     readBlock(i);
     // Write block to SD card
@@ -715,7 +742,9 @@ void readMPK()
 #ifdef ENABLE_SD
       myFile.write(myBlock[j]);
 #endif
+      Serial.print(myBlock[j] < 16 ? "0" : "");
       Serial.print(myBlock[j], HEX);   // read data
+      Serial.print(' ');
     }
     Serial.print('\n');
   }
