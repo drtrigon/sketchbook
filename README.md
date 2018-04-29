@@ -130,6 +130,11 @@ code:
 
 https://github.com/sanni/cartreader/issues/16
 
+For PS1 (and PS2?) see the Windows VirtualBox VM and look there for MemcardRex and MemCARDuino - look at the schematic also.
+They do work out of the box, for more info see:
+* MemCARDuino: https://github.com/ShendoXT/memcarduino
+* MemcardRex 1.8: http://shendosoft.blogspot.ch/2014/01/memcardrex-18-released.html
+
 ### micpy - ESP8266_SHT31_WiFi_pseudoREST
 
 code:
