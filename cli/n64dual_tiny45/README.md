@@ -16,25 +16,23 @@ By the way it exists for (S)NES also:
 ## attiny45 n64-usb (works on 85 as it has 8k mem)
 
 First need to change some settings in the Makefile:
-  ```
-  #DEVICE  = attiny45
-  DEVICE  = attiny85
-  ...
-  #PROGRAMMER = usbasp
-  PROGRAMMER = avrisp -b 19200 -P /dev/ttyACM0
-  ```
+
+    #DEVICE  = attiny45
+    DEVICE  = attiny85
+    ...
+    #PROGRAMMER = usbasp
+    PROGRAMMER = avrisp -b 19200 -P /dev/ttyACM0
 
 This will compile and upload the code to an ATTiny85 using an Arduino Uno as ISP (avrisp).
 
 
 delete objects and hex file (the ones in the repo are for attiny45, we need attiny85)
-```
-  $ make clean
-```
+
+    $ make clean
+
 compile and flash
-```
-  $ make all
-```
+
+    $ make all
 
 Compilling and programming worked like a charm.
 
