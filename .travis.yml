@@ -28,6 +28,8 @@ before_install:
   - sudo apt-get install astyle
   - sudo apt-get install diffstat
   - sudo apt-get install doxygen
+#  - sudo apt-get install binutils gcc-avr avr-libc uisp avrdude flex byacc bison
+  - sudo apt-get install gcc-avr
   #- sudo apt-get install texlive-font-utils  # epstopdf for doxygen
   #- sudo apt-get install tree
   #- sudo pip install ino
