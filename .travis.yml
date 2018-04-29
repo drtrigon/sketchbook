@@ -80,6 +80,16 @@ script:
 # vvv test result ignored since not good yet - remove " || true #" to enable again vvv
   - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style || true # && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
 # ^^^ test result ignored since not good yet - remove " || true #" to enable again ^^^
+  ## N64TinyUSB (cli/n64dual_tiny45)
+  - FILE=$PWD/cli/n64dual_tiny45/main.hex
+  - pushd $PWD/cli/n64dual_tiny45/; make hex >> $FILE.compile; popd
+  - avr-size $FILE
+  - avr-objcopy -I ihex -O elf32-avr $FILE $FILE.elf
+  - avr-objdump -d $FILE.elf
+  - ELF_FILE=$FILE.elf
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  # (1.) should test a folder but (2.) we did not change a single byte
+  #- astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   - source ~/virtualenv/python2.7/bin/activate
   ## Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py

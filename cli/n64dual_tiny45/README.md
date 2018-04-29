@@ -15,18 +15,27 @@ By the way it exists for (S)NES also:
 
 ## attiny45 n64-usb
 
-First change PROGRAMMER and may be others in Makefile. Use Arduino Uno as ISP for ATTiny.
+First need to change some settings in the Makefile:
+> #DEVICE  = attiny45
+> DEVICE  = attiny85
+> ...
+> #PROGRAMMER = usbasp
+> PROGRAMMER = avrisp -b 19200 -P /dev/ttyACM0
 
-flash fuses and firmware (from already existing hex file)
-> make program
+This will compile and upload the code to an ATTiny85 using an Arduino Uno as ISP (avrisp).
 
-delete objects and hex file
-> make clean
+
+delete objects and hex file (the ones in the repo are for attiny45, we need attiny85)
+> $ make clean
+
 compile and flash
-> make all
+> $ make all
 
-(lets try the guy; use hex/code from attiny45 n64-usb and eagle board/schematics from helvetiny85 ... jlcpcb)
+
+Compilling and programming worked like a charm.
 
 ## PCB (design based on Helvetiny 1.0)
 
 @ref n64dual_schematic.png
+
+(lets try the guy; eagle board/schematics from helvetiny85 ... jlcpcb)

@@ -139,10 +139,8 @@ code:
 ### N64TinyUSB
 
 code: (attiny45 n64-usb)
-* compile, info
-* style
-
-(update sketchbook travis)
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/cli/n64dual_tiny45/main.hex.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/cli/n64dual_tiny45/main.hex.info)
+* style (I did not change anything - so why test?)
 
 PCB: (Helvetiny 1.0 pcb design)
 * (eagle) ...

@@ -6,17 +6,13 @@
 # Copyright: (c) 2008 by OBJECTIVE DEVELOPMENT Software GmbH
 # License: GNU GPL v2 (see License.txt), GNU GPL v3 or proprietary (CommercialLicense.txt)
 
-#DEVICE  = attiny45
-DEVICE  = attiny85
+DEVICE  = attiny45
 F_CPU   = 16500000	# in Hz
 FUSES   = -U lfuse:w:0xd1:m -U hfuse:w:0xd7:m -U efuse:w:0xff:m # (see fuse calculator)
 # PROGRAMMER = avrispmkII -P usb
-#PROGRAMMER = usbasp
-#PROGRAMMER = avrisp
-PROGRAMMER = avrisp -b 19200 -P /dev/ttyACM0
+PROGRAMMER = usbasp
 
 AVRDUDE = sudo avrdude -c $(PROGRAMMER) -p $(DEVICE)
-#AVRDUDE = sudo avrdude -c $(PROGRAMMER) -p $(DEVICE) -b 19200 -P /dev/ttyACM0
 CFLAGS  = -Iusbdrv -I. -DDEBUG_LEVEL=03
 OBJECTS = usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o usbdrv/osccal.o main.o n64.o
 
