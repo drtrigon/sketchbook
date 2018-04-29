@@ -145,6 +145,8 @@ code: (attiny45 n64-usb)
 PCB: (Helvetiny 1.0 pcb design)
 * (eagle) ...
 
+![projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FN64TinyUSB%2FN64TinyUSB_HelveTiny_1.0.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
+
 (update eagle main README.md, travis)
 
 CAD:
