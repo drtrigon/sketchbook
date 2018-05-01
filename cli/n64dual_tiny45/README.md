@@ -38,6 +38,9 @@ Compilling and programming worked like a charm.
 
 ## PCB (design based on Helvetiny 1.0)
 
+Built using the Helvetiny85 eagle source files. Now ready to verify and compare with original (parts size/placing etc.)
+and finally production (at jlcpcb).
+
 @ref n64dual_schematic.png
 
-(lets try the guy; eagle board/schematics from helvetiny85 ... jlcpcb)
+https://github.com/drtrigon/eagle/blob/master/projects/N64TinyUSB/

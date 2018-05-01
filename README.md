@@ -36,6 +36,7 @@ PCB: ![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/ea
 https://github.com/drtrigon/eagle
 
 ### Drone_MultiWii / FlightController
+(produced at JLCPCB - 2 pieces on stock)
 
 code: ![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)[...](https://travis-ci.org/drtrigon/docker-sketchbook)
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.info)
@@ -141,20 +142,37 @@ code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.compile)
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.style)
 
-### N64TinyUSB
+### N64TinyUSB (cli/n64dual_tiny45)
+(will be produced at JLCPCB - 3 pieces on stock)
 
-code: (attiny45 n64-usb for attiny85)
+based on:
+* code from attiny45 n64-usb (for attiny85): https://matthiaslinder.com/?view=attiny45+n64-usb
+* PCB from HelveTiny85 (modified): https://github.com/boxtec/helvetiny85
+
+code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/cli/n64dual_tiny45/main.hex.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/cli/n64dual_tiny45/main.hex.info)
 * style (I did not change or write anything - so why test?)
 
-PCB: (Helvetiny 1.0 pcb design)
+PCB: ![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
+
+<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png" width="600">
+[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png)
 
 ![projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FN64TinyUSB%2FN64TinyUSB_HelveTiny_1.0.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
+<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.png" width="600">
+[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.png)
+* GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.zip
+* partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.txt
 
-(update eagle main README.md, travis)
+https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
+* https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.gpi
+* https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.dri
+
+<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png" width="600">
+[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png)
 
 CAD:
-* ???
+* (casing, 3d-print, lego-ports, ... ???)
 
 ## Setup
 (might make sense to split projects off into separate repos/submodules)
