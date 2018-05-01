@@ -155,7 +155,7 @@ code:
 
 PCB: ![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
 
-<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png" width="600">
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png" width="600">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png)
 
 ![projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FN64TinyUSB%2FN64TinyUSB_HelveTiny_1.0.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
@@ -164,11 +164,11 @@ PCB: ![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=mast
 * GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.zip
 * partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.txt
 
-https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
+https://github.com/drtrigon/eagle/tree/result/pcb/projects/N64TinyUSB logs:
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.gpi
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.dri
 
-<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png" width="600">
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png" width="600">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png)
 
 CAD:
