@@ -120,11 +120,16 @@ https://github.com/drtrigon/eagle/tree/result/pcb/projects/arduino-papilio_1-Wir
 <!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_auto.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_auto.png)
 
+instructable: https://www.instructables.com/id/Arduino-1-wire-sniffer/
+
 ### Uno_OWSlave - OWH_DS2433_EEPROM_LCD_Sensors
 
 code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.info)
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.style)
+
+instructable: https://www.instructables.com/id/Arduino-1-wire-Display-144-Chars/
+* https://www.instructables.com/id/Arduino-1-wire-Generic-ClientSlave-Device-Sensor/
 
 ### Uno_N64_Controller_Pak_Reader
 
