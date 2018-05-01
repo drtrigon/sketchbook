@@ -10,7 +10,7 @@ code: [![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=mast
 [![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)](https://travis-ci.org/drtrigon/docker-sketchbook)
 
 PCB: [![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)](https://edrc.me/g/drtrigon/eagle)
-[![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)](https://travis-ci.org/drtrigon/eagle)
+[![PCB Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)](https://travis-ci.org/drtrigon/eagle)
 https://github.com/drtrigon/eagle
 
 [![projects/Drone_MultiWii/FlightController_sch.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_sch.png)](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController_sch.png)
@@ -33,6 +33,7 @@ docu: ![doxygen html](https://raw.githubusercontent.com/drtrigon/sketchbook/resu
 code: ![Build Status](https://travis-ci.org/drtrigon/sketchbook.svg?branch=master)[...](https://travis-ci.org/drtrigon/sketchbook)
 
 PCB: ![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/status.svg)[...](https://edrc.me/g/drtrigon/eagle)
+![PCB Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
 https://github.com/drtrigon/eagle
 
 ### Drone_MultiWii / FlightController
@@ -42,13 +43,13 @@ code: ![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branc
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.info)
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/MultiWii_2_4/MultiWii/MultiWii.ino.style)
 
-PCB: ![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
-
-<!--![projects/Drone_MultiWii/FlightController_sch.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_sch.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_sch.png" width="600">
+PCB:
+<!--![projects/Drone_MultiWii/FlightController_sch.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_sch.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_sch.png" width="800">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController_sch.png)
 
-![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
-<!--![projects/Drone_MultiWii/FlightController.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png" width="600">
+<!--![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)--><img src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster" height="400">
+[...](https://edrc.me/g/drtrigon/eagle)
+<!--![projects/Drone_MultiWii/FlightController.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.png)
 * GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.zip
 * partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.txt
@@ -57,7 +58,7 @@ https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.gpi
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.dri
 
-<!--![projects/Drone_MultiWii/FlightController_auto.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_auto.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_auto.png" width="600">
+<!--![projects/Drone_MultiWii/FlightController_auto.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_auto.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_auto.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController_auto.png)
 
 CAD:
@@ -95,27 +96,29 @@ code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSniffer/Uno_OWSniffer.py.compile)
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSniffer/Uno_OWSniffer.py.style)
 
-PCB: [GERBER Build Status]
-
+PCB:
 * https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Schaltplan.pdf
 * https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Leiterplatte.pdf
 
-![Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png](https://raw.githubusercontent.com/drtrigon/sketchbook/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png)[...](https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png)
+<!----><img src="https://raw.githubusercontent.com/drtrigon/sketchbook/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png" height="400">
+[...](https://github.com/drtrigon/sketchbook/blob/master/Uno_OWSniffer/Uno_OWSniffer_Steckplatine.png)
 
-[projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_sch.png]
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_sch.png" width="800">
+[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_sch.png)
 
-![projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2Farduino-papilio_1-WireSniffer_Rev1%2F1-Wire_Sniffer_REV1.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
-[projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.png]
-<!--
+<!----><img src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2Farduino-papilio_1-WireSniffer_Rev1%2F1-Wire_Sniffer_REV1.png?ref=refs%2Fheads%2Fmaster" height="400">
+[...](https://edrc.me/g/drtrigon/eagle)
+<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.png" height="400">
+[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.png)
 * GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.zip
 * partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.txt
 
-https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
+https://github.com/drtrigon/eagle/tree/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1 logs:
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.gpi
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.dri
--->
 
-[projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_auto.png]
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_auto.png" height="400">
+[...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_auto.png)
 
 ### Uno_OWSlave - OWH_DS2433_EEPROM_LCD_Sensors
 
@@ -143,7 +146,7 @@ code:
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.style)
 
 ### N64TinyUSB (cli/n64dual_tiny45)
-(will be produced at JLCPCB - 3 pieces on stock)
+(will be produced at JLCPCB; 2mm thickness, "Gold Fingers, 45deg" - 3 pieces on stock)
 
 based on:
 * code from attiny45 n64-usb (for attiny85): https://matthiaslinder.com/?view=attiny45+n64-usb
@@ -153,13 +156,13 @@ code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/cli/n64dual_tiny45/main.hex.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/cli/n64dual_tiny45/main.hex.info)
 * style (I did not change or write anything - so why test?)
 
-PCB: ![GERBER Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
-
-<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png" width="600">
+PCB:
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png" width="800">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_sch.png)
 
-![projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FN64TinyUSB%2FN64TinyUSB_HelveTiny_1.0.png?ref=refs%2Fheads%2Fmaster)[...](https://edrc.me/g/drtrigon/eagle)
-<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.png" width="600">
+<!----><img src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FN64TinyUSB%2FN64TinyUSB_HelveTiny_1.0.png?ref=refs%2Fheads%2Fmaster" height="400">
+[...](https://edrc.me/g/drtrigon/eagle)
+<img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.png)
 * GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.zip
 * partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.txt
@@ -168,11 +171,11 @@ https://github.com/drtrigon/eagle/tree/result/pcb/projects/N64TinyUSB logs:
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.gpi
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.dri
 
-<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png" width="600">
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_auto.png)
 
 CAD:
-* (casing, 3d-print, lego-ports, ... ???)
+* casing: shrinking hose
 
 ## Setup
 (might make sense to split projects off into separate repos/submodules)
