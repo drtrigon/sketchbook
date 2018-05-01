@@ -74,6 +74,9 @@ CAD:
     </table>
 @endhtmlonly)
 
+* https://hobbyking.com/en_us/hobbyking-kk2-1-5-multi-rotor-lcd-flight-control-board-with-6050mpu-and-atmel-644pa.html
+* https://hobbyking.com/en_us/hobbyking-kk2-1hc-multi-rotor-hard-case-flight-control-board-with-remote-programmer.html ($26.51 - FC w/o LCD ~$10)
+
 #### changelog pcb (eagle)
 
 todo 1.0 -> 1.1
@@ -193,18 +196,17 @@ See also; https://steveperkins.com/migrating-projects-from-github-to-gitlab/
 
 "Option 2: Overload Origin with Both Remotes (needs one single pull/push only)"; in order to clone
 and set this repo up use:
-```
-$ git clone file://///data/mount/gvfs/smb-share:server=.../01git/sketchbook.git
-$ cd sketchbook
-$ git remote set-url --add origin https://github.com/drtrigon/sketchbook.git
-```
+
+    $ git clone file://///data/mount/gvfs/smb-share:server=.../01git/sketchbook.git
+    $ cd sketchbook
+    $ git remote set-url --add origin https://github.com/drtrigon/sketchbook.git
+
 you can check the settings with:
-```
-$ git remote -v
-origin  /data/mount/gvfs/smb-share:server=.../01git/sketchbook.git/ (fetch)
-origin  /data/mount/gvfs/smb-share:server=.../01git/sketchbook.git/ (push)
-origin  https://github.com/drtrigon/sketchbook.git (push)
-```
+
+    $ git remote -v
+    origin  /data/mount/gvfs/smb-share:server=.../01git/sketchbook.git/ (fetch)
+    origin  /data/mount/gvfs/smb-share:server=.../01git/sketchbook.git/ (push)
+    origin  https://github.com/drtrigon/sketchbook.git (push)
 
 ### Enable Travis CI for a Repository (for Arduino)
 https://learn.adafruit.com/continuous-integration-arduino-and-you/testing-your-project
