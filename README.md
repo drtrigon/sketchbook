@@ -75,6 +75,10 @@ CAD:
     </table>
 @endhtmlonly)
 
+production:
+* https://github.com/drtrigon/eagle/blob/master/projects/Drone_MultiWii/FlightController_v1.0-JLCPCB.zip
+* (v1.1 ... see changelog)
+
 further info:
 * https://hobbyking.com/en_us/hobbyking-kk2-1-5-multi-rotor-lcd-flight-control-board-with-6050mpu-and-atmel-644pa.html
 * https://hobbyking.com/en_us/hobbyking-kk2-1hc-multi-rotor-hard-case-flight-control-board-with-remote-programmer.html ($26.51 - FC w/o LCD ~$10)
@@ -188,6 +192,9 @@ https://github.com/drtrigon/eagle/tree/result/pcb/projects/N64TinyUSB logs:
 
 CAD:
 * casing: shrinking hose
+
+production:
+* https://github.com/drtrigon/eagle/blob/master/projects/N64TinyUSB/N64TinyUSB_v1.0-JLCPCB.zip
 
 ## Setup
 (might make sense to split projects off into separate repos/submodules)
