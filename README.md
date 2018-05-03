@@ -53,6 +53,7 @@ PCB:
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.png)
 * GERBER: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.zip
 * partlist: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.txt
+* KiCAD project: https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController_kicad.zip
 
 https://github.com/drtrigon/eagle/tree/result/pcb/projects/Drone_MultiWii logs:
 * https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.gpi
@@ -74,6 +75,7 @@ CAD:
     </table>
 @endhtmlonly)
 
+further info:
 * https://hobbyking.com/en_us/hobbyking-kk2-1-5-multi-rotor-lcd-flight-control-board-with-6050mpu-and-atmel-644pa.html
 * https://hobbyking.com/en_us/hobbyking-kk2-1hc-multi-rotor-hard-case-flight-control-board-with-remote-programmer.html ($26.51 - FC w/o LCD ~$10)
 
@@ -146,6 +148,8 @@ For PS1 (and PS2?) see the Windows VirtualBox VM and look there for MemcardRex a
 They do work out of the box, for more info see:
 * MemCARDuino: https://github.com/ShendoXT/memcarduino
 * MemcardRex 1.8: http://shendosoft.blogspot.ch/2014/01/memcardrex-18-released.html
+In order to easily connect the memory card a card edge connector is perfect (e.g. EDAC 395-020-520-202). Use a 3.6V Zener with 220 Ohms
+to get the 3.6V needed - or just use the 3.3V from Arduino Uno.
 
 ### micpy - ESP8266_SHT31_WiFi_pseudoREST
 
@@ -236,7 +240,7 @@ See https://github.com/drtrigon/eagle
 #### Create CAD (.stl) Designs online easily
 See https://www.tinkercad.com/
 
-#### Create PCB Designs online easily
+### Create PCB Designs online easily
 See https://easyeda.com/
 
 Do not use upverter or else as it does not allow to export. EasyEDA supports at least netlist export. Locally use KiCAD or eagle.
@@ -244,9 +248,18 @@ Do not use upverter or else as it does not allow to export. EasyEDA supports at 
 ### Further Info
 * convert STEP file to .stl online: https://www.makexyz.com/convert/step-to-stl
 * convert Catia file to .stl online: https://www.convertcadfiles.com/de/konvertieren/
+* render CAD (.stl) files (alternative to github "CAD View"):
+  * povray: https://github.com/robottrouble/STLRender
+  * blender: https://github.com/nophead/Mendel90/blob/master/utils/viz.py
+* create .stl files from standard images: https://hackaday.com/2013/10/09/stl-fun-converting-images-to-stl-geometry/
 * add doxygen to repository
   * The Well-Automated Arduino Library - Adafruit Learning System: https://learn.adafruit.com/the-well-automated-arduino-library/doxygen
   * https://stackoverflow.com/questions/35500277/doxygen-for-ino-files-arduino
+* KiCAD 5 supports import of eagle projects through plugin: http://kicad-pcb.org/post/eagle-import/
+  * also supports export of VRML for 3D model rendering of PCBs
+  * also supports scripting by python
+
+( code coverage for arduino: https://gronlier.fr/blog/2015/01/adding-code-coverage-to-your-c-project/ )
 
 ## License
 
