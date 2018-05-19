@@ -49,7 +49,7 @@ PCB:
 
 <!--![projects/Drone_MultiWii/FlightController.brd from EDRC.me](https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster)--><img src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FDrone_MultiWii%2FFlightController.png?ref=refs%2Fheads%2Fmaster" height="400">
 [...](https://edrc.me/g/drtrigon/eagle)
-<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_brd.png" width="800">
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController_brd.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController_brd.png)
 <!--![projects/Drone_MultiWii/FlightController.png](https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png)--><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/Drone_MultiWii/FlightController.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/Drone_MultiWii/FlightController.png)
@@ -119,7 +119,7 @@ PCB:
 
 <!----><img src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2Farduino-papilio_1-WireSniffer_Rev1%2F1-Wire_Sniffer_REV1.png?ref=refs%2Fheads%2Fmaster" height="400">
 [...](https://edrc.me/g/drtrigon/eagle)
-<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_brd.png" width="800">
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_brd.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1_brd.png)
 <img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/arduino-papilio_1-WireSniffer_Rev1/1-Wire_Sniffer_REV1.png)
@@ -182,7 +182,7 @@ PCB:
 
 <!----><img src="https://edrc.me/api/v1/user/drtrigon/project/eagle/img/file/projects%2FN64TinyUSB%2FN64TinyUSB_HelveTiny_1.0.png?ref=refs%2Fheads%2Fmaster" height="400">
 [...](https://edrc.me/g/drtrigon/eagle)
-<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_brd.png" width="800">
+<!----><img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_brd.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0_brd.png)
 <img src="https://raw.githubusercontent.com/drtrigon/eagle/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.png" height="400">
 [...](https://github.com/drtrigon/eagle/blob/result/pcb/projects/N64TinyUSB/N64TinyUSB_HelveTiny_1.0.png)
