@@ -166,7 +166,7 @@ code:
 * [style](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.style)
 
 ### N64TinyUSB (cli/n64dual_tiny45)
-(produced at JLCPCB; 2mm Thickness, "Gold Fingers, 45deg" - 3 pieces on stock)
+(produced at JLCPCB; 2mm Thickness, "Gold Fingers, 45deg" - [check stock](https://www.tindie.com/products/13107/))
 
 based on:
 * code from attiny45 n64-usb (for attiny85): https://matthiaslinder.com/?view=attiny45+n64-usb
