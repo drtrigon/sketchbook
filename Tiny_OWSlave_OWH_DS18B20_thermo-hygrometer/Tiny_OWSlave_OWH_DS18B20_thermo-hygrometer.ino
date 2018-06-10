@@ -32,6 +32,8 @@
  *      - https://www.mikrocontroller.net/topic/88806
  *      - https://playground.arduino.cc/Code/USIi2c
  *      - https://learn.adafruit.com/adafruit-si7021-temperature-plus-humidity-sensor/wiring-and-test
+ *      - https://www.re-innovation.co.uk/docs/enable-brown-out-detect-on-attiny/
+ *      - https://github.com/MCUdude/MightyCore#link-time-optimization--lto
  *    - use Arduino IDE >=1.8.3
  *    - install ATtiny option to IDE
  *      - File > Preferences > Additional Boards Manager URLs: http://drazzy.com/package_drazzy.com_index.json
@@ -50,12 +52,17 @@
  *        (>=10uF cap on Arduino Uno RESET pin not needed)
  *    - select ATtiny85:
  *      - Board: "ATtiny25/45/85"
+ *      - Save EEPROM: "EEPROM retained"
  *      - Timer 1 Clock: "CPU"
  *      - B.O.D.: "B.O.D. Disabled"
+ *        - try "B.O.D. Enabled (2.7v)" to increase stability (reset if voltage low)
  *      - LTO (1.6.11 + only): "Disabled"
+ *        - "Enabled" to reduce compiled code size (does it still run stable?)
+ *          (interferes with digispark board: remove board "Digispark AVR" and "attiny", then reinstall "attiny" again)
  *      - Chip: "ATtiny85"
- *      - Clock: "8 MHz (internal)"
- *      - ( Clock: "16 MHz (PLL)" )
+ *      - Clock: "16 MHz (PLL)" - fewer errors, more dorps from bus
+ *        - or "8 MHz (internal)" - more errors, fewer drops from bus
+ * !      - try crystal in order to have a more stable timebase
  *      - Port: ???
  *    - select Programmer:
  *      - Tools > Programmer: "Arduino as ISP"
@@ -85,7 +92,8 @@
 
 //#define TEMP_OFFSET  -272.9  // offset of internal temp on chip in kelvin (deg celcius)
 //#define TEMP_COEFF    1.075  // scaling of internal temp on chip
-#define TEMP_OFFSET  -255
+#define TEMP_OFFSET  -260  // 16 MHz (PLL)
+//#define TEMP_OFFSET  -215  // 8 MHz (internal)
 #define TEMP_COEFF    1.0
 
 #include "OneWireHub.h"

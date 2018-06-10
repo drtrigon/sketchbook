@@ -107,7 +107,7 @@ script:
   ## Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer
   - FILE=$PWD/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino
   - arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=8internal,eesave=aenable,bod=disable --verbose --preserve-temp-files $FILE  >> $FILE.compile
-#  - arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=16pll,eesave=aenable,bod=enable --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  #- arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=16pll,eesave=aenable,bod=enable --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
