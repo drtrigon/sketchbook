@@ -47,7 +47,7 @@ install:
   #- sudo mv $PWD/OLED_Display_96X96-1.0.0 $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries/
   #- arduino --pref boardsmanager.additional.urls="https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json,http://digistump.com/package_digistump_index.json" --save-prefs
-  - arduino --pref boardsmanager.additional.urls="https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json,http://digistump.com/package_digistump_index.json" --install-boards "digistump:avr,attiny:avr"
+  - arduino --pref boardsmanager.additional.urls="http://drazzy.com/package_drazzy.com_index.json,http://digistump.com/package_digistump_index.json" --install-boards "digistump:avr,attiny:avr"
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
   #- pip install -r requirements.txt
