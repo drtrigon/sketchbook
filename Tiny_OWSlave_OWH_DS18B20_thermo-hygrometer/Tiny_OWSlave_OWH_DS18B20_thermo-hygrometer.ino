@@ -19,7 +19,7 @@
  *    - need to keep HUB_SLAVE_LIMIT on 8 (saves memory):
  *      #define HUB_SLAVE_LIMIT     8 // set the limit of the hub HERE, max is 32 devices
  *      //#define HUB_SLAVE_LIMIT    16 // set the limit of the hub HERE, max is 32 devices
- *    
+ *
  *    Programm ATtiny85 using Arduino Uno as ISP:
  *    - Links
  *      - https://playground.boxtec.ch/doku.php/arduino/attiny
@@ -57,13 +57,13 @@
  *      - Clock: "8 MHz (internal)"
  *      - ( Clock: "16 MHz (PLL)" )
  *      - Port: ???
- *    - select Programmer: 
+ *    - select Programmer:
  *      - Tools > Programmer: "Arduino as ISP"
  *        (NOT "ArduinoISP" !)
- *    - set fuse settings (clock, etc.): 
+ *    - set fuse settings (clock, etc.):
  *      - Tools > Burn Bootloader
  *    - upload this code (programmer LED needs to be off)
- *    
+ *
  *                      ATtinyX5 Pin Layout (ATtiny85)
  *                                ---_---
  *                                .     .
@@ -162,8 +162,7 @@ void setup()
 #endif
 
 //    for (int i=0; i<=255; i+=5)
-    for (int i=0; i<8; i+=1)
-    {
+    for (int i=0; i<8; i+=1) {
         analogWrite(pin_led, B00000001<<i);
         delay(500);
     }
@@ -185,8 +184,7 @@ void loop()
 #endif
 
     // Blink triggers the state-change
-    if (blinking())
-    {
+    if (blinking()) {
         // Set temp
 //        static float temperature = 20.0;
 //        temperature += 0.1;
@@ -199,10 +197,14 @@ void loop()
         ds18b23.setTemperature(getTemp());  // not calibrated
 #else
 //        mySerial.println(temperature);
-        mySerial.print("T: "); mySerial.print(sensor.readTemperature(), 2);
-        mySerial.print("\tH: "); mySerial.print(sensor.readHumidity(), 2);
-        mySerial.print("\tVs: "); mySerial.print(getVcc());
-        mySerial.print("\tTi: "); mySerial.println(getTemp());
+        mySerial.print("T: ");
+        mySerial.print(sensor.readTemperature(), 2);
+        mySerial.print("\tH: ");
+        mySerial.print(sensor.readHumidity(), 2);
+        mySerial.print("\tVs: ");
+        mySerial.print(getVcc());
+        mySerial.print("\tTi: ");
+        mySerial.println(getTemp());
 #endif
     }
 }
@@ -212,8 +214,7 @@ bool blinking(void)
     const uint32_t interval     = 2000;         // interval at which to blink (milliseconds)
     static uint32_t nextMillis  = millis();     // will store next time LED will updated
 
-    if (millis() > nextMillis)
-    {
+    if (millis() > nextMillis) {
         nextMillis += interval;             // save the next time you blinked the LED
         static uint8_t ledState = LOW;      // ledState used to set the LED
         if (ledState == LOW)    ledState = HIGH;
@@ -230,51 +231,51 @@ bool blinking(void)
 // (https://hackaday.com/2014/02/01/atmega-attiny-core-temperature-sensors/)
 float getTemp(void)
 {
-//  ADCSRA &= ~(_BV(ADATE) |_BV(ADIE)); // Clear auto trigger and interrupt enable
-//  ADCSRA |= _BV(ADEN);                // Enable AD and start conversion
-  //ADMUX = (1<<REFS0) | (1<<REFS1) | (1<<MUX3); //turn 1.1V reference and select ADC8
-  ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
-  delay(10); //wait for internal reference to settle
-  // start the conversion
-  ADCSRA |= bit(ADSC);
-  //sbi(ADCSRA, ADSC);
-  // ADSC is cleared when the conversion finishes
-  while (ADCSRA & bit(ADSC));
-  //while (bit_is_set(ADCSRA, ADSC));
-  //uint8_t low  = ADCL;
-  //uint8_t high = ADCH;
-  int a = ADC;
-  //discard first reading
-  ADCSRA |= bit(ADSC);
-  while (ADCSRA & bit(ADSC));
-  //low  = ADCL;
-  //high = ADCH;
-  //a = (high << 8) | low;
-  a = ADC;
-  //ADCSRA &= ~(_BV(ADEN));        // disable ADC
-  // Temperature compensation using the chip voltage would go here
-  //return a - 272; //return temperature in C
-  return(((float)a + TEMP_OFFSET) / TEMP_COEFF);
+//    ADCSRA &= ~(_BV(ADATE) |_BV(ADIE)); // Clear auto trigger and interrupt enable
+//    ADCSRA |= _BV(ADEN);                // Enable AD and start conversion
+    //ADMUX = (1<<REFS0) | (1<<REFS1) | (1<<MUX3); //turn 1.1V reference and select ADC8
+    ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
+    delay(10); //wait for internal reference to settle
+    // start the conversion
+    ADCSRA |= bit(ADSC);
+    //sbi(ADCSRA, ADSC);
+    // ADSC is cleared when the conversion finishes
+    while (ADCSRA & bit(ADSC));
+    //while (bit_is_set(ADCSRA, ADSC));
+    //uint8_t low  = ADCL;
+    //uint8_t high = ADCH;
+    int a = ADC;
+    //discard first reading
+    ADCSRA |= bit(ADSC);
+    while (ADCSRA & bit(ADSC));
+    //low  = ADCL;
+    //high = ADCH;
+    //a = (high << 8) | low;
+    a = ADC;
+    //ADCSRA &= ~(_BV(ADEN));        // disable ADC
+    // Temperature compensation using the chip voltage would go here
+    //return a - 272; //return temperature in C
+    return(((float)a + TEMP_OFFSET) / TEMP_COEFF);
 }
 
 float getVcc(void)
 {
-  //reads internal 1V1 reference against VCC
-  ADMUX = _BV(MUX3) | _BV(MUX2); // For ATtiny85/45
-  //ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
-  delay(10); // Wait for Vref to settle
-  ADCSRA |= _BV(ADSC); // Convert
-  while (bit_is_set(ADCSRA, ADSC));
-  //uint8_t low = ADCL;
-  //unsigned int val = (ADCH << 8) | low;
-  unsigned int val = ADC;
-  //discard previous result
-  ADCSRA |= _BV(ADSC); // Convert
-  while (bit_is_set(ADCSRA, ADSC));
-  //low = ADCL;
-  //val = (ADCH << 8) | low;
-  val = ADC;
+    //reads internal 1V1 reference against VCC
+    ADMUX = _BV(MUX3) | _BV(MUX2); // For ATtiny85/45
+    //ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
+    delay(10); // Wait for Vref to settle
+    ADCSRA |= _BV(ADSC); // Convert
+    while (bit_is_set(ADCSRA, ADSC));
+    //uint8_t low = ADCL;
+    //unsigned int val = (ADCH << 8) | low;
+    unsigned int val = ADC;
+    //discard previous result
+    ADCSRA |= _BV(ADSC); // Convert
+    while (bit_is_set(ADCSRA, ADSC));
+    //low = ADCL;
+    //val = (ADCH << 8) | low;
+    val = ADC;
 
-  //return ((long)1024 * 1100) / val;
-  return ((float)1024 * 1.1) / val;
+    //return ((long)1024 * 1100) / val;
+    return ((float)1024 * 1.1) / val;
 }
