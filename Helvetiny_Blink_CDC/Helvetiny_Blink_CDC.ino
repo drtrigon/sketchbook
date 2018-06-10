@@ -27,15 +27,17 @@
 
 #include <DigiCDC.h>
 
-void setup() {                
+void setup()
+{
   // initialize the digital pin as an output.
-  SerialUSB.begin(); 
+  SerialUSB.begin();
   pinMode(LED_BUILTIN,OUTPUT);
 }
 
 // the loop routine runs over and over again forever:
-void loop() {
-  
+void loop()
+{
+
   //turns led on and off based on sending 0 or 1 from serial terminal
   if (SerialUSB.available()) {
     char input = SerialUSB.read();
@@ -49,10 +51,10 @@ void loop() {
       SerialUSB.println(getVcc());
     else if(input == '4')
       SerialUSB.println(getTemp());
-      
+
   }
-  
-   SerialUSB.delay(100);               // keep usb alive // can alos use SerialUSB.refresh();
+
+  SerialUSB.delay(100);               // keep usb alive // can alos use SerialUSB.refresh();
 }
 
 
@@ -60,7 +62,8 @@ void loop() {
 // http://21stdigitalhome.blogspot.ch/2014/10/trinket-attiny85-internal-temperature.html
 // (https://www.mikrocontroller.net/topic/315667)
 // (https://hackaday.com/2014/02/01/atmega-attiny-core-temperature-sensors/)
-float getVcc() {
+float getVcc()
+{
   //reads internal 1V1 reference against VCC
   ADMUX = _BV(MUX3) | _BV(MUX2); // For ATtiny85/45
   //ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
@@ -81,7 +84,8 @@ float getVcc() {
   return ((float)1024 * 1.1) / val;
 }
 
-float getTemp() {
+float getTemp()
+{
 //  ADCSRA &= ~(_BV(ADATE) |_BV(ADIE)); // Clear auto trigger and interrupt enable
 //  ADCSRA |= _BV(ADEN);                // Enable AD and start conversion
   //ADMUX = (1<<REFS0) | (1<<REFS1) | (1<<MUX3); //turn 1.1V reference and select ADC8
