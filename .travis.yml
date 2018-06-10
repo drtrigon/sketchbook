@@ -46,6 +46,8 @@ install:
   #- tar xzf v1.0.0.tar.gz
   #- sudo mv $PWD/OLED_Display_96X96-1.0.0 $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries/
+  #- arduino --pref boardsmanager.additional.urls="https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json,http://digistump.com/package_digistump_index.json" --save-prefs
+  - arduino --pref boardsmanager.additional.urls="https://raw.githubusercontent.com/damellis/attiny/ide-1.6.x-boards-manager/package_damellis_attiny_index.json,http://digistump.com/package_digistump_index.json" --install-boards "digistump:avr,attiny:avr"
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
   #- pip install -r requirements.txt
@@ -93,6 +95,18 @@ script:
   - avr-objdump -x -D -S $FILE.elf  >> $FILE.dis
   # (1.) should test a folder but (2.) we did not change a single byte
   #- astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  ## Helvetiny_Blink_CDC
+  - FILE=$PWD/Helvetiny_Blink_CDC/Helvetiny_Blink_CDC.ino
+  - arduino --verify --board digistump:avr:digispark-tiny --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - ELF_FILE=`find /tmp/ -name "Helvetiny_Blink_CDC.ino.elf"`
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  ## Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer
+  - FILE=$PWD/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino
+  - arduino --verify --board attiny:avr:ATtinyX5:clock=internal8 --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - ELF_FILE=`find /tmp/ -name "Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino.elf"`
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   - source ~/virtualenv/python2.7/bin/activate
   ## Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
