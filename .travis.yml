@@ -46,10 +46,10 @@ install:
   #- tar xzf v1.0.0.tar.gz
   #- sudo mv $PWD/OLED_Display_96X96-1.0.0 $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries/
-#  - arduino --pref boardsmanager.additional.urls="http://digistump.com/package_digistump_index.json,http://drazzy.com/package_drazzy.com_index.json" --save-prefs
+  - arduino --pref boardsmanager.additional.urls="http://digistump.com/package_digistump_index.json,http://drazzy.com/package_drazzy.com_index.json" --save-prefs
 #  - arduino --install-boards "digistump:avr"
 #  - arduino --install-boards "ATTinyCore:avr"
-  - arduino --pref boardsmanager.additional.urls="http://digistump.com/package_digistump_index.json,http://drazzy.com/package_drazzy.com_index.json" --install-boards "digistump:avr,ATTinyCore:avr"
+  - arduino --install-boards "digistump:avr,ATTinyCore:avr"
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
   #- pip install -r requirements.txt
