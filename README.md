@@ -129,13 +129,14 @@ code:
 
 Has the potential to replace commercial 1-wire bus (by its SoftwareBitBang strategy).
 
+* How to use ATTiny with crytal and PJON: https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
 * https://hackaday.com/2016/03/31/pjon-fancy-one-wire-arduino-communications-protocol-for-home-automation/
 * https://www.pjon.org/how.php
 * https://github.com/Girgitt/PJON-python ("In a basic scenario PJON + PJON-python can be a viable alternative to more complex protocols like Firmata [...]")
 
 debug and development setup (may be also suitable for productive environment?)
 
-    PC/Raspi(Zero) with PJON-python - ThroughSerial - Arduino Uno with PJON - SoftwareBitBang - "1-wire pjon" bus
+    PC/Raspi(Zero) with PJON-python - ThroughSerial - Arduino Uno/Yun with PJON - SoftwareBitBang - "1-wire pjon" bus
 
 supported setup with examples, Arduino Yun would be transparent, PC or Raspi with collectd (and may be python plugin) could access and log data
 
@@ -144,10 +145,10 @@ supported setup with examples, Arduino Yun would be transparent, PC or Raspi wit
 * PC/Raspi(Zero) with PJON-python ThroughSerial:
   * https://github.com/Girgitt/PJON-python
   * https://github.com/gioblu/PJON/tree/master/examples/WINX86/Local/ThroughSerial/BlinkTest/Transmitter (win code is supposed to work under linux also)
-* Arduino Uno with PJON ThroughSerial:
+* Arduino Uno/Yun with PJON ThroughSerial:
   * https://github.com/Girgitt/PJON-python/tree/master/arduino_firmware
   * https://github.com/gioblu/PJON/blob/master/examples/ARDUINO/Local/ThroughSerial/BlinkTest/Receiver/Receiver.ino
-* Arduino Uno with PJON SoftwareBitBang:
+* Arduino Uno/Yun with PJON SoftwareBitBang:
   * https://github.com/gioblu/PJON/wiki#practical-test
   * https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang
   * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/SoftwareBitBang
@@ -158,7 +159,7 @@ supported setup with examples, Arduino Yun would be transparent, PC or Raspi wit
 * Arduino Yun with PJON EthernetTCP to SoftwareBitBang
   * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/EthernetTCP/SoftwareBitBangSurrogate
   * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/EthernetTCP/PingPong/Receiver
-  * (power safe modes for Yun?)
+  * (power safe modes for Yun? may be use ESP8266 instead?)
 
 ### Uno_Programmer
 
