@@ -36,7 +36,13 @@ PCB: ![design rule check status](https://edrc.me/api/v1/user/drtrigon/project/ea
 ![PCB Build Status](https://travis-ci.org/drtrigon/eagle.svg?branch=master)[...](https://travis-ci.org/drtrigon/eagle)
 https://github.com/drtrigon/eagle
 
-### Drone_MultiWii / FlightController
+### Helvetiny_Blink_CDC
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Helvetiny_Blink_CDC/Helvetiny_Blink_CDC.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Helvetiny_Blink_CDC/Helvetiny_Blink_CDC.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Helvetiny_Blink_CDC/Helvetiny_Blink_CDC.ino.style)
+
+### Drone_MultiWii - FlightController
 (produced at JLCPCB - 2 pieces on stock)
 
 code: ![Build Status](https://travis-ci.org/drtrigon/docker-sketchbook.svg?branch=master)[...](https://travis-ci.org/drtrigon/docker-sketchbook)
@@ -101,7 +107,90 @@ main changes 1.0 -> 1.1
 * geometry; size and position of screw holes
 * geometry; milled hole to reduce weight
 
-### arduino-papilio_1-WireSniffer_Rev1 / Uno_OWSniffer
+### Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino.style)
+
+### Uno_EditFC28_USB
+
+...
+
+### Uno_OWSlave/OWH_DS18B20_asInterface_SensorStation
+
+...
+
+### Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors (OLED)
+
+...
+
+## Uno_OWPJON_Test
+
+Has the potential to replace commercial 1-wire bus (by its SoftwareBitBang strategy).
+
+* https://hackaday.com/2016/03/31/pjon-fancy-one-wire-arduino-communications-protocol-for-home-automation/
+* https://www.pjon.org/how.php
+* https://github.com/Girgitt/PJON-python ("In a basic scenario PJON + PJON-python can be a viable alternative to more complex protocols like Firmata [...]")
+
+    1. PC/Raspi(Zero) with PJON-python - ThroughSerial - Arduino Uno with PJON - SoftwareBitBang - "1-wire pjon" bus
+    2. PC/Raspi(Zero) - EthernetTCP - Arduino Yun with PJON - SoftwareBitBang - "1-wire pjon" bus
+
+1. debug and development setup (may be also suitable for productive environment?)
+2. supported setup with examples, Arduino Yun would be transparent, PC or Raspi with collectd (and may be python plugin) could access and log data
+
+* PC/Raspi(Zero) with PJON-python ThroughSerial:
+  * https://github.com/Girgitt/PJON-python
+  * https://github.com/gioblu/PJON/tree/master/examples/WINX86/Local/ThroughSerial/BlinkTest/Transmitter (win code is supposed to work under linux also)
+* Arduino Uno with PJON ThroughSerial:
+  * https://github.com/Girgitt/PJON-python/tree/master/arduino_firmware
+  * https://github.com/gioblu/PJON/blob/master/examples/ARDUINO/Local/ThroughSerial/BlinkTest/Receiver/Receiver.ino
+* Arduino Uno with PJON SoftwareBitBang:
+  * https://github.com/gioblu/PJON/wiki#practical-test
+  * https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang
+  * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/SoftwareBitBang
+* PC/Raspi(Zero) EthernetTCP:
+  * https://github.com/gioblu/PJON/tree/master/examples/LINUX/Local/EthernetTCP/RemoteWorker
+  * https://github.com/gioblu/PJON/blob/master/examples/WINX86/Local/EthernetTCP/RemoteWorker/Transmitter/Transmitter.cpp
+  * https://github.com/gioblu/PJON/tree/master/examples/LINUX/Local/EthernetTCP/PingPong/Transmitter
+* Arduino Yun with PJON EthernetTCP to SoftwareBitBang
+  * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/EthernetTCP/SoftwareBitBangSurrogate
+  * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/EthernetTCP/PingPong/Receiver
+  * (power safe modes for Yun?)
+
+### Uno_Programmer
+
+...
+
+### Uno_ppmUSBjoy
+
+...
+
+### Uno_N64_Controller_Pak_Reader
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.style)
+
+https://github.com/sanni/cartreader/issues/16
+
+For PS1 (and PS2?) see the Windows VirtualBox VM and look there for MemcardRex and MemCARDuino - look at the schematic also.
+They do work out of the box, for more info see:
+* MemCARDuino: https://github.com/ShendoXT/memcarduino
+* MemcardRex 1.8: http://shendosoft.blogspot.ch/2014/01/memcardrex-18-released.html
+In order to easily connect the memory card a card edge connector is perfect (e.g. EDAC 395-020-520-202). Use a 3.6V Zener with 220 Ohms
+to get the 3.6V needed - or just use the 3.3V from Arduino Uno.
+
+### Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.info)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.style)
+
+instructable: https://www.instructables.com/id/Arduino-1-wire-Display-144-Chars/
+* https://www.instructables.com/id/Arduino-1-wire-Generic-ClientSlave-Device-Sensor/
+
+### Uno_OWSniffer - arduino-papilio_1-WireSniffer_Rev1
 
 code:
 * [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSniffer/Uno_OWSniffer.py.compile)
@@ -135,37 +224,7 @@ https://github.com/drtrigon/eagle/tree/result/pcb/projects/arduino-papilio_1-Wir
 
 instructable: https://www.instructables.com/id/Arduino-1-wire-sniffer/
 
-### Uno_OWSlave - OWH_DS2433_EEPROM_LCD_Sensors
-
-code:
-* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.info)
-* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino.style)
-
-instructable: https://www.instructables.com/id/Arduino-1-wire-Display-144-Chars/
-* https://www.instructables.com/id/Arduino-1-wire-Generic-ClientSlave-Device-Sensor/
-
-### Uno_N64_Controller_Pak_Reader
-
-code:
-* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.compile), [info](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.info)
-* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino.style)
-
-https://github.com/sanni/cartreader/issues/16
-
-For PS1 (and PS2?) see the Windows VirtualBox VM and look there for MemcardRex and MemCARDuino - look at the schematic also.
-They do work out of the box, for more info see:
-* MemCARDuino: https://github.com/ShendoXT/memcarduino
-* MemcardRex 1.8: http://shendosoft.blogspot.ch/2014/01/memcardrex-18-released.html
-In order to easily connect the memory card a card edge connector is perfect (e.g. EDAC 395-020-520-202). Use a 3.6V Zener with 220 Ohms
-to get the 3.6V needed - or just use the 3.3V from Arduino Uno.
-
-### micpy - ESP8266_SHT31_WiFi_pseudoREST
-
-code:
-* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.compile)
-* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.style)
-
-### N64TinyUSB (cli/n64dual_tiny45)
+### cli/n64dual_tiny45 - N64TinyUSB
 (produced at JLCPCB; 2mm Thickness, "Gold Fingers, 45deg" - [check stock](https://www.tindie.com/products/13107/))
 
 based on:
@@ -201,6 +260,17 @@ CAD:
 
 production:
 * https://github.com/drtrigon/eagle/blob/master/projects/N64TinyUSB/N64TinyUSB_v1.0-JLCPCB.zip
+
+### micpy/ESP8266_SHT31_WiFi_pseudoREST
+
+code:
+* [compile](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.compile)
+* [style](https://github.com/drtrigon/sketchbook/blob/result/docu/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py.style)
+
+### tools
+
+* i2c_scanner: https://playground.arduino.cc/Main/I2cScanner
+* logic_analyzer: https://github.com/gillham/logic_analyzer, https://lxtreme.nl/projects/ols/
 
 ## Setup
 (might make sense to split projects off into separate repos/submodules)
