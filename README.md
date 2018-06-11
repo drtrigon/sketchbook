@@ -125,7 +125,7 @@ code:
 
 ...
 
-## Uno_OWPJON_Test
+### Uno_OWPJON_Test
 
 Has the potential to replace commercial 1-wire bus (by its SoftwareBitBang strategy).
 
@@ -133,11 +133,11 @@ Has the potential to replace commercial 1-wire bus (by its SoftwareBitBang strat
 * https://www.pjon.org/how.php
 * https://github.com/Girgitt/PJON-python ("In a basic scenario PJON + PJON-python can be a viable alternative to more complex protocols like Firmata [...]")
 
-    1. PC/Raspi(Zero) with PJON-python - ThroughSerial - Arduino Uno with PJON - SoftwareBitBang - "1-wire pjon" bus
-    2. PC/Raspi(Zero) - EthernetTCP - Arduino Yun with PJON - SoftwareBitBang - "1-wire pjon" bus
+debug and development setup (may be also suitable for productive environment?)
+    PC/Raspi(Zero) with PJON-python - ThroughSerial - Arduino Uno with PJON - SoftwareBitBang - "1-wire pjon" bus
 
-1. debug and development setup (may be also suitable for productive environment?)
-2. supported setup with examples, Arduino Yun would be transparent, PC or Raspi with collectd (and may be python plugin) could access and log data
+supported setup with examples, Arduino Yun would be transparent, PC or Raspi with collectd (and may be python plugin) could access and log data
+    PC/Raspi(Zero) - EthernetTCP - Arduino Yun with PJON - SoftwareBitBang - "1-wire pjon" bus
 
 * PC/Raspi(Zero) with PJON-python ThroughSerial:
   * https://github.com/Girgitt/PJON-python
