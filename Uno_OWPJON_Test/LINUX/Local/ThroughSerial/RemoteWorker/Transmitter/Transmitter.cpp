@@ -86,6 +86,7 @@ int main() {
   bus.strategy.set_baud_rate(baud_rate);
   bus.set_receiver(receiver_function);
 //  bus.strategy.link.start_listening();
+  bus.set_synchronous_acknowledge(false);
   bus.begin();
   printf("Success, initiating BlinkTest repeated transmission... \n");
   bus.send_repeatedly(44, "B", 1, 100000);

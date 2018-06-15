@@ -57,6 +57,7 @@ void setup() {
   busB.strategy.set_serial(&Serial);
   busB.set_router(true);
   busB.set_receiver(receiver_functionB);
+  busB.set_synchronous_acknowledge(false);
   busB.begin();
 }
 
