@@ -34,7 +34,7 @@ before_install:
   - sudo apt-get install diffstat
   - sudo apt-get install doxygen
   - sudo apt-get install gcc-avr avr-libc
-  - sudo apt-get install clang-tidy-*
+  - sudo apt-get install clang-tidy-3.9 #clang-tidy-*
   - wget https://github.com/oclint/oclint/releases/download/v0.13.1/oclint-0.13.1-x86_64-linux-4.4.0-112-generic.tar.gz
   - tar -zxf oclint-0.13.1-x86_64-linux-4.4.0-112-generic.tar.gz
   #- sudo apt-get install texlive-font-utils  # epstopdf for doxygen
@@ -59,7 +59,8 @@ install:
   - source ~/virtualenv/python2.7/bin/activate
   - python --version
   #- pip install -r requirements.txt
-  - pip install pip flake8 flake8-docstrings flake8-future flake8-bandit flake8-chart --upgrade
+  #- pip install pip flake8 flake8-docstrings flake8-future flake8-bandit flake8-chart --upgrade
+  - pip install pip flake8 flake8-docstrings flake8-bandit flake8-chart --upgrade
   - pip --version
   - flake8 --version
   - deactivate
