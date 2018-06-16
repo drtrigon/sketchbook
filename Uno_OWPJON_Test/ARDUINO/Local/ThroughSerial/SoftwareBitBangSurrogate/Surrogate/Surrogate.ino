@@ -33,7 +33,8 @@ PJON<ThroughSerial> busB(1);
 //// Ethernet configuration for remote device
 //const uint8_t remote_ip[] = { 192, 1, 1, 70 };
 
-void setup() {
+void setup()
+{
   pinMode(13, OUTPUT);
   digitalWrite(13, LOW); // Initialize LED 13 to be off
 //  digitalWrite(13, HIGH); // Initialize LED 13 to be on
@@ -61,7 +62,8 @@ void setup() {
   busB.begin();
 }
 
-void receiver_functionA(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info) {
+void receiver_functionA(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+{
   // Forward packet to RemoteWorker on bus B, preserving the original sender id
   busB.send_from_id(
     packet_info.sender_id,
@@ -77,7 +79,8 @@ void receiver_functionA(uint8_t *payload, uint16_t length, const PJON_Packet_Inf
   digitalWrite(13, HIGH);
 }
 
-void receiver_functionB(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info) {
+void receiver_functionB(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+{
   // All packets sent by the RemoteWorker is delivered to this device, when in the
   // single_initiate_direction listening mode.
   // Forward packet to specified target device on bus A
@@ -89,11 +92,12 @@ void receiver_functionB(uint8_t *payload, uint16_t length, const PJON_Packet_Inf
     packet_info.header,
     packet_info.id,
     packet_info.port
-  );  
+  );
   digitalWrite(13, LOW);
 }
 
-void loop() {
+void loop()
+{
   busA.receive(1000);
   busB.update();
   busB.receive(1000);
