@@ -12,8 +12,8 @@ Surrogate, and receives BLINK replies back.
 Device 44 is the example:
 ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver.
 
-This demonstrates the concept with a process on a PC or a RPI transparently 
-being part of a SWBB bus via a Surrogate. The Surrogate will "phone home" 
+This demonstrates the concept with a process on a PC or a RPI transparently
+being part of a SWBB bus via a Surrogate. The Surrogate will "phone home"
 to the RemoteWorker to create a permanent link.
 The two alternative modes differ in the speed and the number of sockets used.
 ETCP_SINGLE_DIRECTION is fastest and recommended if not on limited hardware.
@@ -31,7 +31,7 @@ Ethernet strategies and related concepts are contributed by Fred Larsen. */
 //#include <wiringSerial.h>
 
 #ifndef RPI
-  #define RPI true
+#define RPI true
 #endif
 
 #define TS_RESPONSE_TIME_OUT 35000
@@ -50,11 +50,13 @@ Ethernet strategies and related concepts are contributed by Fred Larsen. */
 //PJON<EthernetTCP> bus(45);
 PJON<ThroughSerial> bus(45);
 
-static void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info) {
+static void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+{
   printf("BLINK\n");
 };
 
-void loop() {
+void loop()
+{
   bus.update();
   bus.receive(1000);
 
@@ -67,7 +69,8 @@ void loop() {
 //  }
 }
 
-int main() {
+int main()
+{
   printf("Welcome to RemoteWorker 1 (Transmitter).\n");
 //  bus.strategy.link.set_id(bus.device_id());
 //bus.strategy.link.keep_connection(true);
