@@ -136,6 +136,9 @@ https://github.com/drtrigon/sketchbook/blob/master/Uno_OWPJON_Test/README.md
 * https://www.pjon.org/how.php
 * https://github.com/Girgitt/PJON-python ("In a basic scenario PJON + PJON-python can be a viable alternative to more complex protocols like Firmata [...]")
 * https://github.com/gioblu/PJON/issues/211, https://github.com/gioblu/PJON/pull/213
+* command set needs to be lightweight due to attiny etc., e.g. http://owfs.sourceforge.net/family.html
+  * reset/preserve/search can be done with broadcast, see https://github.com/gioblu/PJON/wiki/Transmit-data
+  * need a compact data transfer format (for floats), see https://github.com/ludocode/mpack, https://github.com/HEADS-project/arduino_msgpack
 
 (What's the technical difference between Surrogate and Switch? Could I use PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> also for TS to SWBB?)
 
