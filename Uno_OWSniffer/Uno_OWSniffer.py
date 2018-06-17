@@ -55,7 +55,8 @@ def sniff_TUT214():
     READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
 
     (fast switching of baud rates is possible, but we cannot
-    control the possition in the input buffer, thus it's lossy)"""
+    control the possition in the input buffer, thus it's lossy)
+    """
 
     while True:
         # RESET & PRESENCE DETECTION
@@ -115,7 +116,8 @@ def sniff_115200():
     RESET and PRESENCE, READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
 
     (no switching of baud rates needed, thus we can control
-    the possition in the input buffer and it's not lossy)"""
+    the possition in the input buffer and it's not lossy)
+    """
 
     bytes   = ""
     bits    = 0x00
