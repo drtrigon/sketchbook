@@ -135,10 +135,8 @@ script:
   - ELF_FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
-  - clang-tidy $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 -lwiringPi -lpthread -lcrypt -lm -lrt || true
   - clang-tidy $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 || true
-  - clang-tidy $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src || true
-  - $PWD/oclint-0.10.3/bin/oclint $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 -lwiringPi -lpthread -lcrypt -lm -lrt || true
+  - $PWD/../oclint-0.10.3/bin/oclint $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 -lwiringPi -lpthread -lcrypt -lm -lrt || true
 #  - $PWD/oclint-0.10.3/bin/oclint -o oclint.log src/src.ino -- -c  # oclint for arduino; https://github.com/richelbilderbeek/travis_cpp_tutorial/blob/master/statuses.md
   - source ~/virtualenv/python2.7/bin/activate
   ## Uno_OWSniffer
@@ -158,16 +156,16 @@ script:
 after_script:
   #- tree
   # doxygen docu generation
-  - doxygen Doxyfile
+  - doxygen Doxyfile >> doxygen.log
   #- pushd $PWD/doc/latex/; make; popd
   # push result back to git repo
   - git checkout -b result/docu
   #- git add $PWD/doc/
   - git add --all  # may be use .gitignore to exclude .pyc files (not many yet)
-  - git status
+  #- git status
   - git config user.email 'travis@travis-ci.org'
   - git config user.name 'Travis CI'
-  - git commit --message "Travis build $TRAVIS_BUILD_NUMBER"
+  - git commit --message "Travis build $TRAVIS_BUILD_NUMBER" --quiet
   - git push -f https://$GIT_USER:$GIT_PASS@github.com/drtrigon/sketchbook.git result/docu  # dangerous; overwrite remote branch!
 
 after_success:
