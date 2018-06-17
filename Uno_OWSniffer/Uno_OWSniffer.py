@@ -1,34 +1,37 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# http://blog.oscarliang.net/use-arduino-as-usb-serial-adapter-converter/
-# https://www.arduino.cc/en/uploads/Main/arduino-uno-schematic.pdf
-# Use Method 1: Jumper RESET pin to GND
-#               then Connect 1wire to pin 1 (TX) and GND
-# see Fritzing Schemes: Uno_OWSniffer.fzz
-# use Sniffer Shield PCB in order to setup the Arduino (RESET jumper)
-#   and connect it to 1wire bus (RJ45 header)
-#
-# TUTORIAL 214: Using a UART to Implement a 1-Wire Bus Master
-# http://dangerousprototypes.com/2012/10/28/app-note-using-uart-to-implement-a-1-wire-bus-master/
-# http://www.maximintegrated.com/en/app-notes/index.mvp/id/214
-# RESET and PRESENCE: 9600 Baud, 8 bits, no parity, 1 stop
-# READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
-# (fast switching of baud rates is possible, but we cannot
-#  control the possition in the input buffer, thus it's lossy)
-#
-# $ miniterm.py -D -D -D /dev/ttyACM0 9600
-# $ miniterm.py -D -D -D /dev/ttyACM0 115200
-#
-# TODO:
-# * pulse shape/timing analysis - look at bit sequence
-# * read/write 0 detection (write 0 0x80 ? vs. read 0 0xFE and lower ? saw a
-#   lot of 0xfc and 0x80 ...)
-# * buffering of data on all levels for debug access/view
-# * detect RESET w/o PRESENCE (0x00 all other commands give at least a
-#   0x80 - with Arduino Uno on OWServer ENET)
-# * make it work with adaptive LinkHubE properly (currently working with
-#   OW_SERVER_ENET only)
+"""Uno 1-Wire Bus Sniffer Python Script for Linux.
+
+http://blog.oscarliang.net/use-arduino-as-usb-serial-adapter-converter/
+https://www.arduino.cc/en/uploads/Main/arduino-uno-schematic.pdf
+Use Method 1: Jumper RESET pin to GND
+              then Connect 1wire to pin 1 (TX) and GND
+see Fritzing Schemes: Uno_OWSniffer.fzz
+use Sniffer Shield PCB in order to setup the Arduino (RESET jumper)
+  and connect it to 1wire bus (RJ45 header)
+
+TUTORIAL 214: Using a UART to Implement a 1-Wire Bus Master
+http://dangerousprototypes.com/2012/10/28/app-note-using-uart-to-implement-a-1-wire-bus-master/
+http://www.maximintegrated.com/en/app-notes/index.mvp/id/214
+RESET and PRESENCE: 9600 Baud, 8 bits, no parity, 1 stop
+READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
+(fast switching of baud rates is possible, but we cannot
+ control the possition in the input buffer, thus it's lossy)
+
+$ miniterm.py -D -D -D /dev/ttyACM0 9600
+$ miniterm.py -D -D -D /dev/ttyACM0 115200
+
+TODO:
+* pulse shape/timing analysis - look at bit sequence
+* read/write 0 detection (write 0 0x80 ? vs. read 0 0xFE and lower ? saw a
+  lot of 0xfc and 0x80 ...)
+* buffering of data on all levels for debug access/view
+* detect RESET w/o PRESENCE (0x00 all other commands give at least a
+  0x80 - with Arduino Uno on OWServer ENET)
+* make it work with adaptive LinkHubE properly (currently working with
+  OW_SERVER_ENET only)
+"""
 
 import serial
 import time
@@ -45,6 +48,15 @@ commands = {
 
 
 def sniff_TUT214():
+    """Sniffer according to official Standards/Specs.
+
+    TUTORIAL 214: Using a UART to Implement a 1-Wire Bus Master
+    RESET and PRESENCE: 9600 Baud, 8 bits, no parity, 1 stop
+    READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
+
+    (fast switching of baud rates is possible, but we cannot
+    control the possition in the input buffer, thus it's lossy)"""
+
     while True:
         # RESET & PRESENCE DETECTION
         # http://stackoverflow.com/questions/9271777/change-baudrate-in-pyserial-while-connected-to-device
@@ -97,6 +109,14 @@ def sniff_TUT214():
 
 
 def sniff_115200():
+    """Sniffer always @115200.
+
+    Not according to official Standards/Specs but possible to implement
+    RESET and PRESENCE, READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
+
+    (no switching of baud rates needed, thus we can control
+    the possition in the input buffer and it's not lossy)"""
+
     bytes   = ""
     bits    = 0x00
     sc      = 0
