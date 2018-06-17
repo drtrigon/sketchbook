@@ -135,8 +135,7 @@ script:
   - ELF_FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
-  - clang-tidy $FILE -checks=*,-clang-analyzer-alpha.* -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 >> $FILE.clang
-  - clang-tidy $FILE -checks=*,-clang-analyzer-alpha.*,-llvm-include-order -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11
+  - clang-tidy $FILE -checks=*,-clang-analyzer-alpha.* -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 &>> $FILE.clang
   - $PWD/oclint-0.10.3/bin/oclint $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 >> $FILE.oclint
 #  - $PWD/oclint-0.10.3/bin/oclint -o oclint.log src/src.ino -- -c  # oclint for arduino; https://github.com/richelbilderbeek/travis_cpp_tutorial/blob/master/statuses.md
   - source ~/virtualenv/python2.7/bin/activate
