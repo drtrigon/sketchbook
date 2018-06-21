@@ -78,7 +78,7 @@
 
 #define FREQ_BLINK_OK   2000  // fast blink 0.5 Hz all OK
 #define FREQ_BLINK_ERR  4000  // slow blink 0.25 Hz no update for >3min
-                              // hint: bigger interval makes the 1wire bus more responsive
+// hint: bigger interval makes the 1wire bus more responsive
 
 constexpr uint8_t pin_onewire   { 8 };
 constexpr uint8_t pin_led       { 13 };
@@ -103,6 +103,9 @@ auto ds18b1 = DS18B20(0x28, 0x01, 0x00, 0x33, 0x24, 0xDA, 0x00);                
 
 bool blinking(void);
 
+/**
+ *  put your setup code here, to run once:
+ */
 void setup()
 {
     // - immediately disable watchdog timer so set will not get interrupted
@@ -234,6 +237,9 @@ void setup()
     wdt_enable(WDTO_8S);
 }
 
+/**
+ *  put your main code here, to run repeatedly:
+ */
 void loop()
 {
     wdt_reset();
@@ -294,6 +300,12 @@ void loop()
     }
 }
 
+/**
+ *  OneWireHub OneWire slave status update function.
+ *
+ * @param void
+ * @return Integer indicating whether status updated with 1
+ */
 bool blinking(void)
 {
     static uint32_t interval    = FREQ_BLINK_OK; // interval at which to blink (milliseconds)
