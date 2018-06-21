@@ -7,7 +7,7 @@
  * @date 2018-06-21
  * @version 1.1
  *   @li add led feedback indicating missing update for more than 3 mins.
- *       confer FREQ_BLINK_OK and FREQ_BLINK_ERR
+ *       confer @ref FREQ_BLINK_OK and @ref FREQ_BLINK_ERR
  * @version 1.0
  *   @li add supply voltage and chip temperature sensors
  *   @li first version providing all basic features
@@ -163,13 +163,13 @@ void setup()
     EEPROM.get(sizeof(unsigned long)*0, EEPROM_lPowerCount0);
     EEPROM.get(sizeof(unsigned long)*1, EEPROM_lPowerCount1);
     if (EEPROM_lPowerCount0 != EEPROM_lPowerCount1) {  // setup-up reset
-        EEPROM_lPowerCount0 = 0; EEPROM_lPowerCount1 = 0;  // *NOPAD*
+        EEPROM_lPowerCount0 = 0;
+        EEPROM_lPowerCount1 = 0;
     }
     // https://forum.arduino.cc/index.php?topic=232362.0
     if (RAM_lRebootCount0 != RAM_lRebootCount1) {      // power-up reset
-// *INDENT-OFF*
-        RAM_lRebootCount0 = 0; RAM_lRebootCount1 = 0;
-// *INDENT-ON*
+        RAM_lRebootCount0 = 0;
+        RAM_lRebootCount1 = 0;
         //++EEPROM_lPowerCount0; ++EEPROM_lPowerCount1;
         ++EEPROM_lPowerCount1;
         //EEPROM.put(sizeof(unsigned long)*0, EEPROM_lPowerCount0);
@@ -187,7 +187,8 @@ void setup()
     SeeedGrayOled.setTextXY(9,6);
     SeeedGrayOled.putString("R: ");
     SeeedGrayOled.putNumber(RAM_lRebootCount0);
-    ++RAM_lRebootCount0; ++RAM_lRebootCount1;
+    ++RAM_lRebootCount0;
+    ++RAM_lRebootCount1;
 
     pinMode(pin_led, OUTPUT);
 
@@ -248,8 +249,7 @@ void loop()
             //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column
             //SeeedGrayOled.putNumber(display_mode);
 
-            switch (display_mode)  // changes mode only for newly/periodically printed stuff
-            {
+            switch (display_mode) {  // changes mode only for newly/periodically printed stuff
             case 1:
                 SeeedGrayOled.setInverseDisplay();    // Set display to inverse mode
                 SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_On_Cmd);
@@ -300,11 +300,11 @@ bool blinking(void)
     static uint32_t nextMillis  = millis();     // will store next time LED will updated
 
     if (millis() > nextMillis) {
-        if (millis() > (time_last_update + 180000))  // no update for >180'000ms = 3min
         //if (nextMillis > (time_last_update + 180000))  // (would be faster...)
-          interval = FREQ_BLINK_ERR;        // ERR: interval at which to blink (milliseconds)
+        if (millis() > (time_last_update + 180000))  // no update for >180'000ms = 3min
+            interval = FREQ_BLINK_ERR;        // ERR: interval at which to blink (milliseconds)
         else
-          interval = FREQ_BLINK_OK;         //  OK: interval at which to blink (milliseconds)
+            interval = FREQ_BLINK_OK;         //  OK: interval at which to blink (milliseconds)
 
         nextMillis += interval;             // save the next time you blinked the LED
         static uint8_t ledState = LOW;      // ledState used to set the LED
