@@ -139,10 +139,8 @@ script:
   - $PWD/oclint-0.10.3/bin/oclint $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 >> $FILE.oclint
 #  - $PWD/oclint-0.10.3/bin/oclint -o oclint.log src/src.ino -- -c  # oclint for arduino; https://github.com/richelbilderbeek/travis_cpp_tutorial/blob/master/statuses.md
 #  - clang -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE &>> $FILE.clang-sanitize
-  - clang++ -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE -lwiringPi -lpthread -lcrypt -lm -lrt
-  - clang++ -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE
-  - clang -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 -lwiringPi -lpthread -lcrypt -lm -lrt $FILE
-  - clang -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE
+  - clang++ -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE -lwiringPi -lpthread -lcrypt -lm -lrt -lstdc++
+  - clang -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE -lwiringPi -lpthread -lcrypt -lm -lrt -lstdc++
   - source ~/virtualenv/python2.7/bin/activate
   ## Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
