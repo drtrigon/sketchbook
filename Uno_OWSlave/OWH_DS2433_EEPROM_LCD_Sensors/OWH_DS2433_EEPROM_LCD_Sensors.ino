@@ -1,45 +1,69 @@
-/*
-*    Example-Code that emulates a DS2433 4096 bits EEPROM
-*
-*   Tested with
-*    - DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
-*
-*    OneWireHub_config.h:
-*    - need to increase ONEWIRE_TIME_MSG_HIGH_TIMEOUT to 150000_us (x10):
-*      //constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 15000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
-*      constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };        // there can be these inactive / high timeperiods after reset / presence, this value defines the timeout for these
-*    - (last compiled with HUB_SLAVE_LIMIT set to 8):
-*      #define HUB_SLAVE_LIMIT     8 // set the limit of the hub HERE, max is 32 devices
-*/
-/*
-*    1wire LCD/OLED Display
-*
-*   In order to make it work with my 1wire network
-*   (Raspberry Pi Server with iButton LinkHub-E) I need
-*   to adopt 'libraries/OneWireHub/OneWireHub_config.h'
-*    ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };
-*   this is 10x the default value (may be smaller works too).
-*
-*   Grove Shield I2C/Wire:
-*    GND GND   black
-*    VCC  5V   red
-*    SDA  A4   white
-*    SCL  A5   yellow
-*
-*   See also:
-*    http://www.seeedstudio.com/wiki/Grove_-_OLED_Display_1.12%22
-*    http://www.seeedstudio.com/wiki/File:Stem-diagram-sign.jpg
-*
-*   Test from Raspberry Pi Server:
-*    ursin@ThinkPad-T440-ursin:~$ ssh pi@192.168.11.41
-*    ...
-*    pi@raspberrypi ~ $ /opt/owfs/bin/owwrite 2D.00003124DA00/memory 'hallo LEA!'
-*    pi@raspberrypi ~ $ /opt/owfs/bin/owget 2D.00003124DA00/memory
-*
-*    Button: Pin2 to GND (with internal pullup)
-*
-*    Needs for compilation Arduino IDE >= 1.8.3 !!!
-*/
+/**
+ * @brief Code that emulates a 1wire LCD/OLED Display (DS2433 4096 bits EEPROM)
+ *
+ * @file Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+ *
+ * @author drtrigon
+ * @date 2018-06-21
+ * @version 1.1
+ *   @li add led feedback indicating missing update for more than 3 mins.
+ *       confer FREQ_BLINK_OK and FREQ_BLINK_ERR
+ * @version 1.0
+ *   @li add supply voltage and chip temperature sensors
+ *   @li first version providing all basic features
+ *
+ * @see http://www.seeedstudio.com/wiki/Grove_-_OLED_Display_1.12%22
+ * @see http://www.seeedstudio.com/wiki/File:Stem-diagram-sign.jpg
+ * @see http://www.instructables.com/id/Arduino-1-wire-Display-144-Chars/
+ *
+ * @verbatim
+ * OneWireHub library compilation for v2.2.0:
+ *   Needs for compilation Arduino IDE version >= 1.8.3 due to used syntax.
+ * OneWireHub library settings for v2.2.0:
+ *   In order to make OneWireHub library v2.2.0 work properly with my 1wire network
+ *   (Raspberry Pi Server with iButton LinkHub-E) I need to adopt
+ *     'libraries/OneWireHub/OneWireHub_config.h':
+ *       constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };
+ *     this is 10x the default value (may be smaller works too).
+ *     @see https://github.com/orgua/OneWireHub/issues/43
+ *   Optionally we can also change
+ *     'libraries/OneWireHub/OneWireHub_config.h':
+ *       #define HUB_SLAVE_LIMIT     8
+ *     as we need only 3 slots and the lower the value the faster are responses.
+ *   These settings might cause issues with other sketches - be aware of that.
+ *
+ * Pinout:
+ *   OLED (Grove Shield I2C/Wire):
+ *     1: GND black     -> Arduino GND
+ *     2: VCC red       -> Arduino 5V
+ *     3: SDA white     -> Arduino Pin A4
+ *     4: SCL yellow    -> Arduino Pin A5
+ *   Status LED:
+ *        STATUS LED    -> Arduino Pin D13
+ *                      -> Arduino GND via 4.7k resistor eg.
+ *   Control Buttons or Switch:
+ *        RESET BTN     -> Arduino Pin RST
+ *                      -> Arduino GND
+ *        LCD MODE BTN  -> Arduino Pin D2 (internal pullup enabled)
+ *                      -> Arduino GND
+ *   1wire data bus (MicroLAN):
+ *        1WIRE DATA    -> Arduino Pin D8
+ *
+ * Test on Raspberry Pi Server using OWFS (owshell):
+ *   $ /opt/owfs/bin/owwrite 2D.00003124DA00/memory 'hello world!'
+ *   $ /opt/owfs/bin/owget 2D.00003124DA00/memory
+ *
+ * Tested with:
+ *   - 1wire LCD/OLED Display:
+ *     LinkHubE-Master, atmega328@16MHz (Arduino Uno) as Slave
+ *   - OneWire HubDS2433 4096 bits EEPROM:
+ *     DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
+ *
+ * Thanks to:
+ * orgua - OneWireHub OneWire slave device emulator
+ *         @see https://github.com/orgua/OneWireHub
+ * @endverbatim
+ */
 
 #include "OneWireHub.h"
 #include "DS2433.h"
@@ -51,6 +75,10 @@
 // https://bigdanzblog.wordpress.com/2014/10/24/arduino-watchdog-timer-wdt-example-code/
 #include <avr/wdt.h>    // watchdog
 #include <EEPROM.h>
+
+#define FREQ_BLINK_OK   2000  // fast blink 0.5 Hz all OK
+#define FREQ_BLINK_ERR  4000  // slow blink 0.25 Hz no update for >3min
+                              // hint: bigger interval makes the 1wire bus more responsive
 
 constexpr uint8_t pin_onewire   { 8 };
 constexpr uint8_t pin_led       { 13 };
@@ -64,6 +92,8 @@ unsigned long RAM_lRebootCount0 __attribute__ ((section (".noinit")));  // these
 unsigned long RAM_lRebootCount1 __attribute__ ((section (".noinit")));  // copy for checksum (power-up detection)
 unsigned long EEPROM_lPowerCount0;                                      // these variables retain uncanged in eeprom during power-cycle
 unsigned long EEPROM_lPowerCount1;                                      // copy for checksum (first use detection)
+
+unsigned long time_last_update;
 
 auto hub = OneWireHub(pin_onewire);
 auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);  // LCD/OLED
@@ -104,7 +134,7 @@ void setup()
     SeeedGrayOled.putString(stringOne.c_str());
 
     SeeedGrayOled.setTextXY(2,0);
-    SeeedGrayOled.putString("Version: 1");
+    SeeedGrayOled.putString("Version: 1.1");
 
     SeeedGrayOled.setTextXY(3,0);
     SeeedGrayOled.putString("OWHub: 2.2.0");
@@ -132,14 +162,14 @@ void setup()
     // https://www.arduino.cc/en/Reference/EEPROM
     EEPROM.get(sizeof(unsigned long)*0, EEPROM_lPowerCount0);
     EEPROM.get(sizeof(unsigned long)*1, EEPROM_lPowerCount1);
-    if (EEPROM_lPowerCount0 != EEPROM_lPowerCount1)  // setup-up reset
-    {
-        EEPROM_lPowerCount0 = 0; EEPROM_lPowerCount1 = 0;
+    if (EEPROM_lPowerCount0 != EEPROM_lPowerCount1) {  // setup-up reset
+        EEPROM_lPowerCount0 = 0; EEPROM_lPowerCount1 = 0;  // *NOPAD*
     }
     // https://forum.arduino.cc/index.php?topic=232362.0
-    if (RAM_lRebootCount0 != RAM_lRebootCount1)      // power-up reset
-    {
+    if (RAM_lRebootCount0 != RAM_lRebootCount1) {      // power-up reset
+// *INDENT-OFF*
         RAM_lRebootCount0 = 0; RAM_lRebootCount1 = 0;
+// *INDENT-ON*
         //++EEPROM_lPowerCount0; ++EEPROM_lPowerCount1;
         ++EEPROM_lPowerCount1;
         //EEPROM.put(sizeof(unsigned long)*0, EEPROM_lPowerCount0);
@@ -170,7 +200,7 @@ void setup()
     hub.attach(ds18b0);
     hub.attach(ds18b1);
 
-/*    // Test-Cases: the following code is just to show basic functions, can be removed any time
+    /*// Test-Cases: the following code is just to show basic functions, can be removed any time
     Serial.println("Test Write Text Data to page 0");
     constexpr char memory[] = "abcdefg-test-data full ASCII:-?+";
     ds2433.writeMemory(reinterpret_cast<const uint8_t *>(memory),sizeof(memory),0x00);
@@ -192,11 +222,12 @@ void setup()
 
     delay(2000);
 
-    for(char i=0; i < 11 ; i++)
-    {
+    for(char i=0; i < 11 ; i++) {
         SeeedGrayOled.setTextXY(i,0);           //Set the cursor to (i+4)th line, 0th Column
         SeeedGrayOled.clearDisplay();           //clear the screen and set start position to top left corner
     }
+
+    time_last_update = millis();
 
     wdt_reset();
     wdt_enable(WDTO_8S);
@@ -209,8 +240,7 @@ void loop()
     hub.poll();
 
     // Blink triggers the state-change
-    if (blinking())
-    {
+    if (blinking()) {
         // Keep in mind the pull-up means the pushbutton's logic is inverted. It goes
         // HIGH when it's open, and LOW when it's pressed.
         if (digitalRead(pin_button) == LOW) {
@@ -220,32 +250,32 @@ void loop()
 
             switch (display_mode)  // changes mode only for newly/periodically printed stuff
             {
-                case 1:
-                    SeeedGrayOled.setInverseDisplay();    // Set display to inverse mode
-                    SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_On_Cmd);
-                    break;
-                case 2:
-                    SeeedGrayOled.setNormalDisplay();    // Set display to inverse mode
-                    SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_Off_Cmd);
-                    break;
-                default:
-                    SeeedGrayOled.setNormalDisplay();       //Set display to Normal mode
-                    SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_On_Cmd);
-                    break;
+            case 1:
+                SeeedGrayOled.setInverseDisplay();    // Set display to inverse mode
+                SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_On_Cmd);
+                break;
+            case 2:
+                SeeedGrayOled.setNormalDisplay();     // Set display to inverse mode
+                SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_Off_Cmd);
+                break;
+            default:
+                SeeedGrayOled.setNormalDisplay();     //Set display to Normal mode
+                SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_On_Cmd);
+                break;
             }
         }
 
         // pages are 32 bytes each, but we read in blocks of 12 byte due to the LCD
-        for(char i=0; i < 12 ; i++)
-        {
+        for(char i=0; i < 12 ; i++) {
             //SeeedGrayOled.setTextXY(0,1);           //Set the cursor to (i+4)th line, 0th Column
             //SeeedGrayOled.putNumber(i);
             ds2433.readMemory(mem_read, 12, i*12);
             //SeeedGrayOled.setTextXY(0,2);           //Set the cursor to (i+4)th line, 0th Column
             //SeeedGrayOled.putNumber(i);
-            if(memcmp(mem_read, &mem_buffer[i*12], 12) != 0)  // update display on change only otherwise 1wire becomes unresponsive due to slow output!!
-            {
+            if(memcmp(mem_read, &mem_buffer[i*12], 12) != 0) {  // update display on change only otherwise 1wire becomes unresponsive due to slow output!!
                 wdt_reset();
+
+                time_last_update = millis();
 
                 //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column
                 //SeeedGrayOled.putNumber(i);
@@ -266,11 +296,16 @@ void loop()
 
 bool blinking(void)
 {
-    const  uint32_t interval    = 2000;          // interval at which to blink (milliseconds)
+    static uint32_t interval    = FREQ_BLINK_OK; // interval at which to blink (milliseconds)
     static uint32_t nextMillis  = millis();     // will store next time LED will updated
 
-    if (millis() > nextMillis)
-    {
+    if (millis() > nextMillis) {
+        if (millis() > (time_last_update + 180000))  // no update for >180'000ms = 3min
+        //if (nextMillis > (time_last_update + 180000))  // (would be faster...)
+          interval = FREQ_BLINK_ERR;        // ERR: interval at which to blink (milliseconds)
+        else
+          interval = FREQ_BLINK_OK;         //  OK: interval at which to blink (milliseconds)
+
         nextMillis += interval;             // save the next time you blinked the LED
         static uint8_t ledState = LOW;      // ledState used to set the LED
         if (ledState == LOW)    ledState = HIGH;
@@ -281,55 +316,63 @@ bool blinking(void)
     return 0;
 }
 
-/********************************************************************************
-    Accessing the secret voltmeter on the Arduino 168 or 328
-    http://code.google.com/p/tinkerit/wiki/SecretVoltmeter
-********************************************************************************/
-long readVcc() {
-  long result;
-  // Read 1.1V reference against AVcc
-  ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
-  delay(2); // Wait for Vref to settle
-  ADCSRA |= _BV(ADSC); // Convert
-  while (bit_is_set(ADCSRA,ADSC));
-  result = ADCL;
-  result |= ADCH<<8;
-  result = 1126400L / result; // Back-calculate AVcc in mV
-  return result;
+/**
+ *  Accessing the secret voltmeter on the Arduino 168 or 328.
+ *
+ * @see loop()
+ * @see http://code.google.com/p/tinkerit/wiki/SecretVoltmeter
+ * @return The supply voltage in [mV]
+ */
+long readVcc()
+{
+    long result;
+    // Read 1.1V reference against AVcc
+    ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
+    delay(2); // Wait for Vref to settle
+    ADCSRA |= _BV(ADSC); // Convert
+    while (bit_is_set(ADCSRA,ADSC));
+    result = ADCL;
+    result |= ADCH<<8;
+    result = 1126400L / result; // Back-calculate AVcc in mV
+    return result;
 }
 
-/********************************************************************************
-    Internal Temperature Sensor for ATmega328 types
-    https://playground.arduino.cc/Main/InternalTemperatureSensor
-********************************************************************************/
+/**
+ *  Internal Temperature Sensor for ATmega328 types.
+ *
+ * @param void
+ * @see loop()
+ * @see https://playground.arduino.cc/Main/InternalTemperatureSensor
+ * @return The chip temperature in [°C]
+ */
 double GetTemp(void)
 {
-  unsigned int wADC;
-  double t;
+    unsigned int wADC;
+    double t;
 
-  // The internal temperature has to be used
-  // with the internal reference of 1.1V.
-  // Channel 8 can not be selected with
-  // the analogRead function yet.
+    // The internal temperature has to be used
+    // with the internal reference of 1.1V.
+    // Channel 8 can not be selected with
+    // the analogRead function yet.
 
-  // Set the internal reference and mux.
-  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
-  ADCSRA |= _BV(ADEN);  // enable the ADC
+    // Set the internal reference and mux.
+    ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
+    ADCSRA |= _BV(ADEN);  // enable the ADC
 
-  delay(20);            // wait for voltages to become stable.
+    delay(20);            // wait for voltages to become stable.
 
-  ADCSRA |= _BV(ADSC);  // Start the ADC
+    ADCSRA |= _BV(ADSC);  // Start the ADC
 
-  // Detect end-of-conversion
-  while (bit_is_set(ADCSRA,ADSC));
+    // Detect end-of-conversion
+    while (bit_is_set(ADCSRA,ADSC));
 
-  // Reading register "ADCW" takes care of how to read ADCL and ADCH.
-  wADC = ADCW;
+    // Reading register "ADCW" takes care of how to read ADCL and ADCH.
+    wADC = ADCW;
 
-  // The offset of 324.31 could be wrong. It is just an indication.
-//  t = (wADC - 324.31 ) / 1.22;
-  t = (wADC - 330.81 ) / 1.22;    // Arduino Uno R3 (mega328)
+    // The offset of 324.31 could be wrong. It is just an indication.
+//    t = (wADC - 324.31 ) / 1.22;
+    t = (wADC - 330.81 ) / 1.22;    // Arduino Uno R3 (mega328)
 
-  // The returned temperature is in degrees Celsius.
-  return (t);
+    // The returned temperature is in degrees Celsius.
+    return (t);
 }
