@@ -104,7 +104,7 @@ auto ds18b1 = DS18B20(0x28, 0x01, 0x00, 0x33, 0x24, 0xDA, 0x00);                
 bool blinking(void);
 
 /**
- *  put your setup code here, to run once:
+ *  Arduino IDE: put your setup code here, to run once.
  */
 void setup()
 {
@@ -238,7 +238,7 @@ void setup()
 }
 
 /**
- *  put your main code here, to run repeatedly:
+ *  Arduino IDE: put your main code here, to run repeatedly.
  */
 void loop()
 {
