@@ -76,13 +76,13 @@ script:
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   #- astyle  --style=allman  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style)) || true  # allman=ansi
   #- astyle  --style=horstmann  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
-  - astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=4  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Uno_N64_Controller_Pak_Reader
   - FILE=$PWD/Uno_N64_Controller_Pak_Reader/Uno_N64_Controller_Pak_Reader.ino
   - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Uno_N64_Controller_Pak_Reader.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
-  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## MultiWii_2_4/MultiWii
   - FILE=$PWD/MultiWii_2_4/MultiWii/MultiWii.ino
   #- mkdir $PWD/src && ln -s $FILE $PWD/src/sketch.ino && ino build -m uno && readelf -a $PWD/.build/uno/firmware.elf || true
@@ -90,7 +90,7 @@ script:
   - ELF_FILE=`find /tmp/ -name "MultiWii.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
 # vvv test result ignored since not good yet - remove " || true #" to enable again vvv
-  - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style || true # && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=4  --indent-preproc-block  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style || true # && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
 # ^^^ test result ignored since not good yet - remove " || true #" to enable again ^^^
   ## N64TinyUSB (cli/n64dual_tiny45)
   - FILE=$PWD/cli/n64dual_tiny45/main.hex
@@ -100,38 +100,38 @@ script:
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - avr-objdump -x -D -S $FILE.elf  >> $FILE.dis
   # (1.) should test a folder but (2.) we did not change a single byte
-  #- astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  #- astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Helvetiny_Blink_CDC
   - FILE=$PWD/Helvetiny_Blink_CDC/Helvetiny_Blink_CDC.ino
   - arduino --verify --board digistump:avr:digispark-tiny --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Helvetiny_Blink_CDC.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
-  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer
   - FILE=$PWD/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino
   #- arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=8internal,eesave=aenable,bod=disable --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=16pll,eesave=aenable,bod=disable --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
-  - astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=4  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Uno_OWPJON_Test/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate
   - FILE=$PWD/Uno_OWPJON_Test/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/Surrogate.ino
   - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Surrogate.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
-  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver
   - FILE=$PWD/Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
   - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Receiver.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
-  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter
   - FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp
   - pushd $PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/ && make && popd
   - ELF_FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
-  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   - clang-tidy $FILE -checks=*,-clang-analyzer-alpha.* -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 &>> $FILE.clang
   - $PWD/oclint-0.10.3/bin/oclint $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 >> $FILE.oclint
 #  - $PWD/oclint-0.10.3/bin/oclint -o oclint.log src/src.ino -- -c  # oclint for arduino; https://github.com/richelbilderbeek/travis_cpp_tutorial/blob/master/statuses.md
