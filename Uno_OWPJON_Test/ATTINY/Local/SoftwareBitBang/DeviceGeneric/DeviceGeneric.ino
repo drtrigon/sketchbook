@@ -1,7 +1,7 @@
 /*
  *    Example-Code for a generic Device (e.g. Sensor, Display)
  *    (OneWire PJON Generic "OWPG")
- *    
+ *
  *    Use eg. together:
  *      Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
  *      Uno_OWPJON_Test/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate
@@ -37,7 +37,7 @@ uint8_t mem_buffer[16];
 // https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
 #define PJON_INCLUDE_SWBB true // Include only SoftwareBitBang
 // Max 10 characters packet (including overhead)
-//#define PJON_PACKET_MAX_LENGTH 10 
+//#define PJON_PACKET_MAX_LENGTH 10
 #define PJON_PACKET_MAX_LENGTH 30
 // Avoid using packet buffer
 #define PJON_MAX_PACKETS        0
@@ -70,39 +70,45 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
   Serial.println(payload, HEX);
 #endif
   switch (payload[0]) {
-  // example on how to binary serialize using casting
-  // (for human readable format JSON can be used if needed)
+    // example on how to binary serialize using casting
+    // (for human readable format JSON can be used if needed)
   case READ_INFO: {
     // char arrays (string) can be passed directly ...
     //bus.reply(SENSOR, strlen(SENSOR));
     //bus.send_packet_blocking(45, SENSOR, strlen(SENSOR));
     bus.send_packet(45, SENSOR, strlen(SENSOR));
-    } break;
+  }
+  break;
   case READ_VCC: {
     // ... other types can be sent by casting its pointer to (char*) ...
     // ... and multiple variables can be sent at once using struct or union.
     // (for most of the values float should be suitable)
     float val = readVcc();
     bus.send_packet(45, (char*)(&val), sizeof(float));
-    } break;
+  }
+  break;
   case READ_TEMP: {
     float val = readTemp();
     bus.send_packet(45, (char*)(&val), sizeof(float));
-    } break;
+  }
+  break;
   case READ: {
 //    bus.reply((char*)mem_buffer, sizeof(mem_buffer));
     bus.send_packet(45, (char*)mem_buffer, 14);
-    } break;
+  }
+  break;
   case WRITE: {
     uint8_t val = length-1;
     memcpy(&mem_buffer[0], &payload[1], val);
     bus.send_packet(45, (char*)(&val), sizeof(uint8_t));
-    } break;
+  }
+  break;
   case WRITE_CAL: {
     float val = *((float*)&payload[1]);  // takes the next 4 bytes
     val = val + 1.1;
     bus.send_packet(45, (char*)(&val), sizeof(float));
-    } break;
+  }
+  break;
   default:
     // nop
     break;
@@ -131,26 +137,26 @@ void loop()
 float readVcc()
 {
 #ifdef ENABLE_UNITTEST
-    return 3.7;
+  return 3.7;
 #endif
-    //reads internal 1V1 reference against VCC
-    ADMUX = _BV(MUX3) | _BV(MUX2); // For ATtiny85/45
-    //ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
-    delay(10); // Wait for Vref to settle
-    ADCSRA |= _BV(ADSC); // Convert
-    while (bit_is_set(ADCSRA, ADSC));
-    //uint8_t low = ADCL;
-    //unsigned int val = (ADCH << 8) | low;
-    unsigned int val = ADC;
-    //discard previous result
-    ADCSRA |= _BV(ADSC); // Convert
-    while (bit_is_set(ADCSRA, ADSC));
-    //low = ADCL;
-    //val = (ADCH << 8) | low;
-    val = ADC;
+  //reads internal 1V1 reference against VCC
+  ADMUX = _BV(MUX3) | _BV(MUX2); // For ATtiny85/45
+  //ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
+  delay(10); // Wait for Vref to settle
+  ADCSRA |= _BV(ADSC); // Convert
+  while (bit_is_set(ADCSRA, ADSC));
+  //uint8_t low = ADCL;
+  //unsigned int val = (ADCH << 8) | low;
+  unsigned int val = ADC;
+  //discard previous result
+  ADCSRA |= _BV(ADSC); // Convert
+  while (bit_is_set(ADCSRA, ADSC));
+  //low = ADCL;
+  //val = (ADCH << 8) | low;
+  val = ADC;
 
-    //return ((long)1024 * 1100) / val;
-    return ((float)1024 * 1.1) / val;
+  //return ((long)1024 * 1100) / val;
+  return ((float)1024 * 1.1) / val;
 }
 
 /**
@@ -165,31 +171,31 @@ float readVcc()
 float readTemp(void)
 {
 #ifdef ENABLE_UNITTEST
-    return 42.42;
+  return 42.42;
 #endif
-//    ADCSRA &= ~(_BV(ADATE) |_BV(ADIE)); // Clear auto trigger and interrupt enable
-//    ADCSRA |= _BV(ADEN);                // Enable AD and start conversion
-    //ADMUX = (1<<REFS0) | (1<<REFS1) | (1<<MUX3); //turn 1.1V reference and select ADC8
-    ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
-    delay(10); //wait for internal reference to settle
-    // start the conversion
-    ADCSRA |= bit(ADSC);
-    //sbi(ADCSRA, ADSC);
-    // ADSC is cleared when the conversion finishes
-    while (ADCSRA & bit(ADSC));
-    //while (bit_is_set(ADCSRA, ADSC));
-    //uint8_t low  = ADCL;
-    //uint8_t high = ADCH;
-    int a = ADC;
-    //discard first reading
-    ADCSRA |= bit(ADSC);
-    while (ADCSRA & bit(ADSC));
-    //low  = ADCL;
-    //high = ADCH;
-    //a = (high << 8) | low;
-    a = ADC;
-    //ADCSRA &= ~(_BV(ADEN));        // disable ADC
-    // Temperature compensation using the chip voltage would go here
-    //return a - 272; //return temperature in C
-    return(((float)a + TEMP_OFFSET) / TEMP_COEFF);
+//  ADCSRA &= ~(_BV(ADATE) |_BV(ADIE)); // Clear auto trigger and interrupt enable
+//  ADCSRA |= _BV(ADEN);                // Enable AD and start conversion
+  //ADMUX = (1<<REFS0) | (1<<REFS1) | (1<<MUX3); //turn 1.1V reference and select ADC8
+  ADMUX = 0xF | _BV( REFS1 );         // ADC4 (Temp Sensor) and Ref voltage = 1.1V;
+  delay(10); //wait for internal reference to settle
+  // start the conversion
+  ADCSRA |= bit(ADSC);
+  //sbi(ADCSRA, ADSC);
+  // ADSC is cleared when the conversion finishes
+  while (ADCSRA & bit(ADSC));
+  //while (bit_is_set(ADCSRA, ADSC));
+  //uint8_t low  = ADCL;
+  //uint8_t high = ADCH;
+  int a = ADC;
+  //discard first reading
+  ADCSRA |= bit(ADSC);
+  while (ADCSRA & bit(ADSC));
+  //low  = ADCL;
+  //high = ADCH;
+  //a = (high << 8) | low;
+  a = ADC;
+  //ADCSRA &= ~(_BV(ADEN));        // disable ADC
+  // Temperature compensation using the chip voltage would go here
+  //return a - 272; //return temperature in C
+  return(((float)a + TEMP_OFFSET) / TEMP_COEFF);
 }

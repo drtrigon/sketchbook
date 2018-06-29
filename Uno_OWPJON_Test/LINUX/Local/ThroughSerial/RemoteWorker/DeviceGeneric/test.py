@@ -166,16 +166,13 @@ def get_sensor_type():
 
 if __name__ == '__main__':
     print("unittest for OWPJON devices")
+    print("usage: %s [device-test]\noptions for device-test:" % sys.argv[0])
+    for k in locals().keys():
+        if ("Test" in k) and (locals()[k].SENSOR):
+            print("  %s" % locals()[k].SENSOR)
     if (len(sys.argv) < 2):
         sensor_type = get_sensor_type()
     else:
-#        if ("test_%s" % sys.argv[1].replace(":", "_") in locals()):
-#            locals()["test_%s" % sensor.replace(":", "_")]()
-#        else:
-#            print("usage: %s [device-test]\noptions for device-test:" % sys.argv[0])
-#            for k in locals().keys():
-#                if "test_owp_" in k:
-#                    print("  %s" % k)
         sensor_type = sys.argv[1]
     print("type: %s\n" % sensor_type)
     del sys.argv[1:]

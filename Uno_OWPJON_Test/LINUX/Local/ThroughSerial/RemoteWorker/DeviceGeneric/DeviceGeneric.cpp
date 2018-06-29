@@ -84,7 +84,7 @@ void loop()
 //  }
 }
 
-int main(int argc, char* argv[]) // or char** argv 
+int main(int argc, char* argv[]) // or char** argv
 {
   // Welcome to RemoteWorker 1 (Transmitter)
 //  bus.strategy.link.set_id(bus.device_id());
