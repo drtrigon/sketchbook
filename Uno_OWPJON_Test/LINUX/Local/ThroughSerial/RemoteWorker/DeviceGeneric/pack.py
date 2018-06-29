@@ -1,3 +1,5 @@
+#!/usr/bin/python
+
 # For more info and further examples see test.py and README.md.
 
 import sys
