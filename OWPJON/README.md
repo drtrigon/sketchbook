@@ -66,6 +66,9 @@ Slaves: ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
         ATTINY/Local/SoftwareBitBang/DeviceGeneric/
         (Yun, SWBB pin12)
 
+Notes: - the attiny code uses 5554 bytes (67%) compiled (may be less with LTO), see
+         https://github.com/drtrigon/sketchbook/blob/result/docu/OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino.compile#L55
+
 The program `owpshell` (DeviceGeneric) allows e.g. shell/command line
 access to the bus (similar to owshell read and write funcs). That can
 also be used from collectd e.g. It supports passing of data as command
@@ -136,7 +139,6 @@ Further possible schemes (productive system):
 ```
 
 Notes: - Setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
-       - Make attiny85 code small (uses 8282 bytes for pjon only - no other code)
        - Arduino+ETH can be replaced by ESP8266 (3.3<->5.0v shifting might be needed, may be not) but needs GlobalUDP (LUDP would be nice)
        - Arduino+ETH could be replaced by Arduino Yun, if PJON LUDP would support Yun
        - Server and Master might be joined (linuxpc/raspi + Arduino+ETH) into a Raspi(Zero) with wifi (3.3<->5.0v shifting?)

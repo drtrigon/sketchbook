@@ -41,7 +41,6 @@ uint8_t mem_buffer[16];
 #define PJON_PACKET_MAX_LENGTH 30
 // Avoid using packet buffer
 #define PJON_MAX_PACKETS        0
-// TODO: given params do not work and mine do not fit on tiny85 with 8282 bytes
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
