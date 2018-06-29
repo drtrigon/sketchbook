@@ -24,14 +24,7 @@
 // more can be added as needed ...
 // do not use 0x00 as this is the string terminator
 
-//uint8_t mem_buffer[255];
-
-//#define FREQ_BLINK_OK   2000  // fast blink 0.5 Hz all OK
-//#define FREQ_BLINK_ERR  4000  // slow blink 0.25 Hz no update for >3min
-//// hint: bigger interval makes the 1wire bus more responsive
-
 #define pin_onewire   12
-#define pin_led       13
 
 uint8_t mem_read[22];
 uint8_t mem_buffer[256];
