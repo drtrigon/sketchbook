@@ -125,11 +125,11 @@ code:
 
 ...
 
-### Uno_OWPJON_Test
+### OWPJON
 
 Has the potential to replace commercial 1-wire bus (by its SoftwareBitBang strategy).
 
-https://github.com/drtrigon/sketchbook/blob/master/Uno_OWPJON_Test/README.md
+https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
 
 * How to use ATTiny with crytal and PJON: https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
 * https://hackaday.com/2016/03/31/pjon-fancy-one-wire-arduino-communications-protocol-for-home-automation/
