@@ -120,10 +120,35 @@ script:
   - ELF_FILE=`find /tmp/ -name "Surrogate.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - $PWD/oclint-0.10.3/bin/oclint $FILE -- -c -I $PWD/libraries/PJON-11.0/src >> $FILE.oclint  # oclint for arduino; https://github.com/richelbilderbeek/travis_cpp_tutorial/blob/master/statuses.md
+  ## Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch
+  - FILE=$PWD/Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
+  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - ELF_FILE=`find /tmp/ -name "BlinkingSwitch.ino.elf"`
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver
   - FILE=$PWD/Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
   - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Receiver.ino.elf"`
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  ## Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric
+  - FILE=$PWD/Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
+  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - ELF_FILE=`find /tmp/ -name "DeviceGeneric.ino.elf"`
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  ## Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors
+  - FILE=$PWD/Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/OWP_DG_LCD_Sensors.ino
+  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - ELF_FILE=`find /tmp/ -name "OWP_DG_LCD_Sensors.ino.elf"`
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  ## Uno_OWPJON_Test/ATTINY/Local/SoftwareBitBang/DeviceGeneric
+  - FILE=$PWD/Uno_OWPJON_Test/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
+  - arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=16pll,eesave=aenable,bod=disable --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - ELF_FILE=`find /tmp/ -name "DeviceGeneric.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter
@@ -138,6 +163,24 @@ script:
 #  - $PWD/oclint-0.10.3/bin/oclint -o oclint.log src/src.ino -- -c  # oclint for arduino; https://github.com/richelbilderbeek/travis_cpp_tutorial/blob/master/statuses.md
   #- clang++ -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE -lwiringPi -lpthread -lcrypt -lm -lrt -lstdc++  # "valgrind" / also possible to use '-stdlib=...' insted of '-lstdc++'
   #- clang -fsanitize=memory -fno-omit-frame-pointer -g -O2 -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 $FILE -lwiringPi -lpthread -lcrypt -lm -lrt -lstdc++  # "valgrind" / also possible to use '-stdlib=...' insted of '-lstdc++'
+  ## Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
+  - FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+  - pushd $PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/ && make && popd
+  - ELF_FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/owpshell
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  #- astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))  # '--indent-preproc-block' and '--style=google' need astyle v3
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - clang-tidy $FILE -checks=*,-clang-analyzer-alpha.* -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 &>> $FILE.clang
+  - $PWD/oclint-0.10.3/bin/oclint $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 >> $FILE.oclint
+  ## Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric
+  - FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+  - pushd $PWD/Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/ && make && popd
+  - ELF_FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/owpshell
+  - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
+  #- astyle  --style=kr  --indent=spaces=2  --indent-preproc-block  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))  # '--indent-preproc-block' and '--style=google' need astyle v3
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - clang-tidy $FILE -checks=*,-clang-analyzer-alpha.* -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 &>> $FILE.clang
+  - $PWD/oclint-0.10.3/bin/oclint $FILE -- -DLINUX -I. -I $PWD/libraries/PJON-11.0/src -std=gnu++11 >> $FILE.oclint
   - source ~/virtualenv/python2.7/bin/activate
   ## Uno_OWSniffer
   - FILE=$PWD/Uno_OWSniffer/Uno_OWSniffer.py
@@ -146,6 +189,13 @@ script:
   - cat $FILE.style | flake8chart --chart-type=BAR --chart-output=$FILE.style.svg
   ## micpy/ESP8266_SHT31_WiFi_pseudoREST
   - FILE=$PWD/micpy/ESP8266_SHT31_WiFi_pseudoREST/*.py
+  - python -m py_compile $FILE  &>> $FILE.compile
+# vvv test result ignored since not good yet - remove " || true" to enable again vvv
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221,D202 $FILE  >> $FILE.style || true
+  - cat $FILE.style | flake8chart --chart-type=BAR --chart-output=$FILE.style.svg
+# ^^^ test result ignored since not good yet - remove " || true" to enable again ^^^
+  ## Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
+  - FILE=$PWD/Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/*.py
   - python -m py_compile $FILE  &>> $FILE.compile
 # vvv test result ignored since not good yet - remove " || true" to enable again vvv
   - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221,D202 $FILE  >> $FILE.style || true

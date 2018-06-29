@@ -149,11 +149,7 @@ https://github.com/drtrigon/sketchbook/blob/master/Uno_OWPJON_Test/README.md
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI_PJON/PJONModuleInterface.h#L14
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
-  * implement some but at least one own device ("weather station" or display)
-    * using ```PJONModuleInterface``` or MessagePack to serialize data (see also https://github.com/fredilarsen/ModuleInterface/issues/5#issuecomment-397955920)
-    * needing a simple but generic linux cli to send/receive values (like http://www.owfs.org/uploads/owdir.1.html.bak using ```WINDOWS_LINUX_LUDP\TestModuleMaster``` see https://github.com/fredilarsen/ModuleInterface/issues/5#issuecomment-397097751)
-  * test LUDP switch setup with Uno + ETH (replacing TS parts, see also ```BlinkingRGBSwitch```)
-  * implement at least one own device that fits to attiny85 - size currently 8282 bytes (pjon only!)
+  * moke code fitting to attiny85 - size currently 8282 bytes (pjon only - no other code!)
   * setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
   * test Yun (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
 

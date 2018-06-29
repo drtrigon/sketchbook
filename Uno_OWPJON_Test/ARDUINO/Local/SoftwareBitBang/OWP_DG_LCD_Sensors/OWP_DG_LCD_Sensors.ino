@@ -6,6 +6,10 @@
  *      Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
  *      Uno_OWPJON_Test/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate
  *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
+ *    or
+ *      Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+ *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+ *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
  *
  *    Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
  */

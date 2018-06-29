@@ -6,6 +6,10 @@
  *      Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
  *      Uno_OWPJON_Test/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate
  *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
+ *    or
+ *      Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+ *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+ *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
  *
  *    Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun), attiny85
  *    @see https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
@@ -37,7 +41,7 @@ uint8_t mem_buffer[16];
 #define PJON_PACKET_MAX_LENGTH 30
 // Avoid using packet buffer
 #define PJON_MAX_PACKETS        0
-// given params do not work and mine do not fit on tiny85 with 8282 bytes
+// TODO: given params do not work and mine do not fit on tiny85 with 8282 bytes
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
