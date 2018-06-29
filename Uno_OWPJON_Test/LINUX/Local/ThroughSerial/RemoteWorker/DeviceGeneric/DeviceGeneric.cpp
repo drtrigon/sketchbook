@@ -20,6 +20,9 @@ ETCP_SINGLE_DIRECTION is fastest and recommended if not on limited hardware.
 
 Ethernet strategies and related concepts are contributed by Fred Larsen.
 
+Example sending READ_INFO 0x01 to device id 44:
+$ printf "\x01" | sudo ./owpshell /dev/ttyACM0 9600 44
+
 Compile wiringPi using:
 $ git clone git://git.drogon.net/wiringPi
 $ cd wiringPi
