@@ -135,20 +135,25 @@ https://github.com/drtrigon/sketchbook/blob/master/Uno_OWPJON_Test/README.md
 * https://hackaday.com/2016/03/31/pjon-fancy-one-wire-arduino-communications-protocol-for-home-automation/
 * https://www.pjon.org/how.php
 * https://github.com/Girgitt/PJON-python ("In a basic scenario PJON + PJON-python can be a viable alternative to more complex protocols like Firmata [...]")
+  * use py++ and boost.python to automatically generate c++ python wrapper: http://www.flanusse.net/interfacing-c++-with-python.html
 * https://github.com/gioblu/PJON/issues/211, https://github.com/gioblu/PJON/pull/213
 * command set needs to be lightweight due to attiny etc., e.g. http://owfs.sourceforge.net/family.html
   * reset/preserve/search can be done with broadcast, see https://github.com/gioblu/PJON/wiki/Transmit-data
-  * need a compact data transfer format (for floats), see https://github.com/ludocode/mpack, https://github.com/HEADS-project/arduino_msgpack
-    * may be just use C++ structs and pack/unpack for python (endianess, may be string issue)
-    * serialization of ModuleInterface: https://github.com/fredilarsen/ModuleInterface/issues/5#issuecomment-397955920
-      * https://github.com/fredilarsen/ModuleInterface/blob/master/examples/SensorMonitor/SensorMonitor.ino#L31
-      * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI_PJON/PJONModuleInterface.h#L14
-      * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
+  * need a compact data transfer format (e.g. for floats)
+    * human readable (big!): JSON
+    * binary: C++ structs, other like ModuleInterface, MessagePack, etc.
+      * C++ structs and pack/unpack for python (endianess, may be string issue)
+      * MessagePack see https://github.com/ludocode/mpack, https://github.com/HEADS-project/arduino_msgpack
+      * serialization of ModuleInterface: https://github.com/fredilarsen/ModuleInterface/issues/5#issuecomment-397955920
+        * https://github.com/fredilarsen/ModuleInterface/blob/master/examples/SensorMonitor/SensorMonitor.ino#L31
+        * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI_PJON/PJONModuleInterface.h#L14
+        * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
   * implement some but at least one own device ("weather station" or display)
     * using ```PJONModuleInterface``` or MessagePack to serialize data (see also https://github.com/fredilarsen/ModuleInterface/issues/5#issuecomment-397955920)
     * needing a simple but generic linux cli to send/receive values (like http://www.owfs.org/uploads/owdir.1.html.bak using ```WINDOWS_LINUX_LUDP\TestModuleMaster``` see https://github.com/fredilarsen/ModuleInterface/issues/5#issuecomment-397097751)
   * test LUDP switch setup with Uno + ETH (replacing TS parts, see also ```BlinkingRGBSwitch```)
+  * implement at least one own device that fits to attiny85 - size currently 8282 bytes (pjon only!)
   * setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
   * test Yun (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
 
