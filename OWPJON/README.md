@@ -13,7 +13,6 @@ The SoftwareBitBang (SWBB) part is the OWPJON or 1wPJON bus.
 |               |           | SWBB pin 7    |   <--->   | SWBB pin 12 |
 | Server        |           | Master        |           | Slaves      |
 -----------------           -----------------           ---------------
-```
 
 Server: LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/
         (kubuntu 14.04, TS)
@@ -21,9 +20,13 @@ Master: ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/
         (Uno, TS, SWBB pin 7)
 Slaves: ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/
         (Yun, SWBB pin12)
+```
 
-Notes: - putting `bus.set_synchronous_acknowledge(false);` before `bus.begin();`
-         in both, the Receiver and the Transmitter makes TS run stable
+Notes:
+- putting `bus.set_synchronous_acknowledge(false);` before `bus.begin();`
+  in both, the Receiver and the Transmitter makes TS run stable
+- the terms "Master" and "Slave" might be missleading, as basically
+  communication between all devices in any direction is possible
 
 Arduino Uno and Yun can basically be any kind of AVR/Arduino (as supported
 by PJON), no special needs except for a serial-usb port on one of them.
@@ -55,7 +58,6 @@ is up to be improved).
 |               |           | SWBB pin 7    |   <--->   | SWBB pin 12 |
 | Server        |           | Master        |           | Slaves      |
 -----------------           -----------------           ---------------
-```
 
 Server: LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
         (kubuntu 14.04, TS)
@@ -65,9 +67,11 @@ Slaves: ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
         ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
         ATTINY/Local/SoftwareBitBang/DeviceGeneric/
         (Yun, SWBB pin12)
+```
 
-Notes: - the attiny code uses 5554 bytes (67%) compiled (may be less with LTO), see
-         https://github.com/drtrigon/sketchbook/blob/result/docu/OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino.compile#L55
+Notes:
+- the attiny code uses 5554 bytes (67%) compiled (may be less with LTO), see
+  https://github.com/drtrigon/sketchbook/blob/result/docu/OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino.compile#L55
 
 The program `owpshell` (DeviceGeneric) allows e.g. shell/command line
 access to the bus (similar to owshell read and write funcs). That can
@@ -113,13 +117,13 @@ Arduino Uno used as Master.
 |               |           | SWBB pin 7    |   <--->   | SWBB pin 12 |
 | Server        |           | Master        |           | Slaves      |
 -----------------           -----------------           ---------------
-```
 
 Server: LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
         (kubuntu 14.04, LUDP)
 Master: ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
         (Uno+EthernetShield W5100 based, LUDP, SWBB pin 7)
 Slaves: (all as mentioned before)
+```
 
 In this case the `owpshell` program works exactly the same except for the fact that it
 does not need any serial port info (and thus no sudo either):
@@ -138,8 +142,9 @@ Further possible schemes (productive system):
 -----------------           ---------------           ---------------
 ```
 
-Notes: - Setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
-       - Arduino+ETH can be replaced by ESP8266 (3.3<->5.0v shifting might be needed, may be not) but needs GlobalUDP (LUDP would be nice)
-       - Arduino+ETH could be replaced by Arduino Yun, if PJON LUDP would support Yun
-       - Server and Master might be joined (linuxpc/raspi + Arduino+ETH) into a Raspi(Zero) with wifi (3.3<->5.0v shifting?)
-       - LocalUDP could also be replaced by EthernetTCP but like GlobalUDP not so convenient
+Notes:
+- Setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
+- Arduino+ETH can be replaced by ESP8266 (3.3<->5.0v shifting might be needed, may be not) but needs GlobalUDP (LUDP would be nice)
+- Arduino+ETH could be replaced by Arduino Yun or even Dragino, if PJON LUDP would support Yun (needs Yun to support UDP)
+- Server and Master might be joined (linuxpc/raspi + Arduino+ETH) into a Raspi(Zero) with wifi (3.3<->5.0v shifting?)
+- LocalUDP could also be replaced by EthernetTCP but like GlobalUDP not so convenient

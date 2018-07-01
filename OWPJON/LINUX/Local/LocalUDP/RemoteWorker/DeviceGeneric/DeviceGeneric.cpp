@@ -86,7 +86,15 @@ int main(int argc, char* argv[]) // or char** argv
   bus.receive();
   // Success!
 
+  time_t timer0, timer1;
+  time(&timer0);  /* get current time; same as: timer = time(NULL)  */
+  time(&timer1);
+
   //while (true) loop();
-  while (!EXIT) loop();
+  //while (!EXIT) loop();
+  while ((!EXIT) && (difftime(timer1, timer0) < 5)) {
+    loop();
+    time(&timer1);
+  }
   return 0;
 }

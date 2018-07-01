@@ -149,11 +149,10 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI_PJON/PJONModuleInterface.h#L14
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
-  * moke code fitting to attiny85 - size currently 8282 bytes (pjon only - no other code!)
   * setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
-  * test Yun (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
-
-(What's the technical difference between Surrogate and Switch? Could I use PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> also for TS to SWBB?)
+  * test Yun/Dragino (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
+    * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
+    * https://forum.arduino.cc/index.php?topic=530659.0
 
 ### Uno_Programmer
 
