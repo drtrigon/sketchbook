@@ -23,6 +23,11 @@ Ethernet strategies and related concepts are contributed by Fred Larsen.
 
 Example sending READ_INFO 0x01 to device id 44:
 $ printf "\x01" | ./owpshell - - 44
+owp:dg:v1
+$ printf "\x11" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+4.771999835968018,
+$ printf "\x12" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+28.02459144592285,
 */
 
 #define PJON_INCLUDE_LUDP
@@ -31,7 +36,7 @@ $ printf "\x01" | ./owpshell - - 44
 // <Strategy name> bus(selected device id)
 PJON<LocalUDP> bus(45);
 
-bool EXIT = false;
+//bool EXIT = false;
 
 #define BLOCK_SIZE 256
 //uint8_t buffer[BLOCK_SIZE];
@@ -43,7 +48,7 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
   fwrite(payload, sizeof(char), length, stdout);
   printf("\n");  // print newline - causes also a flush
 
-  EXIT = true;
+//  EXIT = true;
 };
 
 void loop()
@@ -78,23 +83,42 @@ int main(int argc, char* argv[]) // or char** argv
     strcpy(buffer, argv[4]);
     l = strlen(argv[4]);
   }
-  //bus.send(argv[3][0], buffer, l);
-  bus.send(atoi(argv[3]), buffer, l);
-  // Attempting to roll bus...
-  bus.update();
-  // Attempting to receive from bus...
-  bus.receive();
-  // Success!
+  for(int i = 0; i < 3; ++i) {  // try 3 times (using timeout), then exit
+    //bus.send(argv[3][0], buffer, l);
+    bus.send(atoi(argv[3]), buffer, l);
+    // Attempting to roll bus...
+    bus.update();
+    // Attempting to receive from bus...
+    //bus.receive();
+    // Success!
 
-  time_t timer0, timer1;
-  time(&timer0);  /* get current time; same as: timer = time(NULL)  */
-  time(&timer1);
+//    time_t timer0, timer1;
+//    time(&timer0);  /* get current time; same as: timer = time(NULL)  */
 
-  //while (true) loop();
-  //while (!EXIT) loop();
-  while ((!EXIT) && (difftime(timer1, timer0) < 5)) {
-    loop();
-    time(&timer1);
+    //while (true) loop();
+    //while (!EXIT) loop();
+//    while (!EXIT) {
+//      loop();
+//      time(&timer1);
+//      EXIT = EXIT || (difftime(timer1, timer0) > 5.);  // 5s timeout
+//    }
+
+// TODO: use error handler callback
+    switch (bus.receive(5000000)) {  // 5s timeout
+    case PJON_ACK:
+      return 0;
+      break;
+    //case PJON_NAK:   // re-try; send data again
+    //  break;
+    //case PJON_BUSY:
+    //  // ...
+    //  break;
+    //case PJON_FAIL:
+    //  // ...
+    //  break;
+    default:
+      break;
+    }
   }
   return 0;
 }
