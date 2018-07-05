@@ -34,7 +34,8 @@
 // <Strategy name> bus(selected device id)
 PJON<AnalogSampling> bus(44);
 
-void setup() {
+void setup()
+{
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW); // Initialize LED 13 to be off
 
@@ -52,7 +53,8 @@ void setup() {
   Serial.begin(115200);
 };
 
-void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info) {
+void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+{
   /* Make use of the payload before sending something, the buffer where payload points to is
      overwritten when a new message is dispatched */
   if(payload[0] == 'B') {
@@ -63,10 +65,11 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
   }
 }
 
-void loop() {
+void loop()
+{
   bus.receive(1000);
 
-/*  Serial.print("Threshold: ");
+  /*Serial.print("Threshold: ");
   Serial.print(bus.strategy.threshold);
   Serial.print(" ");
   Serial.print((1.1 / (1023.0 / bus.strategy.threshold)) * 1000); // Convert threshold in mV

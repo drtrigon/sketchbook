@@ -27,7 +27,8 @@
 // <Strategy name> bus(selected device id)
 PJON<AnalogSampling> bus(45);
 
-void setup() {
+void setup()
+{
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW); // Initialize LED 13 to be off
 
@@ -44,7 +45,8 @@ void setup() {
   Serial.begin(115200);
 };
 
-void loop() {
+void loop()
+{
   if(bus.send_packet(44, "B",1) == PJON_ACK)
     digitalWrite(LED_BUILTIN, HIGH);
   delay(5);

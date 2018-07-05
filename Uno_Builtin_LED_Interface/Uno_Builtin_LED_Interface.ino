@@ -1,7 +1,7 @@
 /* Builtin LED Photodetector Test (LED can still be used)
  *
  * Connect LED Pin D13 to Analog Input Pin A0.
- * 
+ *
  * This code allows to use the LED additionally e.g. as a button.
  *
  * Caution: This is a weak signal (high impedance) measurement.
@@ -33,7 +33,7 @@
  *          Pin  5V       Pin 2         pins |56 |
  *          Pin GND       Pin 6              -----
  *       - select as programmer "Arduino as ISP",
- *                as board "Arduino/Genuino Micro" and 
+ *                as board "Arduino/Genuino Micro" and
  *                as port e.g. "/dev/ttyACM0"
  *       - run Tools > Burn Bootloader (on issues reset both)
  */
@@ -49,7 +49,8 @@
  * When it returns the BUILTIN LED pin is set to INPUT
  * and analogReference to DEFAULT (5V).
  */
-float readBrightness(int mode = DEFAULT) {
+float readBrightness(int mode = DEFAULT)
+{
   long value = 0;
   analogReference(mode);
   pinMode(LED_BUILTIN, INPUT);
@@ -74,12 +75,14 @@ float readBrightness(int mode = DEFAULT) {
   }
 }
 
-bool isBright() {
+bool isBright()
+{
   //return (readBrightness(INTERNAL) > 150.);  // max. ~219
   return (readBrightness(INTERNAL) > 190.);  // max. ~219
 }
 
-void setup() {
+void setup()
+{
   // initialize serial communications at 9600 bps:
   Serial.begin(9600);
   /*while (!Serial) {
@@ -91,7 +94,8 @@ void setup() {
   analogReference(DEFAULT);
 }
 
-void loop() {
+void loop()
+{
   // read the brightness from analog in
   Serial.println(readBrightness());
 //  Serial.println(isBright());

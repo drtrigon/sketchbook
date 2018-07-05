@@ -74,7 +74,7 @@ script:
   - ELF_FILE=`find /tmp/ -name "Uno_Builtin_LED_Interface.ino.elf"`
   #- readelf -a $ELF_FILE  >> $FILE.info; objdump -x $ELF_FILE  >> $FILE.info; nm $ELF_FILE || true  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
-  - astyle  --style=kr  --indent=spaces=4  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
+  - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
   - FILE=$PWD/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
   - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
@@ -166,13 +166,13 @@ script:
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## OWPJON/ARDUINO/Local/AnalogSampling/BlinkTest/Receiver
   - FILE=$PWD/OWPJON/ARDUINO/Local/AnalogSampling/BlinkTest/Receiver/Receiver.ino
-  - arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=16pll,eesave=aenable,bod=disable --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Receiver.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
   ## OWPJON/ARDUINO/Local/AnalogSampling/BlinkTest/Transmitter
   - FILE=$PWD/OWPJON/ARDUINO/Local/AnalogSampling/BlinkTest/Transmitter/Transmitter.ino
-  - arduino --verify --board ATTinyCore:avr:attinyx5:LTO=disable,TimerClockSource=default,chip=85,clock=16pll,eesave=aenable,bod=disable --verbose --preserve-temp-files $FILE  >> $FILE.compile
+  - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Transmitter.ino.elf"`
   - readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info
   - astyle  --style=kr  --indent=spaces=2  --verbose  $FILE  &>> $FILE.style && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
