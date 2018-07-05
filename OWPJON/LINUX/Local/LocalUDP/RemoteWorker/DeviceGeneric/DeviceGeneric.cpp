@@ -108,16 +108,6 @@ int main(int argc, char* argv[]) // or char** argv
     case PJON_ACK:
       return 0;
       break;
-      /*
-    case PJON_NAK:   // re-try; send data again
-      break;
-    case PJON_BUSY:
-      // ...
-      break;
-    case PJON_FAIL:
-      // ...
-      break;
-      */
 //    case PJON_NAK:   // re-try; send data again
 //      break;
 //    case PJON_BUSY:
