@@ -118,6 +118,14 @@ int main(int argc, char* argv[]) // or char** argv
       // ...
       break;
       */
+//    case PJON_NAK:   // re-try; send data again
+//      break;
+//    case PJON_BUSY:
+//      // ...
+//      break;
+//    case PJON_FAIL:
+//      // ...
+//      break;
     default:
       break;
     }
