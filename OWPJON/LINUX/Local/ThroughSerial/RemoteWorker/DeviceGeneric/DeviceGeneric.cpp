@@ -22,6 +22,11 @@ Ethernet strategies and related concepts are contributed by Fred Larsen.
 
 Example sending READ_INFO 0x01 to device id 44:
 $ printf "\x01" | sudo ./owpshell /dev/ttyACM0 9600 44
+owp:dg:v1
+$ printf "\x11" | sudo ./owpshell /dev/ttyACM0 9600 44 | unpack.py f
+4.771999835968018,
+$ printf "\x12" | sudo ./owpshell /dev/ttyACM0 9600 44 | unpack.py f
+28.02459144592285,
 
 Compile wiringPi using:
 $ git clone git://git.drogon.net/wiringPi
@@ -58,7 +63,7 @@ $ ./build
 //PJON<EthernetTCP> bus(45);
 PJON<ThroughSerial> bus(45);
 
-bool EXIT = false;
+//bool EXIT = false;
 
 #define BLOCK_SIZE 256
 //uint8_t buffer[BLOCK_SIZE];
@@ -69,7 +74,7 @@ static void receiver_function(uint8_t *payload, uint16_t length, const PJON_Pack
   fwrite(payload, sizeof(char), length, stdout);
   printf("\n");  // print newline - causes also a flush
 
-  EXIT = true;
+//  EXIT = true;
 };
 
 void loop()
@@ -100,7 +105,10 @@ int main(int argc, char* argv[]) // or char** argv
   uint32_t baud_rate = atoi(argv[2]);
   // Opening serial...
   int s = serialOpen(argv[1], baud_rate);
-  if(int(s) < 0) printf("Serial open fail!");
+  if(int(s) < 0) {
+    printf("Serial open fail!\n");
+    return 1;
+  }
   // Setting serial...
   bus.strategy.set_serial(s);
   bus.strategy.set_baud_rate(baud_rate);
@@ -120,15 +128,37 @@ int main(int argc, char* argv[]) // or char** argv
     strcpy(buffer, argv[4]);
     l = strlen(argv[4]);
   }
-  //bus.send(argv[3][0], buffer, l);
-  bus.send(atoi(argv[3]), buffer, l);
-  // Attempting to roll bus...
-  bus.update();
-  // Attempting to receive from bus...
-  bus.receive();
-  // Success!
+  for(int i = 0; i < 3; ++i) {  // try 3 times (using timeout), then exit
+    //bus.send(argv[3][0], buffer, l);
+    bus.send(atoi(argv[3]), buffer, l);
+    // Attempting to roll bus...
+    //bus.update();
+    // Attempting to receive from bus...
+    //bus.receive();
+    // Success!
 
-  //while (true) loop();
-  while (!EXIT) loop();
+    //while (true) loop();
+    //while (!EXIT) loop();
+
+    for(int j = 0; j < 5000; ++j) {  // do timeout 5000 times ~ 5s
+      bus.update();
+// TODO: use error handler callback
+      switch (bus.receive(1000)) {   // 1ms timeout
+      case PJON_ACK:
+        return 0;
+        break;
+//      case PJON_NAK:   // re-try; send data again
+//        break;
+//      case PJON_BUSY:
+//        // ...
+//        break;
+//      case PJON_FAIL:
+//        // ...
+//        break;
+      default:
+        break;
+      }
+    }
+  }
   return 0;
 }

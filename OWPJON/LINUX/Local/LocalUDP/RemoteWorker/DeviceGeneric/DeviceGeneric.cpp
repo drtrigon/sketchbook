@@ -87,7 +87,7 @@ int main(int argc, char* argv[]) // or char** argv
     //bus.send(argv[3][0], buffer, l);
     bus.send(atoi(argv[3]), buffer, l);
     // Attempting to roll bus...
-    bus.update();
+    //bus.update();
     // Attempting to receive from bus...
     //bus.receive();
     // Success!
@@ -103,21 +103,24 @@ int main(int argc, char* argv[]) // or char** argv
 //      EXIT = EXIT || (difftime(timer1, timer0) > 5.);  // 5s timeout
 //    }
 
+    for(int j = 0; j < 5000; ++j) {  // do timeout 5000 times ~ 5s
+      bus.update();
 // TODO: use error handler callback
-    switch (bus.receive(5000000)) {  // 5s timeout
-    case PJON_ACK:
-      return 0;
-      break;
-//    case PJON_NAK:   // re-try; send data again
-//      break;
-//    case PJON_BUSY:
-//      // ...
-//      break;
-//    case PJON_FAIL:
-//      // ...
-//      break;
-    default:
-      break;
+      switch (bus.receive(1000)) {   // 1ms timeout
+      case PJON_ACK:
+        return 0;
+        break;
+//      case PJON_NAK:   // re-try; send data again
+//        break;
+//      case PJON_BUSY:
+//        // ...
+//        break;
+//      case PJON_FAIL:
+//        // ...
+//        break;
+      default:
+        break;
+      }
     }
   }
   return 0;
