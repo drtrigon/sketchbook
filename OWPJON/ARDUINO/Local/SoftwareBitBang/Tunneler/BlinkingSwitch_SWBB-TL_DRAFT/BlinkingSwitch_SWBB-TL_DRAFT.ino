@@ -18,7 +18,7 @@
  */
 /* Dragino LG01-S (Uno/Yun combo)
  * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
- * 
+ *
  * DRAFT ONLY - NOT TESTED - DRAFT ONLY - NOT TESTED - DRAFT ONLY - NOT TESTED
  */
 
