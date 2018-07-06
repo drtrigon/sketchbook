@@ -42,6 +42,12 @@ void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW); // Initialize LED 13 to be off
+#ifdef ENABLE_DEBUG
+  delay(500);
+  digitalWrite(LED_BUILTIN, HIGH);
+  delay(500);
+  digitalWrite(LED_BUILTIN, LOW);
+#endif
 
   bus.strategy.set_pin(12);
   bus.begin();
