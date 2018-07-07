@@ -1,17 +1,49 @@
-/*
- *    Example-Code for a generic Device (e.g. Sensor, Display)
- *    (OneWire PJON Generic "OWPG")
+/**
+ * @brief Example-Code for a generic Device (e.g. Sensor, Display)
  *
- *    Use eg. together:
- *      Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
- *      Uno_OWPJON_Test/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate
- *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
- *    or
- *      Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
- *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
- *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
+ * @file OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
  *
- *    Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+ * @author drtrigon
+ * @date 2018-07-06
+ * @version 1.0
+ *   @li first version derived from PJON 11.0 examples
+ *       examples/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
+ *
+ * @ref OWPJON/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
+ * @see https://github.com/gioblu/PJON/blob/master/examples/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
+ *
+ * @verbatim
+ * OneWire PJON Generic "OWPG" scheme:
+ *   Server e.g. linux machine or raspi
+ *      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+ *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
+ *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
+ *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+ *   Devices e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/ (this sketch)
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+ *      ...
+ *
+ * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+ *
+ * Pinout:
+ *   1wire PJON data bus (OWPJON SWBB):
+ *        1WIRE DATA    -> Arduino Pin D12
+ *        GND black     -> Arduino GND
+ *
+ * Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
+ * following files:
+ *   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * Thanks to:
+ * gioblu - PJON 11.0 and support
+ *          @see https://www.pjon.org/
+ *          @see https://github.com/gioblu/PJON
+ * fredilarsen - support
+ * @endverbatim
  */
 
 //#define ENABLE_DEBUG

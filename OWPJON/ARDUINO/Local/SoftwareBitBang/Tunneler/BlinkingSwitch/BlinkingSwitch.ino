@@ -1,5 +1,58 @@
-/* Similar to the Switch but with a blinking led indicating packets
-   forwarded with on and off for each direction respectively. */
+/**
+ * @brief Switch/Tunnel for LocalUDP-SoftwareBitBang
+ *
+ * @file OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
+ *
+ * @author drtrigon
+ * @date 2018-07-06
+ * @version 1.0
+ *   @li first version derived from PJON 11.0 examples
+ *       examples/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingRGBSwitch/BlinkingRGBSwitch.ino
+ *
+ * Tunnel packets through another medium using one switch on each end.
+ * For example, two SoftwareBitBang buses that are far from each other
+ * can be joined transparently through a LAN using the LocalUDP strategy, or
+ * through a WAN or Internet using the EthernetTCP strategy.
+ * Features additionally a blinking led indicating packets
+ * forwarded with on and off for each direction respectively.
+ *
+ * @see https://github.com/gioblu/PJON/blob/master/examples/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingRGBSwitch/BlinkingRGBSwitch.ino
+ *
+ * @verbatim
+ * OneWire PJON Generic "OWPG" scheme:
+ *   Server e.g. linux machine or raspi
+ *      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+ *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
+ *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/ (this sketch)
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
+ *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+ *   Devices e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+ *      ...
+ *
+ * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+ *
+ * Pinout:
+ *   1wire PJON data bus (OWPJON SWBB):
+ *        1WIRE DATA    -> Arduino Pin D7
+ *        GND black     -> Arduino GND
+ *   ETH Shield W5100 based
+ *   1wire Sniffer/Master/Client Shield
+ *
+ * Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
+ * following files:
+ *   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * Thanks to:
+ * gioblu - PJON 11.0 and support
+ *          @see https://www.pjon.org/
+ *          @see https://github.com/gioblu/PJON
+ * fredilarsen - support
+ * @endverbatim
+ */
 
 #define PJON_MAX_PACKETS 3
 #include <PJONInteractiveRouter.h>

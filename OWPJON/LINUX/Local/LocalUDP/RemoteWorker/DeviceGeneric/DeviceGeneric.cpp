@@ -1,34 +1,46 @@
-/* This sketch is a modified copy of the examples:
-LINUX/Local/EthernetTCP/RemoteWorker/Transmitter respective
-LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
-
-In this context it is a "RemoteWorker" for a corresponding "Surrogate" on a
-SoftwareBitBang bus, connected to the Surrogate via Ethernet TCP.
-The surrogate will connect to this device, allowing this device to talk to
-all devices on the SWBB bus by their ids, and receiving all packets sent to
-the id if this device on the SWBB bus.
-
-It sends BLINK to device id 44 which is on a SWBB bus connected to the
-Surrogate, and receives BLINK replies back.
-Device 44 is the example:
-ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver.
-
-This demonstrates the concept with a process on a PC or a RPI transparently
-being part of a SWBB bus via a Surrogate. The Surrogate will "phone home"
-to the RemoteWorker to create a permanent link.
-The two alternative modes differ in the speed and the number of sockets used.
-ETCP_SINGLE_DIRECTION is fastest and recommended if not on limited hardware.
-
-Ethernet strategies and related concepts are contributed by Fred Larsen.
-
-Example sending READ_INFO 0x01 to device id 44:
-$ printf "\x01" | ./owpshell - - 44
-owp:dg:v1
-$ printf "\x11" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
-4.771999835968018,
-$ printf "\x12" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
-28.02459144592285,
-*/
+/**
+ * @brief Example-Code for a generic Server (e.g. Sensor, Display)
+ *
+ * @file OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * @author drtrigon
+ * @date 2018-07-06
+ * @version 1.0
+ *   @li first version derived from
+ *       @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * @verbatim
+ * OneWire PJON Generic "OWPG" scheme:
+ *   Server e.g. linux machine or raspi
+ *      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/ (this sketch)
+ *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
+ *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
+ *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+ *   Devices e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+ *      ...
+ *
+ * Compatible with: ubuntu 14.04, raspi
+ *
+ * Example sending READ_INFO 0x01 to device id 44:
+ * $ printf "\x01" | ./owpshell - - 44
+ * owp:dg:v1
+ * $ printf "\x11" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+ * 4.771999835968018,
+ * $ printf "\x12" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+ * 28.02459144592285,
+ * More info can be found in @ref OWPJON/README.md.
+ *
+ * Thanks to:
+ * gioblu - PJON 11.0 and support
+ *          @see https://www.pjon.org/
+ *          @see https://github.com/gioblu/PJON
+ * fredilarsen - support
+ * @endverbatim
+ */
 
 #define PJON_INCLUDE_LUDP
 #include <PJON.h>
