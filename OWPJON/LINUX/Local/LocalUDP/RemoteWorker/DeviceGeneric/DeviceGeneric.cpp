@@ -23,7 +23,7 @@
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
  *      ...
  *
- * Compatible with: ubuntu 14.04, raspi
+ * Compatible with: ubuntu 14.04, raspi (look at the Makefile)
  *
  * Example sending READ_INFO 0x01 to device id 44:
  * $ printf "\x01" | ./owpshell - - 44
@@ -41,6 +41,8 @@
  * fredilarsen - support
  * @endverbatim
  */
+
+// Avoid using '#define RPI true' as this requires wiringPi !
 
 #define PJON_INCLUDE_LUDP
 #include <PJON.h>

@@ -131,7 +131,10 @@ does not need any serial port info (and thus no sudo either):
     $ printf "\x01" | ./owpshell - - 44
 
 
-Further possible schemes (productive system):
+
+RASPBERRY PI (1) SETUP
+
+We now want to setup this schemes (productive system):
 
 ```
 -----------------           ---------------           ---------------
@@ -141,6 +144,64 @@ Further possible schemes (productive system):
 | Server        |           | Master      |           | Slaves      |
 -----------------           ---------------           ---------------
 ```
+
+Installation of g++ 4.8 is needed if missing due to '-std=c++11' on Wheezy
+follow these steps:
+
+```
+pi@raspberrypi ~ $ cat /etc/os-release
+```
+gives "wheezy", see output:
+```
+PRETTY_NAME="Raspbian GNU/Linux 7 (wheezy)"
+...
+VERSION="7 (wheezy)"
+```
+so we can install g++ 4.8 in order to be able to compile PJON 11.0 (adds ~30-50MB)
+```
+pi@raspberrypi ~ $ sudo apt-get install g++-4.8
+pi@raspberrypi ~ $ g++
+```
+auto tab completition gives: g++ g++-4.6 g++-4.8
+
+Next step is to get and compile (OW)PJON 11:
+
+```
+pi@raspberrypi ~ $ mkdir OWPJON
+pi@raspberrypi ~ $ cd OWPJON/
+pi@raspberrypi ~/OWPJON $ wget https://github.com/gioblu/PJON/archive/11.0.tar.gz
+pi@raspberrypi ~/OWPJON $ tar -xvzf 11.0.tar.gz
+pi@raspberrypi ~/OWPJON $ cd PJON-11.0/examples/LINUX/Local/LocalUDP/
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP $ mkdir -p RemoteWorker/DeviceGeneric/
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP $ cd RemoteWorker/DeviceGeneric/
+```
+copy files, e.g. by copy-paste from kate to nano window:
+```
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ nano Makefile
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ nano DeviceGeneric.cpp
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ nano pack.py
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ nano unpack.py
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ chmod +x pack.py unpack.py
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ ls -la
+total 72
+drwxr-xr-x 2 pi pi  4096 Jul  7 15:06 .
+drwxr-xr-x 3 pi pi  4096 Jul  7 09:53 ..
+-rw-r--r-- 1 pi pi  4422 Jul  7 15:01 DeviceGeneric.cpp
+-rw-r--r-- 1 pi pi   305 Jul  7 15:03 Makefile
+-rwxr-xr-x 1 pi pi 41259 Jul  7 15:04 owpshell
+-rwxr-xr-x 1 pi pi   162 Jul  7 15:06 pack.py
+-rwxr-xr-x 1 pi pi   325 Jul  7 15:06 unpack.py
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ make raspi
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ printf "\x01" | ./owpshell - - 44
+owp:dg:v1
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ printf "\x11" | ./owpshell - - 44 | ./unpack.py f
+4.751999855041504,
+pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ printf "\x12" | ./owpshell - - 44 | ./unpack.py f
+28.02459144592285,
+```
+
+
+
 
 Notes:
 - Setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
