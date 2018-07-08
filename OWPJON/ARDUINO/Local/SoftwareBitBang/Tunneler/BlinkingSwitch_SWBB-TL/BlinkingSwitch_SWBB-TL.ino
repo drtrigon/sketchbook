@@ -11,20 +11,30 @@
  *   http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json
  *   and select "Dragino Yun + UNO or LG01/OLG01"
  *   also see http://192.168.11.16/cgi-bin/luci//admin/sensor/mcu
+ *   as port use the network port (e.g. ...16)
  * - test PJON SWBB; use OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+ * - 3.3-5V bidir. shifting http://vusb.wikidot.com/hardware - may be use own SWBB bus, see BlinkingSwitch_3way
  * - ...
  *
  *   * Heartbeat (Blink); replace LED_BUILTIN by HEART_LED
  */
 /* Dragino LG01-S (Uno/Yun combo)
  * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
- *
- * DRAFT ONLY - NOT TESTED - DRAFT ONLY - NOT TESTED - DRAFT ONLY - NOT TESTED
+ */
+/**
+ * needs doxygen docu - derived from BlinkingSwitch.ino using Yun_Dragino... and https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
+ * ...
  */
 
-#define HEART_LED   A2
-#define OWPJON_PIN   4
-#define OWPJON_EN   A1  // needs a high for the level shifter to be enabled
+#define DRAGINO  // enable for Dragino tunnel, disable for others
+
+#ifdef DRAGINO
+  #define HEART_LED   A2
+  #define BUILTIN_LED HEART_LED
+#else
+  #define BUILTIN_LED LED_BUILTIN
+#endif
+#define OWPJON_PIN    4
 
 #define PJON_INCLUDE_TL
 
@@ -60,7 +70,7 @@ void setup()
   router.begin();
 
   // Init pin for LED
-  pinMode(HEART_LED, OUTPUT);
+  pinMode(BUILTIN_LED, OUTPUT);
 }
 
 void loop()
@@ -73,10 +83,10 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
 {
   switch(sender_bus) {
   case 0: {
-    digitalWrite(HEART_LED, HIGH);
+    digitalWrite(BUILTIN_LED, HIGH);
   };
   case 1: {
-    digitalWrite(HEART_LED, LOW);
+    digitalWrite(BUILTIN_LED, LOW);
   };
   }
 }

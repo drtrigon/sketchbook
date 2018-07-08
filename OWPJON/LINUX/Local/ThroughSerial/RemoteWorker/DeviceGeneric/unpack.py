@@ -7,7 +7,7 @@ import sys
 import struct
 
 try:
-    v = struct.unpack(sys.argv[1], sys.stdin.readline()[:-1])
+    v = struct.unpack(sys.argv[1], sys.stdin.read()[:-1])
 except:
     v = [float('nan')]  # 'nan' is a valid float signing an error
 print(str(v)[1:-1])

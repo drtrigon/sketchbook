@@ -1,55 +1,12 @@
 /**
- * @brief Example-Code for a generic Device (e.g. Sensor, Display)
- *
- * @file OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
- *
- * @author drtrigon
- * @date 2018-07-06
- * @version 1.0
- *   @li first version derived from PJON 11.0 examples
- *       examples/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
- *
- * @ref OWPJON/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
- * @see https://github.com/gioblu/PJON/blob/master/examples/ARDUINO/Local/SoftwareBitBang/BlinkWithResponse/Receiver/Receiver.ino
- *
- * @verbatim
- * OneWire PJON Generic "OWPG" scheme:
- *   Server e.g. linux machine or raspi
- *      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
- *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
- *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
- *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
- *   Devices e.g. AVR
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/ (this sketch)
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
- *      ...
- *
- * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
- *
- * Pinout:
- *   1wire PJON data bus (OWPJON SWBB):
- *        1WIRE DATA    -> Arduino Pin D12
- *        GND black     -> Arduino GND
- *
- * Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
- * following files:
- *   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
- *   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
- *
- * Thanks to:
- * gioblu - PJON 11.0 and support
- *          @see https://www.pjon.org/
- *          @see https://github.com/gioblu/PJON
- * fredilarsen - support
- * @endverbatim
+ * needs doxygen docu - derived from DeviceGeneric.ino using Yun_Dragino... and ..._SWBB-TL tunneler and https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
+ * ...
  */
 
 //#define ENABLE_DEBUG
 #define ENABLE_UNITTEST
 
-#define SENSOR     "owp:dg:v1"
+#define SENSOR     "owp:dg:lora:v1"
 
 #define READ_INFO  0x01  // return generic sensor info
 #define READ_VCC   0x11  // return supply voltage
@@ -62,10 +19,11 @@
 
 uint8_t mem_buffer[256];
 
+#define PJON_INCLUDE_TL
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
-PJON<SoftwareBitBang> bus(44);
+PJON<ThroughLora> bus(42);
 
 /**
  *  Arduino IDE: put your setup code here, to run once.
@@ -74,14 +32,20 @@ void setup()
 {
   pinMode(LED_BUILTIN, OUTPUT);
   digitalWrite(LED_BUILTIN, LOW); // Initialize LED 13 to be off
-#ifdef ENABLE_DEBUG
+//#ifdef ENABLE_DEBUG
   delay(500);
   digitalWrite(LED_BUILTIN, HIGH);
   delay(500);
   digitalWrite(LED_BUILTIN, LOW);
-#endif
+//#endif
 
-  bus.strategy.set_pin(12);
+//  bus.strategy.setPins(ss, reset, dio0);
+  bus.strategy.setFrequency(868100000UL);
+  // Optional
+  bus.strategy.setSignalBandwidth(250E3);  // default is 125E3
+  bus.strategy.setTxPower(13);             // default is 17
+  //bus.strategy.setSpreadingFactor(7);      // default is 7
+  //bus.strategy.setCodingRate4(5);          // default is 5
   bus.begin();
   bus.set_receiver(receiver_function);
 

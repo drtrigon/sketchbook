@@ -138,7 +138,7 @@ int main(int argc, char* argv[]) // or char** argv
   bus.strategy.set_baud_rate(baud_rate);
   bus.set_receiver(receiver_function);
 //  bus.strategy.link.start_listening();
-  bus.set_synchronous_acknowledge(false);
+//  bus.set_synchronous_acknowledge(false);
 
   // Opening bus...
   bus.begin();
