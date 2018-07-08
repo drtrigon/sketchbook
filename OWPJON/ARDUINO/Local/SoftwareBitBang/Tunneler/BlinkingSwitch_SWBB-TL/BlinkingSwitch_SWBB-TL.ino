@@ -29,10 +29,10 @@
 #define DRAGINO  // enable for Dragino tunnel, disable for others
 
 #ifdef DRAGINO
-  #define HEART_LED   A2
-  #define BUILTIN_LED HEART_LED
+#define HEART_LED    A2
+#define BUILTIN_LED  HEART_LED
 #else
-  #define BUILTIN_LED LED_BUILTIN
+#define BUILTIN_LED  LED_BUILTIN
 #endif
 #define OWPJON_PIN    4
 
