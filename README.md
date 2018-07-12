@@ -149,16 +149,6 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI_PJON/PJONModuleInterface.h#L14
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
-  * modify attiny (mega88) example to become a OWPJON-1wire (master) converter (for refurbishing of old 1wire devices)
-    * (https://playground.arduino.cc/Learning/OneWire)
-    * http://www.microchip.com/wwwappnotes/appnotes.aspx?appnote=en591191
-    * https://github.com/mikaelpatel/Arduino-OWI
-  * wireless possible solutions (tunneler/surrogate)
-    * AnalogSampling-SWBB; single LED bidirectional through window - low-power posible - needs testing - (would allow to turn wifi off during night again)
-      * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/AnalogSampling/NetworkAnalysis - then build a tunneler or surrogate
-    * OverSampling-SWBB; 315/433MHz radio - low-power possible?
-    * LoRa-SWBB; dargino/yun for LoRa - low-power possible? (dragino; if it contains yun it is high-power)
-    * (L)UDP-SWBB; yun, esp8266 (GUPD, 3.3v), raspi zero (3.3v using wifi stick or zero w), uno+eth+lan2wifi (like now), maybe use yun as "router"/lan2wifi (https://hackingmajenkoblog.wordpress.com/2017/06/02/configuring-yun-wifi/) - wifi thus high-power
   * hardware; build shield according to specs given in https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang
   * setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
   * test Yun/Dragino (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP

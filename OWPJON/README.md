@@ -203,6 +203,32 @@ pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/Dev
 
 
 
+Possible wireless solutions going through wall e.g. (galvanic isolated):
+(would allow to turn wifi - used for 1wire - off during night again)
+
+```
+-----------------           -----------------           ---------------
+| DraginoLG01-S |           | Arduino+LoRa  |           | Arduino/AVR |
+| LoRa          |   <--->   | LoRa          |           |             |
+| SWBB          |           | SWBB          |   <--->   | SWBB        |
+| Slaves/Tunnel |           | Master/Tunnel |           | Slaves      |
+-----------------           -----------------           ---------------
+SWBB bus indoors            SWBB bus outdoors
+```
+
+- LoRa-SWBB: Dargino/Yun for LoRa indoors, Uno+LoRa outdoors - outdoor low-power possible
+- AnalogSampling-SWBB: Single LED or Laser Diode bidirectional through window - low-power posible - needs testing and safety measure, e.g. cats remove sender and look into laser diode ...
+- OverSampling-SWBB: 315/433MHz or HC-12 radio - low-power possible? where to order from?
+- LUDP-SWBB (LUDP via wifi); Yun, ESP8266 (GUPD, 3.3v), raspi zero (3.3v using wifi stick or zero w), uno+eth+lan2wifi (like now), maybe use yun as "router"/lan2wifi (https://hackingmajenkoblog.wordpress.com/2017/06/02/configuring-yun-wifi/) - wifi thus high-power
+- For testing and specifing network stability use e.g.:
+  - https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/AnalogSampling/NetworkAnalysis - then build a tunneler or surrogate
+- OWP_DG_1w-adaptor for mega328 could may be modified to fit in an attiny (mega88); OWPJON-1wire (master) converter for refurbishing of old 1wire devices
+    - https://github.com/mikaelpatel/Arduino-OWI, https://github.com/mikaelpatel/Arduino-OWI/tree/master/examples/ATtiny
+
+
+
+
+
 Notes:
 - Setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
 - Arduino+ETH can be replaced by ESP8266 (3.3<->5.0v shifting might be needed, may be not) but needs GlobalUDP (LUDP would be nice)
