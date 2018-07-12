@@ -22,7 +22,7 @@
  * https://playground.arduino.cc/Learning/OneWire
  * https://cdn.shopify.com/s/files/1/0164/3524/files/MultiSensor_Manual_v1.5.pdf?15845834050373852166
  *
- * At the master, a 4.7k pull-up resistor must be connected to the 1-wire bus. When the line is in a "high" state, the device pulls current to charge an internal capacitor. 
+ * At the master, a 4.7k pull-up resistor must be connected to the 1-wire bus. Needs a weak pull-up (that the uP cannot provide).
  *
  * $ printf "\x01" | ./owpshell-ubuntu14.04 - - 44
  * owp:dg:v1
@@ -77,15 +77,10 @@ uint8_t mem_buffer[256];
 
 byte addr[8];
 
-bool  DS2438_ENABLE  = false;
-byte  DS2438_addr[8];
-float DS2438_TEMP    = NAN;
-float DS2438_CHA_    = NAN;
-float DS2438_CHB_    = NAN;
-
-bool  DS18x20_ENABLE = false;
-byte  DS18x20_addr[8];
-float DS18x20_TEMP   = NAN;
+bool DS2438_ENABLE  = false;
+byte DS2438_addr[8];
+bool DS18x20_ENABLE = false;
+byte DS18x20_addr[8];
 
 OneWire ow(ONE_WIRE_PIN);
 DS2438 ds2438(&ow, {});
@@ -335,12 +330,13 @@ float readTemp(void)
 }
 
 // https://www.hacktronics.com/Tutorials/arduino-1-wire-address-finder.html
-bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL) {
+bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL)
+{
   byte i;
   byte present = 0;
   byte data[12];
   //byte addr[8];
-  
+
   while(ds.search(addr)) {
     //Serial.println("Found \'1-Wire\' device with address:");
 #ifdef ENABLE_DEBUG
@@ -359,9 +355,9 @@ bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL) {
 #endif
     if ( OneWire::crc8( addr, 7) != addr[7]) {
 #ifdef ENABLE_DEBUG
-        Serial.println("CRC is not valid!");
+      Serial.println("CRC is not valid!");
 #endif
-        return false;
+      return false;
     }
     if(addr[0] == family)
       return true;
@@ -373,7 +369,8 @@ bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL) {
   return false;
 }
 
-float readDS18x20(const OneWire &ds, const byte &addr) {
+float readDS18x20(const OneWire &ds, const byte &addr)
+{
   byte i;
   byte present = 0;
   byte type_s = 0;
@@ -383,12 +380,12 @@ float readDS18x20(const OneWire &ds, const byte &addr) {
   ds.reset();
   ds.select(addr);
   ds.write(0x44, 1);        // start conversion, with parasite power on at the end
-  
+
   delay(1000);     // maybe 750ms is enough, maybe not
   // we might do a ds.depower() here, but the reset will take care of it.
-  
+
   present = ds.reset();
-  ds.select(addr);    
+  ds.select(addr);
   ds.write(0xBE);         // Read Scratchpad
 
 //  Serial.print("  Data = ");
