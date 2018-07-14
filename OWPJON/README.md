@@ -199,6 +199,13 @@ pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/Dev
 pi@raspberrypi ~/OWPJON/PJON-11.0/examples/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric $ printf "\x12" | ./owpshell - - 44 | ./unpack.py f
 28.02459144592285,
 ```
+and finally add the sensors/devices to your logging system e.g. collectd:
+```
+$ python owpjon_sensor.py
+$ collectd -C /etc/collectd/collectd.conf -T
+$ cat /var/log/syslog
+$ sudo /etc/init.d/collectd restart
+```
 
 
 
