@@ -149,6 +149,12 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI_PJON/PJONModuleInterface.h#L14
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
+  * replace (and test) 68 ohms by 4k7 in level shifter
+  * test setup and reliability especially for outdoor SWBB (tunneled via ThroughLoRa)
+    * if Dragino crashes more often use watchdog to reset in case of error, see SWBB-TL tunneler
+      * https://github.com/gioblu/PJON/wiki/Error-handling
+    * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/Any/StrategyLinkNetworkAnalysis
+    * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/SoftwareBitBang/NetworkAnalysis
   * hardware; build shield according to specs given in https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang
   * setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
   * test Yun/Dragino (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP

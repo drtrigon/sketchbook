@@ -14,6 +14,11 @@
  *   as port use the network port (e.g. ...16)
  * - test PJON SWBB; use OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
  * - 3.3-5V bidir. shifting http://vusb.wikidot.com/hardware - may be use own SWBB bus, see BlinkingSwitch_3way
+ *   http://www.partsim.com/simulator/#148247
+ * - LoRa tx power: https://www.digitalairwireless.com/articles/blog/wifi-transmit-power-calculations-made-simples
+ * - debug: http://www.dragino.com/downloads/downloads/YunShield/YUN_SHIELD_QUICK_START_GUIDE_v1.0.pdf
+ *          https://github.com/gioblu/PJON/wiki/Error-handling
+ *          http://192.168.11.16/cgi-bin/luci//admin  (reboot dragino)
  * - ...
  *
  *   * Heartbeat (Blink); replace LED_BUILTIN by HEART_LED
@@ -28,13 +33,22 @@
 
 #define DRAGINO  // enable for Dragino tunnel, disable for others
 
+//#define ENABLE_DEBUG
+
 #ifdef DRAGINO
 #define HEART_LED    A2
 #define BUILTIN_LED  HEART_LED
+#define SERIAL       Console
 #else
 #define BUILTIN_LED  LED_BUILTIN
+#define SERIAL       Serial
 #endif
 #define OWPJON_PIN    4
+
+//#include <avr/wdt.h>  // watchdog
+#ifdef DRAGINO
+#include <Console.h>  // Console lib, used to show debug info in Arduino IDE
+#endif
 
 #define PJON_INCLUDE_TL
 
@@ -54,7 +68,18 @@ PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> router(2, (PJONAny*[2])
 
 void setup()
 {
-  //Serial.begin(115200);
+//  wdt_disable();  // disable watchdog
+
+#ifdef ENABLE_DEBUG
+#ifdef DRAGINO
+  Bridge.begin();
+  Console.begin();
+  while (!Console);     // wait for Network Serial to open
+#else
+  Serial.begin(115200);
+#endif
+  SERIAL.println(__FILE__);
+#endif
   link1.strategy.set_pin(OWPJON_PIN);
   // Obligatory to initialize Radio with correct frequency
 //  link2.strategy.setPins(ss, reset, dio0);
@@ -89,9 +114,29 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
     digitalWrite(BUILTIN_LED, LOW);
   };
   }
+//  wdt_disable();  // disable watchdog
 }
 
 /*void error_handler(uint8_t code, uint16_t data, void *custom_ptr) {
-  digitalWrite(ERROR_LED_PIN, HIGH);
-  error_on_time = millis();
+//  digitalWrite(ERROR_LED_PIN, HIGH);
+#ifdef ENABLE_DEBUG
+  if(code == PJON_CONNECTION_LOST) {
+    SERIAL.print("Connection with device ID ");
+    SERIAL.print(data);
+    SERIAL.println(" is lost.");
+  }
+  if(code == PJON_PACKETS_BUFFER_FULL) {
+    SERIAL.print("Packet buffer is full, has now a length of ");
+    SERIAL.println(data, DEC);
+    SERIAL.println("Possible wrong bus configuration!");
+    SERIAL.println("higher MAX_PACKETS in PJON.h if necessary.");
+  }
+  if(code == PJON_CONTENT_TOO_LONG) {
+    SERIAL.print("Content is too long, length: ");
+    SERIAL.println(data);
+  }
+#endif
+  // set 8s watchdog
+  wdt_reset();
+  wdt_enable(WDTO_8S);
 }*/
