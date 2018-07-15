@@ -42,13 +42,18 @@
  * @endverbatim
  */
 
+// use different ID for different machines (linux, raspi, ...) - see Makefile
+#ifndef ID
+#define ID  45  // default ID for linux (raspi uses 46)
+#endif
+
 // Avoid using '#define RPI true' as this requires wiringPi !
 
 #define PJON_INCLUDE_LUDP
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
-PJON<LocalUDP> bus(45);
+PJON<LocalUDP> bus(ID);
 
 //bool EXIT = false;
 
@@ -82,6 +87,11 @@ void loop()
 
 int main(int argc, char* argv[]) // or char** argv
 {
+  if((argc >= 2) && (argc[1] == "--id"))
+    printf("ID: %i\n", ID);
+    return 0;
+  }
+
   // Welcome to RemoteWorker 1 (Transmitter)
   bus.set_receiver(receiver_function);
 
