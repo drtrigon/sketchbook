@@ -87,7 +87,7 @@ void loop()
 
 int main(int argc, char* argv[]) // or char** argv
 {
-  if((argc >= 2) && (argc[1] == "--id"))
+  if((argc >= 2) && (argv[1] == "--id"))
     printf("ID: %i\n", ID);
     return 0;
   }
