@@ -4,7 +4,7 @@
  *
  * - disable Dargino wifi; like Yun use WebInterface to configure
  *   LAN, DHCP, DISABLE WIFI
- *   also see comments in Yun_Dragino_Server_LoRa_WAN
+ *   also see comments, hints and all in "Yun_Dragino_Server_LoRa_WAN"
  * - even though it is recognized as "Yun" the dargino contains
  *   an "Uno" (probably m328p) - so select "Arduino/Genuino Uno"
  *   even better is to use
@@ -45,9 +45,13 @@
 #endif
 #define OWPJON_PIN    4
 
-//#include <avr/wdt.h>  // watchdog
+//#include <avr/wdt.h>     // watchdog
+#ifdef ENABLE_DEBUG
 #ifdef DRAGINO
-#include <Console.h>  // Console lib, used to show debug info in Arduino IDE
+#include <Console.h>     // Console lib, used to show debug info in Arduino IDE
+//#include <Bridge.h>
+#define BAUDRATE 115200  //For product: LG01.
+#endif
 #endif
 
 #define PJON_INCLUDE_TL
@@ -72,13 +76,14 @@ void setup()
 
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
-  Bridge.begin();
+  Bridge.begin(BAUDRATE);
   Console.begin();
-  while (!Console);     // wait for Network Serial to open
+  //Console.buffer(64);
+  //while (!Console);     // wait for Network Serial to open
 #else
   Serial.begin(115200);
 #endif
-  SERIAL.println(__FILE__);
+  SERIAL.println(F(__FILE__));
 #endif
   link1.strategy.set_pin(OWPJON_PIN);
   // Obligatory to initialize Radio with correct frequency
@@ -90,7 +95,9 @@ void setup()
   //link2.strategy.setSpreadingFactor(7);      // default is 7
   //link2.strategy.setCodingRate4(5);          // default is 5
   router.set_sendnotification(sendnotification_function);
-//  router.set_error(error_handler);
+#ifdef ENABLE_DEBUG
+  router.set_error(error_handler);
+#endif
   router.set_virtual_bus(0); // Enable virtual bus
   router.begin();
 
@@ -101,7 +108,7 @@ void setup()
 void loop()
 {
   router.loop();
-};
+}
 
 void sendnotification_function(const uint8_t * const payload, const uint16_t length, const uint8_t receiver_bus,
                                const uint8_t sender_bus, const PJON_Packet_Info &packet_info)
@@ -117,26 +124,26 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
 //  wdt_disable();  // disable watchdog
 }
 
-/*void error_handler(uint8_t code, uint16_t data, void *custom_ptr) {
-//  digitalWrite(ERROR_LED_PIN, HIGH);
 #ifdef ENABLE_DEBUG
+void error_handler(uint8_t code, uint16_t data, void *custom_ptr) {
+//  digitalWrite(ERROR_LED_PIN, HIGH);
   if(code == PJON_CONNECTION_LOST) {
-    SERIAL.print("Connection with device ID ");
+    SERIAL.print(F("Connection with device ID "));
     SERIAL.print(data);
-    SERIAL.println(" is lost.");
+    SERIAL.println(F(" is lost."));
   }
   if(code == PJON_PACKETS_BUFFER_FULL) {
-    SERIAL.print("Packet buffer is full, has now a length of ");
+    SERIAL.print(F("Packet buffer is full, has now a length of "));
     SERIAL.println(data, DEC);
-    SERIAL.println("Possible wrong bus configuration!");
-    SERIAL.println("higher MAX_PACKETS in PJON.h if necessary.");
+    SERIAL.println(F("Possible wrong bus configuration!"));
+    SERIAL.println(F("higher PJON_MAX_PACKETS in PJONDefines.h if necessary."));
   }
   if(code == PJON_CONTENT_TOO_LONG) {
-    SERIAL.print("Content is too long, length: ");
+    SERIAL.print(F("Content is too long, length: "));
     SERIAL.println(data);
   }
-#endif
   // set 8s watchdog
-  wdt_reset();
-  wdt_enable(WDTO_8S);
-}*/
+//  wdt_reset();
+//  wdt_enable(WDTO_8S);
+}
+#endif

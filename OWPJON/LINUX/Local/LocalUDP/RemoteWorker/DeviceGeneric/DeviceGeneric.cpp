@@ -24,6 +24,8 @@
  *      ...
  *
  * Compatible with: ubuntu 14.04, raspi (look at the Makefile)
+ *   ID 45: owpshell on linux/ubuntu (testing)
+ *   ID 46: owpshell on raspi .41 (productive)
  *
  * Example sending READ_INFO 0x01 to device id 44:
  * $ printf "\x01" | ./owpshell - - 44

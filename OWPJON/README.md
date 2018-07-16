@@ -223,6 +223,34 @@ Possible wireless solutions going through wall e.g. (galvanic isolated):
 SWBB bus indoors            SWBB bus outdoors
 ```
 
+Dragino is 3v3 and needs a level shifter - I used this circuit (somehow
+inspired by V-USB but is not the same):
+```
+3v3 IO  ---o---\/\/\/\---  5v IO
+           |   resistor (68 better 150...4k7)
+          ---
+          | |  3v6 Zener (protect 3v3)
+          ---
+           |
+          GND
+```
+see also http://www.partsim.com/simulator/#148247.
+
+It works but has at least these disadvantages:
+  - knee of zener known not to be very sharp, so 3v6 are not precise
+  - using 150 ohms as minimum is recommended in order to be protected against shorts
+    - a device on the 5v bus needs to be able to drive (5v - 3.6v) / R ~ 0.4..20mA for a high
+    - currently 4k7 is used
+  - (cut-off frequency might be low due to big capacity and big resistor)
+
+Further improvements might include; setup a "3 way" tunneler (LUDP, SWBB, SWBB)
+that gives 2 SWBB pins (on same bus; a 5v and a 3v3 bus).
+
+An alternative proposal using a schottky diode is shown in
+http://www.partsim.com/simulator/#148244.
+
+
+
 - LoRa-SWBB: Dargino/Yun for LoRa indoors, Uno+LoRa outdoors - outdoor low-power possible
 - AnalogSampling-SWBB: Single LED or Laser Diode bidirectional through window - low-power posible - needs testing and safety measure, e.g. cats remove sender and look into laser diode ...
 - OverSampling-SWBB: 315/433MHz or HC-12 radio - low-power possible? where to order from?

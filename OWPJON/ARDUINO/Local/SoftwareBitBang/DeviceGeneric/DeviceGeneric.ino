@@ -27,6 +27,8 @@
  *      ...
  *
  * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+ *   ID 42: Nano Test Device on outdoor SWBB bus (testing)
+ *   ID 44: Nano Test Device on indoor SWBB bus (productive; collectd)
  *
  * Pinout:
  *   1wire PJON data bus (OWPJON SWBB):

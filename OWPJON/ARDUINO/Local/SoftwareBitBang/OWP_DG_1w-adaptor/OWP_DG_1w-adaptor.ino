@@ -50,7 +50,7 @@
 //#define ENABLE_DEBUG
 //#define ENABLE_UNITTEST
 
-#define SENSOR     "owp:dg:1w:v1"
+#define SENSOR     "owp:1w:v1"
 
 #define READ_INFO  0x01  // return generic sensor info
 #define READ_VCC   0x11  // return supply voltage
