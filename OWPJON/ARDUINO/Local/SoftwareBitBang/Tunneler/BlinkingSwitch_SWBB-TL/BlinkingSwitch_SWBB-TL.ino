@@ -130,7 +130,8 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   //wdt_reset();
 }
 
-void error_handler(uint8_t code, uint16_t data, void *custom_ptr) {
+void error_handler(uint8_t code, uint16_t data, void *custom_ptr)
+{
 //  digitalWrite(ERROR_LED_PIN, HIGH);
 #ifdef ENABLE_DEBUG
   if(code == PJON_CONNECTION_LOST) {
