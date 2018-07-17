@@ -1,0 +1,4 @@
+#!/bin/sh
+
+#readelf -a $ELF_FILE  >> $FILE.info; objdump -x $ELF_FILE  >> $FILE.info; nm $ELF_FILE || true  >> $FILE.info; strings -d $ELF_FILE  >> $FILE.info; size $ELF_FILE  >> $FILE.info;
+readelf -a $ELF_FILE  >> $FILE.info && strings -d $ELF_FILE  >> $FILE.info && size $ELF_FILE  >> $FILE.info

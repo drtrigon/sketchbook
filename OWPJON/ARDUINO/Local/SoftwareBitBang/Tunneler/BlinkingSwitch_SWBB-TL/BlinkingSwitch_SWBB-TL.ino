@@ -125,7 +125,8 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
 }
 
 #ifdef ENABLE_DEBUG
-void error_handler(uint8_t code, uint16_t data, void *custom_ptr) {
+void error_handler(uint8_t code, uint16_t data, void *custom_ptr)
+{
 //  digitalWrite(ERROR_LED_PIN, HIGH);
   if(code == PJON_CONNECTION_LOST) {
     SERIAL.print(F("Connection with device ID "));
