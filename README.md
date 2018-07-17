@@ -152,7 +152,9 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
   * test setup and reliability especially for outdoor SWBB (tunneled via ThroughLoRa)
     * if Dragino crashes more often use watchdog to reset in case of error, see SWBB-TL tunneler
       * https://github.com/gioblu/PJON/wiki/Error-handling
+    * consider playing with PJON_MAX_PACKETS (used to be 3 in tunnels - default is 5 - may be 0/off is best?)
     * make linux code (system) respond faster, see DeviceGeneric (TS_RESPONSE_TIME_OUT)
+    * in linux code adding a timeout before sending to get and waste "old" hanging messages and clean the bus seems to help
     * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/Any/StrategyLinkNetworkAnalysis
     * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/SoftwareBitBang/NetworkAnalysis
   * hardware; build shield according to specs given in https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang

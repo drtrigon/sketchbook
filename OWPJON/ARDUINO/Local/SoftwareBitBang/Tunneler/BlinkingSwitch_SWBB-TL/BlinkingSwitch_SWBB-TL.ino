@@ -22,6 +22,7 @@
  * - ...
  *
  *   * Heartbeat (Blink); replace LED_BUILTIN by HEART_LED
+ *   * Console replaces Serial
  */
 /* Dragino LG01-S (Uno/Yun combo)
  * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
@@ -45,7 +46,7 @@
 #endif
 #define OWPJON_PIN    4
 
-//#include <avr/wdt.h>     // watchdog
+#include <avr/wdt.h>     // watchdog (used as work-a-round to recover from error)
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
 #include <Console.h>     // Console lib, used to show debug info in Arduino IDE
@@ -57,6 +58,7 @@
 #define PJON_INCLUDE_TL
 
 #define PJON_MAX_PACKETS 3
+//#define PJON_MAX_PACKETS 0
 #include <PJONInteractiveRouter.h>
 
 StrategyLink<SoftwareBitBang> link1;
@@ -72,7 +74,7 @@ PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> router(2, (PJONAny*[2])
 
 void setup()
 {
-//  wdt_disable();  // disable watchdog
+  wdt_disable();  // disable watchdog
 
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
@@ -95,9 +97,9 @@ void setup()
   //link2.strategy.setSpreadingFactor(7);      // default is 7
   //link2.strategy.setCodingRate4(5);          // default is 5
   router.set_sendnotification(sendnotification_function);
-#ifdef ENABLE_DEBUG
+//#ifdef ENABLE_DEBUG
   router.set_error(error_handler);
-#endif
+//#endif
   router.set_virtual_bus(0); // Enable virtual bus
   router.begin();
 
@@ -121,13 +123,16 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
     digitalWrite(BUILTIN_LED, LOW);
   };
   }
-//  wdt_disable();  // disable watchdog
+#ifdef ENABLE_DEBUG
+  SERIAL.println(sender_bus);
+#endif
+  //wdt_disable();
+  //wdt_reset();
 }
 
-#ifdef ENABLE_DEBUG
-void error_handler(uint8_t code, uint16_t data, void *custom_ptr)
-{
+void error_handler(uint8_t code, uint16_t data, void *custom_ptr) {
 //  digitalWrite(ERROR_LED_PIN, HIGH);
+#ifdef ENABLE_DEBUG
   if(code == PJON_CONNECTION_LOST) {
     SERIAL.print(F("Connection with device ID "));
     SERIAL.print(data);
@@ -143,8 +148,9 @@ void error_handler(uint8_t code, uint16_t data, void *custom_ptr)
     SERIAL.print(F("Content is too long, length: "));
     SERIAL.println(data);
   }
-  // set 8s watchdog
-//  wdt_reset();
-//  wdt_enable(WDTO_8S);
-}
 #endif
+  // set watchdog for reset
+  wdt_reset();
+  //wdt_enable(WDTO_8S);  // give time (8s) to recover
+  wdt_enable(WDTO_15MS);  // reset as fast as possible (15ms)
+}

@@ -95,7 +95,7 @@ int main(int argc, char* argv[]) // or char** argv
   }
 
   // Welcome to RemoteWorker 1 (Transmitter)
-  bus.set_receiver(receiver_function);
+//  bus.set_receiver(receiver_function);
 
   // Opening bus...
   bus.begin();
@@ -109,6 +109,14 @@ int main(int argc, char* argv[]) // or char** argv
     strcpy(buffer, argv[4]);
     l = strlen(argv[4]);
   }
+  // drop old hanging messages from bus for about 0.1s
+  for(int j = 0; j < 100; ++j) {  // do timeout 10 times ~ 100ms
+    bus.update();
+    if(bus.receive(1000) == PJON_ACK)  // 1ms timeout
+      break;
+  }
+  bus.set_receiver(receiver_function);
+  // send and receive messages
   for(int i = 0; i < 3; ++i) {  // try 3 times (using timeout), then exit
     //bus.send(argv[3][0], buffer, l);
     bus.send(atoi(argv[3]), buffer, l);
@@ -129,7 +137,7 @@ int main(int argc, char* argv[]) // or char** argv
 //      EXIT = EXIT || (difftime(timer1, timer0) > 5.);  // 5s timeout
 //    }
 
-    for(int j = 0; j < 5000; ++j) {  // do timeout 5000 times ~ 5s
+    for(int j = 0; j < 3000; ++j) {  // do timeout 3000 times ~ 3s
       bus.update();
 // TODO: use error handler callback
       switch (bus.receive(1000)) {   // 1ms timeout
