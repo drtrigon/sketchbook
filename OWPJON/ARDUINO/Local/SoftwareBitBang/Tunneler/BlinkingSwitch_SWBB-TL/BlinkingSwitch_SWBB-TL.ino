@@ -1,52 +1,89 @@
-/* Similar to the Switch but with a blinking led indicating packets
-   forwarded with on and off for each direction respectively. */
-/* Dargino PJON SWBB-TL Tunneler
- *
- * - disable Dargino wifi; like Yun use WebInterface to configure
- *   LAN, DHCP, DISABLE WIFI
- *   also see comments, hints and all in "Yun_Dragino_Server_LoRa_WAN"
- * - even though it is recognized as "Yun" the dargino contains
- *   an "Uno" (probably m328p) - so select "Arduino/Genuino Uno"
- *   even better is to use
- *   http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json
- *   and select "Dragino Yun + UNO or LG01/OLG01"
- *   also see http://192.168.11.16/cgi-bin/luci//admin/sensor/mcu
- *   as port use the network port (e.g. ...16)
- * - test PJON SWBB; use OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
- * - 3.3-5V bidir. shifting http://vusb.wikidot.com/hardware - may be use own SWBB bus, see BlinkingSwitch_3way
- *   http://www.partsim.com/simulator/#148247
- * - LoRa tx power: https://www.digitalairwireless.com/articles/blog/wifi-transmit-power-calculations-made-simples
- * - debug: http://www.dragino.com/downloads/downloads/YunShield/YUN_SHIELD_QUICK_START_GUIDE_v1.0.pdf
- *          https://github.com/gioblu/PJON/wiki/Error-handling
- *          http://192.168.11.16/cgi-bin/luci//admin  (reboot dragino)
- * - ...
- *
- *   * Heartbeat (Blink); replace LED_BUILTIN by HEART_LED
- *   * Console replaces Serial
- */
-/* Dragino LG01-S (Uno/Yun combo)
- * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
- */
 /**
- * needs doxygen docu - derived from BlinkingSwitch.ino using Yun_Dragino... and https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
- * ...
+ * @brief Switch/Tunnel for ThroughLoRa-SoftwareBitBang
+ *
+ * @file OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/BlinkingSwitch_SWBB-TL.ino
+ *
+ * @author drtrigon
+ * @date 2018-07-19
+ * @version 1.0
+ *   @li first version derived from
+ *       @ref OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
+ *       @ref Yun_Dragino_Server_LoRa_WAN/Yun_Dragino_Server_LoRa_WAN.ino
+ *       @see https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
+ *
+ * @verbatim
+ * OneWire PJON Generic "OWPG" scheme:
+ *   Server e.g. linux machine or raspi
+ *      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+ *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
+ *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
+ *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+ *   Devices e.g. AVR
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+ *      ...
+ *   For isolated remote SWBB networks on the same bus use e.g. LoRa and setup 2 tunnels/switches
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/ (this sketch)
+ *
+ * Compatible with: atmega328 (Uno, Nano, Uno/Yun combo Dragino LG01-S), atmega32u4 (Yun)
+ *
+ * Pinout:
+ *   1wire PJON data bus (OWPJON SWBB):
+ *        1WIRE DATA    -> Arduino Pin D4
+ *        GND black     -> Arduino GND
+ *   1wire Sniffer/Master/Client Shield
+ *   Dragino Lora Shield Shield or Dragino LG01-S
+ *   @see https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa#supported-shieldsmodules
+ *
+ * Dragino LG01-S:
+ *   - Dragino is recognized as "Yun" but contains an "Uno" (m328p); select "Arduino/Genuino Uno"
+ *     @see http://192.168.11.16/cgi-bin/luci//admin/sensor/mcu
+ *     correct but not needed would be to use
+ *     http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json
+ *     and select "Dragino Yun + UNO or LG01/OLG01"
+ *   - Disable Dargino wifi; like Yun use WebInterface to configure LAN, DHCP, DISABLE WIFI
+ *     also see comments, hints, etc. in @ref Yun_Dragino_Server_LoRa_WAN/Yun_Dragino_Server_LoRa_WAN.ino
+ *   - Bidirectional Level Shifting 3.3V<->5V needed for SWBB; 3v6 Zener and 4k7 resistor voltage divider
+ *     (consider using @ref OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_3way/BlinkingSwitch_3way.ino
+ *     to isolate 3.3V and 5V bus from each other - also consider LUDP-SWBB-TL 3way tunnel)
+ *     @ref OWPJON/README.md
+ *     @see http://vusb.wikidot.com/hardware
+ *     @see http://www.partsim.com/simulator/#148247
+ *   - LoRa tx power 13..17 dBm; @see https://www.digitalairwireless.com/articles/blog/wifi-transmit-power-calculations-made-simples
+ *   - Debug Dragino; @see http://www.dragino.com/downloads/downloads/YunShield/YUN_SHIELD_QUICK_START_GUIDE_v1.0.pdf
+ *                    For reboot via network @see http://192.168.11.16/cgi-bin/luci//admin.
+ *
+ * Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
+ * following files:
+ *   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * Thanks to:
+ * gioblu - PJON 11.0 and support
+ *          @see https://www.pjon.org/
+ *          @see https://github.com/gioblu/PJON
+ * fredilarsen - support
+ * Matheus-Garbelini - support
+ * @endverbatim
  */
 
-#define DRAGINO  // enable for Dragino tunnel, disable for others
+//#define DRAGINO  // enable for Dragino tunnel, disable for others
 
 //#define ENABLE_DEBUG
 
 #ifdef DRAGINO
 #define HEART_LED    A2
-#define BUILTIN_LED  HEART_LED
-#define SERIAL       Console
+#define BUILTIN_LED  HEART_LED    // Heartbeat (Blink) LED
+#define SERIAL       Console      // Console replaces Serial for network connection
 #else
 #define BUILTIN_LED  LED_BUILTIN
 #define SERIAL       Serial
 #endif
 #define OWPJON_PIN    4
 
-#include <avr/wdt.h>     // watchdog (used as work-a-round to recover from error)
+//#include <avr/wdt.h>     // watchdog (used as work-a-round to recover from error)
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
 #include <Console.h>     // Console lib, used to show debug info in Arduino IDE
@@ -74,7 +111,7 @@ PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> router(2, (PJONAny*[2])
 
 void setup()
 {
-  wdt_disable();  // disable watchdog
+//  wdt_disable();  // disable watchdog
 
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
@@ -93,13 +130,13 @@ void setup()
   link2.strategy.setFrequency(868100000UL);
   // Optional
   link2.strategy.setSignalBandwidth(250E3);  // default is 125E3
-  link2.strategy.setTxPower(13);             // default is 17
+//  link2.strategy.setTxPower(13);             // default is 17
   //link2.strategy.setSpreadingFactor(7);      // default is 7
   //link2.strategy.setCodingRate4(5);          // default is 5
   router.set_sendnotification(sendnotification_function);
-//#ifdef ENABLE_DEBUG
+#ifdef ENABLE_DEBUG
   router.set_error(error_handler);
-//#endif
+#endif
   router.set_virtual_bus(0); // Enable virtual bus
   router.begin();
 
@@ -130,18 +167,22 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   //wdt_reset();
 }
 
-void error_handler(uint8_t code, uint16_t data, void *custom_ptr)
+#ifdef ENABLE_DEBUG
+void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
 {
 //  digitalWrite(ERROR_LED_PIN, HIGH);
-#ifdef ENABLE_DEBUG
   if(code == PJON_CONNECTION_LOST) {
     SERIAL.print(F("Connection with device ID "));
-    SERIAL.print(data);
+    //SERIAL.print(router.get_bus(router.get_callback_bus()).packets[data].content[0]);
+    if(router.get_current_bus() == 0)  // 0 -> bus1, 1 -> bus2, ...
+      SERIAL.print(bus1.packets[data].content[0], DEC);
+    else
+      SERIAL.print(bus2.packets[data].content[0], DEC);
     SERIAL.println(F(" is lost."));
   }
   if(code == PJON_PACKETS_BUFFER_FULL) {
     SERIAL.print(F("Packet buffer is full, has now a length of "));
-    SERIAL.println(data, DEC);
+    SERIAL.println(data);
     SERIAL.println(F("Possible wrong bus configuration!"));
     SERIAL.println(F("higher PJON_MAX_PACKETS in PJONDefines.h if necessary."));
   }
@@ -149,9 +190,9 @@ void error_handler(uint8_t code, uint16_t data, void *custom_ptr)
     SERIAL.print(F("Content is too long, length: "));
     SERIAL.println(data);
   }
-#endif
-  // set watchdog for reset
-  wdt_reset();
-  //wdt_enable(WDTO_8S);  // give time (8s) to recover
-  wdt_enable(WDTO_15MS);  // reset as fast as possible (15ms)
+//  // set watchdog for reset
+//  wdt_reset();
+//  //wdt_enable(WDTO_8S);  // give time (8s) to recover
+//  wdt_enable(WDTO_15MS);  // reset as fast as possible (15ms)
 }
+#endif

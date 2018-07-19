@@ -4,7 +4,12 @@
  * @file OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
  *
  * @author drtrigon
- * @date 2018-07-06
+ * @date 2018-07-19
+ * @version 1.1
+ *   @li use different IDs for linux/ubuntu and raspi builds (use `make raspi`)
+ *   @li status and error handling added
+ *   @li debug output to stderr added
+ *   @li retrying disabled in favour of the former changes
  * @version 1.0
  *   @li first version derived from
  *       @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
@@ -57,8 +62,6 @@
 // <Strategy name> bus(selected device id)
 PJON<LocalUDP> bus(ID);
 
-//bool EXIT = false;
-
 #define BLOCK_SIZE 256
 //uint8_t buffer[BLOCK_SIZE];
 char buffer[BLOCK_SIZE];
@@ -68,24 +71,29 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
 {
   fwrite(payload, sizeof(char), length, stdout);
   printf("\n");  // print newline - causes also a flush
-
-//  EXIT = true;
 };
 
-void loop()
+void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
+{
+  if(code == PJON_CONNECTION_LOST) {
+    fprintf(stderr, "Connection with device ID %i is lost.\n", bus.packets[data].content[0]);
+  }
+  if(code == PJON_PACKETS_BUFFER_FULL) {
+    fprintf(stderr, "Packet buffer is full, has now a length of %i\n", data);
+    fprintf(stderr, "Possible wrong bus configuration!\n");
+    fprintf(stderr, "higher PJON_MAX_PACKETS in PJONDefines.h if necessary.\n");
+  }
+  if(code == PJON_CONTENT_TOO_LONG) {
+    fprintf(stderr, "Content is too long, length: %i\n", data);
+  }
+}
+
+/*void loop()
 {
   bus.update();
   bus.receive(1000);
   //bus.receive();
-
-//  // Show the number of sockets created after startup
-//  // (Try disconnecting the Ethernet cable for a while to see it increase when reconnected.)
-//  static uint32_t last = millis();
-//  if (millis() - last > 5000) {
-//    last = millis();
-//    printf("CONNECT COUNT: %d\n", bus.strategy.link.get_connection_count());
-//  }
-}
+}*/
 
 int main(int argc, char* argv[]) // or char** argv
 {
@@ -95,7 +103,8 @@ int main(int argc, char* argv[]) // or char** argv
   }
 
   // Welcome to RemoteWorker 1 (Transmitter)
-//  bus.set_receiver(receiver_function);
+  bus.set_receiver(receiver_function);
+  bus.set_error(error_handler);
 
   // Opening bus...
   bus.begin();
@@ -109,16 +118,9 @@ int main(int argc, char* argv[]) // or char** argv
     strcpy(buffer, argv[4]);
     l = strlen(argv[4]);
   }
-  // drop old hanging messages from bus for about 0.1s
-  for(int j = 0; j < 100; ++j) {  // do timeout 10 times ~ 100ms
-    bus.update();
-    if(bus.receive(1000) == PJON_ACK)  // 1ms timeout
-      break;
-  }
-  bus.set_receiver(receiver_function);
-  // send and receive messages
-  for(int i = 0; i < 3; ++i) {  // try 3 times (using timeout), then exit
-    //bus.send(argv[3][0], buffer, l);
+  uint16_t ret;
+//  for(int i = 0; i < 3; ++i) {  // try 3 times (using timeout), then exit
+  {
     bus.send(atoi(argv[3]), buffer, l);
     // Attempting to roll bus...
     //bus.update();
@@ -126,36 +128,36 @@ int main(int argc, char* argv[]) // or char** argv
     //bus.receive();
     // Success!
 
-//    time_t timer0, timer1;
-//    time(&timer0);  /* get current time; same as: timer = time(NULL)  */
+    //time_t timer0, timer1;
+    //time(&timer0);  /* get current time; same as: timer = time(NULL)  */
 
     //while (true) loop();
-    //while (!EXIT) loop();
-//    while (!EXIT) {
-//      loop();
-//      time(&timer1);
-//      EXIT = EXIT || (difftime(timer1, timer0) > 5.);  // 5s timeout
-//    }
+    //while (!EXIT) {
+    //  loop();
+    //  time(&timer1);
+    //  EXIT = EXIT || (difftime(timer1, timer0) > 5.);  // 5s timeout
+    //}
 
     for(int j = 0; j < 3000; ++j) {  // do timeout 3000 times ~ 3s
       bus.update();
-// TODO: use error handler callback
-      switch (bus.receive(1000)) {   // 1ms timeout
+      ret = bus.receive(1000);       // 1ms timeout
+      switch (ret) {
       case PJON_ACK:
-        return 0;
+        return 0;                    // Success!
         break;
-//      case PJON_NAK:   // re-try; send data again
-//        break;
-//      case PJON_BUSY:
-//        // ...
-//        break;
-//      case PJON_FAIL:
-//        // ...
-//        break;
+      case PJON_NAK:
+        fprintf(stderr, "NAK: %i\n", ret);
+        break;
+      case PJON_BUSY:  // wait 3s - allow bus to cool down
+        fprintf(stderr, "BUSY: %i\n", ret);
+        sleep(3);
+        break;
+      case PJON_FAIL:
       default:
         break;
       }
     }
   }
-  return 0;
+  fprintf(stderr, "FAILED: %i\n", ret);
+  return 1;  // failed
 }

@@ -241,6 +241,8 @@ It works but has at least these disadvantages:
   - using 150 ohms as minimum is recommended in order to be protected against shorts
     - a device on the 5v bus needs to be able to drive (5v - 3.6v) / R ~ 0.4..20mA for a high
     - currently 4k7 is used
+    - current through zener might peak if 3.3V supply is higher (simulation
+      below shows about 3.6V@20mA - so using 3.6V zener might be the safe choice)
   - (cut-off frequency might be low due to big capacity and big resistor)
 
 Further improvements might include; setup a "3 way" tunneler (LUDP, SWBB, SWBB)
