@@ -148,23 +148,20 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
         * https://github.com/fredilarsen/ModuleInterface/blob/master/examples/SensorMonitor/SensorMonitor.ino#L31
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI_PJON/PJONModuleInterface.h#L14
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
+* https://github.com/gioblu/PJON/issues/222#issuecomment-406080833
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
   * test setup and reliability especially for outdoor SWBB (tunneled via ThroughLoRa)
-    * if Dragino crashes more often use watchdog to reset in case of error, see SWBB-TL tunneler
-      * https://github.com/gioblu/PJON/wiki/Error-handling
-    * consider playing with PJON_MAX_PACKETS (used to be 3 in tunnels - default is 5 - may be 0/off is best?)
-    * make linux code (system) respond faster, see DeviceGeneric (TS_RESPONSE_TIME_OUT)
-    * in linux code adding a timeout before sending to get and waste "old" hanging messages and clean the bus seems to help
     * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/Any/StrategyLinkNetworkAnalysis
     * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/SoftwareBitBang/NetworkAnalysis
+  * adopt scripts for collectd on raspi server to be more generic and work with different types of sensors
   * hardware; build shield according to specs given in https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang
+  * consider using power-saving strategies on the sensor devices
+    * https://www.peterbeard.co/blog/post/arduino-power-saving/
+    * http://www.fiz-ix.com/2012/11/save-power-by-disabling-arduino-peripherals/
   * setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
   * test Yun/Dragino (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
     * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
     * https://forum.arduino.cc/index.php?topic=530659.0
-  * consider using power-saving strategies on the sensor devices
-    * https://www.peterbeard.co/blog/post/arduino-power-saving/
-    * http://www.fiz-ix.com/2012/11/save-power-by-disabling-arduino-peripherals/
 
 ### Uno_Programmer
 

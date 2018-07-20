@@ -27,6 +27,8 @@ Notes:
   in both, the Receiver and the Transmitter makes TS run stable
 - the terms "Master" and "Slave" might be missleading, as basically
   communication between all devices in any direction is possible
+- https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang
+  (pull-down resistor etc.)
 
 Arduino Uno and Yun can basically be any kind of AVR/Arduino (as supported
 by PJON), no special needs except for a serial-usb port on one of them.
@@ -242,7 +244,7 @@ It works but has at least these disadvantages:
     - a device on the 5v bus needs to be able to drive (5v - 3.6v) / R ~ 0.4..20mA for a high
     - currently 4k7 is used
     - current through zener might peak if 3.3V supply is higher (simulation
-      below shows about 3.6V@20mA - so using 3.6V zener might be the safe choice)
+      above shows about 3.6V@20mA - so using 3.6V zener might be the safe choice)
   - (cut-off frequency might be low due to big capacity and big resistor)
 
 Further improvements might include; setup a "3 way" tunneler (LUDP, SWBB, SWBB)
@@ -253,20 +255,17 @@ http://www.partsim.com/simulator/#148244.
 
 
 
-- LoRa-SWBB: Dargino/Yun for LoRa indoors, Uno+LoRa outdoors - outdoor low-power possible
-- AnalogSampling-SWBB: Single LED or Laser Diode bidirectional through window - low-power posible - needs testing and safety measure, e.g. cats remove sender and look into laser diode ...
-- OverSampling-SWBB: 315/433MHz or HC-12 radio - low-power possible? where to order from?
-- LUDP-SWBB (LUDP via wifi); Yun, ESP8266 (GUPD, 3.3v), raspi zero (3.3v using wifi stick or zero w), uno+eth+lan2wifi (like now), maybe use yun as "router"/lan2wifi (https://hackingmajenkoblog.wordpress.com/2017/06/02/configuring-yun-wifi/) - wifi thus high-power
-- For testing and specifing network stability use e.g.:
-  - https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/AnalogSampling/NetworkAnalysis - then build a tunneler or surrogate
-- OWP_DG_1w-adaptor for mega328 could may be modified to fit in an attiny (mega88); OWPJON-1wire (master) converter for refurbishing of old 1wire devices
-    - https://github.com/mikaelpatel/Arduino-OWI, https://github.com/mikaelpatel/Arduino-OWI/tree/master/examples/ATtiny
-
-
-
-
 
 Notes:
+- OWP_DG_1w-adaptor for mega328 could may be modified to fit in an attiny (mega88); OWPJON-1wire (master) converter for refurbishing of old 1wire devices
+  - https://github.com/mikaelpatel/Arduino-OWI, https://github.com/mikaelpatel/Arduino-OWI/tree/master/examples/ATtiny
+- Outdoor/Isolated bus branch; https://github.com/gioblu/PJON/issues/222
+  - LoRa-SWBB switch/tunnel; Dargino/Yun for LoRa indoors, Uno+LoRa outdoors - outdoor low-power possible
+  - alternative solutions;
+    - AnalogSampling-SWBB: Single LED or Laser Diode bidirectional through window - low-power posible - needs testing and safety measure, e.g. cats remove sender and look into laser diode ...
+    - OverSampling-SWBB: 315/433MHz or HC-12 radio - low-power possible? where to order from?
+    - LUDP-SWBB (LUDP via wifi); Yun, ESP8266 (GUPD, 3.3v), raspi zero (3.3v using wifi stick or zero w), uno+eth+lan2wifi (like now), maybe use yun as "router"/lan2wifi (https://hackingmajenkoblog.wordpress.com/2017/06/02/configuring-yun-wifi/) - wifi thus high-power
+  - for testing and specifing network stability use; https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/Any/StrategyLinkNetworkAnalysis (same for SoftwareBitBang, AnalogSampling)
 - Setup, test and enjoy https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage (may be on a Raspi2)
 - Arduino+ETH can be replaced by ESP8266 (3.3<->5.0v shifting might be needed, may be not) but needs GlobalUDP (LUDP would be nice)
 - Arduino+ETH could be replaced by Arduino Yun or even Dragino, if PJON LUDP would support Yun (needs Yun to support UDP)

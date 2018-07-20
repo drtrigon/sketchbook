@@ -148,9 +148,10 @@ int main(int argc, char* argv[]) // or char** argv
       case PJON_NAK:
         fprintf(stderr, "NAK: %i\n", ret);
         break;
-      case PJON_BUSY:  // wait 3s - allow bus to cool down
+      case PJON_BUSY:  // wait 2s and restart timeout - allow bus to cool down
         fprintf(stderr, "BUSY: %i\n", ret);
-        sleep(3);
+        sleep(2);
+        j = 0;
         break;
       case PJON_FAIL:
       default:
