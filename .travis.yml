@@ -51,7 +51,7 @@ install:
   - sudo cp -R $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/Adafruit_Si7021 $HOME/Arduino/libraries/
   #- sudo cp -R $PWD/libraries/TinyWireM $HOME/Arduino/libraries/
-  - sudo cp -R $PWD/libraries/PJON-master $HOME/Arduino/libraries/ && sudo cp $PWD/libraries/PJON $HOME/Arduino/libraries/
+  - sudo cp -R $PWD/libraries/PJON-master $HOME/Arduino/libraries/ && sudo cp -d $PWD/libraries/PJON $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/DS2438 $HOME/Arduino/libraries/
   - arduino --pref boardsmanager.additional.urls="http://digistump.com/package_digistump_index.json,http://drazzy.com/package_drazzy.com_index.json" --save-prefs
   - arduino --install-boards "digistump:avr"
