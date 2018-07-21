@@ -158,6 +158,12 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   };
   case 1: {
     digitalWrite(BUILTIN_LED, LOW);
+#ifdef ENABLE_DEBUG
+    SERIAL.print(link2.strategy.packetRssi());
+    SERIAL.print(" ");
+    SERIAL.print(link2.strategy.packetSnr());
+    SERIAL.print(" ");
+#endif
   };
   }
 #ifdef ENABLE_DEBUG
@@ -173,11 +179,7 @@ void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
 //  digitalWrite(ERROR_LED_PIN, HIGH);
   if(code == PJON_CONNECTION_LOST) {
     SERIAL.print(F("Connection with device ID "));
-    //SERIAL.print(router.get_bus(router.get_callback_bus()).packets[data].content[0]);
-    if(router.get_current_bus() == 0)  // 0 -> bus1, 1 -> bus2, ...
-      SERIAL.print(bus1.packets[data].content[0], DEC);
-    else
-      SERIAL.print(bus2.packets[data].content[0], DEC);
+    SERIAL.print(router.get_bus(router.get_callback_bus()).packets[data].content[0]);
     SERIAL.println(F(" is lost."));
   }
   if(code == PJON_PACKETS_BUFFER_FULL) {

@@ -162,6 +162,10 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
   * test Yun/Dragino (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
     * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
     * https://forum.arduino.cc/index.php?topic=530659.0
+  * improve LoRa switch
+    * tweak parameters (see https://github.com/gioblu/PJON/blob/master/src/strategies/ThroughLoRa/Timing.h#L26)
+      * increase `TL_COLLISION_DELAY`
+    * see also https://github.com/gioblu/PJON/issues/222
 
 ### Uno_Programmer
 
