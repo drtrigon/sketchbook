@@ -51,7 +51,9 @@
  *     @ref OWPJON/README.md
  *     @see http://vusb.wikidot.com/hardware
  *     @see http://www.partsim.com/simulator/#148247
- *   - LoRa tx power 13..17 dBm; @see https://www.digitalairwireless.com/articles/blog/wifi-transmit-power-calculations-made-simples
+ *   - LoRa tx power 10..17 dBm; @see https://www.digitalairwireless.com/articles/blog/wifi-transmit-power-calculations-made-simples
+ *   - LoRa settings vs. datarate; @see http://www.rfwireless-world.com/calculators/LoRa-Data-Rate-Calculator.html
+ *   - LoRa settings for max. datarate; lowest SF, CR - highest BW. For max. range; highest SF, (CR for reliability) - lowest BW
  *   - Debug Dragino; @see http://www.dragino.com/downloads/downloads/YunShield/YUN_SHIELD_QUICK_START_GUIDE_v1.0.pdf
  *                    For reboot via network @see http://192.168.11.16/cgi-bin/luci//admin.
  *
@@ -130,7 +132,7 @@ void setup()
   link2.strategy.setFrequency(868100000UL);
   // Optional
   link2.strategy.setSignalBandwidth(250E3);  // default is 125E3
-//  link2.strategy.setTxPower(13);             // default is 17
+  link2.strategy.setTxPower(10);             // default is 17
   //link2.strategy.setSpreadingFactor(7);      // default is 7
   //link2.strategy.setCodingRate4(5);          // default is 5
   router.set_sendnotification(sendnotification_function);
