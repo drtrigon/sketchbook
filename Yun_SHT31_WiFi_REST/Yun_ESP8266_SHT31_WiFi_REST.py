@@ -15,8 +15,8 @@ import sys
 
 
 CONF = {
-  'sensor': "192.168.11.7",
-#  'sensor': "192.168.11.13:8080",
+  'sensor': "192.168.11.7:8080",  # ESP8266 (IP fixed/static assigned on DHCP server/router)
+#  'sensor': "192.168.11.13:80",   # Arduino Yun (IP not fixed...)
 
   'interval_update': 20.,
   'interval_timeout': 3.,

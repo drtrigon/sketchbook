@@ -164,6 +164,7 @@ aREST rest = aREST();
 
 // Yun Server
 YunServer server(80);
+//BridgeServer server(80);  // NOTE: The use of YunServer is deprecated. Use BridgeServer instead.
 
 Adafruit_SHT31 sht31 = Adafruit_SHT31();
 
