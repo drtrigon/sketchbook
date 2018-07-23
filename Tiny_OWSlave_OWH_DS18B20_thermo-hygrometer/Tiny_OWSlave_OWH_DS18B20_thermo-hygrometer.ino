@@ -75,16 +75,37 @@
  *                                ---_---
  *                                .     .
  *                        RST PB5 |1   8| VCC      5V
- * (via 220ohm to 1<-TX)   A3 PB3 |2   7| PB2 A1   SCL Adafruit_Si7021
- *           1-wire DATA   A2 PB4 |3   6| PB1 PWM  (via 4.7k to LED on GND)
- *                            GND |4   5| PB0 PWM  SDA Adafruit_Si7021
+ * (via 220ohm to 1<-TX)   3  PB3 |2   7| PB2  2   SCL Adafruit_Si7021
+ *           1-wire DATA   4  PB4 |3   6| PB1  1   (via 4.7k to LED on GND)
+ *                            GND |4   5| PB0  0   SDA Adafruit_Si7021
  *                                -------
+ * @see https://github.com/SpenceKonde/ATTinyCore/blob/master/avr/extras/ATtiny_x5.md
  * NOTE! - It's very important to use pullups on the SDA & SCL lines!
  *         I2C pullups should be 1-100k, so 4.7k fits well.
- * optional: - P0 (Pin 5) a LED can be added to check for regular operation.
- *           - P3 (Pin 2) can be connected to an Arduino Uno/Nano for serial
+ * optional: - P1 (HWPin 5) a LED can be added to check for regular operation.
+ *           - P3 (HWPin 2) can be connected to an Arduino Uno/Nano for serial
  *             output for debugging. The Arduino needs a connection from
  *             RESET to GND to disable the atmega328. For 1 or 8MHz only!
+ *           - To use it with (external) 16MHz oscillator remove LED or use attiny84.
+ *             According to https://github.com/gioblu/PJON/issues/142 PJON supports 84.
+ *             (Using https://github.com/datacute/Tiny4kOLED instead of LED would be
+ *             great but memory footprint is too big. Consider using tiny84@16MHz-ext.)
+ *
+ *                      ATtinyX4 Pin Layout (ATtiny84)
+ *                      for 16MHz external oscillator
+ *                                ---_---
+ *                                .     .
+ *                    5V      VCC |1  14| GND
+ *                 XTAL1  10  PB0 |2  13| PA0  0
+ *                 XTAL2   9  PB1 |3  12| PA1  1   (via 4.7k to LED on GND)
+ *                        RST PB3 |4  11| PA2  2
+ *                         8  PB2 |5  10| PA3  3   (via 220ohm to 1<-TX ?)
+ *                         7  PA7 |6   9| PA4  4   SCL Adafruit_Si7021
+ *   Adafruit_Si7021 SDA   6  PA6 |7   8| PA5  5   1-wire DATA
+ *                                -------
+ * @see https://github.com/SpenceKonde/ATTinyCore/blob/master/avr/extras/ATtiny_x4.md
+ * NOTE! - The Pin for 1wire needs to be moved to another Pin, e.g. Pin 5 as 4 is
+ *         either occupied by SCL or in alternative mode by SDA.
  */
 
 // In DEBUG mode 1wire interface is replaced by serial ouput
@@ -110,6 +131,7 @@
 
 constexpr uint8_t pin_led       { 1 };
 constexpr uint8_t pin_onewire   { 4 };
+//constexpr uint8_t pin_onewire   { 5 };  // for tiny84 with external 16MHz osc.
 
 auto hub     = OneWireHub(pin_onewire);
 
