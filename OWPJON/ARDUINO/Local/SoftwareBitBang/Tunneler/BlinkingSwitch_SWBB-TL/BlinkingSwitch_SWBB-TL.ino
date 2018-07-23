@@ -181,7 +181,7 @@ void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
 //  digitalWrite(ERROR_LED_PIN, HIGH);
   if(code == PJON_CONNECTION_LOST) {
     SERIAL.print(F("Connection with device ID "));
-    SERIAL.print(router.get_bus(router.get_callback_bus()).packets[data].content[0]);
+    SERIAL.print(router.get_bus(router.get_callback_bus()).packets[data].content[0], DEC);
     SERIAL.println(F(" is lost."));
   }
   if(code == PJON_PACKETS_BUFFER_FULL) {
