@@ -168,6 +168,15 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
     * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
     * https://forum.arduino.cc/index.php?topic=530659.0
 
+### Uno_Dragino_LoRa_GPS_Shield_TTN
+
+Send GPS and Sensor Data from Arduino via LoRa as valid LoRaWAN packet to TTN (TheThingsNetwork).
+
+This allows to setup sensors wherever a TTN LoRa(WAN) Gateway is available: https://www.thethingsnetwork.org/community/.
+
+The data (payload) sent can be stored for 7 days and during this time accessed by RESTful API, see
+the python script supplied.
+
 ### Uno_Programmer
 
 ...
