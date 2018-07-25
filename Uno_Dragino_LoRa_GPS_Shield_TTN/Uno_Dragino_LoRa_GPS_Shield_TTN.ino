@@ -33,7 +33,7 @@
  *   * LMIC (LoRaWAN): https://github.com/matthijskooijman/arduino-lmic
  *     (select "Version 1.5.0+arduino-2" otherwise sketch won't fit into 32K)
  *   * TinyGPS: http://arduiniana.org/libraries/tinygps/
- * 
+ *
  * Required Hardware:
  *   * LoRa Shield + Arduino
  *   * LoRa GPS Shield + Arduino
@@ -150,8 +150,7 @@ void do_send(osjob_t* j)
         Serial.println(LMIC.freq);
         Serial.println("");
         Serial.println("Receive data:");
-        
-    } 
+    }
     // Next TX is scheduled after TX_COMPLETE event.
 }
 
@@ -161,63 +160,63 @@ void onEvent(ev_t ev)
     Serial.print(": ");
     Serial.println(ev);
     switch(ev) {
-        case EV_SCAN_TIMEOUT:
-            Serial.println(F("EV_SCAN_TIMEOUT"));
-            break;
-        case EV_BEACON_FOUND:
-            Serial.println(F("EV_BEACON_FOUND"));
-            break;
-        case EV_BEACON_MISSED:
-            Serial.println(F("EV_BEACON_MISSED"));
-            break;
-        case EV_BEACON_TRACKED:
-            Serial.println(F("EV_BEACON_TRACKED"));
-            break;
-        case EV_JOINING:
-            Serial.println(F("EV_JOINING"));
-            break;
-        case EV_JOINED:
-            Serial.println(F("EV_JOINED"));
-            break;
-        case EV_RFU1:
-            Serial.println(F("EV_RFU1"));
-            break;
-        case EV_JOIN_FAILED:
-            Serial.println(F("EV_JOIN_FAILED"));
-            break;
-        case EV_REJOIN_FAILED:
-            Serial.println(F("EV_REJOIN_FAILED"));
-            break;
-        case EV_TXCOMPLETE:
-            Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
-            if(LMIC.dataLen) {
-                // data received in rx slot after tx
-                Serial.print(F("Data Received: "));
-                Serial.write(LMIC.frame+LMIC.dataBeg, LMIC.dataLen);
-                Serial.println();
-            }
-            // Schedule next transmission
-            os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
-            break;
-        case EV_LOST_TSYNC:
-            Serial.println(F("EV_LOST_TSYNC"));
-            break;
-        case EV_RESET:
-            Serial.println(F("EV_RESET"));
-            break;
-        case EV_RXCOMPLETE:
-            // data received in ping slot
-            Serial.println(F("EV_RXCOMPLETE"));
-            break;
-        case EV_LINK_DEAD:
-            Serial.println(F("EV_LINK_DEAD"));
-            break;
-        case EV_LINK_ALIVE:
-            Serial.println(F("EV_LINK_ALIVE"));
-            break;
-         default:
-            Serial.println(F("Unknown event"));
-            break;
+    case EV_SCAN_TIMEOUT:
+        Serial.println(F("EV_SCAN_TIMEOUT"));
+        break;
+    case EV_BEACON_FOUND:
+        Serial.println(F("EV_BEACON_FOUND"));
+        break;
+    case EV_BEACON_MISSED:
+        Serial.println(F("EV_BEACON_MISSED"));
+        break;
+    case EV_BEACON_TRACKED:
+        Serial.println(F("EV_BEACON_TRACKED"));
+        break;
+    case EV_JOINING:
+        Serial.println(F("EV_JOINING"));
+        break;
+    case EV_JOINED:
+        Serial.println(F("EV_JOINED"));
+        break;
+    case EV_RFU1:
+        Serial.println(F("EV_RFU1"));
+        break;
+    case EV_JOIN_FAILED:
+        Serial.println(F("EV_JOIN_FAILED"));
+        break;
+    case EV_REJOIN_FAILED:
+        Serial.println(F("EV_REJOIN_FAILED"));
+        break;
+    case EV_TXCOMPLETE:
+        Serial.println(F("EV_TXCOMPLETE (includes waiting for RX windows)"));
+        if(LMIC.dataLen) {
+            // data received in rx slot after tx
+            Serial.print(F("Data Received: "));
+            Serial.write(LMIC.frame+LMIC.dataBeg, LMIC.dataLen);
+            Serial.println();
+        }
+        // Schedule next transmission
+        os_setTimedCallback(&sendjob, os_getTime()+sec2osticks(TX_INTERVAL), do_send);
+        break;
+    case EV_LOST_TSYNC:
+        Serial.println(F("EV_LOST_TSYNC"));
+        break;
+    case EV_RESET:
+        Serial.println(F("EV_RESET"));
+        break;
+    case EV_RXCOMPLETE:
+        // data received in ping slot
+        Serial.println(F("EV_RXCOMPLETE"));
+        break;
+    case EV_LINK_DEAD:
+        Serial.println(F("EV_LINK_DEAD"));
+        break;
+    case EV_LINK_ALIVE:
+        Serial.println(F("EV_LINK_ALIVE"));
+        break;
+    default:
+        Serial.println(F("Unknown event"));
+        break;
     }
 }
 
@@ -261,7 +260,8 @@ static void smartdelay(unsigned long ms)
 }
 
 
-void setup() {
+void setup()
+{
     Serial.begin(9600);
     ss.begin(9600);
     //while(!Serial);
@@ -275,7 +275,7 @@ void setup() {
     /*LMIC_setClockError(MAX_CLOCK_ERROR * 1/100);
      Set static session parameters. Instead of dynamically establishing a session
      by joining the network, precomputed session parameters are be provided.*/
-    #ifdef PROGMEM
+#ifdef PROGMEM
     /* On AVR, these values are stored in flash and only copied to RAM
        once. Copy them to a temporary buffer here, LMIC_setSession will
        copy them into a buffer of its own again.*/
@@ -284,11 +284,11 @@ void setup() {
     memcpy_P(appskey, APPSKEY, sizeof(APPSKEY));
     memcpy_P(nwkskey, NWKSKEY, sizeof(NWKSKEY));
     LMIC_setSession (0x1, DEVADDR, nwkskey, appskey);
-    #else
-    // If not running an AVR with PROGMEM, just use the arrays directly 
+#else
+    // If not running an AVR with PROGMEM, just use the arrays directly
     LMIC_setSession (0x1, DEVADDR, NWKSKEY, APPSKEY);
-    #endif
-    
+#endif
+
     // Disable link check validation
     LMIC_setLinkCheckMode(0);
 
@@ -317,16 +317,16 @@ void loop()
  */
 float readVcc()
 {
-  long result;
-  // Read 1.1V reference against AVcc
-  ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
-  delay(2); // Wait for Vref to settle
-  ADCSRA |= _BV(ADSC); // Convert
-  while (bit_is_set(ADCSRA,ADSC));
-  result = ADCL;
-  result |= ADCH<<8;
-  result = 1126400L / result; // Back-calculate AVcc in mV
-  return result / 1000.;
+    long result;
+    // Read 1.1V reference against AVcc
+    ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
+    delay(2); // Wait for Vref to settle
+    ADCSRA |= _BV(ADSC); // Convert
+    while (bit_is_set(ADCSRA,ADSC));
+    result = ADCL;
+    result |= ADCH<<8;
+    result = 1126400L / result; // Back-calculate AVcc in mV
+    return result / 1000.;
 }
 
 /**
@@ -339,32 +339,32 @@ float readVcc()
  */
 float readTemp(void)
 {
-  unsigned int wADC;
-  float t;
+    unsigned int wADC;
+    float t;
 
-  // The internal temperature has to be used
-  // with the internal reference of 1.1V.
-  // Channel 8 can not be selected with
-  // the analogRead function yet.
+    // The internal temperature has to be used
+    // with the internal reference of 1.1V.
+    // Channel 8 can not be selected with
+    // the analogRead function yet.
 
-  // Set the internal reference and mux.
-  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
-  ADCSRA |= _BV(ADEN);  // enable the ADC
+    // Set the internal reference and mux.
+    ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
+    ADCSRA |= _BV(ADEN);  // enable the ADC
 
-  delay(20);            // wait for voltages to become stable.
+    delay(20);            // wait for voltages to become stable.
 
-  ADCSRA |= _BV(ADSC);  // Start the ADC
+    ADCSRA |= _BV(ADSC);  // Start the ADC
 
-  // Detect end-of-conversion
-  while (bit_is_set(ADCSRA,ADSC));
+    // Detect end-of-conversion
+    while (bit_is_set(ADCSRA,ADSC));
 
-  // Reading register "ADCW" takes care of how to read ADCL and ADCH.
-  wADC = ADCW;
+    // Reading register "ADCW" takes care of how to read ADCL and ADCH.
+    wADC = ADCW;
 
-  // The offset of 324.31 could be wrong. It is just an indication.
-//  t = (wADC - 324.31 ) / 1.22;
-  t = (wADC - 330.81 ) / 1.22;    // Arduino Uno R3 (mega328)
+    // The offset of 324.31 could be wrong. It is just an indication.
+//    t = (wADC - 324.31 ) / 1.22;
+    t = (wADC - 330.81 ) / 1.22;    // Arduino Uno R3 (mega328)
 
-  // The returned temperature is in degrees Celsius.
-  return (t);
+    // The returned temperature is in degrees Celsius.
+    return (t);
 }
