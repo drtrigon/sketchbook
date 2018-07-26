@@ -18,6 +18,7 @@
  *
  * Note: LoRaWAN per sub-band duty-cycle limitation is enforced (1% in g1,
  * 0.1% in g2).
+ * @see https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html
  *
  * Change NWKSKEY, APPSKEY and DEVADDR to the keys given for your
  * account and device. Currently it is defined for
@@ -25,6 +26,11 @@
  *
  * In order to retreive the data from TTN use the python script given
  * @ref Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py
+ *
+ * Data from TTN can be further processed in Node-RED. If a local install
+ * is not available consider using it online e.g. https://fred.sensetecnic.com/
+ * and enable/install TTN library from menu. Currently I am not aware of
+ * any online grafana (or similar) tool.
  *
  * Do not forget to define the radio type correctly in config.h.
  * Currently set for Dragino LoRa GPS Shield.
@@ -37,6 +43,7 @@
  * Required Hardware:
  *   * LoRa Shield + Arduino
  *   * LoRa GPS Shield + Arduino
+ *     @see https://github.com/dragino/Lora/blob/master/Lora%20GPS%20Shield/mother%20board/v1.3/Lora%20GPS%20Shield%20v1.3.sch.pdf
  *   * LoRa Mini etc.
  *
  * Hardware Connection:
