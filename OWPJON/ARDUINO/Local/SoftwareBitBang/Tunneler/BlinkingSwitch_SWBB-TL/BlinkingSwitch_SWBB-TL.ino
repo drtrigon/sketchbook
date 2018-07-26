@@ -157,6 +157,7 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   switch(sender_bus) {
   case 0: {
     digitalWrite(BUILTIN_LED, HIGH);
+    break;
   };
   case 1: {
     digitalWrite(BUILTIN_LED, LOW);
@@ -166,6 +167,7 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
     SERIAL.print(link2.strategy.packetSnr());
     SERIAL.print(" ");
 #endif
+    break;
   };
   }
 #ifdef ENABLE_DEBUG

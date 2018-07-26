@@ -85,9 +85,11 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   switch(sender_bus) {
   case 0: {
     digitalWrite(LED_BUILTIN, HIGH);
+    break;
   };
   case 1: {
     digitalWrite(LED_BUILTIN, LOW);
+    break;
   };
   }
 }

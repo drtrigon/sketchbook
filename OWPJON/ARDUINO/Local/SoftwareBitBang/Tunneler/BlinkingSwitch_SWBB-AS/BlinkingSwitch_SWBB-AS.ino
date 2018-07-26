@@ -55,9 +55,11 @@ void loop()
   switch(sender_bus) {
   case 0: {
     digitalWrite(LED_BUILTIN, HIGH);
+    break;
   };
   case 1: {
     digitalWrite(LED_BUILTIN, LOW);
+    break;
   };
   }
 }*/
