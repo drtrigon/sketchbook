@@ -5,6 +5,12 @@ printf "\x01" | ./owpshell-ubuntu14.04 - - 44
 printf "\x11" | ./owpshell-ubuntu14.04 - - 44 | ./unpack-test.py f
 #sleep 1
 printf "\x12" | ./owpshell-ubuntu14.04 - - 44 | ./unpack-test.py f
+
+printf "\x01" | ./owpshell-ubuntu14.04 - - 43
+printf "\x11" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+printf "\x12" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+printf "\xFF" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+
 printf "\x01" | ./owpshell-ubuntu14.04 - - 42
 #owp:dg:1w:v1
 #printf "\x11" | ./owpshell-ubuntu14.04 - - 42 | ./unpack-test.py f
@@ -22,8 +28,3 @@ printf "\x43" | ./owpshell-ubuntu14.04 - - 42 | ./unpack-test.py f
 #4.510000228881836,
 printf "\x44" | ./owpshell-ubuntu14.04 - - 42 | ./unpack-test.py f
 #nan,
-
-#printf "\x01" | ./owpshell-ubuntu14.04 - - 43
-#printf "\x11" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
-#printf "\x12" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
-#printf "\xFF" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f

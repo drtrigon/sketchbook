@@ -131,6 +131,44 @@ Has the potential to replace commercial 1-wire bus (by its SoftwareBitBang strat
 
 https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
 
+Current bus topography for 2 isolated SoftwareBitBang bus parts (A & C):
+```
+-------   LUDP    -------  SWBB(A)  -------    TL     -------  SWBB(C)
+|ID 46| ========= |Sw A | --------- |Sw B | ......... |Sw C | ---------
+-------     I     -------     I     -------     I     -------     I
+            I                 I                 I                 I
+         -------           -------           -------           -------
+         |ID 45|           |ID 44|           |ID 43|           |ID 42|
+         -------           -------           -------           -------
+
+=== multiple wires (e.g. ethernet)
+--- single wire
+... "free space" (air, walls, etc.)
+
+* productive system includes switch (Sw) A and ID 46 & 44 (ID 46 is raspi server)
+* test system includes switch (Sw) B & C (same software) and ID 45 & 42..43 (ID 45 is desktop system)
+* all switches (Sw) and device ID 42..44 are atmega328 (Uno or Nano)
+* everything connected to TL part is (electrically) isolated
+* switch (Sw) C and everything behind it (ID 42, etc.) is solar powered
+* LoRa ouput power 10 dBm (10 mW) for all devices (Sw B & C and ID 43)
+  lower should be possible - for special cases (e.g. outdoors) higher might be needed
+```
+
+Bus topography for local (desktop) developpment and device testing:
+```
+-------    TS     -------  SWBB(Z)
+|ID 45| ========= |Sw Z | ---------
+-------           -------     I
+                              I
+                           -------
+                           |ID #?|
+                           -------
+
+* the switch (Sw) Z is an Arduino Uno (has everything needed; USBserial port and Digital Pins)
+* ID 45 is desktop system (like before)
+* ID #? is the device to test or develop
+```
+
 * How to use ATTiny with crytal and PJON: https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
 * https://hackaday.com/2016/03/31/pjon-fancy-one-wire-arduino-communications-protocol-for-home-automation/
 * https://www.pjon.org/how.php

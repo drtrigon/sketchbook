@@ -2,6 +2,10 @@
  * needs doxygen docu - derived from ThroughLoRa/DeviceGeneric, Uno_Dragino_LoRa_GPS_Shield_TTN and https://github.com/Play-Zone/BME280_MAX44009/blob/master/example.ino
  * also derived from https://www.arduinolibraries.info/libraries/bme280 and https://www.arduinolibraries.info/libraries/i2-c-sensor-lib-i-lib
  * ...
+ * use it with dragino lora gps shield (set ENABLE_GPS) or with
+ * lorabee only (do not set ENABLE_GPS)
+ * weatherstation breakout is always needed
+ * consider using hardware serial for gps (if gps used in OWPJON device)
  */
 /***********************************************************************
 *
@@ -14,12 +18,15 @@
 * SDA        SDA
 * SCL        SCL
 *
+* LoRa GPS Shield hardware configuration (connections, jumpers, etc):
+* @ref Uno_Dragino_LoRa_GPS_Shield_TTN/Uno_Dragino_LoRa_GPS_Shield_TTN.ino
+*
 * Make sure there is th S1 jumpers installed on the board (to GND)
 *
 *************************************************************************/
 
 //#define ENABLE_DEBUG
-#define ENABLE_UNITTEST
+//#define ENABLE_UNITTEST
 //#define ENABLE_GPS
 //#define ENABLE_DEBUG_GPS
 
@@ -43,9 +50,6 @@ uint8_t mem_buffer[256];
 
 TinyGPS gps;
 SoftwareSerial nss(A2, A1); // Arduino RX, TX to conenct to GPS module.
-
-float flat, flon, falt;
-unsigned long fix_age;
 #endif
 
 #include <BME280I2C.h>
@@ -130,7 +134,7 @@ void setup()
   bus.strategy.setFrequency(868100000UL);
   // Optional
   bus.strategy.setSignalBandwidth(250E3);  // default is 125E3
-  bus.strategy.setTxPower(13);             // default is 17
+  bus.strategy.setTxPower(10);             // default is 17
   //bus.strategy.setSpreadingFactor(7);      // default is 7
   //bus.strategy.setCodingRate4(5);          // default is 5
   bus.begin();
@@ -185,12 +189,17 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     // ... and multiple variables can be sent at once using struct or union.
     // (for most of the values float should be suitable)
     float val = readVcc();
-//    float val = fix_age;
+// FOR TESTING ONLY
+    /*float flat, flon;
+    unsigned long fix_age;
+    gps.f_get_position(&flat, &flon, &fix_age);
+    float val = fix_age;*/
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
   case READ_TEMP: {
 //    float val = readTemp();
+// FOR TESTING ONLY
     float temp(NAN), hum(NAN), pres(NAN);
     bme.read(pres, temp, hum, BME280::TempUnit(BME280::TempUnit_Celsius), BME280::PresUnit(BME280::PresUnit_Pa));
     float val = pres;
@@ -199,7 +208,6 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
   break;
   case READ: {
 //    bus.reply((char*)mem_buffer, sizeof(mem_buffer));
-// TODO: ??? related to PJON_PACKET_MAX_LENGTH ?
     bus.reply((char*)mem_buffer, 36);  // related to PJON_PACKET_MAX_LENGTH ?
   }
   break;
@@ -216,7 +224,15 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
   }
   break;
   case READ_VALUE_XXX: {
-    /*float val = fix_age;
+// FOR TESTING ONLY
+    /*float flat, flon, falt;
+    unsigned long fix_age;
+    gps.f_get_position(&flat, &flon, &fix_age);
+    falt=gps.f_altitude();  // +/- altitude in meters
+    flon == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : flon, 6;//save six decimal places
+    flat == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : flat, 6;
+    falt == TinyGPS::GPS_INVALID_F_ANGLE ? 0.0 : falt, 2;//save two decimal places
+    float val = fix_age;
     float val = flon;
     float val = flat;
     float val = falt;
@@ -255,7 +271,8 @@ void loop()
 #ifdef ENABLE_GPS
     while (nss.available()) {
       if (gps.encode(nss.read())) {
-        processGPS();
+        // new gps data ready for processing, e.g.:
+        //gps.f_get_position(&flat, &flon, &fix_age);
       }
     }
 #endif
@@ -266,13 +283,17 @@ void loop()
 #endif
 };
 
-#ifdef ENABLE_GPS
-void processGPS()
+#ifdef ENABLE_DEBUG
+void printSensorData()
 {
+#ifdef ENABLE_GPS
+  /*Convert GPS data to format*/
   // applications which are not resource constrained, it may be more convenient
   // to use floating-point numbers by invoking any of the f_* methods. These
   // require the floating point libraries, which might add another 600+ bytes.
 
+  float flat, flon, falt;
+  unsigned long fix_age;
   // returns +/- latitude/longitude in degrees
   gps.f_get_position(&flat, &flon, &fix_age);
   //// time in hhmmsscc, date in ddmmyy
@@ -284,14 +305,7 @@ void processGPS()
   //float fc = gps.f_course(); // course in degrees
   //float fmps = gps.f_speed_mps(); // speed in m/sec
   //float fkmph = gps.f_speed_kmph(); // speed in km/hr
-}
-#endif
 
-#ifdef ENABLE_DEBUG
-void printSensorData()
-{
-#ifdef ENABLE_GPS
-  /*Convert GPS data to format*/
   if(flon!=1000.000000) {
     Serial.print(F("Milliseconds since last fix: "));
     Serial.println(fix_age);
