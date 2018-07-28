@@ -43,10 +43,11 @@ before_install:
 install:
 #  - ln -s $PWD /usr/local/share/arduino/libraries/Adafruit_FONA
 #  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
-  - arduino --install-library "OneWireHub,SdFat,TinyWireM,SSD1306Ascii,LoRa,OneWire,BME280,I2C-Sensor-Lib iLib"
+  - arduino --install-library "OneWireHub,SdFat,TinyWireM,SSD1306Ascii,LoRa,OneWire,BME280"
   # old version of OLED_Display_96X96 - the one on github is too new and has incompatible constructor
   #- wget https://github.com/Seeed-Studio/OLED_Display_96X96/archive/v1.0.0.tar.gz
   #- tar xzf v1.0.0.tar.gz
+  # modified (?) libraries
   #- sudo mv $PWD/OLED_Display_96X96-1.0.0 $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/LCD_Display9696 $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/Adafruit_Si7021 $HOME/Arduino/libraries/
@@ -55,6 +56,7 @@ install:
   - sudo cp -R $PWD/libraries/DS2438 $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/IBM_LMIC_framework $HOME/Arduino/libraries/
   - sudo cp -R $PWD/libraries/TinyGPS-13 $HOME/Arduino/libraries/
+  - sudo cp -R $PWD/libraries/I2C_Sensor_Lib_iLib-0.8.2 $HOME/Arduino/libraries/
   - arduino --pref boardsmanager.additional.urls="http://digistump.com/package_digistump_index.json,http://drazzy.com/package_drazzy.com_index.json" --save-prefs
   - arduino --install-boards "digistump:avr"
   - arduino --install-boards "ATTinyCore:avr"

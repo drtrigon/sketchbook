@@ -150,8 +150,17 @@ Current bus topography for 2 isolated SoftwareBitBang bus parts (A & C):
 * all switches (Sw) and device ID 42..44 are atmega328 (Uno or Nano)
 * everything connected to TL part is (electrically) isolated
 * switch (Sw) C and everything behind it (ID 42, etc.) is solar powered
-* LoRa ouput power 10 dBm (10 mW) for all devices (Sw B & C and ID 43)
-  lower should be possible - for special cases (e.g. outdoors) higher might be needed
+* LoRa datarate 1.3671875 kB/s (SF=7, CR=1 (4/5), BW=250) and output power 10 dBm (10 mW)
+  for all devices (Sw B & C and ID 43) - lower should be possible - for special cases
+  (e.g. outdoors) higher might be needed
+
+* Sw A: OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
+* Sw B & C: OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/BlinkingSwitch_SWBB-TL.ino
+* ID 46: OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp (make raspi)
+* ID 45: OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp (make)
+* ID 44: OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
+* ID 43: OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino
+* ID 42: OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
 ```
 
 Bus topography for local (desktop) developpment and device testing:
@@ -167,6 +176,10 @@ Bus topography for local (desktop) developpment and device testing:
 * the switch (Sw) Z is an Arduino Uno (has everything needed; USBserial port and Digital Pins)
 * ID 45 is desktop system (like before)
 * ID #? is the device to test or develop
+
+* Sw Z: OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/BlinkingSwitch_SWBB-TS.ino
+* ID 45: OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp (make)
+* ID #?: any from OWPJON/ARDUINO/Local/SoftwareBitBang/ or OWPJON/ATTINY/Local/SoftwareBitBang/
 ```
 
 * How to use ATTiny with crytal and PJON: https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
