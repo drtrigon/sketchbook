@@ -49,7 +49,7 @@
  */
 
 //#define ENABLE_DEBUG
-#define ENABLE_UNITTEST
+//#define ENABLE_UNITTEST
 
 #define SENSOR     "owp:dg:v1"
 

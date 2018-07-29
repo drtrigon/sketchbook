@@ -98,6 +98,7 @@ void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
 int main(int argc, char* argv[]) // or char** argv
 {
   if((argc == 2) && (strcmp(argv[1], "--id") == 0)) {
+    printf("%s %s\n", __DATE__, __TIME__);
     printf("ID: %i\n", ID);
     return 0;
   }
@@ -128,8 +129,9 @@ int main(int argc, char* argv[]) // or char** argv
     //bus.receive();
     // Success!
 
-    //time_t timer0, timer1;
-    //time(&timer0);  /* get current time; same as: timer = time(NULL)  */
+    time_t timer0, timer1;
+    time(&timer0);  /* get current time; same as: timer = time(NULL)  */
+    time(&timer1);
 
     //while (true) loop();
     //while (!EXIT) {
@@ -138,9 +140,14 @@ int main(int argc, char* argv[]) // or char** argv
     //  EXIT = EXIT || (difftime(timer1, timer0) > 5.);  // 5s timeout
     //}
 
-    for(int j = 0; j < 3000; ++j) {  // do timeout 3000 times ~ 3s
+//    for(int j = 0; j < 3000; ++j) {  // do timeout 3000 times ~ 3s
+    while (difftime(timer1, timer0) < 3.) {  // 3s timeout
+      usleep(1000);                  // multi-threading - give os time
       bus.update();
-      ret = bus.receive(1000);       // 1ms timeout
+// TODO: adopt poll timings in devices and switches
+//       device: https://github.com/gioblu/PJON/issues/222#issuecomment-406729691
+//       switch: https://github.com/gioblu/PJON/issues/222#issuecomment-406744826
+      ret = bus.receive(1000);       // 10ms timeout
       switch (ret) {
       case PJON_ACK:
         return 0;                    // Success!
@@ -148,15 +155,18 @@ int main(int argc, char* argv[]) // or char** argv
       case PJON_NAK:
         fprintf(stderr, "NAK: %i\n", ret);
         break;
-      case PJON_BUSY:  // wait 2s and restart timeout - allow bus to cool down
+      case PJON_BUSY:   // wait 2s and restart timeout - allow bus to cool down
         fprintf(stderr, "BUSY: %i\n", ret);
-        sleep(2);
-        j = 0;
+        usleep(10000);
+//        j = 0;
+// TODO: restric maximum nuber of timeout resets
+        time(&timer0);  // reset timeout
         break;
       case PJON_FAIL:
       default:
         break;
       }
+      time(&timer1);
     }
   }
   fprintf(stderr, "FAILED: %i\n", ret);
