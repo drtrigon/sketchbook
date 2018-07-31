@@ -144,10 +144,10 @@ int main(int argc, char* argv[]) // or char** argv
     while (difftime(timer1, timer0) < 3.) {  // 3s timeout
       usleep(1000);                  // multi-threading - give os time
       bus.update();
-// TODO: adopt poll timings in devices and switches
-//       device: https://github.com/gioblu/PJON/issues/222#issuecomment-406729691
-//       switch: https://github.com/gioblu/PJON/issues/222#issuecomment-406744826
-      ret = bus.receive(1000);       // 10ms timeout
+// TODO: adopt poll timings in devices and switches (test on ID 43 and Sw B - play with timings)
+//       device: https://github.com/gioblu/PJON/issues/222#issuecomment-406729691  `bus.receive(1000);`
+//       switch: https://github.com/gioblu/PJON/issues/222#issuecomment-406744826  `PJONAny bus2(&link2, PJON_NOT_ASSIGNED, 1000);`
+      ret = bus.receive(1000);       // 1ms timeout
       switch (ret) {
       case PJON_ACK:
         return 0;                    // Success!
@@ -157,9 +157,9 @@ int main(int argc, char* argv[]) // or char** argv
         break;
       case PJON_BUSY:   // wait 2s and restart timeout - allow bus to cool down
         fprintf(stderr, "BUSY: %i\n", ret);
-        usleep(10000);
+        usleep(1000000);
 //        j = 0;
-// TODO: restric maximum nuber of timeout resets
+// TODO: restric maximum number of timeout resets
         time(&timer0);  // reset timeout
         break;
       case PJON_FAIL:

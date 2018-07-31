@@ -20,6 +20,7 @@
 *
 * LoRa GPS Shield hardware configuration (connections, jumpers, etc):
 * @ref Uno_Dragino_LoRa_GPS_Shield_TTN/Uno_Dragino_LoRa_GPS_Shield_TTN.ino
+* @ref ../BlinkingSwitch_SWBB-TL
 *
 * Make sure there is th S1 jumpers installed on the board (to GND)
 *
@@ -131,7 +132,8 @@ void setup()
 //#endif
 
 //  bus.strategy.setPins(ss, reset, dio0);
-  bus.strategy.setFrequency(868100000UL);
+  bus.strategy.setFrequency(865400000UL);  // 865.4 MHz
+//  bus.strategy.setFrequency(866600000UL);  // 866.6 MHz
   // Optional
   bus.strategy.setSignalBandwidth(250E3);  // default is 125E3
   bus.strategy.setTxPower(10);             // default is 17
@@ -267,6 +269,7 @@ void loop()
 #endif
     bus.update();
     bus.receive(1000);
+    //bus.receive(10000);
 
 #ifdef ENABLE_GPS
     while (nss.available()) {

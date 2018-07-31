@@ -218,6 +218,7 @@ Bus topography for local (desktop) developpment and device testing:
   * test Yun/Dragino (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
     * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
     * https://forum.arduino.cc/index.php?topic=530659.0
+  * open questions; can a switch have an own ID and e.g. return values? can a device have more than 1 ID?
 
 ### Uno_Dragino_LoRa_GPS_Shield_TTN
 
