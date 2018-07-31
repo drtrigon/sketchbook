@@ -54,7 +54,7 @@
  *   - LoRa tx power 10..17 dBm; @see https://www.digitalairwireless.com/articles/blog/wifi-transmit-power-calculations-made-simples
  *   - LoRa settings vs. datarate; @see http://www.rfwireless-world.com/calculators/LoRa-Data-Rate-Calculator.html
  *   - LoRa settings for max. datarate; lowest SF, CR - highest BW. For max. range; highest SF, (CR for reliability) - lowest BW
- *   - LoRa frequency; scan for free before using, @see Uno_Serial_LoRa_Sniffer/Uno_Serial_LoRa_Sniffer.ino
+ *   - LoRa frequency and debug; scan for free before using, @see Uno_Serial_LoRa_Sniffer/Uno_Serial_LoRa_Sniffer.ino
  *   - Debug Dragino; @see http://www.dragino.com/downloads/downloads/YunShield/YUN_SHIELD_QUICK_START_GUIDE_v1.0.pdf
  *                    For reboot via network @see http://192.168.11.16/cgi-bin/luci//admin.
  *
@@ -133,8 +133,8 @@ void setup()
 //  link2.strategy.setPins(ss, reset, dio0);
   // need a FREE and ALLOWED frequency (channel)
   //link2.strategy.setFrequency(868100000UL);  // 868.1 MHz
-  link2.strategy.setFrequency(865400000UL);  // 865.4 MHz
-//  link2.strategy.setFrequency(866600000UL);  // 866.6 MHz
+  //link2.strategy.setFrequency(865400000UL);  // 865.4 MHz
+  link2.strategy.setFrequency(869200000UL);  // 869.2 MHz
   // Optional
   link2.strategy.setSignalBandwidth(250E3);  // default is 125E3
   link2.strategy.setTxPower(10);             // default is 17

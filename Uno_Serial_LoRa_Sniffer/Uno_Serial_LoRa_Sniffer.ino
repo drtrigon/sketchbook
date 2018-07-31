@@ -3,6 +3,8 @@
  Created:   2018-07-29, 7/31/2017 6:04:42 PM
  Author:    drtrigon, joe
 
+ This code is very useful to sniff/watch/debug LoRa traffic when developping e.g. for (OW)PJON.
+
 TODO: need to implement scanning of CodingRate4, etc. !!!
 
  TTN EU863-870
@@ -23,6 +25,7 @@ TODO: try higher datarate with SpreadingFactor(6) and setSignalBandwidth(500000)
  see also https://www.instructables.com/id/Turn-an-Arduino-Into-a-Quick-Easy-LoRa-Packet-Snif/
  and https://github.com/LooUQ/Arduino-LoRa-Sniffer
 
+ http://resource.ghostyu.com/uploads/products/LoRa/SX127xUG_EN.pdf
  https://www.semtech.com/uploads/documents/an1200.26.pdf
 
  @ref OWPJON  (for LoRa tunnel/switch and device frequencies)

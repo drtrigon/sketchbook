@@ -132,8 +132,7 @@ void setup()
 //#endif
 
 //  bus.strategy.setPins(ss, reset, dio0);
-  bus.strategy.setFrequency(865400000UL);  // 865.4 MHz
-//  bus.strategy.setFrequency(866600000UL);  // 866.6 MHz
+  bus.strategy.setFrequency(869200000UL);  // 869.2 MHz
   // Optional
   bus.strategy.setSignalBandwidth(250E3);  // default is 125E3
   bus.strategy.setTxPower(10);             // default is 17
