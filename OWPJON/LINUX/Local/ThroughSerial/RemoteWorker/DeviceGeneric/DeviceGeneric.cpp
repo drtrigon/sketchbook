@@ -9,6 +9,9 @@
  *   @li first version derived from PJON 11.0 examples
  *       examples/LINUX/Local/EthernetTCP/RemoteWorker/Transmitter/Transmitter.cpp
  *
+ * TODO: THIS CODE NEEDS AN UPDATE - ADOPT IT TO THE LATEST LUDP CODE (LINUX/Local/LocalUDP/...)
+ *       Also considering LUDP_RESPONSE_TIMEOUT versus TS_RESPONSE_TIME_OUT.
+ *
  * It sends REQUESTS to device id 44 which is on a SWBB bus connected to the
  * Tunnel, and receives replies back.
  * Device 44 is the example:

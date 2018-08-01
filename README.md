@@ -208,7 +208,7 @@ Bus topography for local (desktop) developpment and device testing:
     * tweak parameters (see https://github.com/gioblu/PJON/blob/master/src/strategies/ThroughLoRa/Timing.h#L26)
       * increase `TL_COLLISION_DELAY`
     * see also https://github.com/gioblu/PJON/issues/222
-    * as soon as it works optimize params like tx power, then test in productive and finally replace outside bus part
+    * as soon as it works (good timing, freq, etc. - may be SF6) optimize params like tx power, then test in productive and finally replace outside bus part
     * may be not related to lora switch only - as the packets become delay (and thus get repeated often) when notebook (wifi) is on battery power!
   * adopt scripts for collectd on raspi server to be more generic and work with different types of sensors
   * hardware; build shield according to specs given in https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang

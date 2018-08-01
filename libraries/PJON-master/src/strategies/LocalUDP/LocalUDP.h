@@ -29,7 +29,8 @@
 #include <PJONDefines.h>
 
 #define LUDP_DEFAULT_PORT                 7100
-#define LUDP_RESPONSE_TIMEOUT  (uint32_t) 100000
+//#define LUDP_RESPONSE_TIMEOUT  (uint32_t) 100000
+#define LUDP_RESPONSE_TIMEOUT  (uint32_t) 1000000
 #define LUDP_MAGIC_HEADER      (uint32_t) 0x0DFAC3D0
 
 class LocalUDP {

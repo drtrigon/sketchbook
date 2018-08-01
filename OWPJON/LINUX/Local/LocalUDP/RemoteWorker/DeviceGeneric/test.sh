@@ -1,15 +1,17 @@
 #!/bin/bash
 
+#make; mv owpshell owpshell-ubuntu14.04
+
 printf "\x01" | ./owpshell-ubuntu14.04 - - 44
 #owp:dg:v1
 printf "\x11" | ./owpshell-ubuntu14.04 - - 44 | ./unpack-test.py f
 #sleep 1
 printf "\x12" | ./owpshell-ubuntu14.04 - - 44 | ./unpack-test.py f
 
-printf "\x01" | ./owpshell-ubuntu14.04 - - 43
-printf "\x11" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
-printf "\x12" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
-printf "\xFF" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+#printf "\x01" | ./owpshell-ubuntu14.04 - - 43
+#printf "\x11" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+#printf "\x12" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+#printf "\xFF" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
 
 printf "\x01" | ./owpshell-ubuntu14.04 - - 42
 #owp:dg:1w:v1

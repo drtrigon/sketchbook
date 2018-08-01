@@ -1,0 +1,12 @@
+--- libraries/PJON/src/strategies/LocalUDP/LocalUDP.h.orig	2018-08-01 23:53:42.012915530 +0200
++++ libraries/PJON/src/strategies/LocalUDP/LocalUDP.h	2018-08-01 23:53:29.804915779 +0200
+@@ -29,7 +29,8 @@
+ #include <PJONDefines.h>
+ 
+ #define LUDP_DEFAULT_PORT                 7100
+-#define LUDP_RESPONSE_TIMEOUT  (uint32_t) 100000
++//#define LUDP_RESPONSE_TIMEOUT  (uint32_t) 100000
++#define LUDP_RESPONSE_TIMEOUT  (uint32_t) 1000000
+ #define LUDP_MAGIC_HEADER      (uint32_t) 0x0DFAC3D0
+ 
+ class LocalUDP {

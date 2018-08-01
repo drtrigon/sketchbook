@@ -4,7 +4,14 @@
  * @file OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
  *
  * @author drtrigon
- * @date 2018-07-19
+ * @date 2018-07-31
+ * @version 1.2
+ *   @li make it more reliable by considering
+ *     @li network delay/latency LUDP_RESPONSE_TIMEOUT (especially when on battery powered wifi)
+ *     @li a lot of switches in row (3 for outdoor part of bus)
+ *     @li possibility of blocked lora channels/freq (increasing delays)
+ *   @li having (u)sleep in order to reduce cpu load and give os and hardware time
+ *   @li clean bus from old (hanging) messages
  * @version 1.1
  *   @li use different IDs for linux/ubuntu and raspi builds (use `make raspi`)
  *   @li status and error handling added
@@ -26,7 +33,15 @@
  *   Devices e.g. AVR
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/
  *      ...
+ *
+ * Reliability and connection issues:
+ *   It seems that battery powering the notebook (connected via wifi) has heavy influence
+ *   on UDP packet send delay (and thus PJON health).
+ *   Increase LUDP_RESPONSE_TIMEOUT to 1000000 (1s) in @ref libraries/PJON/src/strategies/LocalUDP/LocalUDP.h
+ *   Apply patch: .../sketchbook$ patch -p0 < OWPJON/20180731-udp_latency.patch
+ *   Also adopting poll timings might help ... for more info in general @ee https://github.com/gioblu/PJON/issues/222
  *
  * Compatible with: ubuntu 14.04, raspi (look at the Makefile)
  *   ID 45: owpshell on linux/ubuntu (testing)
@@ -104,7 +119,7 @@ int main(int argc, char* argv[]) // or char** argv
   }
 
   // Welcome to RemoteWorker 1 (Transmitter)
-  bus.set_receiver(receiver_function);
+//  bus.set_receiver(receiver_function);
   bus.set_error(error_handler);
 
   // Opening bus...
@@ -122,6 +137,12 @@ int main(int argc, char* argv[]) // or char** argv
   uint16_t ret;
 //  for(int i = 0; i < 3; ++i) {  // try 3 times (using timeout), then exit
   {
+    // clean bus from old (hanging) messages
+    usleep(100000);
+    bus.update();
+    bus.receive(1000);
+  bus.set_receiver(receiver_function);
+
     bus.send(atoi(argv[3]), buffer, l);
     // Attempting to roll bus...
     //bus.update();
@@ -142,11 +163,8 @@ int main(int argc, char* argv[]) // or char** argv
 
 //    for(int j = 0; j < 3000; ++j) {  // do timeout 3000 times ~ 3s
     while (difftime(timer1, timer0) < 3.) {  // 3s timeout
-      usleep(1000);                  // multi-threading - give os time
+      usleep(10000);                 // multi-threading - give os and socket time as we have hardware buffer for UDP
       bus.update();
-// TODO: adopt poll timings in devices and switches (test on ID 43 and Sw B - play with timings)
-//       device: https://github.com/gioblu/PJON/issues/222#issuecomment-406729691  `bus.receive(1000);`
-//       switch: https://github.com/gioblu/PJON/issues/222#issuecomment-406744826  `PJONAny bus2(&link2, PJON_NOT_ASSIGNED, 1000);`
       ret = bus.receive(1000);       // 1ms timeout
       switch (ret) {
       case PJON_ACK:
@@ -155,7 +173,7 @@ int main(int argc, char* argv[]) // or char** argv
       case PJON_NAK:
         fprintf(stderr, "NAK: %i\n", ret);
         break;
-      case PJON_BUSY:   // wait 2s and restart timeout - allow bus to cool down
+      case PJON_BUSY:   // wait 1s and restart timeout - allow bus to cool down
         fprintf(stderr, "BUSY: %i\n", ret);
         usleep(1000000);
 //        j = 0;
