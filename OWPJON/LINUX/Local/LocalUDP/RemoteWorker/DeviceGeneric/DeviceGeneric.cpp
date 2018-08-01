@@ -141,7 +141,7 @@ int main(int argc, char* argv[]) // or char** argv
     usleep(100000);
     bus.update();
     bus.receive(1000);
-  bus.set_receiver(receiver_function);
+    bus.set_receiver(receiver_function);
 
     bus.send(atoi(argv[3]), buffer, l);
     // Attempting to roll bus...
