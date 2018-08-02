@@ -1,50 +1,60 @@
-/*
- *   DS2438TemperatureAndVoltage
- *
- *   This example demonstrates the use of the DS2438 Library to read temperature and
- *   voltage from a Dallas Semiconductor DS2438 battery monitor using the Arduino
- *   OneWire library.
- *
- *   by Joe Bechter
- *
- *   (C) 2012, bechter.com
- *
- *   All files, software, schematics and designs are provided as-is with no warranty.
- *   All files, software, schematics and designs are for experimental/hobby use.
- *   Under no circumstances should any part be used for critical systems where safety,
- *   life or property depends upon it. You are responsible for all use.
- *   You are free to use, modify, derive or otherwise extend for your own non-commercial purposes provided
- *       1. No part of this software or design may be used to cause injury or death to humans or animals.
- *       2. Use is non-commercial.
- *       3. Credit is given to the author (i.e. portions © bechter.com), and provide a link to the original source.
- *
- * https://github.com/jbechter/arduino-onewire-DS2438/blob/master/examples/DS2438TemperatureAndVoltage/DS2438TemperatureAndVoltage.ino
- * https://playground.arduino.cc/Learning/OneWire
- * https://cdn.shopify.com/s/files/1/0164/3524/files/MultiSensor_Manual_v1.5.pdf?15845834050373852166
- *
- * At the master, a 4.7k pull-up resistor must be connected to the 1-wire bus. Needs a weak pull-up (that the uP cannot provide).
- *
- * $ printf "\x01" | ./owpshell-ubuntu14.04 - - 44
- * owp:dg:v1
- * $ printf "\x01" | ./owpshell-ubuntu14.04 - - 42
- * owp:dg:1w:v1
- * $ printf "\x4A" | ./owpshell-ubuntu14.04 - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py BBBBBBBB
- * 38, 0, 0, 215, 1, 0, 0, 77
- * (0x26 0x0 0x0 0xd7 0x1 0x0 0x0 0x4d)
- * $ printf "\x4B" | ./owpshell-ubuntu14.04 - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py BBBBBBBB
- * 0, 0, 0, 0, 0, 0, 0, 0
- * $ printf "\x41" | ./owpshell-ubuntu14.04 - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
- * 23.03125,
- * $ printf "\x42" | ./owpshell-ubuntu14.04 - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
- * 1.690000057220459,
- * $ printf "\x43" | ./owpshell-ubuntu14.04 - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
- * 4.590000152587891,
- * $ printf "\x44" | ./owpshell-ubuntu14.04 - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
- * nan,
- */
 /**
- * needs doxygen docu - derived from DeviceGeneric.ino using Arduino OneWire docu and https://github.com/jbechter/arduino-onewire-DS2438
- * ...
+ * @brief Example-Code for Adaptor Device to connect Dallas/Maxim DS2438 and DS18x20 1wire Slaves
+ *
+ * @file OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
+ *
+ * @author drtrigon
+ * @date 2018-08-02
+ * @version 1.0
+ *   @li first version derived from
+ *       OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
+ *       using Arduino OneWire docu and DS2438 Arduino OneWire Library
+ *
+ * @ref OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
+ * @see https://playground.arduino.cc/Learning/OneWire
+ * @see https://github.com/jbechter/arduino-onewire-DS2438/blob/master/examples/DS2438TemperatureAndVoltage/DS2438TemperatureAndVoltage.ino
+ * @see https://cdn.shopify.com/s/files/1/0164/3524/files/MultiSensor_Manual_v1.5.pdf?15845834050373852166
+ *
+ * @verbatim
+ * OneWire PJON Generic "OWPG" scheme:
+ *   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+ *   ID 42: Nano Test Device on outdoor SWBB bus (testing)
+ *
+ * Pinout:
+ *   1wire PJON data bus (OWPJON SWBB):
+ *        1WIRE DATA    -> Arduino Pin D12
+ *        GND black     -> Arduino GND
+ *   1wire Dallas/Maxim data bus (MicroLAN):
+ *        1WIRE DATA    -> Arduino Pin D2
+ *   A 4.7k pull-up resistor must be connected to the 1-wire bus (Pin D2).
+ *   Needs a weak pull-up (that the uP cannot provide).
+ *
+ * Example sending READ_DS... commands to device id 42:
+ * $ printf "\x4A" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py BBBBBBBB
+ * 38, 0, 0, 215, 1, 0, 0, 77
+ * $ printf "\x4B" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py BBBBBBBB
+ * 40, 66, 243, 63, 5, 0, 0, 10
+ * $ printf "\x41" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+ * 23.03125,
+ * $ printf "\x42" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+ * 1.690000057220459,
+ * $ printf "\x43" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+ * 4.590000152587891,
+ * $ printf "\x44" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+ * 27.125,
+ * More info can be found in @ref OWPJON/README.md. Confer also the docu of
+ * following files for info about tests on Ubuntu or Raspberry Pi Server (owpshell):
+ *   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * Thanks to:
+ * gioblu - PJON 11.0 and support
+ *          @see https://www.pjon.org/
+ *          @see https://github.com/gioblu/PJON
+ * fredilarsen - support
+ * @endverbatim
  */
 
 //#define ENABLE_DEBUG
@@ -228,7 +238,7 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     float val = NAN;
 #ifndef ENABLE_UNITTEST
     if(DS18x20_ENABLE)
-      val = readDS18x20(&ow, &DS18x20_addr);
+      val = readDS18x20(ow, DS18x20_addr);
 #else
     val = 21.;
 #endif
@@ -337,6 +347,7 @@ bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL)
   byte data[12];
   //byte addr[8];
 
+  ds.reset_search();
   while(ds.search(addr)) {
     //Serial.println("Found \'1-Wire\' device with address:");
 #ifdef ENABLE_DEBUG
@@ -357,10 +368,13 @@ bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL)
 #ifdef ENABLE_DEBUG
       Serial.println("CRC is not valid!");
 #endif
+      ds.reset_search();
       return false;
     }
-    if(addr[0] == family)
+    if(addr[0] == family) {
+      ds.reset_search();
       return true;
+    }
   }
 #ifdef ENABLE_DEBUG
   Serial.println("That's it.");
@@ -369,7 +383,7 @@ bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL)
   return false;
 }
 
-float readDS18x20(const OneWire &ds, const byte &addr)
+float readDS18x20(const OneWire ds, const byte addr[])
 {
   byte i;
   byte present = 0;
@@ -421,4 +435,3 @@ float readDS18x20(const OneWire &ds, const byte &addr)
   }
   return (float)raw / 16.0;
 }
-

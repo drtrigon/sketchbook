@@ -28,6 +28,7 @@
  *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
  *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+ *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
  *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
  *   Devices e.g. AVR
