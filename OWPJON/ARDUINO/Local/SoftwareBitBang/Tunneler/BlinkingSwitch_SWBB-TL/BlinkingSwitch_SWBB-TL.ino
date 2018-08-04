@@ -4,7 +4,10 @@
  * @file OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/BlinkingSwitch_SWBB-TL.ino
  *
  * @author drtrigon
- * @date 2018-07-19
+ * @date 2018-08-04
+ * @version 1.1
+ *   @li added watchdog for recovery from heavy failures
+ *   @li changed LoRa frequency/channel
  * @version 1.0
  *   @li first version derived from
  *       @ref OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
@@ -86,7 +89,7 @@
 #endif
 #define OWPJON_PIN    4
 
-//#include <avr/wdt.h>     // watchdog (used as work-a-round to recover from error)
+#include <avr/wdt.h>     // watchdog (used as work-a-round to recover heavy failures)
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
 #include <Console.h>     // Console lib, used to show debug info in Arduino IDE
@@ -115,7 +118,7 @@ PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> router(2, (PJONAny*[2])
 
 void setup()
 {
-//  wdt_disable();  // disable watchdog
+  wdt_disable();  // disable watchdog
 
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
@@ -149,11 +152,18 @@ void setup()
 
   // Init pin for LED
   pinMode(BUILTIN_LED, OUTPUT);
+
+  // set watchdog for reset
+  wdt_reset();
+  wdt_enable(WDTO_8S);
+  //wdt_enable(WDTO_15MS);
 }
 
 void loop()
 {
   router.loop();
+
+  wdt_reset();
 }
 
 void sendnotification_function(const uint8_t * const payload, const uint16_t length, const uint8_t receiver_bus,
@@ -201,9 +211,5 @@ void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
     SERIAL.print(F("Content is too long, length: "));
     SERIAL.println(data);
   }
-//  // set watchdog for reset
-//  wdt_reset();
-//  //wdt_enable(WDTO_8S);  // give time (8s) to recover
-//  wdt_enable(WDTO_15MS);  // reset as fast as possible (15ms)
 }
 #endif

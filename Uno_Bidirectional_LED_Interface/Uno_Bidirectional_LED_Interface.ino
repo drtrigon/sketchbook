@@ -2,6 +2,11 @@
   Very Low-Cost Sensing and Communication
   Using Bidirectional LEDs
   http://www.merl.com/publications/docs/TR2003-35.pdf
+  see also
+  https://playground.arduino.cc/Learning/LEDSensor
+  and even better
+  Uno_Builtin_LED_Interface/Uno_Builtin_LED_Interface.ino
+  (from PJON AnalogSampling, see also https://github.com/gioblu/PJON/issues/222)
 
   2  The Bidirectional LED Interface
   Fig.5.  Emitting and sensing light with an LED

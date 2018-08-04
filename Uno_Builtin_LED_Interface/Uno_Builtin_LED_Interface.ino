@@ -4,6 +4,9 @@
  *
  * This code allows to use the LED additionally e.g. as a button.
  *
+ * see also https://playground.arduino.cc/Learning/LEDSensor
+ * (from PJON AnalogSampling, see also https://github.com/gioblu/PJON/issues/222)
+ *
  * Caution: This is a weak signal (high impedance) measurement.
  *          This means is is very sensitive to distortions like
  *          e.g. touching the wire (even if it is isolated).
