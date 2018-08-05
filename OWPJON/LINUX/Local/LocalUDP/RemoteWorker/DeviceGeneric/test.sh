@@ -8,10 +8,20 @@ printf "\x11" | ./owpshell-ubuntu14.04 - - 44 | ./unpack-test.py f
 #sleep 1
 printf "\x12" | ./owpshell-ubuntu14.04 - - 44 | ./unpack-test.py f
 
-#printf "\x01" | ./owpshell-ubuntu14.04 - - 43
-#printf "\x11" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
-#printf "\x12" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
-#printf "\xFF" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+if [ "$1" != "" ]; then
+    printf "\x01" | ./owpshell-ubuntu14.04 - - 43
+    #printf "\x11" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+    #printf "\x12" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+    #define _READ_VALUE_TEMP  0xFE  // temporary value
+    printf "\xFE" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+    #define _READ_VALUE_HUM   0xFD  // temporary value
+    printf "\xFD" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+    #define _READ_VALUE_PRES  0xFC  // temporary value
+    printf "\xFC" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+    #define _READ_VALUE_ILLU  0xFB  // temporary value
+    printf "\xFB" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+    #printf "\xFF" | ./owpshell-ubuntu14.04 - - 43 | ./unpack-test.py f
+fi
 
 printf "\x01" | ./owpshell-ubuntu14.04 - - 42
 #owp:dg:1w:v1

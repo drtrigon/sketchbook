@@ -40,6 +40,10 @@
 #define WRITE      0x22  // store memory data
 #define WRITE_CAL  0x32  // store calibration value in memory
 #define READ_VALUE_XXX 0xFF
+#define _READ_VALUE_TEMP  0xFE  // temporary value
+#define _READ_VALUE_HUM   0xFD  // temporary value
+#define _READ_VALUE_PRES  0xFC  // temporary value
+#define _READ_VALUE_ILLU  0xFB  // temporary value
 // more can be added as needed ...
 // do not use 0x00 as this is the string terminator
 
@@ -190,20 +194,11 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     // ... and multiple variables can be sent at once using struct or union.
     // (for most of the values float should be suitable)
     float val = readVcc();
-// FOR TESTING ONLY
-    /*float flat, flon;
-    unsigned long fix_age;
-    gps.f_get_position(&flat, &flon, &fix_age);
-    float val = fix_age;*/
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
   case READ_TEMP: {
-//    float val = readTemp();
-// FOR TESTING ONLY
-    float temp(NAN), hum(NAN), pres(NAN);
-    bme.read(pres, temp, hum, BME280::TempUnit(BME280::TempUnit_Celsius), BME280::PresUnit(BME280::PresUnit_Pa));
-    float val = pres;
+    float val = readTemp();
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
@@ -224,6 +219,31 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
+  case _READ_VALUE_TEMP: {
+    float temp(NAN), hum(NAN), pres(NAN);
+    bme.read(pres, temp, hum, BME280::TempUnit(BME280::TempUnit_Celsius), BME280::PresUnit(BME280::PresUnit_Pa));
+    bus.reply((char*)(&temp), sizeof(float));
+  }
+  break;
+  case _READ_VALUE_HUM: {
+    float temp(NAN), hum(NAN), pres(NAN);
+    bme.read(pres, temp, hum, BME280::TempUnit(BME280::TempUnit_Celsius), BME280::PresUnit(BME280::PresUnit_Pa));
+    bus.reply((char*)(&hum), sizeof(float));
+  }
+  break;
+  case _READ_VALUE_PRES: {
+    float temp(NAN), hum(NAN), pres(NAN);
+    bme.read(pres, temp, hum, BME280::TempUnit(BME280::TempUnit_Celsius), BME280::PresUnit(BME280::PresUnit_Pa));
+    bus.reply((char*)(&pres), sizeof(float));
+  }
+  break;
+  case _READ_VALUE_ILLU: {
+    static unsigned long mLux_value;
+    max44009.getMeasurement(mLux_value);
+    float val = mLux_value;
+    bus.reply((char*)(&val), sizeof(float));
+  }
+  break;
   case READ_VALUE_XXX: {
 // FOR TESTING ONLY
     /*float flat, flon, falt;
@@ -236,15 +256,8 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     float val = fix_age;
     float val = flon;
     float val = flat;
-    float val = falt;
-    float temp(NAN), hum(NAN), pres(NAN);
-    bme.read(pres, temp, hum, BME280::TempUnit(BME280::TempUnit_Celsius), BME280::PresUnit(BME280::PresUnit_Pa));
-    float val = temp;
-    float val = hum;
-    float val = pres;*/
-    static unsigned long mLux_value;
-    max44009.getMeasurement(mLux_value);
-    float val = mLux_value;
+    float val = falt;*/
+    float val = NAN;
     bus.reply((char*)(&val), sizeof(float));
   }
   break;

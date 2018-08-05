@@ -89,13 +89,19 @@
 #endif
 #define OWPJON_PIN    4
 
-#include <avr/wdt.h>     // watchdog (used as work-a-round to recover heavy failures)
+#ifdef DRAGINO
+#include <avr/wdt.h>     // watchdog (used as work-a-round to recover from error)
+#endif
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
 #include <Console.h>     // Console lib, used to show debug info in Arduino IDE
 //#include <Bridge.h>
 #define BAUDRATE 115200  //For product: LG01.
 #endif
+#endif
+
+#ifdef DRAGINO
+unsigned long time_last_message;
 #endif
 
 #define PJON_INCLUDE_TL
@@ -118,7 +124,9 @@ PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> router(2, (PJONAny*[2])
 
 void setup()
 {
+#ifdef DRAGINO
   wdt_disable();  // disable watchdog
+#endif
 
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
@@ -153,17 +161,24 @@ void setup()
   // Init pin for LED
   pinMode(BUILTIN_LED, OUTPUT);
 
+#ifdef DRAGINO
+  time_last_message = millis();
+
   // set watchdog for reset
   wdt_reset();
   wdt_enable(WDTO_8S);
   //wdt_enable(WDTO_15MS);
+#endif
 }
 
 void loop()
 {
   router.loop();
 
-  wdt_reset();
+#ifdef DRAGINO
+  if (millis() < (time_last_message + 180000))  // no update for >180'000ms = 3min (see 1wire OLED)
+    wdt_reset();
+#endif
 }
 
 void sendnotification_function(const uint8_t * const payload, const uint16_t length, const uint8_t receiver_bus,
@@ -188,8 +203,10 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
 #ifdef ENABLE_DEBUG
   SERIAL.println(sender_bus);
 #endif
-  //wdt_disable();
-  //wdt_reset();
+
+#ifdef DRAGINO
+  time_last_message = millis();
+#endif
 }
 
 #ifdef ENABLE_DEBUG
