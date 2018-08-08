@@ -4,7 +4,9 @@
  * @file OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
  *
  * @author drtrigon
- * @date 2018-07-06
+ * @date 2018-08-08
+ * @version 1.1
+ *   @li added missing default to switch cases
  * @version 1.0
  *   @li first version derived from PJON 11.0 examples
  *       examples/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingRGBSwitch/BlinkingRGBSwitch.ino
@@ -20,17 +22,7 @@
  *
  * @verbatim
  * OneWire PJON Generic "OWPG" scheme:
- *   Server e.g. linux machine or raspi
- *      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
- *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
- *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/ (this sketch)
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
- *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
- *   Devices e.g. AVR
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
- *      ...
+ *   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
  *
  * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
  *
@@ -103,6 +95,8 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
     digitalWrite(LED_BUILTIN, LOW);
     break;
   };
+  default:
+    break;
   }
 }
 

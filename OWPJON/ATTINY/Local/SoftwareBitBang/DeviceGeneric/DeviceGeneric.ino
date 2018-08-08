@@ -1,18 +1,30 @@
-/*
- *    Example-Code for a generic Device (e.g. Sensor, Display)
- *    (OneWire PJON Generic "OWPG")
+/**
+ * @brief Example-Code for a generic ATTiny85 Device (e.g. Sensor, Display)
  *
- *    Use eg. together:
- *      Uno_OWPJON_Test/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
- *      Uno_OWPJON_Test/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate
- *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
- *    or
- *      Uno_OWPJON_Test/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
- *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
- *      Uno_OWPJON_Test/ARDUINO/Local/SoftwareBitBang/DeviceGeneric (this sketch)
+ * @file OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
  *
- *    Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun), attiny85
- *    @see https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
+ * @author drtrigon
+ * @date 2018-08-08
+ * @version 1.0
+ *   @li first version derived from
+ *       OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
+ *       @see https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
+ *
+ * @verbatim
+ * OneWire PJON Generic "OWPG" scheme:
+ *   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *
+ * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun), attiny85
+ *
+ * Pinout:
+ *   ???
+ *
+ * Thanks to:
+ * gioblu - PJON 11.0 and support
+ *          @see https://www.pjon.org/
+ *          @see https://github.com/gioblu/PJON
+ * fredilarsen - support
+ * @endverbatim
  */
 
 //#define ENABLE_DEBUG  // ATmega328 (not ATtiny85)
@@ -33,6 +45,13 @@
 // do not use 0x00 as this is the string terminator
 
 uint8_t mem_buffer[16];
+
+/*// https://github.com/gioblu/PJON/blob/master/documentation/configuration.md#extended-configuration
+// https://github.com/gioblu/PJON/issues/222
+#define PJON_INCLUDE_PACKET_ID true
+//#define PJON_INCLUDE_ASYNC_ACK true
+// Max number of old packet ids stored to avoid duplication
+#define PJON_MAX_RECENT_PACKET_IDS 3  // by default 10*/
 
 // https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
 #define PJON_INCLUDE_SWBB true // Include only SoftwareBitBang

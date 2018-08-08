@@ -4,8 +4,9 @@
  * @file OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/BlinkingSwitch_SWBB-TL.ino
  *
  * @author drtrigon
- * @date 2018-08-04
+ * @date 2018-08-08
  * @version 1.1
+ *   @li added missing default to switch cases
  *   @li added watchdog for recovery from heavy failures
  *   @li changed LoRa frequency/channel
  * @version 1.0
@@ -16,19 +17,9 @@
  *
  * @verbatim
  * OneWire PJON Generic "OWPG" scheme:
- *   Server e.g. linux machine or raspi
- *      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
- *      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
- *   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
- *      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
- *   Devices e.g. AVR
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
- *      ...
- *   For isolated remote SWBB networks on the same bus use e.g. LoRa and setup 2 tunnels/switches
- *      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/ (this sketch)
+ *   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ * For isolated remote SWBB networks on the same bus use e.g. LoRa and setup 2 tunnels/switches
+ *   OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/ (this sketch)
  *
  * Compatible with: atmega328 (Uno, Nano, Uno/Yun combo Dragino LG01-S), atmega32u4 (Yun)
  *
@@ -107,7 +98,6 @@ unsigned long time_last_message;
 #define PJON_INCLUDE_TL
 
 #define PJON_MAX_PACKETS 3
-//#define PJON_MAX_PACKETS 0
 #include <PJONInteractiveRouter.h>
 
 StrategyLink<SoftwareBitBang> link1;
@@ -162,7 +152,7 @@ void setup()
   pinMode(BUILTIN_LED, OUTPUT);
 
 #ifdef DRAGINO
-  time_last_message = millis();
+  time_last_message = millis() + 180000;
 
   // set watchdog for reset
   wdt_reset();
@@ -176,7 +166,8 @@ void loop()
   router.loop();
 
 #ifdef DRAGINO
-  if (millis() < (time_last_message + 180000))  // no update for >180'000ms = 3min (see 1wire OLED)
+  // https://playground.arduino.cc/Code/TimingRollover (after approximately 50 days)
+  if( (long)( millis() - time_last_message ) < 0 )  // no update for >180'000ms = 3min (see 1wire OLED)
     wdt_reset();
 #endif
 }
@@ -187,10 +178,16 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   switch(sender_bus) {
   case 0: {
     digitalWrite(BUILTIN_LED, HIGH);
+#ifdef DRAGINO
+    time_last_message = millis() + 180000;
+#endif
     break;
   };
   case 1: {
     digitalWrite(BUILTIN_LED, LOW);
+#ifdef DRAGINO
+    time_last_message = millis() + 180000;
+#endif
 #ifdef ENABLE_DEBUG
     SERIAL.print(link2.strategy.packetRssi());
     SERIAL.print(" ");
@@ -199,13 +196,11 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
 #endif
     break;
   };
+  default:
+    break;
   }
 #ifdef ENABLE_DEBUG
   SERIAL.println(sender_bus);
-#endif
-
-#ifdef DRAGINO
-  time_last_message = millis();
 #endif
 }
 

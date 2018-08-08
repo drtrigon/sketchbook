@@ -35,6 +35,7 @@
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
  *      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/
+ *      OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/
  *      ...
  *
  * Reliability and connection issues:
