@@ -80,9 +80,7 @@
 #endif
 #define OWPJON_PIN    4
 
-#ifdef DRAGINO
 #include <avr/wdt.h>     // watchdog (used as work-a-round to recover from error)
-#endif
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
 #include <Console.h>     // Console lib, used to show debug info in Arduino IDE
@@ -91,9 +89,7 @@
 #endif
 #endif
 
-#ifdef DRAGINO
 unsigned long time_last_message;
-#endif
 
 #define PJON_INCLUDE_TL
 
@@ -114,9 +110,7 @@ PJONInteractiveRouter<PJONVirtualBusRouter<PJONSwitch>> router(2, (PJONAny*[2])
 
 void setup()
 {
-#ifdef DRAGINO
   wdt_disable();  // disable watchdog
-#endif
 
 #ifdef ENABLE_DEBUG
 #ifdef DRAGINO
@@ -151,25 +145,21 @@ void setup()
   // Init pin for LED
   pinMode(BUILTIN_LED, OUTPUT);
 
-#ifdef DRAGINO
   time_last_message = millis() + 180000;
 
   // set watchdog for reset
   wdt_reset();
   wdt_enable(WDTO_8S);
   //wdt_enable(WDTO_15MS);
-#endif
 }
 
 void loop()
 {
   router.loop();
 
-#ifdef DRAGINO
   // https://playground.arduino.cc/Code/TimingRollover (after approximately 50 days)
   if( (long)( millis() - time_last_message ) < 0 )  // no update for >180'000ms = 3min (see 1wire OLED)
     wdt_reset();
-#endif
 }
 
 void sendnotification_function(const uint8_t * const payload, const uint16_t length, const uint8_t receiver_bus,
@@ -178,16 +168,12 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   switch(sender_bus) {
   case 0: {
     digitalWrite(BUILTIN_LED, HIGH);
-#ifdef DRAGINO
     time_last_message = millis() + 180000;
-#endif
     break;
   };
   case 1: {
     digitalWrite(BUILTIN_LED, LOW);
-#ifdef DRAGINO
     time_last_message = millis() + 180000;
-#endif
 #ifdef ENABLE_DEBUG
     SERIAL.print(link2.strategy.packetRssi());
     SERIAL.print(" ");

@@ -209,7 +209,6 @@ Bus topography for local (desktop) developpment and device testing:
       * may be change frequency back to 865.4 ...? gather some data ...
     * may be not related to lora switch only - as the packets become delay (and thus get repeated often) when notebook (wifi) is on battery power!
       * put all LUDP devices onto same ETH switch (router or switch but not both!)
-  * adopt scripts for collectd on raspi server to be more generic and work with different types of sensors
   * hardware; build shield according to specs given in https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang
   * consider using power-saving strategies on the sensor devices
     * https://www.peterbeard.co/blog/post/arduino-power-saving/
@@ -218,7 +217,14 @@ Bus topography for local (desktop) developpment and device testing:
   * test Yun/Dragino (as soon there is LUDP strategy support) and ESP8266 (not needing level shifting for 5V?!) for LUDP resp. GUDP
     * https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa
     * https://forum.arduino.cc/index.php?topic=530659.0
-  * open questions; can a switch have an own ID and e.g. return values? can a device have more than 1 ID?
+  * Local bus going through walls / outdoors #222: https://github.com/gioblu/PJON/issues/222
+  * Interactive router acting as a switch or router but also as a device #242: https://github.com/gioblu/PJON/issues/242
+  * Get list of connected devices #241: https://github.com/gioblu/PJON/issues/241
+  * Add support for Arduino Yun (LUDP, etc.) #211: https://github.com/gioblu/PJON/issues/211
+
+### Uno_Serial_LoRa_Sniffer
+
+...
 
 ### Uno_Dragino_LoRa_GPS_Shield_TTN
 
