@@ -234,7 +234,7 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-/*  case READ_DS2438_RTC: {
+  /*case READ_DS2438_RTC: {
     float val = NAN;
     if(DS2438_ENABLE) {
       // https://datasheets.maximintegrated.com/en/ds/DS2438.pdf p16
