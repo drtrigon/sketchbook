@@ -234,6 +234,25 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
+/*  case READ_DS2438_RTC: {
+    float val = NAN;
+    if(DS2438_ENABLE) {
+      // https://datasheets.maximintegrated.com/en/ds/DS2438.pdf p16
+      uint8_t data[9];      // data[8] contains CRC
+      // DS2438 Memory Page 1 (0x01): ETM, ICA, OFFSET
+      uint32_t ETM = 0;     // Elapsed Time Meter (ETM) / RTC
+      //uint8_t ICA = 0;      // Integrated Current Accumulator (ICA)
+      //uint16_t OFFSET = 0;  // Offset Errors in the Current ADC
+      if (ds2438.readPage(data, 0x01)) {
+        ETM = (((((((uint32_t)data[3]) << 8) | data[2]) << 8) | data[1]) << 8) | data[0];
+        //ICA = (uint8_t)data[4];
+        //OFFSET = (((uint16_t)data[6]) << 8) | data[5];
+        val = ETM;
+      }
+    }
+    bus.reply((char*)(&val), sizeof(float));
+  }
+  break;*/
   case READ_DS18x20_TEMP: {
     float val = NAN;
 #ifndef ENABLE_UNITTEST

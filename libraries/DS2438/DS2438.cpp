@@ -131,7 +131,7 @@ void DS2438::writePageZero(uint8_t *data) {
     _ow->write(DS2438_PAGE_0, 0);
 }
 
-boolean DS2438::readPageZero(uint8_t *data) {
+/*boolean DS2438::readPageZero(uint8_t *data) {
     _ow->reset();
     _ow->select(_address);
     _ow->write(DS2438_RECALL_MEMORY_COMMAND, 0);
@@ -140,6 +140,24 @@ boolean DS2438::readPageZero(uint8_t *data) {
     _ow->select(_address);
     _ow->write(DS2438_READ_SCRATCHPAD_COMMAND, 0);
     _ow->write(DS2438_PAGE_0, 0);
+    for (int i = 0; i < 9; i++)
+        data[i] = _ow->read();
+    return _ow->crc8(data, 8) == data[8];
+}*/
+
+boolean DS2438::readPageZero(uint8_t *data) {
+    return readPage(data, DS2438_PAGE_0);
+}
+
+boolean DS2438::readPage(uint8_t *data, uint8_t v = DS2438_PAGE_0) {
+    _ow->reset();
+    _ow->select(_address);
+    _ow->write(DS2438_RECALL_MEMORY_COMMAND, 0);
+    _ow->write(v, 0);
+    _ow->reset();
+    _ow->select(_address);
+    _ow->write(DS2438_READ_SCRATCHPAD_COMMAND, 0);
+    _ow->write(v, 0);
     for (int i = 0; i < 9; i++)
         data[i] = _ow->read();
     return _ow->crc8(data, 8) == data[8];

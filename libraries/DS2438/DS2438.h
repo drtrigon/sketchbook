@@ -49,6 +49,7 @@ class DS2438 {
         float getVoltage(int channel=DS2438_CHA);
         boolean isError();
         unsigned long getTimestamp();
+        boolean readPage(uint8_t *data, uint8_t v = DS2438_PAGE_0);
     private:
         OneWire *_ow;
         uint8_t *_address;
