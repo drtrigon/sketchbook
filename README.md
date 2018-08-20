@@ -224,6 +224,12 @@ Bus topography for local (desktop) developpment and device testing:
 
 ### Uno_Serial_LoRa_Sniffer
 
+Sniffer for general LoRa transmissions - very helpful to diagnose OWPJON TL issues.
+
+See also sniffer-txt.py (or sniffer-gui.py) for general network sniffer - very helpful to diagnose OWPJON LUDP issues.
+
+(OWPJON SWBB sniffer is currently missing - device that reacts to any id - may be use PJON_NOT_ASSIGNED, PJON_BROADCAST, or else)
+
 ...
 
 ### Uno_Dragino_LoRa_GPS_Shield_TTN
