@@ -168,7 +168,7 @@ void sendnotification_function(const uint8_t * const payload, const uint16_t len
   switch(sender_bus) {
   case 0: {
     digitalWrite(BUILTIN_LED, HIGH);
-    time_last_message = millis() + 180000;
+//    time_last_message = millis() + 180000;
     break;
   };
   case 1: {
