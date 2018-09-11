@@ -2,6 +2,9 @@
 
 #make; mv owpshell owpshell-ubuntu14.04
 
+# for debugging with semitransparent tunneler
+#printf "\x01" | ./owpshell-ubuntu14.04 - - 99
+
 printf "\x01" | ./owpshell-ubuntu14.04 - - 44
 #owp:dg:v1
 printf "\x11" | ./owpshell-ubuntu14.04 - - 44 | ./unpack-test.py f

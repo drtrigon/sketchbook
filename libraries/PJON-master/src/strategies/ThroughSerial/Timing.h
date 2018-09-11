@@ -29,7 +29,7 @@
   #define TS_INITIAL_DELAY      1000
 #endif
 
-/* Mamimum 32 microseconds random delay in case of collision */
+/* Maximum 32 microseconds random delay in case of collision */
 #ifndef TS_COLLISION_DELAY
   #define TS_COLLISION_DELAY      32
 #endif
@@ -65,7 +65,13 @@
   #define TS_BACK_OFF_DEGREE      4
 #endif
 
-/* Trailing delay before disabling RS485 DE and or RE pin */
+/* Delay before enabling and disabling RS485 DE and or RE pin */
 #ifndef TS_RS485_DELAY
   #define TS_RS485_DELAY          1
+#endif
+
+/* Force blocking sending hack (adds a delay for each character sent). */
+
+#ifndef TS_FLUSH_OFFSET
+  #define TS_FLUSH_OFFSET 152
 #endif
