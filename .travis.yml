@@ -1,4 +1,5 @@
 # $GIT_USER, $GIT_PASS (hide) and $TRAVIS_TOKEN (hide) in Settings > Environment Variables
+# (use " for complex strings containing whitespaces e.g.)
 # Triggering builds (get TOKEN): https://docs.travis-ci.com/user/triggering-builds/
 
 language: c
@@ -332,7 +333,8 @@ after_script:
   - git config user.email 'travis@travis-ci.org'
   - git config user.name 'Travis CI'
   - git commit --message "Travis build $TRAVIS_BUILD_NUMBER" --quiet
-  - git push -f "https://$GIT_USER:$GIT_PASS@github.com/drtrigon/sketchbook.git" result/docu  # dangerous; overwrite remote branch!
+  - git push -f "https://$GIT_USER:$GIT_PASS@github.com/drtrigon/sketchbook.git" result/docu 2>/dev/null  # dangerous; overwrite remote branch! may expose password!
+  - git status
 
 after_success:
   # trigger docker-sketchbook (same tests based on docker-arduino)
