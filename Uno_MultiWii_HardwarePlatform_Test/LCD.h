@@ -1,1 +1,1 @@
-/home/ursin/Downloads/sketchbook/MultiWii_2_4/MultiWii/LCD.h
+../MultiWii_2_4/MultiWii/LCD.h

@@ -107,13 +107,13 @@ script:
   - astyle  --style=kr  --indent=spaces=4  --verbose  --recursive  $PWD/MultiWii_2_4/MultiWii/*.ino,*.cpp,*.h,*.c  &>> $FILE.style || true # && ((test ! -e ${FILE}.orig) || (diff -u ${FILE}.orig $FILE | tee -a $FILE.style | diffstat >> $FILE.style))
 # ^^^ test result ignored since not good yet - remove " || true #" to enable again ^^^
   ## Uno_MultiWii_HardwarePlatform_Test/Uno_MultiWii_HardwarePlatform_Test
-  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/Alarms.h $PWD/Uno_MultiWii_HardwarePlatform_Test/Alarms.h
-  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/EEPROM.h $PWD/Uno_MultiWii_HardwarePlatform_Test/EEPROM.h
-  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/IMU.h $PWD/Uno_MultiWii_HardwarePlatform_Test/IMU.h
-  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/LCD.h $PWD/Uno_MultiWii_HardwarePlatform_Test/LCD.h
-  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.h $PWD/Uno_MultiWii_HardwarePlatform_Test/MultiWii.h
-  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/Sensors.h $PWD/Uno_MultiWii_HardwarePlatform_Test/Sensors.h
-  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/types.h $PWD/Uno_MultiWii_HardwarePlatform_Test/types.h
+#  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/Alarms.h $PWD/Uno_MultiWii_HardwarePlatform_Test/Alarms.h
+#  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/EEPROM.h $PWD/Uno_MultiWii_HardwarePlatform_Test/EEPROM.h
+#  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/IMU.h $PWD/Uno_MultiWii_HardwarePlatform_Test/IMU.h
+#  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/LCD.h $PWD/Uno_MultiWii_HardwarePlatform_Test/LCD.h
+#  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/MultiWii.h $PWD/Uno_MultiWii_HardwarePlatform_Test/MultiWii.h
+#  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/Sensors.h $PWD/Uno_MultiWii_HardwarePlatform_Test/Sensors.h
+#  - sudo ln -s $PWD/MultiWii_2_4/MultiWii/types.h $PWD/Uno_MultiWii_HardwarePlatform_Test/types.h
   - FILE=$PWD/Uno_MultiWii_HardwarePlatform_Test/Uno_MultiWii_HardwarePlatform_Test.ino
   - arduino --verify --board arduino:avr:uno --verbose --preserve-temp-files $FILE  >> $FILE.compile
   - ELF_FILE=`find /tmp/ -name "Uno_MultiWii_HardwarePlatform_Test.ino.elf"`
