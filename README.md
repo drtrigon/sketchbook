@@ -201,6 +201,9 @@ Bus topography for local (desktop) developpment and device testing:
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
 * https://github.com/gioblu/PJON/issues/222#issuecomment-406080833
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
+  * as soon as there is free time: recomile and distribute all codes using latest PJON to hardware
+  * add reset broadcast command
+  * think about SDL-12 command syntax
   * test setup and reliability especially for outdoor SWBB (tunneled via ThroughLoRa)
     * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/Any/StrategyLinkNetworkAnalysis
     * https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/SoftwareBitBang/NetworkAnalysis

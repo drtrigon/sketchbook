@@ -24,9 +24,9 @@
 # osboxes@osboxes:~$ sudo pip install pjon-cython
 #
 # run tests:
-# osboxes@osboxes:~/PJON-cython$ python -c "import test.test as t; t.test_gudp(); t.test_ludp(); t.test_throughserial();"
+# osboxes@osboxes:~/PJON-cython$ python setup.py nosetests --with-doctest --doctest-extension=md
 #
-# osboxes@osboxes:~/sketchbook/OWPJON/PJON-cython$ ./test.sh
+# osboxes@osboxes:~/sketchbook/OWPJON/PJON-cython$ ./test-OWPJON.sh
 # owp:dg:v1
 # owp:1w:v1
 
@@ -73,8 +73,7 @@ if ((len(sys.argv) == 2) and (sys.argv[1] == "--id")):
     import os, datetime
     print(datetime.datetime.fromtimestamp(os.path.getmtime(__file__)))
     print("ID: %i" % ID)
-#    print("BC: %i" % PJON.PJON_BROADCAST)
-    print("BC: %s" % "PJON_BROADCAST")
+    print("BC: %i" % PJON.PJON_BROADCAST)
     sys.exit(0)
 
 # Welcome to RemoteWorker 1 (Transmitter)
@@ -103,23 +102,27 @@ timer1 = time.time()
 ret = -1
 while ((timer1 - timer0) < 3.):  # 3s timeout
     time.sleep(.01)              # multi-threading - give os and socket time as we have hardware buffer for UDP
-    #bus.update()
-    #ret = bus.receive(1000)      # 1ms timeout
-    bus.loop()
-#    if (ret == PJON_ACK):
-#        sys.exit(0)              # Success!
-#    elif (ret == PJON_NAK):
-#        print("NAK: %i" % ret, file=sys.stderr)
-#    elif (ret == PJON_BUSY):     # wait 1s and restart timeout - allow bus to cool down
-#        print("BUSY: %i" % ret, file=sys.stderr)
-#        time.sleep(1.0)
-##        j = 0
-## TODO: restric maximum number of timeout resets
-#        timer0 = time.time()     # reset timeout
-#    elif (ret == PJON_FAIL):
-#        pass
-#    else:
-#        pass
+    try:
+        #bus.update()
+        #ret = bus.receive(1000)      # 1ms timeout
+        packets_to_send, ret = bus.loop()
+        if (ret == PJON.PJON_ACK):
+            sys.exit(0)              # Success!
+        elif (ret == PJON.PJON_NAK):
+            print("NAK: %i" % ret, file=sys.stderr)
+        elif (ret == PJON.PJON_BUSY):     # wait 1s and restart timeout - allow bus to cool down
+            print("BUSY: %i" % ret, file=sys.stderr)
+            time.sleep(1.0)
+#            j = 0
+# TODO: restric maximum number of timeout resets
+            timer0 = time.time()     # reset timeout
+        elif (ret == PJON.PJON_FAIL):
+            pass
+        else:
+            pass
+    except:  # e.g. PJON_Connection_Lost
+        print("Unexpected error:", sys.exc_info()[0])
+        raise
     timer1 = time.time()
 
 print("FAILED: %i" % ret, file=sys.stderr)

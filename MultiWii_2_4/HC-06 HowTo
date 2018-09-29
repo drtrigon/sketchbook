@@ -1,0 +1,41 @@
+
+HC06         Arduino (USB to TTL *)
+3.3V(12)     3.3V
+Gnd(13)      Gnd
+Rx(2)        0->RX   USE 1k-2k voltage splitter for 5V->3.3V shifting
+Tx(1)        1<-TX
+
+connect arduino RESET to GND
+
+*) do not comm with atmega328 (arduino) but USB serial converter atmega?u?
+   THE OPPOSITE OF SITUATION WITH MultiWii FC and Nano!!
+
+
+Arduino IDE serial monitor
+
+No line ending, 9600 baud
+
+AT[ENTER]
+OK
+AT+VERSION[ENTER]
+OKlinvorV1.8
+AT+BAUD8[ENTER]
+OK115200
+(change serial monitor to 115200 baud)
+AT[ENTER]
+OK
+
+---
+
+HC06         MultiWii FC (Arduino Nano)
+3.3V(12)     3.3V
+Gnd(13)      Gnd
+Rx(2)        TX1   USE 1k-2k voltage splitter for 5V->3.3V shifting
+Tx(1)        RX0
+
+
+Connect 5V supply e.g. via USB to PC (but DO NOT CONNECT via Software - no comm allowed!)
+
+Open Bluetooth on Android and connect to HC06
+
+Open EZ-GUI on Android select Bluetooth and HC06 then connect.
