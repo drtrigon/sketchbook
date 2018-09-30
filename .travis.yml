@@ -304,7 +304,7 @@ script:
   - FILE=$PWD/OWPJON/PJON-cython/DeviceGeneric.py
   - python -m py_compile $FILE  &>> $FILE.compile
 # vvv test result ignored since not good yet - remove " || true" to enable again vvv
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221,D202 $FILE  >> $FILE.style || true
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221,E265,D202 $FILE  >> $FILE.style || true
   - cat $FILE.style | flake8chart --chart-type=BAR --chart-output=$FILE.style.svg
 # ^^^ test result ignored since not good yet - remove " || true" to enable again ^^^
   ## Uno_Dragino_LoRa_GPS_Shield_TTN
