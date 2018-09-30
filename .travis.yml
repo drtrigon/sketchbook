@@ -322,10 +322,8 @@ script:
   ## ser-log
   - FILE=$PWD/ser-log.py
   - python -m py_compile $FILE  &>> $FILE.compile
-# vvv test result ignored since not good yet - remove " || true" to enable again vvv
-  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221,E265,D202 $FILE  >> $FILE.style || true
+  - flake8 --statistics --benchmark --max-complexity=12 --ignore=E127,E221,E265,D202 $FILE  >> $FILE.style
   - cat $FILE.style | flake8chart --chart-type=BAR --chart-output=$FILE.style.svg
-# ^^^ test result ignored since not good yet - remove " || true" to enable again ^^^
   ## ser-mon
   - FILE=$PWD/ser-mon.py
   - python -m py_compile $FILE  &>> $FILE.compile

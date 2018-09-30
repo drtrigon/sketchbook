@@ -39,6 +39,8 @@ from __future__ import print_function
 import pjon_cython as PJON
 import sys
 import time
+# see https://stackoverflow.com/questions/972/adding-a-method-to-an-existing-object-instance
+import types
 
 # use different ID for different machines (linux, raspi, ...)
 ID = 45  # default ID for linux (raspi uses 46)
@@ -49,29 +51,32 @@ class LocalUDP(PJON.LocalUDP):
     """..."""
 
     def receive(self, data, length, packet_info):
-        """..."""
-        #print ("Recv ({}): {}".format(length, data))
-        #print (packet_info)
-        print(data)
-        sys.exit(0)
+        """ Dummy receive function to disable NotImplementedError. """
+        return
 
-#    def error(self, code, data, custom_pointer):
-#        print("ERROR", file=sys.stderr)
+def receive_func(self, data, length, packet_info):
+    """..."""
+    #print ("Recv ({}): {}".format(length, data))
+    #print (packet_info)
+    print(data)
+    sys.exit(0)
 
-#void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
-#{
-#  if(code == PJON_CONNECTION_LOST) {
-#    fprintf(stderr, "Connection with device ID %i is lost.\n", bus.packets[data].content[0]);
-#  }
-#  if(code == PJON_PACKETS_BUFFER_FULL) {
-#    fprintf(stderr, "Packet buffer is full, has now a length of %i\n", data);
-#    fprintf(stderr, "Possible wrong bus configuration!\n");
-#    fprintf(stderr, "higher PJON_MAX_PACKETS in PJONDefines.h if necessary.\n");
-#  }
-#  if(code == PJON_CONTENT_TOO_LONG) {
-#    fprintf(stderr, "Content is too long, length: %i\n", data);
-#  }
-#}
+def error_func():
+    """..."""
+    (code, data, custom_pointer) = sys.exc_info()  # (type, value, traceback)
+    if  (code == PJON.PJON_Connection_Lost):
+        print("Connection with device ID %i is lost.\n", bus.packets[data].content[0], file=sys.stderr)
+    elif(code == PJON.PJON_Packets_Buffer_Full):
+        print("Packet buffer is full, has now a length of %i\n", data, file=sys.stderr)
+        print("Possible wrong bus configuration!\n", file=sys.stderr)
+        print("higher PJON_MAX_PACKETS in PJONDefines.h if necessary.\n", file=sys.stderr)
+    elif(code == PJON.PJON_Content_Too_Long):
+        print("Content is too long, length: %i\n", data, file=sys.stderr)
+    elif(code == SystemExit):
+        pass
+    else:
+        print("Unexpected error:", code, file=sys.stderr)
+        raise
 
 
 bus = LocalUDP(ID)
@@ -101,7 +106,7 @@ else:
 time.sleep(.1)
 #bus.update()
 #bus.receive(1000)
-#bus.set_receiver(receiver_function)
+bus.receive = types.MethodType( receive_func, bus )
 
 bus.send(int(sys.argv[3]), buf)
 
@@ -129,9 +134,8 @@ while ((timer1 - timer0) < 3.):  # 3s timeout
             pass
         else:
             pass
-    except:  # e.g. PJON_Connection_Lost
-        print("Unexpected error:", sys.exc_info()[0])
-        raise
+    except BaseException:  # e.g. PJON_Connection_Lost
+        error_func()
     timer1 = time.time()
 
 print("FAILED: %i" % ret, file=sys.stderr)

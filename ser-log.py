@@ -42,8 +42,9 @@ while True:
     except KeyboardInterrupt:
         print "...",
         break
-    except:
-        pass
+    except BaseException:
+        #pass
+        print "<warning>"
 
 ser.close()             # close port
 print "bye!"
