@@ -1,9 +1,19 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# consider using miniterm or arduino ide serial monitor
+"""
+@brief Retrieve and display serial data.
 
-import serial, time
+@file ser-mon.py
+
+@author drtrigon
+...
+
+consider using miniterm or arduino ide serial monitor
+"""
+
+import serial
+#import time
 ser = serial.Serial('/dev/ttyACM0')  # open first serial port
 print ser.portstr       # check which port was really used
 print ser.baudrate

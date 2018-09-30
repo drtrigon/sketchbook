@@ -1,6 +1,15 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
+"""
+@brief Retrieve and log serial data.
+
+@file ser-log.py
+
+@author drtrigon
+...
+"""
+
 import serial
 import time
 import numpy as np

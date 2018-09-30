@@ -14,7 +14,8 @@ byte y = 0;
 byte pix;
 byte inByte = 0;         // incoming serial byte
 
-void setup() {
+void setup()
+{
   startup();
 
   // Setting the Resolution
@@ -32,7 +33,7 @@ void setup() {
 
   byte id = 0;
   id= Read(PROD_ID);
-  if (id == 9){
+  if (id == 9) {
     Serial.println("Communication SuccesSful");
   }
   Serial.println(id);
@@ -45,7 +46,8 @@ void setup() {
   inByte = Serial.read();
 }
 
-void loop() {
+void loop()
+{
 
   if(inByte == 'g') {
     // PIX_GRAB (pixel grabber)
@@ -62,7 +64,7 @@ void loop() {
       delayMicroseconds(1000);
     }
     Serial.println("");
-  //} else if() {  // ...
+//  } else if() {  // ...
   } else {  // e.g. 'm'
     // get movements
     x = getX();

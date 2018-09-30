@@ -128,7 +128,7 @@ void setup()
 
 void loop()
 {
-  // put your main code here, to run repeatedly:
+    // put your main code here, to run repeatedly:
 
 #if defined(ENABLE_LSM9DS0)
     // print out accelleration data [m/s^2]

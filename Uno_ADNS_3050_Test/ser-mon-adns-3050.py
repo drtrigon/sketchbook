@@ -1,9 +1,20 @@
 #!/usr/bin/python
 # -*- coding: utf-8 -*-
 
-# consider using miniterm or arduino ide serial monitor
+"""
+@brief Retrieve and display pixel data from ADNS-3050 sensor.
 
-import serial, time
+@file Uno_ADNS_3050_Test/ser-mon-adns-3050.py
+
+@see MultiWii_2_4/MultiWii
+
+@author drtrigon
+...
+
+consider using miniterm or arduino ide serial monitor
+"""
+
+import serial
 import matplotlib.pyplot as plt
 import numpy as np
 ser = serial.Serial('/dev/ttyACM0')  # open first serial port
@@ -26,7 +37,7 @@ while True:
     print
     if len(s) == 363:
         ba = np.array(bytearray(s[:-2]), dtype='uint8')
-        ba = ba.reshape((19,19))
+        ba = ba.reshape((19, 19))
         ba *= 2
         ba = np.rot90(ba, 3)  # rotate origin to top-right
         print ba

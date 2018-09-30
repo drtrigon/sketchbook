@@ -2,7 +2,7 @@
 # -*- coding: utf-8 -*-
 
 """
-@brief Example-Code for a generic Server (e.g. Sensor, Display)
+@brief Example-Code for a generic Server (e.g. Sensor, Display).
 
 @file OWPJON/PJON-cython/DeviceGeneric.py
 
@@ -46,7 +46,6 @@ ID = 45  # default ID for linux (raspi uses 46)
 
 class LocalUDP(PJON.LocalUDP):
 #class ThroughSerial(PJON.ThroughSerial):
-
     """..."""
 
     def receive(self, data, length, packet_info):
