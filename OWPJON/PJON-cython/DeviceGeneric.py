@@ -46,13 +46,14 @@ import types
 ID = 45  # default ID for linux (raspi uses 46)
 
 
-class LocalUDP(PJON.LocalUDP):
 #class ThroughSerial(PJON.ThroughSerial):
+class LocalUDP(PJON.LocalUDP):
     """..."""
 
     def receive(self, data, length, packet_info):
-        """ Dummy receive function to disable NotImplementedError. """
+        """Receive function dummy to disable NotImplementedError."""
         return
+
 
 def receive_func(self, data, length, packet_info):
     """..."""
@@ -61,10 +62,11 @@ def receive_func(self, data, length, packet_info):
     print(data)
     sys.exit(0)
 
+
 def error_func():
     """..."""
     (code, data, custom_pointer) = sys.exc_info()  # (type, value, traceback)
-    if  (code == PJON.PJON_Connection_Lost):
+    if (code == PJON.PJON_Connection_Lost):
         print("Connection with device ID %i is lost.\n", bus.packets[data].content[0], file=sys.stderr)
     elif(code == PJON.PJON_Packets_Buffer_Full):
         print("Packet buffer is full, has now a length of %i\n", data, file=sys.stderr)
@@ -79,8 +81,8 @@ def error_func():
         raise
 
 
-bus = LocalUDP(ID)
 #bus = ThroughSerial(ID)
+bus = LocalUDP(ID)
 
 if ((len(sys.argv) == 2) and (sys.argv[1] == "--id")):
     import os
@@ -106,7 +108,7 @@ else:
 time.sleep(.1)
 #bus.update()
 #bus.receive(1000)
-bus.receive = types.MethodType( receive_func, bus )
+bus.receive = types.MethodType(receive_func, bus)
 
 bus.send(int(sys.argv[3]), buf)
 
