@@ -1,12 +1,16 @@
-#
-# @brief Example-Code for a generic Server (e.g. Sensor, Display)
-#
-# @file OWPJON/PJON-cython/DeviceGeneric.py
-#
-# @see OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
-#
-# @author drtrigon
-# ...
+#!/usr/bin/python
+# -*- coding: utf-8 -*-
+
+"""
+@brief Example-Code for a generic Server (e.g. Sensor, Display)
+
+@file OWPJON/PJON-cython/DeviceGeneric.py
+
+@see OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+
+@author drtrigon
+...
+"""
 
 # clone and build manually:
 # osboxes@osboxes:~$ git clone https://github.com/xlfe/PJON-cython
@@ -32,17 +36,21 @@
 
 from __future__ import print_function
 
-# use different ID for different machines (linux, raspi, ...)
-ID =  45  # default ID for linux (raspi uses 46)
-
 import pjon_cython as PJON
 import sys
 import time
 
+# use different ID for different machines (linux, raspi, ...)
+ID = 45  # default ID for linux (raspi uses 46)
+
+
 class LocalUDP(PJON.LocalUDP):
 #class ThroughSerial(PJON.ThroughSerial):
 
+    """..."""
+
     def receive(self, data, length, packet_info):
+        """..."""
         #print ("Recv ({}): {}".format(length, data))
         #print (packet_info)
         print(data)
@@ -66,11 +74,13 @@ class LocalUDP(PJON.LocalUDP):
 #  }
 #}
 
+
 bus = LocalUDP(ID)
 #bus = ThroughSerial(ID)
 
 if ((len(sys.argv) == 2) and (sys.argv[1] == "--id")):
-    import os, datetime
+    import os
+    import datetime
     print(datetime.datetime.fromtimestamp(os.path.getmtime(__file__)))
     print("ID: %i" % ID)
     print("BC: %i" % PJON.PJON_BROADCAST)
@@ -86,7 +96,7 @@ if (len(sys.argv) < 5):  # get data to send from stdin or command line (stdin al
     buf = sys.stdin.read()
 else:
     buf = sys.argv[4]
-l = len(buf)
+#l = len(buf)
 #for i in range(3):  # try 3 times (using timeout), then exit
 # clean bus from old (hanging) messages
 time.sleep(.1)

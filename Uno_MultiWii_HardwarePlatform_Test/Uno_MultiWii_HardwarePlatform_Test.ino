@@ -77,14 +77,14 @@ uint8_t alarmArray[ALRM_FAC_SIZE];
 void writeGlobalSet(uint8_t b) {}
 #endif
 
-void setup() {
+void setup()
+{
     // Start serial port at 9600 bps and wait for port to open:
     Serial.begin(9600);
 
 #if defined(ENABLE_LSM9DS0)
     /* Initialise the LSM9DS0 sensor */
-    if(!lsm.begin())
-    {
+    if(!lsm.begin()) {
         /* There was a problem detecting the LSM9DS0 ... check your connections */
         Serial.println(F("Ooops, no LSM9DS0 detected ... Check your wiring or I2C ADDR!"));
         while(1);
@@ -111,8 +111,7 @@ void setup() {
 
 #if defined(ENABLE_BME280)
     /* Initialise the BME280 sensor */
-    if(!bme.begin())
-    {
+    if(!bme.begin()) {
         /* There was a problem detecting the BME280 ... check your connections */
         Serial.println(F("Could not find a valid BME280 sensor, check wiring!"));
         while(1);
@@ -127,7 +126,8 @@ void setup() {
     delay(100); // let sensor boot up
 }
 
-void loop() {
+void loop()
+{
   // put your main code here, to run repeatedly:
 
 #if defined(ENABLE_LSM9DS0)

@@ -33,45 +33,45 @@ void setup() {
   byte id = 0;
   id= Read(PROD_ID);
   if (id == 9){
- Serial.println("Communication SuccesSful");
+    Serial.println("Communication SuccesSful");
   }
-Serial.println(id);
-delay(1000);
-Serial.println("What mode would you like to run [m=movements,g=pixel grabber]?");
+  Serial.println(id);
+  delay(1000);
+  Serial.println("What mode would you like to run [m=movements,g=pixel grabber]?");
   while (Serial.available() == 0) {
     delay(1);
   }
-    // get incoming byte:
-    inByte = Serial.read();
+  // get incoming byte:
+  inByte = Serial.read();
 }
 
 void loop() {
 
   if(inByte == 'g') {
-  // PIX_GRAB (pixel grabber)
-  Write(PIX_GRAB, 0x00);  // reset grabber to origin
-  for(int i=0; i < 361; ) {
-    pix = Read(PIX_GRAB);
-    if(pix & 0b10000000) {
-//      Serial.print(pix & 0b01111111, HEX);
-//      Serial.println(Read(PIX_GRAB), BIN);
-      Serial.write(pix & 0b01111111);
-//      Serial.write((pix & 0b01111111) << 1);
-      ++i;
+    // PIX_GRAB (pixel grabber)
+    Write(PIX_GRAB, 0x00);  // reset grabber to origin
+    for(int i=0; i < 361; ) {
+      pix = Read(PIX_GRAB);
+      if(pix & 0b10000000) {
+//        Serial.print(pix & 0b01111111, HEX);
+//        Serial.println(Read(PIX_GRAB), BIN);
+        Serial.write(pix & 0b01111111);
+//        Serial.write((pix & 0b01111111) << 1);
+        ++i;
+      }
+      delayMicroseconds(1000);
     }
-    delayMicroseconds(1000);
-  }
-Serial.println("");
+    Serial.println("");
   //} else if() {  // ...
   } else {  // e.g. 'm'
-// get movements
-x = getX();
-y = 0-getY();
-Serial.print(x);
-Serial.print(" ");
-Serial.println(y);
+    // get movements
+    x = getX();
+    y = 0-getY();
+    Serial.print(x);
+    Serial.print(" ");
+    Serial.println(y);
   }
 
-delay(1000);
+  delay(1000);
 
 }
