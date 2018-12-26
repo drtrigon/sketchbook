@@ -13,6 +13,7 @@
 """
 
 # clone and build manually:
+# osboxes@osboxes:~$ sudo apt-get install python-dev
 # osboxes@osboxes:~$ git clone https://github.com/xlfe/PJON-cython
 # osboxes@osboxes:~$ cd PJON-cython/
 # osboxes@osboxes:~/PJON-cython$ git pull && git submodule init && git submodule update && git submodule status
@@ -106,8 +107,9 @@ else:
 #for i in range(3):  # try 3 times (using timeout), then exit
 # clean bus from old (hanging) messages
 time.sleep(.1)
-#bus.update()
-#bus.receive(1000)
+##bus.update()
+##bus.receive(1000)
+#bus.loop(timeout_us=1000)
 bus.receive = types.MethodType(receive_func, bus)
 
 bus.send(int(sys.argv[3]), buf)
@@ -119,8 +121,9 @@ ret = -1
 while ((timer1 - timer0) < 3.):  # 3s timeout
     time.sleep(.01)              # multi-threading - give os and socket time as we have hardware buffer for UDP
     try:
-        #bus.update()
-        #ret = bus.receive(1000)      # 1ms timeout
+        ##bus.update()
+        ##ret = bus.receive(1000)      # 1ms timeout
+        #packets_to_send, ret = bus.loop(timeout_us=1000)
         packets_to_send, ret = bus.loop()
         if (ret == PJON.PJON_ACK):
             sys.exit(0)              # Success!

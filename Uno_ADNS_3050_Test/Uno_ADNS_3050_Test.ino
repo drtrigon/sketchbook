@@ -1,5 +1,14 @@
 // https://www.instructables.com/id/Interfacing-With-a-Mouse-Sensor-ADNS-3050/
 // https://github.com/Tom101222/Adns-3050-Optical-Sensor
+/*
+ * UNO Connections
+ *
+ * MOSI -- 11,
+ * MISO -- 12,
+ * SCLK -- 13,
+ * NCS -- 3 (any pin you want can be changed later, default is 3)
+ *
+*/
 
 // http://www.multiwii.com/forum/viewtopic.php?f=7&t=1413
 // http://flug.synerflight.com/file/view/290/multiwii-24-with-optical-flow-sonar-and-lidar-support
@@ -9,8 +18,8 @@
 
 #define PIX_GRAB 0x0b
 
-byte x = 0;
-byte y = 0;
+int x = 0;
+int y = 0;
 byte pix;
 byte inByte = 0;         // incoming serial byte
 
@@ -39,17 +48,20 @@ void setup()
   Serial.println(id);
   delay(1000);
   Serial.println("What mode would you like to run [m=movements,g=pixel grabber]?");
-  while (Serial.available() == 0) {
-    delay(1);
-  }
-  // get incoming byte:
-  inByte = Serial.read();
 }
 
 void loop()
 {
 
+  while (Serial.available() == 0) {
+    delay(1);
+  }
+
+  // get incoming byte:
+  inByte = Serial.read();
+
   if(inByte == 'g') {
+//    Serial.println("PIX_GRAB");
     // PIX_GRAB (pixel grabber)
     Write(PIX_GRAB, 0x00);  // reset grabber to origin
     for(int i=0; i < 361; ) {
@@ -66,14 +78,16 @@ void loop()
     Serial.println("");
 //  } else if() {  // ...
   } else {  // e.g. 'm'
-    // get movements
-    x = getX();
-    y = 0-getY();
-    Serial.print(x);
-    Serial.print(" ");
-    Serial.println(y);
+//    Serial.println("get movements");
+    while (Serial.available() == 0) {
+      // get movements
+      x = getX();
+      y = 0-getY();
+      Serial.print(x);
+      Serial.print(" ");
+      Serial.println(y);
+      delay(1000);
+    }
   }
-
-  delay(1000);
 
 }
