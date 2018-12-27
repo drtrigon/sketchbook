@@ -28,9 +28,9 @@ print ser.readline(),
 #ser.write("g")  # select the pixel grabber
 plt.ion()
 while True:
-#    s = ser.readline()
-#    print len(s)
-#    print s
+    #s = ser.readline()
+    #print len(s)
+    #print s
     ser.write("g")  # select the pixel grabber
     s = ser.read(363)
     for b in s:
