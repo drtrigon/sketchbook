@@ -22,7 +22,7 @@
  * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
  *   ID 42: Nano Test Device on outdoor SWBB bus (testing)
  *
- * Pinout:
+ * Pinout (Uno, Nano):
  *   1wire PJON data bus (OWPJON SWBB):
  *        1WIRE DATA    -> Arduino Pin D12
  *        GND black     -> Arduino GND
@@ -49,6 +49,15 @@
  *   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
  *   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
  *
+ * Using on (minimal/raw) atmega328 w. 16MHz oscil.
+ *   use Uno with ArduinoISP Example and "Arduino as ISP"
+ *   connect (like attiny85) for ISP (SPI) programming, see e.g.
+ *     http://www.gammon.com.au/breadboard
+ *     https://github.com/nickgammon/arduino_sketches
+ *   select "Arduino/Genuino Uno" board and "Burn Bootloader"
+ *   then compile and upload sketch with (Upload button doesn't work)
+ *     Sketch > Upload Using Programmer
+ *
  * Thanks to:
  * gioblu - PJON 11.0 and support
  *          @see https://www.pjon.org/
@@ -61,6 +70,15 @@
 //#define ENABLE_UNITTEST
 
 #define SENSOR     "owp:1w:v1"
+#define OWPJONID   42
+//#define OWPJONPIN  12              // Uno, Nano
+#define OWPJONPIN   4              // atmega328 w. 16MHz oscil.
+
+// define the Arduino digital I/O pin to be used for the 1-Wire network here
+#define ONE_WIRE_PIN  2
+
+//#define _LED_BUILTIN  LED_BUILTIN  // Uno, Nano
+#define _LED_BUILTIN  8            // atmega328 w. 16MHz oscil.
 
 #define READ_INFO  0x01  // return generic sensor info
 #define READ_VCC   0x11  // return supply voltage
@@ -76,9 +94,6 @@
 #define READ_DS18x20_ROM   0x4B
 // more can be added as needed ...
 // do not use 0x00 as this is the string terminator
-
-// define the Arduino digital I/O pin to be used for the 1-Wire network here
-#define ONE_WIRE_PIN  2
 
 #include <OneWire.h>
 #include <DS2438.h>
@@ -98,7 +113,7 @@ DS2438 ds2438(&ow, {});
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
-PJON<SoftwareBitBang> bus(42);
+PJON<SoftwareBitBang> bus(OWPJONID);
 
 bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL);
 
@@ -107,13 +122,13 @@ bool discoverOneWireDevices(const OneWire &ds, const uint8_t family = NULL);
  */
 void setup()
 {
-  pinMode(LED_BUILTIN, OUTPUT);
-  digitalWrite(LED_BUILTIN, LOW); // Initialize LED 13 to be off
+  pinMode(_LED_BUILTIN, OUTPUT);
+  digitalWrite(_LED_BUILTIN, LOW); // Initialize LED 13 to be off
 #ifdef ENABLE_DEBUG
   delay(500);
-  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(_LED_BUILTIN, HIGH);
   delay(500);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(_LED_BUILTIN, LOW);
 #endif
 
 #ifdef ENABLE_DEBUG
@@ -139,7 +154,7 @@ void setup()
     memcpy(DS18x20_addr, addr, 8);
   }
 
-  bus.strategy.set_pin(12);
+  bus.strategy.set_pin(OWPJONPIN);
   bus.begin();
   bus.set_receiver(receiver_function);
 };
@@ -152,7 +167,7 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
   //Serial.println(payload);
   Serial.println(payload[0], HEX);
 #endif
-  digitalWrite(LED_BUILTIN, HIGH);
+  digitalWrite(_LED_BUILTIN, HIGH);
   switch (payload[0]) {
     // example on how to binary serialize using casting
     // (for human readable format JSON can be used if needed)
@@ -277,7 +292,7 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     break;
   }
   //delay(30);
-  digitalWrite(LED_BUILTIN, LOW);
+  digitalWrite(_LED_BUILTIN, LOW);
 }
 
 /**
