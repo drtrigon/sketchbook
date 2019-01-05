@@ -54,7 +54,8 @@
  *   connect (like attiny85) for ISP (SPI) programming, see e.g.
  *     http://www.gammon.com.au/breadboard
  *     https://github.com/nickgammon/arduino_sketches
- *   select "Arduino/Genuino Uno" board and "Burn Bootloader"
+ *     (for debugging see "Chip not detected", "Alternate clock source")
+ *   select "Arduino/Genuino Uno" board and Tools > Burn Bootloader
  *   then compile and upload sketch with (Upload button doesn't work)
  *     Sketch > Upload Using Programmer
  *
