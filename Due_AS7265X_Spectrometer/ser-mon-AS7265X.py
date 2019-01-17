@@ -16,8 +16,10 @@ consider using miniterm or arduino ide serial monitor
 
 import serial
 import matplotlib.pyplot as plt
-import numpy as np
-#freq = [610, 680, 730, 760, 810, 860, 560, 585, 645, 705, 900, 940, 410, 435, 460, 485, 510, 535] # latest data sheet
+#import numpy as np
+#freq = [610, 680, 730, 760, 810, 860,
+#        560, 585, 645, 705, 900, 940,
+#        410, 435, 460, 485, 510, 535] # latest data sheet
 ser = serial.Serial('/dev/ttyACM0', baudrate=115200)  # open first serial port
 print ser.portstr       # check which port was really used
 print ser.baudrate
@@ -32,7 +34,7 @@ plt.ion()
 data_dict = {}
 while True:
     s = ser.readline()
-    s = s.strip()    
+    s = s.strip()
     #print len(s)
     print s
     data = s.split(",")
@@ -48,7 +50,8 @@ while True:
             plt.xlim((400, 950))
             plt.draw()
         elif (len(data_dict) > 0):
-            print "Only %i of 18 data points fetched, data missing!" % len(data_dict)
+            print "Only %i of 18 data points fetched, data missing!" %\
+	          len(data_dict)
         data_dict = {}
 #    print ser.read(),
 #    time.sleep(1.)

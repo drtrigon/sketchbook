@@ -18,7 +18,7 @@ void setup()
     GUIPAINT paint;
     EPD2IN9 epd;
     //EPD_SDCARD SD;
-    
+
     //Initialize e-Paper
     if (epd.EPD_Init(lut_full_update) != 0) {
         Serial.print("e-Paper init failed");
@@ -31,11 +31,11 @@ void setup()
 //    UBYTE Rotate = IMAGE_ROTATE_180;
     paint.Paint_NewImage(IMAGE_BW, EPD_WIDTH, EPD_HEIGHT, Rotate, IMAGE_COLOR_POSITIVE);
     paint.Paint_Clear(WHITE);
-    
+
     //2.Drawing on the image
     if (Rotate == IMAGE_ROTATE_0 || Rotate == IMAGE_ROTATE_180) {
         Serial.print("Vertical screen\n");
-        
+
         paint.Paint_DrawPoint(10, 20, BLACK, DOT_PIXEL_1X1, DOT_STYLE_DFT);
         paint.Paint_DrawPoint(10, 30, BLACK, DOT_PIXEL_2X2, DOT_STYLE_DFT);
         paint.Paint_DrawPoint(10, 40, BLACK, DOT_PIXEL_3X3, DOT_STYLE_DFT);
@@ -58,7 +58,7 @@ void setup()
         paint.Paint_DrawNum(10, 220, 987654321, &Font16, WHITE, BLACK);
     } else {
         Serial.print("Horizontal screen\n");
-            
+
         paint.Paint_DrawPoint(10, 80, BLACK, DOT_PIXEL_1X1, DOT_STYLE_DFT);
         paint.Paint_DrawPoint(10, 90, BLACK, DOT_PIXEL_2X2, DOT_STYLE_DFT);
         paint.Paint_DrawPoint(10, 100, BLACK, DOT_PIXEL_3X3, DOT_STYLE_DFT);
@@ -78,14 +78,14 @@ void setup()
         paint.Paint_DrawString_EN(10, 20, "hello world", &Font12, WHITE, BLACK);
 
         paint.Paint_DrawNum(10, 33, 123456789, &Font12, BLACK, WHITE);
-        paint.Paint_DrawNum(10, 50, 987654321, &Font16, WHITE, BLACK);        
+        paint.Paint_DrawNum(10, 50, 987654321, &Font16, WHITE, BLACK);
     }
 
     //3.Refresh the picture in RAM to e-Paper
     epd.EPD_Display();
 //    epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
     Dev->Dev_Delay_ms(2000);//Analog clock 1s
-    
+
     //4.Partial refresh, example shows time
     if (epd.EPD_Init(lut_partial_update) != 0) {
         Serial.print("e-Paper init failed");

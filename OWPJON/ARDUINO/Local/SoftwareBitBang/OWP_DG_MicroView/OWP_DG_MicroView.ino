@@ -85,7 +85,7 @@ void setup()
   uView.circleFill(32,24,10,WHITE,NORM);
   uView.display();
   delay(500);
-  uView.circleFill(32,24,10,BLACK,NORM);  
+  uView.circleFill(32,24,10,BLACK,NORM);
   uView.display();
 #endif
 
