@@ -51,7 +51,7 @@ while True:
             plt.draw()
         elif (len(data_dict) > 0):
             print "Only %i of 18 data points fetched, data missing!" %\
-              len(data_dict)
+                len(data_dict)
         data_dict = {}
 #    print ser.read(),
 #    time.sleep(1.)
