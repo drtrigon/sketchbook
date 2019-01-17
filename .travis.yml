@@ -44,7 +44,7 @@ before_install:
 install:
 #  - ln -s $PWD /usr/local/share/arduino/libraries/Adafruit_FONA
 #  - arduino --install-library "Adafruit SleepyDog Library,Adafruit MQTT Library"
-  - arduino --install-library "OneWireHub,SdFat,TinyWireM,SSD1306Ascii,LoRa,OneWire,BME280,SparkFun_MicroView"
+  - arduino --install-library "OneWireHub,SdFat,TinyWireM,SSD1306Ascii,LoRa,OneWire,BME280,SparkFun MicroView"
   # old version of OLED_Display_96X96 - the one on github is too new and has incompatible constructor
   #- wget https://github.com/Seeed-Studio/OLED_Display_96X96/archive/v1.0.0.tar.gz
   #- tar xzf v1.0.0.tar.gz
