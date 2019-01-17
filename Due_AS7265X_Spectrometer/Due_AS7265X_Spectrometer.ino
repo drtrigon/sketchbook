@@ -46,7 +46,7 @@ void setup()
   delay(4000);
 
   Wire.begin(); // set master mode
-  Wire.setClock(400000);      // I2C frequency at 400 kHz 
+  Wire.setClock(400000);      // I2C frequency at 400 kHz
   delay(1000);
 
   pinMode(intPin, INPUT); // set up the interrupt pin
@@ -58,22 +58,34 @@ void setup()
 
   // get some information about the device hardware and firmware
   byte c = AS7265X.getDevType();
-  Serial.print("AS72651 "); Serial.print("Device Type = 0x"); Serial.print(c, HEX);  Serial.println(" should be 0x40");
+  Serial.print("AS72651 ");
+  Serial.print("Device Type = 0x");
+  Serial.print(c, HEX);
+  Serial.println(" should be 0x40");
   Serial.println(" ");
   byte d = AS7265X.getHWVersion();
-  Serial.print("AS72651 "); Serial.print("HW Version = 0x"); Serial.print(d, HEX); Serial.println(" should be 0x41");
+  Serial.print("AS72651 ");
+  Serial.print("HW Version = 0x");
+  Serial.print(d, HEX);
+  Serial.println(" should be 0x41");
   Serial.println(" ");
 
   uint16_t e = AS7265X.getFWMajorVersion();
-  Serial.print("AS72651 "); Serial.print("FW Major Version = 0x"); Serial.print(e, HEX);
+  Serial.print("AS72651 ");
+  Serial.print("FW Major Version = 0x");
+  Serial.print(e, HEX);
   Serial.println(" ");
 
   uint16_t f = AS7265X.getFWPatchVersion();
-  Serial.print("AS72651 "); Serial.print("FW Patch Version = 0x"); Serial.print(f, HEX);
+  Serial.print("AS72651 ");
+  Serial.print("FW Patch Version = 0x");
+  Serial.print(f, HEX);
   Serial.println(" ");
 
   uint16_t g = AS7265X.getFWBuildVersion();
-  Serial.print("AS72651 "); Serial.print("FW Build Version = 0x"); Serial.print(g, HEX);
+  Serial.print("AS72651 ");
+  Serial.print("FW Build Version = 0x");
+  Serial.print(g, HEX);
   Serial.println(" ");
 
   delay(1000);
@@ -114,16 +126,24 @@ void loop()
       */
       AS7265X.readCalData(calData);
       for(int i = 0; i < 18; i++) {
-        Serial.print(freq[i]); Serial.print(","); Serial.println(calData[i]);
+        Serial.print(freq[i]);
+        Serial.print(",");
+        Serial.println(calData[i]);
       }
       Serial.println(" ");
 
       for(int i = 0; i < 3; i++) {
-        Serial.print("Temperature of device "); Serial.print(i); Serial.print (" is "); Serial.print(AS7265X.getTemperature(i), 0); Serial.println(" C");
+        Serial.print("Temperature of device ");
+        Serial.print(i);
+        Serial.print (" is ");
+        Serial.print(AS7265X.getTemperature(i), 0);
+        Serial.println(" C");
       }
       Serial.println(" ");
 
-      AS7265X.enableIndLed(0); delay(10); AS7265X.disableIndLed(0); // blink indicator led
+      AS7265X.enableIndLed(0);
+      delay(10);
+      AS7265X.disableIndLed(0); // blink indicator led
     }
 
     delay(1000);
