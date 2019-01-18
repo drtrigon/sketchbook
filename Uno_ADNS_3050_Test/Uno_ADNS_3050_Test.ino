@@ -10,13 +10,13 @@
  * -----------   3 - MISO         - (blau)   -  12
  * | 1 2 3 4 |   2 - MOSI         - (gelb)   -  11
  * | 5 6 7 8 |   8 - Chip Select  - (violet) -   3 (any pin you want can be changed later, e.g. 10, default is 3)
- * -----------   4 - PWR(5V)      - (grau)   -  5v
- *               6 - 3V PWR INPUT - (orange) -  ?
- *               7 - MOTION       - (grün)   -  ?
+ * -----------   4 - PWR(5V)      - (grau)   -  5V
+ *               6 - 3V PWR INPUT - (orange) -   x (not connected)
+ *               7 - MOTION       - (grün)   -   x (not connected)
  *
  * schärfste Distanz derzeit ca. g = 12cm = 120mm, also
  * 1/f = 1/b + 1/g -> 1/b = 1/f - 1/g = (g-f)/(f*g) -> b = (f*g)/(g-f)
- * wir wollen b = f also beträgt die nötige Korrektur (Verkürzung des Tubus zw. Linse und chip)
+ * wir wollen b = f also beträgt die nötige Korrektur (Verkürzung des Tubus zw. Linse und Chip)
  * b-f = (f^2)/(g-f)
  * mit g = 120mm und f = 4.6mm ist b-f = 0.183mm
  * ---
