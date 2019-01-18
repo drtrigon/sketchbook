@@ -1,13 +1,26 @@
 // https://www.instructables.com/id/Interfacing-With-a-Mouse-Sensor-ADNS-3050/
 // https://github.com/Tom101222/Adns-3050-Optical-Sensor
 /*
- * UNO Connections
+ * Connections
  *
- * MOSI -- 11,
- * MISO -- 12,
- * SCLK -- 13,
- * NCS -- 3 (any pin you want can be changed later, default is 3)
+ *           ADNS-3050                 ||   Arduino Uno/Nano
  *
+ *               5 - GND          - (braun)  - GND
+ *               1 - SCLK         - (rot)    -  13
+ * -----------   3 - MISO         - (blau)   -  12
+ * | 1 2 3 4 |   2 - MOSI         - (gelb)   -  11
+ * | 5 6 7 8 |   8 - Chip Select  - (violet) -   3 (any pin you want can be changed later, e.g. 10, default is 3)
+ * -----------   4 - PWR(5V)      - (grau)   -  5v
+ *               6 - 3V PWR INPUT - (orange) -  ?
+ *               7 - MOTION       - (grün)   -  ?
+ *
+ * schärfste Distanz derzeit ca. g = 12cm = 120mm, also
+ * 1/f = 1/b + 1/g -> 1/b = 1/f - 1/g = (g-f)/(f*g) -> b = (f*g)/(g-f)
+ * wir wollen b = f also beträgt die nötige Korrektur (Verkürzung des Tubus zw. Linse und chip)
+ * b-f = (f^2)/(g-f)
+ * mit g = 120mm und f = 4.6mm ist b-f = 0.183mm
+ * ---
+ * bilder von handy wie angeschlossen in verzeichnis kopieren
 */
 
 // http://www.multiwii.com/forum/viewtopic.php?f=7&t=1413
