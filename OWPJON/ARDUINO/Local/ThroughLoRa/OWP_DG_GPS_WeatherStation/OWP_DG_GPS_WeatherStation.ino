@@ -2,10 +2,83 @@
  * needs doxygen docu - derived from ThroughLoRa/DeviceGeneric, Uno_Dragino_LoRa_GPS_Shield_TTN and https://github.com/Play-Zone/BME280_MAX44009/blob/master/example.ino
  * also derived from https://www.arduinolibraries.info/libraries/bme280 and https://www.arduinolibraries.info/libraries/i2-c-sensor-lib-i-lib
  * ...
+ *
+ * Arduino Uno (5V):
  * use it with dragino lora gps shield (set ENABLE_GPS) or with
  * lorabee only (do not set ENABLE_GPS)
  * weatherstation breakout is always needed
  * consider using hardware serial for gps (if gps used in OWPJON device)
+ *
+ * Arduino Mini 3.3V:
+ * It is a minial atmega328 w. 8MHz oscil. so a procedure similar to
+ * "Using on (minimal/raw) atmega328 w. 16MHz oscil." as mentioned
+ * in @see OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
+ * works here also (this uses 5V so board needs to be taken out of 3.3V circuit!):
+ *   use Uno with ArduinoISP Example and "Arduino as ISP"
+ *   connect (like attiny85) for ISP (SPI) programming (13-13, 12-12, 11-11,
+ *     10-RESET, 5V-VCC, GND-GND - 5V also for 3.3V boards possible!) see e.g.
+ *       https://www.arduino.cc/en/tutorial/arduinoISP
+ *       https://www.arduino.cc/en/Hacking/MiniBootloader
+ *       http://www.gammon.com.au/breadboard
+ *       https://github.com/nickgammon/arduino_sketches
+ *       (for debugging see "Chip not detected", "Alternate clock source")
+ *   select "Arduino Pro or Pro Mini" board, select the correct "Procesor"
+ *     (depending on voltage on clock) and Tools > Burn Bootloader
+ *   then compile and upload sketch with (Upload button doesn't work)
+ *     Sketch > Upload Using Programmer
+ *   (selecting othe 328 board like Uno or Nano would work also but
+ *     not allow to select 8MHz clock)
+ *   info on (RobotDyn) Arduino (Pro) Mini (3.3V):
+ *     https://learn.sparkfun.com/tutorials/using-the-arduino-pro-mini-33v/all
+ *     https://robotdyn.com/catalog/promini-atmega328p.html
+ *     pinout: https://robotdyn.com/pub/media/0G-00006155==ProMINI-ATmega328P(10PCS)-USBCH340-KIT/DOCS/PINOUT==0G-00004034==ProMINI-ATmega328P.pdf
+ *     schematic: https://robotdyn.com/pub/media/0G-00006155==ProMINI-ATmega328P(10PCS)-USBCH340-KIT/DOCS/Schematic==0G-00004034==ProMINI-ATmega328P.pdf
+ *
+ * For a plain 3.3V operation we can use a Due:
+ *   use Due with ArduinoISP Example and "Arduino as ISP"
+ *     uncomment '#define USE_OLD_STYLE_WIRING' (line 81) in order to use same wiring
+ *       as mentioned before (using the SPI/ICSP header does not work (yet))
+ *     for programming the Due with ArduinoISP use the "Programming Port" (USB
+ *       connector in middle of board)
+ *     for programming the target (Arduino Mini) and use as "Arduino as ISP", use
+ *       the "Native Port" (USB connector at the edge of the board)
+ *         https://petervanhoyweghen.wordpress.com/2015/07/21/arduinoisp-reliability-and-portability-improvements/
+ *     in case of issues reset the Due by pressing the button and re-select USB port
+ *     in case Burn Bootloader fails check enable verbose output (Preferences) and
+ *       check it, sometimes it tries to burn twice and only 2nd time fails (ignore it)
+ *   select "Arduino Pro or Pro Mini" board etc. as mentioned before
+ *
+ * Upload using bootloader with Due RX/TX as mentioned in
+ *   @see ESP8266_SHT31_WiFi_REST/ESP8266_SHT31_WiFi_REST.ino does not work yet
+ *   need to investigate the signals, may be the bootloader (MiniCore?), etc.
+ *
+ * Direct Pinout (not using shields, e.g. for Arduino Mini 3.3V):
+ *   Arduino Mini 3.3V            Peripherial
+ *          VCC                  supply: 3.3V
+ *          VCC                LoRa Bee:    1 (3.3V)
+ *          VCC             Weather St.:  VCC
+ *          GND                  supply:  GND
+ *          GND                LoRa Bee:   10 (GND)
+ *          GND             Weather St.:  GND
+ *            9                LoRa Bee:    5 (RESET)   - SPI
+ *           10                LoRa Bee:   17 (CS/NSS)
+ *           11                LoRa Bee:   11 (DI/MOSI) - SPI
+ *           12                LoRa Bee:    4 (DO/MISO) - SPI
+ *           13                LoRa Bee:   18 (CLK/SCK) - SPI
+ *           A4             Weather St.:  SDA           - I2C
+ *           A5             Weather St.:  SCL           - I2C
+ *   optional:
+ *          RAW                  supply: 5V (+2.5V...+16V)
+ *   (optionally replaces 3.3V supply e.g. by 5V or 3.7V LiPo,
+ *   Lora Bee and Weather St. still need to be connected to VCC,
+ *   VCC then gives max. 180 mA!)
+ *   @see Uno_Dragino_LoRa_GPS_Shield_TTN/Lora GPS Shield v1.3.sch.pdf
+ *   @url https://robotdyn.com/pub/media/0G-00006155==ProMINI-ATmega328P(10PCS)-USBCH340-KIT/DOCS/Schematic==0G-00004034==ProMINI-ATmega328P.pdf
+ *   @url http://ww1.microchip.com/downloads/en/DeviceDoc/20005719A.pdf
+ *   @url https://robotdyn.com/promini-atmega328p.html
+ *   For programming of Arduino Mini as described above it has either
+ *   to be removed from circuit (socket) or the Lora Bee SPI connections
+ *   (pin 10-13) have to be removed and connected to programmer.
  */
 /***********************************************************************
 *
