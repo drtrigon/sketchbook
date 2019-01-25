@@ -1,7 +1,7 @@
 /**************************************************************************/
 /*!
     @file     Adafruit_Si7021.cpp
-    @author   Limor Fried (Adafruit Industries)
+    @author   Limor Fried (Adafruit Industries), DrTrigon
     @license  BSD (see license.txt)
 
     This is a library for the Adafruit Si7021 breakout board
@@ -23,7 +23,13 @@
  #include "WProgram.h"
 #endif
 
+#if !defined(__AVR_ATtiny85__)
 #include <Wire.h>
+#else
+#include <TinyWireM.h>
+//USI_TWI Wire = TinyWireM;
+#define Wire TinyWireM
+#endif
 #include <Adafruit_Si7021.h>
 
 

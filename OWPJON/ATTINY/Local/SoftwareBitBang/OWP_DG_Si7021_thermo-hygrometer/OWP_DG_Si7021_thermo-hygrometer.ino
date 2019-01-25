@@ -1,5 +1,5 @@
 /**
- * @brief Example-Code for a generic ATTiny85 Device (e.g. Sensor, Display)
+ * @brief Example-Code for a Si7021 ATTiny85 Device (e.g. Sensor, Display)
  *
  * @file OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
  *
@@ -37,6 +37,11 @@
  * @endverbatim
  */
 
+// https://arduino.stackexchange.com/questions/4169/arduino-ide-ifdef
+//#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+//#if defined(__AVR_ATtiny85__)
+//#if defined(ARDUINO_AVR_UNO) || defined(ARDUINO_AVR_NANO)
+
 //#define ENABLE_DEBUG  // ATmega328 (not ATtiny85)
 #define ENABLE_UNITTEST
 
@@ -44,7 +49,11 @@
 #define TEMP_OFFSET  -215  // 8 MHz (internal)
 #define TEMP_COEFF    1.0
 
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
 #define SENSOR     "owp:dg:tiny:v1"
+#else
+#define SENSOR     "owp:dg:???:v1"
+#endif
 
 #define READ_INFO  0x01  // return generic sensor info
 #define READ_VCC   0x11  // return supply voltage
@@ -57,12 +66,12 @@
 // more can be added as needed ...
 // do not use 0x00 as this is the string terminator
 
-#include "Adafruit_Si7021_Tiny.h"  // lib using adafruit/TinyWireM
+#include "Adafruit_Si7021.h"  // lib modified to use TinyWireM also
 
 constexpr uint8_t _LED_BUILTIN  { 1 };
 constexpr uint8_t pin_onewire   { 4 };
 
-Adafruit_Si7021_Tiny sensor = Adafruit_Si7021_Tiny();
+Adafruit_Si7021 sensor = Adafruit_Si7021();
 
 uint8_t mem_buffer[16];
 
@@ -75,11 +84,13 @@ uint8_t mem_buffer[16];
 
 // https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
 #define PJON_INCLUDE_SWBB true // Include only SoftwareBitBang
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
 // Max 10 characters packet (including overhead)
 //#define PJON_PACKET_MAX_LENGTH 10
 #define PJON_PACKET_MAX_LENGTH 30
 // Avoid using packet buffer
 #define PJON_MAX_PACKETS        0
+#endif
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
@@ -187,6 +198,7 @@ void loop()
   bus.receive(1000);
 };
 
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
 /**
  *  Accessing the secret voltmeter on the ATtiny85 (not ATmega328).
  *
@@ -259,3 +271,30 @@ float readTemp(void)
   //return a - 272; //return temperature in C
   return(((float)a + TEMP_OFFSET) / TEMP_COEFF);
 }
+#else
+/**
+ *  Accessing the secret voltmeter on the ATtiny85 (not ATmega328).
+ *
+ * @see receiver_function()
+ * @see http://code.google.com/p/tinkerit/wiki/SecretVoltmeter
+ * @return The supply voltage in [V]
+ */
+float readVcc()
+{
+  return 3.7;
+}
+
+/**
+ *  Internal Temperature Sensor for the ATtiny85 (not ATmega328).
+ *
+ * @param void
+ * @see receiver_function()
+ * @see https://github.com/cano64/ArduinoSystemStatus/blob/master/SystemStatus.cpp
+ * @see http://21stdigitalhome.blogspot.ch/2014/10/trinket-attiny85-internal-temperature.html
+ * @return The chip temperature in [°C]
+ */
+float readTemp(void)
+{
+  return 42.42;
+}
+#endif
