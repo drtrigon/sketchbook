@@ -4,20 +4,24 @@
  * @file OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
  *
  * @author drtrigon
- * @date 2018-08-08
- * @version 1.0
+ * @date 2019-01-26
+ * @version 1.1
+ *   @li compatibility with atmega328 (Uno, Nano, minimal)
+ *       OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
+ *       @see https://arduino.stackexchange.com/questions/4169/arduino-ide-ifdef
  *   @li first version derived from
  *       Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino
  *       OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
  *       @see https://github.com/gioblu/PJON/wiki/ATtiny-interfacing
  *
  * @ref Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer/Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino
+ * @ref OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
  *
  * @verbatim
  * OneWire PJON Generic "OWPG" scheme:
  *   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
  *
- * Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun), attiny85
+ * Compatible with: attiny85, atmega328 (Uno, Nano), atmega32u4 (Yun)
  *
  * Pinout:
  *                      ATtinyX5 Pin Layout (ATtiny85)
@@ -37,23 +41,20 @@
  * @endverbatim
  */
 
-// https://arduino.stackexchange.com/questions/4169/arduino-ide-ifdef
-//#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
-//#if defined(__AVR_ATtiny85__)
-//#if defined(ARDUINO_AVR_UNO) || defined(ARDUINO_AVR_NANO)
-
 //#define ENABLE_DEBUG  // ATmega328 (not ATtiny85)
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
 #define ENABLE_UNITTEST
 
 //#define TEMP_OFFSET  -260  // 16 MHz (PLL)
 #define TEMP_OFFSET  -215  // 8 MHz (internal)
 #define TEMP_COEFF    1.0
 
-#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
 #define SENSOR     "owp:dg:tiny:v1"
 #else
-#define SENSOR     "owp:dg:???:v1"
+#define SENSOR     "owp:dg:v1"
 #endif
+#define OWPJONID   41
+#define OWPJONPIN   4    // attiny, atmega328@ext16MHz (Uno, Nano)
 
 #define READ_INFO  0x01  // return generic sensor info
 #define READ_VCC   0x11  // return supply voltage
@@ -68,12 +69,20 @@
 
 #include "Adafruit_Si7021.h"  // lib modified to use TinyWireM also
 
-constexpr uint8_t _LED_BUILTIN  { 1 };
-constexpr uint8_t pin_onewire   { 4 };
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
+#define _LED_BUILTIN  1
+#else
+//#define _LED_BUILTIN  LED_BUILTIN  // e.g Uno (no pwm)
+#define _LED_BUILTIN  9  // pwm enabled pin
+#endif
 
 Adafruit_Si7021 sensor = Adafruit_Si7021();
 
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
 uint8_t mem_buffer[16];
+#else
+uint8_t mem_buffer[256];
+#endif
 
 /*// https://github.com/gioblu/PJON/blob/master/documentation/configuration.md#extended-configuration
 // https://github.com/gioblu/PJON/issues/222
@@ -94,14 +103,14 @@ uint8_t mem_buffer[16];
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
-PJON<SoftwareBitBang> bus(99);
+PJON<SoftwareBitBang> bus(OWPJONID);
 
 /**
  *  Arduino IDE: put your setup code here, to run once.
  */
 void setup()
 {
-  bus.strategy.set_pin(pin_onewire);
+  bus.strategy.set_pin(OWPJONPIN);
   bus.begin();
   bus.set_receiver(receiver_function);
 
@@ -113,9 +122,21 @@ void setup()
 
   // initialize I2C TinyWireM sensor lib
   sensor.begin();
+#ifdef ENABLE_DEBUG
+  Serial.print("sensor: ");
+  Serial.print(sensor.readTemperature());
+  Serial.print(" ");
+  Serial.println(sensor.readHumidity());
+#endif
 
   for (int i=0; i<8; i+=1) {
-    analogWrite(_LED_BUILTIN, B00000001<<i);
+//#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
+    analogWrite(_LED_BUILTIN, B00000001<<i);  // PWM incr. brightness
+//#else
+//    digitalWrite(_LED_BUILTIN, HIGH);         // flash
+//    delay(100);
+//    digitalWrite(_LED_BUILTIN, LOW);
+//#endif
     delay(500);
   }
 };
@@ -126,7 +147,7 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
      overwritten when a new message is dispatched */
 #ifdef ENABLE_DEBUG
   //Serial.println(payload);
-  Serial.println(payload, HEX);
+  Serial.println(payload[0], HEX);
 #endif
   digitalWrite(_LED_BUILTIN, HIGH);
   switch (payload[0]) {
@@ -136,7 +157,11 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     // char arrays (string) can be passed directly ...
     //bus.reply(SENSOR, strlen(SENSOR));
     //bus.send_packet_blocking(45, SENSOR, strlen(SENSOR));
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
     bus.send_packet(45, SENSOR, strlen(SENSOR));
+#else
+    bus.reply(SENSOR, strlen(SENSOR));
+#endif
   }
   break;
   case READ_VCC: {
@@ -144,29 +169,49 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     // ... and multiple variables can be sent at once using struct or union.
     // (for most of the values float should be suitable)
     float val = readVcc();
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
     bus.send_packet(45, (char*)(&val), sizeof(float));
+#else
+    bus.reply((char*)(&val), sizeof(float));
+#endif
   }
   break;
   case READ_TEMP: {
     float val = readTemp();
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
     bus.send_packet(45, (char*)(&val), sizeof(float));
+#else
+    bus.reply((char*)(&val), sizeof(float));
+#endif
   }
   break;
   case READ: {
 //    bus.reply((char*)mem_buffer, sizeof(mem_buffer));
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
     bus.send_packet(45, (char*)mem_buffer, 14);
+#else
+    bus.reply((char*)mem_buffer, 14);
+#endif
   }
   break;
   case WRITE: {
     uint8_t val = length-1;
     memcpy(&mem_buffer[0], &payload[1], val);
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
     bus.send_packet(45, (char*)(&val), sizeof(uint8_t));
+#else
+    bus.reply((char*)(&val), sizeof(uint8_t));
+#endif
   }
   break;
   case WRITE_CAL: {
     float val = *((float*)&payload[1]);  // takes the next 4 bytes
     val = val + 1.1;
+#if !defined(__AVR_ATmega328P__) && !defined(__AVR_ATmega168__)
     bus.send_packet(45, (char*)(&val), sizeof(float));
+#else
+    bus.reply((char*)(&val), sizeof(float));
+#endif
   }
   break;
   case READ_SI7021_TEMP: {
@@ -194,7 +239,9 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
  */
 void loop()
 {
-  //bus.update();
+#if defined(__AVR_ATmega328P__) || defined(__AVR_ATmega168__)
+  bus.update();
+#endif
   bus.receive(1000);
 };
 
@@ -273,7 +320,7 @@ float readTemp(void)
 }
 #else
 /**
- *  Accessing the secret voltmeter on the ATtiny85 (not ATmega328).
+ *  Accessing the secret voltmeter on the Arduino 168 or 328.
  *
  * @see receiver_function()
  * @see http://code.google.com/p/tinkerit/wiki/SecretVoltmeter
@@ -281,20 +328,61 @@ float readTemp(void)
  */
 float readVcc()
 {
+#ifdef ENABLE_UNITTEST
   return 3.7;
+#endif
+  long result;
+  // Read 1.1V reference against AVcc
+  ADMUX = _BV(REFS0) | _BV(MUX3) | _BV(MUX2) | _BV(MUX1);
+  delay(2); // Wait for Vref to settle
+  ADCSRA |= _BV(ADSC); // Convert
+  while (bit_is_set(ADCSRA,ADSC));
+  result = ADCL;
+  result |= ADCH<<8;
+  result = 1126400L / result; // Back-calculate AVcc in mV
+  return result / 1000.;
 }
 
 /**
- *  Internal Temperature Sensor for the ATtiny85 (not ATmega328).
+ *  Internal Temperature Sensor for ATmega328 types.
  *
  * @param void
  * @see receiver_function()
- * @see https://github.com/cano64/ArduinoSystemStatus/blob/master/SystemStatus.cpp
- * @see http://21stdigitalhome.blogspot.ch/2014/10/trinket-attiny85-internal-temperature.html
+ * @see https://playground.arduino.cc/Main/InternalTemperatureSensor
  * @return The chip temperature in [°C]
  */
 float readTemp(void)
 {
+#ifdef ENABLE_UNITTEST
   return 42.42;
+#endif
+  unsigned int wADC;
+  float t;
+
+  // The internal temperature has to be used
+  // with the internal reference of 1.1V.
+  // Channel 8 can not be selected with
+  // the analogRead function yet.
+
+  // Set the internal reference and mux.
+  ADMUX = (_BV(REFS1) | _BV(REFS0) | _BV(MUX3));
+  ADCSRA |= _BV(ADEN);  // enable the ADC
+
+  delay(20);            // wait for voltages to become stable.
+
+  ADCSRA |= _BV(ADSC);  // Start the ADC
+
+  // Detect end-of-conversion
+  while (bit_is_set(ADCSRA,ADSC));
+
+  // Reading register "ADCW" takes care of how to read ADCL and ADCH.
+  wADC = ADCW;
+
+  // The offset of 324.31 could be wrong. It is just an indication.
+//  t = (wADC - 324.31 ) / 1.22;
+  t = (wADC - 330.81 ) / 1.22;    // Arduino Uno R3 (mega328)
+
+  // The returned temperature is in degrees Celsius.
+  return (t);
 }
 #endif
