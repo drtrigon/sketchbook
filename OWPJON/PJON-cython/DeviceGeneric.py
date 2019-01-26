@@ -34,6 +34,10 @@
 # osboxes@osboxes:~/sketchbook/OWPJON/PJON-cython$ ./test-OWPJON.sh
 # owp:dg:v1
 # owp:1w:v1
+#
+# chooses automatically between ThroughSerial and LocalUDP:
+# $ printf "\x01" | python DeviceGeneric.py /dev/ttyUSB0 9600 99
+# $ printf "\x01" | python DeviceGeneric.py - - 99
 
 from __future__ import print_function
 
@@ -47,13 +51,21 @@ import types
 ID = 45  # default ID for linux (raspi uses 46)
 
 
-#class ThroughSerial(PJON.ThroughSerial):
-class LocalUDP(PJON.LocalUDP):
+class GenericPJON():
     """..."""
 
     def receive(self, data, length, packet_info):
         """Receive function dummy to disable NotImplementedError."""
         return
+
+class ThroughSerial(GenericPJON, PJON.ThroughSerial):
+    pass
+
+class LocalUDP(GenericPJON, PJON.LocalUDP):
+    pass
+
+#ThroughSerial = type('ThroughSerial', (GenericPJON, PJON.ThroughSerial), dict())
+#LocalUDP = type('LocalUDP', (GenericPJON, PJON.LocalUDP), dict())
 
 
 def receive_func(self, data, length, packet_info):
@@ -82,9 +94,6 @@ def error_func():
         raise
 
 
-#bus = ThroughSerial(ID)
-bus = LocalUDP(ID)
-
 if ((len(sys.argv) == 2) and (sys.argv[1] == "--id")):
     import os
     import datetime
@@ -92,6 +101,12 @@ if ((len(sys.argv) == 2) and (sys.argv[1] == "--id")):
     print("ID: %i" % ID)
     print("BC: %i" % PJON.PJON_BROADCAST)
     sys.exit(0)
+
+if ((len(sys.argv) >= 3) and not (sys.argv[1] == sys.argv[2] == "-")):
+    bus = ThroughSerial(ID, sys.argv[1], int(sys.argv[2]))
+else:
+    bus = LocalUDP(ID)
+#print("bus:", bus)
 
 # Welcome to RemoteWorker 1 (Transmitter)
 
