@@ -64,9 +64,6 @@ class ThroughSerial(GenericPJON, PJON.ThroughSerial):
 class LocalUDP(GenericPJON, PJON.LocalUDP):
     pass
 
-#ThroughSerial = type('ThroughSerial', (GenericPJON, PJON.ThroughSerial), dict())
-#LocalUDP = type('LocalUDP', (GenericPJON, PJON.LocalUDP), dict())
-
 
 def receive_func(self, data, length, packet_info):
     """..."""
@@ -103,8 +100,10 @@ if ((len(sys.argv) == 2) and (sys.argv[1] == "--id")):
     sys.exit(0)
 
 if ((len(sys.argv) >= 3) and not (sys.argv[1] == sys.argv[2] == "-")):
+    #ThroughSerial = type('ThroughSerial', (GenericPJON, PJON.ThroughSerial), dict())
     bus = ThroughSerial(ID, sys.argv[1], int(sys.argv[2]))
 else:
+    #LocalUDP = type('LocalUDP', (GenericPJON, PJON.LocalUDP), dict())
     bus = LocalUDP(ID)
 #print("bus:", bus)
 
