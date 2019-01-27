@@ -51,7 +51,12 @@
 //#define ENABLE_DEBUG
 //#define ENABLE_UNITTEST
 
+#define TEMP_OFFSET  -309.00
+#define TEMP_COEFF      1.22
+
 #define SENSOR     "owp:dg:v1"
+#define OWPJONID   44
+#define OWPJONPIN  12
 
 #define READ_INFO  0x01  // return generic sensor info
 #define READ_VCC   0x11  // return supply voltage
@@ -67,7 +72,7 @@ uint8_t mem_buffer[256];
 #include <PJON.h>
 
 // <Strategy name> bus(selected device id)
-PJON<SoftwareBitBang> bus(44);
+PJON<SoftwareBitBang> bus(OWPJONID);
 
 /**
  *  Arduino IDE: put your setup code here, to run once.
@@ -83,7 +88,7 @@ void setup()
   digitalWrite(LED_BUILTIN, LOW);
 #endif
 
-  bus.strategy.set_pin(12);
+  bus.strategy.set_pin(OWPJONPIN);
   bus.begin();
   bus.set_receiver(receiver_function);
 
@@ -219,8 +224,7 @@ float readTemp(void)
   wADC = ADCW;
 
   // The offset of 324.31 could be wrong. It is just an indication.
-//  t = (wADC - 324.31 ) / 1.22;
-  t = (wADC - 330.81 ) / 1.22;    // Arduino Uno R3 (mega328)
+  t = (wADC + TEMP_OFFSET ) / TEMP_COEFF;
 
   // The returned temperature is in degrees Celsius.
   return (t);
