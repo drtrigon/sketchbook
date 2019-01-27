@@ -58,6 +58,8 @@ class GenericPJON():
         """Receive function dummy to disable NotImplementedError."""
         return
 
+# not as reliable as OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric
+# because TS_RESPONSE_TIME_OUT 35000 cannot be defined here (yet)
 class ThroughSerial(GenericPJON, PJON.ThroughSerial):
     pass
 
