@@ -1,0 +1,157 @@
+
+https://github.com/jeelabs/esp-link
+https://github.com/jeelabs/esp-link#getting-started
+https://github.com/jeelabs/esp-link/blob/master/FLASHING.md
+https://github.com/jeelabs/esp-link/blob/master/UC-FLASHING.md
+https://github.com/drtrigon/sketchbook/blob/master/micpy/_howto_flash%20and%20program_micropython_to_esp8266
+https://github.com/drtrigon/sketchbook/blob/master/ESP8266_SHT31_WiFi_REST/ESP8266_SHT31_WiFi_REST.ino
+https://garyservin.wordpress.com/2014/12/16/programming-an-arduino-via-wifi-with-the-esp8266/
+http://yaab-arduino.blogspot.com/2015/03/esp8266-wiring-schemas.html
+
+Getting Started
+
+To get started you need to:
+
+    prepare your esp8266 module for serial flashing
+    download the latest esp-link release image (you can build your own later)
+    flash the firmware
+    configure the Wifi in esp-link for your network
+
+You can then attach a uC and upload a sketch:
+
+    attach a uC (e.g. arduino) to your esp8266 module
+    connect via the serial port to see a pre-loaded sketch running
+    upload a fresh version of the sketch
+
+From there, more advanced steps are:
+
+    write a sketch that uses MQTT to communicate, or that makes outbound REST requests
+    create some web pages and write a sketch that populates data in them or reacts to buttons and forms
+    make changes or enhancements to esp-link and build your own firmware
+
+
+(nc esp-hostname 23) or (telnet esp-hostname 23)
+(https://github.com/jeelabs/esp-link/blob/master/UC-FLASHING.md)
+
+
+
+Connect ESP to Arduino Due as mentioned in "sketchbook/micpy/_howto_flash and program_micropython_to_esp8266"
+
+ *    - connect ESP8266 to an Arduino Due (PROGRAMMING ATMEGA16U2 port) by wiring:
+ *        Arduino Due Pin   ESP8266 Pin
+ *                    GND   1 GND
+ *                 TX0->1   2 UTXD          --------------------
+ *                          3 GPIO2         |2 1        x--=== |
+ *               3.3V VCC   4 CH_PD         |4 3           === |
+ *                    GND   5 GPIO0         |6 5  ESP8266  === |
+ *                          6 RST           |8 7  board      | |
+ *                 RX0<-0   7 URXD          --------------------
+ *               3.3V VCC   8 VCC
+ *        Arduino Due RESET pin needs to be connected to GND (in order to disable the chip/sketch)
+ *        (ESP8266 RST kann offen bleiben oder PullUp)
+
+https://github.com/jeelabs/esp-link/releases
+
+osboxes@osboxes:~$ sudo pip install esptool
+
+
+https://github.com/espressif/esptool#read-spi-flash-id-flash_id
+
+osboxes@osboxes:~$ esptool.py --port /dev/ttyACM0 flash_id
+esptool.py v2.6
+Serial port /dev/ttyACM0
+Connecting....
+Detecting chip type... ESP8266
+Chip is ESP8266EX
+Features: WiFi
+MAC: 5c:cf:7f:d3:62:5b
+Uploading stub...
+Running stub...
+Stub running...
+Manufacturer: e0
+Device: 4014
+Detected flash size: 1MB
+Hard resetting via RTS pin...
+
+osboxes@osboxes:~/Downloads/esp-link-v3.0.14-g963ffbb$ esptool.py --port /dev/ttyACM0 --baud 460800 write_flash -fs 8m -ff 40m 0x00000 boot_v1.6.bin 0x1000 user1.bin 0xFC000 esp_init_data_default.bin 0xFE000 blank.bin
+WARNING: Flash size arguments in megabits like '8m' are deprecated.
+Please use the equivalent size '1MB'.
+Megabit arguments may be removed in a future release.
+esptool.py v2.6
+Serial port /dev/ttyACM0
+Connecting....
+Detecting chip type... ESP8266
+Chip is ESP8266EX
+Features: WiFi
+MAC: 5c:cf:7f:d3:62:5b
+Uploading stub...
+Running stub...
+Stub running...
+Changing baud rate to 230400
+Changed.
+Configuring flash size...
+
+A fatal error occurred: Timed out waiting for packet content
+
+
+https://github.com/espressif/esptool#troubleshooting
+If flashing fails with random errors part way through, retry with a lower baud rate.
+Power stability problems may also cause this (see Insufficient Power.)
+
+osboxes@osboxes:~/Downloads/esp-link-v3.0.14-g963ffbb$ esptool.py --port /dev/ttyACM0 --baud 115200 write_flash -fs 8m -ff 40m 0x00000 boot_v1.6.bin 0x1000 user1.bin 0xFC000 esp_init_data_default.bin 0xFE000 blank.bin
+WARNING: Flash size arguments in megabits like '8m' are deprecated.
+Please use the equivalent size '1MB'.
+Megabit arguments may be removed in a future release.
+esptool.py v2.6
+Serial port /dev/ttyACM0
+Connecting....
+Detecting chip type... ESP8266
+Chip is ESP8266EX
+Features: WiFi
+MAC: 5c:cf:7f:d3:62:5b
+Uploading stub...
+Running stub...
+Stub running...
+Configuring flash size...
+Flash params set to 0x0020
+Compressed 3856 bytes to 2762...
+Wrote 3856 bytes (2762 compressed) at 0x00000000 in 0.2 seconds (effective 125.6 kbit/s)...
+Hash of data verified.
+Compressed 330756 bytes to 244619...
+Wrote 330756 bytes (244619 compressed) at 0x00001000 in 21.2 seconds (effective 124.9 kbit/s)...
+Hash of data verified.
+Compressed 128 bytes to 75...
+Wrote 128 bytes (75 compressed) at 0x000fc000 in 0.0 seconds (effective 85.3 kbit/s)...
+Hash of data verified.
+Compressed 4096 bytes to 26...
+Wrote 4096 bytes (26 compressed) at 0x000fe000 in 0.0 seconds (effective 3988.2 kbit/s)...
+Hash of data verified.
+
+Leaving...
+Hard resetting via RTS pin...
+
+
+Disconnect ESP Pin 5 (GPIO0) from GND in order to make it boot in operating mode.
+
+ *    - connect ESP8266 to an AVR chip
+ *                AVR Pin   ESP8266 Pin
+ *                    GND   1 GND
+ *               (RX0<-0)   2 UTXD          --------------------
+ *                          3 GPIO2         |2 1        x--=== |
+ *               3.3V VCC   4 CH_PD         |4 3           === |
+ *                (RESET)   5 GPIO0         |6 5  ESP8266  === |
+ *                          6 RST           |8 7  board      | |
+ *               (TX0->1)   7 URXD          --------------------
+ *               3.3V VCC   8 VCC
+ *        (ESP8266 RST kann offen bleiben oder PullUp)
+ *       Klammer () bezeichnen die Verbindungen zum uP - nicht nötig für ersten Start
+
+We use the ESP wifi in AP mode, so connect to the wifi called "ESP_D3625B" and
+according to https://github.com/jeelabs/esp-link/blob/master/WIFI-CONFIG.md open a
+browser and connect to http://192.168.4.1/ .
+
+There select Pin assignment Presets "esp-01" and click to "Change".
+
+The ESP NEEDS 3.3 V supply e.g. by adding 2-3 diodes between 5 V and ESP supply.
+The ESP I/O pins are 5 V tolerant (NOT the supply!) and can directly be connected.
+
