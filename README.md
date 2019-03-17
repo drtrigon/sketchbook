@@ -134,12 +134,12 @@ https://github.com/drtrigon/sketchbook/blob/master/OWPJON/README.md
 Current bus topography for 2 isolated SoftwareBitBang bus parts (A & C):
 ```
 -------   LUDP    -------  SWBB(A)  -------    TL     -------  SWBB(C)
-|ID 46| ========= |Sw A | --------- |Sw B | ......... |Sw C | ---------
--------     I     -------     I     -------     I     -------     I
-            I                 I                 I                 I
-         -------           -------           -------           -------
-         |ID 45|           |ID 44|           |ID 43|           |ID 42|
-         -------           -------           -------           -------
+|ID 46| ========= |Sw A | --------- |Sw B | ......... |Sw C | ------------------
+-------     I     -------     I     -------     I     -------     I        I
+            I                 I                 I                 I        I
+         -------           -------           -------           -------  -------
+         |ID 45|           |ID 44|           |ID 43|           |ID 42|  |ID 41|
+         -------           -------           -------           -------  -------
 
 === multiple wires (e.g. ethernet)
 --- single wire
@@ -154,13 +154,15 @@ Current bus topography for 2 isolated SoftwareBitBang bus parts (A & C):
   for all devices (Sw B & C and ID 43) - lower should be possible - for special cases
   (e.g. outdoors) higher might be needed
 
-* Sw A: OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
-* Sw B & C: OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/BlinkingSwitch_SWBB-TL.ino
+* Sw A (indoor): OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/BlinkingSwitch.ino
+* Sw B (Dragino, lan upload, indoor) & C (outdoor): OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/BlinkingSwitch_SWBB-TL.ino
+* ( ID 99: one of the switches mentioned is configured semi-transparent for test, see OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL_semitransparent/BlinkingSwitch_SWBB-TL_semitransparent.ino )
 * ID 46: OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp (make raspi)
 * ID 45: OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp (make)
-* ID 44: OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
+* ID 44 (Nano, test): OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
 * ID 43: OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino
-* ID 42: OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
+* ID 42 (minimal, 1wire adaptor): OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
+* ID 41 (minimal, tiny replace, box): OWPJON/ATTINY/Local/SoftwareBitBang/OWP_DG_Si7021_thermo-hygrometer/OWP_DG_Si7021_thermo-hygrometer.ino
 ```
 
 Bus topography for local (desktop) developpment and device testing:
@@ -201,7 +203,7 @@ Bus topography for local (desktop) developpment and device testing:
         * https://github.com/fredilarsen/ModuleInterface/blob/master/src/MI/ModuleVariableSet.h#L450
 * https://github.com/gioblu/PJON/issues/222#issuecomment-406080833
 * TODO: https://github.com/gioblu/PJON/issues/211#issuecomment-397952478
-  * as soon as there is free time: recomile and distribute all codes using latest PJON to hardware
+  * !!!UPDATE NEEDED!!! as soon as there is free time: recomile and distribute all codes using latest PJON to hardware
   * add reset broadcast command
   * think about SDL-12 command syntax
   * test setup and reliability especially for outdoor SWBB (tunneled via ThroughLoRa)
