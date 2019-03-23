@@ -19,3 +19,5 @@ rmdir fpgarduino-icestorm
 # git thinks all files are deleted, this reverts the state of the repo to HEAD.
 # WARNING: any local changes to the files will be lost.
 #git reset --hard HEAD
+git add AlhambraII
+git diff HEAD
