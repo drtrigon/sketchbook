@@ -10,6 +10,7 @@ from __future__ import print_function
 import subprocess
 import unittest
 import sys
+import os
 
 READ_INFO  = 0x01  # return generic sensor info
 READ_VCC   = 0x11  # return supply voltage
@@ -17,6 +18,12 @@ READ_TEMP  = 0x12  # return chip temperature
 READ       = 0x21  # return memory data
 WRITE      = 0x22  # store memory data
 WRITE_CAL  = 0x32  # store calibration value in memory
+
+OWPSHELL = ["owpshell",
+            "owpshell-ubuntu14.04",]
+
+SERIAL = ["/dev/ttyACM0",
+          "/dev/ttyUSB0",]
 
 
 class TestDevice(object):  # do NOT run this as unittest
@@ -56,14 +63,14 @@ class TestDevice(object):  # do NOT run this as unittest
         # $ sudo ./owpshell /dev/ttyACM0 9600 44 "`printf "\x01"`"  # send "\x01" to id 44 and show result
         # print('$ sudo ./owpshell /dev/ttyACM0 9600 44 "`printf "\\x01"`"')
         # result = self._test('./owpshell /dev/ttyACM0 9600 44 "`printf "\x01"`"')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44 "`printf "%c"`"' % READ_INFO)
+        result = self._test('./%s %s 9600 44 "`printf "%c"`"' % (OWPSHELL, SERIAL, READ_INFO))
         self.assertEqual(result, self.SENSOR)
 
     def test_param_READ_VCC(self):
         # print("param: test READ_VCC")
         # $ sudo ./owpshell /dev/ttyACM0 9600 44 "`printf "\x11"`" | python unpack.py f  # send "\x11" to id 44 and unpack result as "f"loat
         # print('$ sudo ./owpshell /dev/ttyACM0 9600 44 "`printf "\\x11"`" | python unpack.py f')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44 "`printf "%c"`" | python unpack.py f' % READ_VCC)
+        result = self._test('./%s %s 9600 44 "`printf "%c"`" | python unpack.py f' % (OWPSHELL, SERIAL, READ_VCC))
         self.assertEqual(result, "3.700000047683716,")
 
 # "WRITE = 0x22" will result in python in "/bin/sh: 1: Syntax error: Unterminated quoted string"
@@ -76,7 +83,7 @@ class TestDevice(object):  # do NOT run this as unittest
         # print("pipe: test READ_INFO")
         # $ printf "\x01" | sudo ./owpshell /dev/ttyACM0 9600 44
         # print('$ printf "\\x01" | sudo ./owpshell /dev/ttyACM0 9600 44')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44',
+        result = self._test('./%s %s 9600 44' % (OWPSHELL, SERIAL),
                             stdin="%c" % READ_INFO)
         self.assertEqual(result, self.SENSOR)
 
@@ -84,7 +91,7 @@ class TestDevice(object):  # do NOT run this as unittest
         # print("pipe: test READ_VCC")
         # $ printf "\x11" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py f
         # print('$ printf "\\x11" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py f')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44 | python unpack.py f',
+        result = self._test('./%s %s 9600 44 | python unpack.py f' % (OWPSHELL, SERIAL),
                             stdin="%c" % READ_VCC)
         self.assertEqual(result, "3.700000047683716,")
 
@@ -92,7 +99,7 @@ class TestDevice(object):  # do NOT run this as unittest
         # print("pipe: test READ_TEMP")
         # $ printf "\x12" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py f
         # print('$ printf "\\x12" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py f')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44 | python unpack.py f',
+        result = self._test('./%s %s 9600 44 | python unpack.py f' % (OWPSHELL, SERIAL),
                             stdin="%c" % READ_TEMP)
         self.assertEqual(result, "42.41999816894531,")
 
@@ -101,7 +108,7 @@ class TestDevice(object):  # do NOT run this as unittest
         # print("pipe: test READ (after reset)")
         # $ printf "\x21" | sudo ./owpshell /dev/ttyACM0 9600 44
         # print('$ printf "\\x21" | sudo ./owpshell /dev/ttyACM0 9600 44')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44',
+        result = self._test('./%s %s 9600 44' % (OWPSHELL, SERIAL),
                             stdin="%c" % READ)
         self.assertEqual(result, "\x00" * self.WRITE_SIZE)
 
@@ -109,10 +116,10 @@ class TestDevice(object):  # do NOT run this as unittest
         # print("pipe: test WRITE")
         # $ printf "\x22ABC" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py B
         # print('$ printf "\\x22%s" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py B' % self.WRITE_DATA)
-        result = self._test('./owpshell /dev/ttyACM0 9600 44 | python unpack.py B',
+        result = self._test('./%s %s 9600 44 | python unpack.py B' % (OWPSHELL, SERIAL),
                             stdin="%c%s" % (WRITE, self.WRITE_DATA))
         # in order to clear the display (" " * self.WRITE_SIZE) would have to be sent first
-        resul_ = self._test('./owpshell /dev/ttyACM0 9600 44 | python unpack.py B',
+        resul_ = self._test('./%s %s 9600 44 | python unpack.py B' % (OWPSHELL, SERIAL),
                             stdin="%c%s" % (WRITE, ("\x00" * self.WRITE_SIZE)))  # reset memory for other tests
         self.assertEqual(result, "%i," % len(self.WRITE_DATA))
 
@@ -121,18 +128,18 @@ class TestDevice(object):  # do NOT run this as unittest
         # print("pipe: test WRITE")
         # $ printf "\x22ABC" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py B
         # print('$ printf "\\x22%s" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py B' % self.WRITE_DATA)
-        resul_ = self._test('./owpshell /dev/ttyACM0 9600 44 | python unpack.py B',
+        resul_ = self._test('./%s %s 9600 44 | python unpack.py B' % (OWPSHELL, SERIAL),
                             stdin="%c%s" % (WRITE, self.WRITE_DATA))
         # print("pipe: test READ (after WRITE)")
         # $ printf "\x21" | sudo ./owpshell /dev/ttyACM0 9600 44
         # print('$ printf "\\x21" | sudo ./owpshell /dev/ttyACM0 9600 44')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44',
+        result = self._test('./%s %s 9600 44' % (OWPSHELL, SERIAL),
                             stdin="%c" % READ)
         # print("pipe: test WRITE")
         # $ printf "\x22ABC" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py B
         # print('$ printf "\\x22%s" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py B' % ("\x00" * self.WRITE_SIZE))
         # in order to clear the display (" " * self.WRITE_SIZE) would have to be sent first
-        resul_ = self._test('./owpshell /dev/ttyACM0 9600 44 | python unpack.py B',
+        resul_ = self._test('./%s %s 9600 44 | python unpack.py B' % (OWPSHELL, SERIAL),
                             stdin="%c%s" % (WRITE, ("\x00" * self.WRITE_SIZE)))  # reset memory for other tests
         self.assertEqual(result, self.WRITE_DATA + "\x00" * (self.WRITE_SIZE - len(self.WRITE_DATA)))
 
@@ -141,7 +148,7 @@ class TestDevice(object):  # do NOT run this as unittest
         import struct
         # $ printf "\x32`python pack.py f 7.1`" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py f
         # print('$ printf "\\x32`python pack.py f 7.1`" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py f')
-        result = self._test('./owpshell /dev/ttyACM0 9600 44 | python unpack.py f',
+        result = self._test('./%s %s 9600 44 | python unpack.py f' % (OWPSHELL, SERIAL),
                             stdin="%c%s" % (WRITE_CAL, struct.pack("f", 7.1)))
         self.assertEqual(result, "8.199999809265137,")
 
@@ -168,23 +175,44 @@ class TestDeviceTiny(TestDevice, unittest.TestCase):  # run this as unittest
 # TODO: !!! GET LONGER DATA STRINGS WORKING !!!
 
 
+#class TestDeviceSensorStation(TestDevice, unittest.TestCase):  # run this as unittest
+#
+#    SENSOR = "owp:ss:v1"
+
+
 def get_sensor_type():
     # $ sudo ./owpshell /dev/ttyACM0 9600 44 "`printf "\x01"`"  # send "\x01" to id 44 and show result
     # print('$ sudo ./owpshell /dev/ttyACM0 9600 44 "`printf "\\x01"`"')
     # run('./owpshell /dev/ttyACM0 9600 44 "`printf "\x01"`"',
-    return TestDevice._run(TestDevice(), './owpshell /dev/ttyACM0 9600 44 "`printf "%c"`"' % READ_INFO)
+    return TestDevice._run(TestDevice(), './%s %s 9600 44 "`printf "%c"`"' % (OWPSHELL, SERIAL, READ_INFO))
+
+def find_ressource(ressources):
+    for item in ressources:
+        if os.path.exists(item):
+            return item
+    return None
 
 
 if __name__ == '__main__':
     print("unittest for OWPJON devices")
-    print("usage: %s [device-test]\noptions for device-test:" % sys.argv[0])
+    print("usage: %s [device-test]\n\n"
+          "device under test (DUT) must have ID 44\n\n"
+          "options for device-test:" % sys.argv[0])
     for k in locals().keys():
         if ("Test" in k) and (locals()[k].SENSOR):
             print("  %s" % locals()[k].SENSOR)
+    OWPSHELL = find_ressource(OWPSHELL)
+    if not OWPSHELL:
+        raise BaseException("owpshell binary could not be found")
+    SERIAL = find_ressource(SERIAL)
+    if not SERIAL:
+        raise BaseException("serial port could not be found")
     if (len(sys.argv) < 2):
         sensor_type = get_sensor_type()
     else:
         sensor_type = sys.argv[1]
-    print("type: %s\n" % sensor_type)
+    print("type: %s\n\n" % sensor_type)
+    print("owpshell: %s\n" % OWPSHELL)
+    print("serial: %s\n" % SERIAL)
     del sys.argv[1:]
     unittest.main(verbosity=2)
