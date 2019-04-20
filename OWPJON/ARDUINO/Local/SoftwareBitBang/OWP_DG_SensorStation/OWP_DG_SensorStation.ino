@@ -34,13 +34,18 @@
  *
  * Pinout:
  *   1wire PJON data bus (OWPJON SWBB):
- *        1WIRE DATA    -> Arduino Pin D12
+ *        1WIRE DATA    -> Arduino Pin D8
  *        GND black     -> Arduino GND
  *
  * Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
  * following files:
  *   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
  *   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+ *   - use ThroughSerial testing like:
+ *     $ printf "\x01" | ./owpshell-ubuntu14.04 /dev/ttyUSB0 9600 40
+ *     owp:ss:v1
+ *     $ printf "\x53" | ./owpshell-ubuntu14.04 /dev/ttyUSB0 9600 40 | python unpack.py f
+ *     970.3897094726562,
  *
  * Thanks to:
  * gioblu - PJON 11.0 and support
@@ -56,18 +61,11 @@
 #define TEMP_OFFSET  -309.00
 #define TEMP_COEFF      1.22
 
-#define SENSOR     "owp:dg:v1"
-#define OWPJONID   44
-#define OWPJONPIN   3
+#define SENSOR     "owp:ss:v1"
+#define OWPJONID   40
+#define OWPJONPIN   8
 
-#define READ_INFO  0x01  // return generic sensor info
-#define READ_VCC   0x11  // return supply voltage
-#define READ_TEMP  0x12  // return chip temperature
-#define READ       0x21  // return memory data
-#define WRITE      0x22  // store memory data
-#define WRITE_CAL  0x32  // store calibration value in memory
-// more can be added as needed ...
-// do not use 0x00 as this is the string terminator
+#include "OWPJON-sensor-commands.h"
 
 #define SEN02281P    A3    // SEN02281P analog pin
 #define GUVAS12SD    A7    // GUVA-S12SD analog pin
@@ -117,6 +115,61 @@ void setup()
 
 #ifdef ENABLE_DEBUG
   Serial.begin(9600);
+#endif
+
+    /* Initialise the TSL2561 sensor */
+    if(!tsl.begin())
+    {
+#ifdef ENABLE_DEBUG
+        /* There was a problem detecting the ADXL345 ... check your connections */
+        Serial.print("Ooops, no TSL2561 detected ... Check your wiring or I2C ADDR!");
+        while(1);
+#endif
+    }
+    /* Display some basic information on this sensor */
+//    displaySensorDetailsTSL();
+    /* Setup the sensor gain and integration time */
+    /* You can also manually set the gain or enable auto-gain support */
+    // tsl.setGain(TSL2561_GAIN_1X);      /* No gain ... use in bright light to avoid sensor saturation */
+    // tsl.setGain(TSL2561_GAIN_16X);     /* 16x gain ... use in low light to boost sensitivity */
+    tsl.enableAutoRange(true);            /* Auto-gain ... switches automatically between 1x and 16x */
+    /* Changing the integration time gives you better sensor resolution (402ms = 16-bit data) */
+    tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_13MS);      /* fast but low resolution */
+    // tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_101MS);  /* medium resolution and speed   */
+    // tsl.setIntegrationTime(TSL2561_INTEGRATIONTIME_402MS);  /* 16-bit data but slowest conversions */
+
+    /* Initialise the BMP183 sensor */
+    if(!bme.begin())
+    {
+#ifdef ENABLE_DEBUG
+        /* There was a problem detecting the BMP183 ... check your connections */
+        Serial.print("Ooops, no BME280 detected ... Check your wiring!");
+        while(1);
+#endif
+    }
+
+#ifdef ENABLE_DEBUG
+  Serial.println(SENSOR);
+  Serial.println(readVcc());
+  Serial.println(readTemp());
+  Serial.println(val);
+//  Serial.println(mem_buffer);
+  Serial.println(analogRead(SEN02281P));
+  Serial.println(analogRead(MIC));
+  Serial.println(analogRead(GUVAS12SD) * 0.01);  // mW/cm^2
+  tsl.getEvent(&event);
+  Serial.println(event.light);  // 0 = "sensor overload"
+  broadband = 0;
+  infrared = 0;
+  tsl.getLuminosity (&broadband, &infrared);
+  /* Scale for gain (1x or 16x) */
+  if (!tsl._tsl2561Gain) broadband *= 16;
+  if (!tsl._tsl2561Gain) infrared *= 16;
+  Serial.println(broadband);
+  Serial.println(infrared);
+  Serial.println(bme.readTemperature());
+  Serial.println(bme.readPressure() / 100.0F);
+  Serial.println(bme.readHumidity());
 #endif
 };
 
@@ -168,13 +221,11 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-
-  case 0x99: {
+  case READ_AUDIO_CHA: {
     // "A5" (SEN02281P; Loudness (Grove))
 //    float val = analogRead(SEN02281P)/1023.;  // arbitrary unit
     mmin = 1023;
     mmax = 0;
-    //for(unsigned long i=0; i<10000; ++i) {
     for(unsigned long i=0; i<1000; ++i) {
         val = analogRead(SEN02281P);
         mmin = min(mmin, val);   // simple if ... < should be faster...
@@ -186,11 +237,10 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-  case 0x98: {
+  case READ_AUDIO_CHB: {
     // MIC "sensor": Sparkfun ...
     mmin = 1023;
     mmax = 0;
-    //for(unsigned long i=0; i<10000; ++i) {
     for(unsigned long i=0; i<1000; ++i) {
         val = analogRead(MIC);
         mmin = min(mmin, val);   // simple if ... < should be faster...
@@ -202,15 +252,15 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-  case 0x97: {
+  case READ_LIGHT_UV: {
     // UV sensor: Adafruit GUVA-S12SD
     /* Display the results [mW/cm^2] or [UV index] */
     float val = (analogRead(GUVAS12SD) * 0.01);  // mW/cm^2
-    //float val = (analogRead(MeasPin) * 0.049); // UV index
+    //float val = (analogRead(GUVAS12SD) * 0.049); // UV index
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-  case 0x96: {
+  case READ_LIGHT_VIS: {
     // Light sensor: Adafruit_TSL2561
     /* Get a new sensor event */
     tsl.getEvent(&event);
@@ -219,7 +269,7 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-  case 0x95: {
+  case READ_LIGHT_BB: {
     // Light sensor: Adafruit_TSL2561
     /* Get a new sensor event */
     broadband = 0;
@@ -229,43 +279,49 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     /* Scale for gain (1x or 16x) */
     if (!tsl._tsl2561Gain) broadband *= 16;
     if (!tsl._tsl2561Gain) infrared *= 16;
-//    float val = readTemp();
-//    bus.reply((char*)(&val), sizeof(float));
-    float val[2] = {broadband, infrared};
-    bus.reply((char*)(&val), sizeof(float)*2);
+//    float val[2] = {broadband, infrared};
+//    bus.reply((char*)(&val), sizeof(float)*2);
+    float val = broadband;
+    bus.reply((char*)(&val), sizeof(float));
   }
   break;
-  case 0x94: {
+  case READ_LIGHT_IR: {
+    // Light sensor: Adafruit_TSL2561
+    /* Get a new sensor event */
+    broadband = 0;
+    infrared = 0;
+    /* Populate broadband and infrared with the latest values */
+    tsl.getLuminosity (&broadband, &infrared);
+    /* Scale for gain (1x or 16x) */
+    if (!tsl._tsl2561Gain) broadband *= 16;
+    if (!tsl._tsl2561Gain) infrared *= 16;
+    float val = infrared;
+    bus.reply((char*)(&val), sizeof(float));
+  }
+  break;
+  case READ_SENS_TEMP: {
     // Barometric pressure sensor: Adafruit_BME280 (Temp)
     /* First we get the current temperature from the BMP085 [*C] */
     float val = bme.readTemperature();
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-  case 0x93: {
+  case READ_SENS_PRES: {
     // Barometric pressure sensor: Adafruit_BME280 (Press)
-    ///* Display atmospheric pressue in Hecto-Pascals [mbar] */
-    //float val = bme.readPressure() / 100.0F;
+    /* Display atmospheric pressue in Hecto-Pascals [mbar] */
+    float val = bme.readPressure() / 100.0F;
     /* Display atmospheric pressue in [bar] */
-    float val = bme.readPressure() / 100000.0F;
+    //float val = bme.readPressure() / 100000.0F;
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-  case 0x92: {
+  case READ_SENS_HUM: {
     // Barometric pressure sensor: Adafruit_BME280 (Humid)
     /* Display humidity in [%] */
     float val = bme.readHumidity();
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
-/*        case 10:                                 // Internal "System" Commands (ISC)
-            pack(SoftwareVer);
-            break;*/
-/*
-        case 10:                                 // Internal "System" Commands (ISC)
-            pack(ds18b11, millis()/1000.);
-            break;*/
-
   default:
     // nop
     break;

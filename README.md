@@ -138,7 +138,7 @@ Current bus topography for 2 isolated SoftwareBitBang bus parts (A & C):
 -------     I     -------     I     -------     I     -------     I        I
             I                 I                 I                 I        I
          -------           -------           -------           -------  -------
-         |ID 45|           |ID 44|           |ID 43|           |ID 42|  |ID 41|
+         |ID 45|           |ID 44|           |ID 43|           |ID 42|  |ID 41|  ... ID 40
          -------           -------           -------           -------  -------
 
 === multiple wires (e.g. ethernet)
@@ -163,6 +163,7 @@ Current bus topography for 2 isolated SoftwareBitBang bus parts (A & C):
 * ID 43: OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino
 * ID 42 (minimal, 1wire adaptor): OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino
 * ID 41 (minimal, tiny replace, box): OWPJON/ATTINY/Local/SoftwareBitBang/OWP_DG_Si7021_thermo-hygrometer/OWP_DG_Si7021_thermo-hygrometer.ino
+* ID 40 (Nano, outdoors, not used yet): OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_SensorStation/OWP_DG_SensorStation.ino
 ```
 
 Bus topography for local (desktop) developpment and device testing:
