@@ -162,7 +162,7 @@ void print(const char *p)
 		putchar(*(p++));
 }
 
-void print_hex(uint32_t v, int digits)
+/*void print_hex(uint32_t v, int digits)
 {
 	for (int i = 7; i >= 0; i--) {
 		char c = "0123456789abcdef"[(v >> (4*i)) & 15];
@@ -242,7 +242,7 @@ char getchar_prompt(char *prompt)
 char getchar()
 {
 	return getchar_prompt(0);
-}
+}*/
 
 // --------------------------------------------------------
 
@@ -269,6 +269,8 @@ void digitalWrite(uint8_t pin, uint8_t value)
 		reg_leds = value;
 	}
 }
+
+int digitalRead(uint8_t) { return HIGH; }
 
 // --------------------------------------------------------
 /*

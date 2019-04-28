@@ -77,6 +77,48 @@ What does work:
     * BareMinimum
     * Blink
     * (TODO: DigitalReadSerial)
+
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+Currently DigitalReadSerial fails at the linking stage:
+
+/home/osboxes/sketchbook/hardware/AlhambraII/picorv32/tools/riscv32i/lib/gcc/riscv32-unknown-elf/8.2.0/../../../../riscv32-unknown-elf/bin/ld: section .eh_frame LMA [0000000000101264,00000000001019bf] overlaps section .data LMA [0000000000101264,0000000000101277]
+/tmp/arduino_build_459262/sketch/DigitalReadSerial.ino.cpp.o: In function `.L0 ':
+DigitalReadSerial.ino.cpp:(.text+0xe): undefined reference to `Serial'
+DigitalReadSerial.ino.cpp:(.text+0x12): undefined reference to `Serial'
+DigitalReadSerial.ino.cpp:(.text+0x56): undefined reference to `Serial'
+DigitalReadSerial.ino.cpp:(.text+0x5a): undefined reference to `Serial'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(HardwareSerial.cpp.o):(.rodata._ZTI14HardwareSerial[_ZTI14HardwareSerial]+0x0): undefined reference to `vtable for __cxxabiv1::__si_class_type_info'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L65':
+Print.cpp:(.text+0x638): undefined reference to `__gtdf2'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L0 ':
+Print.cpp:(.text+0x66c): undefined reference to `__ltdf2'
+Print.cpp:(.text+0x698): undefined reference to `__ltdf2'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L72':
+Print.cpp:(.text+0x70a): undefined reference to `__divdf3'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L88':
+Print.cpp:(.text+0x73a): undefined reference to `__adddf3'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L89':
+Print.cpp:(.text+0x756): undefined reference to `__fixunsdfsi'
+Print.cpp:(.text+0x768): undefined reference to `__floatunsidf'
+Print.cpp:(.text+0x780): undefined reference to `__subdf3'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L79':
+Print.cpp:(.text+0x7f6): undefined reference to `__muldf3'
+Print.cpp:(.text+0x816): undefined reference to `__fixunsdfsi'
+Print.cpp:(.text+0x848): undefined reference to `__floatunsidf'
+Print.cpp:(.text+0x85c): undefined reference to `__subdf3'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L0 ':
+Print.cpp:(.text._ZSt5isinfd[_ZSt5isinfd]+0x3c): undefined reference to `__unorddf2'
+Print.cpp:(.text._ZSt5isinfd[_ZSt5isinfd]+0x58): undefined reference to `__ledf2'
+Print.cpp:(.text._ZSt5isnand[_ZSt5isnand]+0x20): undefined reference to `__unorddf2'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o): In function `.L12':
+Print.cpp:(.text._ZN5Print5writeEPKc[_ZN5Print5writeEPKc]+0x2a): undefined reference to `strlen'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o):(.rodata._ZTV5Print[_ZTV5Print]+0x8): undefined reference to `__cxa_pure_virtual'
+/tmp/arduino_build_459262/../arduino_cache_786783/core/core_AlhambraII_picorv32_generic_280ff70b757f2f60c88c6de99fb4a030.a(Print.cpp.o):(.sdata2._ZTI5Print[_ZTI5Print]+0x0): undefined reference to `vtable for __cxxabiv1::__class_type_info'
+collect2: error: ld returned 1 exit status
+exit status 1
+Error compiling for board Alhambra II Generic picorv32.
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- --- 
+
     * (TODO: AnalogReadSerial, ReadAnalogVoltage)
     * (TODO: Fade)
 (TODO: new hardware using 'GPIO_ADC' resp. 'GPIO_ADC-recent-picorv32')
