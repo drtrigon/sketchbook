@@ -62,7 +62,7 @@ or alternatively you can set the following line in platform.txt:
 tools.iceprog.path={runtime.platform.path}/../../../../.icestudio/apio/packages/toolchain-icestorm/bin
 
 
-4.) INFORMATION: The bitstream to use is stored in $HOME/sketchbook/hardware/AlhambraII/picorv32/variants/generic/
+4.) INFORMATION: The bitstream to use is stored in $HOME/sketchbook/hardware/AlhambraII/picorv32/variants/AlhambraII/
 
 The bitstream can be programmed using: $ iceprog hardware.bin
 
@@ -74,7 +74,12 @@ What does work:
 * Serial Monitor using 115200 baud (needs setting the correct port)
 * Arduino IDE examples:
   * 01.Basics
+    * BareMinimum
     * Blink
+    * (TODO: DigitalReadSerial)
+    * (TODO: AnalogReadSerial, ReadAnalogVoltage)
+    * (TODO: Fade)
+(TODO: new hardware using 'GPIO_ADC' resp. 'GPIO_ADC-recent-picorv32')
 
 
 

@@ -29,7 +29,7 @@ compiler.size.cmd=riscv32-unknown-elf-size
 # ---------------------
 
 ## Compile c++ files
-recipe.cpp.o.pattern="{compiler.path}{compiler.c.cmd}" -c {compiler.c.flags} {includes} "{source_file}" -o "{object_file}"
+recipe.cpp.o.pattern="{compiler.path}{compiler.c.cmd}" -c {compiler.c.flags} {includes} "-I{runtime.platform.path}/variants/AlhambraII/" "{source_file}" -o "{object_file}"
 
 ## Compile S files
 recipe.S.o.pattern="{compiler.path}{compiler.c.cmd}" -c {compiler.c.flags} {includes} "{source_file}" -o "{object_file}"
