@@ -27,3 +27,4 @@
 #define READ_LIGHT_IR   0x57
 #define READ_AUDIO_CHA  0x58
 #define READ_AUDIO_CHB  0x59
+#define READ_OPTION     0x5F  // READ_AS7265X

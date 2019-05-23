@@ -1,6 +1,7 @@
 /**
  * @brief Example-Code for a Nano Sensor Station
  *        (SEN02281P, MIC, GUVA-S12SD, TSL2561, BME280)
+ *        (optionally AS7265X)
  *
  * @file OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino
  *
@@ -58,6 +59,8 @@
 //#define ENABLE_DEBUG
 //#define ENABLE_UNITTEST
 
+#define ENABLE_AS7265X  // enables READ_OPTION (no interrupt)
+
 #define TEMP_OFFSET  -309.00
 #define TEMP_COEFF      1.22
 
@@ -71,6 +74,10 @@
 #define GUVAS12SD    A7    // GUVA-S12SD analog pin
 #define MIC          A6    // MIC analog pin
 
+#ifdef ENABLE_AS7265X
+#define AS7265X_INT   2    // Uno, Nano, DUE
+#endif
+
 #include <Wire.h>
 #include <Adafruit_Sensor.h>
 
@@ -80,15 +87,32 @@
 // based on Adafruit_BME280 sensor driver
 #include <Adafruit_BME280.h>
 
+#ifdef ENABLE_AS7265X
+#include "AS7265X.h"
+#endif
+
 uint8_t mem_buffer[256];
 
 //  Commonly used variables
-unsigned int mmin, mmax, val, mavg;
+unsigned int mmin, mmax, uval, mavg;
 uint16_t broadband, infrared;
 sensors_event_t event;
 
+#ifdef ENABLE_AS7265X
+//bool intFlag = false;
+bool intFlag = true;  // (no interrupt)
+float calData[18];
+#ifdef ENABLE_DEBUG
+uint16_t freq[18] = {610, 680, 730, 760, 810, 860, 560, 585, 645, 705, 900, 940, 410, 435, 460, 485, 510, 535}; // latest data sheet
+#endif
+#endif
+
 Adafruit_TSL2561_Unified tsl = Adafruit_TSL2561_Unified(TSL2561_ADDR_FLOAT, 12345);
 Adafruit_BME280 bme; // I2C
+
+#ifdef ENABLE_AS7265X
+AS7265X AS7265X(AS7265X_INT);
+#endif
 
 #include <PJON.h>
 
@@ -148,11 +172,39 @@ void setup()
 #endif
     }
 
+#ifdef ENABLE_AS7265X
+  //Wire.setClock(400000);      // I2C frequency at 400 kHz
+
+  pinMode(AS7265X_INT, INPUT); // set up the interrupt pin
+
+  AS7265X.init(gain_16x, mode2, 36);  // 36 * 2.8 ms == 100.8 ms (default 20 -> 56 ms)
+
+  //Configure leds, for devices 0 (master), 1 and 2 (slaves)
+  AS7265X.configureLed(led_ind_1_mA,led_drv_12_5_mA, 0);
+  AS7265X.disableIndLed(0);
+  AS7265X.disableDrvLed(0);
+  delay(100);
+  AS7265X.configureLed(led_ind_1_mA,led_drv_12_5_mA, 1);
+  AS7265X.disableIndLed(1);
+//  AS7265X.enableDrvLed(1);
+  AS7265X.disableDrvLed(1);
+  delay(100);
+  AS7265X.configureLed(led_ind_1_mA,led_drv_12_5_mA, 2);
+  AS7265X.disableIndLed(2);
+  AS7265X.disableDrvLed(2);
+  delay(100);
+
+// (no interrupt)
+//  delay(100);
+//  attachInterrupt(digitalPinToInterrupt(AS7265X_INT), AS7265X_IntHandler, FALLING); // Uno, Nano, DUE, generic
+  AS7265X.getStatus();
+#endif
+
 #ifdef ENABLE_DEBUG
   Serial.println(SENSOR);
   Serial.println(readVcc());
   Serial.println(readTemp());
-  Serial.println(val);
+//  Serial.println(uval);
 //  Serial.println(mem_buffer);
   Serial.println(analogRead(SEN02281P));
   Serial.println(analogRead(MIC));
@@ -170,6 +222,35 @@ void setup()
   Serial.println(bme.readTemperature());
   Serial.println(bme.readPressure() / 100.0F);
   Serial.println(bme.readHumidity());
+
+#ifdef ENABLE_AS7265X
+  if(intFlag) {
+//    intFlag = false;
+    delay(3000);
+
+    if(AS7265X.getStatus() & 0x02) {
+      AS7265X.readCalData(calData);
+      for(int i = 0; i < 18; i++) {
+        Serial.print(freq[i]);
+        Serial.print(",");
+        Serial.println(calData[i]);
+      }
+      for(int i = 0; i < 3; i++) {
+        Serial.print("Temperature of device ");
+        Serial.print(i);
+        Serial.print (" is ");
+        Serial.print(AS7265X.getTemperature(i), 0);
+        Serial.println(" C");
+      }
+
+      AS7265X.enableIndLed(0);
+      delay(100);
+      AS7265X.disableIndLed(0); // blink indicator led
+      delay(100);
+      AS7265X.enableIndLed(0);  // and keep on
+    }
+  }
+#endif
 #endif
 };
 
@@ -227,9 +308,9 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     mmin = 1023;
     mmax = 0;
     for(unsigned long i=0; i<1000; ++i) {
-        val = analogRead(SEN02281P);
-        mmin = min(mmin, val);   // simple if ... < should be faster...
-        mmax = max(mmax, val);   // "
+        uval = analogRead(SEN02281P);
+        mmin = min(mmin, uval);   // simple if ... < should be faster...
+        mmax = max(mmax, uval);   // "
         //delayMicroseconds(1);
     }
     // unit amplitude in rel. voltage, calibration needed
@@ -242,9 +323,9 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     mmin = 1023;
     mmax = 0;
     for(unsigned long i=0; i<1000; ++i) {
-        val = analogRead(MIC);
-        mmin = min(mmin, val);   // simple if ... < should be faster...
-        mmax = max(mmax, val);   // "
+        uval = analogRead(MIC);
+        mmin = min(mmin, uval);   // simple if ... < should be faster...
+        mmax = max(mmax, uval);   // "
         //delayMicroseconds(1);
     }
     // unit amplitude in rel. voltage, calibration needed
@@ -322,6 +403,27 @@ void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info
     bus.reply((char*)(&val), sizeof(float));
   }
   break;
+#ifdef ENABLE_AS7265X
+  case READ_OPTION: {
+    // Spectrometer 18CH: AS7265X (Tindie)
+    float val = NAN;
+    if(intFlag) {
+//      intFlag = false;
+      Wire.setClock(400000);  // reduce the delay and make the OWPJON response faster
+      if(AS7265X.getStatus() & 0x02) {
+        AS7265X.readCalData(calData);
+      }
+      if((length >= 2) && (payload[1] < 18)) {
+        val = calData[payload[1]];  // belongs to freq[payload[1]]
+      } else if((length >= 2) && (payload[1] < 21)) {  // is slow and thus not reliable
+        val = AS7265X.getTemperature(payload[1]-18);   //
+      }
+      Wire.setClock(100000);  // (reset to default rate)
+    }
+    bus.reply((char*)(&val), sizeof(float));
+  }
+  break;
+#endif
   default:
     // nop
     break;
@@ -406,3 +508,12 @@ float readTemp(void)
   // The returned temperature is in degrees Celsius.
   return (t);
 }
+
+// (no interrupt)
+/*#ifdef ENABLE_AS7265X
+// Useful functions
+void AS7265X_IntHandler ()
+{
+  intFlag = true;
+}
+#endif*/

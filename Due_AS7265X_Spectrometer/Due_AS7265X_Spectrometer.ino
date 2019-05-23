@@ -3,6 +3,18 @@
 // https://github.com/kriswiner/AS7265X
 // https://store.arduino.cc/arduino-due
 
+// Connection:
+//   Arduino DUE   AS7265X
+//          GND     GND
+//         3.3V     3V3
+//   SDA Pin 20     SDA
+//   SCL Pin 21     SCL
+//       Pin  4     INT     (use Pin 2 on Uno/Nano)
+
+// Compiles on Uno/Nano as well.
+// On Uno/Nano you have to use Pin 2 or 3 for interrupt INT.
+// Use 4 channel bi-directional level shifter (need 2-3 channels).
+
 // connect to "Programmin Port" the one next to the power plug
 // and run: $ miniterm.py /dev/ttyACM0 115200
 
@@ -10,7 +22,8 @@
 #include "AS7265X.h"
 
 //#define intPin 8
-#define intPin 4
+//#define intPin 4  // DUE
+#define intPin 2  // Uno, Nano, DUE
 
 bool intFlag = false;
 uint8_t MAJOR, PATCH, BUILD, status;
@@ -105,7 +118,8 @@ void setup()
   AS7265X.disableDrvLed(2);
   delay(100);
 
-  attachInterrupt(intPin, myIntHandler, FALLING);
+//  attachInterrupt(intPin, myIntHandler, FALLING);  // DUE
+  attachInterrupt(digitalPinToInterrupt(intPin), myIntHandler, FALLING); // Uno, Nano, DUE, generic
   AS7265X.getStatus();
 }
 
