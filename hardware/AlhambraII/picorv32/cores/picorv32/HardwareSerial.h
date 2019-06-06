@@ -27,7 +27,7 @@
 /*#include <inttypes.h>
 
 #include "Stream.h"*/
-#include "Print.h"  // work-a-round; usually included in Stream.h
+#include "Print.h"  // picorv32: work-a-round; usually included in Stream.h
 
 /*// Define constants and variables for buffering incoming serial data.  We're
 // using a ring buffer (I think), in which head is the index of the location
@@ -128,7 +128,8 @@ class HardwareSerial : public Print  // work-a-round; as class Stream : public P
     virtual int read(void);
     virtual int availableForWrite(void);
     virtual void flush(void);
-    virtual size_t write(uint8_t);
+//    virtual size_t write(uint8_t);
+    size_t write(uint8_t);
     inline size_t write(unsigned long n) { return write((uint8_t)n); }
     inline size_t write(long n) { return write((uint8_t)n); }
     inline size_t write(unsigned int n) { return write((uint8_t)n); }

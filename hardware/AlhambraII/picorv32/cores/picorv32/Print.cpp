@@ -35,7 +35,9 @@ size_t Print::write(const uint8_t *buffer, size_t size)
 {
   size_t n = 0;
   while (size--) {
-    if (write(*buffer++)) n++;
+//    reg_outp = (reg_outp & 0xFFFFFF00) | ((uint32_t)42);  // reg_leds
+//    if (write(*buffer++)) n++;  // picorv32: how to use HardwareSerial::write via virtual functions here ?
+    if (Serial.write(*buffer++)) n++;  // picorv32: how to use HardwareSerial::write via virtual functions here ?
     else break;
   }
   return n;
@@ -232,7 +234,8 @@ size_t Print::printFloat(double number, uint8_t digits)
   // Handle negative numbers
   if (number < 0.0)
   {
-     n += print('-');
+//     n += print('-');
+     n += print("-");  // picorv32: work-a-round, other prints "- "
      number = -number;
   }
 
@@ -250,7 +253,8 @@ size_t Print::printFloat(double number, uint8_t digits)
 
   // Print the decimal point, but only if there are digits beyond
   if (digits > 0) {
-    n += print('.'); 
+//    n += print('.');
+    n += print(".");  // picorv32: work-a-round, other prints ". "
   }
 
   // Extract digits from the remainder one at a time

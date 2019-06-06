@@ -30,7 +30,7 @@
 #include "Arduino.h"
 
 #include "HardwareSerial.h"
-//#include "HardwareSerial_private.h"
+#include "HardwareSerial_private.h"
 
 // this next line disables the entire HardwareSerial.cpp, 
 // this is so I can support Attiny series and any other chip without a uart
@@ -147,6 +147,7 @@ void HardwareSerial::begin(unsigned long baud, byte config)
   sbi(*_ucsrb, TXEN0);
   sbi(*_ucsrb, RXCIE0);
   cbi(*_ucsrb, UDRIE0);*/
+  reg_uart_clkdiv = F_CPU/baud;  // 104 for 115200, 1250 for 9600, etc.
 }
 
 void HardwareSerial::end()
@@ -295,13 +296,12 @@ size_t HardwareSerial::write(uint8_t c)
   ATOMIC_BLOCK(ATOMIC_RESTORESTATE) {
     _tx_buffer_head = i;
     sbi(*_ucsrb, UDRIE0);
-  }
+  }*/
   
-  return 1;*/
+//  reg_outp = (reg_outp & 0xFFFFFF00) | ((uint32_t)43);  // reg_leds
+  reg_uart_data = c;
 
-	reg_uart_data = c;
-
-	return 1;
+  return 1;
 }
 
 #endif // whole file

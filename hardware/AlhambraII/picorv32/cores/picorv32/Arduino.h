@@ -4,17 +4,21 @@
 #include <stdint.h>
 #include <stdbool.h>
 
-// work-a-round; for size_t only - original Arduino.h does NOT have this!
+// picorv32: work-a-round; for size_t only - original Arduino.h does NOT have this!
 #include <cstddef>
 
 #define reg_spictrl (*(volatile uint32_t*)0x02000000)
 #define reg_uart_clkdiv (*(volatile uint32_t*)0x02000004)
 #define reg_uart_data (*(volatile uint32_t*)0x02000008)
-#define reg_leds (*(volatile uint32_t*)0x03000000)
+#define reg_outp (*(volatile uint32_t*)0x03000000)  // contains reg_leds also
+//#define reg_inp_zero (*(volatile uint32_t*)0x04000000)
+#define reg_inp (*(volatile uint32_t*)0x05000000)
 
-#define clk_div_s   12000000  // 1s
-#define clk_div_ms  12000     // 1ms
-#define clk_div_us  12        // 1us
+#define F_CPU       12000000    // 12MHz
+
+#define clk_div_s   (F_CPU)          // 1s
+#define clk_div_ms  (F_CPU/1000)     // 1ms
+#define clk_div_us  (F_CPU/1000000)  // 1us
 
 #define HIGH 0x1
 #define LOW  0x0
@@ -28,10 +32,13 @@ typedef uint8_t byte;
 void pinMode(uint8_t, uint8_t);
 void digitalWrite(uint8_t, uint8_t);
 int digitalRead(uint8_t);
+int analogRead(uint8_t);
 
 void print(const char*);
 
-void delay(uint32_t);
+unsigned long millis(void);
+unsigned long micros(void);
+void delay(unsigned long);
 
 void setup(void);
 void loop(void);
