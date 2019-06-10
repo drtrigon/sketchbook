@@ -117,16 +117,18 @@ What does work:
     * Array: digitalWrite (for gpio and fixed pins)
     * ForLoopIteration: (works)
     * switchCase2: (works)
-  * 08.Strings
-    * (TODO: add support for String class)
   * 11.ArduinoISP
     * (TODO: BitBanged/software SPI, USE_OLD_STYLE_WIRING, RESET/PIN_MOSI/PIN_MISO/PIN_SCK/etc. to use gpio (0-7), delayMicroseconds)
-  * (TODO: PJON ???)
+  * Other Libraries:
+    * SSD1306Ascii: SoftSpi128x64 (compiles, not tested - size big; 157988 - need hardware for testing)
+    * (TODO: PJON ???)
 
 
 ### TODO:
     TODO: gpio with pull-up
+    TODO: spi with external hardware like oled, etc.
 
+    (TODO: add support for String class)
     (TODO: serial input drops/misses chars when e.g. transmitting "abcde" - not interrupt based)
     (TODO: add travis integration in order to automatically check whether all examples compile and link properly - functional check has to be done manually)
     (TODO: virtual functions around Print(::write) do not work...)
