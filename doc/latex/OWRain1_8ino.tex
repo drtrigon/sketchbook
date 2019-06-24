@@ -1,0 +1,160 @@
+\hypertarget{OWRain1_8ino}{\section{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Rain1/\-O\-W\-Rain1.ino File Reference}
+\label{OWRain1_8ino}\index{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Rain1/\-O\-W\-Rain1.\-ino@{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Rain1/\-O\-W\-Rain1.\-ino}}
+}
+{\ttfamily \#include $<$O\-W\-Slave.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWRain1_8ino_a8f0a461ec2c621e04db91f4970f2f1d5}{counts\-Per\-M\-M}~1;
+\item 
+\#define \hyperlink{OWRain1_8ino_abd966e26c1237652c6c1dc46a8f14203}{L\-E\-D\-Pin}~0
+\item 
+\#define \hyperlink{OWRain1_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin}~1
+\item 
+\#define \hyperlink{OWRain1_8ino_abc1e3c6ffa5733cf9f5f428b3d724765}{Counter\-Pin}~2
+\item 
+\#define \hyperlink{OWRain1_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{flash\-Length}~50
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+O\-W\-Slave \hyperlink{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{ds} (\hyperlink{OWRain1_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin})
+\item 
+void \hyperlink{OWRain1_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWRain1_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{OWRain1_8ino_a643d85ad86e66d0d2e01c6221fc1ed68}{ow\-Handler} (void)
+\item 
+void \hyperlink{OWRain1_8ino_a61b57f49f8a3d9c3efad2e8c22401e89}{inc\-Counter} (void)
+\item 
+void \hyperlink{OWRain1_8ino_a88a9a9fb27383ed7c6a52946a7b7e9a6}{onewire\-Interrupt} (void)
+\item 
+void \hyperlink{OWRain1_8ino_a01a172314339d22fc02b43fb765e0d76}{Flash\-L\-E\-D} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{OWRain1_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{rom} \mbox{[}8\mbox{]} = \{0x\-E1, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00\}
+\item 
+char \hyperlink{OWRain1_8ino_a8248cc51a33adbb2adf4f80c26f0a166}{scratchpad} \mbox{[}9\mbox{]} = \{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00\}
+\item 
+volatile unsigned long \hyperlink{OWRain1_8ino_a2f0666e78dc5ab63f6db5ea2829b6b68}{counter} = 0
+\item 
+volatile long \hyperlink{OWRain1_8ino_a6d286895480000d2c1591098773da92b}{flash} = 0
+\item 
+long \hyperlink{OWRain1_8ino_a698f223721ea29263d602fc917b4750e}{flash\-Pause} = 100
+\item 
+long \hyperlink{OWRain1_8ino_aaf78eebe2bb3002cd3e0445f3009e127}{flash\-Start} = 0
+\item 
+long \hyperlink{OWRain1_8ino_a5614d105569b9f9003a30e7f76b5b53b}{flash\-Stop} = 0
+\item 
+volatile long \hyperlink{OWRain1_8ino_add5ef67690d870c53fac0f0d95438bb1}{prev\-Int} = 0
+\item 
+volatile boolean \hyperlink{OWRain1_8ino_af37159888cdcbe69b079b2c9dbfe3abb}{ow\-Reset} = \hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWRain1_8ino_abc1e3c6ffa5733cf9f5f428b3d724765}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!Counter\-Pin@{Counter\-Pin}}
+\index{Counter\-Pin@{Counter\-Pin}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{Counter\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define Counter\-Pin~2}}\label{OWRain1_8ino_abc1e3c6ffa5733cf9f5f428b3d724765}
+\hypertarget{OWRain1_8ino_a8f0a461ec2c621e04db91f4970f2f1d5}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!counts\-Per\-M\-M@{counts\-Per\-M\-M}}
+\index{counts\-Per\-M\-M@{counts\-Per\-M\-M}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{counts\-Per\-M\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define counts\-Per\-M\-M~1;}}\label{OWRain1_8ino_a8f0a461ec2c621e04db91f4970f2f1d5}
+\hypertarget{OWRain1_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!flash\-Length@{flash\-Length}}
+\index{flash\-Length@{flash\-Length}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{flash\-Length}]{\setlength{\rightskip}{0pt plus 5cm}\#define flash\-Length~50}}\label{OWRain1_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}
+\hypertarget{OWRain1_8ino_abd966e26c1237652c6c1dc46a8f14203}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!L\-E\-D\-Pin@{L\-E\-D\-Pin}}
+\index{L\-E\-D\-Pin@{L\-E\-D\-Pin}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{L\-E\-D\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D\-Pin~0}}\label{OWRain1_8ino_abd966e26c1237652c6c1dc46a8f14203}
+\hypertarget{OWRain1_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!O\-W\-Pin@{O\-W\-Pin}}
+\index{O\-W\-Pin@{O\-W\-Pin}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{O\-W\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-Pin~1}}\label{OWRain1_8ino_a7f5aa1ac0711ae18877a165a9bf24625}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!ds@{ds}}
+\index{ds@{ds}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{ds}]{\setlength{\rightskip}{0pt plus 5cm}O\-W\-Slave ds (
+\begin{DoxyParamCaption}
+\item[{{\bf O\-W\-Pin}}]{}
+\end{DoxyParamCaption}
+)}}\label{OWRain1_8ino_af75456870b9486275b406e13b003fb11}
+\hypertarget{OWRain1_8ino_a01a172314339d22fc02b43fb765e0d76}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!Flash\-L\-E\-D@{Flash\-L\-E\-D}}
+\index{Flash\-L\-E\-D@{Flash\-L\-E\-D}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{Flash\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}void Flash\-L\-E\-D (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWRain1_8ino_a01a172314339d22fc02b43fb765e0d76}
+\hypertarget{OWRain1_8ino_a61b57f49f8a3d9c3efad2e8c22401e89}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!inc\-Counter@{inc\-Counter}}
+\index{inc\-Counter@{inc\-Counter}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{inc\-Counter}]{\setlength{\rightskip}{0pt plus 5cm}void inc\-Counter (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWRain1_8ino_a61b57f49f8a3d9c3efad2e8c22401e89}
+\hypertarget{OWRain1_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWRain1_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{OWRain1_8ino_a88a9a9fb27383ed7c6a52946a7b7e9a6}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!onewire\-Interrupt@{onewire\-Interrupt}}
+\index{onewire\-Interrupt@{onewire\-Interrupt}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{onewire\-Interrupt}]{\setlength{\rightskip}{0pt plus 5cm}void onewire\-Interrupt (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWRain1_8ino_a88a9a9fb27383ed7c6a52946a7b7e9a6}
+\hypertarget{OWRain1_8ino_a643d85ad86e66d0d2e01c6221fc1ed68}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!ow\-Handler@{ow\-Handler}}
+\index{ow\-Handler@{ow\-Handler}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{ow\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}void ow\-Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWRain1_8ino_a643d85ad86e66d0d2e01c6221fc1ed68}
+\hypertarget{OWRain1_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWRain1_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWRain1_8ino_a2f0666e78dc5ab63f6db5ea2829b6b68}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!counter@{counter}}
+\index{counter@{counter}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{counter}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long counter = 0}}\label{OWRain1_8ino_a2f0666e78dc5ab63f6db5ea2829b6b68}
+\hypertarget{OWRain1_8ino_a6d286895480000d2c1591098773da92b}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!flash@{flash}}
+\index{flash@{flash}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{flash}]{\setlength{\rightskip}{0pt plus 5cm}volatile long flash = 0}}\label{OWRain1_8ino_a6d286895480000d2c1591098773da92b}
+\hypertarget{OWRain1_8ino_a698f223721ea29263d602fc917b4750e}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!flash\-Pause@{flash\-Pause}}
+\index{flash\-Pause@{flash\-Pause}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{flash\-Pause}]{\setlength{\rightskip}{0pt plus 5cm}long flash\-Pause = 100}}\label{OWRain1_8ino_a698f223721ea29263d602fc917b4750e}
+\hypertarget{OWRain1_8ino_aaf78eebe2bb3002cd3e0445f3009e127}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!flash\-Start@{flash\-Start}}
+\index{flash\-Start@{flash\-Start}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{flash\-Start}]{\setlength{\rightskip}{0pt plus 5cm}long flash\-Start = 0}}\label{OWRain1_8ino_aaf78eebe2bb3002cd3e0445f3009e127}
+\hypertarget{OWRain1_8ino_a5614d105569b9f9003a30e7f76b5b53b}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!flash\-Stop@{flash\-Stop}}
+\index{flash\-Stop@{flash\-Stop}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{flash\-Stop}]{\setlength{\rightskip}{0pt plus 5cm}long flash\-Stop = 0}}\label{OWRain1_8ino_a5614d105569b9f9003a30e7f76b5b53b}
+\hypertarget{OWRain1_8ino_af37159888cdcbe69b079b2c9dbfe3abb}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!ow\-Reset@{ow\-Reset}}
+\index{ow\-Reset@{ow\-Reset}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{ow\-Reset}]{\setlength{\rightskip}{0pt plus 5cm}volatile boolean ow\-Reset = {\bf false}}}\label{OWRain1_8ino_af37159888cdcbe69b079b2c9dbfe3abb}
+\hypertarget{OWRain1_8ino_add5ef67690d870c53fac0f0d95438bb1}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!prev\-Int@{prev\-Int}}
+\index{prev\-Int@{prev\-Int}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{prev\-Int}]{\setlength{\rightskip}{0pt plus 5cm}volatile long prev\-Int = 0}}\label{OWRain1_8ino_add5ef67690d870c53fac0f0d95438bb1}
+\hypertarget{OWRain1_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!rom@{rom}}
+\index{rom@{rom}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{rom}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char rom\mbox{[}8\mbox{]} = \{0x\-E1, 0x00, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00\}}}\label{OWRain1_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}
+\hypertarget{OWRain1_8ino_a8248cc51a33adbb2adf4f80c26f0a166}{\index{O\-W\-Rain1.\-ino@{O\-W\-Rain1.\-ino}!scratchpad@{scratchpad}}
+\index{scratchpad@{scratchpad}!OWRain1.ino@{O\-W\-Rain1.\-ino}}
+\subsubsection[{scratchpad}]{\setlength{\rightskip}{0pt plus 5cm}char scratchpad\mbox{[}9\mbox{]} = \{0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00\}}}\label{OWRain1_8ino_a8248cc51a33adbb2adf4f80c26f0a166}

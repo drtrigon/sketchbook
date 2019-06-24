@@ -1,0 +1,280 @@
+\hypertarget{OWGeneric__DangerShield_8ino}{\section{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic\-\_\-\-Danger\-Shield/\-O\-W\-Generic\-\_\-\-Danger\-Shield.ino File Reference}
+\label{OWGeneric__DangerShield_8ino}\index{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic\-\_\-\-Danger\-Shield/\-O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic\-\_\-\-Danger\-Shield/\-O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+}
+{\ttfamily \#include $<$One\-Wire\-Slave.\-h$>$}\\*
+{\ttfamily \#include $<$Capacitive\-Sensor.\-h$>$}\\*
+{\ttfamily \#include $<$Timer\-One.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}{Software\-Ver}~1.\-0
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}{Sensor\-Count}~9
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_abd966e26c1237652c6c1dc46a8f14203}{L\-E\-D\-Pin}~13
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin}~A5
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_ac71a92c90affb3d6a66641ac05f1545c}{flash\-Pause}~100
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{flash\-Length}~50
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a6093ba44f89da98aea74e790884d5d24}{S\-L\-I\-D\-E\-R1}~0
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a2eb975966b2cd438a60c60daecc07beb}{S\-L\-I\-D\-E\-R2}~1
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_aae9492d20e8da5710afe890173eb5ecc}{S\-L\-I\-D\-E\-R3}~2
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a8b8426d5c8d4a02dc1b15353d4bc613d}{B\-U\-T\-T\-O\-N1}~10
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_acad5ba277242dbcd68edaff5f550f29e}{B\-U\-T\-T\-O\-N2}~11
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a64f0a5235b4b24fb04f54fb437011c75}{B\-U\-T\-T\-O\-N3}~12
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{L\-E\-D1}~5
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_ad09fe5bf321b9a2de26bd5e5b9af6424}{L\-E\-D2}~6
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a145103118f6d9d1129aa4509cf214a13}{B\-U\-Z\-Z\-E\-R}~3
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a10bed19ceedeb2c12c5aad6de1d3b1a1}{T\-E\-M\-P}~4
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_abc98e3adbe205cd3ab83d97150d0a845}{L\-I\-G\-H\-T}~3
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_ac2059fd29cfd2e7617b2dd6a0de2e0b5}{L\-A\-T\-C\-H}~7
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_a3be7ef61d339af381862a81d4b363efb}{C\-L\-O\-C\-K}~8
+\item 
+\#define \hyperlink{OWGeneric__DangerShield_8ino_aad9ae913bdfab20dd94ad04ee2d5b045}{D\-A\-T\-A}~4
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+One\-Wire\-Slave \hyperlink{OWGeneric__DangerShield_8ino_a29dc68449cb5938be210109740e26ce3}{ds} (\hyperlink{OWRain1_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin})
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_ad97e1651258f04ff0c1f74136910ce2d}{timer\-Isr} ()
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_a2e9c5136d19b1a95fc427e0852deab5c}{process} ()
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_a097292225769f56d224f441fee48cbdb}{pack} (float \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_a4a08de21b6e4d4a4613bd3a331c45309}{Set\-B\-C\-D} (\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}{Flash\-L\-E\-D\-\_\-blocking} (void)
+\item 
+void \hyperlink{OWGeneric__DangerShield_8ino_aea2efd3e27dd82d17fd923d99287f981}{debug\-Print} (int time)
+\item 
+long \hyperlink{OWGeneric__DangerShield_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{read\-Vcc} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{OWGeneric__DangerShield_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{rom} \mbox{[}8\mbox{]} = \{D\-S2415, 0x\-E2, 0x00, 0x00, 0x00, 0x00, 0x03, 0x00\}
+\item 
+char \hyperlink{OWGeneric__DangerShield_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}{rtccountr\-\_\-in} \mbox{[}5\mbox{]} = \{ 0x00, 0x00, 0x00, 0x00, 0x00\}
+\item 
+char \hyperlink{OWGeneric__DangerShield_8ino_ac150db4005f4bac8510f9e697f1c291a}{rtccountr\-\_\-out} \mbox{[}5\mbox{]} = \{B11110000, 0x01, 0x23, 0x\-C\-D, 0x\-E\-F\}
+\item 
+const \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{OWGeneric__DangerShield_8ino_a9fd6363d57e3788ec90445fb8f7e46e6}{led\-Char\-Set} \mbox{[}17\mbox{]}
+\item 
+Capacitive\-Sensor \hyperlink{OWGeneric__DangerShield_8ino_af6f50cfb8376b0de0f518da1b7d1b2f8}{cs\-\_\-9\-\_\-2} = Capacitive\-Sensor(9,2)
+\item 
+volatile unsigned long \hyperlink{OWGeneric__DangerShield_8ino_a68c3f19187ae81a2c190ec87b5874dd3}{ctr1} = 0
+\item 
+volatile unsigned long \hyperlink{OWGeneric__DangerShield_8ino_ab93a6d1ba9d998ab5d4f846e8cea0149}{ctr2} = 0
+\item 
+volatile unsigned long \hyperlink{OWGeneric__DangerShield_8ino_a9edb10c1b079b5c8e77748ca203036eb}{ctr3} = 0
+\item 
+unsigned long \hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d}
+\item 
+unsigned long \hyperlink{OWGeneric__DangerShield_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}{t}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWGeneric__DangerShield_8ino_a8b8426d5c8d4a02dc1b15353d4bc613d}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!B\-U\-T\-T\-O\-N1@{B\-U\-T\-T\-O\-N1}}
+\index{B\-U\-T\-T\-O\-N1@{B\-U\-T\-T\-O\-N1}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{B\-U\-T\-T\-O\-N1}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-T\-T\-O\-N1~10}}\label{OWGeneric__DangerShield_8ino_a8b8426d5c8d4a02dc1b15353d4bc613d}
+\hypertarget{OWGeneric__DangerShield_8ino_acad5ba277242dbcd68edaff5f550f29e}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!B\-U\-T\-T\-O\-N2@{B\-U\-T\-T\-O\-N2}}
+\index{B\-U\-T\-T\-O\-N2@{B\-U\-T\-T\-O\-N2}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{B\-U\-T\-T\-O\-N2}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-T\-T\-O\-N2~11}}\label{OWGeneric__DangerShield_8ino_acad5ba277242dbcd68edaff5f550f29e}
+\hypertarget{OWGeneric__DangerShield_8ino_a64f0a5235b4b24fb04f54fb437011c75}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!B\-U\-T\-T\-O\-N3@{B\-U\-T\-T\-O\-N3}}
+\index{B\-U\-T\-T\-O\-N3@{B\-U\-T\-T\-O\-N3}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{B\-U\-T\-T\-O\-N3}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-T\-T\-O\-N3~12}}\label{OWGeneric__DangerShield_8ino_a64f0a5235b4b24fb04f54fb437011c75}
+\hypertarget{OWGeneric__DangerShield_8ino_a145103118f6d9d1129aa4509cf214a13}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!B\-U\-Z\-Z\-E\-R@{B\-U\-Z\-Z\-E\-R}}
+\index{B\-U\-Z\-Z\-E\-R@{B\-U\-Z\-Z\-E\-R}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{B\-U\-Z\-Z\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-Z\-Z\-E\-R~3}}\label{OWGeneric__DangerShield_8ino_a145103118f6d9d1129aa4509cf214a13}
+\hypertarget{OWGeneric__DangerShield_8ino_a3be7ef61d339af381862a81d4b363efb}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!C\-L\-O\-C\-K@{C\-L\-O\-C\-K}}
+\index{C\-L\-O\-C\-K@{C\-L\-O\-C\-K}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{C\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-L\-O\-C\-K~8}}\label{OWGeneric__DangerShield_8ino_a3be7ef61d339af381862a81d4b363efb}
+\hypertarget{OWGeneric__DangerShield_8ino_aad9ae913bdfab20dd94ad04ee2d5b045}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!D\-A\-T\-A@{D\-A\-T\-A}}
+\index{D\-A\-T\-A@{D\-A\-T\-A}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-A\-T\-A~4}}\label{OWGeneric__DangerShield_8ino_aad9ae913bdfab20dd94ad04ee2d5b045}
+\hypertarget{OWGeneric__DangerShield_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!flash\-Length@{flash\-Length}}
+\index{flash\-Length@{flash\-Length}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{flash\-Length}]{\setlength{\rightskip}{0pt plus 5cm}\#define flash\-Length~50}}\label{OWGeneric__DangerShield_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}
+\hypertarget{OWGeneric__DangerShield_8ino_ac71a92c90affb3d6a66641ac05f1545c}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!flash\-Pause@{flash\-Pause}}
+\index{flash\-Pause@{flash\-Pause}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{flash\-Pause}]{\setlength{\rightskip}{0pt plus 5cm}\#define flash\-Pause~100}}\label{OWGeneric__DangerShield_8ino_ac71a92c90affb3d6a66641ac05f1545c}
+\hypertarget{OWGeneric__DangerShield_8ino_ac2059fd29cfd2e7617b2dd6a0de2e0b5}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!L\-A\-T\-C\-H@{L\-A\-T\-C\-H}}
+\index{L\-A\-T\-C\-H@{L\-A\-T\-C\-H}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{L\-A\-T\-C\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-A\-T\-C\-H~7}}\label{OWGeneric__DangerShield_8ino_ac2059fd29cfd2e7617b2dd6a0de2e0b5}
+\hypertarget{OWGeneric__DangerShield_8ino_a8aa85ae9867fabf70ec72cd3bf6fb6b9}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!L\-E\-D1@{L\-E\-D1}}
+\index{L\-E\-D1@{L\-E\-D1}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{L\-E\-D1}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D1~5}}\label{OWGeneric__DangerShield_8ino_a8aa85ae9867fabf70ec72cd3bf6fb6b9}
+\hypertarget{OWGeneric__DangerShield_8ino_ad09fe5bf321b9a2de26bd5e5b9af6424}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!L\-E\-D2@{L\-E\-D2}}
+\index{L\-E\-D2@{L\-E\-D2}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{L\-E\-D2}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D2~6}}\label{OWGeneric__DangerShield_8ino_ad09fe5bf321b9a2de26bd5e5b9af6424}
+\hypertarget{OWGeneric__DangerShield_8ino_abd966e26c1237652c6c1dc46a8f14203}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!L\-E\-D\-Pin@{L\-E\-D\-Pin}}
+\index{L\-E\-D\-Pin@{L\-E\-D\-Pin}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{L\-E\-D\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D\-Pin~13}}\label{OWGeneric__DangerShield_8ino_abd966e26c1237652c6c1dc46a8f14203}
+\hypertarget{OWGeneric__DangerShield_8ino_abc98e3adbe205cd3ab83d97150d0a845}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!L\-I\-G\-H\-T@{L\-I\-G\-H\-T}}
+\index{L\-I\-G\-H\-T@{L\-I\-G\-H\-T}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{L\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-I\-G\-H\-T~3}}\label{OWGeneric__DangerShield_8ino_abc98e3adbe205cd3ab83d97150d0a845}
+\hypertarget{OWGeneric__DangerShield_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!O\-W\-Pin@{O\-W\-Pin}}
+\index{O\-W\-Pin@{O\-W\-Pin}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{O\-W\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-Pin~A5}}\label{OWGeneric__DangerShield_8ino_a7f5aa1ac0711ae18877a165a9bf24625}
+\hypertarget{OWGeneric__DangerShield_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!Sensor\-Count@{Sensor\-Count}}
+\index{Sensor\-Count@{Sensor\-Count}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{Sensor\-Count}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sensor\-Count~9}}\label{OWGeneric__DangerShield_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}
+\hypertarget{OWGeneric__DangerShield_8ino_a6093ba44f89da98aea74e790884d5d24}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!S\-L\-I\-D\-E\-R1@{S\-L\-I\-D\-E\-R1}}
+\index{S\-L\-I\-D\-E\-R1@{S\-L\-I\-D\-E\-R1}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{S\-L\-I\-D\-E\-R1}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-D\-E\-R1~0}}\label{OWGeneric__DangerShield_8ino_a6093ba44f89da98aea74e790884d5d24}
+\hypertarget{OWGeneric__DangerShield_8ino_a2eb975966b2cd438a60c60daecc07beb}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!S\-L\-I\-D\-E\-R2@{S\-L\-I\-D\-E\-R2}}
+\index{S\-L\-I\-D\-E\-R2@{S\-L\-I\-D\-E\-R2}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{S\-L\-I\-D\-E\-R2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-D\-E\-R2~1}}\label{OWGeneric__DangerShield_8ino_a2eb975966b2cd438a60c60daecc07beb}
+\hypertarget{OWGeneric__DangerShield_8ino_aae9492d20e8da5710afe890173eb5ecc}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!S\-L\-I\-D\-E\-R3@{S\-L\-I\-D\-E\-R3}}
+\index{S\-L\-I\-D\-E\-R3@{S\-L\-I\-D\-E\-R3}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{S\-L\-I\-D\-E\-R3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-L\-I\-D\-E\-R3~2}}\label{OWGeneric__DangerShield_8ino_aae9492d20e8da5710afe890173eb5ecc}
+\hypertarget{OWGeneric__DangerShield_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!Software\-Ver@{Software\-Ver}}
+\index{Software\-Ver@{Software\-Ver}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{Software\-Ver}]{\setlength{\rightskip}{0pt plus 5cm}\#define Software\-Ver~1.\-0}}\label{OWGeneric__DangerShield_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}
+\hypertarget{OWGeneric__DangerShield_8ino_a10bed19ceedeb2c12c5aad6de1d3b1a1}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!T\-E\-M\-P@{T\-E\-M\-P}}
+\index{T\-E\-M\-P@{T\-E\-M\-P}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{T\-E\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-M\-P~4}}\label{OWGeneric__DangerShield_8ino_a10bed19ceedeb2c12c5aad6de1d3b1a1}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWGeneric__DangerShield_8ino_aea2efd3e27dd82d17fd923d99287f981}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!debug\-Print@{debug\-Print}}
+\index{debug\-Print@{debug\-Print}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{debug\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void debug\-Print (
+\begin{DoxyParamCaption}
+\item[{int}]{time}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_aea2efd3e27dd82d17fd923d99287f981}
+\hypertarget{OWGeneric__DangerShield_8ino_a29dc68449cb5938be210109740e26ce3}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!ds@{ds}}
+\index{ds@{ds}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{ds}]{\setlength{\rightskip}{0pt plus 5cm}One\-Wire\-Slave ds (
+\begin{DoxyParamCaption}
+\item[{{\bf O\-W\-Pin}}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_a29dc68449cb5938be210109740e26ce3}
+\hypertarget{OWGeneric__DangerShield_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!Flash\-L\-E\-D\-\_\-blocking@{Flash\-L\-E\-D\-\_\-blocking}}
+\index{Flash\-L\-E\-D\-\_\-blocking@{Flash\-L\-E\-D\-\_\-blocking}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{Flash\-L\-E\-D\-\_\-blocking}]{\setlength{\rightskip}{0pt plus 5cm}void Flash\-L\-E\-D\-\_\-blocking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}
+\hypertarget{OWGeneric__DangerShield_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{OWGeneric__DangerShield_8ino_a097292225769f56d224f441fee48cbdb}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!pack@{pack}}
+\index{pack@{pack}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{pack}]{\setlength{\rightskip}{0pt plus 5cm}void pack (
+\begin{DoxyParamCaption}
+\item[{float}]{val}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_a097292225769f56d224f441fee48cbdb}
+\hypertarget{OWGeneric__DangerShield_8ino_a2e9c5136d19b1a95fc427e0852deab5c}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!process@{process}}
+\index{process@{process}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_a2e9c5136d19b1a95fc427e0852deab5c}
+\hypertarget{OWGeneric__DangerShield_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}long read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_a8e23c9421f6663303ea22e4969e2f6c1}
+\hypertarget{OWGeneric__DangerShield_8ino_a4a08de21b6e4d4a4613bd3a331c45309}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!Set\-B\-C\-D@{Set\-B\-C\-D}}
+\index{Set\-B\-C\-D@{Set\-B\-C\-D}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{Set\-B\-C\-D}]{\setlength{\rightskip}{0pt plus 5cm}void Set\-B\-C\-D (
+\begin{DoxyParamCaption}
+\item[{{\bf byte}}]{val}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_a4a08de21b6e4d4a4613bd3a331c45309}
+\hypertarget{OWGeneric__DangerShield_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{OWGeneric__DangerShield_8ino_ad97e1651258f04ff0c1f74136910ce2d}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!timer\-Isr@{timer\-Isr}}
+\index{timer\-Isr@{timer\-Isr}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{timer\-Isr}]{\setlength{\rightskip}{0pt plus 5cm}void timer\-Isr (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__DangerShield_8ino_ad97e1651258f04ff0c1f74136910ce2d}
+
+
+ Custom I\-S\-R Timer Routine \subsubsection*{(will reduce 1wire stability and performance -\/ but by how much -\/ usable for R\-T\-C relais?) }
+
+\subsection{Variable Documentation}
+\hypertarget{OWGeneric__DangerShield_8ino_af6f50cfb8376b0de0f518da1b7d1b2f8}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!cs\-\_\-9\-\_\-2@{cs\-\_\-9\-\_\-2}}
+\index{cs\-\_\-9\-\_\-2@{cs\-\_\-9\-\_\-2}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{cs\-\_\-9\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}Capacitive\-Sensor cs\-\_\-9\-\_\-2 = Capacitive\-Sensor(9,2)}}\label{OWGeneric__DangerShield_8ino_af6f50cfb8376b0de0f518da1b7d1b2f8}
+\hypertarget{OWGeneric__DangerShield_8ino_a68c3f19187ae81a2c190ec87b5874dd3}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!ctr1@{ctr1}}
+\index{ctr1@{ctr1}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{ctr1}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long ctr1 = 0}}\label{OWGeneric__DangerShield_8ino_a68c3f19187ae81a2c190ec87b5874dd3}
+\hypertarget{OWGeneric__DangerShield_8ino_ab93a6d1ba9d998ab5d4f846e8cea0149}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!ctr2@{ctr2}}
+\index{ctr2@{ctr2}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{ctr2}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long ctr2 = 0}}\label{OWGeneric__DangerShield_8ino_ab93a6d1ba9d998ab5d4f846e8cea0149}
+\hypertarget{OWGeneric__DangerShield_8ino_a9edb10c1b079b5c8e77748ca203036eb}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!ctr3@{ctr3}}
+\index{ctr3@{ctr3}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{ctr3}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long ctr3 = 0}}\label{OWGeneric__DangerShield_8ino_a9edb10c1b079b5c8e77748ca203036eb}
+\hypertarget{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!d@{d}}
+\index{d@{d}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{d}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long d}}\label{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}
+\hypertarget{OWGeneric__DangerShield_8ino_a9fd6363d57e3788ec90445fb8f7e46e6}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!led\-Char\-Set@{led\-Char\-Set}}
+\index{led\-Char\-Set@{led\-Char\-Set}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{led\-Char\-Set}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf byte} led\-Char\-Set\mbox{[}17\mbox{]}}}\label{OWGeneric__DangerShield_8ino_a9fd6363d57e3788ec90445fb8f7e46e6}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+
+  B00111111,B00000110,B01011011,B01001111,B01100110,B01101101,B01111101,B00000111,B01111111,B01101111, 
+  B11110111,B11111111,B10111001,B10111111,B11111001,B11110001,
+  B00000000
+\}
+\end{DoxyCode}
+\hypertarget{OWGeneric__DangerShield_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!rom@{rom}}
+\index{rom@{rom}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{rom}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char rom\mbox{[}8\mbox{]} = \{D\-S2415, 0x\-E2, 0x00, 0x00, 0x00, 0x00, 0x03, 0x00\}}}\label{OWGeneric__DangerShield_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}
+\hypertarget{OWGeneric__DangerShield_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!rtccountr\-\_\-in@{rtccountr\-\_\-in}}
+\index{rtccountr\-\_\-in@{rtccountr\-\_\-in}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{rtccountr\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}char rtccountr\-\_\-in\mbox{[}5\mbox{]} = \{ 0x00, 0x00, 0x00, 0x00, 0x00\}}}\label{OWGeneric__DangerShield_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}
+\hypertarget{OWGeneric__DangerShield_8ino_ac150db4005f4bac8510f9e697f1c291a}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!rtccountr\-\_\-out@{rtccountr\-\_\-out}}
+\index{rtccountr\-\_\-out@{rtccountr\-\_\-out}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{rtccountr\-\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}char rtccountr\-\_\-out\mbox{[}5\mbox{]} = \{B11110000, 0x01, 0x23, 0x\-C\-D, 0x\-E\-F\}}}\label{OWGeneric__DangerShield_8ino_ac150db4005f4bac8510f9e697f1c291a}
+\hypertarget{OWGeneric__DangerShield_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}{\index{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}!t@{t}}
+\index{t@{t}!OWGeneric_DangerShield.ino@{O\-W\-Generic\-\_\-\-Danger\-Shield.\-ino}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long t}}\label{OWGeneric__DangerShield_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}

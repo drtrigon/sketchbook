@@ -1,0 +1,87 @@
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino}{\section{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D/\-Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.ino File Reference}
+\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino}\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D/\-Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D/\-Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a3cc91ed49729313b42d0d671fd4f0a8f}{sensor\-\_\-mean}~145.\-0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_ad4356009db72f8d1f602de671a9490b3}{mapfloat} (float \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, float in\-\_\-min, float in\-\_\-max, float out\-\_\-min, float out\-\_\-max)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_ae3837ad96d1cb4c43d0bbcfe912ad6a1}{analog\-\_\-charge} = A2
+\item 
+const int \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a1dc085aeaaec657b48a2e349e1aa85be}{analog\-Pin} = A0
+\item 
+const float \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_af6d64b28844208eb6f2d9b7bcf4a6087}{ck} =24.\-42
+\item 
+int \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a003bbb537dac1547ff44bac4bf180a73}{voltage}
+\item 
+float \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a0cb41c0b1068825d5ba9d6a1823f194c}{cu}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a3cc91ed49729313b42d0d671fd4f0a8f}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!sensor\-\_\-mean@{sensor\-\_\-mean}}
+\index{sensor\-\_\-mean@{sensor\-\_\-mean}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{sensor\-\_\-mean}]{\setlength{\rightskip}{0pt plus 5cm}\#define sensor\-\_\-mean~145.\-0}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a3cc91ed49729313b42d0d671fd4f0a8f}
+
+
+\subsection{Function Documentation}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!loop@{loop}}
+\index{loop@{loop}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_ad4356009db72f8d1f602de671a9490b3}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!mapfloat@{mapfloat}}
+\index{mapfloat@{mapfloat}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{mapfloat}]{\setlength{\rightskip}{0pt plus 5cm}float mapfloat (
+\begin{DoxyParamCaption}
+\item[{float}]{x, }
+\item[{float}]{in\-\_\-min, }
+\item[{float}]{in\-\_\-max, }
+\item[{float}]{out\-\_\-min, }
+\item[{float}]{out\-\_\-max}
+\end{DoxyParamCaption}
+)}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_ad4356009db72f8d1f602de671a9490b3}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!setup@{setup}}
+\index{setup@{setup}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_ae3837ad96d1cb4c43d0bbcfe912ad6a1}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!analog\-\_\-charge@{analog\-\_\-charge}}
+\index{analog\-\_\-charge@{analog\-\_\-charge}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{analog\-\_\-charge}]{\setlength{\rightskip}{0pt plus 5cm}const int analog\-\_\-charge = A2}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_ae3837ad96d1cb4c43d0bbcfe912ad6a1}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a1dc085aeaaec657b48a2e349e1aa85be}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!analog\-Pin@{analog\-Pin}}
+\index{analog\-Pin@{analog\-Pin}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{analog\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}const int analog\-Pin = A0}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a1dc085aeaaec657b48a2e349e1aa85be}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_af6d64b28844208eb6f2d9b7bcf4a6087}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!ck@{ck}}
+\index{ck@{ck}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{ck}]{\setlength{\rightskip}{0pt plus 5cm}const float ck =24.\-42}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_af6d64b28844208eb6f2d9b7bcf4a6087}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a0cb41c0b1068825d5ba9d6a1823f194c}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!cu@{cu}}
+\index{cu@{cu}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{cu}]{\setlength{\rightskip}{0pt plus 5cm}float cu}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a0cb41c0b1068825d5ba9d6a1823f194c}
+\hypertarget{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a003bbb537dac1547ff44bac4bf180a73}{\index{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}!voltage@{voltage}}
+\index{voltage@{voltage}!Uno_Read_HumidityCapacitor_KFS140-D.ino@{Uno\-\_\-\-Read\-\_\-\-Humidity\-Capacitor\-\_\-\-K\-F\-S140-\/\-D.\-ino}}
+\subsubsection[{voltage}]{\setlength{\rightskip}{0pt plus 5cm}int voltage}}\label{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a003bbb537dac1547ff44bac4bf180a73}

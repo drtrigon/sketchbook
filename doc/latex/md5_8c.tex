@@ -1,0 +1,172 @@
+\hypertarget{md5_8c}{\section{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/md5.c File Reference}
+\label{md5_8c}\index{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/md5.\-c@{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/md5.\-c}}
+}
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}md5.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{md5_8c_a544d14714aed6d150435336296c66061}{G\-E\-T\-\_\-\-U\-I\-N\-T32}(\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}, i)
+\item 
+\#define \hyperlink{md5_8c_a8f3a8299ffeba42ea7e2ec2459cb9995}{P\-U\-T\-\_\-\-U\-I\-N\-T32}(\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}, i)
+\item 
+\#define \hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})~((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x} $<$$<$ \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}) $\vert$ ((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x} \& 0x\-F\-F\-F\-F\-F\-F\-F\-F) $>$$>$ (32 -\/ n)))
+\item 
+\#define \hyperlink{md5_8c_a3e7cecea3d3b858cbfc46b77d5314c04}{P}(a, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}, c, \hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d}, k, s, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}{t})
+\item 
+\#define \hyperlink{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{F}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, z)~(z $^\wedge$ (\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x} \& (\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y} $^\wedge$ z)))
+\item 
+\#define \hyperlink{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{F}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, z)~(\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y} $^\wedge$ (z \& (\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x} $^\wedge$ \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})))
+\item 
+\#define \hyperlink{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{F}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, z)~(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x} $^\wedge$ \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y} $^\wedge$ z)
+\item 
+\#define \hyperlink{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{F}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, z)~(\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y} $^\wedge$ (\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x} $\vert$ $\sim$z))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{md5_8c_ac6e9fda1d8fda7d51fd1c0c036f87cfe}{md5\-\_\-starts} (\hyperlink{structmd5__context}{md5\-\_\-context} $\ast$ctx)
+\item 
+void \hyperlink{md5_8c_ac8d0beb35a3cd6828ee2ede2f19d87a9}{md5\-\_\-process} (\hyperlink{structmd5__context}{md5\-\_\-context} $\ast$ctx, \hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8} \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}\mbox{[}64\mbox{]})
+\item 
+void \hyperlink{md5_8c_a7b10388405325509389ea7b2d0ddfa34}{md5\-\_\-update} (\hyperlink{structmd5__context}{md5\-\_\-context} $\ast$ctx, \hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8} $\ast$input, \hyperlink{md5_8h_a9695cf1104606879c5d3f0221635a069}{uint32} length)
+\item 
+void \hyperlink{md5_8c_a2ab0d298634ade679428ed07b39fc505}{md5\-\_\-finish} (\hyperlink{structmd5__context}{md5\-\_\-context} $\ast$ctx, \hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8} digest\mbox{[}16\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{\index{md5.\-c@{md5.\-c}!F@{F}}
+\index{F@{F}!md5.c@{md5.\-c}}
+\subsubsection[{F}]{\setlength{\rightskip}{0pt plus 5cm}\#define F(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~(z $^\wedge$ ({\bf x} \& ({\bf y} $^\wedge$ z)))}}\label{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}
+\hypertarget{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{\index{md5.\-c@{md5.\-c}!F@{F}}
+\index{F@{F}!md5.c@{md5.\-c}}
+\subsubsection[{F}]{\setlength{\rightskip}{0pt plus 5cm}\#define F(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~({\bf y} $^\wedge$ (z \& ({\bf x} $^\wedge$ {\bf y})))}}\label{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}
+\hypertarget{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{\index{md5.\-c@{md5.\-c}!F@{F}}
+\index{F@{F}!md5.c@{md5.\-c}}
+\subsubsection[{F}]{\setlength{\rightskip}{0pt plus 5cm}\#define F(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~({\bf x} $^\wedge$ {\bf y} $^\wedge$ z)}}\label{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}
+\hypertarget{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{\index{md5.\-c@{md5.\-c}!F@{F}}
+\index{F@{F}!md5.c@{md5.\-c}}
+\subsubsection[{F}]{\setlength{\rightskip}{0pt plus 5cm}\#define F(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}, }
+\item[{}]{z}
+\end{DoxyParamCaption}
+)~({\bf y} $^\wedge$ ({\bf x} $\vert$ $\sim$z))}}\label{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}
+\hypertarget{md5_8c_a544d14714aed6d150435336296c66061}{\index{md5.\-c@{md5.\-c}!G\-E\-T\-\_\-\-U\-I\-N\-T32@{G\-E\-T\-\_\-\-U\-I\-N\-T32}}
+\index{G\-E\-T\-\_\-\-U\-I\-N\-T32@{G\-E\-T\-\_\-\-U\-I\-N\-T32}!md5.c@{md5.\-c}}
+\subsubsection[{G\-E\-T\-\_\-\-U\-I\-N\-T32}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-T\-\_\-\-U\-I\-N\-T32(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf n}, }
+\item[{}]{{\bf b}, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)}}\label{md5_8c_a544d14714aed6d150435336296c66061}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{                                               \(\backslash\)
+    (\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}) = ( (\hyperlink{md5_8h_a9695cf1104606879c5d3f0221635a069}{uint32}) (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i})    ]       )       \(\backslash\)
+        | ( (\hyperlink{md5_8h_a9695cf1104606879c5d3f0221635a069}{uint32}) (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) + 1] <<  8 )       \(\backslash\)
+        | ( (\hyperlink{md5_8h_a9695cf1104606879c5d3f0221635a069}{uint32}) (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) + 2] << 16 )       \(\backslash\)
+        | ( (\hyperlink{md5_8h_a9695cf1104606879c5d3f0221635a069}{uint32}) (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) + 3] << 24 );      \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{md5_8c_a3e7cecea3d3b858cbfc46b77d5314c04}{\index{md5.\-c@{md5.\-c}!P@{P}}
+\index{P@{P}!md5.c@{md5.\-c}}
+\subsubsection[{P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{{\bf b}, }
+\item[{}]{c, }
+\item[{}]{{\bf d}, }
+\item[{}]{k, }
+\item[{}]{s, }
+\item[{}]{{\bf t}}
+\end{DoxyParamCaption}
+)}}\label{md5_8c_a3e7cecea3d3b858cbfc46b77d5314c04}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{                                                       \(\backslash\)
+    a += \hyperlink{md5_8c_a96d73bbd7af15cb1fc38c3f4a3bd82e9}{F}(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b},c,\hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d}) + \hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}[k] + \hyperlink{OWGeneric__DangerShield_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}{t}; a = \hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}(a,\hyperlink{namespaceser-mon-AS7265X_a9378f765d3cec20083312b237c585e4a}{s}) + \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b};           \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{md5_8c_a8f3a8299ffeba42ea7e2ec2459cb9995}{\index{md5.\-c@{md5.\-c}!P\-U\-T\-\_\-\-U\-I\-N\-T32@{P\-U\-T\-\_\-\-U\-I\-N\-T32}}
+\index{P\-U\-T\-\_\-\-U\-I\-N\-T32@{P\-U\-T\-\_\-\-U\-I\-N\-T32}!md5.c@{md5.\-c}}
+\subsubsection[{P\-U\-T\-\_\-\-U\-I\-N\-T32}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-T\-\_\-\-U\-I\-N\-T32(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf n}, }
+\item[{}]{{\bf b}, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)}}\label{md5_8c_a8f3a8299ffeba42ea7e2ec2459cb9995}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\{                                               \(\backslash\)
+    (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i})    ] = (\hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8}) ( (\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})       );       \(\backslash\)
+    (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) + 1] = (\hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8}) ( (\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}) >>  8 );       \(\backslash\)
+    (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) + 2] = (\hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8}) ( (\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}) >> 16 );       \(\backslash\)
+    (\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) + 3] = (\hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8}) ( (\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}) >> 24 );       \(\backslash\)
+\}
+\end{DoxyCode}
+\hypertarget{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{\index{md5.\-c@{md5.\-c}!S@{S}}
+\index{S@{S}!md5.c@{md5.\-c}}
+\subsubsection[{S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf n}}
+\end{DoxyParamCaption}
+)~(({\bf x} $<$$<$ {\bf n}) $\vert$ (({\bf x} \& 0x\-F\-F\-F\-F\-F\-F\-F\-F) $>$$>$ (32 -\/ n)))}}\label{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}
+
+
+\subsection{Function Documentation}
+\hypertarget{md5_8c_a2ab0d298634ade679428ed07b39fc505}{\index{md5.\-c@{md5.\-c}!md5\-\_\-finish@{md5\-\_\-finish}}
+\index{md5\-\_\-finish@{md5\-\_\-finish}!md5.c@{md5.\-c}}
+\subsubsection[{md5\-\_\-finish}]{\setlength{\rightskip}{0pt plus 5cm}void md5\-\_\-finish (
+\begin{DoxyParamCaption}
+\item[{{\bf md5\-\_\-context} $\ast$}]{ctx, }
+\item[{{\bf uint8}}]{digest\mbox{[}16\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{md5_8c_a2ab0d298634ade679428ed07b39fc505}
+\hypertarget{md5_8c_ac8d0beb35a3cd6828ee2ede2f19d87a9}{\index{md5.\-c@{md5.\-c}!md5\-\_\-process@{md5\-\_\-process}}
+\index{md5\-\_\-process@{md5\-\_\-process}!md5.c@{md5.\-c}}
+\subsubsection[{md5\-\_\-process}]{\setlength{\rightskip}{0pt plus 5cm}void md5\-\_\-process (
+\begin{DoxyParamCaption}
+\item[{{\bf md5\-\_\-context} $\ast$}]{ctx, }
+\item[{{\bf uint8}}]{data\mbox{[}64\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{md5_8c_ac8d0beb35a3cd6828ee2ede2f19d87a9}
+\hypertarget{md5_8c_ac6e9fda1d8fda7d51fd1c0c036f87cfe}{\index{md5.\-c@{md5.\-c}!md5\-\_\-starts@{md5\-\_\-starts}}
+\index{md5\-\_\-starts@{md5\-\_\-starts}!md5.c@{md5.\-c}}
+\subsubsection[{md5\-\_\-starts}]{\setlength{\rightskip}{0pt plus 5cm}void md5\-\_\-starts (
+\begin{DoxyParamCaption}
+\item[{{\bf md5\-\_\-context} $\ast$}]{ctx}
+\end{DoxyParamCaption}
+)}}\label{md5_8c_ac6e9fda1d8fda7d51fd1c0c036f87cfe}
+\hypertarget{md5_8c_a7b10388405325509389ea7b2d0ddfa34}{\index{md5.\-c@{md5.\-c}!md5\-\_\-update@{md5\-\_\-update}}
+\index{md5\-\_\-update@{md5\-\_\-update}!md5.c@{md5.\-c}}
+\subsubsection[{md5\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void md5\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf md5\-\_\-context} $\ast$}]{ctx, }
+\item[{{\bf uint8} $\ast$}]{input, }
+\item[{{\bf uint32}}]{length}
+\end{DoxyParamCaption}
+)}}\label{md5_8c_a7b10388405325509389ea7b2d0ddfa34}

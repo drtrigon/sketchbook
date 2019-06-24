@@ -1,0 +1,53 @@
+\hypertarget{bug_8h}{\section{cli/owslave/bug.h File Reference}
+\label{bug_8h}\index{cli/owslave/bug.\-h@{cli/owslave/bug.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bug_8h_ae3fd7e70c1ddd723f6c9ef593e36f609}{\-\_\-\-\_\-linktime\-\_\-error}(message)~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-error\-\_\-\-\_\-(message)))
+\item 
+\#define \hyperlink{bug_8h_a0fc08f11f6c83dbc94a75ca49d29fae8}{B\-U\-I\-L\-D\-\_\-\-B\-U\-G\-\_\-\-O\-N}(condition)~((void)sizeof(char\mbox{[}1 -\/ 2$\ast$!!(condition)\mbox{]}))
+\item 
+\#define \hyperlink{bug_8h_adc8ab1ca1ca597055b70e49e728516ac}{B\-U\-I\-L\-D\-\_\-\-B\-U\-G}()
+\item 
+\#define \hyperlink{bug_8h_ad4281a5e5f512dd92471ba51ce4952c8}{B\-U\-G}(s)~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(1)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bug_8h_ae3fd7e70c1ddd723f6c9ef593e36f609}{\index{bug.\-h@{bug.\-h}!\-\_\-\-\_\-linktime\-\_\-error@{\-\_\-\-\_\-linktime\-\_\-error}}
+\index{\-\_\-\-\_\-linktime\-\_\-error@{\-\_\-\-\_\-linktime\-\_\-error}!bug.h@{bug.\-h}}
+\subsubsection[{\-\_\-\-\_\-linktime\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-linktime\-\_\-error(
+\begin{DoxyParamCaption}
+\item[{}]{message}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-error\-\_\-\-\_\-(message)))}}\label{bug_8h_ae3fd7e70c1ddd723f6c9ef593e36f609}
+\hypertarget{bug_8h_ad4281a5e5f512dd92471ba51ce4952c8}{\index{bug.\-h@{bug.\-h}!B\-U\-G@{B\-U\-G}}
+\index{B\-U\-G@{B\-U\-G}!bug.h@{bug.\-h}}
+\subsubsection[{B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-G(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(1)}}\label{bug_8h_ad4281a5e5f512dd92471ba51ce4952c8}
+\hypertarget{bug_8h_adc8ab1ca1ca597055b70e49e728516ac}{\index{bug.\-h@{bug.\-h}!B\-U\-I\-L\-D\-\_\-\-B\-U\-G@{B\-U\-I\-L\-D\-\_\-\-B\-U\-G}}
+\index{B\-U\-I\-L\-D\-\_\-\-B\-U\-G@{B\-U\-I\-L\-D\-\_\-\-B\-U\-G}!bug.h@{bug.\-h}}
+\subsubsection[{B\-U\-I\-L\-D\-\_\-\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-I\-L\-D\-\_\-\-B\-U\-G(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{bug_8h_adc8ab1ca1ca597055b70e49e728516ac}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                                    \(\backslash\)
+                \_\_build\_bug\_failed();                      \(\backslash\)
+        \} \textcolor{keywordflow}{while} (0)
+\end{DoxyCode}
+B\-U\-I\-L\-D\-\_\-\-B\-U\-G -\/ break compile if used.
+
+If you have some code that you expect the compiler to eliminate at build time, you should use B\-U\-I\-L\-D\-\_\-\-B\-U\-G to detect if it is unexpectedly used. \hypertarget{bug_8h_a0fc08f11f6c83dbc94a75ca49d29fae8}{\index{bug.\-h@{bug.\-h}!B\-U\-I\-L\-D\-\_\-\-B\-U\-G\-\_\-\-O\-N@{B\-U\-I\-L\-D\-\_\-\-B\-U\-G\-\_\-\-O\-N}}
+\index{B\-U\-I\-L\-D\-\_\-\-B\-U\-G\-\_\-\-O\-N@{B\-U\-I\-L\-D\-\_\-\-B\-U\-G\-\_\-\-O\-N}!bug.h@{bug.\-h}}
+\subsubsection[{B\-U\-I\-L\-D\-\_\-\-B\-U\-G\-\_\-\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-I\-L\-D\-\_\-\-B\-U\-G\-\_\-\-O\-N(
+\begin{DoxyParamCaption}
+\item[{}]{condition}
+\end{DoxyParamCaption}
+)~((void)sizeof(char\mbox{[}1 -\/ 2$\ast$!!(condition)\mbox{]}))}}\label{bug_8h_a0fc08f11f6c83dbc94a75ca49d29fae8}

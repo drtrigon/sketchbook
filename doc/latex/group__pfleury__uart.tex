@@ -1,0 +1,202 @@
+\hypertarget{group__pfleury__uart}{\section{U\-A\-R\-T Library}
+\label{group__pfleury__uart}\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}}
+}
+
+
+Interrupt U\-A\-R\-T library using the built-\/in U\-A\-R\-T with transmit and receive circular buffers.  
+
+
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{group__pfleury__uart_ga367ff7b5de225ed936a63239ad4adb0b}{U\-A\-R\-T\-\_\-\-B\-A\-U\-D\-\_\-\-S\-E\-L\-E\-C\-T}(baud\-Rate, xtal\-Cpu)~((xtal\-Cpu + baud\-Rate $\ast$ 8\-L) / (baud\-Rate $\ast$ 16\-L) -\/ 1)
+\begin{DoxyCompactList}\small\item\em U\-A\-R\-T Baudrate Expression. \end{DoxyCompactList}\item 
+\#define \hyperlink{group__pfleury__uart_ga1bb183938acb879d5c2795cf007f8ffa}{P}(s)~(\{static const char c\mbox{[}$\,$\mbox{]} \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((progmem)) = s;c;\})
+\item 
+\#define \hyperlink{group__pfleury__uart_gabcdb1041d763560cd8f8e722370dfd37}{U\-A\-R\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-E\-R\-R\-O\-R}~0x0800              /$\ast$ Framing Error by U\-A\-R\-T       $\ast$/
+\item 
+\#define \hyperlink{group__pfleury__uart_ga3183177e3613d8785d8cc8516931beb6}{U\-A\-R\-T\-\_\-\-O\-V\-E\-R\-R\-U\-N\-\_\-\-E\-R\-R\-O\-R}~0x0400              /$\ast$ Overrun condition by U\-A\-R\-T   $\ast$/
+\item 
+\#define \hyperlink{group__pfleury__uart_ga94758f3dad6864703b7417d3e40f11df}{U\-A\-R\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-O\-V\-E\-R\-F\-L\-O\-W}~0x0200              /$\ast$ receive ringbuffer overflow $\ast$/
+\item 
+\#define \hyperlink{group__pfleury__uart_ga77ba544d423ff42d400220a05303f268}{U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A}~0x0100              /$\ast$ no receive data available   $\ast$/
+\item 
+\#define \hyperlink{group__pfleury__uart_ga991f248e09d11f90ba4625c3d82b2db8}{uart\-\_\-init}(baud)~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_gae638023351c0e335c47ec54419b18739}{uart\-\_\-getc}()~\hyperlink{group__pfleury__uart_ga77ba544d423ff42d400220a05303f268}{U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A}
+\item 
+\#define \hyperlink{group__pfleury__uart_gaebc73eda7cd28a37ab8a8d0a5474690d}{uart\-\_\-putc}(\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_ga44f268658947d1ec913d73dc2cf814f1}{uart\-\_\-puts}(s)~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_ga790bb127770461c25306d0a9d9ac2d19}{uart\-\_\-puts\-\_\-p}(s)~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_ga92989877d0eeb2f35cb1da82687b4751}{uart\-\_\-puts\-\_\-\-P}(s)~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_gad69c1f0250681f288e73234f09a1d5dc}{uart\-\_\-puti}(i)~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_ga8184cbf042e396d9ea434a2f231570fb}{uart\-\_\-putl}(i)~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_ga6b776a3573f48578ed873b368a3d9386}{uart\-\_\-puthex\-\_\-nibble}(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_gace1c2bfe0a3fd0f2c2c42d40b3a01e42}{uart\-\_\-puthex\-\_\-byte}(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_gab4d641036a6c2280ba3282e1cdaf50c1}{uart\-\_\-puthex\-\_\-byte\-\_\-}(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_ga09e3bc89847b17004654b4302c53b977}{uart\-\_\-puthex\-\_\-word}(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{group__pfleury__uart_ga1a006bd6350dc628214a2686cb5ce27d}{uart\-\_\-poll}()~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Interrupt U\-A\-R\-T library using the built-\/in U\-A\-R\-T with transmit and receive circular buffers. 
+\begin{DoxyCode}
+\textcolor{preprocessor}{#include <\hyperlink{uart_8h}{uart.h}>} 
+\end{DoxyCode}
+
+
+This library can be used to transmit and receive data through the built in U\-A\-R\-T.
+
+An interrupt is generated when the U\-A\-R\-T has finished transmitting or receiving a byte. The interrupt handling routines use circular buffers for buffering received and transmitted data.
+
+The U\-A\-R\-T\-\_\-\-R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E and U\-A\-R\-T\-\_\-\-T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E constants define the size of the circular buffers in bytes. Note that these constants must be a power of 2. You may need to adapt this size to your target and your application.
+
+\begin{DoxyNote}{Note}
+Based on Atmel Application Note A\-V\-R306 
+\end{DoxyNote}
+\begin{DoxyAuthor}{Author}
+Peter Fleury \href{mailto:pfleury@gmx.ch}{\tt pfleury@gmx.\-ch} \href{http://jump.to/fleury}{\tt http\-://jump.\-to/fleury} 
+\end{DoxyAuthor}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{group__pfleury__uart_ga1bb183938acb879d5c2795cf007f8ffa}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!P@{P}}
+\index{P@{P}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(\{static const char c\mbox{[}$\,$\mbox{]} {\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-} ((progmem)) = s;c;\})}}\label{group__pfleury__uart_ga1bb183938acb879d5c2795cf007f8ffa}
+\hypertarget{group__pfleury__uart_ga367ff7b5de225ed936a63239ad4adb0b}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!U\-A\-R\-T\-\_\-\-B\-A\-U\-D\-\_\-\-S\-E\-L\-E\-C\-T@{U\-A\-R\-T\-\_\-\-B\-A\-U\-D\-\_\-\-S\-E\-L\-E\-C\-T}}
+\index{U\-A\-R\-T\-\_\-\-B\-A\-U\-D\-\_\-\-S\-E\-L\-E\-C\-T@{U\-A\-R\-T\-\_\-\-B\-A\-U\-D\-\_\-\-S\-E\-L\-E\-C\-T}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-B\-A\-U\-D\-\_\-\-S\-E\-L\-E\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-B\-A\-U\-D\-\_\-\-S\-E\-L\-E\-C\-T(
+\begin{DoxyParamCaption}
+\item[{}]{baud\-Rate, }
+\item[{}]{xtal\-Cpu}
+\end{DoxyParamCaption}
+)~((xtal\-Cpu + baud\-Rate $\ast$ 8\-L) / (baud\-Rate $\ast$ 16\-L) -\/ 1)}}\label{group__pfleury__uart_ga367ff7b5de225ed936a63239ad4adb0b}
+
+
+U\-A\-R\-T Baudrate Expression. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em xtalcpu} & system clock in Mhz \\
+\hline
+{\em baudrate} & baudrate in bps, e.\-g. 1200, 2400, 9600 \\
+\hline
+\end{DoxyParams}
+\hypertarget{group__pfleury__uart_ga94758f3dad6864703b7417d3e40f11df}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!U\-A\-R\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-O\-V\-E\-R\-F\-L\-O\-W@{U\-A\-R\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-O\-V\-E\-R\-F\-L\-O\-W}}
+\index{U\-A\-R\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-O\-V\-E\-R\-F\-L\-O\-W@{U\-A\-R\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-O\-V\-E\-R\-F\-L\-O\-W}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-O\-V\-E\-R\-F\-L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-O\-V\-E\-R\-F\-L\-O\-W~0x0200              /$\ast$ receive ringbuffer overflow $\ast$/}}\label{group__pfleury__uart_ga94758f3dad6864703b7417d3e40f11df}
+\hypertarget{group__pfleury__uart_gabcdb1041d763560cd8f8e722370dfd37}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!U\-A\-R\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-E\-R\-R\-O\-R@{U\-A\-R\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-E\-R\-R\-O\-R}}
+\index{U\-A\-R\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-E\-R\-R\-O\-R@{U\-A\-R\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-E\-R\-R\-O\-R}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-E\-R\-R\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-F\-R\-A\-M\-E\-\_\-\-E\-R\-R\-O\-R~0x0800              /$\ast$ Framing Error by U\-A\-R\-T       $\ast$/}}\label{group__pfleury__uart_gabcdb1041d763560cd8f8e722370dfd37}
+\hypertarget{group__pfleury__uart_gae638023351c0e335c47ec54419b18739}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-getc@{uart\-\_\-getc}}
+\index{uart\-\_\-getc@{uart\-\_\-getc}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-getc}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-getc(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~{\bf U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A}}}\label{group__pfleury__uart_gae638023351c0e335c47ec54419b18739}
+\hypertarget{group__pfleury__uart_ga991f248e09d11f90ba4625c3d82b2db8}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-init@{uart\-\_\-init}}
+\index{uart\-\_\-init@{uart\-\_\-init}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-init(
+\begin{DoxyParamCaption}
+\item[{}]{baud}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga991f248e09d11f90ba4625c3d82b2db8}
+\hypertarget{group__pfleury__uart_ga77ba544d423ff42d400220a05303f268}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A@{U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A}}
+\index{U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A@{U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-N\-O\-\_\-\-D\-A\-T\-A~0x0100              /$\ast$ no receive data available   $\ast$/}}\label{group__pfleury__uart_ga77ba544d423ff42d400220a05303f268}
+\hypertarget{group__pfleury__uart_ga3183177e3613d8785d8cc8516931beb6}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!U\-A\-R\-T\-\_\-\-O\-V\-E\-R\-R\-U\-N\-\_\-\-E\-R\-R\-O\-R@{U\-A\-R\-T\-\_\-\-O\-V\-E\-R\-R\-U\-N\-\_\-\-E\-R\-R\-O\-R}}
+\index{U\-A\-R\-T\-\_\-\-O\-V\-E\-R\-R\-U\-N\-\_\-\-E\-R\-R\-O\-R@{U\-A\-R\-T\-\_\-\-O\-V\-E\-R\-R\-U\-N\-\_\-\-E\-R\-R\-O\-R}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-O\-V\-E\-R\-R\-U\-N\-\_\-\-E\-R\-R\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-O\-V\-E\-R\-R\-U\-N\-\_\-\-E\-R\-R\-O\-R~0x0400              /$\ast$ Overrun condition by U\-A\-R\-T   $\ast$/}}\label{group__pfleury__uart_ga3183177e3613d8785d8cc8516931beb6}
+\hypertarget{group__pfleury__uart_ga1a006bd6350dc628214a2686cb5ce27d}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-poll@{uart\-\_\-poll}}
+\index{uart\-\_\-poll@{uart\-\_\-poll}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-poll}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-poll(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga1a006bd6350dc628214a2686cb5ce27d}
+\hypertarget{group__pfleury__uart_gaebc73eda7cd28a37ab8a8d0a5474690d}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-putc@{uart\-\_\-putc}}
+\index{uart\-\_\-putc@{uart\-\_\-putc}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-putc}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-putc(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf data}}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_gaebc73eda7cd28a37ab8a8d0a5474690d}
+\hypertarget{group__pfleury__uart_gace1c2bfe0a3fd0f2c2c42d40b3a01e42}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puthex\-\_\-byte@{uart\-\_\-puthex\-\_\-byte}}
+\index{uart\-\_\-puthex\-\_\-byte@{uart\-\_\-puthex\-\_\-byte}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puthex\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puthex\-\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_gace1c2bfe0a3fd0f2c2c42d40b3a01e42}
+\hypertarget{group__pfleury__uart_gab4d641036a6c2280ba3282e1cdaf50c1}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puthex\-\_\-byte\-\_\-@{uart\-\_\-puthex\-\_\-byte\-\_\-}}
+\index{uart\-\_\-puthex\-\_\-byte\-\_\-@{uart\-\_\-puthex\-\_\-byte\-\_\-}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puthex\-\_\-byte\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puthex\-\_\-byte\-\_\-(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_gab4d641036a6c2280ba3282e1cdaf50c1}
+\hypertarget{group__pfleury__uart_ga6b776a3573f48578ed873b368a3d9386}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puthex\-\_\-nibble@{uart\-\_\-puthex\-\_\-nibble}}
+\index{uart\-\_\-puthex\-\_\-nibble@{uart\-\_\-puthex\-\_\-nibble}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puthex\-\_\-nibble}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puthex\-\_\-nibble(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga6b776a3573f48578ed873b368a3d9386}
+\hypertarget{group__pfleury__uart_ga09e3bc89847b17004654b4302c53b977}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puthex\-\_\-word@{uart\-\_\-puthex\-\_\-word}}
+\index{uart\-\_\-puthex\-\_\-word@{uart\-\_\-puthex\-\_\-word}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puthex\-\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puthex\-\_\-word(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga09e3bc89847b17004654b4302c53b977}
+\hypertarget{group__pfleury__uart_gad69c1f0250681f288e73234f09a1d5dc}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puti@{uart\-\_\-puti}}
+\index{uart\-\_\-puti@{uart\-\_\-puti}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puti}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puti(
+\begin{DoxyParamCaption}
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_gad69c1f0250681f288e73234f09a1d5dc}
+\hypertarget{group__pfleury__uart_ga8184cbf042e396d9ea434a2f231570fb}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-putl@{uart\-\_\-putl}}
+\index{uart\-\_\-putl@{uart\-\_\-putl}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-putl}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-putl(
+\begin{DoxyParamCaption}
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga8184cbf042e396d9ea434a2f231570fb}
+\hypertarget{group__pfleury__uart_ga44f268658947d1ec913d73dc2cf814f1}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puts@{uart\-\_\-puts}}
+\index{uart\-\_\-puts@{uart\-\_\-puts}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puts}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puts(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga44f268658947d1ec913d73dc2cf814f1}
+\hypertarget{group__pfleury__uart_ga790bb127770461c25306d0a9d9ac2d19}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puts\-\_\-p@{uart\-\_\-puts\-\_\-p}}
+\index{uart\-\_\-puts\-\_\-p@{uart\-\_\-puts\-\_\-p}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puts\-\_\-p}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puts\-\_\-p(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga790bb127770461c25306d0a9d9ac2d19}
+\hypertarget{group__pfleury__uart_ga92989877d0eeb2f35cb1da82687b4751}{\index{U\-A\-R\-T Library@{U\-A\-R\-T Library}!uart\-\_\-puts\-\_\-\-P@{uart\-\_\-puts\-\_\-\-P}}
+\index{uart\-\_\-puts\-\_\-\-P@{uart\-\_\-puts\-\_\-\-P}!UART Library@{U\-A\-R\-T Library}}
+\subsubsection[{uart\-\_\-puts\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define uart\-\_\-puts\-\_\-\-P(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{group__pfleury__uart_ga92989877d0eeb2f35cb1da82687b4751}

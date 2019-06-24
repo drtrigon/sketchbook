@@ -1,0 +1,46 @@
+\hypertarget{drcNet_8c}{\section{wiring\-Pi/wiring\-Pi/drc\-Net.c File Reference}
+\label{drcNet_8c}\index{wiring\-Pi/wiring\-Pi/drc\-Net.\-c@{wiring\-Pi/wiring\-Pi/drc\-Net.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$netdb.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$crypt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}drc\-Net.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}../wiring\-Pi\-D/drc\-Net\-Cmd.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{drcNet_8c_a999f4fabd36bcdb4377eab3c1b63119f}{\-\_\-drc\-Setup\-Net} (const char $\ast$ip\-Address, const char $\ast$port, const char $\ast$\hyperlink{SHT31_8ino_aa4a2ebcb494493f648ae1e6975672575}{password})
+\item 
+int \hyperlink{drcNet_8c_ac5fe8a7dcfd10700e906402900027b4a}{drc\-Setup\-Net} (const int pin\-Base, const int num\-Pins, const char $\ast$ip\-Address, const char $\ast$port, const char $\ast$\hyperlink{SHT31_8ino_aa4a2ebcb494493f648ae1e6975672575}{password})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{drcNet_8c_a999f4fabd36bcdb4377eab3c1b63119f}{\index{drc\-Net.\-c@{drc\-Net.\-c}!\-\_\-drc\-Setup\-Net@{\-\_\-drc\-Setup\-Net}}
+\index{\-\_\-drc\-Setup\-Net@{\-\_\-drc\-Setup\-Net}!drcNet.c@{drc\-Net.\-c}}
+\subsubsection[{\-\_\-drc\-Setup\-Net}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-drc\-Setup\-Net (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{ip\-Address, }
+\item[{const char $\ast$}]{port, }
+\item[{const char $\ast$}]{password}
+\end{DoxyParamCaption}
+)}}\label{drcNet_8c_a999f4fabd36bcdb4377eab3c1b63119f}
+\hypertarget{drcNet_8c_ac5fe8a7dcfd10700e906402900027b4a}{\index{drc\-Net.\-c@{drc\-Net.\-c}!drc\-Setup\-Net@{drc\-Setup\-Net}}
+\index{drc\-Setup\-Net@{drc\-Setup\-Net}!drcNet.c@{drc\-Net.\-c}}
+\subsubsection[{drc\-Setup\-Net}]{\setlength{\rightskip}{0pt plus 5cm}int drc\-Setup\-Net (
+\begin{DoxyParamCaption}
+\item[{const int}]{pin\-Base, }
+\item[{const int}]{num\-Pins, }
+\item[{const char $\ast$}]{ip\-Address, }
+\item[{const char $\ast$}]{port, }
+\item[{const char $\ast$}]{password}
+\end{DoxyParamCaption}
+)}}\label{drcNet_8c_ac5fe8a7dcfd10700e906402900027b4a}

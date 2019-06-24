@@ -1,0 +1,138 @@
+\hypertarget{Alarms_8cpp}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.cpp File Reference}
+\label{Alarms_8cpp}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-cpp@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Arduino.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}config.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Multi\-Wii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\-C\-D.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sensors.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Alarms.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Alarms_8cpp_a2f100845c4c0f8e9d6ac0d8c1e67daf1}{alarm\-Pattern\-Composer} ()
+\item 
+void \hyperlink{Alarms_8cpp_a43f5d20fdae2f876decf685e355296f6}{pattern\-Decode} (uint8\-\_\-t resource, uint16\-\_\-t first, uint16\-\_\-t second, uint16\-\_\-t third, uint16\-\_\-t cyclepause, uint16\-\_\-t endpause)
+\item 
+void \hyperlink{Alarms_8cpp_a544da6f8684c519dc10068380e38f376}{set\-Timing} (uint8\-\_\-t resource, uint16\-\_\-t pulse, uint16\-\_\-t pause)
+\item 
+void \hyperlink{Alarms_8cpp_ac1a17304f5af5d86487d1a6aafa91d0f}{turn\-Off} (uint8\-\_\-t resource)
+\item 
+void \hyperlink{Alarms_8cpp_a09f1f7f4cf492eeb2c3abb236deb7f0d}{toggle\-Resource} (uint8\-\_\-t resource, uint8\-\_\-t activate)
+\item 
+void \hyperlink{Alarms_8cpp_a2f6a6e9b4c122a29aaf8c2b291bb73ea}{vario\-\_\-output} (uint16\-\_\-t \hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d}, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_aab89bf7656a5edfc22f6bd305a85a6f2}{up})
+\item 
+void \hyperlink{Alarms_8cpp_abf10dece1559da693d0fecaf16accc3c}{switch\-\_\-led\-\_\-flasher} (uint8\-\_\-t \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on})
+\item 
+void \hyperlink{Alarms_8cpp_abfe776636eeb0bb90f6b77c1f093b849}{switch\-\_\-landing\-\_\-lights} (uint8\-\_\-t \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on})
+\item 
+void \hyperlink{Alarms_8cpp_a60dab6ca6c3cdcadd9d63d622200b2c4}{Pilot\-Lamp\-Sequence} (uint16\-\_\-t speed, uint16\-\_\-t pattern, uint8\-\_\-t num\-\_\-patterns)
+\item 
+uint8\-\_\-t \hyperlink{Alarms_8cpp_a1523ff2612feb6ebf7648d0108544a43}{is\-Buzzer\-O\-N} ()
+\item 
+void \hyperlink{Alarms_8cpp_a6afa2df7c68053f6a1ff8ad75d0c597f}{alarm\-Handler} (void)
+\item 
+void \hyperlink{Alarms_8cpp_a2176ca033612b0ecc1bb7e275a6b749a}{blink\-L\-E\-D} (uint8\-\_\-t num, uint8\-\_\-t ontime, uint8\-\_\-t repeat)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{Alarms_8cpp_a6afa2df7c68053f6a1ff8ad75d0c597f}{\index{Alarms.\-cpp@{Alarms.\-cpp}!alarm\-Handler@{alarm\-Handler}}
+\index{alarm\-Handler@{alarm\-Handler}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{alarm\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}void alarm\-Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a6afa2df7c68053f6a1ff8ad75d0c597f}
+\hypertarget{Alarms_8cpp_a2f100845c4c0f8e9d6ac0d8c1e67daf1}{\index{Alarms.\-cpp@{Alarms.\-cpp}!alarm\-Pattern\-Composer@{alarm\-Pattern\-Composer}}
+\index{alarm\-Pattern\-Composer@{alarm\-Pattern\-Composer}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{alarm\-Pattern\-Composer}]{\setlength{\rightskip}{0pt plus 5cm}void alarm\-Pattern\-Composer (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a2f100845c4c0f8e9d6ac0d8c1e67daf1}
+\hypertarget{Alarms_8cpp_a2176ca033612b0ecc1bb7e275a6b749a}{\index{Alarms.\-cpp@{Alarms.\-cpp}!blink\-L\-E\-D@{blink\-L\-E\-D}}
+\index{blink\-L\-E\-D@{blink\-L\-E\-D}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{blink\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}void blink\-L\-E\-D (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{num, }
+\item[{uint8\-\_\-t}]{ontime, }
+\item[{uint8\-\_\-t}]{repeat}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a2176ca033612b0ecc1bb7e275a6b749a}
+\hypertarget{Alarms_8cpp_a1523ff2612feb6ebf7648d0108544a43}{\index{Alarms.\-cpp@{Alarms.\-cpp}!is\-Buzzer\-O\-N@{is\-Buzzer\-O\-N}}
+\index{is\-Buzzer\-O\-N@{is\-Buzzer\-O\-N}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{is\-Buzzer\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t is\-Buzzer\-O\-N (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a1523ff2612feb6ebf7648d0108544a43}
+\hypertarget{Alarms_8cpp_a43f5d20fdae2f876decf685e355296f6}{\index{Alarms.\-cpp@{Alarms.\-cpp}!pattern\-Decode@{pattern\-Decode}}
+\index{pattern\-Decode@{pattern\-Decode}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{pattern\-Decode}]{\setlength{\rightskip}{0pt plus 5cm}void pattern\-Decode (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{resource, }
+\item[{uint16\-\_\-t}]{first, }
+\item[{uint16\-\_\-t}]{second, }
+\item[{uint16\-\_\-t}]{third, }
+\item[{uint16\-\_\-t}]{cyclepause, }
+\item[{uint16\-\_\-t}]{endpause}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a43f5d20fdae2f876decf685e355296f6}
+\hypertarget{Alarms_8cpp_a60dab6ca6c3cdcadd9d63d622200b2c4}{\index{Alarms.\-cpp@{Alarms.\-cpp}!Pilot\-Lamp\-Sequence@{Pilot\-Lamp\-Sequence}}
+\index{Pilot\-Lamp\-Sequence@{Pilot\-Lamp\-Sequence}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{Pilot\-Lamp\-Sequence}]{\setlength{\rightskip}{0pt plus 5cm}void Pilot\-Lamp\-Sequence (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{speed, }
+\item[{uint16\-\_\-t}]{pattern, }
+\item[{uint8\-\_\-t}]{num\-\_\-patterns}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a60dab6ca6c3cdcadd9d63d622200b2c4}
+\hypertarget{Alarms_8cpp_a544da6f8684c519dc10068380e38f376}{\index{Alarms.\-cpp@{Alarms.\-cpp}!set\-Timing@{set\-Timing}}
+\index{set\-Timing@{set\-Timing}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{set\-Timing}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Timing (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{resource, }
+\item[{uint16\-\_\-t}]{pulse, }
+\item[{uint16\-\_\-t}]{pause}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a544da6f8684c519dc10068380e38f376}
+\hypertarget{Alarms_8cpp_abfe776636eeb0bb90f6b77c1f093b849}{\index{Alarms.\-cpp@{Alarms.\-cpp}!switch\-\_\-landing\-\_\-lights@{switch\-\_\-landing\-\_\-lights}}
+\index{switch\-\_\-landing\-\_\-lights@{switch\-\_\-landing\-\_\-lights}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{switch\-\_\-landing\-\_\-lights}]{\setlength{\rightskip}{0pt plus 5cm}void switch\-\_\-landing\-\_\-lights (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{on}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{Alarms_8cpp_abfe776636eeb0bb90f6b77c1f093b849}
+\hypertarget{Alarms_8cpp_abf10dece1559da693d0fecaf16accc3c}{\index{Alarms.\-cpp@{Alarms.\-cpp}!switch\-\_\-led\-\_\-flasher@{switch\-\_\-led\-\_\-flasher}}
+\index{switch\-\_\-led\-\_\-flasher@{switch\-\_\-led\-\_\-flasher}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{switch\-\_\-led\-\_\-flasher}]{\setlength{\rightskip}{0pt plus 5cm}void switch\-\_\-led\-\_\-flasher (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{on}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{Alarms_8cpp_abf10dece1559da693d0fecaf16accc3c}
+\hypertarget{Alarms_8cpp_a09f1f7f4cf492eeb2c3abb236deb7f0d}{\index{Alarms.\-cpp@{Alarms.\-cpp}!toggle\-Resource@{toggle\-Resource}}
+\index{toggle\-Resource@{toggle\-Resource}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{toggle\-Resource}]{\setlength{\rightskip}{0pt plus 5cm}void toggle\-Resource (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{resource, }
+\item[{uint8\-\_\-t}]{activate}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a09f1f7f4cf492eeb2c3abb236deb7f0d}
+\hypertarget{Alarms_8cpp_ac1a17304f5af5d86487d1a6aafa91d0f}{\index{Alarms.\-cpp@{Alarms.\-cpp}!turn\-Off@{turn\-Off}}
+\index{turn\-Off@{turn\-Off}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{turn\-Off}]{\setlength{\rightskip}{0pt plus 5cm}void turn\-Off (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{resource}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_ac1a17304f5af5d86487d1a6aafa91d0f}
+\hypertarget{Alarms_8cpp_a2f6a6e9b4c122a29aaf8c2b291bb73ea}{\index{Alarms.\-cpp@{Alarms.\-cpp}!vario\-\_\-output@{vario\-\_\-output}}
+\index{vario\-\_\-output@{vario\-\_\-output}!Alarms.cpp@{Alarms.\-cpp}}
+\subsubsection[{vario\-\_\-output}]{\setlength{\rightskip}{0pt plus 5cm}void vario\-\_\-output (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{d, }
+\item[{uint8\-\_\-t}]{up}
+\end{DoxyParamCaption}
+)}}\label{Alarms_8cpp_a2f6a6e9b4c122a29aaf8c2b291bb73ea}

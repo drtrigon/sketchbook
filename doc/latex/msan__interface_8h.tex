@@ -1,0 +1,214 @@
+\hypertarget{msan__interface_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/sanitizer/msan\-\_\-interface.h File Reference}
+\label{msan__interface_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/msan\-\_\-interface.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/msan\-\_\-interface.\-h}}
+}
+{\ttfamily \#include $<$sanitizer/common\-\_\-interface\-\_\-defs.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{msan__interface_8h_a1d9f4706a0e972f2cd55dc6d0c07aaa4}{\-\_\-\-\_\-msan\-\_\-set\-\_\-origin} (const volatile void $\ast$a, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size, uint32\-\_\-t origin)
+\item 
+uint32\-\_\-t \hyperlink{msan__interface_8h_a5a5591ba121a79f081850555f12b019a}{\-\_\-\-\_\-msan\-\_\-get\-\_\-origin} (const volatile void $\ast$a)
+\item 
+int \hyperlink{msan__interface_8h_a246b272fbb8b53e56d054d96dbd2cd82}{\-\_\-\-\_\-msan\-\_\-origin\-\_\-is\-\_\-descendant\-\_\-or\-\_\-same} (uint32\-\_\-t this\-\_\-id, uint32\-\_\-t prev\-\_\-id)
+\item 
+int \hyperlink{msan__interface_8h_a1597395adf388ee90fba96d4890ebc37}{\-\_\-\-\_\-msan\-\_\-get\-\_\-track\-\_\-origins} ()
+\item 
+uint32\-\_\-t \hyperlink{msan__interface_8h_ad8ab4ea0d1b08c6694401d1e2212400b}{\-\_\-\-\_\-msan\-\_\-get\-\_\-umr\-\_\-origin} ()
+\item 
+void \hyperlink{msan__interface_8h_ada9d75d44294b0042f599cdd896edc61}{\-\_\-\-\_\-msan\-\_\-unpoison} (const volatile void $\ast$a, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{msan__interface_8h_a0a5932583f38a06943192bb502887a74}{\-\_\-\-\_\-msan\-\_\-unpoison\-\_\-string} (const volatile char $\ast$a)
+\item 
+void \hyperlink{msan__interface_8h_a438a1c679baa21da05d0a765c1fa5c6c}{\-\_\-\-\_\-msan\-\_\-poison} (const volatile void $\ast$a, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{msan__interface_8h_aa3bb2c4ddc1421eb7e0509709fb5f2c8}{\-\_\-\-\_\-msan\-\_\-partial\-\_\-poison} (const volatile void $\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, void $\ast$shadow, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+intptr\-\_\-t \hyperlink{msan__interface_8h_ad4cfd96a1e5195e06ee380ec6e61e1a7}{\-\_\-\-\_\-msan\-\_\-test\-\_\-shadow} (const volatile void $\ast$\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{msan__interface_8h_aae07fd5fbc2b4deeab59a3666f42077e}{\-\_\-\-\_\-msan\-\_\-check\-\_\-mem\-\_\-is\-\_\-initialized} (const volatile void $\ast$\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{msan__interface_8h_a099595c347fb71c85b13b348d2c91b4e}{\-\_\-\-\_\-msan\-\_\-set\-\_\-expect\-\_\-umr} (int expect\-\_\-umr)
+\item 
+void \hyperlink{msan__interface_8h_a8a54f4278406f20f2c6aed3f9d6e07da}{\-\_\-\-\_\-msan\-\_\-set\-\_\-keep\-\_\-going} (int keep\-\_\-going)
+\item 
+void \hyperlink{msan__interface_8h_abb22babc4242c7e21b2060cf44609246}{\-\_\-\-\_\-msan\-\_\-print\-\_\-shadow} (const volatile void $\ast$\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{msan__interface_8h_a16d77960198aa679977fc2d236489c36}{\-\_\-\-\_\-msan\-\_\-dump\-\_\-shadow} (const volatile void $\ast$\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+int \hyperlink{msan__interface_8h_a17b65df5e3dda32422b7488b38d0bded}{\-\_\-\-\_\-msan\-\_\-has\-\_\-dynamic\-\_\-component} ()
+\item 
+void \hyperlink{msan__interface_8h_a95358e56090522aee96954c9b145ea61}{\-\_\-\-\_\-msan\-\_\-allocated\-\_\-memory} (const volatile void $\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{msan__interface_8h_ac5929c8b3ce00064caf8dd50be46d115}{\-\_\-\-\_\-sanitizer\-\_\-dtor\-\_\-callback} (const volatile void $\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+const char $\ast$ \hyperlink{msan__interface_8h_a7cf64b22b236b835f66ef8802243d138}{\-\_\-\-\_\-msan\-\_\-default\-\_\-options} ()
+\item 
+void \hyperlink{msan__interface_8h_aa8337d937eeacf5ce1bfa8146bb6ad0a}{\-\_\-\-\_\-msan\-\_\-set\-\_\-death\-\_\-callback} (void($\ast$callback)(void))
+\item 
+void \hyperlink{msan__interface_8h_a7f1ba2dc9364f9394cd917a59fd094d8}{\-\_\-\-\_\-msan\-\_\-copy\-\_\-shadow} (const volatile void $\ast$dst, const volatile void $\ast$src, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{msan__interface_8h_a95358e56090522aee96954c9b145ea61}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-allocated\-\_\-memory@{\-\_\-\-\_\-msan\-\_\-allocated\-\_\-memory}}
+\index{\-\_\-\-\_\-msan\-\_\-allocated\-\_\-memory@{\-\_\-\-\_\-msan\-\_\-allocated\-\_\-memory}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-allocated\-\_\-memory}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-allocated\-\_\-memory (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{data, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a95358e56090522aee96954c9b145ea61}
+\hypertarget{msan__interface_8h_aae07fd5fbc2b4deeab59a3666f42077e}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-check\-\_\-mem\-\_\-is\-\_\-initialized@{\-\_\-\-\_\-msan\-\_\-check\-\_\-mem\-\_\-is\-\_\-initialized}}
+\index{\-\_\-\-\_\-msan\-\_\-check\-\_\-mem\-\_\-is\-\_\-initialized@{\-\_\-\-\_\-msan\-\_\-check\-\_\-mem\-\_\-is\-\_\-initialized}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-check\-\_\-mem\-\_\-is\-\_\-initialized}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-check\-\_\-mem\-\_\-is\-\_\-initialized (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{x, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_aae07fd5fbc2b4deeab59a3666f42077e}
+\hypertarget{msan__interface_8h_a7f1ba2dc9364f9394cd917a59fd094d8}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-copy\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-copy\-\_\-shadow}}
+\index{\-\_\-\-\_\-msan\-\_\-copy\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-copy\-\_\-shadow}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-copy\-\_\-shadow}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-copy\-\_\-shadow (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{dst, }
+\item[{const volatile void $\ast$}]{src, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a7f1ba2dc9364f9394cd917a59fd094d8}
+\hypertarget{msan__interface_8h_a7cf64b22b236b835f66ef8802243d138}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-default\-\_\-options@{\-\_\-\-\_\-msan\-\_\-default\-\_\-options}}
+\index{\-\_\-\-\_\-msan\-\_\-default\-\_\-options@{\-\_\-\-\_\-msan\-\_\-default\-\_\-options}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-default\-\_\-options}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ \-\_\-\-\_\-msan\-\_\-default\-\_\-options (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a7cf64b22b236b835f66ef8802243d138}
+\hypertarget{msan__interface_8h_a16d77960198aa679977fc2d236489c36}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-dump\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-dump\-\_\-shadow}}
+\index{\-\_\-\-\_\-msan\-\_\-dump\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-dump\-\_\-shadow}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-dump\-\_\-shadow}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-dump\-\_\-shadow (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{x, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a16d77960198aa679977fc2d236489c36}
+\hypertarget{msan__interface_8h_a5a5591ba121a79f081850555f12b019a}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-get\-\_\-origin@{\-\_\-\-\_\-msan\-\_\-get\-\_\-origin}}
+\index{\-\_\-\-\_\-msan\-\_\-get\-\_\-origin@{\-\_\-\-\_\-msan\-\_\-get\-\_\-origin}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-get\-\_\-origin}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-\-\_\-msan\-\_\-get\-\_\-origin (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a5a5591ba121a79f081850555f12b019a}
+\hypertarget{msan__interface_8h_a1597395adf388ee90fba96d4890ebc37}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-get\-\_\-track\-\_\-origins@{\-\_\-\-\_\-msan\-\_\-get\-\_\-track\-\_\-origins}}
+\index{\-\_\-\-\_\-msan\-\_\-get\-\_\-track\-\_\-origins@{\-\_\-\-\_\-msan\-\_\-get\-\_\-track\-\_\-origins}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-get\-\_\-track\-\_\-origins}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-msan\-\_\-get\-\_\-track\-\_\-origins (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a1597395adf388ee90fba96d4890ebc37}
+\hypertarget{msan__interface_8h_ad8ab4ea0d1b08c6694401d1e2212400b}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-get\-\_\-umr\-\_\-origin@{\-\_\-\-\_\-msan\-\_\-get\-\_\-umr\-\_\-origin}}
+\index{\-\_\-\-\_\-msan\-\_\-get\-\_\-umr\-\_\-origin@{\-\_\-\-\_\-msan\-\_\-get\-\_\-umr\-\_\-origin}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-get\-\_\-umr\-\_\-origin}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-\-\_\-msan\-\_\-get\-\_\-umr\-\_\-origin (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_ad8ab4ea0d1b08c6694401d1e2212400b}
+\hypertarget{msan__interface_8h_a17b65df5e3dda32422b7488b38d0bded}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-has\-\_\-dynamic\-\_\-component@{\-\_\-\-\_\-msan\-\_\-has\-\_\-dynamic\-\_\-component}}
+\index{\-\_\-\-\_\-msan\-\_\-has\-\_\-dynamic\-\_\-component@{\-\_\-\-\_\-msan\-\_\-has\-\_\-dynamic\-\_\-component}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-has\-\_\-dynamic\-\_\-component}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-msan\-\_\-has\-\_\-dynamic\-\_\-component (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a17b65df5e3dda32422b7488b38d0bded}
+\hypertarget{msan__interface_8h_a246b272fbb8b53e56d054d96dbd2cd82}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-origin\-\_\-is\-\_\-descendant\-\_\-or\-\_\-same@{\-\_\-\-\_\-msan\-\_\-origin\-\_\-is\-\_\-descendant\-\_\-or\-\_\-same}}
+\index{\-\_\-\-\_\-msan\-\_\-origin\-\_\-is\-\_\-descendant\-\_\-or\-\_\-same@{\-\_\-\-\_\-msan\-\_\-origin\-\_\-is\-\_\-descendant\-\_\-or\-\_\-same}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-origin\-\_\-is\-\_\-descendant\-\_\-or\-\_\-same}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-msan\-\_\-origin\-\_\-is\-\_\-descendant\-\_\-or\-\_\-same (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{this\-\_\-id, }
+\item[{uint32\-\_\-t}]{prev\-\_\-id}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a246b272fbb8b53e56d054d96dbd2cd82}
+\hypertarget{msan__interface_8h_aa3bb2c4ddc1421eb7e0509709fb5f2c8}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-partial\-\_\-poison@{\-\_\-\-\_\-msan\-\_\-partial\-\_\-poison}}
+\index{\-\_\-\-\_\-msan\-\_\-partial\-\_\-poison@{\-\_\-\-\_\-msan\-\_\-partial\-\_\-poison}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-partial\-\_\-poison}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-partial\-\_\-poison (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{data, }
+\item[{void $\ast$}]{shadow, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_aa3bb2c4ddc1421eb7e0509709fb5f2c8}
+\hypertarget{msan__interface_8h_a438a1c679baa21da05d0a765c1fa5c6c}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-poison@{\-\_\-\-\_\-msan\-\_\-poison}}
+\index{\-\_\-\-\_\-msan\-\_\-poison@{\-\_\-\-\_\-msan\-\_\-poison}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-poison}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-poison (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{a, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a438a1c679baa21da05d0a765c1fa5c6c}
+\hypertarget{msan__interface_8h_abb22babc4242c7e21b2060cf44609246}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-print\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-print\-\_\-shadow}}
+\index{\-\_\-\-\_\-msan\-\_\-print\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-print\-\_\-shadow}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-print\-\_\-shadow}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-print\-\_\-shadow (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{x, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_abb22babc4242c7e21b2060cf44609246}
+\hypertarget{msan__interface_8h_aa8337d937eeacf5ce1bfa8146bb6ad0a}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-set\-\_\-death\-\_\-callback@{\-\_\-\-\_\-msan\-\_\-set\-\_\-death\-\_\-callback}}
+\index{\-\_\-\-\_\-msan\-\_\-set\-\_\-death\-\_\-callback@{\-\_\-\-\_\-msan\-\_\-set\-\_\-death\-\_\-callback}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-set\-\_\-death\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-set\-\_\-death\-\_\-callback (
+\begin{DoxyParamCaption}
+\item[{void($\ast$)(void)}]{callback}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_aa8337d937eeacf5ce1bfa8146bb6ad0a}
+\hypertarget{msan__interface_8h_a099595c347fb71c85b13b348d2c91b4e}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-set\-\_\-expect\-\_\-umr@{\-\_\-\-\_\-msan\-\_\-set\-\_\-expect\-\_\-umr}}
+\index{\-\_\-\-\_\-msan\-\_\-set\-\_\-expect\-\_\-umr@{\-\_\-\-\_\-msan\-\_\-set\-\_\-expect\-\_\-umr}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-set\-\_\-expect\-\_\-umr}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-set\-\_\-expect\-\_\-umr (
+\begin{DoxyParamCaption}
+\item[{int}]{expect\-\_\-umr}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a099595c347fb71c85b13b348d2c91b4e}
+\hypertarget{msan__interface_8h_a8a54f4278406f20f2c6aed3f9d6e07da}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-set\-\_\-keep\-\_\-going@{\-\_\-\-\_\-msan\-\_\-set\-\_\-keep\-\_\-going}}
+\index{\-\_\-\-\_\-msan\-\_\-set\-\_\-keep\-\_\-going@{\-\_\-\-\_\-msan\-\_\-set\-\_\-keep\-\_\-going}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-set\-\_\-keep\-\_\-going}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-set\-\_\-keep\-\_\-going (
+\begin{DoxyParamCaption}
+\item[{int}]{keep\-\_\-going}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a8a54f4278406f20f2c6aed3f9d6e07da}
+\hypertarget{msan__interface_8h_a1d9f4706a0e972f2cd55dc6d0c07aaa4}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-set\-\_\-origin@{\-\_\-\-\_\-msan\-\_\-set\-\_\-origin}}
+\index{\-\_\-\-\_\-msan\-\_\-set\-\_\-origin@{\-\_\-\-\_\-msan\-\_\-set\-\_\-origin}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-set\-\_\-origin}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-set\-\_\-origin (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{a, }
+\item[{{\bf size\-\_\-t}}]{size, }
+\item[{uint32\-\_\-t}]{origin}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a1d9f4706a0e972f2cd55dc6d0c07aaa4}
+\hypertarget{msan__interface_8h_ad4cfd96a1e5195e06ee380ec6e61e1a7}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-test\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-test\-\_\-shadow}}
+\index{\-\_\-\-\_\-msan\-\_\-test\-\_\-shadow@{\-\_\-\-\_\-msan\-\_\-test\-\_\-shadow}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-test\-\_\-shadow}]{\setlength{\rightskip}{0pt plus 5cm}intptr\-\_\-t \-\_\-\-\_\-msan\-\_\-test\-\_\-shadow (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{x, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_ad4cfd96a1e5195e06ee380ec6e61e1a7}
+\hypertarget{msan__interface_8h_ada9d75d44294b0042f599cdd896edc61}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-unpoison@{\-\_\-\-\_\-msan\-\_\-unpoison}}
+\index{\-\_\-\-\_\-msan\-\_\-unpoison@{\-\_\-\-\_\-msan\-\_\-unpoison}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-unpoison}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-unpoison (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{a, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_ada9d75d44294b0042f599cdd896edc61}
+\hypertarget{msan__interface_8h_a0a5932583f38a06943192bb502887a74}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-msan\-\_\-unpoison\-\_\-string@{\-\_\-\-\_\-msan\-\_\-unpoison\-\_\-string}}
+\index{\-\_\-\-\_\-msan\-\_\-unpoison\-\_\-string@{\-\_\-\-\_\-msan\-\_\-unpoison\-\_\-string}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-msan\-\_\-unpoison\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-msan\-\_\-unpoison\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{const volatile char $\ast$}]{a}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_a0a5932583f38a06943192bb502887a74}
+\hypertarget{msan__interface_8h_ac5929c8b3ce00064caf8dd50be46d115}{\index{msan\-\_\-interface.\-h@{msan\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-dtor\-\_\-callback@{\-\_\-\-\_\-sanitizer\-\_\-dtor\-\_\-callback}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-dtor\-\_\-callback@{\-\_\-\-\_\-sanitizer\-\_\-dtor\-\_\-callback}!msan_interface.h@{msan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-dtor\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-sanitizer\-\_\-dtor\-\_\-callback (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{data, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{msan__interface_8h_ac5929c8b3ce00064caf8dd50be46d115}

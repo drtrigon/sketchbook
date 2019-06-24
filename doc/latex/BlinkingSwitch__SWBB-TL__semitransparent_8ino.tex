@@ -1,0 +1,178 @@
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.ino File Reference}
+\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+}
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include $<$P\-J\-O\-N\-Interactive\-Router.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ade5c854545f689359e3c93af0816012f}{D\-R\-A\-G\-I\-N\-O}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_afe7c01ec8464853a8b557e136e9bd4d5}{E\-N\-A\-B\-L\-E\-\_\-\-S\-W\-B\-B\-\_\-\-D\-E\-B\-U\-G}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a84f1ead330bbcc83a63929c4726080d7}{S\-E\-N\-S\-O\-R}~\char`\"{}owp\-:sw\-:db\-:v1\char`\"{}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}~0x01
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a5e0a7e710138136020c1614624faf0a1}{R\-E\-A\-D\-\_\-\-D\-E\-B\-U\-G}~0x99
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ab5e96fdebe625793e8ec86ab6b5d9043}{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}~A2
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a4a71aecac635579082c10addb16df4a0}{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}~\hyperlink{Yun__Dragino__Server__LoRa__WAN__RTOS_8ino_ab5e96fdebe625793e8ec86ab6b5d9043}{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_aae3f0b4211ba45d265973d40ccbb5fd1}{S\-E\-R\-I\-A\-L}~Console
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a34fea28a7531677453da5e072f172a78}{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}~4
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_aeebf956fc71944a6237c3af6a038ff70}{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_af093da5eac99580be6ba61b4dc79f2c1}{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N\-Interactive\-Router\\*
+$<$ P\-J\-O\-N\-Virtual\-Bus\-Router\\*
+$<$ P\-J\-O\-N\-Switch $>$ $>$ \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{router} (2,(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\})
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_af488e931618139cd40b126dabfe9b6bb}{sendnotification\-\_\-function} (const uint8\-\_\-t $\ast$const \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, const uint16\-\_\-t length, const uint8\-\_\-t receiver\-\_\-bus, const uint8\-\_\-t sender\-\_\-bus, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_acbeb8ee6ee1960e6bba5ab9bcf75db6b}{error\-\_\-handler} (uint8\-\_\-t code, uint16\-\_\-t \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, void $\ast$custom\-\_\-pointer)
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a9ba8dfc203186a2f0979d11ff6b9036b}{time\-\_\-last\-\_\-message}
+\item 
+unsigned long \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a1d821dadbe06a483b1d7a9a54cbea121}{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T} = 0
+\item 
+unsigned long \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a27c70f9da061a3764d389b5c3e3debdb}{count\-\_\-\-P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-S\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L} = 0
+\item 
+unsigned long \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a8c3b379e60a8a3c0775b4960428606bf}{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-T\-E\-N\-T\-\_\-\-T\-O\-O\-\_\-\-L\-O\-N\-G} = 0
+\item 
+Strategy\-Link$<$ Software\-Bit\-Bang $>$ \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}{link1}
+\item 
+Strategy\-Link$<$ Through\-Lora $>$ \hyperlink{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a6ab0c6e3e6ae04f06e58b38531729623}{link2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a4a71aecac635579082c10addb16df4a0}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D@{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}}
+\index{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D@{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D~{\bf H\-E\-A\-R\-T\-\_\-\-L\-E\-D}}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a4a71aecac635579082c10addb16df4a0}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ade5c854545f689359e3c93af0816012f}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!D\-R\-A\-G\-I\-N\-O@{D\-R\-A\-G\-I\-N\-O}}
+\index{D\-R\-A\-G\-I\-N\-O@{D\-R\-A\-G\-I\-N\-O}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{D\-R\-A\-G\-I\-N\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-R\-A\-G\-I\-N\-O}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ade5c854545f689359e3c93af0816012f}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_afe7c01ec8464853a8b557e136e9bd4d5}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!E\-N\-A\-B\-L\-E\-\_\-\-S\-W\-B\-B\-\_\-\-D\-E\-B\-U\-G@{E\-N\-A\-B\-L\-E\-\_\-\-S\-W\-B\-B\-\_\-\-D\-E\-B\-U\-G}}
+\index{E\-N\-A\-B\-L\-E\-\_\-\-S\-W\-B\-B\-\_\-\-D\-E\-B\-U\-G@{E\-N\-A\-B\-L\-E\-\_\-\-S\-W\-B\-B\-\_\-\-D\-E\-B\-U\-G}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{E\-N\-A\-B\-L\-E\-\_\-\-S\-W\-B\-B\-\_\-\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-A\-B\-L\-E\-\_\-\-S\-W\-B\-B\-\_\-\-D\-E\-B\-U\-G}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_afe7c01ec8464853a8b557e136e9bd4d5}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ab5e96fdebe625793e8ec86ab6b5d9043}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!H\-E\-A\-R\-T\-\_\-\-L\-E\-D@{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}}
+\index{H\-E\-A\-R\-T\-\_\-\-L\-E\-D@{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-E\-A\-R\-T\-\_\-\-L\-E\-D~A2}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ab5e96fdebe625793e8ec86ab6b5d9043}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a34fea28a7531677453da5e072f172a78}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N@{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}}
+\index{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N@{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N~4}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a34fea28a7531677453da5e072f172a78}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_aeebf956fc71944a6237c3af6a038ff70}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}}
+\index{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_aeebf956fc71944a6237c3af6a038ff70}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_af093da5eac99580be6ba61b4dc79f2c1}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}}
+\index{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S~3}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_af093da5eac99580be6ba61b4dc79f2c1}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a5e0a7e710138136020c1614624faf0a1}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!R\-E\-A\-D\-\_\-\-D\-E\-B\-U\-G@{R\-E\-A\-D\-\_\-\-D\-E\-B\-U\-G}}
+\index{R\-E\-A\-D\-\_\-\-D\-E\-B\-U\-G@{R\-E\-A\-D\-\_\-\-D\-E\-B\-U\-G}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-D\-E\-B\-U\-G~0x99}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a5e0a7e710138136020c1614624faf0a1}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}}
+\index{R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-I\-N\-F\-O~0x01}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a84f1ead330bbcc83a63929c4726080d7}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}}
+\index{S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{S\-E\-N\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-N\-S\-O\-R~\char`\"{}owp\-:sw\-:db\-:v1\char`\"{}}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a84f1ead330bbcc83a63929c4726080d7}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_aae3f0b4211ba45d265973d40ccbb5fd1}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!S\-E\-R\-I\-A\-L@{S\-E\-R\-I\-A\-L}}
+\index{S\-E\-R\-I\-A\-L@{S\-E\-R\-I\-A\-L}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{S\-E\-R\-I\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-I\-A\-L~Console}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_aae3f0b4211ba45d265973d40ccbb5fd1}
+
+
+\subsection{Function Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_acbeb8ee6ee1960e6bba5ab9bcf75db6b}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!error\-\_\-handler@{error\-\_\-handler}}
+\index{error\-\_\-handler@{error\-\_\-handler}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{error\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void error\-\_\-handler (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{code, }
+\item[{uint16\-\_\-t}]{data, }
+\item[{void $\ast$}]{custom\-\_\-pointer}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_acbeb8ee6ee1960e6bba5ab9bcf75db6b}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!loop@{loop}}
+\index{loop@{loop}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!receiver\-\_\-function@{receiver\-\_\-function}}
+\index{receiver\-\_\-function@{receiver\-\_\-function}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{receiver\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a76fc5e73c141f748dcc1809fdcfa1714}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!router@{router}}
+\index{router@{router}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{router}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Interactive\-Router$<$P\-J\-O\-N\-Virtual\-Bus\-Router$<$P\-J\-O\-N\-Switch$>$ $>$ router (
+\begin{DoxyParamCaption}
+\item[{2}]{, }
+\item[{(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\}}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_af488e931618139cd40b126dabfe9b6bb}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!sendnotification\-\_\-function@{sendnotification\-\_\-function}}
+\index{sendnotification\-\_\-function@{sendnotification\-\_\-function}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{sendnotification\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void sendnotification\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{const uint8\-\_\-t $\ast$const}]{payload, }
+\item[{const uint16\-\_\-t}]{length, }
+\item[{const uint8\-\_\-t}]{receiver\-\_\-bus, }
+\item[{const uint8\-\_\-t}]{sender\-\_\-bus, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_af488e931618139cd40b126dabfe9b6bb}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!setup@{setup}}
+\index{setup@{setup}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a1d821dadbe06a483b1d7a9a54cbea121}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T@{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T}}
+\index{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T@{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-N\-E\-C\-T\-I\-O\-N\-\_\-\-L\-O\-S\-T = 0}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a1d821dadbe06a483b1d7a9a54cbea121}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a8c3b379e60a8a3c0775b4960428606bf}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-T\-E\-N\-T\-\_\-\-T\-O\-O\-\_\-\-L\-O\-N\-G@{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-T\-E\-N\-T\-\_\-\-T\-O\-O\-\_\-\-L\-O\-N\-G}}
+\index{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-T\-E\-N\-T\-\_\-\-T\-O\-O\-\_\-\-L\-O\-N\-G@{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-T\-E\-N\-T\-\_\-\-T\-O\-O\-\_\-\-L\-O\-N\-G}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-T\-E\-N\-T\-\_\-\-T\-O\-O\-\_\-\-L\-O\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long count\-\_\-\-P\-J\-O\-N\-\_\-\-C\-O\-N\-T\-E\-N\-T\-\_\-\-T\-O\-O\-\_\-\-L\-O\-N\-G = 0}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a8c3b379e60a8a3c0775b4960428606bf}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a27c70f9da061a3764d389b5c3e3debdb}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!count\-\_\-\-P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-S\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L@{count\-\_\-\-P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-S\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L}}
+\index{count\-\_\-\-P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-S\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L@{count\-\_\-\-P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-S\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{count\-\_\-\-P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-S\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long count\-\_\-\-P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-S\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-F\-U\-L\-L = 0}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a27c70f9da061a3764d389b5c3e3debdb}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!link1@{link1}}
+\index{link1@{link1}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{link1}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus1\& link1}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a6ab0c6e3e6ae04f06e58b38531729623}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!link2@{link2}}
+\index{link2@{link2}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{link2}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus2\& link2}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a6ab0c6e3e6ae04f06e58b38531729623}
+\hypertarget{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a9ba8dfc203186a2f0979d11ff6b9036b}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}!time\-\_\-last\-\_\-message@{time\-\_\-last\-\_\-message}}
+\index{time\-\_\-last\-\_\-message@{time\-\_\-last\-\_\-message}!BlinkingSwitch_SWBB-TL_semitransparent.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L\-\_\-semitransparent.\-ino}}
+\subsubsection[{time\-\_\-last\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long time\-\_\-last\-\_\-message}}\label{BlinkingSwitch__SWBB-TL__semitransparent_8ino_a9ba8dfc203186a2f0979d11ff6b9036b}

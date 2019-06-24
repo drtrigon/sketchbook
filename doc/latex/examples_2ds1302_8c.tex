@@ -1,0 +1,82 @@
+\hypertarget{examples_2ds1302_8c}{\section{wiring\-Pi/examples/ds1302.c File Reference}
+\label{examples_2ds1302_8c}\index{wiring\-Pi/examples/ds1302.\-c@{wiring\-Pi/examples/ds1302.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$ds1302.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{examples_2ds1302_8c_aa86f159915dace411e5a7b74ecc130bd}{R\-T\-C\-\_\-\-S\-E\-C\-S}~0
+\item 
+\#define \hyperlink{examples_2ds1302_8c_a1bad17ef559ad960bba47fe87643b4c7}{R\-T\-C\-\_\-\-M\-I\-N\-S}~1
+\item 
+\#define \hyperlink{examples_2ds1302_8c_a4d74cdb9a956c4f1783ad5aff00dc2b8}{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}~2
+\item 
+\#define \hyperlink{examples_2ds1302_8c_a6f25f228247dc102195a2adf70311dc5}{R\-T\-C\-\_\-\-D\-A\-T\-E}~3
+\item 
+\#define \hyperlink{examples_2ds1302_8c_abda0c877ee1a02b8351c0cfe72838088}{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}~4
+\item 
+\#define \hyperlink{examples_2ds1302_8c_a8645ae13bb42ddf10d3ca762a8754160}{R\-T\-C\-\_\-\-D\-A\-Y}~5
+\item 
+\#define \hyperlink{examples_2ds1302_8c_a1df5568e6774b73aa4c6e59fc40e9147}{R\-T\-C\-\_\-\-Y\-E\-A\-R}~6
+\item 
+\#define \hyperlink{examples_2ds1302_8c_ae2d15d948251b0517e7f394e90a75c42}{R\-T\-C\-\_\-\-W\-P}~7
+\item 
+\#define \hyperlink{examples_2ds1302_8c_a762ea88389274bf9a017f665635f1f94}{R\-T\-C\-\_\-\-T\-C}~8
+\item 
+\#define \hyperlink{examples_2ds1302_8c_a665b64be64122b340468dcd75141d841}{R\-T\-C\-\_\-\-B\-M}~31
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{examples_2ds1302_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{examples_2ds1302_8c_a665b64be64122b340468dcd75141d841}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-B\-M@{R\-T\-C\-\_\-\-B\-M}}
+\index{R\-T\-C\-\_\-\-B\-M@{R\-T\-C\-\_\-\-B\-M}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-B\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-B\-M~31}}\label{examples_2ds1302_8c_a665b64be64122b340468dcd75141d841}
+\hypertarget{examples_2ds1302_8c_a6f25f228247dc102195a2adf70311dc5}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-D\-A\-T\-E@{R\-T\-C\-\_\-\-D\-A\-T\-E}}
+\index{R\-T\-C\-\_\-\-D\-A\-T\-E@{R\-T\-C\-\_\-\-D\-A\-T\-E}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-D\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-D\-A\-T\-E~3}}\label{examples_2ds1302_8c_a6f25f228247dc102195a2adf70311dc5}
+\hypertarget{examples_2ds1302_8c_a8645ae13bb42ddf10d3ca762a8754160}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-D\-A\-Y@{R\-T\-C\-\_\-\-D\-A\-Y}}
+\index{R\-T\-C\-\_\-\-D\-A\-Y@{R\-T\-C\-\_\-\-D\-A\-Y}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-D\-A\-Y~5}}\label{examples_2ds1302_8c_a8645ae13bb42ddf10d3ca762a8754160}
+\hypertarget{examples_2ds1302_8c_a4d74cdb9a956c4f1783ad5aff00dc2b8}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-H\-O\-U\-R\-S@{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}}
+\index{R\-T\-C\-\_\-\-H\-O\-U\-R\-S@{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-H\-O\-U\-R\-S~2}}\label{examples_2ds1302_8c_a4d74cdb9a956c4f1783ad5aff00dc2b8}
+\hypertarget{examples_2ds1302_8c_a1bad17ef559ad960bba47fe87643b4c7}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-M\-I\-N\-S@{R\-T\-C\-\_\-\-M\-I\-N\-S}}
+\index{R\-T\-C\-\_\-\-M\-I\-N\-S@{R\-T\-C\-\_\-\-M\-I\-N\-S}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-M\-I\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-M\-I\-N\-S~1}}\label{examples_2ds1302_8c_a1bad17ef559ad960bba47fe87643b4c7}
+\hypertarget{examples_2ds1302_8c_abda0c877ee1a02b8351c0cfe72838088}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-M\-O\-N\-T\-H@{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}}
+\index{R\-T\-C\-\_\-\-M\-O\-N\-T\-H@{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-M\-O\-N\-T\-H~4}}\label{examples_2ds1302_8c_abda0c877ee1a02b8351c0cfe72838088}
+\hypertarget{examples_2ds1302_8c_aa86f159915dace411e5a7b74ecc130bd}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-S\-E\-C\-S@{R\-T\-C\-\_\-\-S\-E\-C\-S}}
+\index{R\-T\-C\-\_\-\-S\-E\-C\-S@{R\-T\-C\-\_\-\-S\-E\-C\-S}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-S\-E\-C\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-S\-E\-C\-S~0}}\label{examples_2ds1302_8c_aa86f159915dace411e5a7b74ecc130bd}
+\hypertarget{examples_2ds1302_8c_a762ea88389274bf9a017f665635f1f94}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-T\-C@{R\-T\-C\-\_\-\-T\-C}}
+\index{R\-T\-C\-\_\-\-T\-C@{R\-T\-C\-\_\-\-T\-C}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-T\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-T\-C~8}}\label{examples_2ds1302_8c_a762ea88389274bf9a017f665635f1f94}
+\hypertarget{examples_2ds1302_8c_ae2d15d948251b0517e7f394e90a75c42}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-W\-P@{R\-T\-C\-\_\-\-W\-P}}
+\index{R\-T\-C\-\_\-\-W\-P@{R\-T\-C\-\_\-\-W\-P}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-W\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-W\-P~7}}\label{examples_2ds1302_8c_ae2d15d948251b0517e7f394e90a75c42}
+\hypertarget{examples_2ds1302_8c_a1df5568e6774b73aa4c6e59fc40e9147}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!R\-T\-C\-\_\-\-Y\-E\-A\-R@{R\-T\-C\-\_\-\-Y\-E\-A\-R}}
+\index{R\-T\-C\-\_\-\-Y\-E\-A\-R@{R\-T\-C\-\_\-\-Y\-E\-A\-R}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-Y\-E\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-Y\-E\-A\-R~6}}\label{examples_2ds1302_8c_a1df5568e6774b73aa4c6e59fc40e9147}
+
+
+\subsection{Function Documentation}
+\hypertarget{examples_2ds1302_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{examples/ds1302.\-c@{examples/ds1302.\-c}!main@{main}}
+\index{main@{main}!examples/ds1302.c@{examples/ds1302.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{examples_2ds1302_8c_a0ddf1224851353fc92bfbff6f499fa97}

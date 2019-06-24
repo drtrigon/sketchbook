@@ -1,0 +1,885 @@
+\hypertarget{avx512erintrin_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/avx512erintrin.h File Reference}
+\label{avx512erintrin_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/avx512erintrin.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/avx512erintrin.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{avx512erintrin_8h_a718f8f288316f8649ba86bb0087c62ac}{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd}(A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a15f0343d46b3ef380618ecebf7e4f6f3}{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a267468768e729d741ed396089ecbfc69}{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd}(M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a83a5507608cec0f15c23a7fc4b280ff3}{\-\_\-mm512\-\_\-exp2a23\-\_\-pd}(A)~\hyperlink{avx512erintrin_8h_a718f8f288316f8649ba86bb0087c62ac}{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd}((A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a4f9ccb4598e7c0a94b7929a7cb20641f}{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-pd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A)~\hyperlink{avx512erintrin_8h_a15f0343d46b3ef380618ecebf7e4f6f3}{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ab0b06e3f1c9f8585d328eb4cbb521976}{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-pd}(M, A)~\hyperlink{avx512erintrin_8h_a267468768e729d741ed396089ecbfc69}{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd}((M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a7f15645c3c39c1fe54f302e6e3afa592}{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps}(A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a9959f4a1b272c1a651f6d2e5ee16a6bf}{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_af90baf0672253208953050cf73a704dd}{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps}(M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a7dd5b7d022ddd8919a35c7f8fc898780}{\-\_\-mm512\-\_\-exp2a23\-\_\-ps}(A)~\hyperlink{avx512erintrin_8h_a7f15645c3c39c1fe54f302e6e3afa592}{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps}((A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a98f32353a438e7b2e24d2ced022d5d5e}{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-ps}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A)~\hyperlink{avx512erintrin_8h_a9959f4a1b272c1a651f6d2e5ee16a6bf}{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ae1955d843e880dd7ae07aa75d9260937}{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-ps}(M, A)~\hyperlink{avx512erintrin_8h_af90baf0672253208953050cf73a704dd}{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps}((M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a52ce0dbdbf70b160724646e585ceba99}{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd}(A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a35f719122cc0af8f9979af6338c87df9}{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a7d6ae675d4b5d154106a79f8b8f91f0d}{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd}(M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a3b3532ce10e57b0a3880fc8ef210462d}{\-\_\-mm512\-\_\-rsqrt28\-\_\-pd}(A)~\hyperlink{avx512erintrin_8h_a52ce0dbdbf70b160724646e585ceba99}{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd}((A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a02d5806571da81f2c7aacb64bf5ac9d9}{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-pd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A)~\hyperlink{avx512erintrin_8h_a35f719122cc0af8f9979af6338c87df9}{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ae08d4f96b98d91085fbde21a8c5b85e0}{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-pd}(M, A)~\hyperlink{avx512erintrin_8h_a7d6ae675d4b5d154106a79f8b8f91f0d}{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd}((M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ab436638f87f862cd31aca0c07568813c}{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps}(A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a174bbc29a70381cb7ae7c72e18c9d1c8}{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ad0d0af951f833a98049cfa900a992479}{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps}(M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_abebfedf8e173383af982eb0a431b2d02}{\-\_\-mm512\-\_\-rsqrt28\-\_\-ps}(A)~\hyperlink{avx512erintrin_8h_ab436638f87f862cd31aca0c07568813c}{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps}((A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a7f6f0ad958f1a9888172773107bdcd95}{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-ps}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A)~\hyperlink{avx512erintrin_8h_a174bbc29a70381cb7ae7c72e18c9d1c8}{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), A, \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a69acff1a2d3609fd4b609a881b69dc63}{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-ps}(M, A)~\hyperlink{avx512erintrin_8h_ad0d0af951f833a98049cfa900a992479}{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps}((M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_afe5ac5dccdfc9c74896b5954f7c5b0f1}{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_acaf0070357018f1a42386b367113934b}{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a91126cc163838e719079f85cceb5cd4e}{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a22a6df8dcfad21e14dee280ea24f230d}{\-\_\-mm\-\_\-rsqrt28\-\_\-ss}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_afe5ac5dccdfc9c74896b5954f7c5b0f1}{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss}((A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a01d52817369d1bcae947dd33e929f7d4}{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-ss}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_acaf0070357018f1a42386b367113934b}{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_aa8d6a633d6710ea5db2de5ca8af9e412}{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-ss}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_a91126cc163838e719079f85cceb5cd4e}{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss}((M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_aa4f2f4ea2dc849203eecb4f4aaf436a7}{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ade886579d6c58413ac49e7685db6dcca}{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a02ca228b53ca2154b60e4e53baa21104}{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-sd}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_aa57f621fe276f6576d76d1c82f63a87c}{\-\_\-mm\-\_\-rsqrt28\-\_\-sd}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_aa4f2f4ea2dc849203eecb4f4aaf436a7}{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd}((A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a809ab804d23e6df242b841c84df58b8c}{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-sd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_ade886579d6c58413ac49e7685db6dcca}{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a1d66ed88b320803f57990b92be8255da}{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-sd}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_ade886579d6c58413ac49e7685db6dcca}{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}((M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_aa971bddf01f808fd64bb48e78bc8542f}{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd}(A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_acabf2202397ba9ed93b13de9efdcaa15}{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a5db4dbb361cb0539cb4966c81dfc7a39}{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd}(M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_af67a79ae661cd58daf3b98c64e0253d1}{\-\_\-mm512\-\_\-rcp28\-\_\-pd}(A)~\hyperlink{avx512erintrin_8h_aa971bddf01f808fd64bb48e78bc8542f}{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd}((A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a7b3c01e7ab96323835e880ec02a28517}{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-pd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A)~\hyperlink{avx512erintrin_8h_acabf2202397ba9ed93b13de9efdcaa15}{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a9c4bc1141e600a696328dc96ed974b5d}{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-pd}(M, A)~\hyperlink{avx512erintrin_8h_a5db4dbb361cb0539cb4966c81dfc7a39}{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd}((M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a76363ce68496b751ccbbf91724c1cbef}{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps}(A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a1e673cf5736bc3f70db0a12dccc1c1b2}{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a01a161ad4f83ce02851df93b34d5cc4a}{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps}(M, A, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ac4f0dd6d46a37ba9d4e5043587897398}{\-\_\-mm512\-\_\-rcp28\-\_\-ps}(A)~\hyperlink{avx512erintrin_8h_a76363ce68496b751ccbbf91724c1cbef}{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps}((A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a14ef50f47acfa3e16fdabf448d112368}{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-ps}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A)~\hyperlink{avx512erintrin_8h_a1e673cf5736bc3f70db0a12dccc1c1b2}{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a0542c8108183e0f7b2d19491d24cb077}{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-ps}(M, A)~\hyperlink{avx512erintrin_8h_a01a161ad4f83ce02851df93b34d5cc4a}{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps}((M), (A), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_adac7afee2a49034ddfcafde46fb88329}{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a5a84bd3fc5ce2419bd9d5228f9a1b531}{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a2a5035165754e1cf14f4a5d49c313b31}{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a1e5d862b6f61c3a5a0ebe5d91d8dea79}{\-\_\-mm\-\_\-rcp28\-\_\-ss}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_adac7afee2a49034ddfcafde46fb88329}{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss}((A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_ab3eeb4b99f6ed88c0f150f9088d2c085}{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-ss}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_a5a84bd3fc5ce2419bd9d5228f9a1b531}{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_abb1732abd32a8462498528675eb4f94a}{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-ss}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_a2a5035165754e1cf14f4a5d49c313b31}{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss}((M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a34deec87525d5ac9e16b7fe94407377a}{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a21e3c06bd86d4d4b18398bc42b91b066}{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a51c07da02b8acdc57065435ce381d76c}{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a9ceeabd620186b1209c49e9b6f3dffb7}{\-\_\-mm\-\_\-rcp28\-\_\-sd}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_a34deec87525d5ac9e16b7fe94407377a}{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd}((A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a616f0518a9d7166a5fb5f3fc15b07449}{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-sd}(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}, M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_a21e3c06bd86d4d4b18398bc42b91b066}{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd}((\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), (M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{avx512erintrin_8h_a2dbcd959edc23247a3dd3b0281b6d12b}{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-sd}(M, A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B})~\hyperlink{avx512erintrin_8h_a51c07da02b8acdc57065435ce381d76c}{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd}((M), (A), (\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{avx512erintrin_8h_a83a5507608cec0f15c23a7fc4b280ff3}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-exp2a23\-\_\-pd@{\-\_\-mm512\-\_\-exp2a23\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-exp2a23\-\_\-pd@{\-\_\-mm512\-\_\-exp2a23\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-exp2a23\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-exp2a23\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd}((A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a83a5507608cec0f15c23a7fc4b280ff3}
+\hypertarget{avx512erintrin_8h_a7dd5b7d022ddd8919a35c7f8fc898780}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-exp2a23\-\_\-ps@{\-\_\-mm512\-\_\-exp2a23\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-exp2a23\-\_\-ps@{\-\_\-mm512\-\_\-exp2a23\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-exp2a23\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-exp2a23\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps}((A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a7dd5b7d022ddd8919a35c7f8fc898780}
+\hypertarget{avx512erintrin_8h_a718f8f288316f8649ba86bb0087c62ac}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a718f8f288316f8649ba86bb0087c62ac}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_exp2pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                      (\_\_v8df)\_mm512\_setzero\_pd(), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a7f15645c3c39c1fe54f302e6e3afa592}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-exp2a23\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a7f15645c3c39c1fe54f302e6e3afa592}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_exp2ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                     (\_\_v16sf)\_mm512\_setzero\_ps(), \(\backslash\)
+                                     (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a4f9ccb4598e7c0a94b7929a7cb20641f}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd}(({\bf S}), (M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a4f9ccb4598e7c0a94b7929a7cb20641f}
+\hypertarget{avx512erintrin_8h_a98f32353a438e7b2e24d2ced022d5d5e}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps}(({\bf S}), (M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a98f32353a438e7b2e24d2ced022d5d5e}
+\hypertarget{avx512erintrin_8h_a15f0343d46b3ef380618ecebf7e4f6f3}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a15f0343d46b3ef380618ecebf7e4f6f3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_exp2pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                      (\_\_v8df)(\_\_m512d)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a9959f4a1b272c1a651f6d2e5ee16a6bf}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-exp2a23\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a9959f4a1b272c1a651f6d2e5ee16a6bf}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_exp2ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                     (\_\_v16sf)(\_\_m512)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                     (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a7b3c01e7ab96323835e880ec02a28517}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd}(({\bf S}), (M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a7b3c01e7ab96323835e880ec02a28517}
+\hypertarget{avx512erintrin_8h_a14ef50f47acfa3e16fdabf448d112368}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps}(({\bf S}), (M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a14ef50f47acfa3e16fdabf448d112368}
+\hypertarget{avx512erintrin_8h_acabf2202397ba9ed93b13de9efdcaa15}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_acabf2202397ba9ed93b13de9efdcaa15}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_rcp28pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                       (\_\_v8df)(\_\_m512d)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                       (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a1e673cf5736bc3f70db0a12dccc1c1b2}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a1e673cf5736bc3f70db0a12dccc1c1b2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_rcp28ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                      (\_\_v16sf)(\_\_m512)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a02d5806571da81f2c7aacb64bf5ac9d9}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd}(({\bf S}), (M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a02d5806571da81f2c7aacb64bf5ac9d9}
+\hypertarget{avx512erintrin_8h_a7f6f0ad958f1a9888172773107bdcd95}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps}(({\bf S}), (M), A, {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a7f6f0ad958f1a9888172773107bdcd95}
+\hypertarget{avx512erintrin_8h_a35f719122cc0af8f9979af6338c87df9}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a35f719122cc0af8f9979af6338c87df9}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_rsqrt28pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                         (\_\_v8df)(\_\_m512d)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                         (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a174bbc29a70381cb7ae7c72e18c9d1c8}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a174bbc29a70381cb7ae7c72e18c9d1c8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_rsqrt28ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                        (\_\_v16sf)(\_\_m512)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                        (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_ab0b06e3f1c9f8585d328eb4cbb521976}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd}((M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_ab0b06e3f1c9f8585d328eb4cbb521976}
+\hypertarget{avx512erintrin_8h_ae1955d843e880dd7ae07aa75d9260937}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps}((M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_ae1955d843e880dd7ae07aa75d9260937}
+\hypertarget{avx512erintrin_8h_a267468768e729d741ed396089ecbfc69}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a267468768e729d741ed396089ecbfc69}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_exp2pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                      (\_\_v8df)\_mm512\_setzero\_pd(), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_af90baf0672253208953050cf73a704dd}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-exp2a23\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_af90baf0672253208953050cf73a704dd}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_exp2ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                     (\_\_v16sf)\_mm512\_setzero\_ps(), \(\backslash\)
+                                     (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a9c4bc1141e600a696328dc96ed974b5d}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd}((M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a9c4bc1141e600a696328dc96ed974b5d}
+\hypertarget{avx512erintrin_8h_a0542c8108183e0f7b2d19491d24cb077}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps}((M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a0542c8108183e0f7b2d19491d24cb077}
+\hypertarget{avx512erintrin_8h_a5db4dbb361cb0539cb4966c81dfc7a39}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a5db4dbb361cb0539cb4966c81dfc7a39}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_rcp28pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                       (\_\_v8df)\_mm512\_setzero\_pd(), \(\backslash\)
+                                       (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a01a161ad4f83ce02851df93b34d5cc4a}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a01a161ad4f83ce02851df93b34d5cc4a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_rcp28ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                      (\_\_v16sf)\_mm512\_setzero\_ps(), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_ae08d4f96b98d91085fbde21a8c5b85e0}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd}((M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_ae08d4f96b98d91085fbde21a8c5b85e0}
+\hypertarget{avx512erintrin_8h_a69acff1a2d3609fd4b609a881b69dc63}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps}((M), (A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a69acff1a2d3609fd4b609a881b69dc63}
+\hypertarget{avx512erintrin_8h_a7d6ae675d4b5d154106a79f8b8f91f0d}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a7d6ae675d4b5d154106a79f8b8f91f0d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_rsqrt28pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                         (\_\_v8df)\_mm512\_setzero\_pd(), \(\backslash\)
+                                         (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_ad0d0af951f833a98049cfa900a992479}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_ad0d0af951f833a98049cfa900a992479}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_rsqrt28ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                        (\_\_v16sf)\_mm512\_setzero\_ps(), \(\backslash\)
+                                        (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_af67a79ae661cd58daf3b98c64e0253d1}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rcp28\-\_\-pd@{\-\_\-mm512\-\_\-rcp28\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-rcp28\-\_\-pd@{\-\_\-mm512\-\_\-rcp28\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rcp28\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rcp28\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd}((A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_af67a79ae661cd58daf3b98c64e0253d1}
+\hypertarget{avx512erintrin_8h_ac4f0dd6d46a37ba9d4e5043587897398}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rcp28\-\_\-ps@{\-\_\-mm512\-\_\-rcp28\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-rcp28\-\_\-ps@{\-\_\-mm512\-\_\-rcp28\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rcp28\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rcp28\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps}((A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_ac4f0dd6d46a37ba9d4e5043587897398}
+\hypertarget{avx512erintrin_8h_aa971bddf01f808fd64bb48e78bc8542f}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_aa971bddf01f808fd64bb48e78bc8542f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_rcp28pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                       (\_\_v8df)\_mm512\_setzero\_pd(), \(\backslash\)
+                                       (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a76363ce68496b751ccbbf91724c1cbef}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rcp28\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a76363ce68496b751ccbbf91724c1cbef}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_rcp28ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                      (\_\_v16sf)\_mm512\_setzero\_ps(), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a3b3532ce10e57b0a3880fc8ef210462d}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rsqrt28\-\_\-pd@{\-\_\-mm512\-\_\-rsqrt28\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-rsqrt28\-\_\-pd@{\-\_\-mm512\-\_\-rsqrt28\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rsqrt28\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rsqrt28\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd}((A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a3b3532ce10e57b0a3880fc8ef210462d}
+\hypertarget{avx512erintrin_8h_abebfedf8e173383af982eb0a431b2d02}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rsqrt28\-\_\-ps@{\-\_\-mm512\-\_\-rsqrt28\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-rsqrt28\-\_\-ps@{\-\_\-mm512\-\_\-rsqrt28\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rsqrt28\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rsqrt28\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{A}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps}((A), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_abebfedf8e173383af982eb0a431b2d02}
+\hypertarget{avx512erintrin_8h_a52ce0dbdbf70b160724646e585ceba99}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a52ce0dbdbf70b160724646e585ceba99}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d)\_\_builtin\_ia32\_rsqrt28pd\_mask((\_\_v8df)(\_\_m512d)(A), \(\backslash\)
+                                         (\_\_v8df)\_mm512\_setzero\_pd(), \(\backslash\)
+                                         (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_ab436638f87f862cd31aca0c07568813c}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-rsqrt28\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_ab436638f87f862cd31aca0c07568813c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512)\_\_builtin\_ia32\_rsqrt28ps\_mask((\_\_v16sf)(\_\_m512)(A), \(\backslash\)
+                                        (\_\_v16sf)\_mm512\_setzero\_ps(), \(\backslash\)
+                                        (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a21e3c06bd86d4d4b18398bc42b91b066}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a21e3c06bd86d4d4b18398bc42b91b066}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_rcp28sd\_round((\_\_v2df)(\_\_m128d)(A), \(\backslash\)
+                                       (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                       (\_\_v2df)(\_\_m128d)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                       (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a5a84bd3fc5ce2419bd9d5228f9a1b531}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a5a84bd3fc5ce2419bd9d5228f9a1b531}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_rcp28ss\_round((\_\_v4sf)(\_\_m128)(A), \(\backslash\)
+                                      (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                      (\_\_v4sf)(\_\_m128)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a616f0518a9d7166a5fb5f3fc15b07449}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-sd}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-sd}(({\bf S}), (M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a616f0518a9d7166a5fb5f3fc15b07449}
+\hypertarget{avx512erintrin_8h_ab3eeb4b99f6ed88c0f150f9088d2c085}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-ss}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-mask\-\_\-rcp28\-\_\-round\-\_\-ss}(({\bf S}), (M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_ab3eeb4b99f6ed88c0f150f9088d2c085}
+\hypertarget{avx512erintrin_8h_ade886579d6c58413ac49e7685db6dcca}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_ade886579d6c58413ac49e7685db6dcca}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_rsqrt28sd\_round((\_\_v2df)(\_\_m128d)(A), \(\backslash\)
+                                         (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                         (\_\_v2df)(\_\_m128d)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                         (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_acaf0070357018f1a42386b367113934b}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_acaf0070357018f1a42386b367113934b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_rsqrt28ss\_round((\_\_v4sf)(\_\_m128)(A), \(\backslash\)
+                                        (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                        (\_\_v4sf)(\_\_m128)(\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S}), \(\backslash\)
+                                        (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a809ab804d23e6df242b841c84df58b8c}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-sd}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-sd@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}(({\bf S}), (M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a809ab804d23e6df242b841c84df58b8c}
+\hypertarget{avx512erintrin_8h_a01d52817369d1bcae947dd33e929f7d4}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-ss}}
+\index{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-ss@{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf S}, }
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-ss}(({\bf S}), (M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a01d52817369d1bcae947dd33e929f7d4}
+\hypertarget{avx512erintrin_8h_a51c07da02b8acdc57065435ce381d76c}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a51c07da02b8acdc57065435ce381d76c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_rcp28sd\_round((\_\_v2df)(\_\_m128d)(A), \(\backslash\)
+                                       (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                       (\_\_v2df)\_mm\_setzero\_pd(), \(\backslash\)
+                                       (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a2a5035165754e1cf14f4a5d49c313b31}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a2a5035165754e1cf14f4a5d49c313b31}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_rcp28ss\_round((\_\_v4sf)(\_\_m128)(A), \(\backslash\)
+                                      (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                      (\_\_v4sf)\_mm\_setzero\_ps(), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a2dbcd959edc23247a3dd3b0281b6d12b}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-sd}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-sd}((M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a2dbcd959edc23247a3dd3b0281b6d12b}
+\hypertarget{avx512erintrin_8h_abb1732abd32a8462498528675eb4f94a}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-ss}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-maskz\-\_\-rcp28\-\_\-round\-\_\-ss}((M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_abb1732abd32a8462498528675eb4f94a}
+\hypertarget{avx512erintrin_8h_a02ca228b53ca2154b60e4e53baa21104}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-sd}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a02ca228b53ca2154b60e4e53baa21104}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_rsqrt28sd\_round((\_\_v2df)(\_\_m128d)(A), \(\backslash\)
+                                         (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                         (\_\_v2df)\_mm\_setzero\_pd(), \(\backslash\)
+                                         (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a91126cc163838e719079f85cceb5cd4e}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a91126cc163838e719079f85cceb5cd4e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_rsqrt28ss\_round((\_\_v4sf)(\_\_m128)(A), \(\backslash\)
+                                        (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                        (\_\_v4sf)\_mm\_setzero\_ps(), \(\backslash\)
+                                        (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})(M), (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a1d66ed88b320803f57990b92be8255da}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-sd}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-sd@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-mask\-\_\-rsqrt28\-\_\-round\-\_\-sd}((M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a1d66ed88b320803f57990b92be8255da}
+\hypertarget{avx512erintrin_8h_aa8d6a633d6710ea5db2de5ca8af9e412}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-ss}}
+\index{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-ss@{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-maskz\-\_\-rsqrt28\-\_\-round\-\_\-ss}((M), (A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_aa8d6a633d6710ea5db2de5ca8af9e412}
+\hypertarget{avx512erintrin_8h_a34deec87525d5ac9e16b7fe94407377a}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd}}
+\index{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_a34deec87525d5ac9e16b7fe94407377a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_rcp28sd\_round((\_\_v2df)(\_\_m128d)(A), \(\backslash\)
+                                       (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                       (\_\_v2df)\_mm\_setzero\_pd(), \(\backslash\)
+                                       (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_adac7afee2a49034ddfcafde46fb88329}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss}}
+\index{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_adac7afee2a49034ddfcafde46fb88329}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_rcp28ss\_round((\_\_v4sf)(\_\_m128)(A), \(\backslash\)
+                                      (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                      (\_\_v4sf)\_mm\_setzero\_ps(), \(\backslash\)
+                                      (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_a9ceeabd620186b1209c49e9b6f3dffb7}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rcp28\-\_\-sd@{\-\_\-mm\-\_\-rcp28\-\_\-sd}}
+\index{\-\_\-mm\-\_\-rcp28\-\_\-sd@{\-\_\-mm\-\_\-rcp28\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rcp28\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rcp28\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-sd}((A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a9ceeabd620186b1209c49e9b6f3dffb7}
+\hypertarget{avx512erintrin_8h_a1e5d862b6f61c3a5a0ebe5d91d8dea79}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rcp28\-\_\-ss@{\-\_\-mm\-\_\-rcp28\-\_\-ss}}
+\index{\-\_\-mm\-\_\-rcp28\-\_\-ss@{\-\_\-mm\-\_\-rcp28\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rcp28\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rcp28\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-rcp28\-\_\-round\-\_\-ss}((A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a1e5d862b6f61c3a5a0ebe5d91d8dea79}
+\hypertarget{avx512erintrin_8h_aa4f2f4ea2dc849203eecb4f4aaf436a7}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd}}
+\index{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_aa4f2f4ea2dc849203eecb4f4aaf436a7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_rsqrt28sd\_round((\_\_v2df)(\_\_m128d)(A), \(\backslash\)
+                                         (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                         (\_\_v2df)\_mm\_setzero\_pd(), \(\backslash\)
+                                         (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_afe5ac5dccdfc9c74896b5954f7c5b0f1}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss}}
+\index{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{{\bf R}}
+\end{DoxyParamCaption}
+)}}\label{avx512erintrin_8h_afe5ac5dccdfc9c74896b5954f7c5b0f1}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_rsqrt28ss\_round((\_\_v4sf)(\_\_m128)(A), \(\backslash\)
+                                        (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), \(\backslash\)
+                                        (\_\_v4sf)\_mm\_setzero\_ps(), \(\backslash\)
+                                        (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8})-1, (\hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R})); \})
+\end{DoxyCode}
+\hypertarget{avx512erintrin_8h_aa57f621fe276f6576d76d1c82f63a87c}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rsqrt28\-\_\-sd@{\-\_\-mm\-\_\-rsqrt28\-\_\-sd}}
+\index{\-\_\-mm\-\_\-rsqrt28\-\_\-sd@{\-\_\-mm\-\_\-rsqrt28\-\_\-sd}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rsqrt28\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rsqrt28\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-sd}((A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_aa57f621fe276f6576d76d1c82f63a87c}
+\hypertarget{avx512erintrin_8h_a22a6df8dcfad21e14dee280ea24f230d}{\index{avx512erintrin.\-h@{avx512erintrin.\-h}!\-\_\-mm\-\_\-rsqrt28\-\_\-ss@{\-\_\-mm\-\_\-rsqrt28\-\_\-ss}}
+\index{\-\_\-mm\-\_\-rsqrt28\-\_\-ss@{\-\_\-mm\-\_\-rsqrt28\-\_\-ss}!avx512erintrin.h@{avx512erintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-rsqrt28\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-rsqrt28\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-rsqrt28\-\_\-round\-\_\-ss}((A), ({\bf B}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{avx512erintrin_8h_a22a6df8dcfad21e14dee280ea24f230d}

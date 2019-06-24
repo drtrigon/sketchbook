@@ -1,0 +1,177 @@
+\hypertarget{lcd128x64_8h}{\section{wiring\-Pi/dev\-Lib/lcd128x64.h File Reference}
+\label{lcd128x64_8h}\index{wiring\-Pi/dev\-Lib/lcd128x64.\-h@{wiring\-Pi/dev\-Lib/lcd128x64.\-h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lcd128x64_8h_a6154ee97c4b391be908ec999c54b765d}{lcd128x64set\-Origin} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})
+\item 
+void \hyperlink{lcd128x64_8h_a06d36f58512a9606b2a33db89a4a92c9}{lcd128x64set\-Orientation} (int orientation)
+\item 
+void \hyperlink{lcd128x64_8h_a5127324a7084f39f054822ade065b3c8}{lcd128x64orient\-Coordinates} (int $\ast$\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int $\ast$\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})
+\item 
+void \hyperlink{lcd128x64_8h_a352013cb3cb2d5177cf6f0c35abbd00a}{lcd128x64get\-Screen\-Size} (int $\ast$\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int $\ast$\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})
+\item 
+void \hyperlink{lcd128x64_8h_a05353564275b96747ea22e17831448db}{lcd128x64point} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, int colour)
+\item 
+void \hyperlink{lcd128x64_8h_a754f54a60822b1e8dd860a8c7ee435e5}{lcd128x64line} (int x0, int y0, int x1, int y1, int colour)
+\item 
+void \hyperlink{lcd128x64_8h_a72b76898fe643de698deb719abbdfbc1}{lcd128x64line\-To} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, int colour)
+\item 
+void \hyperlink{lcd128x64_8h_aa7584cab02746113dedc13a2d257e63a}{lcd128x64rectangle} (int x1, int y1, int x2, int y2, int colour, int filled)
+\item 
+void \hyperlink{lcd128x64_8h_a01ccc5b715d4d96853734900c4adfe4f}{lcd128x64circle} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, int \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}, int colour, int filled)
+\item 
+void \hyperlink{lcd128x64_8h_a7583c38750b70032d79ac3a3d2efe2f8}{lcd128x64ellipse} (int cx, int cy, int x\-Radius, int y\-Radius, int colour, int filled)
+\item 
+void \hyperlink{lcd128x64_8h_a14c0b0407568251fd8cd1ca0ce3f2715}{lcd128x64putchar} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, int c, int bg\-Col, int fg\-Col)
+\item 
+void \hyperlink{lcd128x64_8h_a52e877aa131945f17637a916e0516da4}{lcd128x64puts} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, const char $\ast$\hyperlink{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}{str}, int bg\-Col, int fg\-Col)
+\item 
+void \hyperlink{lcd128x64_8h_a13edd7b8536bb3ffb1754781ece77482}{lcd128x64update} (void)
+\item 
+void \hyperlink{lcd128x64_8h_a07040b05a4fc06dfbb829a235420ccd3}{lcd128x64clear} (int colour)
+\item 
+int \hyperlink{lcd128x64_8h_a4cc83696e2e11801bfa0f6db056ade42}{lcd128x64setup} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{lcd128x64_8h_a01ccc5b715d4d96853734900c4adfe4f}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64circle@{lcd128x64circle}}
+\index{lcd128x64circle@{lcd128x64circle}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64circle}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64circle (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{r, }
+\item[{int}]{colour, }
+\item[{int}]{filled}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a01ccc5b715d4d96853734900c4adfe4f}
+\hypertarget{lcd128x64_8h_a07040b05a4fc06dfbb829a235420ccd3}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64clear@{lcd128x64clear}}
+\index{lcd128x64clear@{lcd128x64clear}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64clear}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64clear (
+\begin{DoxyParamCaption}
+\item[{int}]{colour}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a07040b05a4fc06dfbb829a235420ccd3}
+\hypertarget{lcd128x64_8h_a7583c38750b70032d79ac3a3d2efe2f8}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64ellipse@{lcd128x64ellipse}}
+\index{lcd128x64ellipse@{lcd128x64ellipse}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64ellipse}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64ellipse (
+\begin{DoxyParamCaption}
+\item[{int}]{cx, }
+\item[{int}]{cy, }
+\item[{int}]{x\-Radius, }
+\item[{int}]{y\-Radius, }
+\item[{int}]{colour, }
+\item[{int}]{filled}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a7583c38750b70032d79ac3a3d2efe2f8}
+\hypertarget{lcd128x64_8h_a352013cb3cb2d5177cf6f0c35abbd00a}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64get\-Screen\-Size@{lcd128x64get\-Screen\-Size}}
+\index{lcd128x64get\-Screen\-Size@{lcd128x64get\-Screen\-Size}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64get\-Screen\-Size}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64get\-Screen\-Size (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{x, }
+\item[{int $\ast$}]{y}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a352013cb3cb2d5177cf6f0c35abbd00a}
+\hypertarget{lcd128x64_8h_a754f54a60822b1e8dd860a8c7ee435e5}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64line@{lcd128x64line}}
+\index{lcd128x64line@{lcd128x64line}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64line}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64line (
+\begin{DoxyParamCaption}
+\item[{int}]{x0, }
+\item[{int}]{y0, }
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{colour}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a754f54a60822b1e8dd860a8c7ee435e5}
+\hypertarget{lcd128x64_8h_a72b76898fe643de698deb719abbdfbc1}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64line\-To@{lcd128x64line\-To}}
+\index{lcd128x64line\-To@{lcd128x64line\-To}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64line\-To}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64line\-To (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{colour}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a72b76898fe643de698deb719abbdfbc1}
+\hypertarget{lcd128x64_8h_a5127324a7084f39f054822ade065b3c8}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64orient\-Coordinates@{lcd128x64orient\-Coordinates}}
+\index{lcd128x64orient\-Coordinates@{lcd128x64orient\-Coordinates}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64orient\-Coordinates}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64orient\-Coordinates (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{x, }
+\item[{int $\ast$}]{y}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a5127324a7084f39f054822ade065b3c8}
+\hypertarget{lcd128x64_8h_a05353564275b96747ea22e17831448db}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64point@{lcd128x64point}}
+\index{lcd128x64point@{lcd128x64point}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64point}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64point (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{colour}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a05353564275b96747ea22e17831448db}
+\hypertarget{lcd128x64_8h_a14c0b0407568251fd8cd1ca0ce3f2715}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64putchar@{lcd128x64putchar}}
+\index{lcd128x64putchar@{lcd128x64putchar}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64putchar}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64putchar (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{c, }
+\item[{int}]{bg\-Col, }
+\item[{int}]{fg\-Col}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a14c0b0407568251fd8cd1ca0ce3f2715}
+\hypertarget{lcd128x64_8h_a52e877aa131945f17637a916e0516da4}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64puts@{lcd128x64puts}}
+\index{lcd128x64puts@{lcd128x64puts}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64puts}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64puts (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{const char $\ast$}]{str, }
+\item[{int}]{bg\-Col, }
+\item[{int}]{fg\-Col}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a52e877aa131945f17637a916e0516da4}
+\hypertarget{lcd128x64_8h_aa7584cab02746113dedc13a2d257e63a}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64rectangle@{lcd128x64rectangle}}
+\index{lcd128x64rectangle@{lcd128x64rectangle}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64rectangle}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64rectangle (
+\begin{DoxyParamCaption}
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{x2, }
+\item[{int}]{y2, }
+\item[{int}]{colour, }
+\item[{int}]{filled}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_aa7584cab02746113dedc13a2d257e63a}
+\hypertarget{lcd128x64_8h_a06d36f58512a9606b2a33db89a4a92c9}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64set\-Orientation@{lcd128x64set\-Orientation}}
+\index{lcd128x64set\-Orientation@{lcd128x64set\-Orientation}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64set\-Orientation}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64set\-Orientation (
+\begin{DoxyParamCaption}
+\item[{int}]{orientation}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a06d36f58512a9606b2a33db89a4a92c9}
+\hypertarget{lcd128x64_8h_a6154ee97c4b391be908ec999c54b765d}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64set\-Origin@{lcd128x64set\-Origin}}
+\index{lcd128x64set\-Origin@{lcd128x64set\-Origin}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64set\-Origin}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64set\-Origin (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a6154ee97c4b391be908ec999c54b765d}
+\hypertarget{lcd128x64_8h_a4cc83696e2e11801bfa0f6db056ade42}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64setup@{lcd128x64setup}}
+\index{lcd128x64setup@{lcd128x64setup}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64setup}]{\setlength{\rightskip}{0pt plus 5cm}int lcd128x64setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a4cc83696e2e11801bfa0f6db056ade42}
+\hypertarget{lcd128x64_8h_a13edd7b8536bb3ffb1754781ece77482}{\index{lcd128x64.\-h@{lcd128x64.\-h}!lcd128x64update@{lcd128x64update}}
+\index{lcd128x64update@{lcd128x64update}!lcd128x64.h@{lcd128x64.\-h}}
+\subsubsection[{lcd128x64update}]{\setlength{\rightskip}{0pt plus 5cm}void lcd128x64update (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{lcd128x64_8h_a13edd7b8536bb3ffb1754781ece77482}

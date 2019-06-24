@@ -1,0 +1,204 @@
+\hypertarget{Yun__Log__BatteryDisCharging_8ino}{\section{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging/\-Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.ino File Reference}
+\label{Yun__Log__BatteryDisCharging_8ino}\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging/\-Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging/\-Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+}
+{\ttfamily \#include $<$Bridge.\-h$>$}\\*
+{\ttfamily \#include $<$Yun\-Server.\-h$>$}\\*
+{\ttfamily \#include $<$Yun\-Client.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-A\-D\-S1015.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Yun__Log__BatteryDisCharging_8ino_a1f98b8446b6c3c9f699cc2c046c49f87}{A\-V\-E\-R\-A\-G\-E}~10
+\item 
+\#define \hyperlink{Yun__Log__BatteryDisCharging_8ino_a609a6de2c7ff0a69b55d3b3c5e260cc5}{L\-O\-G\-\_\-\-S\-I\-Z\-E}~30
+\item 
+\#define \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4ee9ad6c4757efdc8db0322e3ec0842c}{L\-O\-G\-\_\-\-T\-I\-M\-E}~300.\-0
+\item 
+\#define \hyperlink{Yun__Log__BatteryDisCharging_8ino_aea45ca95010a5ec1106de8c2e928673e}{multiplier}~0.\-1875\-F /$\ast$ A\-D\-S1115  @ +/-\/ 6.\-144\-V gain (16-\/bit results) $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Yun__Log__BatteryDisCharging_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{Yun__Log__BatteryDisCharging_8ino_a2f2962579c73a294710a4407f4d01452}{process} (Yun\-Client client)
+\item 
+void \hyperlink{Yun__Log__BatteryDisCharging_8ino_a47af6e3cf5c5124bab2fc8a806de9346}{adc\-Command} (Yun\-Client client)
+\item 
+void \hyperlink{Yun__Log__BatteryDisCharging_8ino_a643b2b76b312836a5e085dde7aca6cad}{mon\-Command} (Yun\-Client client)
+\item 
+void \hyperlink{Yun__Log__BatteryDisCharging_8ino_a28fbe287664dae075541dac88b510aa6}{monitor\-\_\-func} (void)
+\item 
+void \hyperlink{Yun__Log__BatteryDisCharging_8ino_a8f5fcd1f255d3f1b8071f4dd749ba418}{log\-\_\-func} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long const \hyperlink{Yun__Log__BatteryDisCharging_8ino_a6dd369301966212a72933d8eba0ebd3a}{M\-A\-X\-\_\-unsigned\-\_\-long} = -\/1
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a8f2c77de8b5910e2168c7b6e794c1141}{A\-D\-C\-\_\-\-S\-E\-\_\-0}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a922597e564c95f237afa79daf988bf95}{A\-D\-C\-\_\-\-S\-E\-\_\-1}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a0960ce8ee4607f26fa67f51c52f1877c}{U}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a145f61de888f096c52a2945234a407b0}{I}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_aca74a684c7823144d7962beb8397621e}{P}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_ad12b105c602c51bd04d7763f600688cc}{C}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a5b514bbfa4713e7bcf9c6a367cb6ebfe}{E}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a1e59dd36aafb310776e617456b9415b5}{T}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4c17110c175ad4cdef6032380a75d07f}{l\-I}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_abcf1aea01531d862fc51a7176f488cd0}{l\-T}
+\item 
+float \hyperlink{Yun__Log__BatteryDisCharging_8ino_a9f617b4ebd9b59cdac29c77f13ace604}{W} = 0.\-0
+\item 
+unsigned long \hyperlink{Yun__Log__BatteryDisCharging_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}{t} = 0
+\item 
+unsigned long \hyperlink{Yun__Log__BatteryDisCharging_8ino_a2aac88b4c9f4551e8e925efe260fea56}{lt} = 0
+\item 
+int \hyperlink{Yun__Log__BatteryDisCharging_8ino_ab2bf23fcd6f167325f76f030a9da6298}{dsindex} = \hyperlink{Yun__Log__BatteryDisCharging_8ino_a609a6de2c7ff0a69b55d3b3c5e260cc5}{L\-O\-G\-\_\-\-S\-I\-Z\-E} -\/ 1
+\item 
+Yun\-Server \hyperlink{Yun__Log__BatteryDisCharging_8ino_a4e0c9ea4f8c666a7b51971ca06aae4e0}{server}
+\item 
+Adafruit\-\_\-\-A\-D\-S1115 \hyperlink{Yun__Log__BatteryDisCharging_8ino_a951ac31de71c2bf701a13e5f233fc6d8}{ads}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a1f98b8446b6c3c9f699cc2c046c49f87}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!A\-V\-E\-R\-A\-G\-E@{A\-V\-E\-R\-A\-G\-E}}
+\index{A\-V\-E\-R\-A\-G\-E@{A\-V\-E\-R\-A\-G\-E}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{A\-V\-E\-R\-A\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-V\-E\-R\-A\-G\-E~10}}\label{Yun__Log__BatteryDisCharging_8ino_a1f98b8446b6c3c9f699cc2c046c49f87}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a609a6de2c7ff0a69b55d3b3c5e260cc5}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!L\-O\-G\-\_\-\-S\-I\-Z\-E@{L\-O\-G\-\_\-\-S\-I\-Z\-E}}
+\index{L\-O\-G\-\_\-\-S\-I\-Z\-E@{L\-O\-G\-\_\-\-S\-I\-Z\-E}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{L\-O\-G\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-G\-\_\-\-S\-I\-Z\-E~30}}\label{Yun__Log__BatteryDisCharging_8ino_a609a6de2c7ff0a69b55d3b3c5e260cc5}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a4ee9ad6c4757efdc8db0322e3ec0842c}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!L\-O\-G\-\_\-\-T\-I\-M\-E@{L\-O\-G\-\_\-\-T\-I\-M\-E}}
+\index{L\-O\-G\-\_\-\-T\-I\-M\-E@{L\-O\-G\-\_\-\-T\-I\-M\-E}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{L\-O\-G\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-G\-\_\-\-T\-I\-M\-E~300.\-0}}\label{Yun__Log__BatteryDisCharging_8ino_a4ee9ad6c4757efdc8db0322e3ec0842c}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_aea45ca95010a5ec1106de8c2e928673e}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!multiplier@{multiplier}}
+\index{multiplier@{multiplier}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{multiplier}]{\setlength{\rightskip}{0pt plus 5cm}\#define multiplier~0.\-1875\-F /$\ast$ A\-D\-S1115  @ +/-\/ 6.\-144\-V gain (16-\/bit results) $\ast$/}}\label{Yun__Log__BatteryDisCharging_8ino_aea45ca95010a5ec1106de8c2e928673e}
+
+
+\subsection{Function Documentation}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a47af6e3cf5c5124bab2fc8a806de9346}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!adc\-Command@{adc\-Command}}
+\index{adc\-Command@{adc\-Command}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{adc\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void adc\-Command (
+\begin{DoxyParamCaption}
+\item[{Yun\-Client}]{client}
+\end{DoxyParamCaption}
+)}}\label{Yun__Log__BatteryDisCharging_8ino_a47af6e3cf5c5124bab2fc8a806de9346}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a8f5fcd1f255d3f1b8071f4dd749ba418}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!log\-\_\-func@{log\-\_\-func}}
+\index{log\-\_\-func@{log\-\_\-func}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{log\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}void log\-\_\-func (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__Log__BatteryDisCharging_8ino_a8f5fcd1f255d3f1b8071f4dd749ba418}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!loop@{loop}}
+\index{loop@{loop}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__Log__BatteryDisCharging_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{Yun__Log__BatteryDisCharging_8ino_a643b2b76b312836a5e085dde7aca6cad}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!mon\-Command@{mon\-Command}}
+\index{mon\-Command@{mon\-Command}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{mon\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void mon\-Command (
+\begin{DoxyParamCaption}
+\item[{Yun\-Client}]{client}
+\end{DoxyParamCaption}
+)}}\label{Yun__Log__BatteryDisCharging_8ino_a643b2b76b312836a5e085dde7aca6cad}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a28fbe287664dae075541dac88b510aa6}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!monitor\-\_\-func@{monitor\-\_\-func}}
+\index{monitor\-\_\-func@{monitor\-\_\-func}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{monitor\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}void monitor\-\_\-func (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__Log__BatteryDisCharging_8ino_a28fbe287664dae075541dac88b510aa6}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a2f2962579c73a294710a4407f4d01452}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!process@{process}}
+\index{process@{process}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void process (
+\begin{DoxyParamCaption}
+\item[{Yun\-Client}]{client}
+\end{DoxyParamCaption}
+)}}\label{Yun__Log__BatteryDisCharging_8ino_a2f2962579c73a294710a4407f4d01452}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!setup@{setup}}
+\index{setup@{setup}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__Log__BatteryDisCharging_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a8f2c77de8b5910e2168c7b6e794c1141}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!A\-D\-C\-\_\-\-S\-E\-\_\-0@{A\-D\-C\-\_\-\-S\-E\-\_\-0}}
+\index{A\-D\-C\-\_\-\-S\-E\-\_\-0@{A\-D\-C\-\_\-\-S\-E\-\_\-0}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{A\-D\-C\-\_\-\-S\-E\-\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}float A\-D\-C\-\_\-\-S\-E\-\_\-0}}\label{Yun__Log__BatteryDisCharging_8ino_a8f2c77de8b5910e2168c7b6e794c1141}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a922597e564c95f237afa79daf988bf95}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!A\-D\-C\-\_\-\-S\-E\-\_\-1@{A\-D\-C\-\_\-\-S\-E\-\_\-1}}
+\index{A\-D\-C\-\_\-\-S\-E\-\_\-1@{A\-D\-C\-\_\-\-S\-E\-\_\-1}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{A\-D\-C\-\_\-\-S\-E\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}float A\-D\-C\-\_\-\-S\-E\-\_\-1}}\label{Yun__Log__BatteryDisCharging_8ino_a922597e564c95f237afa79daf988bf95}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a951ac31de71c2bf701a13e5f233fc6d8}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!ads@{ads}}
+\index{ads@{ads}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{ads}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-A\-D\-S1115 ads}}\label{Yun__Log__BatteryDisCharging_8ino_a951ac31de71c2bf701a13e5f233fc6d8}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_ad12b105c602c51bd04d7763f600688cc}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!C@{C}}
+\index{C@{C}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{C}]{\setlength{\rightskip}{0pt plus 5cm}float C}}\label{Yun__Log__BatteryDisCharging_8ino_ad12b105c602c51bd04d7763f600688cc}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_ab2bf23fcd6f167325f76f030a9da6298}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!dsindex@{dsindex}}
+\index{dsindex@{dsindex}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{dsindex}]{\setlength{\rightskip}{0pt plus 5cm}int dsindex = {\bf L\-O\-G\-\_\-\-S\-I\-Z\-E} -\/ 1}}\label{Yun__Log__BatteryDisCharging_8ino_ab2bf23fcd6f167325f76f030a9da6298}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a5b514bbfa4713e7bcf9c6a367cb6ebfe}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!E@{E}}
+\index{E@{E}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{E}]{\setlength{\rightskip}{0pt plus 5cm}float E}}\label{Yun__Log__BatteryDisCharging_8ino_a5b514bbfa4713e7bcf9c6a367cb6ebfe}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a145f61de888f096c52a2945234a407b0}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!I@{I}}
+\index{I@{I}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{I}]{\setlength{\rightskip}{0pt plus 5cm}float I}}\label{Yun__Log__BatteryDisCharging_8ino_a145f61de888f096c52a2945234a407b0}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a4c17110c175ad4cdef6032380a75d07f}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!l\-I@{l\-I}}
+\index{l\-I@{l\-I}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{l\-I}]{\setlength{\rightskip}{0pt plus 5cm}float l\-I}}\label{Yun__Log__BatteryDisCharging_8ino_a4c17110c175ad4cdef6032380a75d07f}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_abcf1aea01531d862fc51a7176f488cd0}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!l\-T@{l\-T}}
+\index{l\-T@{l\-T}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{l\-T}]{\setlength{\rightskip}{0pt plus 5cm}float l\-T}}\label{Yun__Log__BatteryDisCharging_8ino_abcf1aea01531d862fc51a7176f488cd0}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a2aac88b4c9f4551e8e925efe260fea56}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!lt@{lt}}
+\index{lt@{lt}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{lt}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long lt = 0}}\label{Yun__Log__BatteryDisCharging_8ino_a2aac88b4c9f4551e8e925efe260fea56}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a6dd369301966212a72933d8eba0ebd3a}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!M\-A\-X\-\_\-unsigned\-\_\-long@{M\-A\-X\-\_\-unsigned\-\_\-long}}
+\index{M\-A\-X\-\_\-unsigned\-\_\-long@{M\-A\-X\-\_\-unsigned\-\_\-long}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{M\-A\-X\-\_\-unsigned\-\_\-long}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long const M\-A\-X\-\_\-unsigned\-\_\-long = -\/1}}\label{Yun__Log__BatteryDisCharging_8ino_a6dd369301966212a72933d8eba0ebd3a}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_aca74a684c7823144d7962beb8397621e}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!P@{P}}
+\index{P@{P}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{P}]{\setlength{\rightskip}{0pt plus 5cm}float P}}\label{Yun__Log__BatteryDisCharging_8ino_aca74a684c7823144d7962beb8397621e}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!R@{R}}
+\index{R@{R}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{R}]{\setlength{\rightskip}{0pt plus 5cm}float R}}\label{Yun__Log__BatteryDisCharging_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a4e0c9ea4f8c666a7b51971ca06aae4e0}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!server@{server}}
+\index{server@{server}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}Yun\-Server server}}\label{Yun__Log__BatteryDisCharging_8ino_a4e0c9ea4f8c666a7b51971ca06aae4e0}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a1e59dd36aafb310776e617456b9415b5}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!T@{T}}
+\index{T@{T}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{T}]{\setlength{\rightskip}{0pt plus 5cm}float T}}\label{Yun__Log__BatteryDisCharging_8ino_a1e59dd36aafb310776e617456b9415b5}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!t@{t}}
+\index{t@{t}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long t = 0}}\label{Yun__Log__BatteryDisCharging_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a0960ce8ee4607f26fa67f51c52f1877c}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!U@{U}}
+\index{U@{U}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{U}]{\setlength{\rightskip}{0pt plus 5cm}float U}}\label{Yun__Log__BatteryDisCharging_8ino_a0960ce8ee4607f26fa67f51c52f1877c}
+\hypertarget{Yun__Log__BatteryDisCharging_8ino_a9f617b4ebd9b59cdac29c77f13ace604}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}!W@{W}}
+\index{W@{W}!Yun_Log_BatteryDisCharging.ino@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ino}}
+\subsubsection[{W}]{\setlength{\rightskip}{0pt plus 5cm}float W = 0.\-0}}\label{Yun__Log__BatteryDisCharging_8ino_a9f617b4ebd9b59cdac29c77f13ace604}

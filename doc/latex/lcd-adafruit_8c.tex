@@ -1,0 +1,142 @@
+\hypertarget{lcd-adafruit_8c}{\section{wiring\-Pi/examples/lcd-\/adafruit.c File Reference}
+\label{lcd-adafruit_8c}\index{wiring\-Pi/examples/lcd-\/adafruit.\-c@{wiring\-Pi/examples/lcd-\/adafruit.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$mcp23017.\-h$>$}\\*
+{\ttfamily \#include $<$lcd.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lcd-adafruit_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(1==2)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E}~100
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a10a331aef88d563a44fc3aca87f67647}{A\-F\-\_\-\-R\-E\-D}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 6)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_aaf16866710cceb823bc3dd84cd129e5c}{A\-F\-\_\-\-G\-R\-E\-E\-N}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 7)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_adb7d66e4f10afe077d8eac4be1cb6321}{A\-F\-\_\-\-B\-L\-U\-E}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 8)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a7ef1bf47776cd36bfc3a713ee3d1496a}{A\-F\-\_\-\-E}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 13)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_adb58df064577c4a49af6bf042ac453d2}{A\-F\-\_\-\-R\-W}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 14)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a4fb727ea18cfec6c573568e7ebf11e97}{A\-F\-\_\-\-R\-S}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 15)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a23452fcd9e29d8032f9acaeaf27389c4}{A\-F\-\_\-\-D\-B4}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 12)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a6b13703f0bbcf92f64bf98e1fe583fbe}{A\-F\-\_\-\-D\-B5}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 11)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_ab403edb026623c84dbe6b9b173c7d858}{A\-F\-\_\-\-D\-B6}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} + 10)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_af515b9d2e14df7e2ded2f8fdc652d5ae}{A\-F\-\_\-\-D\-B7}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} +  9)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_aaa083916b088e33272057f65be85f545}{A\-F\-\_\-\-S\-E\-L\-E\-C\-T}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} +  0)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a71d76cd73f9c3f4e0316039bb5669b76}{A\-F\-\_\-\-R\-I\-G\-H\-T}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} +  1)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a1ba355ad1aa22d1365d51fea1b418548}{A\-F\-\_\-\-D\-O\-W\-N}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} +  2)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_abe4c463178cda75603a48259c7e14bc3}{A\-F\-\_\-\-U\-P}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} +  3)
+\item 
+\#define \hyperlink{lcd-adafruit_8c_a91799723644325e810ad6f8065b3ffb0}{A\-F\-\_\-\-L\-E\-F\-T}~(\hyperlink{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{A\-F\-\_\-\-B\-A\-S\-E} +  4)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{lcd-adafruit_8c_a6204fbf8cb0c8773e1b70f48968c6469}{usage} (const char $\ast$prog\-Name)
+\item 
+void \hyperlink{lcd-adafruit_8c_a756f66af49ba3a40b236423201d8db22}{scroll\-Message} (int line, int width)
+\item 
+int \hyperlink{lcd-adafruit_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-B\-A\-S\-E@{A\-F\-\_\-\-B\-A\-S\-E}}
+\index{A\-F\-\_\-\-B\-A\-S\-E@{A\-F\-\_\-\-B\-A\-S\-E}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-B\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-B\-A\-S\-E~100}}\label{lcd-adafruit_8c_a710181a64fa5dc36dc1ae8186ec077d0}
+\hypertarget{lcd-adafruit_8c_adb7d66e4f10afe077d8eac4be1cb6321}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-B\-L\-U\-E@{A\-F\-\_\-\-B\-L\-U\-E}}
+\index{A\-F\-\_\-\-B\-L\-U\-E@{A\-F\-\_\-\-B\-L\-U\-E}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-B\-L\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-B\-L\-U\-E~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 8)}}\label{lcd-adafruit_8c_adb7d66e4f10afe077d8eac4be1cb6321}
+\hypertarget{lcd-adafruit_8c_a23452fcd9e29d8032f9acaeaf27389c4}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-D\-B4@{A\-F\-\_\-\-D\-B4}}
+\index{A\-F\-\_\-\-D\-B4@{A\-F\-\_\-\-D\-B4}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-D\-B4}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-D\-B4~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 12)}}\label{lcd-adafruit_8c_a23452fcd9e29d8032f9acaeaf27389c4}
+\hypertarget{lcd-adafruit_8c_a6b13703f0bbcf92f64bf98e1fe583fbe}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-D\-B5@{A\-F\-\_\-\-D\-B5}}
+\index{A\-F\-\_\-\-D\-B5@{A\-F\-\_\-\-D\-B5}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-D\-B5}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-D\-B5~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 11)}}\label{lcd-adafruit_8c_a6b13703f0bbcf92f64bf98e1fe583fbe}
+\hypertarget{lcd-adafruit_8c_ab403edb026623c84dbe6b9b173c7d858}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-D\-B6@{A\-F\-\_\-\-D\-B6}}
+\index{A\-F\-\_\-\-D\-B6@{A\-F\-\_\-\-D\-B6}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-D\-B6}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-D\-B6~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 10)}}\label{lcd-adafruit_8c_ab403edb026623c84dbe6b9b173c7d858}
+\hypertarget{lcd-adafruit_8c_af515b9d2e14df7e2ded2f8fdc652d5ae}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-D\-B7@{A\-F\-\_\-\-D\-B7}}
+\index{A\-F\-\_\-\-D\-B7@{A\-F\-\_\-\-D\-B7}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-D\-B7}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-D\-B7~({\bf A\-F\-\_\-\-B\-A\-S\-E} +  9)}}\label{lcd-adafruit_8c_af515b9d2e14df7e2ded2f8fdc652d5ae}
+\hypertarget{lcd-adafruit_8c_a1ba355ad1aa22d1365d51fea1b418548}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-D\-O\-W\-N@{A\-F\-\_\-\-D\-O\-W\-N}}
+\index{A\-F\-\_\-\-D\-O\-W\-N@{A\-F\-\_\-\-D\-O\-W\-N}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-D\-O\-W\-N~({\bf A\-F\-\_\-\-B\-A\-S\-E} +  2)}}\label{lcd-adafruit_8c_a1ba355ad1aa22d1365d51fea1b418548}
+\hypertarget{lcd-adafruit_8c_a7ef1bf47776cd36bfc3a713ee3d1496a}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-E@{A\-F\-\_\-\-E}}
+\index{A\-F\-\_\-\-E@{A\-F\-\_\-\-E}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-E~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 13)}}\label{lcd-adafruit_8c_a7ef1bf47776cd36bfc3a713ee3d1496a}
+\hypertarget{lcd-adafruit_8c_aaf16866710cceb823bc3dd84cd129e5c}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-G\-R\-E\-E\-N@{A\-F\-\_\-\-G\-R\-E\-E\-N}}
+\index{A\-F\-\_\-\-G\-R\-E\-E\-N@{A\-F\-\_\-\-G\-R\-E\-E\-N}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-G\-R\-E\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-G\-R\-E\-E\-N~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 7)}}\label{lcd-adafruit_8c_aaf16866710cceb823bc3dd84cd129e5c}
+\hypertarget{lcd-adafruit_8c_a91799723644325e810ad6f8065b3ffb0}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-L\-E\-F\-T@{A\-F\-\_\-\-L\-E\-F\-T}}
+\index{A\-F\-\_\-\-L\-E\-F\-T@{A\-F\-\_\-\-L\-E\-F\-T}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-L\-E\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-L\-E\-F\-T~({\bf A\-F\-\_\-\-B\-A\-S\-E} +  4)}}\label{lcd-adafruit_8c_a91799723644325e810ad6f8065b3ffb0}
+\hypertarget{lcd-adafruit_8c_a10a331aef88d563a44fc3aca87f67647}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-R\-E\-D@{A\-F\-\_\-\-R\-E\-D}}
+\index{A\-F\-\_\-\-R\-E\-D@{A\-F\-\_\-\-R\-E\-D}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-R\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-R\-E\-D~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 6)}}\label{lcd-adafruit_8c_a10a331aef88d563a44fc3aca87f67647}
+\hypertarget{lcd-adafruit_8c_a71d76cd73f9c3f4e0316039bb5669b76}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-R\-I\-G\-H\-T@{A\-F\-\_\-\-R\-I\-G\-H\-T}}
+\index{A\-F\-\_\-\-R\-I\-G\-H\-T@{A\-F\-\_\-\-R\-I\-G\-H\-T}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-R\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-R\-I\-G\-H\-T~({\bf A\-F\-\_\-\-B\-A\-S\-E} +  1)}}\label{lcd-adafruit_8c_a71d76cd73f9c3f4e0316039bb5669b76}
+\hypertarget{lcd-adafruit_8c_a4fb727ea18cfec6c573568e7ebf11e97}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-R\-S@{A\-F\-\_\-\-R\-S}}
+\index{A\-F\-\_\-\-R\-S@{A\-F\-\_\-\-R\-S}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-R\-S~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 15)}}\label{lcd-adafruit_8c_a4fb727ea18cfec6c573568e7ebf11e97}
+\hypertarget{lcd-adafruit_8c_adb58df064577c4a49af6bf042ac453d2}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-R\-W@{A\-F\-\_\-\-R\-W}}
+\index{A\-F\-\_\-\-R\-W@{A\-F\-\_\-\-R\-W}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-R\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-R\-W~({\bf A\-F\-\_\-\-B\-A\-S\-E} + 14)}}\label{lcd-adafruit_8c_adb58df064577c4a49af6bf042ac453d2}
+\hypertarget{lcd-adafruit_8c_aaa083916b088e33272057f65be85f545}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-S\-E\-L\-E\-C\-T@{A\-F\-\_\-\-S\-E\-L\-E\-C\-T}}
+\index{A\-F\-\_\-\-S\-E\-L\-E\-C\-T@{A\-F\-\_\-\-S\-E\-L\-E\-C\-T}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-S\-E\-L\-E\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-S\-E\-L\-E\-C\-T~({\bf A\-F\-\_\-\-B\-A\-S\-E} +  0)}}\label{lcd-adafruit_8c_aaa083916b088e33272057f65be85f545}
+\hypertarget{lcd-adafruit_8c_abe4c463178cda75603a48259c7e14bc3}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!A\-F\-\_\-\-U\-P@{A\-F\-\_\-\-U\-P}}
+\index{A\-F\-\_\-\-U\-P@{A\-F\-\_\-\-U\-P}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{A\-F\-\_\-\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-F\-\_\-\-U\-P~({\bf A\-F\-\_\-\-B\-A\-S\-E} +  3)}}\label{lcd-adafruit_8c_abe4c463178cda75603a48259c7e14bc3}
+\hypertarget{lcd-adafruit_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(1==2)}}\label{lcd-adafruit_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{lcd-adafruit_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{lcd-adafruit_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{lcd-adafruit_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!main@{main}}
+\index{main@{main}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{lcd-adafruit_8c_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{lcd-adafruit_8c_a756f66af49ba3a40b236423201d8db22}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!scroll\-Message@{scroll\-Message}}
+\index{scroll\-Message@{scroll\-Message}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{scroll\-Message}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Message (
+\begin{DoxyParamCaption}
+\item[{int}]{line, }
+\item[{int}]{width}
+\end{DoxyParamCaption}
+)}}\label{lcd-adafruit_8c_a756f66af49ba3a40b236423201d8db22}
+\hypertarget{lcd-adafruit_8c_a6204fbf8cb0c8773e1b70f48968c6469}{\index{lcd-\/adafruit.\-c@{lcd-\/adafruit.\-c}!usage@{usage}}
+\index{usage@{usage}!lcd-adafruit.c@{lcd-\/adafruit.\-c}}
+\subsubsection[{usage}]{\setlength{\rightskip}{0pt plus 5cm}int usage (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{prog\-Name}
+\end{DoxyParamCaption}
+)}}\label{lcd-adafruit_8c_a6204fbf8cb0c8773e1b70f48968c6469}

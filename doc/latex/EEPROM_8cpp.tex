@@ -1,0 +1,82 @@
+\hypertarget{EEPROM_8cpp}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-E\-E\-P\-R\-O\-M.cpp File Reference}
+\label{EEPROM_8cpp}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-E\-E\-P\-R\-O\-M.\-cpp@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-E\-E\-P\-R\-O\-M.\-cpp}}
+}
+{\ttfamily \#include $<$avr/eeprom.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Arduino.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}config.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}E\-E\-P\-R\-O\-M.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Multi\-Wii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Alarms.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}G\-P\-S.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{EEPROM_8cpp_adc96745f8d57130c7ca8ea3800b7be78}{Load\-Defaults} (void)
+\item 
+uint8\-\_\-t \hyperlink{EEPROM_8cpp_a2f38c6a97d8c303b4c2bb0bdec49e91b}{calculate\-\_\-sum} (uint8\-\_\-t $\ast$cb, uint8\-\_\-t \hyperlink{Protocol_8cpp_a19ff0fdcdbaea8d6c430aa09d1527fb8}{siz})
+\item 
+void \hyperlink{EEPROM_8cpp_a708b7d06cfc614970592fb72154283cd}{read\-Global\-Set} ()
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{EEPROM_8cpp_a35161d602806bfc95d9d703dacabbcdf}{read\-E\-E\-P\-R\-O\-M} ()
+\item 
+void \hyperlink{EEPROM_8cpp_aff10ace493e58fd55ad25d3529f063e2}{write\-Global\-Set} (uint8\-\_\-t \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})
+\item 
+void \hyperlink{EEPROM_8cpp_ae1d621bb3f268d27e309cb0acb6047bc}{write\-Params} (uint8\-\_\-t \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})
+\item 
+void \hyperlink{EEPROM_8cpp_afaa1abf3e6c19c4c2f4c0f04763aa492}{update\-\_\-constants} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{EEPROM_8cpp_a2f38c6a97d8c303b4c2bb0bdec49e91b}{\index{E\-E\-P\-R\-O\-M.\-cpp@{E\-E\-P\-R\-O\-M.\-cpp}!calculate\-\_\-sum@{calculate\-\_\-sum}}
+\index{calculate\-\_\-sum@{calculate\-\_\-sum}!EEPROM.cpp@{E\-E\-P\-R\-O\-M.\-cpp}}
+\subsubsection[{calculate\-\_\-sum}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t calculate\-\_\-sum (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{cb, }
+\item[{uint8\-\_\-t}]{siz}
+\end{DoxyParamCaption}
+)}}\label{EEPROM_8cpp_a2f38c6a97d8c303b4c2bb0bdec49e91b}
+\hypertarget{EEPROM_8cpp_adc96745f8d57130c7ca8ea3800b7be78}{\index{E\-E\-P\-R\-O\-M.\-cpp@{E\-E\-P\-R\-O\-M.\-cpp}!Load\-Defaults@{Load\-Defaults}}
+\index{Load\-Defaults@{Load\-Defaults}!EEPROM.cpp@{E\-E\-P\-R\-O\-M.\-cpp}}
+\subsubsection[{Load\-Defaults}]{\setlength{\rightskip}{0pt plus 5cm}void Load\-Defaults (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{EEPROM_8cpp_adc96745f8d57130c7ca8ea3800b7be78}
+\hypertarget{EEPROM_8cpp_a35161d602806bfc95d9d703dacabbcdf}{\index{E\-E\-P\-R\-O\-M.\-cpp@{E\-E\-P\-R\-O\-M.\-cpp}!read\-E\-E\-P\-R\-O\-M@{read\-E\-E\-P\-R\-O\-M}}
+\index{read\-E\-E\-P\-R\-O\-M@{read\-E\-E\-P\-R\-O\-M}!EEPROM.cpp@{E\-E\-P\-R\-O\-M.\-cpp}}
+\subsubsection[{read\-E\-E\-P\-R\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} read\-E\-E\-P\-R\-O\-M (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{EEPROM_8cpp_a35161d602806bfc95d9d703dacabbcdf}
+\hypertarget{EEPROM_8cpp_a708b7d06cfc614970592fb72154283cd}{\index{E\-E\-P\-R\-O\-M.\-cpp@{E\-E\-P\-R\-O\-M.\-cpp}!read\-Global\-Set@{read\-Global\-Set}}
+\index{read\-Global\-Set@{read\-Global\-Set}!EEPROM.cpp@{E\-E\-P\-R\-O\-M.\-cpp}}
+\subsubsection[{read\-Global\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void read\-Global\-Set (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{EEPROM_8cpp_a708b7d06cfc614970592fb72154283cd}
+\hypertarget{EEPROM_8cpp_afaa1abf3e6c19c4c2f4c0f04763aa492}{\index{E\-E\-P\-R\-O\-M.\-cpp@{E\-E\-P\-R\-O\-M.\-cpp}!update\-\_\-constants@{update\-\_\-constants}}
+\index{update\-\_\-constants@{update\-\_\-constants}!EEPROM.cpp@{E\-E\-P\-R\-O\-M.\-cpp}}
+\subsubsection[{update\-\_\-constants}]{\setlength{\rightskip}{0pt plus 5cm}void update\-\_\-constants (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{EEPROM_8cpp_afaa1abf3e6c19c4c2f4c0f04763aa492}
+\hypertarget{EEPROM_8cpp_aff10ace493e58fd55ad25d3529f063e2}{\index{E\-E\-P\-R\-O\-M.\-cpp@{E\-E\-P\-R\-O\-M.\-cpp}!write\-Global\-Set@{write\-Global\-Set}}
+\index{write\-Global\-Set@{write\-Global\-Set}!EEPROM.cpp@{E\-E\-P\-R\-O\-M.\-cpp}}
+\subsubsection[{write\-Global\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Global\-Set (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{b}
+\end{DoxyParamCaption}
+)}}\label{EEPROM_8cpp_aff10ace493e58fd55ad25d3529f063e2}
+\hypertarget{EEPROM_8cpp_ae1d621bb3f268d27e309cb0acb6047bc}{\index{E\-E\-P\-R\-O\-M.\-cpp@{E\-E\-P\-R\-O\-M.\-cpp}!write\-Params@{write\-Params}}
+\index{write\-Params@{write\-Params}!EEPROM.cpp@{E\-E\-P\-R\-O\-M.\-cpp}}
+\subsubsection[{write\-Params}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Params (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{b}
+\end{DoxyParamCaption}
+)}}\label{EEPROM_8cpp_ae1d621bb3f268d27e309cb0acb6047bc}

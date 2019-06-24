@@ -1,0 +1,144 @@
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino}{\section{Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163/backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.ino File Reference}
+\label{backup_2v1_2Uno__DS2408__LCD163_8ino}\index{Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163/backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163/backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+}
+{\ttfamily \#include $<$One\-Wire.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a7129fd7e5da9d889e1b404ead2db2fc5}{Print\-Bytes} (uint8\-\_\-t $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, uint8\-\_\-t \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a16ff2d8e15ade4948398b0aeb80124a8}{count}, \hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} newline=0)
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_adce6de6b0be4134eefba3efa4ca8e7cc}{Read\-And\-Report} (One\-Wire $\ast$net, uint8\-\_\-t $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a1e26c3a08c3767822ad391876a888fcf}{pio\-\_\-write} (One\-Wire $\ast$\hyperlink{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{ds}, uint8\-\_\-t $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a0346e7b740407034d2bd4974762115d5}{Send\-L\-C\-D\-Init} (One\-Wire $\ast$\hyperlink{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{ds}, uint8\-\_\-t $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_ab8330ae5933821840970969e68e3a258}{Make\-Cmd} (char $\ast$string\-\_\-dest, const char $\ast$string\-\_\-source)
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_af4bb4cb579e98255856126016440b6d7}{Make\-Nibbles} (const char $\ast$string, char $\ast$sendbuf, uint8\-\_\-t cmd)
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_aab2d9ea3e3ecace8e6d48c296ec9b622}{Write\-L\-C\-D\-Data} (One\-Wire $\ast$\hyperlink{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{ds}, uint8\-\_\-t $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, const char $\ast$string, uint8\-\_\-t num)
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a7e7f45f7deffa7054df42395788edf9c}{Send\-L\-C\-D\-Contrast} (One\-Wire $\ast$\hyperlink{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{ds}, uint8\-\_\-t $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, uint8\-\_\-t Contrast\-Value)
+\item 
+One\-Wire \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a7c78cdb37808e2d6d5aaab9ea7aca561}{ds} (8)
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup} (void)
+\item 
+void \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a4db2cbb1ca779c9719d1a0f4d7ba5669}{S\-T7036} \mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}x33\textbackslash{}x32\textbackslash{}x21\textbackslash{}x1c\textbackslash{}x52\textbackslash{}x69\textbackslash{}x74\textbackslash{}x20\textbackslash{}x0c\textbackslash{}x01\textbackslash{}x06\char`\"{}
+\item 
+char $\ast$ \hyperlink{backup_2v1_2Uno__DS2408__LCD163_8ino_a62481bf733fae27fbf5f83e4a3582c1c}{Init\-String} = \hyperlink{Uno__DS2408__LCD163_8ino_a4db2cbb1ca779c9719d1a0f4d7ba5669}{S\-T7036}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a7c78cdb37808e2d6d5aaab9ea7aca561}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!ds@{ds}}
+\index{ds@{ds}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{ds}]{\setlength{\rightskip}{0pt plus 5cm}One\-Wire ds (
+\begin{DoxyParamCaption}
+\item[{8}]{}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a7c78cdb37808e2d6d5aaab9ea7aca561}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!loop@{loop}}
+\index{loop@{loop}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_ab8330ae5933821840970969e68e3a258}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Make\-Cmd@{Make\-Cmd}}
+\index{Make\-Cmd@{Make\-Cmd}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Make\-Cmd}]{\setlength{\rightskip}{0pt plus 5cm}void Make\-Cmd (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{string\-\_\-dest, }
+\item[{const char $\ast$}]{string\-\_\-source}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_ab8330ae5933821840970969e68e3a258}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_af4bb4cb579e98255856126016440b6d7}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Make\-Nibbles@{Make\-Nibbles}}
+\index{Make\-Nibbles@{Make\-Nibbles}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Make\-Nibbles}]{\setlength{\rightskip}{0pt plus 5cm}void Make\-Nibbles (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string, }
+\item[{char $\ast$}]{sendbuf, }
+\item[{uint8\-\_\-t}]{cmd}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_af4bb4cb579e98255856126016440b6d7}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a1e26c3a08c3767822ad391876a888fcf}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!pio\-\_\-write@{pio\-\_\-write}}
+\index{pio\-\_\-write@{pio\-\_\-write}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{pio\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void pio\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{One\-Wire $\ast$}]{ds, }
+\item[{uint8\-\_\-t $\ast$}]{addr, }
+\item[{{\bf byte}}]{b}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a1e26c3a08c3767822ad391876a888fcf}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a7129fd7e5da9d889e1b404ead2db2fc5}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Print\-Bytes@{Print\-Bytes}}
+\index{Print\-Bytes@{Print\-Bytes}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Print\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}void Print\-Bytes (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{addr, }
+\item[{uint8\-\_\-t}]{count, }
+\item[{{\bf bool}}]{newline = {\ttfamily 0}}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a7129fd7e5da9d889e1b404ead2db2fc5}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_adce6de6b0be4134eefba3efa4ca8e7cc}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Read\-And\-Report@{Read\-And\-Report}}
+\index{Read\-And\-Report@{Read\-And\-Report}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Read\-And\-Report}]{\setlength{\rightskip}{0pt plus 5cm}void Read\-And\-Report (
+\begin{DoxyParamCaption}
+\item[{One\-Wire $\ast$}]{net, }
+\item[{uint8\-\_\-t $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_adce6de6b0be4134eefba3efa4ca8e7cc}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a7e7f45f7deffa7054df42395788edf9c}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Send\-L\-C\-D\-Contrast@{Send\-L\-C\-D\-Contrast}}
+\index{Send\-L\-C\-D\-Contrast@{Send\-L\-C\-D\-Contrast}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Send\-L\-C\-D\-Contrast}]{\setlength{\rightskip}{0pt plus 5cm}void Send\-L\-C\-D\-Contrast (
+\begin{DoxyParamCaption}
+\item[{One\-Wire $\ast$}]{ds, }
+\item[{uint8\-\_\-t $\ast$}]{addr, }
+\item[{uint8\-\_\-t}]{Contrast\-Value}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a7e7f45f7deffa7054df42395788edf9c}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a0346e7b740407034d2bd4974762115d5}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Send\-L\-C\-D\-Init@{Send\-L\-C\-D\-Init}}
+\index{Send\-L\-C\-D\-Init@{Send\-L\-C\-D\-Init}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Send\-L\-C\-D\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void Send\-L\-C\-D\-Init (
+\begin{DoxyParamCaption}
+\item[{One\-Wire $\ast$}]{ds, }
+\item[{uint8\-\_\-t $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a0346e7b740407034d2bd4974762115d5}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!setup@{setup}}
+\index{setup@{setup}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_aab2d9ea3e3ecace8e6d48c296ec9b622}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Write\-L\-C\-D\-Data@{Write\-L\-C\-D\-Data}}
+\index{Write\-L\-C\-D\-Data@{Write\-L\-C\-D\-Data}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Write\-L\-C\-D\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Write\-L\-C\-D\-Data (
+\begin{DoxyParamCaption}
+\item[{One\-Wire $\ast$}]{ds, }
+\item[{uint8\-\_\-t $\ast$}]{addr, }
+\item[{const char $\ast$}]{string, }
+\item[{uint8\-\_\-t}]{num}
+\end{DoxyParamCaption}
+)}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_aab2d9ea3e3ecace8e6d48c296ec9b622}
+
+
+\subsection{Variable Documentation}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a62481bf733fae27fbf5f83e4a3582c1c}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!Init\-String@{Init\-String}}
+\index{Init\-String@{Init\-String}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{Init\-String}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ Init\-String = {\bf S\-T7036}}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a62481bf733fae27fbf5f83e4a3582c1c}
+\hypertarget{backup_2v1_2Uno__DS2408__LCD163_8ino_a4db2cbb1ca779c9719d1a0f4d7ba5669}{\index{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}!S\-T7036@{S\-T7036}}
+\index{S\-T7036@{S\-T7036}!backup/v1/Uno_DS2408_LCD163.ino@{backup/v1/\-Uno\-\_\-\-D\-S2408\-\_\-\-L\-C\-D163.\-ino}}
+\subsubsection[{S\-T7036}]{\setlength{\rightskip}{0pt plus 5cm}char S\-T7036\mbox{[}$\,$\mbox{]} = \char`\"{}\textbackslash{}x33\textbackslash{}x32\textbackslash{}x21\textbackslash{}x1c\textbackslash{}x52\textbackslash{}x69\textbackslash{}x74\textbackslash{}x20\textbackslash{}x0c\textbackslash{}x01\textbackslash{}x06\char`\"{}}}\label{backup_2v1_2Uno__DS2408__LCD163_8ino_a4db2cbb1ca779c9719d1a0f4d7ba5669}

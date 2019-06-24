@@ -1,0 +1,158 @@
+\hypertarget{Yun__SHT31__WiFi__REST_8ino}{\section{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.ino File Reference}
+\label{Yun__SHT31__WiFi__REST_8ino}\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+}
+{\ttfamily \#include $<$Bridge.\-h$>$}\\*
+{\ttfamily \#include $<$Yun\-Server.\-h$>$}\\*
+{\ttfamily \#include $<$Yun\-Client.\-h$>$}\\*
+{\ttfamily \#include $<$a\-R\-E\-S\-T.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Adafruit\-\_\-\-S\-H\-T31.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-S\-D1306\-Ascii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-S\-D1306\-Ascii\-Wire.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$Process.\-h$>$}\\*
+{\ttfamily \#include $<$File\-I\-O.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Yun\-Server \hyperlink{Yun__SHT31__WiFi__REST_8ino_a38bcb00b0f8f4fe4bb21b54dba7d1aec}{server} (80)
+\item 
+void \hyperlink{Yun__SHT31__WiFi__REST_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup} (void)
+\item 
+void \hyperlink{Yun__SHT31__WiFi__REST_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{Yun__SHT31__WiFi__REST_8ino_a6766eee584b84ead350781efbabe36d7}{blinking} (void)
+\item 
+String \hyperlink{Yun__SHT31__WiFi__REST_8ino_aba13adb5d48dea106cf1c8a2d55af4d7}{get\-Time\-Stamp} ()
+\item 
+double \hyperlink{Yun__SHT31__WiFi__REST_8ino_a17e09a71c2603f4f10984364f358d5b7}{get\-Vcc} ()
+\item 
+double \hyperlink{Yun__SHT31__WiFi__REST_8ino_a11287b16260f611508b59bc017646b8b}{get\-Temp} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+a\-R\-E\-S\-T \hyperlink{Yun__SHT31__WiFi__REST_8ino_a26fae33ed4ee26417d9384858ac417f7}{rest} = a\-R\-E\-S\-T()
+\item 
+Adafruit\-\_\-\-S\-H\-T31 \hyperlink{Yun__SHT31__WiFi__REST_8ino_a4cc868f67bc519384a9e92cd96d408c9}{sht31} = Adafruit\-\_\-\-S\-H\-T31()
+\item 
+S\-S\-D1306\-Ascii\-Wire \hyperlink{Yun__SHT31__WiFi__REST_8ino_ad5f8b489b649f5974de70af2a799aee4}{oled}
+\item 
+float \hyperlink{Yun__SHT31__WiFi__REST_8ino_afc1d28cfbce795d6ea954ebe725241f5}{temperature}
+\item 
+float \hyperlink{Yun__SHT31__WiFi__REST_8ino_a6a87b2b0cff24d38b367ccd34843a206}{humidity}
+\item 
+float \hyperlink{Yun__SHT31__WiFi__REST_8ino_a330b84cf62d5ff4d105603b4aeb5b0f4}{Vs}
+\item 
+float \hyperlink{Yun__SHT31__WiFi__REST_8ino_a020447fde7d6f0d08fcf2f0d937dac8b}{Ti}
+\item 
+const String \hyperlink{Yun__SHT31__WiFi__REST_8ino_af834f051d722dbb35b72622ba5b6e7f0}{s\-D\-E\-S\-C} = String(\char`\"{}S\-H\-T31 I2\-C Wi\-Fi Sensor\char`\"{})
+\item 
+const String \hyperlink{Yun__SHT31__WiFi__REST_8ino_aebbbc07d1cec3118849700c029385aca}{s\-D\-A\-T\-E} = String(\-\_\-\-\_\-\-D\-A\-T\-E\-\_\-\-\_\-)
+\item 
+const String \hyperlink{Yun__SHT31__WiFi__REST_8ino_aaba6e31d86fe58b0db043f3b487b29ff}{s\-T\-I\-M\-E} = String(\-\_\-\-\_\-\-T\-I\-M\-E\-\_\-\-\_\-)
+\item 
+const String \hyperlink{Yun__SHT31__WiFi__REST_8ino_a00e4b83e0d8cd98e4f68b1517fa4c815}{s\-I\-D\-E} = String(A\-R\-D\-U\-I\-N\-O, \hyperlink{Print_8h_afe38ec6126e35e40049e27fdf4586ba5}{D\-E\-C})
+\item 
+const String \hyperlink{Yun__SHT31__WiFi__REST_8ino_a0a1aeee9eb1bf0a5b6fee51ac230a8f6}{s\-V\-E\-R\-S\-I\-O\-N} = String(\-\_\-\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-\_\-)
+\item 
+const String \hyperlink{Yun__SHT31__WiFi__REST_8ino_a71fe64d7daf0e26886ad2d7e17bd0806}{s\-F\-I\-L\-E} = String(\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a6766eee584b84ead350781efbabe36d7}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!blinking@{blinking}}
+\index{blinking@{blinking}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{blinking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} blinking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__SHT31__WiFi__REST_8ino_a6766eee584b84ead350781efbabe36d7}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a11287b16260f611508b59bc017646b8b}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!get\-Temp@{get\-Temp}}
+\index{get\-Temp@{get\-Temp}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{get\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}double get\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__SHT31__WiFi__REST_8ino_a11287b16260f611508b59bc017646b8b}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_aba13adb5d48dea106cf1c8a2d55af4d7}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!get\-Time\-Stamp@{get\-Time\-Stamp}}
+\index{get\-Time\-Stamp@{get\-Time\-Stamp}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{get\-Time\-Stamp}]{\setlength{\rightskip}{0pt plus 5cm}String get\-Time\-Stamp (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Yun__SHT31__WiFi__REST_8ino_aba13adb5d48dea106cf1c8a2d55af4d7}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a17e09a71c2603f4f10984364f358d5b7}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!get\-Vcc@{get\-Vcc}}
+\index{get\-Vcc@{get\-Vcc}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{get\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}double get\-Vcc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__SHT31__WiFi__REST_8ino_a17e09a71c2603f4f10984364f358d5b7}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!loop@{loop}}
+\index{loop@{loop}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__SHT31__WiFi__REST_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{Yun__SHT31__WiFi__REST_8ino_a38bcb00b0f8f4fe4bb21b54dba7d1aec}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!server@{server}}
+\index{server@{server}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}Yun\-Server server (
+\begin{DoxyParamCaption}
+\item[{80}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__SHT31__WiFi__REST_8ino_a38bcb00b0f8f4fe4bb21b54dba7d1aec}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!setup@{setup}}
+\index{setup@{setup}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__SHT31__WiFi__REST_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a6a87b2b0cff24d38b367ccd34843a206}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!humidity@{humidity}}
+\index{humidity@{humidity}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{humidity}]{\setlength{\rightskip}{0pt plus 5cm}float humidity}}\label{Yun__SHT31__WiFi__REST_8ino_a6a87b2b0cff24d38b367ccd34843a206}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_ad5f8b489b649f5974de70af2a799aee4}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!oled@{oled}}
+\index{oled@{oled}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{oled}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-D1306\-Ascii\-Wire oled}}\label{Yun__SHT31__WiFi__REST_8ino_ad5f8b489b649f5974de70af2a799aee4}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a26fae33ed4ee26417d9384858ac417f7}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!rest@{rest}}
+\index{rest@{rest}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{rest}]{\setlength{\rightskip}{0pt plus 5cm}a\-R\-E\-S\-T rest = a\-R\-E\-S\-T()}}\label{Yun__SHT31__WiFi__REST_8ino_a26fae33ed4ee26417d9384858ac417f7}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_aebbbc07d1cec3118849700c029385aca}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-D\-A\-T\-E@{s\-D\-A\-T\-E}}
+\index{s\-D\-A\-T\-E@{s\-D\-A\-T\-E}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-D\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}const String s\-D\-A\-T\-E = String(\-\_\-\-\_\-\-D\-A\-T\-E\-\_\-\-\_\-)}}\label{Yun__SHT31__WiFi__REST_8ino_aebbbc07d1cec3118849700c029385aca}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_af834f051d722dbb35b72622ba5b6e7f0}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-D\-E\-S\-C@{s\-D\-E\-S\-C}}
+\index{s\-D\-E\-S\-C@{s\-D\-E\-S\-C}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-D\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}const String s\-D\-E\-S\-C = String(\char`\"{}S\-H\-T31 I2\-C Wi\-Fi Sensor\char`\"{})}}\label{Yun__SHT31__WiFi__REST_8ino_af834f051d722dbb35b72622ba5b6e7f0}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a71fe64d7daf0e26886ad2d7e17bd0806}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-F\-I\-L\-E@{s\-F\-I\-L\-E}}
+\index{s\-F\-I\-L\-E@{s\-F\-I\-L\-E}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}const String s\-F\-I\-L\-E = String(\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-)}}\label{Yun__SHT31__WiFi__REST_8ino_a71fe64d7daf0e26886ad2d7e17bd0806}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a4cc868f67bc519384a9e92cd96d408c9}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!sht31@{sht31}}
+\index{sht31@{sht31}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{sht31}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-S\-H\-T31 sht31 = Adafruit\-\_\-\-S\-H\-T31()}}\label{Yun__SHT31__WiFi__REST_8ino_a4cc868f67bc519384a9e92cd96d408c9}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a00e4b83e0d8cd98e4f68b1517fa4c815}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-I\-D\-E@{s\-I\-D\-E}}
+\index{s\-I\-D\-E@{s\-I\-D\-E}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-I\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}const String s\-I\-D\-E = String(A\-R\-D\-U\-I\-N\-O, {\bf D\-E\-C})}}\label{Yun__SHT31__WiFi__REST_8ino_a00e4b83e0d8cd98e4f68b1517fa4c815}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_aaba6e31d86fe58b0db043f3b487b29ff}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-T\-I\-M\-E@{s\-T\-I\-M\-E}}
+\index{s\-T\-I\-M\-E@{s\-T\-I\-M\-E}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}const String s\-T\-I\-M\-E = String(\-\_\-\-\_\-\-T\-I\-M\-E\-\_\-\-\_\-)}}\label{Yun__SHT31__WiFi__REST_8ino_aaba6e31d86fe58b0db043f3b487b29ff}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a0a1aeee9eb1bf0a5b6fee51ac230a8f6}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-V\-E\-R\-S\-I\-O\-N@{s\-V\-E\-R\-S\-I\-O\-N}}
+\index{s\-V\-E\-R\-S\-I\-O\-N@{s\-V\-E\-R\-S\-I\-O\-N}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}const String s\-V\-E\-R\-S\-I\-O\-N = String(\-\_\-\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-\_\-)}}\label{Yun__SHT31__WiFi__REST_8ino_a0a1aeee9eb1bf0a5b6fee51ac230a8f6}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_afc1d28cfbce795d6ea954ebe725241f5}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!temperature@{temperature}}
+\index{temperature@{temperature}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{temperature}]{\setlength{\rightskip}{0pt plus 5cm}float temperature}}\label{Yun__SHT31__WiFi__REST_8ino_afc1d28cfbce795d6ea954ebe725241f5}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a020447fde7d6f0d08fcf2f0d937dac8b}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!Ti@{Ti}}
+\index{Ti@{Ti}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{Ti}]{\setlength{\rightskip}{0pt plus 5cm}float Ti}}\label{Yun__SHT31__WiFi__REST_8ino_a020447fde7d6f0d08fcf2f0d937dac8b}
+\hypertarget{Yun__SHT31__WiFi__REST_8ino_a330b84cf62d5ff4d105603b4aeb5b0f4}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!Vs@{Vs}}
+\index{Vs@{Vs}!Yun_SHT31_WiFi_REST.ino@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{Vs}]{\setlength{\rightskip}{0pt plus 5cm}float Vs}}\label{Yun__SHT31__WiFi__REST_8ino_a330b84cf62d5ff4d105603b4aeb5b0f4}

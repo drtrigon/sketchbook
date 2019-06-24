@@ -1,0 +1,145 @@
+\hypertarget{Due__AS7265X__Spectrometer_8ino}{\section{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer/\-Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.ino File Reference}
+\label{Due__AS7265X__Spectrometer_8ino}\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer/\-Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer/\-Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+}
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}A\-S7265\-X.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Due__AS7265X__Spectrometer_8ino_a7a47c5b8a7e1c151db910d1c2518b08d}{int\-Pin}~2
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Due__AS7265X__Spectrometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Due__AS7265X__Spectrometer_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{Due__AS7265X__Spectrometer_8ino_a2b1030fb3c0ebb529adf1c6f0d31aa8b}{my\-Int\-Handler} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{Due__AS7265X__Spectrometer_8ino_a7b074219f5f6b80d857f46161612384a}{int\-Flag} = \hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_ae7b332d6591ae481f983a91ddd5f94b0}{M\-A\-J\-O\-R}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_aa2fc9067222815bec88b0dc6048b2956}{P\-A\-T\-C\-H}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a65db77aa3403b8f451d1d2faa32fde5e}{B\-U\-I\-L\-D}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_ade818037fd6c985038ff29656089758d}{status}
+\item 
+float \hyperlink{Due__AS7265X__Spectrometer_8ino_aff70aaa7c9c08aa0348aabb883ab7cf6}{cal\-Data} \mbox{[}18\mbox{]}
+\item 
+int16\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_af6e2f1dfc29718525a2a4766430c5227}{raw\-Data} \mbox{[}18\mbox{]}
+\item 
+uint16\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_abbc4085ba884ad35981bb755f611e65c}{freq} \mbox{[}18\mbox{]} = \{610, 680, 730, 760, 810, 860, 560, 585, 645, 705, 900, 940, 410, 435, 460, 485, 510, 535\}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a90814a030f3017e333317703ebe0a2fb}{led\-Ind\-Current0} = \hyperlink{AS7265X_8h_a67dbe46dbd778ab6f85e0506a2a5121b}{led\-\_\-ind\-\_\-1\-\_\-m\-A}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a0277f8794bf73762d1e0a73d60d8fd1b}{led\-Drv\-Current0} = \hyperlink{AS7265X_8h_a56ef4b37340d832f0785fbcee8f9075e}{led\-\_\-drv\-\_\-12\-\_\-5\-\_\-m\-A}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_ad4229c164ce1698424e3dce8159b6014}{led\-Ind\-Current1} = \hyperlink{AS7265X_8h_a67dbe46dbd778ab6f85e0506a2a5121b}{led\-\_\-ind\-\_\-1\-\_\-m\-A}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a1402ba7b3c066ee31c4413767f5eda42}{led\-Drv\-Current1} = \hyperlink{AS7265X_8h_a56ef4b37340d832f0785fbcee8f9075e}{led\-\_\-drv\-\_\-12\-\_\-5\-\_\-m\-A}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a17131bcd1c9c7fcbb7e4f75fa9bd2954}{led\-Ind\-Current2} = \hyperlink{AS7265X_8h_a67dbe46dbd778ab6f85e0506a2a5121b}{led\-\_\-ind\-\_\-1\-\_\-m\-A}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a41b9ee02dc5d7724745208f981b0c145}{led\-Drv\-Current2} = \hyperlink{AS7265X_8h_a56ef4b37340d832f0785fbcee8f9075e}{led\-\_\-drv\-\_\-12\-\_\-5\-\_\-m\-A}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a5c9c0f59d06b7360c990c3f49be81fa7}{gain} = \hyperlink{AS7265X_8h_a97c3f3fc2af52d4211d96e9649aedd06}{gain\-\_\-16x}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a37e90f5e3bd99fac2021fb3a326607d4}{mode} = \hyperlink{AS7265X_8h_a63231276e0fcd8150890da1546a9eb92}{mode2}
+\item 
+uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a91f2d101a2ec3dda9ff42c39d3913a90}{int\-Time} = 36
+\item 
+\hyperlink{classAS7265X}{A\-S7265\-X} \hyperlink{Due__AS7265X__Spectrometer_8ino_aab7193fb37bf8400c656a3db9f2c6427}{A\-S7265\-X} (\hyperlink{Due__AS7265X__Spectrometer_8ino_a7a47c5b8a7e1c151db910d1c2518b08d}{int\-Pin})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a7a47c5b8a7e1c151db910d1c2518b08d}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!int\-Pin@{int\-Pin}}
+\index{int\-Pin@{int\-Pin}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{int\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define int\-Pin~2}}\label{Due__AS7265X__Spectrometer_8ino_a7a47c5b8a7e1c151db910d1c2518b08d}
+
+
+\subsection{Function Documentation}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!loop@{loop}}
+\index{loop@{loop}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Due__AS7265X__Spectrometer_8ino_afe461d27b9c48d5921c00d521181f12f}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a2b1030fb3c0ebb529adf1c6f0d31aa8b}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!my\-Int\-Handler@{my\-Int\-Handler}}
+\index{my\-Int\-Handler@{my\-Int\-Handler}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{my\-Int\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}void my\-Int\-Handler (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Due__AS7265X__Spectrometer_8ino_a2b1030fb3c0ebb529adf1c6f0d31aa8b}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!setup@{setup}}
+\index{setup@{setup}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Due__AS7265X__Spectrometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_aab7193fb37bf8400c656a3db9f2c6427}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!A\-S7265\-X@{A\-S7265\-X}}
+\index{A\-S7265\-X@{A\-S7265\-X}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{A\-S7265\-X}]{\setlength{\rightskip}{0pt plus 5cm}{\bf A\-S7265\-X} {\bf A\-S7265\-X}({\bf int\-Pin})}}\label{Due__AS7265X__Spectrometer_8ino_aab7193fb37bf8400c656a3db9f2c6427}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a65db77aa3403b8f451d1d2faa32fde5e}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!B\-U\-I\-L\-D@{B\-U\-I\-L\-D}}
+\index{B\-U\-I\-L\-D@{B\-U\-I\-L\-D}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{B\-U\-I\-L\-D}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t B\-U\-I\-L\-D}}\label{Due__AS7265X__Spectrometer_8ino_a65db77aa3403b8f451d1d2faa32fde5e}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_aff70aaa7c9c08aa0348aabb883ab7cf6}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!cal\-Data@{cal\-Data}}
+\index{cal\-Data@{cal\-Data}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{cal\-Data}]{\setlength{\rightskip}{0pt plus 5cm}float cal\-Data\mbox{[}18\mbox{]}}}\label{Due__AS7265X__Spectrometer_8ino_aff70aaa7c9c08aa0348aabb883ab7cf6}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_abbc4085ba884ad35981bb755f611e65c}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!freq@{freq}}
+\index{freq@{freq}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{freq}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t freq\mbox{[}18\mbox{]} = \{610, 680, 730, 760, 810, 860, 560, 585, 645, 705, 900, 940, 410, 435, 460, 485, 510, 535\}}}\label{Due__AS7265X__Spectrometer_8ino_abbc4085ba884ad35981bb755f611e65c}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a5c9c0f59d06b7360c990c3f49be81fa7}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!gain@{gain}}
+\index{gain@{gain}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{gain}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t gain = {\bf gain\-\_\-16x}}}\label{Due__AS7265X__Spectrometer_8ino_a5c9c0f59d06b7360c990c3f49be81fa7}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a7b074219f5f6b80d857f46161612384a}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!int\-Flag@{int\-Flag}}
+\index{int\-Flag@{int\-Flag}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{int\-Flag}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} int\-Flag = {\bf false}}}\label{Due__AS7265X__Spectrometer_8ino_a7b074219f5f6b80d857f46161612384a}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a91f2d101a2ec3dda9ff42c39d3913a90}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!int\-Time@{int\-Time}}
+\index{int\-Time@{int\-Time}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{int\-Time}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t int\-Time = 36}}\label{Due__AS7265X__Spectrometer_8ino_a91f2d101a2ec3dda9ff42c39d3913a90}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a0277f8794bf73762d1e0a73d60d8fd1b}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!led\-Drv\-Current0@{led\-Drv\-Current0}}
+\index{led\-Drv\-Current0@{led\-Drv\-Current0}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{led\-Drv\-Current0}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t led\-Drv\-Current0 = {\bf led\-\_\-drv\-\_\-12\-\_\-5\-\_\-m\-A}}}\label{Due__AS7265X__Spectrometer_8ino_a0277f8794bf73762d1e0a73d60d8fd1b}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a1402ba7b3c066ee31c4413767f5eda42}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!led\-Drv\-Current1@{led\-Drv\-Current1}}
+\index{led\-Drv\-Current1@{led\-Drv\-Current1}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{led\-Drv\-Current1}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t led\-Drv\-Current1 = {\bf led\-\_\-drv\-\_\-12\-\_\-5\-\_\-m\-A}}}\label{Due__AS7265X__Spectrometer_8ino_a1402ba7b3c066ee31c4413767f5eda42}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a41b9ee02dc5d7724745208f981b0c145}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!led\-Drv\-Current2@{led\-Drv\-Current2}}
+\index{led\-Drv\-Current2@{led\-Drv\-Current2}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{led\-Drv\-Current2}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t led\-Drv\-Current2 = {\bf led\-\_\-drv\-\_\-12\-\_\-5\-\_\-m\-A}}}\label{Due__AS7265X__Spectrometer_8ino_a41b9ee02dc5d7724745208f981b0c145}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a90814a030f3017e333317703ebe0a2fb}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!led\-Ind\-Current0@{led\-Ind\-Current0}}
+\index{led\-Ind\-Current0@{led\-Ind\-Current0}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{led\-Ind\-Current0}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t led\-Ind\-Current0 = {\bf led\-\_\-ind\-\_\-1\-\_\-m\-A}}}\label{Due__AS7265X__Spectrometer_8ino_a90814a030f3017e333317703ebe0a2fb}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_ad4229c164ce1698424e3dce8159b6014}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!led\-Ind\-Current1@{led\-Ind\-Current1}}
+\index{led\-Ind\-Current1@{led\-Ind\-Current1}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{led\-Ind\-Current1}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t led\-Ind\-Current1 = {\bf led\-\_\-ind\-\_\-1\-\_\-m\-A}}}\label{Due__AS7265X__Spectrometer_8ino_ad4229c164ce1698424e3dce8159b6014}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a17131bcd1c9c7fcbb7e4f75fa9bd2954}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!led\-Ind\-Current2@{led\-Ind\-Current2}}
+\index{led\-Ind\-Current2@{led\-Ind\-Current2}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{led\-Ind\-Current2}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t led\-Ind\-Current2 = {\bf led\-\_\-ind\-\_\-1\-\_\-m\-A}}}\label{Due__AS7265X__Spectrometer_8ino_a17131bcd1c9c7fcbb7e4f75fa9bd2954}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_ae7b332d6591ae481f983a91ddd5f94b0}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!M\-A\-J\-O\-R@{M\-A\-J\-O\-R}}
+\index{M\-A\-J\-O\-R@{M\-A\-J\-O\-R}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{M\-A\-J\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t M\-A\-J\-O\-R}}\label{Due__AS7265X__Spectrometer_8ino_ae7b332d6591ae481f983a91ddd5f94b0}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_a37e90f5e3bd99fac2021fb3a326607d4}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!mode@{mode}}
+\index{mode@{mode}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mode = {\bf mode2}}}\label{Due__AS7265X__Spectrometer_8ino_a37e90f5e3bd99fac2021fb3a326607d4}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_aa2fc9067222815bec88b0dc6048b2956}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!P\-A\-T\-C\-H@{P\-A\-T\-C\-H}}
+\index{P\-A\-T\-C\-H@{P\-A\-T\-C\-H}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{P\-A\-T\-C\-H}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t P\-A\-T\-C\-H}}\label{Due__AS7265X__Spectrometer_8ino_aa2fc9067222815bec88b0dc6048b2956}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_af6e2f1dfc29718525a2a4766430c5227}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!raw\-Data@{raw\-Data}}
+\index{raw\-Data@{raw\-Data}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{raw\-Data}]{\setlength{\rightskip}{0pt plus 5cm}int16\-\_\-t raw\-Data\mbox{[}18\mbox{]}}}\label{Due__AS7265X__Spectrometer_8ino_af6e2f1dfc29718525a2a4766430c5227}
+\hypertarget{Due__AS7265X__Spectrometer_8ino_ade818037fd6c985038ff29656089758d}{\index{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}!status@{status}}
+\index{status@{status}!Due_AS7265X_Spectrometer.ino@{Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer.\-ino}}
+\subsubsection[{status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t status}}\label{Due__AS7265X__Spectrometer_8ino_ade818037fd6c985038ff29656089758d}

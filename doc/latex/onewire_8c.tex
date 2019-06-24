@@ -1,0 +1,250 @@
+\hypertarget{onewire_8c}{\section{cli/owslave/onewire.c File Reference}
+\label{onewire_8c}\index{cli/owslave/onewire.\-c@{cli/owslave/onewire.\-c}}
+}
+{\ttfamily \#include \char`\"{}onewire\-\_\-internal.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$avr/eeprom.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{onewire_8c_ac6a21039977d29da711c6b094c87bf3e}{onewire\-\_\-init} (void)
+\item 
+void \hyperlink{onewire_8c_acffb88117bd573cc9deed5e6195e2d5a}{\-\_\-next\-\_\-idle} (void)
+\item 
+void \hyperlink{onewire_8c_a334b8ab5a9932cb2fe8a491553d99fbb}{next\-\_\-command} (void)
+\item 
+void \hyperlink{onewire_8c_aa2eacac81936dbe4bf3e7d5142c041ef}{\-\_\-wait\-\_\-complete} (void)
+\item 
+void \hyperlink{onewire_8c_a299e69dcb51cd08bb46c2fcc0f3bc011}{xmit\-\_\-byte} (uint8\-\_\-t \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+uint8\-\_\-t \hyperlink{onewire_8c_abd48b2e99f310e2a73174dc39f312153}{recv\-\_\-any\-\_\-in} (void)
+\item 
+void \hyperlink{onewire_8c_a609243ea5f6cab8782cc9654afeb7ded}{recv\-\_\-byte} (void)
+\item 
+uint16\-\_\-t \hyperlink{onewire_8c_a7e4badd9331f7efebc1ffda8c323842f}{recv\-\_\-bytes\-\_\-crc} (uint16\-\_\-t crc, uint8\-\_\-t $\ast$buf, uint8\-\_\-t len)
+\item 
+char \hyperlink{onewire_8c_acbae760ab1386c0ccf5f2a9e6da4fe49}{\-\_\-onewire\-\_\-poll} (void)
+\item 
+void \hyperlink{onewire_8c_a2a5957ef8a030fca0db0b39ca5254edc}{onewire\-\_\-poll} (void)
+\item 
+void \hyperlink{onewire_8c_af2ccb51561aa5479f91e1f84a6cfa677}{set\-\_\-idle} (void)
+\item 
+\hyperlink{onewire_8c_ac037b21720571ebb0110174b826ccaac}{D\-B\-G\-\_\-\-O\-F\-F} ()
+\item 
+\hyperlink{onewire_8c_a93e505e4e4e1119ed32afcb615b385f6}{D\-B\-G\-\_\-\-O\-N} ()
+\item 
+\hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{if} (C\-H\-K\-\_\-\-I\-N\-T\-\_\-\-E\-N())
+\item 
+else \hyperlink{onewire_8c_a2faff8a851f1026eebe50d110dc9d4cf}{switch} (\hyperlink{onewire_8c_a58c8cd2b1b0ec4186ae928041121013e}{lmode})
+\item 
+\hyperlink{onewire_8c_a0f3222257e1b453a521bf7dfcd6002e2}{if} (\hyperlink{onewire_8c_a58c8cd2b1b0ec4186ae928041121013e}{lmode}==\hyperlink{onewire__internal_8h_a18c6d44ab22b2cd0d38a2dd0ef13ed1ca78bbc3294d83d55c22d586ccde1db12e}{O\-W\-M\-\_\-\-S\-L\-E\-E\-P})
+\item 
+void \hyperlink{onewire_8c_ad685ebd23c8e96348e9924394dc696a8}{real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{unionow__addr__t}{ow\-\_\-addr\-\_\-t} \hyperlink{onewire_8c_a9aa2f90f66e13565282cbb55468b998e}{ow\-\_\-addr}
+\item 
+volatile uint8\-\_\-t \hyperlink{onewire_8c_a70e72aa766b5d5842c783b893087d602}{bitp} =\hyperlink{onewire_8c_a3bfe4d6e1f38b0c3428655d10fceea1b}{lbitp}
+\item 
+volatile uint8\-\_\-t \hyperlink{onewire_8c_ae433cb34df49f2f8c3fb4de9db47701e}{bytep}
+\item 
+volatile uint8\-\_\-t \hyperlink{onewire_8c_a81f1df51c9232c407ce4cfe88d41b78d}{cbuf}
+\item 
+volatile \hyperlink{onewire__internal_8h_aa7f969f6bd965f1e4e78028594a4b1a3}{xmode\-\_\-t} \hyperlink{onewire_8c_a2cc550fd0225a80d3fca4086fe600f8f}{xmode}
+\item 
+volatile \hyperlink{onewire__internal_8h_af06fb3abd066a22e94f88703ad296358}{wmode\-\_\-t} \hyperlink{onewire_8c_a87293e972ac8a626c8272a0f92e15855}{wmode} =\hyperlink{onewire_8c_a0f0ac543bf46c06d4ba816ec958fdd32}{lwmode}
+\item 
+volatile uint8\-\_\-t \hyperlink{onewire_8c_a416507bd07633a0913a8b29c55bcfb25}{actbit} =\hyperlink{onewire_8c_a9fbfc2d793adc073a2d9f874103faa35}{lactbit}
+\item 
+\hyperlink{onewire_8c_a27ebafdad0e87cbb1ea94d3cab33c0a2}{T\-I\-M\-E\-R\-\_\-\-I\-N\-T}
+\item 
+uint8\-\_\-t \hyperlink{onewire_8c_a6519522ad9a6f45e7a8d25d31392a977}{p} = !!(O\-N\-E\-W\-I\-R\-E\-\_\-\-P\-I\-N\&O\-N\-E\-W\-I\-R\-E\-\_\-\-P\-B\-I\-T)
+\item 
+\hyperlink{onewire__internal_8h_a18c6d44ab22b2cd0d38a2dd0ef13ed1c}{mode\-\_\-t} \hyperlink{onewire_8c_a58c8cd2b1b0ec4186ae928041121013e}{lmode} =\hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode}
+\item 
+\hyperlink{onewire__internal_8h_af06fb3abd066a22e94f88703ad296358}{wmode\-\_\-t} \hyperlink{onewire_8c_a0f0ac543bf46c06d4ba816ec958fdd32}{lwmode} =\hyperlink{onewire__internal_8h_a1bd611df8f81185b5ec4a8ca4e75fbb8}{wmode}
+\item 
+uint8\-\_\-t \hyperlink{onewire_8c_a3bfe4d6e1f38b0c3428655d10fceea1b}{lbitp} =\hyperlink{onewire__internal_8h_ac36819069e6d312196e118f6d7dd85c3}{bitp}
+\item 
+uint8\-\_\-t \hyperlink{onewire_8c_a9fbfc2d793adc073a2d9f874103faa35}{lactbit} =\hyperlink{onewire__internal_8h_aa2d501b5294487e23fdfbccde8415e45}{actbit}
+\item 
+\hyperlink{onewire_8c_a1a6b6fb557d8d37d59700faf4e4c9167}{mode} =\hyperlink{onewire_8c_a58c8cd2b1b0ec4186ae928041121013e}{lmode}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{onewire_8c_acffb88117bd573cc9deed5e6195e2d5a}{\index{onewire.\-c@{onewire.\-c}!\-\_\-next\-\_\-idle@{\-\_\-next\-\_\-idle}}
+\index{\-\_\-next\-\_\-idle@{\-\_\-next\-\_\-idle}!onewire.c@{onewire.\-c}}
+\subsubsection[{\-\_\-next\-\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-next\-\_\-idle (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_acffb88117bd573cc9deed5e6195e2d5a}
+\hypertarget{onewire_8c_acbae760ab1386c0ccf5f2a9e6da4fe49}{\index{onewire.\-c@{onewire.\-c}!\-\_\-onewire\-\_\-poll@{\-\_\-onewire\-\_\-poll}}
+\index{\-\_\-onewire\-\_\-poll@{\-\_\-onewire\-\_\-poll}!onewire.c@{onewire.\-c}}
+\subsubsection[{\-\_\-onewire\-\_\-poll}]{\setlength{\rightskip}{0pt plus 5cm}char \-\_\-onewire\-\_\-poll (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_acbae760ab1386c0ccf5f2a9e6da4fe49}
+The reason for splitting \hyperlink{onewire_8c_a2a5957ef8a030fca0db0b39ca5254edc}{onewire\-\_\-poll()} into two functions (and for the O\-S\-\_\-task attribute) is that otherwise, A\-V\-R-\/\-G\-C\-C will use a heap of registers to put all my debugging constants into separate registers before entering the loop. That is completely unnecesary and eats a lot of time. \hypertarget{onewire_8c_aa2eacac81936dbe4bf3e7d5142c041ef}{\index{onewire.\-c@{onewire.\-c}!\-\_\-wait\-\_\-complete@{\-\_\-wait\-\_\-complete}}
+\index{\-\_\-wait\-\_\-complete@{\-\_\-wait\-\_\-complete}!onewire.c@{onewire.\-c}}
+\subsubsection[{\-\_\-wait\-\_\-complete}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-wait\-\_\-complete (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_aa2eacac81936dbe4bf3e7d5142c041ef}
+\hypertarget{onewire_8c_ac037b21720571ebb0110174b826ccaac}{\index{onewire.\-c@{onewire.\-c}!D\-B\-G\-\_\-\-O\-F\-F@{D\-B\-G\-\_\-\-O\-F\-F}}
+\index{D\-B\-G\-\_\-\-O\-F\-F@{D\-B\-G\-\_\-\-O\-F\-F}!onewire.c@{onewire.\-c}}
+\subsubsection[{D\-B\-G\-\_\-\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}D\-B\-G\-\_\-\-O\-F\-F (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_ac037b21720571ebb0110174b826ccaac}
+\hypertarget{onewire_8c_a93e505e4e4e1119ed32afcb615b385f6}{\index{onewire.\-c@{onewire.\-c}!D\-B\-G\-\_\-\-O\-N@{D\-B\-G\-\_\-\-O\-N}}
+\index{D\-B\-G\-\_\-\-O\-N@{D\-B\-G\-\_\-\-O\-N}!onewire.c@{onewire.\-c}}
+\subsubsection[{D\-B\-G\-\_\-\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}D\-B\-G\-\_\-\-O\-N (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a93e505e4e4e1119ed32afcb615b385f6}
+\hypertarget{onewire_8c_a419aa918b6754a119e89d90a7c053500}{\index{onewire.\-c@{onewire.\-c}!if@{if}}
+\index{if@{if}!onewire.c@{onewire.\-c}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{C\-H\-K\-\_\-\-I\-N\-T\-\_\-\-E\-N()}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a419aa918b6754a119e89d90a7c053500}
+\hypertarget{onewire_8c_a0f3222257e1b453a521bf7dfcd6002e2}{\index{onewire.\-c@{onewire.\-c}!if@{if}}
+\index{if@{if}!onewire.c@{onewire.\-c}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{{\bf lmode}}]{ = {\ttfamily =~{\bf O\-W\-M\-\_\-\-S\-L\-E\-E\-P}}}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a0f3222257e1b453a521bf7dfcd6002e2}
+\hypertarget{onewire_8c_a334b8ab5a9932cb2fe8a491553d99fbb}{\index{onewire.\-c@{onewire.\-c}!next\-\_\-command@{next\-\_\-command}}
+\index{next\-\_\-command@{next\-\_\-command}!onewire.c@{onewire.\-c}}
+\subsubsection[{next\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}void next\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a334b8ab5a9932cb2fe8a491553d99fbb}
+\hypertarget{onewire_8c_ac6a21039977d29da711c6b094c87bf3e}{\index{onewire.\-c@{onewire.\-c}!onewire\-\_\-init@{onewire\-\_\-init}}
+\index{onewire\-\_\-init@{onewire\-\_\-init}!onewire.c@{onewire.\-c}}
+\subsubsection[{onewire\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void onewire\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_ac6a21039977d29da711c6b094c87bf3e}
+\hypertarget{onewire_8c_a2a5957ef8a030fca0db0b39ca5254edc}{\index{onewire.\-c@{onewire.\-c}!onewire\-\_\-poll@{onewire\-\_\-poll}}
+\index{onewire\-\_\-poll@{onewire\-\_\-poll}!onewire.c@{onewire.\-c}}
+\subsubsection[{onewire\-\_\-poll}]{\setlength{\rightskip}{0pt plus 5cm}void onewire\-\_\-poll (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a2a5957ef8a030fca0db0b39ca5254edc}
+\hypertarget{onewire_8c_ad685ebd23c8e96348e9924394dc696a8}{\index{onewire.\-c@{onewire.\-c}!real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T@{real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T}}
+\index{real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T@{real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T}!onewire.c@{onewire.\-c}}
+\subsubsection[{real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}void real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_ad685ebd23c8e96348e9924394dc696a8}
+\hypertarget{onewire_8c_abd48b2e99f310e2a73174dc39f312153}{\index{onewire.\-c@{onewire.\-c}!recv\-\_\-any\-\_\-in@{recv\-\_\-any\-\_\-in}}
+\index{recv\-\_\-any\-\_\-in@{recv\-\_\-any\-\_\-in}!onewire.c@{onewire.\-c}}
+\subsubsection[{recv\-\_\-any\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t recv\-\_\-any\-\_\-in (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_abd48b2e99f310e2a73174dc39f312153}
+\hypertarget{onewire_8c_a609243ea5f6cab8782cc9654afeb7ded}{\index{onewire.\-c@{onewire.\-c}!recv\-\_\-byte@{recv\-\_\-byte}}
+\index{recv\-\_\-byte@{recv\-\_\-byte}!onewire.c@{onewire.\-c}}
+\subsubsection[{recv\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}void recv\-\_\-byte (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a609243ea5f6cab8782cc9654afeb7ded}
+\hypertarget{onewire_8c_a7e4badd9331f7efebc1ffda8c323842f}{\index{onewire.\-c@{onewire.\-c}!recv\-\_\-bytes\-\_\-crc@{recv\-\_\-bytes\-\_\-crc}}
+\index{recv\-\_\-bytes\-\_\-crc@{recv\-\_\-bytes\-\_\-crc}!onewire.c@{onewire.\-c}}
+\subsubsection[{recv\-\_\-bytes\-\_\-crc}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t recv\-\_\-bytes\-\_\-crc (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{crc, }
+\item[{uint8\-\_\-t $\ast$}]{buf, }
+\item[{uint8\-\_\-t}]{len}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a7e4badd9331f7efebc1ffda8c323842f}
+\hypertarget{onewire_8c_af2ccb51561aa5479f91e1f84a6cfa677}{\index{onewire.\-c@{onewire.\-c}!set\-\_\-idle@{set\-\_\-idle}}
+\index{set\-\_\-idle@{set\-\_\-idle}!onewire.c@{onewire.\-c}}
+\subsubsection[{set\-\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-idle (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_af2ccb51561aa5479f91e1f84a6cfa677}
+\hypertarget{onewire_8c_a2faff8a851f1026eebe50d110dc9d4cf}{\index{onewire.\-c@{onewire.\-c}!switch@{switch}}
+\index{switch@{switch}!onewire.c@{onewire.\-c}}
+\subsubsection[{switch}]{\setlength{\rightskip}{0pt plus 5cm}else switch (
+\begin{DoxyParamCaption}
+\item[{{\bf lmode}}]{}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a2faff8a851f1026eebe50d110dc9d4cf}
+\hypertarget{onewire_8c_a299e69dcb51cd08bb46c2fcc0f3bc011}{\index{onewire.\-c@{onewire.\-c}!xmit\-\_\-byte@{xmit\-\_\-byte}}
+\index{xmit\-\_\-byte@{xmit\-\_\-byte}!onewire.c@{onewire.\-c}}
+\subsubsection[{xmit\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}void xmit\-\_\-byte (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}}\label{onewire_8c_a299e69dcb51cd08bb46c2fcc0f3bc011}
+
+
+\subsection{Variable Documentation}
+\hypertarget{onewire_8c_a416507bd07633a0913a8b29c55bcfb25}{\index{onewire.\-c@{onewire.\-c}!actbit@{actbit}}
+\index{actbit@{actbit}!onewire.c@{onewire.\-c}}
+\subsubsection[{actbit}]{\setlength{\rightskip}{0pt plus 5cm}actbit ={\bf lactbit}}}\label{onewire_8c_a416507bd07633a0913a8b29c55bcfb25}
+\hypertarget{onewire_8c_a70e72aa766b5d5842c783b893087d602}{\index{onewire.\-c@{onewire.\-c}!bitp@{bitp}}
+\index{bitp@{bitp}!onewire.c@{onewire.\-c}}
+\subsubsection[{bitp}]{\setlength{\rightskip}{0pt plus 5cm}bitp ={\bf lbitp}}}\label{onewire_8c_a70e72aa766b5d5842c783b893087d602}
+\hypertarget{onewire_8c_ae433cb34df49f2f8c3fb4de9db47701e}{\index{onewire.\-c@{onewire.\-c}!bytep@{bytep}}
+\index{bytep@{bytep}!onewire.c@{onewire.\-c}}
+\subsubsection[{bytep}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t bytep}}\label{onewire_8c_ae433cb34df49f2f8c3fb4de9db47701e}
+\hypertarget{onewire_8c_a81f1df51c9232c407ce4cfe88d41b78d}{\index{onewire.\-c@{onewire.\-c}!cbuf@{cbuf}}
+\index{cbuf@{cbuf}!onewire.c@{onewire.\-c}}
+\subsubsection[{cbuf}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint8\-\_\-t cbuf}}\label{onewire_8c_a81f1df51c9232c407ce4cfe88d41b78d}
+\hypertarget{onewire_8c_a9fbfc2d793adc073a2d9f874103faa35}{\index{onewire.\-c@{onewire.\-c}!lactbit@{lactbit}}
+\index{lactbit@{lactbit}!onewire.c@{onewire.\-c}}
+\subsubsection[{lactbit}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t lactbit ={\bf actbit}}}\label{onewire_8c_a9fbfc2d793adc073a2d9f874103faa35}
+\hypertarget{onewire_8c_a3bfe4d6e1f38b0c3428655d10fceea1b}{\index{onewire.\-c@{onewire.\-c}!lbitp@{lbitp}}
+\index{lbitp@{lbitp}!onewire.c@{onewire.\-c}}
+\subsubsection[{lbitp}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t lbitp ={\bf bitp}}}\label{onewire_8c_a3bfe4d6e1f38b0c3428655d10fceea1b}
+\hypertarget{onewire_8c_a58c8cd2b1b0ec4186ae928041121013e}{\index{onewire.\-c@{onewire.\-c}!lmode@{lmode}}
+\index{lmode@{lmode}!onewire.c@{onewire.\-c}}
+\subsubsection[{lmode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf mode\-\_\-t} lmode ={\bf mode}}}\label{onewire_8c_a58c8cd2b1b0ec4186ae928041121013e}
+\hypertarget{onewire_8c_a0f0ac543bf46c06d4ba816ec958fdd32}{\index{onewire.\-c@{onewire.\-c}!lwmode@{lwmode}}
+\index{lwmode@{lwmode}!onewire.c@{onewire.\-c}}
+\subsubsection[{lwmode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf wmode\-\_\-t} lwmode ={\bf wmode}}}\label{onewire_8c_a0f0ac543bf46c06d4ba816ec958fdd32}
+\hypertarget{onewire_8c_a1a6b6fb557d8d37d59700faf4e4c9167}{\index{onewire.\-c@{onewire.\-c}!mode@{mode}}
+\index{mode@{mode}!onewire.c@{onewire.\-c}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}mode ={\bf lmode}}}\label{onewire_8c_a1a6b6fb557d8d37d59700faf4e4c9167}
+\hypertarget{onewire_8c_a9aa2f90f66e13565282cbb55468b998e}{\index{onewire.\-c@{onewire.\-c}!ow\-\_\-addr@{ow\-\_\-addr}}
+\index{ow\-\_\-addr@{ow\-\_\-addr}!onewire.c@{onewire.\-c}}
+\subsubsection[{ow\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf ow\-\_\-addr\-\_\-t} ow\-\_\-addr}}\label{onewire_8c_a9aa2f90f66e13565282cbb55468b998e}
+\hypertarget{onewire_8c_a6519522ad9a6f45e7a8d25d31392a977}{\index{onewire.\-c@{onewire.\-c}!p@{p}}
+\index{p@{p}!onewire.c@{onewire.\-c}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t p = !!(O\-N\-E\-W\-I\-R\-E\-\_\-\-P\-I\-N\&O\-N\-E\-W\-I\-R\-E\-\_\-\-P\-B\-I\-T)}}\label{onewire_8c_a6519522ad9a6f45e7a8d25d31392a977}
+\hypertarget{onewire_8c_a27ebafdad0e87cbb1ea94d3cab33c0a2}{\index{onewire.\-c@{onewire.\-c}!T\-I\-M\-E\-R\-\_\-\-I\-N\-T@{T\-I\-M\-E\-R\-\_\-\-I\-N\-T}}
+\index{T\-I\-M\-E\-R\-\_\-\-I\-N\-T@{T\-I\-M\-E\-R\-\_\-\-I\-N\-T}!onewire.c@{onewire.\-c}}
+\subsubsection[{T\-I\-M\-E\-R\-\_\-\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}T\-I\-M\-E\-R\-\_\-\-I\-N\-T}}\label{onewire_8c_a27ebafdad0e87cbb1ea94d3cab33c0a2}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+    
+    
+    \hyperlink{onewire_8c_a93e505e4e4e1119ed32afcb615b385f6}{DBG\_ON}()
+\end{DoxyCode}
+\hypertarget{onewire_8c_a87293e972ac8a626c8272a0f92e15855}{\index{onewire.\-c@{onewire.\-c}!wmode@{wmode}}
+\index{wmode@{wmode}!onewire.c@{onewire.\-c}}
+\subsubsection[{wmode}]{\setlength{\rightskip}{0pt plus 5cm}wmode ={\bf lwmode}}}\label{onewire_8c_a87293e972ac8a626c8272a0f92e15855}
+\hypertarget{onewire_8c_a2cc550fd0225a80d3fca4086fe600f8f}{\index{onewire.\-c@{onewire.\-c}!xmode@{xmode}}
+\index{xmode@{xmode}!onewire.c@{onewire.\-c}}
+\subsubsection[{xmode}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf xmode\-\_\-t} xmode}}\label{onewire_8c_a2cc550fd0225a80d3fca4086fe600f8f}

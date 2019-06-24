@@ -1,0 +1,91 @@
+\hypertarget{SHT31_8ino}{\section{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-S\-H\-T31/\-S\-H\-T31.ino File Reference}
+\label{SHT31_8ino}\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-S\-H\-T31/\-S\-H\-T31.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-S\-H\-T31/\-S\-H\-T31.\-ino}}
+}
+{\ttfamily \#include $<$E\-S\-P8266\-Wi\-Fi.\-h$>$}\\*
+{\ttfamily \#include $<$Wi\-Fi\-Client.\-h$>$}\\*
+{\ttfamily \#include $<$E\-S\-P8266\-Web\-Server.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{SHT31_8ino_a0faf74e4f4bc683411f373473b2e116e}{Addr}~0x44
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+E\-S\-P8266\-Web\-Server \hyperlink{SHT31_8ino_a58141c4f251beaa1fee89b632d87152f}{server} (80)
+\item 
+void \hyperlink{SHT31_8ino_ab9422a0a4b5f03797ea2b111d761e350}{handleroot} ()
+\item 
+void \hyperlink{SHT31_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{SHT31_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{SHT31_8ino_a587ba0cb07f02913598610049a3bbb79}{ssid} = \char`\"{}Buffalo-\/\hyperlink{OWGeneric__SensorStation_8ino_a0b5841fe91d5a3db72753b6217923030}{G}-\/E69\-A\char`\"{}
+\item 
+const char $\ast$ \hyperlink{SHT31_8ino_aa4a2ebcb494493f648ae1e6975672575}{password} = \char`\"{}14661655\char`\"{}
+\item 
+float \hyperlink{SHT31_8ino_a6a87b2b0cff24d38b367ccd34843a206}{humidity}
+\item 
+float \hyperlink{SHT31_8ino_abe4ae137c385fdbc12834212495f4237}{c\-Temp}
+\item 
+float \hyperlink{SHT31_8ino_ad8bb0570b3edfc2567c23ee80ef66f6c}{f\-Temp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{SHT31_8ino_a0faf74e4f4bc683411f373473b2e116e}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!Addr@{Addr}}
+\index{Addr@{Addr}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{Addr}]{\setlength{\rightskip}{0pt plus 5cm}\#define Addr~0x44}}\label{SHT31_8ino_a0faf74e4f4bc683411f373473b2e116e}
+
+
+\subsection{Function Documentation}
+\hypertarget{SHT31_8ino_ab9422a0a4b5f03797ea2b111d761e350}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!handleroot@{handleroot}}
+\index{handleroot@{handleroot}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{handleroot}]{\setlength{\rightskip}{0pt plus 5cm}void handleroot (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{SHT31_8ino_ab9422a0a4b5f03797ea2b111d761e350}
+\hypertarget{SHT31_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!loop@{loop}}
+\index{loop@{loop}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{SHT31_8ino_afe461d27b9c48d5921c00d521181f12f}
+\hypertarget{SHT31_8ino_a58141c4f251beaa1fee89b632d87152f}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!server@{server}}
+\index{server@{server}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}E\-S\-P8266\-Web\-Server server (
+\begin{DoxyParamCaption}
+\item[{80}]{}
+\end{DoxyParamCaption}
+)}}\label{SHT31_8ino_a58141c4f251beaa1fee89b632d87152f}
+\hypertarget{SHT31_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!setup@{setup}}
+\index{setup@{setup}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{SHT31_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+
+
+\subsection{Variable Documentation}
+\hypertarget{SHT31_8ino_abe4ae137c385fdbc12834212495f4237}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!c\-Temp@{c\-Temp}}
+\index{c\-Temp@{c\-Temp}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{c\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float c\-Temp}}\label{SHT31_8ino_abe4ae137c385fdbc12834212495f4237}
+\hypertarget{SHT31_8ino_ad8bb0570b3edfc2567c23ee80ef66f6c}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!f\-Temp@{f\-Temp}}
+\index{f\-Temp@{f\-Temp}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{f\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float f\-Temp}}\label{SHT31_8ino_ad8bb0570b3edfc2567c23ee80ef66f6c}
+\hypertarget{SHT31_8ino_a6a87b2b0cff24d38b367ccd34843a206}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!humidity@{humidity}}
+\index{humidity@{humidity}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{humidity}]{\setlength{\rightskip}{0pt plus 5cm}float humidity}}\label{SHT31_8ino_a6a87b2b0cff24d38b367ccd34843a206}
+\hypertarget{SHT31_8ino_aa4a2ebcb494493f648ae1e6975672575}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!password@{password}}
+\index{password@{password}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{password}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ password = \char`\"{}14661655\char`\"{}}}\label{SHT31_8ino_aa4a2ebcb494493f648ae1e6975672575}
+\hypertarget{SHT31_8ino_a587ba0cb07f02913598610049a3bbb79}{\index{S\-H\-T31.\-ino@{S\-H\-T31.\-ino}!ssid@{ssid}}
+\index{ssid@{ssid}!SHT31.ino@{S\-H\-T31.\-ino}}
+\subsubsection[{ssid}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ssid = \char`\"{}Buffalo-\/{\bf G}-\/E69\-A\char`\"{}}}\label{SHT31_8ino_a587ba0cb07f02913598610049a3bbb79}

@@ -1,0 +1,182 @@
+\hypertarget{ladder_8c}{\section{wiring\-Pi/examples/\-Pi\-Face/ladder.c File Reference}
+\label{ladder_8c}\index{wiring\-Pi/examples/\-Pi\-Face/ladder.\-c@{wiring\-Pi/examples/\-Pi\-Face/ladder.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$pi\-Face.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ladder_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{ladder_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(1==2)
+\item 
+\#define \hyperlink{ladder_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}{N\-U\-M\-\_\-\-L\-E\-D\-S}~8
+\item 
+\#define \hyperlink{ladder_8c_ab26abfd9589c7579aac303f43276950d}{P\-I\-F\-A\-C\-E}~200
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ladder_8c_a7dfd9b79bc5a37d7df40207afbc5431f}{setup} (void)
+\item 
+void \hyperlink{ladder_8c_ab78e04156fa566da26cf9c603cd8b151}{intro\-Leds} (void)
+\item 
+void \hyperlink{ladder_8c_ab95f737111491903cad256c71c7c3f51}{winning\-Leds} (void)
+\item 
+void \hyperlink{ladder_8c_add761d35e76e86b23abb6c1e4dae8881}{charge\-Capacitor} (void)
+\item 
+void \hyperlink{ladder_8c_ab58b7d024c18a06bcd7ee48b65f5cea3}{discharge\-Capacitor} (void)
+\item 
+void \hyperlink{ladder_8c_aecd270f218fc7adebe14c5c12dabdf24}{led\-Bargraph} (double value, int top\-Led\-On)
+\item 
+void \hyperlink{ladder_8c_aeb68a437f601f0834de237ed679b56f5}{led\-On\-Action} (void)
+\item 
+void \hyperlink{ladder_8c_acdbe1d83c94c873fccdce54354db5c01}{led\-Off\-Action} (void)
+\item 
+int \hyperlink{ladder_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const int \hyperlink{ladder_8c_a2c61c77cb38a8bca880c72b31e9bbdab}{led\-Map} \mbox{[}\hyperlink{examples_2softPwm_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}{N\-U\-M\-\_\-\-L\-E\-D\-S}\mbox{]}
+\item 
+const double \hyperlink{ladder_8c_a52086e2f6325401a2885c5f897d345e0}{v\-Batt} = 9.\-0
+\item 
+const double \hyperlink{ladder_8c_a530174d3550a5484f40c2aaf56c3e6df}{capacitor} = 0.\-001
+\item 
+const double \hyperlink{ladder_8c_adc60ad5b1d8b372f8d12244fc46c1ea0}{r\-Charge} = 2200.\-0
+\item 
+const double \hyperlink{ladder_8c_a2a9fc1e64e3ee144141011dc80463ebc}{r\-Discharge} = 68000.\-0
+\item 
+const double \hyperlink{ladder_8c_a1c704c92b565d29f1d5cc05e66a6fde3}{time\-Inc} = 0.\-01
+\item 
+double \hyperlink{ladder_8c_a64fc76f5bbe48f85102b2c6aecff580c}{v\-Charge}
+\item 
+double \hyperlink{ladder_8c_aa61380e90aad0b1579d68a54c02d2d77}{v\-Cap}
+\item 
+double \hyperlink{ladder_8c_aa68c1ca2c913d7a51ea59e2af7c84225}{v\-Cap\-Last}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ladder_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{ladder.\-c@{ladder.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!ladder.c@{ladder.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(1==2)}}\label{ladder_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{ladder_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}{\index{ladder.\-c@{ladder.\-c}!N\-U\-M\-\_\-\-L\-E\-D\-S@{N\-U\-M\-\_\-\-L\-E\-D\-S}}
+\index{N\-U\-M\-\_\-\-L\-E\-D\-S@{N\-U\-M\-\_\-\-L\-E\-D\-S}!ladder.c@{ladder.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-L\-E\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-L\-E\-D\-S~8}}\label{ladder_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}
+\hypertarget{ladder_8c_ab26abfd9589c7579aac303f43276950d}{\index{ladder.\-c@{ladder.\-c}!P\-I\-F\-A\-C\-E@{P\-I\-F\-A\-C\-E}}
+\index{P\-I\-F\-A\-C\-E@{P\-I\-F\-A\-C\-E}!ladder.c@{ladder.\-c}}
+\subsubsection[{P\-I\-F\-A\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-F\-A\-C\-E~200}}\label{ladder_8c_ab26abfd9589c7579aac303f43276950d}
+\hypertarget{ladder_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{ladder.\-c@{ladder.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!ladder.c@{ladder.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{ladder_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{ladder_8c_add761d35e76e86b23abb6c1e4dae8881}{\index{ladder.\-c@{ladder.\-c}!charge\-Capacitor@{charge\-Capacitor}}
+\index{charge\-Capacitor@{charge\-Capacitor}!ladder.c@{ladder.\-c}}
+\subsubsection[{charge\-Capacitor}]{\setlength{\rightskip}{0pt plus 5cm}void charge\-Capacitor (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_add761d35e76e86b23abb6c1e4dae8881}
+\hypertarget{ladder_8c_ab58b7d024c18a06bcd7ee48b65f5cea3}{\index{ladder.\-c@{ladder.\-c}!discharge\-Capacitor@{discharge\-Capacitor}}
+\index{discharge\-Capacitor@{discharge\-Capacitor}!ladder.c@{ladder.\-c}}
+\subsubsection[{discharge\-Capacitor}]{\setlength{\rightskip}{0pt plus 5cm}void discharge\-Capacitor (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_ab58b7d024c18a06bcd7ee48b65f5cea3}
+\hypertarget{ladder_8c_ab78e04156fa566da26cf9c603cd8b151}{\index{ladder.\-c@{ladder.\-c}!intro\-Leds@{intro\-Leds}}
+\index{intro\-Leds@{intro\-Leds}!ladder.c@{ladder.\-c}}
+\subsubsection[{intro\-Leds}]{\setlength{\rightskip}{0pt plus 5cm}void intro\-Leds (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_ab78e04156fa566da26cf9c603cd8b151}
+\hypertarget{ladder_8c_aecd270f218fc7adebe14c5c12dabdf24}{\index{ladder.\-c@{ladder.\-c}!led\-Bargraph@{led\-Bargraph}}
+\index{led\-Bargraph@{led\-Bargraph}!ladder.c@{ladder.\-c}}
+\subsubsection[{led\-Bargraph}]{\setlength{\rightskip}{0pt plus 5cm}void led\-Bargraph (
+\begin{DoxyParamCaption}
+\item[{double}]{value, }
+\item[{int}]{top\-Led\-On}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_aecd270f218fc7adebe14c5c12dabdf24}
+\hypertarget{ladder_8c_acdbe1d83c94c873fccdce54354db5c01}{\index{ladder.\-c@{ladder.\-c}!led\-Off\-Action@{led\-Off\-Action}}
+\index{led\-Off\-Action@{led\-Off\-Action}!ladder.c@{ladder.\-c}}
+\subsubsection[{led\-Off\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void led\-Off\-Action (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_acdbe1d83c94c873fccdce54354db5c01}
+\hypertarget{ladder_8c_aeb68a437f601f0834de237ed679b56f5}{\index{ladder.\-c@{ladder.\-c}!led\-On\-Action@{led\-On\-Action}}
+\index{led\-On\-Action@{led\-On\-Action}!ladder.c@{ladder.\-c}}
+\subsubsection[{led\-On\-Action}]{\setlength{\rightskip}{0pt plus 5cm}void led\-On\-Action (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_aeb68a437f601f0834de237ed679b56f5}
+\hypertarget{ladder_8c_a840291bc02cba5474a4cb46a9b9566fe}{\index{ladder.\-c@{ladder.\-c}!main@{main}}
+\index{main@{main}!ladder.c@{ladder.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_a840291bc02cba5474a4cb46a9b9566fe}
+\hypertarget{ladder_8c_a7dfd9b79bc5a37d7df40207afbc5431f}{\index{ladder.\-c@{ladder.\-c}!setup@{setup}}
+\index{setup@{setup}!ladder.c@{ladder.\-c}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_a7dfd9b79bc5a37d7df40207afbc5431f}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{ladder_8c_ab95f737111491903cad256c71c7c3f51}{\index{ladder.\-c@{ladder.\-c}!winning\-Leds@{winning\-Leds}}
+\index{winning\-Leds@{winning\-Leds}!ladder.c@{ladder.\-c}}
+\subsubsection[{winning\-Leds}]{\setlength{\rightskip}{0pt plus 5cm}void winning\-Leds (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ladder_8c_ab95f737111491903cad256c71c7c3f51}
+
+
+\subsection{Variable Documentation}
+\hypertarget{ladder_8c_a530174d3550a5484f40c2aaf56c3e6df}{\index{ladder.\-c@{ladder.\-c}!capacitor@{capacitor}}
+\index{capacitor@{capacitor}!ladder.c@{ladder.\-c}}
+\subsubsection[{capacitor}]{\setlength{\rightskip}{0pt plus 5cm}const double capacitor = 0.\-001}}\label{ladder_8c_a530174d3550a5484f40c2aaf56c3e6df}
+\hypertarget{ladder_8c_a2c61c77cb38a8bca880c72b31e9bbdab}{\index{ladder.\-c@{ladder.\-c}!led\-Map@{led\-Map}}
+\index{led\-Map@{led\-Map}!ladder.c@{ladder.\-c}}
+\subsubsection[{led\-Map}]{\setlength{\rightskip}{0pt plus 5cm}const int led\-Map\mbox{[}{\bf N\-U\-M\-\_\-\-L\-E\-D\-S}\mbox{]}}}\label{ladder_8c_a2c61c77cb38a8bca880c72b31e9bbdab}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+\{
+
+    200, 201, 202, 203, 204, 205, 206, 207
+\}
+\end{DoxyCode}
+\hypertarget{ladder_8c_adc60ad5b1d8b372f8d12244fc46c1ea0}{\index{ladder.\-c@{ladder.\-c}!r\-Charge@{r\-Charge}}
+\index{r\-Charge@{r\-Charge}!ladder.c@{ladder.\-c}}
+\subsubsection[{r\-Charge}]{\setlength{\rightskip}{0pt plus 5cm}const double r\-Charge = 2200.\-0}}\label{ladder_8c_adc60ad5b1d8b372f8d12244fc46c1ea0}
+\hypertarget{ladder_8c_a2a9fc1e64e3ee144141011dc80463ebc}{\index{ladder.\-c@{ladder.\-c}!r\-Discharge@{r\-Discharge}}
+\index{r\-Discharge@{r\-Discharge}!ladder.c@{ladder.\-c}}
+\subsubsection[{r\-Discharge}]{\setlength{\rightskip}{0pt plus 5cm}const double r\-Discharge = 68000.\-0}}\label{ladder_8c_a2a9fc1e64e3ee144141011dc80463ebc}
+\hypertarget{ladder_8c_a1c704c92b565d29f1d5cc05e66a6fde3}{\index{ladder.\-c@{ladder.\-c}!time\-Inc@{time\-Inc}}
+\index{time\-Inc@{time\-Inc}!ladder.c@{ladder.\-c}}
+\subsubsection[{time\-Inc}]{\setlength{\rightskip}{0pt plus 5cm}const double time\-Inc = 0.\-01}}\label{ladder_8c_a1c704c92b565d29f1d5cc05e66a6fde3}
+\hypertarget{ladder_8c_a52086e2f6325401a2885c5f897d345e0}{\index{ladder.\-c@{ladder.\-c}!v\-Batt@{v\-Batt}}
+\index{v\-Batt@{v\-Batt}!ladder.c@{ladder.\-c}}
+\subsubsection[{v\-Batt}]{\setlength{\rightskip}{0pt plus 5cm}const double v\-Batt = 9.\-0}}\label{ladder_8c_a52086e2f6325401a2885c5f897d345e0}
+\hypertarget{ladder_8c_aa61380e90aad0b1579d68a54c02d2d77}{\index{ladder.\-c@{ladder.\-c}!v\-Cap@{v\-Cap}}
+\index{v\-Cap@{v\-Cap}!ladder.c@{ladder.\-c}}
+\subsubsection[{v\-Cap}]{\setlength{\rightskip}{0pt plus 5cm}double v\-Cap}}\label{ladder_8c_aa61380e90aad0b1579d68a54c02d2d77}
+\hypertarget{ladder_8c_aa68c1ca2c913d7a51ea59e2af7c84225}{\index{ladder.\-c@{ladder.\-c}!v\-Cap\-Last@{v\-Cap\-Last}}
+\index{v\-Cap\-Last@{v\-Cap\-Last}!ladder.c@{ladder.\-c}}
+\subsubsection[{v\-Cap\-Last}]{\setlength{\rightskip}{0pt plus 5cm}double v\-Cap\-Last}}\label{ladder_8c_aa68c1ca2c913d7a51ea59e2af7c84225}
+\hypertarget{ladder_8c_a64fc76f5bbe48f85102b2c6aecff580c}{\index{ladder.\-c@{ladder.\-c}!v\-Charge@{v\-Charge}}
+\index{v\-Charge@{v\-Charge}!ladder.c@{ladder.\-c}}
+\subsubsection[{v\-Charge}]{\setlength{\rightskip}{0pt plus 5cm}double v\-Charge}}\label{ladder_8c_a64fc76f5bbe48f85102b2c6aecff580c}

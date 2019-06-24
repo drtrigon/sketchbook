@@ -1,0 +1,46 @@
+\hypertarget{ds18b20_8c}{\section{wiring\-Pi/wiring\-Pi/ds18b20.c File Reference}
+\label{ds18b20_8c}\index{wiring\-Pi/wiring\-Pi/ds18b20.\-c@{wiring\-Pi/wiring\-Pi/ds18b20.\-c}}
+}
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$malloc.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}ds18b20.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ds18b20_8c_a322ebf510374cbf73d5281cc60f3ab82}{W1\-\_\-\-P\-R\-E\-F\-I\-X}~\char`\"{}/sys/\hyperlink{Transmitter_8cpp_a513d5ce96f1667268a5eccc67ed8714d}{bus}/w1/devices/28-\/\char`\"{}
+\item 
+\#define \hyperlink{ds18b20_8c_acdf75e0c8f43b5f7e28d641dd8f9ae7a}{W1\-\_\-\-P\-O\-S\-T\-F\-I\-X}~\char`\"{}/w1\-\_\-slave\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{ds18b20_8c_ae7a3006f3ae192418d7f5530d1438d75}{ds18b20\-Setup} (const int pin\-Base, const char $\ast$device\-Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ds18b20_8c_acdf75e0c8f43b5f7e28d641dd8f9ae7a}{\index{ds18b20.\-c@{ds18b20.\-c}!W1\-\_\-\-P\-O\-S\-T\-F\-I\-X@{W1\-\_\-\-P\-O\-S\-T\-F\-I\-X}}
+\index{W1\-\_\-\-P\-O\-S\-T\-F\-I\-X@{W1\-\_\-\-P\-O\-S\-T\-F\-I\-X}!ds18b20.c@{ds18b20.\-c}}
+\subsubsection[{W1\-\_\-\-P\-O\-S\-T\-F\-I\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define W1\-\_\-\-P\-O\-S\-T\-F\-I\-X~\char`\"{}/w1\-\_\-slave\char`\"{}}}\label{ds18b20_8c_acdf75e0c8f43b5f7e28d641dd8f9ae7a}
+\hypertarget{ds18b20_8c_a322ebf510374cbf73d5281cc60f3ab82}{\index{ds18b20.\-c@{ds18b20.\-c}!W1\-\_\-\-P\-R\-E\-F\-I\-X@{W1\-\_\-\-P\-R\-E\-F\-I\-X}}
+\index{W1\-\_\-\-P\-R\-E\-F\-I\-X@{W1\-\_\-\-P\-R\-E\-F\-I\-X}!ds18b20.c@{ds18b20.\-c}}
+\subsubsection[{W1\-\_\-\-P\-R\-E\-F\-I\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define W1\-\_\-\-P\-R\-E\-F\-I\-X~\char`\"{}/sys/{\bf bus}/w1/devices/28-\/\char`\"{}}}\label{ds18b20_8c_a322ebf510374cbf73d5281cc60f3ab82}
+
+
+\subsection{Function Documentation}
+\hypertarget{ds18b20_8c_ae7a3006f3ae192418d7f5530d1438d75}{\index{ds18b20.\-c@{ds18b20.\-c}!ds18b20\-Setup@{ds18b20\-Setup}}
+\index{ds18b20\-Setup@{ds18b20\-Setup}!ds18b20.c@{ds18b20.\-c}}
+\subsubsection[{ds18b20\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int ds18b20\-Setup (
+\begin{DoxyParamCaption}
+\item[{const int}]{pin\-Base, }
+\item[{const char $\ast$}]{device\-Id}
+\end{DoxyParamCaption}
+)}}\label{ds18b20_8c_ae7a3006f3ae192418d7f5530d1438d75}

@@ -1,0 +1,125 @@
+\hypertarget{moat_8c}{\section{cli/owslave/moat.c File Reference}
+\label{moat_8c}\index{cli/owslave/moat.\-c@{cli/owslave/moat.\-c}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pgm.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}onewire.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}features.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}moat.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dev\-\_\-data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debug.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}moat\-\_\-internal.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}port.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pwm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}count.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}console.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}crc.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{moat_8c_af3db91a3619c18a531a2ff3653368809}{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}~0x\-F2
+\item 
+\#define \hyperlink{moat_8c_a84c0a1cd28cac5b72515fdd8fb9ef020}{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}~0x\-F4
+\item 
+\#define \hyperlink{moat_8c_a94fc4daa6b211090fea2e9aa29d2743f}{dispatch}~moat\-\_\-calls
+\item 
+\#define \hyperlink{moat_8c_a4116a1ae1bf2bda5ffb05192798b8bbc}{tc\-\_\-max}~T\-C\-\_\-\-M\-A\-X
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{moat_8c_a4c98d6fbe92cb2a93a1b67d5c80aee44}{end\-\_\-transmission} (uint16\-\_\-t crc)
+\item 
+void \hyperlink{moat_8c_adb821b6b3718ae55e16e22ba21d8bf90}{moat\-\_\-poll} (void)
+\item 
+void \hyperlink{moat_8c_a3947b3e12739a39cef0b34c078329337}{moat\-\_\-init} (void)
+\item 
+void \hyperlink{moat_8c_a9ce57c9d3ab84cf5b546b26b7c4c4c00}{do\-\_\-command} (uint8\-\_\-t cmd)
+\item 
+void \hyperlink{moat_8c_a209e23c093737f3310b44f45f1a11210}{update\-\_\-idle} (uint8\-\_\-t bits)
+\item 
+void \hyperlink{moat_8c_ab1e61373f6640f42224588e4bd4f3db6}{init\-\_\-state} (void)
+\item 
+void \hyperlink{moat_8c_a5fe2749decbc9e4b882aa0aabb649fa4}{mainloop} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{moat_8c_adf0460022e8ac6c524288e3161c6adff}{moat\-\_\-buf} \mbox{[}\hyperlink{moat__internal_8h_ad7871643c05865c80f5d8050aead2b57}{M\-A\-X\-B\-U\-F}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{moat_8c_af3db91a3619c18a531a2ff3653368809}{\index{moat.\-c@{moat.\-c}!\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}}
+\index{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}!moat.c@{moat.\-c}}
+\subsubsection[{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C~0x\-F2}}\label{moat_8c_af3db91a3619c18a531a2ff3653368809}
+\hypertarget{moat_8c_a84c0a1cd28cac5b72515fdd8fb9ef020}{\index{moat.\-c@{moat.\-c}!\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}}
+\index{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}!moat.c@{moat.\-c}}
+\subsubsection[{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C~0x\-F4}}\label{moat_8c_a84c0a1cd28cac5b72515fdd8fb9ef020}
+\hypertarget{moat_8c_a94fc4daa6b211090fea2e9aa29d2743f}{\index{moat.\-c@{moat.\-c}!dispatch@{dispatch}}
+\index{dispatch@{dispatch}!moat.c@{moat.\-c}}
+\subsubsection[{dispatch}]{\setlength{\rightskip}{0pt plus 5cm}\#define dispatch~moat\-\_\-calls}}\label{moat_8c_a94fc4daa6b211090fea2e9aa29d2743f}
+\hypertarget{moat_8c_a4116a1ae1bf2bda5ffb05192798b8bbc}{\index{moat.\-c@{moat.\-c}!tc\-\_\-max@{tc\-\_\-max}}
+\index{tc\-\_\-max@{tc\-\_\-max}!moat.c@{moat.\-c}}
+\subsubsection[{tc\-\_\-max}]{\setlength{\rightskip}{0pt plus 5cm}\#define tc\-\_\-max~T\-C\-\_\-\-M\-A\-X}}\label{moat_8c_a4116a1ae1bf2bda5ffb05192798b8bbc}
+
+
+\subsection{Function Documentation}
+\hypertarget{moat_8c_a9ce57c9d3ab84cf5b546b26b7c4c4c00}{\index{moat.\-c@{moat.\-c}!do\-\_\-command@{do\-\_\-command}}
+\index{do\-\_\-command@{do\-\_\-command}!moat.c@{moat.\-c}}
+\subsubsection[{do\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}void do\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{cmd}
+\end{DoxyParamCaption}
+)}}\label{moat_8c_a9ce57c9d3ab84cf5b546b26b7c4c4c00}
+\hypertarget{moat_8c_a4c98d6fbe92cb2a93a1b67d5c80aee44}{\index{moat.\-c@{moat.\-c}!end\-\_\-transmission@{end\-\_\-transmission}}
+\index{end\-\_\-transmission@{end\-\_\-transmission}!moat.c@{moat.\-c}}
+\subsubsection[{end\-\_\-transmission}]{\setlength{\rightskip}{0pt plus 5cm}void end\-\_\-transmission (
+\begin{DoxyParamCaption}
+\item[{uint16\-\_\-t}]{crc}
+\end{DoxyParamCaption}
+)}}\label{moat_8c_a4c98d6fbe92cb2a93a1b67d5c80aee44}
+\hypertarget{moat_8c_ab1e61373f6640f42224588e4bd4f3db6}{\index{moat.\-c@{moat.\-c}!init\-\_\-state@{init\-\_\-state}}
+\index{init\-\_\-state@{init\-\_\-state}!moat.c@{moat.\-c}}
+\subsubsection[{init\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{moat_8c_ab1e61373f6640f42224588e4bd4f3db6}
+\hypertarget{moat_8c_a5fe2749decbc9e4b882aa0aabb649fa4}{\index{moat.\-c@{moat.\-c}!mainloop@{mainloop}}
+\index{mainloop@{mainloop}!moat.c@{moat.\-c}}
+\subsubsection[{mainloop}]{\setlength{\rightskip}{0pt plus 5cm}void mainloop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{moat_8c_a5fe2749decbc9e4b882aa0aabb649fa4}
+\hypertarget{moat_8c_a3947b3e12739a39cef0b34c078329337}{\index{moat.\-c@{moat.\-c}!moat\-\_\-init@{moat\-\_\-init}}
+\index{moat\-\_\-init@{moat\-\_\-init}!moat.c@{moat.\-c}}
+\subsubsection[{moat\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void moat\-\_\-init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{moat_8c_a3947b3e12739a39cef0b34c078329337}
+\hypertarget{moat_8c_adb821b6b3718ae55e16e22ba21d8bf90}{\index{moat.\-c@{moat.\-c}!moat\-\_\-poll@{moat\-\_\-poll}}
+\index{moat\-\_\-poll@{moat\-\_\-poll}!moat.c@{moat.\-c}}
+\subsubsection[{moat\-\_\-poll}]{\setlength{\rightskip}{0pt plus 5cm}void moat\-\_\-poll (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{moat_8c_adb821b6b3718ae55e16e22ba21d8bf90}
+\hypertarget{moat_8c_a209e23c093737f3310b44f45f1a11210}{\index{moat.\-c@{moat.\-c}!update\-\_\-idle@{update\-\_\-idle}}
+\index{update\-\_\-idle@{update\-\_\-idle}!moat.c@{moat.\-c}}
+\subsubsection[{update\-\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}void update\-\_\-idle (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{bits}
+\end{DoxyParamCaption}
+)}}\label{moat_8c_a209e23c093737f3310b44f45f1a11210}
+
+
+\subsection{Variable Documentation}
+\hypertarget{moat_8c_adf0460022e8ac6c524288e3161c6adff}{\index{moat.\-c@{moat.\-c}!moat\-\_\-buf@{moat\-\_\-buf}}
+\index{moat\-\_\-buf@{moat\-\_\-buf}!moat.c@{moat.\-c}}
+\subsubsection[{moat\-\_\-buf}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t moat\-\_\-buf\mbox{[}{\bf M\-A\-X\-B\-U\-F}\mbox{]}}}\label{moat_8c_adf0460022e8ac6c524288e3161c6adff}

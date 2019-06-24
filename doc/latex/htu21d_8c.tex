@@ -1,0 +1,50 @@
+\hypertarget{htu21d_8c}{\section{wiring\-Pi/wiring\-Pi/htu21d.c File Reference}
+\label{htu21d_8c}\index{wiring\-Pi/wiring\-Pi/htu21d.\-c@{wiring\-Pi/wiring\-Pi/htu21d.\-c}}
+}
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi\-I2\-C.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}htu21d.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{htu21d_8c_ad72dbcf6d0153db1b8d8a58001feed83}{D\-E\-B\-U\-G}
+\item 
+\#define \hyperlink{htu21d_8c_a770f0c15acd838afca500d56b792c6b5}{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}~0x40
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{htu21d_8c_a7f28a604233aa680951991e8b940206d}{checksum} (\hyperlink{wiringPi_8h_aa3c88716e6af23f4c4d20009e1f3b68c}{U\-N\-U} uint8\-\_\-t \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}\mbox{[}4\mbox{]})
+\item 
+int \hyperlink{htu21d_8c_ad1b76fdacbcd0faf1d1c943534693c76}{htu21d\-Setup} (const int pin\-Base)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{htu21d_8c_ad72dbcf6d0153db1b8d8a58001feed83}{\index{htu21d.\-c@{htu21d.\-c}!D\-E\-B\-U\-G@{D\-E\-B\-U\-G}}
+\index{D\-E\-B\-U\-G@{D\-E\-B\-U\-G}!htu21d.c@{htu21d.\-c}}
+\subsubsection[{D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G}}\label{htu21d_8c_ad72dbcf6d0153db1b8d8a58001feed83}
+\hypertarget{htu21d_8c_a770f0c15acd838afca500d56b792c6b5}{\index{htu21d.\-c@{htu21d.\-c}!I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S@{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}}
+\index{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S@{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}!htu21d.c@{htu21d.\-c}}
+\subsubsection[{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S~0x40}}\label{htu21d_8c_a770f0c15acd838afca500d56b792c6b5}
+
+
+\subsection{Function Documentation}
+\hypertarget{htu21d_8c_a7f28a604233aa680951991e8b940206d}{\index{htu21d.\-c@{htu21d.\-c}!checksum@{checksum}}
+\index{checksum@{checksum}!htu21d.c@{htu21d.\-c}}
+\subsubsection[{checksum}]{\setlength{\rightskip}{0pt plus 5cm}int checksum (
+\begin{DoxyParamCaption}
+\item[{{\bf U\-N\-U} uint8\-\_\-t}]{data\mbox{[}4\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{htu21d_8c_a7f28a604233aa680951991e8b940206d}
+\hypertarget{htu21d_8c_ad1b76fdacbcd0faf1d1c943534693c76}{\index{htu21d.\-c@{htu21d.\-c}!htu21d\-Setup@{htu21d\-Setup}}
+\index{htu21d\-Setup@{htu21d\-Setup}!htu21d.c@{htu21d.\-c}}
+\subsubsection[{htu21d\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int htu21d\-Setup (
+\begin{DoxyParamCaption}
+\item[{const int}]{pin\-Base}
+\end{DoxyParamCaption}
+)}}\label{htu21d_8c_ad1b76fdacbcd0faf1d1c943534693c76}

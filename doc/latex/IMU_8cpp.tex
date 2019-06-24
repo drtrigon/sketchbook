@@ -1,0 +1,208 @@
+\hypertarget{IMU_8cpp}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-I\-M\-U.cpp File Reference}
+\label{IMU_8cpp}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-I\-M\-U.\-cpp@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-I\-M\-U.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Arduino.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}config.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Multi\-Wii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}I\-M\-U.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sensors.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structt__int32__t__vector__def}{t\-\_\-int32\-\_\-t\-\_\-vector\-\_\-def}
+\item 
+struct \hyperlink{structt__int16__t__vector__def}{t\-\_\-int16\-\_\-t\-\_\-vector\-\_\-def}
+\item 
+union \hyperlink{uniont__int32__t__vector}{t\-\_\-int32\-\_\-t\-\_\-vector}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{IMU_8cpp_a1583613fa725e563d4c9d2d573e454f5}{A\-C\-C\-\_\-\-L\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}~4
+\item 
+\#define \hyperlink{IMU_8cpp_aa3aca00e5a3c7694aebe1254f6310b8b}{G\-Y\-R\-\_\-\-C\-M\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}~10
+\item 
+\#define \hyperlink{IMU_8cpp_a9f653ccffb98416eac97a4b28df1e9d4}{G\-Y\-R\-\_\-\-C\-M\-P\-F\-M\-\_\-\-F\-A\-C\-T\-O\-R}~8
+\item 
+\#define \hyperlink{IMU_8cpp_a424b6b583c883c5aefb2f19ff983e218}{Multi\-S16\-X16to32}(long\-Res, int\-In1, int\-In2)
+\item 
+\#define \hyperlink{IMU_8cpp_aab60cb1c6e5410e474876807fc340a98}{U\-P\-D\-A\-T\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}~25000
+\item 
+\#define \hyperlink{IMU_8cpp_a6ec43550ac1bca4da1c3dfeeaff93091}{B\-A\-R\-O\-\_\-\-T\-A\-B\-\_\-\-S\-I\-Z\-E}~21
+\item 
+\#define \hyperlink{IMU_8cpp_ae190993a8b59a509181fa79dbde76fcc}{A\-C\-C\-\_\-\-Z\-\_\-\-D\-E\-A\-D\-B\-A\-N\-D}~(\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8h_a1acc58cfa4a5bdf40f40620b9cfe8a16}{A\-C\-C\-\_\-1\-G}$>$$>$5)
+\item 
+\#define \hyperlink{IMU_8cpp_aff3ca775bcaa567abcca773eb896f891}{apply\-Deadband}(value, deadband)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{IMU_8cpp_a8a24465d05c5cb46c1adf74d7a318812}{get\-Estimated\-Attitude} ()
+\item 
+void \hyperlink{IMU_8cpp_ab52f506067c583289ed829a81ad4f4c1}{compute\-I\-M\-U} ()
+\item 
+int16\-\_\-t \hyperlink{IMU_8cpp_a8e2bbe6fa01f174a83d930bf57c1807d}{\-\_\-atan2} (int32\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, int32\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})
+\item 
+float \hyperlink{IMU_8cpp_a55a133284c9a7f0b98e5fc2af98a67e4}{Inv\-Sqrt} (float \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})
+\item 
+int32\-\_\-t \hyperlink{IMU_8cpp_a0b1a92c9274549c39eece4e57833d93b}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((noinline)) \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}(int16\-\_\-t a
+\item 
+\hyperlink{IMU_8cpp_a77004b0ca0fc3634e453876bb1582e46}{Multi\-S16\-X16to32} (\hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}, a, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})
+\item 
+void \hyperlink{IMU_8cpp_a8f48066fe67c1cc67530b6ff0afb4ea7}{rotate\-V32} (\hyperlink{uniont__int32__t__vector}{t\-\_\-int32\-\_\-t\-\_\-vector} $\ast$\hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, int16\-\_\-t $\ast$delta)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int32\-\_\-t int16\-\_\-t \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}
+\item 
+\hyperlink{arm__acle_8h_aa39c843d7f57d177d9f927f0142d8e0c}{return} \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{IMU_8cpp_a1583613fa725e563d4c9d2d573e454f5}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!A\-C\-C\-\_\-\-L\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R@{A\-C\-C\-\_\-\-L\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}}
+\index{A\-C\-C\-\_\-\-L\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R@{A\-C\-C\-\_\-\-L\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{A\-C\-C\-\_\-\-L\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-\_\-\-L\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R~4}}\label{IMU_8cpp_a1583613fa725e563d4c9d2d573e454f5}
+\hypertarget{IMU_8cpp_ae190993a8b59a509181fa79dbde76fcc}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!A\-C\-C\-\_\-\-Z\-\_\-\-D\-E\-A\-D\-B\-A\-N\-D@{A\-C\-C\-\_\-\-Z\-\_\-\-D\-E\-A\-D\-B\-A\-N\-D}}
+\index{A\-C\-C\-\_\-\-Z\-\_\-\-D\-E\-A\-D\-B\-A\-N\-D@{A\-C\-C\-\_\-\-Z\-\_\-\-D\-E\-A\-D\-B\-A\-N\-D}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{A\-C\-C\-\_\-\-Z\-\_\-\-D\-E\-A\-D\-B\-A\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-\_\-\-Z\-\_\-\-D\-E\-A\-D\-B\-A\-N\-D~({\bf A\-C\-C\-\_\-1\-G}$>$$>$5)}}\label{IMU_8cpp_ae190993a8b59a509181fa79dbde76fcc}
+\hypertarget{IMU_8cpp_aff3ca775bcaa567abcca773eb896f891}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!apply\-Deadband@{apply\-Deadband}}
+\index{apply\-Deadband@{apply\-Deadband}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{apply\-Deadband}]{\setlength{\rightskip}{0pt plus 5cm}\#define apply\-Deadband(
+\begin{DoxyParamCaption}
+\item[{}]{value, }
+\item[{}]{deadband}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_aff3ca775bcaa567abcca773eb896f891}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if}(\hyperlink{Arduino_8h_a3aa069ac3980707dae1e0530f50d59e4}{abs}(value) < deadband) \{           \(\backslash\)
+    value = 0;                          \(\backslash\)
+  \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(value > 0)\{                 \(\backslash\)
+    value -= deadband;                  \(\backslash\)
+  \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if}(value < 0)\{                 \(\backslash\)
+    value += deadband;                  \(\backslash\)
+  \}
+\end{DoxyCode}
+\hypertarget{IMU_8cpp_a6ec43550ac1bca4da1c3dfeeaff93091}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!B\-A\-R\-O\-\_\-\-T\-A\-B\-\_\-\-S\-I\-Z\-E@{B\-A\-R\-O\-\_\-\-T\-A\-B\-\_\-\-S\-I\-Z\-E}}
+\index{B\-A\-R\-O\-\_\-\-T\-A\-B\-\_\-\-S\-I\-Z\-E@{B\-A\-R\-O\-\_\-\-T\-A\-B\-\_\-\-S\-I\-Z\-E}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{B\-A\-R\-O\-\_\-\-T\-A\-B\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-A\-R\-O\-\_\-\-T\-A\-B\-\_\-\-S\-I\-Z\-E~21}}\label{IMU_8cpp_a6ec43550ac1bca4da1c3dfeeaff93091}
+\hypertarget{IMU_8cpp_aa3aca00e5a3c7694aebe1254f6310b8b}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!G\-Y\-R\-\_\-\-C\-M\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R@{G\-Y\-R\-\_\-\-C\-M\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}}
+\index{G\-Y\-R\-\_\-\-C\-M\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R@{G\-Y\-R\-\_\-\-C\-M\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{G\-Y\-R\-\_\-\-C\-M\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-Y\-R\-\_\-\-C\-M\-P\-F\-\_\-\-F\-A\-C\-T\-O\-R~10}}\label{IMU_8cpp_aa3aca00e5a3c7694aebe1254f6310b8b}
+\hypertarget{IMU_8cpp_a9f653ccffb98416eac97a4b28df1e9d4}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!G\-Y\-R\-\_\-\-C\-M\-P\-F\-M\-\_\-\-F\-A\-C\-T\-O\-R@{G\-Y\-R\-\_\-\-C\-M\-P\-F\-M\-\_\-\-F\-A\-C\-T\-O\-R}}
+\index{G\-Y\-R\-\_\-\-C\-M\-P\-F\-M\-\_\-\-F\-A\-C\-T\-O\-R@{G\-Y\-R\-\_\-\-C\-M\-P\-F\-M\-\_\-\-F\-A\-C\-T\-O\-R}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{G\-Y\-R\-\_\-\-C\-M\-P\-F\-M\-\_\-\-F\-A\-C\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-Y\-R\-\_\-\-C\-M\-P\-F\-M\-\_\-\-F\-A\-C\-T\-O\-R~8}}\label{IMU_8cpp_a9f653ccffb98416eac97a4b28df1e9d4}
+\hypertarget{IMU_8cpp_a424b6b583c883c5aefb2f19ff983e218}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!Multi\-S16\-X16to32@{Multi\-S16\-X16to32}}
+\index{Multi\-S16\-X16to32@{Multi\-S16\-X16to32}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{Multi\-S16\-X16to32}]{\setlength{\rightskip}{0pt plus 5cm}\#define Multi\-S16\-X16to32(
+\begin{DoxyParamCaption}
+\item[{}]{long\-Res, }
+\item[{}]{int\-In1, }
+\item[{}]{int\-In2}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_a424b6b583c883c5aefb2f19ff983e218}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keyword}{asm} \textcolor{keyword}{volatile} ( \(\backslash\)
+\textcolor{stringliteral}{"clr r26 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"mul %A1, %A2 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"movw %A0, r0 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"muls %B1, %B2 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"movw %C0, r0 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"mulsu %B2, %A1 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"sbc %D0, r26 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"add %B0, r0 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"adc %C0, r1 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"adc %D0, r26 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"mulsu %B1, %A2 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"sbc %D0, r26 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"add %B0, r0 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"adc %C0, r1 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"adc %D0, r26 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+\textcolor{stringliteral}{"clr r1 \(\backslash\)n\(\backslash\)t"} \(\backslash\)
+: \(\backslash\)
+\textcolor{stringliteral}{"=&r"} (longRes) \(\backslash\)
+: \(\backslash\)
+\textcolor{stringliteral}{"a"} (intIn1), \(\backslash\)
+\textcolor{stringliteral}{"a"} (intIn2) \(\backslash\)
+: \(\backslash\)
+\textcolor{stringliteral}{"r26"} \(\backslash\)
+)
+\end{DoxyCode}
+\hypertarget{IMU_8cpp_aab60cb1c6e5410e474876807fc340a98}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!U\-P\-D\-A\-T\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{U\-P\-D\-A\-T\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}
+\index{U\-P\-D\-A\-T\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{U\-P\-D\-A\-T\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{U\-P\-D\-A\-T\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-P\-D\-A\-T\-E\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L~25000}}\label{IMU_8cpp_aab60cb1c6e5410e474876807fc340a98}
+
+
+\subsection{Function Documentation}
+\hypertarget{IMU_8cpp_a0b1a92c9274549c39eece4e57833d93b}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(noinline)}]{}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_a0b1a92c9274549c39eece4e57833d93b}
+\hypertarget{IMU_8cpp_a8e2bbe6fa01f174a83d930bf57c1807d}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!\-\_\-atan2@{\-\_\-atan2}}
+\index{\-\_\-atan2@{\-\_\-atan2}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{\-\_\-atan2}]{\setlength{\rightskip}{0pt plus 5cm}int16\-\_\-t \-\_\-atan2 (
+\begin{DoxyParamCaption}
+\item[{int32\-\_\-t}]{y, }
+\item[{int32\-\_\-t}]{x}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_a8e2bbe6fa01f174a83d930bf57c1807d}
+\hypertarget{IMU_8cpp_ab52f506067c583289ed829a81ad4f4c1}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!compute\-I\-M\-U@{compute\-I\-M\-U}}
+\index{compute\-I\-M\-U@{compute\-I\-M\-U}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{compute\-I\-M\-U}]{\setlength{\rightskip}{0pt plus 5cm}void compute\-I\-M\-U (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_ab52f506067c583289ed829a81ad4f4c1}
+\hypertarget{IMU_8cpp_a8a24465d05c5cb46c1adf74d7a318812}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!get\-Estimated\-Attitude@{get\-Estimated\-Attitude}}
+\index{get\-Estimated\-Attitude@{get\-Estimated\-Attitude}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{get\-Estimated\-Attitude}]{\setlength{\rightskip}{0pt plus 5cm}void get\-Estimated\-Attitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_a8a24465d05c5cb46c1adf74d7a318812}
+\hypertarget{IMU_8cpp_a55a133284c9a7f0b98e5fc2af98a67e4}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!Inv\-Sqrt@{Inv\-Sqrt}}
+\index{Inv\-Sqrt@{Inv\-Sqrt}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{Inv\-Sqrt}]{\setlength{\rightskip}{0pt plus 5cm}float Inv\-Sqrt (
+\begin{DoxyParamCaption}
+\item[{float}]{x}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_a55a133284c9a7f0b98e5fc2af98a67e4}
+\hypertarget{IMU_8cpp_a77004b0ca0fc3634e453876bb1582e46}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!Multi\-S16\-X16to32@{Multi\-S16\-X16to32}}
+\index{Multi\-S16\-X16to32@{Multi\-S16\-X16to32}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{Multi\-S16\-X16to32}]{\setlength{\rightskip}{0pt plus 5cm}Multi\-S16\-X16to32 (
+\begin{DoxyParamCaption}
+\item[{{\bf r}}]{, }
+\item[{a}]{, }
+\item[{{\bf b}}]{}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_a77004b0ca0fc3634e453876bb1582e46}
+\hypertarget{IMU_8cpp_a8f48066fe67c1cc67530b6ff0afb4ea7}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!rotate\-V32@{rotate\-V32}}
+\index{rotate\-V32@{rotate\-V32}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{rotate\-V32}]{\setlength{\rightskip}{0pt plus 5cm}void rotate\-V32 (
+\begin{DoxyParamCaption}
+\item[{{\bf t\-\_\-int32\-\_\-t\-\_\-vector} $\ast$}]{v, }
+\item[{int16\-\_\-t $\ast$}]{delta}
+\end{DoxyParamCaption}
+)}}\label{IMU_8cpp_a8f48066fe67c1cc67530b6ff0afb4ea7}
+
+
+\subsection{Variable Documentation}
+\hypertarget{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!b@{b}}
+\index{b@{b}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{b}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t int16\-\_\-t b}}\label{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+  int32\_t \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}
+\end{DoxyCode}
+\hypertarget{IMU_8cpp_abebbd563889e01487720e640c3568788}{\index{I\-M\-U.\-cpp@{I\-M\-U.\-cpp}!r@{r}}
+\index{r@{r}!IMU.cpp@{I\-M\-U.\-cpp}}
+\subsubsection[{r}]{\setlength{\rightskip}{0pt plus 5cm}{\bf return} r}}\label{IMU_8cpp_abebbd563889e01487720e640c3568788}

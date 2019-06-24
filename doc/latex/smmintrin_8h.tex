@@ -1,0 +1,833 @@
+\hypertarget{smmintrin_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/smmintrin.h File Reference}
+\label{smmintrin_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/smmintrin.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/smmintrin.\-h}}
+}
+{\ttfamily \#include $<$tmmintrin.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{smmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse4.\-1\char`\"{})))
+\item 
+\#define \hyperlink{smmintrin_8h_abab0d9da65ed098a9f49d5fbc70949f9}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T}~0x00
+\item 
+\#define \hyperlink{smmintrin_8h_a77219ab4bb6614931dd1a48248961aba}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F}~0x01
+\item 
+\#define \hyperlink{smmintrin_8h_a03d19852fa1cb3cd7340efa246feec77}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F}~0x02
+\item 
+\#define \hyperlink{smmintrin_8h_adbfdff6c2d5957027953ffef4ac81de4}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O}~0x03
+\item 
+\#define \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N}~0x04
+\item 
+\#define \hyperlink{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C}~0x00
+\item 
+\#define \hyperlink{smmintrin_8h_afd61685784e27df0e9c78307cb0a173a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C}~0x08
+\item 
+\#define \hyperlink{smmintrin_8h_a6349ff20a1a9631adba343709232d09d}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-I\-N\-T}~(\hyperlink{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ \hyperlink{smmintrin_8h_abab0d9da65ed098a9f49d5fbc70949f9}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T})
+\item 
+\#define \hyperlink{smmintrin_8h_a20c327e7319473014ba5ac1894dde170}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R}~(\hyperlink{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ \hyperlink{smmintrin_8h_a77219ab4bb6614931dd1a48248961aba}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F})
+\item 
+\#define \hyperlink{smmintrin_8h_ad317c3219a316dcc214458e6e76a0447}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L}~(\hyperlink{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ \hyperlink{smmintrin_8h_a03d19852fa1cb3cd7340efa246feec77}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F})
+\item 
+\#define \hyperlink{smmintrin_8h_ac2c088cac6f54cc98cf0c40082bddc08}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-R\-U\-N\-C}~(\hyperlink{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ \hyperlink{smmintrin_8h_adbfdff6c2d5957027953ffef4ac81de4}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O})
+\item 
+\#define \hyperlink{smmintrin_8h_a604112adab36d232953853b6bec6efb3}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-I\-N\-T}~(\hyperlink{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{smmintrin_8h_a108f6d101688c3e866614d6f39d5b030}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-E\-A\-R\-B\-Y\-I\-N\-T}~(\hyperlink{smmintrin_8h_afd61685784e27df0e9c78307cb0a173a}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C} $\vert$ \hyperlink{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})
+\item 
+\#define \hyperlink{smmintrin_8h_abf018d933ba338df06e371ba601dd13a}{\-\_\-mm\-\_\-ceil\-\_\-ps}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X})~\hyperlink{smmintrin_8h_a14cb78d3e6dd06d21076388e3db216cd}{\-\_\-mm\-\_\-round\-\_\-ps}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \hyperlink{smmintrin_8h_ad317c3219a316dcc214458e6e76a0447}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})
+\item 
+\#define \hyperlink{smmintrin_8h_a39b4494d154092953ba10a04db4bdc31}{\-\_\-mm\-\_\-ceil\-\_\-pd}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X})~\hyperlink{smmintrin_8h_aa72b10eab57a386032f4a798992fc0f8}{\-\_\-mm\-\_\-round\-\_\-pd}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \hyperlink{smmintrin_8h_ad317c3219a316dcc214458e6e76a0447}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})
+\item 
+\#define \hyperlink{smmintrin_8h_a19a5ab15885644430c6e98aca3163021}{\-\_\-mm\-\_\-ceil\-\_\-ss}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y})~\hyperlink{smmintrin_8h_a7d5c86a31abe783a570af029610a6b60}{\-\_\-mm\-\_\-round\-\_\-ss}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), (\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), \hyperlink{smmintrin_8h_ad317c3219a316dcc214458e6e76a0447}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})
+\item 
+\#define \hyperlink{smmintrin_8h_aa8c7ddc9e29fd06d3e814b1242c29bcb}{\-\_\-mm\-\_\-ceil\-\_\-sd}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y})~\hyperlink{smmintrin_8h_ac7de0a367de6a897500d5c13501dfda0}{\-\_\-mm\-\_\-round\-\_\-sd}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), (\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), \hyperlink{smmintrin_8h_ad317c3219a316dcc214458e6e76a0447}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})
+\item 
+\#define \hyperlink{smmintrin_8h_a396e8d7a381aa0dd3a5abc6792e116e3}{\-\_\-mm\-\_\-floor\-\_\-ps}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X})~\hyperlink{smmintrin_8h_a14cb78d3e6dd06d21076388e3db216cd}{\-\_\-mm\-\_\-round\-\_\-ps}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \hyperlink{smmintrin_8h_a20c327e7319473014ba5ac1894dde170}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})
+\item 
+\#define \hyperlink{smmintrin_8h_a88de800a54a80d596420216227339c0a}{\-\_\-mm\-\_\-floor\-\_\-pd}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X})~\hyperlink{smmintrin_8h_aa72b10eab57a386032f4a798992fc0f8}{\-\_\-mm\-\_\-round\-\_\-pd}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \hyperlink{smmintrin_8h_a20c327e7319473014ba5ac1894dde170}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})
+\item 
+\#define \hyperlink{smmintrin_8h_aab45fc5e22f4c174438dacadbee7f9ef}{\-\_\-mm\-\_\-floor\-\_\-ss}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y})~\hyperlink{smmintrin_8h_a7d5c86a31abe783a570af029610a6b60}{\-\_\-mm\-\_\-round\-\_\-ss}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), (\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), \hyperlink{smmintrin_8h_a20c327e7319473014ba5ac1894dde170}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})
+\item 
+\#define \hyperlink{smmintrin_8h_a4341af152b42fb14c907ca717e589dcd}{\-\_\-mm\-\_\-floor\-\_\-sd}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y})~\hyperlink{smmintrin_8h_ac7de0a367de6a897500d5c13501dfda0}{\-\_\-mm\-\_\-round\-\_\-sd}((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), (\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), \hyperlink{smmintrin_8h_a20c327e7319473014ba5ac1894dde170}{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})
+\item 
+\#define \hyperlink{smmintrin_8h_a14cb78d3e6dd06d21076388e3db216cd}{\-\_\-mm\-\_\-round\-\_\-ps}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a7d5c86a31abe783a570af029610a6b60}{\-\_\-mm\-\_\-round\-\_\-ss}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_aa72b10eab57a386032f4a798992fc0f8}{\-\_\-mm\-\_\-round\-\_\-pd}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_ac7de0a367de6a897500d5c13501dfda0}{\-\_\-mm\-\_\-round\-\_\-sd}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_ae6db9dae26796167e72b9cd1c01de532}{\-\_\-mm\-\_\-blend\-\_\-pd}(V1, V2, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a492928bc100e842e8997210f71d853ae}{\-\_\-mm\-\_\-blend\-\_\-ps}(V1, V2, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a1bed8582f0457598536c193ddf24db68}{\-\_\-mm\-\_\-blend\-\_\-epi16}(V1, V2, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a9499f1029e5347aae12d526c93ff8aa1}{\-\_\-mm\-\_\-dp\-\_\-ps}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a5e712e6a462f3873ecf0f689a37a008f}{\-\_\-mm\-\_\-dp\-\_\-pd}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a3848db2f5cf53c1da918bff0e4747bad}{\-\_\-mm\-\_\-insert\-\_\-ps}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, N)~\-\_\-\-\_\-builtin\-\_\-ia32\-\_\-insertps128((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), (\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), (N))
+\item 
+\#define \hyperlink{smmintrin_8h_ae6e89777ff64eeede36d711e5d4a2f71}{\-\_\-mm\-\_\-extract\-\_\-ps}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, N)
+\item 
+\#define \hyperlink{smmintrin_8h_a8c6320d89781ba30f10a26ec47f34e98}{\-\_\-\-M\-M\-\_\-\-E\-X\-T\-R\-A\-C\-T\-\_\-\-F\-L\-O\-A\-T}(D, \hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, N)
+\item 
+\#define \hyperlink{smmintrin_8h_a85a90154096822476fe3e0fc09ea64f0}{\-\_\-\-M\-M\-\_\-\-M\-K\-\_\-\-I\-N\-S\-E\-R\-T\-P\-S\-\_\-\-N\-D\-X}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, \hyperlink{OWGeneric__SensorStation_8ino_aa65967cca170d24dcd0d555df0d5ee4f}{Z})~(((\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}) $<$$<$ 6) $\vert$ ((\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}) $<$$<$ 4) $\vert$ (\hyperlink{OWGeneric__SensorStation_8ino_aa65967cca170d24dcd0d555df0d5ee4f}{Z}))
+\item 
+\#define \hyperlink{smmintrin_8h_a9a3ce99e79e5083b70afc0b3df8a3460}{\-\_\-\-M\-M\-\_\-\-P\-I\-C\-K\-\_\-\-O\-U\-T\-\_\-\-P\-S}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, N)
+\item 
+\#define \hyperlink{smmintrin_8h_aed3eaab63c89c2cd6fe42214764dcf6a}{\-\_\-mm\-\_\-insert\-\_\-epi8}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a145f61de888f096c52a2945234a407b0}{I}, N)
+\item 
+\#define \hyperlink{smmintrin_8h_a72770c0536ad1d8118ddd3936ad5f2dc}{\-\_\-mm\-\_\-insert\-\_\-epi32}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a145f61de888f096c52a2945234a407b0}{I}, N)
+\item 
+\#define \hyperlink{smmintrin_8h_ad98cca93fe7324aebff50c95f7c12e4c}{\-\_\-mm\-\_\-extract\-\_\-epi8}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, N)
+\item 
+\#define \hyperlink{smmintrin_8h_af10410dc52ede0cdb9411b5e18150188}{\-\_\-mm\-\_\-extract\-\_\-epi32}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, N)
+\item 
+\#define \hyperlink{smmintrin_8h_a35a8f0ee26533786188c8cd8af8a6232}{\-\_\-mm\-\_\-test\-\_\-all\-\_\-ones}(V)~\-\_\-mm\-\_\-testc\-\_\-si128((V), \-\_\-mm\-\_\-cmpeq\-\_\-epi32((V), (V)))
+\item 
+\#define \hyperlink{smmintrin_8h_aacedc7da71e32ac81c20d8614902d1e6}{\-\_\-mm\-\_\-test\-\_\-mix\-\_\-ones\-\_\-zeros}(M, V)~\-\_\-mm\-\_\-testnzc\-\_\-si128((M), (V))
+\item 
+\#define \hyperlink{smmintrin_8h_ad6bf4d9103857f61c019f4e567a61e68}{\-\_\-mm\-\_\-test\-\_\-all\-\_\-zeros}(M, V)~\-\_\-mm\-\_\-testz\-\_\-si128 ((M), (V))
+\item 
+\#define \hyperlink{smmintrin_8h_a18852179af9f0b644b446fa6972f8977}{\-\_\-mm\-\_\-mpsadbw\-\_\-epu8}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse4.\-2\char`\"{})))
+\item 
+\#define \hyperlink{smmintrin_8h_a01962862dc7e66a82bed30e2317ed807}{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-B\-Y\-T\-E\-\_\-\-O\-P\-S}~0x00
+\item 
+\#define \hyperlink{smmintrin_8h_a77a259869ee46dd4f24bb2658843a8aa}{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-W\-O\-R\-D\-\_\-\-O\-P\-S}~0x01
+\item 
+\#define \hyperlink{smmintrin_8h_ad7f316b3f98b17a45376e66ed7e91264}{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-B\-Y\-T\-E\-\_\-\-O\-P\-S}~0x02
+\item 
+\#define \hyperlink{smmintrin_8h_af8f79102b517cafbb5e9f96b0fccf344}{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-W\-O\-R\-D\-\_\-\-O\-P\-S}~0x03
+\item 
+\#define \hyperlink{smmintrin_8h_ae8d16dddb4063a302b1117cfc0c4420f}{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-A\-N\-Y}~0x00
+\item 
+\#define \hyperlink{smmintrin_8h_af1698ffa055b2d8d0b44ef3fc55b7390}{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-R\-A\-N\-G\-E\-S}~0x04
+\item 
+\#define \hyperlink{smmintrin_8h_aa1ff7bca6210c027ed134d1198955ee7}{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-E\-A\-C\-H}~0x08
+\item 
+\#define \hyperlink{smmintrin_8h_a776dfaf73001a5cbfcc73a82d38167a8}{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-O\-R\-D\-E\-R\-E\-D}~0x0c
+\item 
+\#define \hyperlink{smmintrin_8h_abd5e417a8dad335e4771631ce7a510d7}{\-\_\-\-S\-I\-D\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}~0x00
+\item 
+\#define \hyperlink{smmintrin_8h_a6b1fdaab0a08fdd3398a4d3e483e0387}{\-\_\-\-S\-I\-D\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}~0x10
+\item 
+\#define \hyperlink{smmintrin_8h_a28f3c561261616d0504984d911290216}{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}~0x20
+\item 
+\#define \hyperlink{smmintrin_8h_a1bf80ee593ee55aa1e7e97de8989791c}{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}~0x30
+\item 
+\#define \hyperlink{smmintrin_8h_a57cc567c3097eb10d44fdd69e61c8dad}{\-\_\-\-S\-I\-D\-D\-\_\-\-L\-E\-A\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}~0x00
+\item 
+\#define \hyperlink{smmintrin_8h_ac6fd66c590f00604673cd8089a541ee3}{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-O\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}~0x40
+\item 
+\#define \hyperlink{smmintrin_8h_a1bd58fdeb9e42798aed6c4daac9f7f49}{\-\_\-\-S\-I\-D\-D\-\_\-\-B\-I\-T\-\_\-\-M\-A\-S\-K}~0x00
+\item 
+\#define \hyperlink{smmintrin_8h_a4339844fba0aba6976d8a0782eb9858d}{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-N\-I\-T\-\_\-\-M\-A\-S\-K}~0x40
+\item 
+\#define \hyperlink{smmintrin_8h_a0ac0a6d3414c5e9ace3546e5bfc8bc72}{\-\_\-mm\-\_\-cmpistrm}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a3bef4a53b8a6a9c4deb490f06eecb453}{\-\_\-mm\-\_\-cmpistri}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a641cc7ef2fab1f3e3d91a844d2664df8}{\-\_\-mm\-\_\-cmpestrm}(A, L\-A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, L\-B, M)
+\item 
+\#define \hyperlink{smmintrin_8h_afb8ed5b336db07ae318a05582090b30e}{\-\_\-mm\-\_\-cmpestri}(A, L\-A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, L\-B, M)
+\item 
+\#define \hyperlink{smmintrin_8h_abcf80fc7266a2aa67f1c66ae009121b5}{\-\_\-mm\-\_\-cmpistra}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a4b52efd82b2f0c149dcc8f750467effc}{\-\_\-mm\-\_\-cmpistrc}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a8f5770ab7487f903c198f1b857e1fccf}{\-\_\-mm\-\_\-cmpistro}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a66c323e31a4bc76bf17df0c8d83562c2}{\-\_\-mm\-\_\-cmpistrs}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a82322ada2db291935ad59d8fc6aea4e0}{\-\_\-mm\-\_\-cmpistrz}(A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a0153c9cd531519c0fefd6d9091b5ff68}{\-\_\-mm\-\_\-cmpestra}(A, L\-A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, L\-B, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a536f19c3c2b5150d8a4009f8b4a78991}{\-\_\-mm\-\_\-cmpestrc}(A, L\-A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, L\-B, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a2de32911ef1d5df7db0b2a8fefa68b65}{\-\_\-mm\-\_\-cmpestro}(A, L\-A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, L\-B, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a29c9cd8f4a0bd542cdba5a6a0043f85e}{\-\_\-mm\-\_\-cmpestrs}(A, L\-A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, L\-B, M)
+\item 
+\#define \hyperlink{smmintrin_8h_a353b009f400cc7b985210e22e98aa661}{\-\_\-mm\-\_\-cmpestrz}(A, L\-A, \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}, L\-B, M)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{smmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}}
+\index{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse4.\-1\char`\"{})))}}\label{smmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}
+\hypertarget{smmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}}
+\index{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse4.\-2\char`\"{})))}}\label{smmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}
+\hypertarget{smmintrin_8h_a1bed8582f0457598536c193ddf24db68}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-blend\-\_\-epi16@{\-\_\-mm\-\_\-blend\-\_\-epi16}}
+\index{\-\_\-mm\-\_\-blend\-\_\-epi16@{\-\_\-mm\-\_\-blend\-\_\-epi16}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-blend\-\_\-epi16}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-blend\-\_\-epi16(
+\begin{DoxyParamCaption}
+\item[{}]{V1, }
+\item[{}]{V2, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a1bed8582f0457598536c193ddf24db68}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128i)\_\_builtin\_shufflevector((\_\_v8hi)(\_\_m128i)(V1), \(\backslash\)
+                                   (\_\_v8hi)(\_\_m128i)(V2), \(\backslash\)
+                                   (((M) & 0x01) ?  8 : 0), \(\backslash\)
+                                   (((M) & 0x02) ?  9 : 1), \(\backslash\)
+                                   (((M) & 0x04) ? 10 : 2), \(\backslash\)
+                                   (((M) & 0x08) ? 11 : 3), \(\backslash\)
+                                   (((M) & 0x10) ? 12 : 4), \(\backslash\)
+                                   (((M) & 0x20) ? 13 : 5), \(\backslash\)
+                                   (((M) & 0x40) ? 14 : 6), \(\backslash\)
+                                   (((M) & 0x80) ? 15 : 7)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_ae6db9dae26796167e72b9cd1c01de532}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-blend\-\_\-pd@{\-\_\-mm\-\_\-blend\-\_\-pd}}
+\index{\-\_\-mm\-\_\-blend\-\_\-pd@{\-\_\-mm\-\_\-blend\-\_\-pd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-blend\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-blend\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{V1, }
+\item[{}]{V2, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_ae6db9dae26796167e72b9cd1c01de532}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_shufflevector((\_\_v2df)(\_\_m128d)(V1), \(\backslash\)
+                                   (\_\_v2df)(\_\_m128d)(V2), \(\backslash\)
+                                   (((M) & 0x01) ? 2 : 0), \(\backslash\)
+                                   (((M) & 0x02) ? 3 : 1)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a492928bc100e842e8997210f71d853ae}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-blend\-\_\-ps@{\-\_\-mm\-\_\-blend\-\_\-ps}}
+\index{\-\_\-mm\-\_\-blend\-\_\-ps@{\-\_\-mm\-\_\-blend\-\_\-ps}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-blend\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-blend\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{V1, }
+\item[{}]{V2, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a492928bc100e842e8997210f71d853ae}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_shufflevector((\_\_v4sf)(\_\_m128)(V1), (\_\_v4sf)(\_\_m128)(V2), \(\backslash\)
+                                  (((M) & 0x01) ? 4 : 0), \(\backslash\)
+                                  (((M) & 0x02) ? 5 : 1), \(\backslash\)
+                                  (((M) & 0x04) ? 6 : 2), \(\backslash\)
+                                  (((M) & 0x08) ? 7 : 3)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a39b4494d154092953ba10a04db4bdc31}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-ceil\-\_\-pd@{\-\_\-mm\-\_\-ceil\-\_\-pd}}
+\index{\-\_\-mm\-\_\-ceil\-\_\-pd@{\-\_\-mm\-\_\-ceil\-\_\-pd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-ceil\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-ceil\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-pd}(({\bf X}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})}}\label{smmintrin_8h_a39b4494d154092953ba10a04db4bdc31}
+\hypertarget{smmintrin_8h_abf018d933ba338df06e371ba601dd13a}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-ceil\-\_\-ps@{\-\_\-mm\-\_\-ceil\-\_\-ps}}
+\index{\-\_\-mm\-\_\-ceil\-\_\-ps@{\-\_\-mm\-\_\-ceil\-\_\-ps}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-ceil\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-ceil\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-ps}(({\bf X}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})}}\label{smmintrin_8h_abf018d933ba338df06e371ba601dd13a}
+\hypertarget{smmintrin_8h_aa8c7ddc9e29fd06d3e814b1242c29bcb}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-ceil\-\_\-sd@{\-\_\-mm\-\_\-ceil\-\_\-sd}}
+\index{\-\_\-mm\-\_\-ceil\-\_\-sd@{\-\_\-mm\-\_\-ceil\-\_\-sd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-ceil\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-ceil\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-sd}(({\bf X}), ({\bf Y}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})}}\label{smmintrin_8h_aa8c7ddc9e29fd06d3e814b1242c29bcb}
+\hypertarget{smmintrin_8h_a19a5ab15885644430c6e98aca3163021}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-ceil\-\_\-ss@{\-\_\-mm\-\_\-ceil\-\_\-ss}}
+\index{\-\_\-mm\-\_\-ceil\-\_\-ss@{\-\_\-mm\-\_\-ceil\-\_\-ss}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-ceil\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-ceil\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-ss}(({\bf X}), ({\bf Y}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L})}}\label{smmintrin_8h_a19a5ab15885644430c6e98aca3163021}
+\hypertarget{smmintrin_8h_a0153c9cd531519c0fefd6d9091b5ff68}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpestra@{\-\_\-mm\-\_\-cmpestra}}
+\index{\-\_\-mm\-\_\-cmpestra@{\-\_\-mm\-\_\-cmpestra}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpestra}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpestra(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{L\-A, }
+\item[{}]{{\bf B}, }
+\item[{}]{L\-B, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a0153c9cd531519c0fefd6d9091b5ff68}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpestria128((\_\_v16qi)(\_\_m128i)(A), (int)(LA), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(LB), \(\backslash\)
+                                    (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a536f19c3c2b5150d8a4009f8b4a78991}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpestrc@{\-\_\-mm\-\_\-cmpestrc}}
+\index{\-\_\-mm\-\_\-cmpestrc@{\-\_\-mm\-\_\-cmpestrc}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpestrc}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpestrc(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{L\-A, }
+\item[{}]{{\bf B}, }
+\item[{}]{L\-B, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a536f19c3c2b5150d8a4009f8b4a78991}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpestric128((\_\_v16qi)(\_\_m128i)(A), (int)(LA), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(LB), \(\backslash\)
+                                    (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_afb8ed5b336db07ae318a05582090b30e}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpestri@{\-\_\-mm\-\_\-cmpestri}}
+\index{\-\_\-mm\-\_\-cmpestri@{\-\_\-mm\-\_\-cmpestri}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpestri}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpestri(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{L\-A, }
+\item[{}]{{\bf B}, }
+\item[{}]{L\-B, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_afb8ed5b336db07ae318a05582090b30e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpestri128((\_\_v16qi)(\_\_m128i)(A), (int)(LA), \(\backslash\)
+                                   (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(LB), \(\backslash\)
+                                   (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a641cc7ef2fab1f3e3d91a844d2664df8}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpestrm@{\-\_\-mm\-\_\-cmpestrm}}
+\index{\-\_\-mm\-\_\-cmpestrm@{\-\_\-mm\-\_\-cmpestrm}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpestrm}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpestrm(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{L\-A, }
+\item[{}]{{\bf B}, }
+\item[{}]{L\-B, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a641cc7ef2fab1f3e3d91a844d2664df8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_m128i)\_\_builtin\_ia32\_pcmpestrm128((\_\_v16qi)(\_\_m128i)(A), (int)(LA), \(\backslash\)
+                                       (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(LB), \(\backslash\)
+                                       (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a2de32911ef1d5df7db0b2a8fefa68b65}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpestro@{\-\_\-mm\-\_\-cmpestro}}
+\index{\-\_\-mm\-\_\-cmpestro@{\-\_\-mm\-\_\-cmpestro}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpestro}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpestro(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{L\-A, }
+\item[{}]{{\bf B}, }
+\item[{}]{L\-B, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a2de32911ef1d5df7db0b2a8fefa68b65}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpestrio128((\_\_v16qi)(\_\_m128i)(A), (int)(LA), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(LB), \(\backslash\)
+                                    (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a29c9cd8f4a0bd542cdba5a6a0043f85e}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpestrs@{\-\_\-mm\-\_\-cmpestrs}}
+\index{\-\_\-mm\-\_\-cmpestrs@{\-\_\-mm\-\_\-cmpestrs}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpestrs}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpestrs(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{L\-A, }
+\item[{}]{{\bf B}, }
+\item[{}]{L\-B, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a29c9cd8f4a0bd542cdba5a6a0043f85e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpestris128((\_\_v16qi)(\_\_m128i)(A), (int)(LA), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(LB), \(\backslash\)
+                                    (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a353b009f400cc7b985210e22e98aa661}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpestrz@{\-\_\-mm\-\_\-cmpestrz}}
+\index{\-\_\-mm\-\_\-cmpestrz@{\-\_\-mm\-\_\-cmpestrz}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpestrz}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpestrz(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{L\-A, }
+\item[{}]{{\bf B}, }
+\item[{}]{L\-B, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a353b009f400cc7b985210e22e98aa661}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpestriz128((\_\_v16qi)(\_\_m128i)(A), (int)(LA), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(LB), \(\backslash\)
+                                    (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_abcf80fc7266a2aa67f1c66ae009121b5}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpistra@{\-\_\-mm\-\_\-cmpistra}}
+\index{\-\_\-mm\-\_\-cmpistra@{\-\_\-mm\-\_\-cmpistra}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpistra}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpistra(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_abcf80fc7266a2aa67f1c66ae009121b5}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpistria128((\_\_v16qi)(\_\_m128i)(A), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a4b52efd82b2f0c149dcc8f750467effc}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpistrc@{\-\_\-mm\-\_\-cmpistrc}}
+\index{\-\_\-mm\-\_\-cmpistrc@{\-\_\-mm\-\_\-cmpistrc}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpistrc}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpistrc(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a4b52efd82b2f0c149dcc8f750467effc}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpistric128((\_\_v16qi)(\_\_m128i)(A), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a3bef4a53b8a6a9c4deb490f06eecb453}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpistri@{\-\_\-mm\-\_\-cmpistri}}
+\index{\-\_\-mm\-\_\-cmpistri@{\-\_\-mm\-\_\-cmpistri}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpistri}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpistri(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a3bef4a53b8a6a9c4deb490f06eecb453}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpistri128((\_\_v16qi)(\_\_m128i)(A), \(\backslash\)
+                                   (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a0ac0a6d3414c5e9ace3546e5bfc8bc72}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpistrm@{\-\_\-mm\-\_\-cmpistrm}}
+\index{\-\_\-mm\-\_\-cmpistrm@{\-\_\-mm\-\_\-cmpistrm}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpistrm}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpistrm(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a0ac0a6d3414c5e9ace3546e5bfc8bc72}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_m128i)\_\_builtin\_ia32\_pcmpistrm128((\_\_v16qi)(\_\_m128i)(A), \(\backslash\)
+                                       (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a8f5770ab7487f903c198f1b857e1fccf}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpistro@{\-\_\-mm\-\_\-cmpistro}}
+\index{\-\_\-mm\-\_\-cmpistro@{\-\_\-mm\-\_\-cmpistro}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpistro}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpistro(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a8f5770ab7487f903c198f1b857e1fccf}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpistrio128((\_\_v16qi)(\_\_m128i)(A), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a66c323e31a4bc76bf17df0c8d83562c2}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpistrs@{\-\_\-mm\-\_\-cmpistrs}}
+\index{\-\_\-mm\-\_\-cmpistrs@{\-\_\-mm\-\_\-cmpistrs}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpistrs}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpistrs(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a66c323e31a4bc76bf17df0c8d83562c2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpistris128((\_\_v16qi)(\_\_m128i)(A), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a82322ada2db291935ad59d8fc6aea4e0}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-cmpistrz@{\-\_\-mm\-\_\-cmpistrz}}
+\index{\-\_\-mm\-\_\-cmpistrz@{\-\_\-mm\-\_\-cmpistrz}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-cmpistrz}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-cmpistrz(
+\begin{DoxyParamCaption}
+\item[{}]{A, }
+\item[{}]{{\bf B}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a82322ada2db291935ad59d8fc6aea4e0}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(int)\_\_builtin\_ia32\_pcmpistriz128((\_\_v16qi)(\_\_m128i)(A), \(\backslash\)
+                                    (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}), (\textcolor{keywordtype}{int})(M))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a5e712e6a462f3873ecf0f689a37a008f}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-dp\-\_\-pd@{\-\_\-mm\-\_\-dp\-\_\-pd}}
+\index{\-\_\-mm\-\_\-dp\-\_\-pd@{\-\_\-mm\-\_\-dp\-\_\-pd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-dp\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-dp\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a5e712e6a462f3873ecf0f689a37a008f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{\(\backslash\)
+  (\_\_m128d) \_\_builtin\_ia32\_dppd((\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \(\backslash\)
+                                (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), (M)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a9499f1029e5347aae12d526c93ff8aa1}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-dp\-\_\-ps@{\-\_\-mm\-\_\-dp\-\_\-ps}}
+\index{\-\_\-mm\-\_\-dp\-\_\-ps@{\-\_\-mm\-\_\-dp\-\_\-ps}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-dp\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-dp\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a9499f1029e5347aae12d526c93ff8aa1}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128) \_\_builtin\_ia32\_dpps((\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \(\backslash\)
+                               (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), (M)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_af10410dc52ede0cdb9411b5e18150188}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-extract\-\_\-epi32@{\-\_\-mm\-\_\-extract\-\_\-epi32}}
+\index{\-\_\-mm\-\_\-extract\-\_\-epi32@{\-\_\-mm\-\_\-extract\-\_\-epi32}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-extract\-\_\-epi32}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-extract\-\_\-epi32(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_af10410dc52ede0cdb9411b5e18150188}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_extension\_\_                         \(\backslash\)
+                                 (\{ \_\_v4si \_\_a = (\_\_v4si)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}); \(\backslash\)
+                                    (int)\_\_a[(N) & 3];\}))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_ad98cca93fe7324aebff50c95f7c12e4c}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-extract\-\_\-epi8@{\-\_\-mm\-\_\-extract\-\_\-epi8}}
+\index{\-\_\-mm\-\_\-extract\-\_\-epi8@{\-\_\-mm\-\_\-extract\-\_\-epi8}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-extract\-\_\-epi8}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-extract\-\_\-epi8(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_ad98cca93fe7324aebff50c95f7c12e4c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_extension\_\_                           \(\backslash\)
+                                (\{ \_\_v16qi \_\_a = (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}); \(\backslash\)
+                                   (int)(\textcolor{keywordtype}{unsigned} \textcolor{keywordtype}{char}) \_\_a[(N) & 15];\}))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a8c6320d89781ba30f10a26ec47f34e98}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-E\-X\-T\-R\-A\-C\-T\-\_\-\-F\-L\-O\-A\-T@{\-\_\-\-M\-M\-\_\-\-E\-X\-T\-R\-A\-C\-T\-\_\-\-F\-L\-O\-A\-T}}
+\index{\-\_\-\-M\-M\-\_\-\-E\-X\-T\-R\-A\-C\-T\-\_\-\-F\-L\-O\-A\-T@{\-\_\-\-M\-M\-\_\-\-E\-X\-T\-R\-A\-C\-T\-\_\-\-F\-L\-O\-A\-T}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-E\-X\-T\-R\-A\-C\-T\-\_\-\-F\-L\-O\-A\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-E\-X\-T\-R\-A\-C\-T\-\_\-\-F\-L\-O\-A\-T(
+\begin{DoxyParamCaption}
+\item[{}]{D, }
+\item[{}]{{\bf X}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a8c6320d89781ba30f10a26ec47f34e98}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_extension\_\_ (\{ \_\_v4sf \_\_a = (\_\_v4sf)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}); \(\backslash\)
+                                                    (D) = \_\_a[N]; \}))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_ae6e89777ff64eeede36d711e5d4a2f71}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-extract\-\_\-ps@{\-\_\-mm\-\_\-extract\-\_\-ps}}
+\index{\-\_\-mm\-\_\-extract\-\_\-ps@{\-\_\-mm\-\_\-extract\-\_\-ps}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-extract\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-extract\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_ae6e89777ff64eeede36d711e5d4a2f71}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_extension\_\_                      \(\backslash\)
+                              (\{ \textcolor{keyword}{union }\{ \textcolor{keywordtype}{int} \_\_i; \textcolor{keywordtype}{float} \_\_f; \} \_\_t;  \(\backslash\)
+                                 \_\_v4sf \_\_a = (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X});       \(\backslash\)
+                                 \_\_t.\_\_f = \_\_a[(N) & 3];                 \(\backslash\)
+                                 \_\_t.\_\_i;\}))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a88de800a54a80d596420216227339c0a}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-floor\-\_\-pd@{\-\_\-mm\-\_\-floor\-\_\-pd}}
+\index{\-\_\-mm\-\_\-floor\-\_\-pd@{\-\_\-mm\-\_\-floor\-\_\-pd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-floor\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-floor\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-pd}(({\bf X}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})}}\label{smmintrin_8h_a88de800a54a80d596420216227339c0a}
+\hypertarget{smmintrin_8h_a396e8d7a381aa0dd3a5abc6792e116e3}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-floor\-\_\-ps@{\-\_\-mm\-\_\-floor\-\_\-ps}}
+\index{\-\_\-mm\-\_\-floor\-\_\-ps@{\-\_\-mm\-\_\-floor\-\_\-ps}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-floor\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-floor\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-ps}(({\bf X}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})}}\label{smmintrin_8h_a396e8d7a381aa0dd3a5abc6792e116e3}
+\hypertarget{smmintrin_8h_a4341af152b42fb14c907ca717e589dcd}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-floor\-\_\-sd@{\-\_\-mm\-\_\-floor\-\_\-sd}}
+\index{\-\_\-mm\-\_\-floor\-\_\-sd@{\-\_\-mm\-\_\-floor\-\_\-sd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-floor\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-floor\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-sd}(({\bf X}), ({\bf Y}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})}}\label{smmintrin_8h_a4341af152b42fb14c907ca717e589dcd}
+\hypertarget{smmintrin_8h_aab45fc5e22f4c174438dacadbee7f9ef}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-floor\-\_\-ss@{\-\_\-mm\-\_\-floor\-\_\-ss}}
+\index{\-\_\-mm\-\_\-floor\-\_\-ss@{\-\_\-mm\-\_\-floor\-\_\-ss}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-floor\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-floor\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-round\-\_\-ss}(({\bf X}), ({\bf Y}), {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R})}}\label{smmintrin_8h_aab45fc5e22f4c174438dacadbee7f9ef}
+\hypertarget{smmintrin_8h_ad317c3219a316dcc214458e6e76a0447}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-E\-I\-L~({\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F})}}\label{smmintrin_8h_ad317c3219a316dcc214458e6e76a0447}
+\hypertarget{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N~0x04}}\label{smmintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}
+\hypertarget{smmintrin_8h_a20c327e7319473014ba5ac1894dde170}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-F\-L\-O\-O\-R~({\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F})}}\label{smmintrin_8h_a20c327e7319473014ba5ac1894dde170}
+\hypertarget{smmintrin_8h_a108f6d101688c3e866614d6f39d5b030}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-E\-A\-R\-B\-Y\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-E\-A\-R\-B\-Y\-I\-N\-T}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-E\-A\-R\-B\-Y\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-E\-A\-R\-B\-Y\-I\-N\-T}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-E\-A\-R\-B\-Y\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-E\-A\-R\-B\-Y\-I\-N\-T~({\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C} $\vert$ {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{smmintrin_8h_a108f6d101688c3e866614d6f39d5b030}
+\hypertarget{smmintrin_8h_a6349ff20a1a9631adba343709232d09d}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-I\-N\-T}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-I\-N\-T}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-I\-N\-T~({\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T})}}\label{smmintrin_8h_a6349ff20a1a9631adba343709232d09d}
+\hypertarget{smmintrin_8h_afd61685784e27df0e9c78307cb0a173a}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-N\-O\-\_\-\-E\-X\-C~0x08}}\label{smmintrin_8h_afd61685784e27df0e9c78307cb0a173a}
+\hypertarget{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C~0x00}}\label{smmintrin_8h_ad4624e11b62bce8d1f2f460b0f98016a}
+\hypertarget{smmintrin_8h_a604112adab36d232953853b6bec6efb3}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-I\-N\-T}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-I\-N\-T}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-I\-N\-T~({\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-C\-U\-R\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N})}}\label{smmintrin_8h_a604112adab36d232953853b6bec6efb3}
+\hypertarget{smmintrin_8h_abab0d9da65ed098a9f49d5fbc70949f9}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-A\-R\-E\-S\-T\-\_\-\-I\-N\-T~0x00}}\label{smmintrin_8h_abab0d9da65ed098a9f49d5fbc70949f9}
+\hypertarget{smmintrin_8h_a77219ab4bb6614931dd1a48248961aba}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-N\-E\-G\-\_\-\-I\-N\-F~0x01}}\label{smmintrin_8h_a77219ab4bb6614931dd1a48248961aba}
+\hypertarget{smmintrin_8h_a03d19852fa1cb3cd7340efa246feec77}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-P\-O\-S\-\_\-\-I\-N\-F~0x02}}\label{smmintrin_8h_a03d19852fa1cb3cd7340efa246feec77}
+\hypertarget{smmintrin_8h_adbfdff6c2d5957027953ffef4ac81de4}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O~0x03}}\label{smmintrin_8h_adbfdff6c2d5957027953ffef4ac81de4}
+\hypertarget{smmintrin_8h_ac2c088cac6f54cc98cf0c40082bddc08}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-R\-U\-N\-C@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-R\-U\-N\-C}}
+\index{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-R\-U\-N\-C@{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-R\-U\-N\-C}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-R\-U\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-R\-U\-N\-C~({\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-R\-A\-I\-S\-E\-\_\-\-E\-X\-C} $\vert$ {\bf \-\_\-\-M\-M\-\_\-\-F\-R\-O\-U\-N\-D\-\_\-\-T\-O\-\_\-\-Z\-E\-R\-O})}}\label{smmintrin_8h_ac2c088cac6f54cc98cf0c40082bddc08}
+\hypertarget{smmintrin_8h_a72770c0536ad1d8118ddd3936ad5f2dc}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-insert\-\_\-epi32@{\-\_\-mm\-\_\-insert\-\_\-epi32}}
+\index{\-\_\-mm\-\_\-insert\-\_\-epi32@{\-\_\-mm\-\_\-insert\-\_\-epi32}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-insert\-\_\-epi32}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-insert\-\_\-epi32(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf I}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a72770c0536ad1d8118ddd3936ad5f2dc}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_extension\_\_                         \(\backslash\)
+                                   (\{ \_\_v4si \_\_a = (\_\_v4si)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}); \(\backslash\)
+                                      \_\_a[(N) & 3] = (\hyperlink{Yun__Log__BatteryDisCharging_8ino_a145f61de888f096c52a2945234a407b0}{I});                \(\backslash\)
+                                      \_\_a;\}))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_aed3eaab63c89c2cd6fe42214764dcf6a}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-insert\-\_\-epi8@{\-\_\-mm\-\_\-insert\-\_\-epi8}}
+\index{\-\_\-mm\-\_\-insert\-\_\-epi8@{\-\_\-mm\-\_\-insert\-\_\-epi8}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-insert\-\_\-epi8}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-insert\-\_\-epi8(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf I}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_aed3eaab63c89c2cd6fe42214764dcf6a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+(\_\_extension\_\_                           \(\backslash\)
+                                  (\{ \_\_v16qi \_\_a = (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}); \(\backslash\)
+                                     \_\_a[(N) & 15] = (\hyperlink{Yun__Log__BatteryDisCharging_8ino_a145f61de888f096c52a2945234a407b0}{I});                 \(\backslash\)
+                                     \_\_a;\}))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a3848db2f5cf53c1da918bff0e4747bad}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-insert\-\_\-ps@{\-\_\-mm\-\_\-insert\-\_\-ps}}
+\index{\-\_\-mm\-\_\-insert\-\_\-ps@{\-\_\-mm\-\_\-insert\-\_\-ps}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-insert\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-insert\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-ia32\-\_\-insertps128(({\bf X}), ({\bf Y}), (N))}}\label{smmintrin_8h_a3848db2f5cf53c1da918bff0e4747bad}
+\hypertarget{smmintrin_8h_a85a90154096822476fe3e0fc09ea64f0}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-M\-K\-\_\-\-I\-N\-S\-E\-R\-T\-P\-S\-\_\-\-N\-D\-X@{\-\_\-\-M\-M\-\_\-\-M\-K\-\_\-\-I\-N\-S\-E\-R\-T\-P\-S\-\_\-\-N\-D\-X}}
+\index{\-\_\-\-M\-M\-\_\-\-M\-K\-\_\-\-I\-N\-S\-E\-R\-T\-P\-S\-\_\-\-N\-D\-X@{\-\_\-\-M\-M\-\_\-\-M\-K\-\_\-\-I\-N\-S\-E\-R\-T\-P\-S\-\_\-\-N\-D\-X}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-M\-K\-\_\-\-I\-N\-S\-E\-R\-T\-P\-S\-\_\-\-N\-D\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-M\-K\-\_\-\-I\-N\-S\-E\-R\-T\-P\-S\-\_\-\-N\-D\-X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{{\bf Z}}
+\end{DoxyParamCaption}
+)~((({\bf X}) $<$$<$ 6) $\vert$ (({\bf Y}) $<$$<$ 4) $\vert$ ({\bf Z}))}}\label{smmintrin_8h_a85a90154096822476fe3e0fc09ea64f0}
+\hypertarget{smmintrin_8h_a18852179af9f0b644b446fa6972f8977}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-mpsadbw\-\_\-epu8@{\-\_\-mm\-\_\-mpsadbw\-\_\-epu8}}
+\index{\-\_\-mm\-\_\-mpsadbw\-\_\-epu8@{\-\_\-mm\-\_\-mpsadbw\-\_\-epu8}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-mpsadbw\-\_\-epu8}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-mpsadbw\-\_\-epu8(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a18852179af9f0b644b446fa6972f8977}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128i) \_\_builtin\_ia32\_mpsadbw128((\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \(\backslash\)
+                                      (\_\_v16qi)(\_\_m128i)(\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), (M)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a9a3ce99e79e5083b70afc0b3df8a3460}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-P\-I\-C\-K\-\_\-\-O\-U\-T\-\_\-\-P\-S@{\-\_\-\-M\-M\-\_\-\-P\-I\-C\-K\-\_\-\-O\-U\-T\-\_\-\-P\-S}}
+\index{\-\_\-\-M\-M\-\_\-\-P\-I\-C\-K\-\_\-\-O\-U\-T\-\_\-\-P\-S@{\-\_\-\-M\-M\-\_\-\-P\-I\-C\-K\-\_\-\-O\-U\-T\-\_\-\-P\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-P\-I\-C\-K\-\_\-\-O\-U\-T\-\_\-\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-P\-I\-C\-K\-\_\-\-O\-U\-T\-\_\-\-P\-S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{N}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a9a3ce99e79e5083b70afc0b3df8a3460}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\hyperlink{smmintrin_8h_a3848db2f5cf53c1da918bff0e4747bad}{\_mm\_insert\_ps} (\_mm\_setzero\_ps(), (\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}),   \(\backslash\)
+                                             \hyperlink{smmintrin_8h_a85a90154096822476fe3e0fc09ea64f0}{\_MM\_MK\_INSERTPS\_NDX}((N), 0, 0x0e))
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_aa72b10eab57a386032f4a798992fc0f8}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-round\-\_\-pd@{\-\_\-mm\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm\-\_\-round\-\_\-pd@{\-\_\-mm\-\_\-round\-\_\-pd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_aa72b10eab57a386032f4a798992fc0f8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_roundpd((\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), (M)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a14cb78d3e6dd06d21076388e3db216cd}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-round\-\_\-ps@{\-\_\-mm\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm\-\_\-round\-\_\-ps@{\-\_\-mm\-\_\-round\-\_\-ps}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a14cb78d3e6dd06d21076388e3db216cd}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_roundps((\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), (M)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_ac7de0a367de6a897500d5c13501dfda0}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-round\-\_\-sd}}
+\index{\-\_\-mm\-\_\-round\-\_\-sd@{\-\_\-mm\-\_\-round\-\_\-sd}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-round\-\_\-sd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-round\-\_\-sd(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_ac7de0a367de6a897500d5c13501dfda0}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_ia32\_roundsd((\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \(\backslash\)
+                                  (\_\_v2df)(\_\_m128d)(\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), (M)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a7d5c86a31abe783a570af029610a6b60}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-round\-\_\-ss}}
+\index{\-\_\-mm\-\_\-round\-\_\-ss@{\-\_\-mm\-\_\-round\-\_\-ss}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-round\-\_\-ss}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-round\-\_\-ss(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{M}
+\end{DoxyParamCaption}
+)}}\label{smmintrin_8h_a7d5c86a31abe783a570af029610a6b60}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128)\_\_builtin\_ia32\_roundss((\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}), \(\backslash\)
+                                 (\_\_v4sf)(\_\_m128)(\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}), (M)); \})
+\end{DoxyCode}
+\hypertarget{smmintrin_8h_a35a8f0ee26533786188c8cd8af8a6232}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-test\-\_\-all\-\_\-ones@{\-\_\-mm\-\_\-test\-\_\-all\-\_\-ones}}
+\index{\-\_\-mm\-\_\-test\-\_\-all\-\_\-ones@{\-\_\-mm\-\_\-test\-\_\-all\-\_\-ones}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-test\-\_\-all\-\_\-ones}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-test\-\_\-all\-\_\-ones(
+\begin{DoxyParamCaption}
+\item[{}]{V}
+\end{DoxyParamCaption}
+)~\-\_\-mm\-\_\-testc\-\_\-si128((V), \-\_\-mm\-\_\-cmpeq\-\_\-epi32((V), (V)))}}\label{smmintrin_8h_a35a8f0ee26533786188c8cd8af8a6232}
+\hypertarget{smmintrin_8h_ad6bf4d9103857f61c019f4e567a61e68}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-test\-\_\-all\-\_\-zeros@{\-\_\-mm\-\_\-test\-\_\-all\-\_\-zeros}}
+\index{\-\_\-mm\-\_\-test\-\_\-all\-\_\-zeros@{\-\_\-mm\-\_\-test\-\_\-all\-\_\-zeros}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-test\-\_\-all\-\_\-zeros}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-test\-\_\-all\-\_\-zeros(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{V}
+\end{DoxyParamCaption}
+)~\-\_\-mm\-\_\-testz\-\_\-si128 ((M), (V))}}\label{smmintrin_8h_ad6bf4d9103857f61c019f4e567a61e68}
+\hypertarget{smmintrin_8h_aacedc7da71e32ac81c20d8614902d1e6}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-mm\-\_\-test\-\_\-mix\-\_\-ones\-\_\-zeros@{\-\_\-mm\-\_\-test\-\_\-mix\-\_\-ones\-\_\-zeros}}
+\index{\-\_\-mm\-\_\-test\-\_\-mix\-\_\-ones\-\_\-zeros@{\-\_\-mm\-\_\-test\-\_\-mix\-\_\-ones\-\_\-zeros}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-test\-\_\-mix\-\_\-ones\-\_\-zeros}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-test\-\_\-mix\-\_\-ones\-\_\-zeros(
+\begin{DoxyParamCaption}
+\item[{}]{M, }
+\item[{}]{V}
+\end{DoxyParamCaption}
+)~\-\_\-mm\-\_\-testnzc\-\_\-si128((M), (V))}}\label{smmintrin_8h_aacedc7da71e32ac81c20d8614902d1e6}
+\hypertarget{smmintrin_8h_a1bd58fdeb9e42798aed6c4daac9f7f49}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-B\-I\-T\-\_\-\-M\-A\-S\-K@{\-\_\-\-S\-I\-D\-D\-\_\-\-B\-I\-T\-\_\-\-M\-A\-S\-K}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-B\-I\-T\-\_\-\-M\-A\-S\-K@{\-\_\-\-S\-I\-D\-D\-\_\-\-B\-I\-T\-\_\-\-M\-A\-S\-K}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-B\-I\-T\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-B\-I\-T\-\_\-\-M\-A\-S\-K~0x00}}\label{smmintrin_8h_a1bd58fdeb9e42798aed6c4daac9f7f49}
+\hypertarget{smmintrin_8h_ae8d16dddb4063a302b1117cfc0c4420f}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-A\-N\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-A\-N\-Y}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-A\-N\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-A\-N\-Y}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-A\-N\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-A\-N\-Y~0x00}}\label{smmintrin_8h_ae8d16dddb4063a302b1117cfc0c4420f}
+\hypertarget{smmintrin_8h_aa1ff7bca6210c027ed134d1198955ee7}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-E\-A\-C\-H@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-E\-A\-C\-H}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-E\-A\-C\-H@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-E\-A\-C\-H}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-E\-A\-C\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-E\-A\-C\-H~0x08}}\label{smmintrin_8h_aa1ff7bca6210c027ed134d1198955ee7}
+\hypertarget{smmintrin_8h_a776dfaf73001a5cbfcc73a82d38167a8}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-O\-R\-D\-E\-R\-E\-D@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-O\-R\-D\-E\-R\-E\-D}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-O\-R\-D\-E\-R\-E\-D@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-O\-R\-D\-E\-R\-E\-D}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-O\-R\-D\-E\-R\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-E\-Q\-U\-A\-L\-\_\-\-O\-R\-D\-E\-R\-E\-D~0x0c}}\label{smmintrin_8h_a776dfaf73001a5cbfcc73a82d38167a8}
+\hypertarget{smmintrin_8h_af1698ffa055b2d8d0b44ef3fc55b7390}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-R\-A\-N\-G\-E\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-R\-A\-N\-G\-E\-S}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-R\-A\-N\-G\-E\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-R\-A\-N\-G\-E\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-R\-A\-N\-G\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-C\-M\-P\-\_\-\-R\-A\-N\-G\-E\-S~0x04}}\label{smmintrin_8h_af1698ffa055b2d8d0b44ef3fc55b7390}
+\hypertarget{smmintrin_8h_a57cc567c3097eb10d44fdd69e61c8dad}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-L\-E\-A\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T@{\-\_\-\-S\-I\-D\-D\-\_\-\-L\-E\-A\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-L\-E\-A\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T@{\-\_\-\-S\-I\-D\-D\-\_\-\-L\-E\-A\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-L\-E\-A\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-L\-E\-A\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T~0x00}}\label{smmintrin_8h_a57cc567c3097eb10d44fdd69e61c8dad}
+\hypertarget{smmintrin_8h_a1bf80ee593ee55aa1e7e97de8989791c}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y~0x30}}\label{smmintrin_8h_a1bf80ee593ee55aa1e7e97de8989791c}
+\hypertarget{smmintrin_8h_a28f3c561261616d0504984d911290216}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-M\-A\-S\-K\-E\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y~0x20}}\label{smmintrin_8h_a28f3c561261616d0504984d911290216}
+\hypertarget{smmintrin_8h_ac6fd66c590f00604673cd8089a541ee3}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-M\-O\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T@{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-O\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-O\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T@{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-O\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-M\-O\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-M\-O\-S\-T\-\_\-\-S\-I\-G\-N\-I\-F\-I\-C\-A\-N\-T~0x40}}\label{smmintrin_8h_ac6fd66c590f00604673cd8089a541ee3}
+\hypertarget{smmintrin_8h_a6b1fdaab0a08fdd3398a4d3e483e0387}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-N\-E\-G\-A\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y~0x10}}\label{smmintrin_8h_a6b1fdaab0a08fdd3398a4d3e483e0387}
+\hypertarget{smmintrin_8h_abd5e417a8dad335e4771631ce7a510d7}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y@{\-\_\-\-S\-I\-D\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-P\-O\-S\-I\-T\-I\-V\-E\-\_\-\-P\-O\-L\-A\-R\-I\-T\-Y~0x00}}\label{smmintrin_8h_abd5e417a8dad335e4771631ce7a510d7}
+\hypertarget{smmintrin_8h_ad7f316b3f98b17a45376e66ed7e91264}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-S\-B\-Y\-T\-E\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-B\-Y\-T\-E\-\_\-\-O\-P\-S}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-B\-Y\-T\-E\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-B\-Y\-T\-E\-\_\-\-O\-P\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-B\-Y\-T\-E\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-S\-B\-Y\-T\-E\-\_\-\-O\-P\-S~0x02}}\label{smmintrin_8h_ad7f316b3f98b17a45376e66ed7e91264}
+\hypertarget{smmintrin_8h_af8f79102b517cafbb5e9f96b0fccf344}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-S\-W\-O\-R\-D\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-W\-O\-R\-D\-\_\-\-O\-P\-S}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-W\-O\-R\-D\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-W\-O\-R\-D\-\_\-\-O\-P\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-S\-W\-O\-R\-D\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-S\-W\-O\-R\-D\-\_\-\-O\-P\-S~0x03}}\label{smmintrin_8h_af8f79102b517cafbb5e9f96b0fccf344}
+\hypertarget{smmintrin_8h_a01962862dc7e66a82bed30e2317ed807}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-U\-B\-Y\-T\-E\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-B\-Y\-T\-E\-\_\-\-O\-P\-S}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-B\-Y\-T\-E\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-B\-Y\-T\-E\-\_\-\-O\-P\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-B\-Y\-T\-E\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-U\-B\-Y\-T\-E\-\_\-\-O\-P\-S~0x00}}\label{smmintrin_8h_a01962862dc7e66a82bed30e2317ed807}
+\hypertarget{smmintrin_8h_a4339844fba0aba6976d8a0782eb9858d}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-U\-N\-I\-T\-\_\-\-M\-A\-S\-K@{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-N\-I\-T\-\_\-\-M\-A\-S\-K}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-N\-I\-T\-\_\-\-M\-A\-S\-K@{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-N\-I\-T\-\_\-\-M\-A\-S\-K}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-N\-I\-T\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-U\-N\-I\-T\-\_\-\-M\-A\-S\-K~0x40}}\label{smmintrin_8h_a4339844fba0aba6976d8a0782eb9858d}
+\hypertarget{smmintrin_8h_a77a259869ee46dd4f24bb2658843a8aa}{\index{smmintrin.\-h@{smmintrin.\-h}!\-\_\-\-S\-I\-D\-D\-\_\-\-U\-W\-O\-R\-D\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-W\-O\-R\-D\-\_\-\-O\-P\-S}}
+\index{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-W\-O\-R\-D\-\_\-\-O\-P\-S@{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-W\-O\-R\-D\-\_\-\-O\-P\-S}!smmintrin.h@{smmintrin.\-h}}
+\subsubsection[{\-\_\-\-S\-I\-D\-D\-\_\-\-U\-W\-O\-R\-D\-\_\-\-O\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-S\-I\-D\-D\-\_\-\-U\-W\-O\-R\-D\-\_\-\-O\-P\-S~0x01}}\label{smmintrin_8h_a77a259869ee46dd4f24bb2658843a8aa}

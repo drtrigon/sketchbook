@@ -1,0 +1,87 @@
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino}{\section{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N/\-Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.ino File Reference}
+\label{Yun__Dragino__Server__LoRa__WAN_8ino}\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N/\-Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N/\-Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+}
+{\ttfamily \#include $<$Console.\-h$>$}\\*
+{\ttfamily \#include $<$R\-H\-\_\-\-R\-F95.\-h$>$}\\*
+{\ttfamily \#include $<$Bridge.\-h$>$}\\*
+{\ttfamily \#include $<$Yun\-Server.\-h$>$}\\*
+{\ttfamily \#include $<$Yun\-Client.\-h$>$}\\*
+{\ttfamily \#include $<$a\-R\-E\-S\-T\-\_\-bridge.\-h$>$}\\*
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include $<$Memory\-Free.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_a734bbab06e1a9fd2e5522db0221ff6e3}{B\-A\-U\-D\-R\-A\-T\-E}~115200
+\item 
+\#define \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_ab5e96fdebe625793e8ec86ab6b5d9043}{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}~A2
+\item 
+\#define \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_a6556f9ceceffdd10267822cefcb49ea5}{frequency}~868.\-0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+R\-H\-\_\-\-R\-F95 \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_ac741fa4056d5cbbcc0ab38fa7d8c6ce3}{rf95}
+\item 
+a\-R\-E\-S\-T \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_a26fae33ed4ee26417d9384858ac417f7}{rest} = a\-R\-E\-S\-T()
+\item 
+Yun\-Server \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_a4e0c9ea4f8c666a7b51971ca06aae4e0}{server}
+\item 
+float \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino_a362547cac5ea277b474b599314d09815}{f\-R\-S\-S\-I}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_a734bbab06e1a9fd2e5522db0221ff6e3}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!B\-A\-U\-D\-R\-A\-T\-E@{B\-A\-U\-D\-R\-A\-T\-E}}
+\index{B\-A\-U\-D\-R\-A\-T\-E@{B\-A\-U\-D\-R\-A\-T\-E}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{B\-A\-U\-D\-R\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-A\-U\-D\-R\-A\-T\-E~115200}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_a734bbab06e1a9fd2e5522db0221ff6e3}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_a6556f9ceceffdd10267822cefcb49ea5}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!frequency@{frequency}}
+\index{frequency@{frequency}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{frequency}]{\setlength{\rightskip}{0pt plus 5cm}\#define frequency~868.\-0}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_a6556f9ceceffdd10267822cefcb49ea5}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_ab5e96fdebe625793e8ec86ab6b5d9043}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!H\-E\-A\-R\-T\-\_\-\-L\-E\-D@{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}}
+\index{H\-E\-A\-R\-T\-\_\-\-L\-E\-D@{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{H\-E\-A\-R\-T\-\_\-\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-E\-A\-R\-T\-\_\-\-L\-E\-D~A2}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_ab5e96fdebe625793e8ec86ab6b5d9043}
+
+
+\subsection{Function Documentation}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!loop@{loop}}
+\index{loop@{loop}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!setup@{setup}}
+\index{setup@{setup}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_a362547cac5ea277b474b599314d09815}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!f\-R\-S\-S\-I@{f\-R\-S\-S\-I}}
+\index{f\-R\-S\-S\-I@{f\-R\-S\-S\-I}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{f\-R\-S\-S\-I}]{\setlength{\rightskip}{0pt plus 5cm}float f\-R\-S\-S\-I}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_a362547cac5ea277b474b599314d09815}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_a26fae33ed4ee26417d9384858ac417f7}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!rest@{rest}}
+\index{rest@{rest}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{rest}]{\setlength{\rightskip}{0pt plus 5cm}a\-R\-E\-S\-T rest = a\-R\-E\-S\-T()}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_a26fae33ed4ee26417d9384858ac417f7}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_ac741fa4056d5cbbcc0ab38fa7d8c6ce3}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!rf95@{rf95}}
+\index{rf95@{rf95}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{rf95}]{\setlength{\rightskip}{0pt plus 5cm}R\-H\-\_\-\-R\-F95 rf95}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_ac741fa4056d5cbbcc0ab38fa7d8c6ce3}
+\hypertarget{Yun__Dragino__Server__LoRa__WAN_8ino_a4e0c9ea4f8c666a7b51971ca06aae4e0}{\index{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}!server@{server}}
+\index{server@{server}!Yun_Dragino_Server_LoRa_WAN.ino@{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}Yun\-Server server}}\label{Yun__Dragino__Server__LoRa__WAN_8ino_a4e0c9ea4f8c666a7b51971ca06aae4e0}

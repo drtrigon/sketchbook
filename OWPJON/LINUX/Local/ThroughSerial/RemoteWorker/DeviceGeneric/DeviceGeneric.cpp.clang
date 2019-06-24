@@ -1,0 +1,64 @@
+541 warnings and 1 error generated.
+Error while processing /home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp.
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:65:10: warning: inclusion of deprecated C++ header 'stdio.h'; consider using 'cstdio' instead [modernize-deprecated-headers]
+#include <stdio.h>
+         ^~~~~~~~~
+         <cstdio>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:67:10: warning: inclusion of deprecated C++ header 'inttypes.h'; consider using 'cinttypes' instead [modernize-deprecated-headers]
+#include <inttypes.h>
+         ^~~~~~~~~~~~
+         <cinttypes>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:68:10: warning: inclusion of deprecated C++ header 'stdlib.h'; consider using 'cstdlib' instead [modernize-deprecated-headers]
+#include <stdlib.h>
+         ^~~~~~~~~~
+         <cstdlib>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:69:10: warning: inclusion of deprecated C++ header 'string.h'; consider using 'cstring' instead [modernize-deprecated-headers]
+#include <string.h>
+         ^~~~~~~~~~
+         <cstring>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:88:10: error: 'PJON.h' file not found [clang-diagnostic-error]
+#include <PJON.h>
+         ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:99:90: warning: parameter 'packet_info' is unused [misc-unused-parameters]
+static void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+                                                               ~~~~~~~~~~~~~~~~~~~~~~~~~~^~~~~~~~~~~~
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:102:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("\n");  // print newline - causes also a flush
+  ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:132:24: warning: 'atoi' used to convert a string to an integer value, but function will not report conversion errors; consider using 'strtol' instead [cert-err34-c]
+  uint32_t baud_rate = atoi(argv[2]);
+                       ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:132:29: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+  uint32_t baud_rate = atoi(argv[2]);
+                            ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:136:5: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+    printf("Serial open fail!\n");
+    ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:151:15: warning: statement should be inside braces [google-readability-braces-around-statements]
+  if(argc < 5)  // get data to send from stdin or command line (stdin allows \0)
+              ^
+               {
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:153:15: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay]
+    l = fread(buffer, sizeof(*buffer), sizeof(buffer)/sizeof(*buffer), stdin);
+              ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:153:31: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay]
+    l = fread(buffer, sizeof(*buffer), sizeof(buffer)/sizeof(*buffer), stdin);
+                              ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:153:63: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay]
+    l = fread(buffer, sizeof(*buffer), sizeof(buffer)/sizeof(*buffer), stdin);
+                                                              ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:155:12: warning: do not implicitly decay an array into a pointer; consider using gsl::array_view or an explicit cast instead [cppcoreguidelines-pro-bounds-array-to-pointer-decay]
+    strcpy(buffer, argv[4]);
+           ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:155:20: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+    strcpy(buffer, argv[4]);
+                   ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:156:16: warning: do not use pointer arithmetic [cppcoreguidelines-pro-bounds-pointer-arithmetic]
+    l = strlen(argv[4]);
+               ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:172:1: warning: missing username/bug in TODO [google-readability-todo]
+// TODO: use error handler callback
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// TODO(travis): use error handler callback
+Suppressed 523 warnings (523 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

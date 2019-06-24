@@ -1,0 +1,790 @@
+\hypertarget{wiringPi_8h}{\section{wiring\-Pi/wiring\-Pi/wiring\-Pi.h File Reference}
+\label{wiringPi_8h}\index{wiring\-Pi/wiring\-Pi/wiring\-Pi.\-h@{wiring\-Pi/wiring\-Pi/wiring\-Pi.\-h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{wiringPi_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{wiringPi_8h_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(!\hyperlink{network_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{wiringPi_8h_aa3c88716e6af23f4c4d20009e1f3b68c}{U\-N\-U}~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((unused))
+\item 
+\#define \hyperlink{wiringPi_8h_a684b7c1824b446fc388695a839b1e2cb}{P\-I\-\_\-\-G\-P\-I\-O\-\_\-\-M\-A\-S\-K}~(0x\-F\-F\-F\-F\-F\-F\-C0)
+\item 
+\#define \hyperlink{wiringPi_8h_a7f388096406b9fed5f17926c6793fcf6}{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-N\-S}~0
+\item 
+\#define \hyperlink{wiringPi_8h_afeefd0543f428fc754ddd26ba2257c72}{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O}~1
+\item 
+\#define \hyperlink{wiringPi_8h_a3e8ab8a17ead0820f7fc588fa20a0c94}{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O\-\_\-\-S\-Y\-S}~2
+\item 
+\#define \hyperlink{wiringPi_8h_a3761717529cdb2ba494e0c2da72ea257}{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-H\-Y\-S}~3
+\item 
+\#define \hyperlink{wiringPi_8h_a8c912cd22c53b4274898965ecd7aaee5}{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-F\-A\-C\-E}~4
+\item 
+\#define \hyperlink{wiringPi_8h_ab0caeb2068146dac3faaf56f4dd47c0a}{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-S\-E\-D}~-\/1
+\item 
+\#define \hyperlink{wiringPi_8h_a1bb283bd7893b9855e2f23013891fc82}{I\-N\-P\-U\-T}~0
+\item 
+\#define \hyperlink{wiringPi_8h_a61a3c9a18380aafb6e430e79bf596557}{O\-U\-T\-P\-U\-T}~1
+\item 
+\#define \hyperlink{wiringPi_8h_af061d92c703ae47631ce7e2f26e37c61}{P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}~2
+\item 
+\#define \hyperlink{wiringPi_8h_ab50cd47e1eb2a230b9a6738143c3ff10}{G\-P\-I\-O\-\_\-\-C\-L\-O\-C\-K}~3
+\item 
+\#define \hyperlink{wiringPi_8h_a4bab1214abf39742ad7c8c08d22b5e3d}{S\-O\-F\-T\-\_\-\-P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}~4
+\item 
+\#define \hyperlink{wiringPi_8h_a5600650ec49660702f9aa1980bbf7624}{S\-O\-F\-T\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}~5
+\item 
+\#define \hyperlink{wiringPi_8h_a65680c2d37066a12d6e1d133799b2f8a}{P\-W\-M\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}~6
+\item 
+\#define \hyperlink{wiringPi_8h_ab811d8c6ff3a505312d3276590444289}{L\-O\-W}~0
+\item 
+\#define \hyperlink{wiringPi_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{H\-I\-G\-H}~1
+\item 
+\#define \hyperlink{wiringPi_8h_a7325e80d331159877dcd8baf2020b677}{P\-U\-D\-\_\-\-O\-F\-F}~0
+\item 
+\#define \hyperlink{wiringPi_8h_a9a2298052cddfeeab28a43de90de9bef}{P\-U\-D\-\_\-\-D\-O\-W\-N}~1
+\item 
+\#define \hyperlink{wiringPi_8h_abca66a4d6b79044f4a8e9e98845be8c7}{P\-U\-D\-\_\-\-U\-P}~2
+\item 
+\#define \hyperlink{wiringPi_8h_ae20f7fb70fe32b10553b34c9f877727a}{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-M\-S}~0
+\item 
+\#define \hyperlink{wiringPi_8h_aeb13e3d4ed1e53b9941ab45038895e03}{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-B\-A\-L}~1
+\item 
+\#define \hyperlink{wiringPi_8h_ab68495dd0cb50b5b2ec39fefe6bb829b}{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-S\-E\-T\-U\-P}~0
+\item 
+\#define \hyperlink{wiringPi_8h_a7f85b18f82d46ba9c76de25a08f71418}{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-F\-A\-L\-L\-I\-N\-G}~1
+\item 
+\#define \hyperlink{wiringPi_8h_a88ed16bcab6c426fb59852034f3e7d26}{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-R\-I\-S\-I\-N\-G}~2
+\item 
+\#define \hyperlink{wiringPi_8h_a2ad6f29c19e3aa69f119b5ecc662bd65}{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-B\-O\-T\-H}~3
+\item 
+\#define \hyperlink{wiringPi_8h_a870dfe15691dcf1b87d04c8103993acf}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A}~0
+\item 
+\#define \hyperlink{wiringPi_8h_adb6a8373e2fe270631569a1493bd2569}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B}~1
+\item 
+\#define \hyperlink{wiringPi_8h_aac5d1361cac1a094d98de25e95cf75d9}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A\-P}~2
+\item 
+\#define \hyperlink{wiringPi_8h_a525cc97497c9ff528b049c28d0163b07}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B\-P}~3
+\item 
+\#define \hyperlink{wiringPi_8h_a86b21e887c2369584bc523a9ba314556}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-2}~4
+\item 
+\#define \hyperlink{wiringPi_8h_af0edaa5e25ba3896491ad3d92910b771}{P\-I\-\_\-\-A\-L\-P\-H\-A}~5
+\item 
+\#define \hyperlink{wiringPi_8h_a70433d92ade5750fd0e57340685f857f}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M}~6
+\item 
+\#define \hyperlink{wiringPi_8h_a471fb9a1c7ca2643951bdcbd613fe16a}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-07}~7
+\item 
+\#define \hyperlink{wiringPi_8h_acabaee027fb6a8672a0569d0ffe741d3}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B}~8
+\item 
+\#define \hyperlink{wiringPi_8h_ad87614254f6972fd6ca7d87a2b3bb4dc}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O}~9
+\item 
+\#define \hyperlink{wiringPi_8h_aa4245185fc88790b421b1e67d5d80b58}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3}~10
+\item 
+\#define \hyperlink{wiringPi_8h_a4ac2d6fa34f2453341b4e40558a21514}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O\-\_\-\-W}~12
+\item 
+\#define \hyperlink{wiringPi_8h_a1ca99bc0cb7e40dff3879bf20d162dc4}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B\-P}~13
+\item 
+\#define \hyperlink{wiringPi_8h_a9db4f59863ca49c2785a9d9d3ab4260c}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-A\-P}~14
+\item 
+\#define \hyperlink{wiringPi_8h_a09a9b16436d5d8edc1a196995364e942}{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3\-P}~16
+\item 
+\#define \hyperlink{wiringPi_8h_a349e358bc4701c0bad230fcf7b3bef9e}{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1}~0
+\item 
+\#define \hyperlink{wiringPi_8h_acff8a8e6ecbce9310bb39c2500de4314}{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-1}~1
+\item 
+\#define \hyperlink{wiringPi_8h_a1d2cc7c7ba2d0a834cac851096349172}{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-2}~2
+\item 
+\#define \hyperlink{wiringPi_8h_ad7b3e9533c4631d63c15940c652fc0db}{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-2}~3
+\item 
+\#define \hyperlink{wiringPi_8h_a70f63850902498b473c870facd5c1a19}{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-S\-O\-N\-Y}~0
+\item 
+\#define \hyperlink{wiringPi_8h_a2d97c7acd465d9d6356e8190efd43718}{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-G\-O\-M\-A\-N}~1
+\item 
+\#define \hyperlink{wiringPi_8h_ab5ea78cf46a2a59da5e494c6122fb31c}{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-M\-B\-E\-S\-T}~2
+\item 
+\#define \hyperlink{wiringPi_8h_aafb1b5a7606e6507dffbe5eae4bafddf}{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N}~3
+\item 
+\#define \hyperlink{wiringPi_8h_ac84b74ed78f080f7a8817ef8e725ec7d}{P\-I\-\_\-\-T\-H\-R\-E\-A\-D}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X})~void $\ast$\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X} (\hyperlink{wiringPi_8h_aa3c88716e6af23f4c4d20009e1f3b68c}{U\-N\-U} void $\ast$dummy)
+\item 
+\#define \hyperlink{wiringPi_8h_ad02bce191d370a5f235820bf9f4597cb}{W\-P\-I\-\_\-\-F\-A\-T\-A\-L}~(1==1)
+\item 
+\#define \hyperlink{wiringPi_8h_a00b2a9bf7353d4495c1c199387e9bc37}{W\-P\-I\-\_\-\-A\-L\-M\-O\-S\-T}~(1==2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{wiringPi_8h_a0f60588b8102833be774ac9f2d574999}{wiring\-Pi\-Failure} (int fatal, const char $\ast$message,...)
+\item 
+struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct} $\ast$ \hyperlink{wiringPi_8h_af45033e857af13da7a877c997fcbe03a}{wiring\-Pi\-Find\-Node} (int pin)
+\item 
+struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct} $\ast$ \hyperlink{wiringPi_8h_a2034c2eb3350cf4813e0e405f1d273d7}{wiring\-Pi\-New\-Node} (int pin\-Base, int num\-Pins)
+\item 
+void \hyperlink{wiringPi_8h_a125a355f46cefbb6671e5c154735cf00}{wiring\-Pi\-Version} (int $\ast$major, int $\ast$minor)
+\item 
+int \hyperlink{wiringPi_8h_a25277e2613bec7c9f9ca2f0e2643dbe2}{wiring\-Pi\-Setup} (void)
+\item 
+int \hyperlink{wiringPi_8h_a2e77cce0e489657e2540a46917fd032c}{wiring\-Pi\-Setup\-Sys} (void)
+\item 
+int \hyperlink{wiringPi_8h_ac928832a6ac6021a75db885b9889c46a}{wiring\-Pi\-Setup\-Gpio} (void)
+\item 
+int \hyperlink{wiringPi_8h_abb5d1ac417f0d12e808bf3ec245caeb8}{wiring\-Pi\-Setup\-Phys} (void)
+\item 
+void \hyperlink{wiringPi_8h_a6c14f26b60c91e30790493f96ff2a3a2}{pin\-Mode\-Alt} (int pin, int \hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode})
+\item 
+void \hyperlink{wiringPi_8h_ac7bdb53335528ad073ca13eb2b1bdc00}{pin\-Mode} (int pin, int \hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode})
+\item 
+void \hyperlink{wiringPi_8h_a031a2aede96979393431266819a99db5}{pull\-Up\-Dn\-Control} (int pin, int pud)
+\item 
+int \hyperlink{wiringPi_8h_ae1e3d979645a535a8ce49f935392d8bc}{digital\-Read} (int pin)
+\item 
+void \hyperlink{wiringPi_8h_ae9647a9a056bb33fd1206da70c83bde3}{digital\-Write} (int pin, int value)
+\item 
+unsigned int \hyperlink{wiringPi_8h_aa8fdf76d08b8ec7caf6aed1681a124cd}{digital\-Read8} (int pin)
+\item 
+void \hyperlink{wiringPi_8h_acc454632bb34fd86ac74a875b3ed3702}{digital\-Write8} (int pin, int value)
+\item 
+void \hyperlink{wiringPi_8h_a4deb71d5d98976ffa32d167a84b58d9f}{pwm\-Write} (int pin, int value)
+\item 
+int \hyperlink{wiringPi_8h_a6a005b7bdfeeca9d1d61b38929f34c58}{analog\-Read} (int pin)
+\item 
+void \hyperlink{wiringPi_8h_a86bb4d3e9f1bdb233cf01d835adcede0}{analog\-Write} (int pin, int value)
+\item 
+int \hyperlink{wiringPi_8h_ad175ceda00a963dbe228805930942f9a}{wiring\-Pi\-Setup\-Pi\-Face} (void)
+\item 
+int \hyperlink{wiringPi_8h_aee81a3eefe4eb2ce500b7f4c6cdb341b}{wiring\-Pi\-Setup\-Pi\-Face\-For\-Gpio\-Prog} (void)
+\item 
+int \hyperlink{wiringPi_8h_ab433376fc743f44d315ae87c4dfc3812}{pi\-Gpio\-Layout} (void)
+\item 
+int \hyperlink{wiringPi_8h_a6ed951d849e6f424c96c06aab0d10076}{pi\-Board\-Rev} (void)
+\item 
+void \hyperlink{wiringPi_8h_a31bb652fdb359b7bcd69947587b7f887}{pi\-Board\-Id} (int $\ast$model, int $\ast$rev, int $\ast$mem, int $\ast$maker, int $\ast$over\-Volted)
+\item 
+int \hyperlink{wiringPi_8h_a4d196ecbe24eb4ac7cf44daeefcef9d9}{wpi\-Pin\-To\-Gpio} (int wpi\-Pin)
+\item 
+int \hyperlink{wiringPi_8h_ada69b4b78341528a4d9efeac5f97436e}{phys\-Pin\-To\-Gpio} (int phys\-Pin)
+\item 
+void \hyperlink{wiringPi_8h_ae5484ece7f5b346c0108c4df0abeafc4}{set\-Pad\-Drive} (int group, int value)
+\item 
+int \hyperlink{wiringPi_8h_a88c90e293d609946cac40381ada1897f}{get\-Alt} (int pin)
+\item 
+void \hyperlink{wiringPi_8h_a2706c5a6198248c0fec5cef4d59feb87}{pwm\-Tone\-Write} (int pin, int \hyperlink{Due__AS7265X__Spectrometer_8ino_abbc4085ba884ad35981bb755f611e65c}{freq})
+\item 
+void \hyperlink{wiringPi_8h_ad5eb24ef672510c91ea29d5db3949bc9}{pwm\-Set\-Mode} (int \hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode})
+\item 
+void \hyperlink{wiringPi_8h_af8975182b539c84806fe30d011542cc0}{pwm\-Set\-Range} (unsigned int range)
+\item 
+void \hyperlink{wiringPi_8h_a4e0d8cbb2733a0700a6f1698ab838b56}{pwm\-Set\-Clock} (int divisor)
+\item 
+void \hyperlink{wiringPi_8h_a03618d178ef48c641da9aed859ea3b02}{gpio\-Clock\-Set} (int pin, int \hyperlink{Due__AS7265X__Spectrometer_8ino_abbc4085ba884ad35981bb755f611e65c}{freq})
+\item 
+unsigned int \hyperlink{wiringPi_8h_a5c1bf3b492dae2a009fb7940606a178e}{digital\-Read\-Byte} (void)
+\item 
+unsigned int \hyperlink{wiringPi_8h_a0eb46d8c56bffe169ae669abab01ce5b}{digital\-Read\-Byte2} (void)
+\item 
+void \hyperlink{wiringPi_8h_ad9df49e69cdfd96c7299c039a22d0953}{digital\-Write\-Byte} (int value)
+\item 
+void \hyperlink{wiringPi_8h_a41d4065023f93636cf2b76ab40bb2948}{digital\-Write\-Byte2} (int value)
+\item 
+int \hyperlink{wiringPi_8h_a886ac1c4f87c9fbe6608eb016a94c097}{wait\-For\-Interrupt} (int pin, int m\-S)
+\item 
+int \hyperlink{wiringPi_8h_a76be5f0d33da9981d2b619bede61a351}{wiring\-Pi\-I\-S\-R} (int pin, int \hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode}, void($\ast$function)(void))
+\item 
+int \hyperlink{wiringPi_8h_af71e1183447a24d236fddbec201188cf}{pi\-Thread\-Create} (void $\ast$($\ast$fn)(void $\ast$))
+\item 
+void \hyperlink{wiringPi_8h_a93b62338e5e3bf52eb893de8a3c02af1}{pi\-Lock} (int key)
+\item 
+void \hyperlink{wiringPi_8h_a388a56daee0d84c2a5143b4545bfb06d}{pi\-Unlock} (int key)
+\item 
+int \hyperlink{wiringPi_8h_a4e95094b413864875918b220bdda678d}{pi\-Hi\-Pri} (const int pri)
+\item 
+void \hyperlink{wiringPi_8h_a2320922d57a61b6c38fc8275ea52457a}{delay} (unsigned int how\-Long)
+\item 
+void \hyperlink{wiringPi_8h_ade736f9c658bbc39a7eb81ae2796b2f4}{delay\-Microseconds} (unsigned int how\-Long)
+\item 
+unsigned int \hyperlink{wiringPi_8h_a941a22cb7e0f6429fe40f91e83ead3d9}{millis} (void)
+\item 
+unsigned int \hyperlink{wiringPi_8h_a4fbda8f4c61d3309b5a8436a916a314d}{micros} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const char $\ast$ \hyperlink{wiringPi_8h_a54ae516e20945fa2dd8cfcdc525e2e22}{pi\-Model\-Names} \mbox{[}20\mbox{]}
+\item 
+const char $\ast$ \hyperlink{wiringPi_8h_a23023c5ada5e69659cc6c3b3991b8f9d}{pi\-Revision\-Names} \mbox{[}16\mbox{]}
+\item 
+const char $\ast$ \hyperlink{wiringPi_8h_ae93b02d5724399a16f3ef4df4f733a64}{pi\-Maker\-Names} \mbox{[}16\mbox{]}
+\item 
+const int \hyperlink{wiringPi_8h_a4476d92fa41ed2b8c2ed106b72f290bc}{pi\-Memory\-Size} \mbox{[}8\mbox{]}
+\item 
+struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct} $\ast$ \hyperlink{wiringPi_8h_a79f9d75d826469a73e2b8651fce1751f}{wiring\-Pi\-Nodes}
+\item 
+volatile unsigned int $\ast$ \hyperlink{wiringPi_8h_a55668261a29a9e96506bc8f30562bf3c}{\-\_\-wiring\-Pi\-Gpio}
+\item 
+volatile unsigned int $\ast$ \hyperlink{wiringPi_8h_adcdf25f0f97f067c58e548f6971309c8}{\-\_\-wiring\-Pi\-Pwm}
+\item 
+volatile unsigned int $\ast$ \hyperlink{wiringPi_8h_ac48ac545fcafb4a5fcf6c79e0f8a8f6a}{\-\_\-wiring\-Pi\-Clk}
+\item 
+volatile unsigned int $\ast$ \hyperlink{wiringPi_8h_adaca169f26d316e6aa1090609d77b296}{\-\_\-wiring\-Pi\-Pads}
+\item 
+volatile unsigned int $\ast$ \hyperlink{wiringPi_8h_ac8a008236de283f5842234ad4b00af96}{\-\_\-wiring\-Pi\-Timer}
+\item 
+volatile unsigned int $\ast$ \hyperlink{wiringPi_8h_ab22b645f8685a5ab1f968d8379141674}{\-\_\-wiring\-Pi\-Timer\-Irq\-Raw}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{wiringPi_8h_aa93f0eb578d23995850d61f7d61c55c1}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(!{\bf T\-R\-U\-E})}}\label{wiringPi_8h_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{wiringPi_8h_ab50cd47e1eb2a230b9a6738143c3ff10}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!G\-P\-I\-O\-\_\-\-C\-L\-O\-C\-K@{G\-P\-I\-O\-\_\-\-C\-L\-O\-C\-K}}
+\index{G\-P\-I\-O\-\_\-\-C\-L\-O\-C\-K@{G\-P\-I\-O\-\_\-\-C\-L\-O\-C\-K}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{G\-P\-I\-O\-\_\-\-C\-L\-O\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-P\-I\-O\-\_\-\-C\-L\-O\-C\-K~3}}\label{wiringPi_8h_ab50cd47e1eb2a230b9a6738143c3ff10}
+\hypertarget{wiringPi_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!H\-I\-G\-H@{H\-I\-G\-H}}
+\index{H\-I\-G\-H@{H\-I\-G\-H}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{H\-I\-G\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-I\-G\-H~1}}\label{wiringPi_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}
+\hypertarget{wiringPi_8h_a1bb283bd7893b9855e2f23013891fc82}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!I\-N\-P\-U\-T@{I\-N\-P\-U\-T}}
+\index{I\-N\-P\-U\-T@{I\-N\-P\-U\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{I\-N\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-P\-U\-T~0}}\label{wiringPi_8h_a1bb283bd7893b9855e2f23013891fc82}
+\hypertarget{wiringPi_8h_a2ad6f29c19e3aa69f119b5ecc662bd65}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-B\-O\-T\-H@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-B\-O\-T\-H}}
+\index{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-B\-O\-T\-H@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-B\-O\-T\-H}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-B\-O\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-B\-O\-T\-H~3}}\label{wiringPi_8h_a2ad6f29c19e3aa69f119b5ecc662bd65}
+\hypertarget{wiringPi_8h_a7f85b18f82d46ba9c76de25a08f71418}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-F\-A\-L\-L\-I\-N\-G@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-F\-A\-L\-L\-I\-N\-G}}
+\index{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-F\-A\-L\-L\-I\-N\-G@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-F\-A\-L\-L\-I\-N\-G}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-F\-A\-L\-L\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-F\-A\-L\-L\-I\-N\-G~1}}\label{wiringPi_8h_a7f85b18f82d46ba9c76de25a08f71418}
+\hypertarget{wiringPi_8h_a88ed16bcab6c426fb59852034f3e7d26}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-R\-I\-S\-I\-N\-G@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-R\-I\-S\-I\-N\-G}}
+\index{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-R\-I\-S\-I\-N\-G@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-R\-I\-S\-I\-N\-G}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-R\-I\-S\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-R\-I\-S\-I\-N\-G~2}}\label{wiringPi_8h_a88ed16bcab6c426fb59852034f3e7d26}
+\hypertarget{wiringPi_8h_ab68495dd0cb50b5b2ec39fefe6bb829b}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-S\-E\-T\-U\-P@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-S\-E\-T\-U\-P}}
+\index{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-S\-E\-T\-U\-P@{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-S\-E\-T\-U\-P}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-S\-E\-T\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-T\-\_\-\-E\-D\-G\-E\-\_\-\-S\-E\-T\-U\-P~0}}\label{wiringPi_8h_ab68495dd0cb50b5b2ec39fefe6bb829b}
+\hypertarget{wiringPi_8h_ab811d8c6ff3a505312d3276590444289}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!L\-O\-W@{L\-O\-W}}
+\index{L\-O\-W@{L\-O\-W}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-W~0}}\label{wiringPi_8h_ab811d8c6ff3a505312d3276590444289}
+\hypertarget{wiringPi_8h_a61a3c9a18380aafb6e430e79bf596557}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!O\-U\-T\-P\-U\-T@{O\-U\-T\-P\-U\-T}}
+\index{O\-U\-T\-P\-U\-T@{O\-U\-T\-P\-U\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{O\-U\-T\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-U\-T\-P\-U\-T~1}}\label{wiringPi_8h_a61a3c9a18380aafb6e430e79bf596557}
+\hypertarget{wiringPi_8h_af0edaa5e25ba3896491ad3d92910b771}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-A\-L\-P\-H\-A@{P\-I\-\_\-\-A\-L\-P\-H\-A}}
+\index{P\-I\-\_\-\-A\-L\-P\-H\-A@{P\-I\-\_\-\-A\-L\-P\-H\-A}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-A\-L\-P\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-A\-L\-P\-H\-A~5}}\label{wiringPi_8h_af0edaa5e25ba3896491ad3d92910b771}
+\hypertarget{wiringPi_8h_a684b7c1824b446fc388695a839b1e2cb}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-G\-P\-I\-O\-\_\-\-M\-A\-S\-K@{P\-I\-\_\-\-G\-P\-I\-O\-\_\-\-M\-A\-S\-K}}
+\index{P\-I\-\_\-\-G\-P\-I\-O\-\_\-\-M\-A\-S\-K@{P\-I\-\_\-\-G\-P\-I\-O\-\_\-\-M\-A\-S\-K}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-G\-P\-I\-O\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-G\-P\-I\-O\-\_\-\-M\-A\-S\-K~(0x\-F\-F\-F\-F\-F\-F\-C0)}}\label{wiringPi_8h_a684b7c1824b446fc388695a839b1e2cb}
+\hypertarget{wiringPi_8h_a2d97c7acd465d9d6356e8190efd43718}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-G\-O\-M\-A\-N@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-G\-O\-M\-A\-N}}
+\index{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-G\-O\-M\-A\-N@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-G\-O\-M\-A\-N}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-G\-O\-M\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-G\-O\-M\-A\-N~1}}\label{wiringPi_8h_a2d97c7acd465d9d6356e8190efd43718}
+\hypertarget{wiringPi_8h_ab5ea78cf46a2a59da5e494c6122fb31c}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-M\-B\-E\-S\-T@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-M\-B\-E\-S\-T}}
+\index{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-M\-B\-E\-S\-T@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-M\-B\-E\-S\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-M\-B\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-E\-M\-B\-E\-S\-T~2}}\label{wiringPi_8h_ab5ea78cf46a2a59da5e494c6122fb31c}
+\hypertarget{wiringPi_8h_a70f63850902498b473c870facd5c1a19}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-S\-O\-N\-Y@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-S\-O\-N\-Y}}
+\index{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-S\-O\-N\-Y@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-S\-O\-N\-Y}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-S\-O\-N\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-S\-O\-N\-Y~0}}\label{wiringPi_8h_a70f63850902498b473c870facd5c1a19}
+\hypertarget{wiringPi_8h_aafb1b5a7606e6507dffbe5eae4bafddf}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N}}
+\index{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N@{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-A\-K\-E\-R\-\_\-\-U\-N\-K\-N\-O\-W\-N~3}}\label{wiringPi_8h_aafb1b5a7606e6507dffbe5eae4bafddf}
+\hypertarget{wiringPi_8h_a471fb9a1c7ca2643951bdcbd613fe16a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-07@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-07}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-07@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-07}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-07}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-07~7}}\label{wiringPi_8h_a471fb9a1c7ca2643951bdcbd613fe16a}
+\hypertarget{wiringPi_8h_a86b21e887c2369584bc523a9ba314556}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-2@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-2}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-2@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-2}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-2~4}}\label{wiringPi_8h_a86b21e887c2369584bc523a9ba314556}
+\hypertarget{wiringPi_8h_a9db4f59863ca49c2785a9d9d3ab4260c}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-A\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-A\-P}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-A\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-A\-P}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-A\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-A\-P~14}}\label{wiringPi_8h_a9db4f59863ca49c2785a9d9d3ab4260c}
+\hypertarget{wiringPi_8h_acabaee027fb6a8672a0569d0ffe741d3}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B~8}}\label{wiringPi_8h_acabaee027fb6a8672a0569d0ffe741d3}
+\hypertarget{wiringPi_8h_a1ca99bc0cb7e40dff3879bf20d162dc4}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B\-P}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B\-P}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-3\-B\-P~13}}\label{wiringPi_8h_a1ca99bc0cb7e40dff3879bf20d162dc4}
+\hypertarget{wiringPi_8h_a870dfe15691dcf1b87d04c8103993acf}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A~0}}\label{wiringPi_8h_a870dfe15691dcf1b87d04c8103993acf}
+\hypertarget{wiringPi_8h_aac5d1361cac1a094d98de25e95cf75d9}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A\-P}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A\-P}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-A\-P~2}}\label{wiringPi_8h_aac5d1361cac1a094d98de25e95cf75d9}
+\hypertarget{wiringPi_8h_adb6a8373e2fe270631569a1493bd2569}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B~1}}\label{wiringPi_8h_adb6a8373e2fe270631569a1493bd2569}
+\hypertarget{wiringPi_8h_a525cc97497c9ff528b049c28d0163b07}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B\-P}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B\-P}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-B\-P~3}}\label{wiringPi_8h_a525cc97497c9ff528b049c28d0163b07}
+\hypertarget{wiringPi_8h_a70433d92ade5750fd0e57340685f857f}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M~6}}\label{wiringPi_8h_a70433d92ade5750fd0e57340685f857f}
+\hypertarget{wiringPi_8h_aa4245185fc88790b421b1e67d5d80b58}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3~10}}\label{wiringPi_8h_aa4245185fc88790b421b1e67d5d80b58}
+\hypertarget{wiringPi_8h_a09a9b16436d5d8edc1a196995364e942}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3\-P}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3\-P@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3\-P}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-C\-M3\-P~16}}\label{wiringPi_8h_a09a9b16436d5d8edc1a196995364e942}
+\hypertarget{wiringPi_8h_ad87614254f6972fd6ca7d87a2b3bb4dc}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O~9}}\label{wiringPi_8h_ad87614254f6972fd6ca7d87a2b3bb4dc}
+\hypertarget{wiringPi_8h_a4ac2d6fa34f2453341b4e40558a21514}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O\-\_\-\-W@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O\-\_\-\-W}}
+\index{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O\-\_\-\-W@{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O\-\_\-\-W}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O\-\_\-\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-M\-O\-D\-E\-L\-\_\-\-Z\-E\-R\-O\-\_\-\-W~12}}\label{wiringPi_8h_a4ac2d6fa34f2453341b4e40558a21514}
+\hypertarget{wiringPi_8h_ac84b74ed78f080f7a8817ef8e725ec7d}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-T\-H\-R\-E\-A\-D@{P\-I\-\_\-\-T\-H\-R\-E\-A\-D}}
+\index{P\-I\-\_\-\-T\-H\-R\-E\-A\-D@{P\-I\-\_\-\-T\-H\-R\-E\-A\-D}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-T\-H\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-T\-H\-R\-E\-A\-D(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}}
+\end{DoxyParamCaption}
+)~void $\ast${\bf X} ({\bf U\-N\-U} void $\ast$dummy)}}\label{wiringPi_8h_ac84b74ed78f080f7a8817ef8e725ec7d}
+\hypertarget{wiringPi_8h_a349e358bc4701c0bad230fcf7b3bef9e}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1}}
+\index{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1~0}}\label{wiringPi_8h_a349e358bc4701c0bad230fcf7b3bef9e}
+\hypertarget{wiringPi_8h_acff8a8e6ecbce9310bb39c2500de4314}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-1@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-1}}
+\index{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-1@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-1}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-1~1}}\label{wiringPi_8h_acff8a8e6ecbce9310bb39c2500de4314}
+\hypertarget{wiringPi_8h_a1d2cc7c7ba2d0a834cac851096349172}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-2@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-2}}
+\index{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-2@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-2}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-1\-\_\-2~2}}\label{wiringPi_8h_a1d2cc7c7ba2d0a834cac851096349172}
+\hypertarget{wiringPi_8h_ad7b3e9533c4631d63c15940c652fc0db}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-2@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-2}}
+\index{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-2@{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-2}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-2~3}}\label{wiringPi_8h_ad7b3e9533c4631d63c15940c652fc0db}
+\hypertarget{wiringPi_8h_a9a2298052cddfeeab28a43de90de9bef}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-U\-D\-\_\-\-D\-O\-W\-N@{P\-U\-D\-\_\-\-D\-O\-W\-N}}
+\index{P\-U\-D\-\_\-\-D\-O\-W\-N@{P\-U\-D\-\_\-\-D\-O\-W\-N}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-U\-D\-\_\-\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-D\-\_\-\-D\-O\-W\-N~1}}\label{wiringPi_8h_a9a2298052cddfeeab28a43de90de9bef}
+\hypertarget{wiringPi_8h_a7325e80d331159877dcd8baf2020b677}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-U\-D\-\_\-\-O\-F\-F@{P\-U\-D\-\_\-\-O\-F\-F}}
+\index{P\-U\-D\-\_\-\-O\-F\-F@{P\-U\-D\-\_\-\-O\-F\-F}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-U\-D\-\_\-\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-D\-\_\-\-O\-F\-F~0}}\label{wiringPi_8h_a7325e80d331159877dcd8baf2020b677}
+\hypertarget{wiringPi_8h_abca66a4d6b79044f4a8e9e98845be8c7}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-U\-D\-\_\-\-U\-P@{P\-U\-D\-\_\-\-U\-P}}
+\index{P\-U\-D\-\_\-\-U\-P@{P\-U\-D\-\_\-\-U\-P}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-U\-D\-\_\-\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-D\-\_\-\-U\-P~2}}\label{wiringPi_8h_abca66a4d6b79044f4a8e9e98845be8c7}
+\hypertarget{wiringPi_8h_aeb13e3d4ed1e53b9941ab45038895e03}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-B\-A\-L@{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-B\-A\-L}}
+\index{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-B\-A\-L@{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-B\-A\-L}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-B\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-B\-A\-L~1}}\label{wiringPi_8h_aeb13e3d4ed1e53b9941ab45038895e03}
+\hypertarget{wiringPi_8h_ae20f7fb70fe32b10553b34c9f877727a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-M\-S@{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-M\-S}}
+\index{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-M\-S@{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-M\-S}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-M\-\_\-\-M\-O\-D\-E\-\_\-\-M\-S~0}}\label{wiringPi_8h_ae20f7fb70fe32b10553b34c9f877727a}
+\hypertarget{wiringPi_8h_af061d92c703ae47631ce7e2f26e37c61}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T@{P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}}
+\index{P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T@{P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T~2}}\label{wiringPi_8h_af061d92c703ae47631ce7e2f26e37c61}
+\hypertarget{wiringPi_8h_a65680c2d37066a12d6e1d133799b2f8a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!P\-W\-M\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T@{P\-W\-M\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}}
+\index{P\-W\-M\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T@{P\-W\-M\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{P\-W\-M\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-M\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T~6}}\label{wiringPi_8h_a65680c2d37066a12d6e1d133799b2f8a}
+\hypertarget{wiringPi_8h_a4bab1214abf39742ad7c8c08d22b5e3d}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!S\-O\-F\-T\-\_\-\-P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T@{S\-O\-F\-T\-\_\-\-P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}}
+\index{S\-O\-F\-T\-\_\-\-P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T@{S\-O\-F\-T\-\_\-\-P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{S\-O\-F\-T\-\_\-\-P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-O\-F\-T\-\_\-\-P\-W\-M\-\_\-\-O\-U\-T\-P\-U\-T~4}}\label{wiringPi_8h_a4bab1214abf39742ad7c8c08d22b5e3d}
+\hypertarget{wiringPi_8h_a5600650ec49660702f9aa1980bbf7624}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!S\-O\-F\-T\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T@{S\-O\-F\-T\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}}
+\index{S\-O\-F\-T\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T@{S\-O\-F\-T\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{S\-O\-F\-T\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-O\-F\-T\-\_\-\-T\-O\-N\-E\-\_\-\-O\-U\-T\-P\-U\-T~5}}\label{wiringPi_8h_a5600650ec49660702f9aa1980bbf7624}
+\hypertarget{wiringPi_8h_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{wiringPi_8h_aa8cecfc5c5c054d2875c03e77b7be15d}
+\hypertarget{wiringPi_8h_aa3c88716e6af23f4c4d20009e1f3b68c}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!U\-N\-U@{U\-N\-U}}
+\index{U\-N\-U@{U\-N\-U}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{U\-N\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-N\-U~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((unused))}}\label{wiringPi_8h_aa3c88716e6af23f4c4d20009e1f3b68c}
+\hypertarget{wiringPi_8h_a00b2a9bf7353d4495c1c199387e9bc37}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-A\-L\-M\-O\-S\-T@{W\-P\-I\-\_\-\-A\-L\-M\-O\-S\-T}}
+\index{W\-P\-I\-\_\-\-A\-L\-M\-O\-S\-T@{W\-P\-I\-\_\-\-A\-L\-M\-O\-S\-T}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-A\-L\-M\-O\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-A\-L\-M\-O\-S\-T~(1==2)}}\label{wiringPi_8h_a00b2a9bf7353d4495c1c199387e9bc37}
+\hypertarget{wiringPi_8h_ad02bce191d370a5f235820bf9f4597cb}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-F\-A\-T\-A\-L@{W\-P\-I\-\_\-\-F\-A\-T\-A\-L}}
+\index{W\-P\-I\-\_\-\-F\-A\-T\-A\-L@{W\-P\-I\-\_\-\-F\-A\-T\-A\-L}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-F\-A\-T\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-F\-A\-T\-A\-L~(1==1)}}\label{wiringPi_8h_ad02bce191d370a5f235820bf9f4597cb}
+\hypertarget{wiringPi_8h_afeefd0543f428fc754ddd26ba2257c72}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O}}
+\index{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O~1}}\label{wiringPi_8h_afeefd0543f428fc754ddd26ba2257c72}
+\hypertarget{wiringPi_8h_a3e8ab8a17ead0820f7fc588fa20a0c94}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O\-\_\-\-S\-Y\-S@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O\-\_\-\-S\-Y\-S}}
+\index{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O\-\_\-\-S\-Y\-S@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O\-\_\-\-S\-Y\-S}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O\-\_\-\-S\-Y\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-G\-P\-I\-O\-\_\-\-S\-Y\-S~2}}\label{wiringPi_8h_a3e8ab8a17ead0820f7fc588fa20a0c94}
+\hypertarget{wiringPi_8h_a3761717529cdb2ba494e0c2da72ea257}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-H\-Y\-S@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-H\-Y\-S}}
+\index{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-H\-Y\-S@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-H\-Y\-S}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-H\-Y\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-H\-Y\-S~3}}\label{wiringPi_8h_a3761717529cdb2ba494e0c2da72ea257}
+\hypertarget{wiringPi_8h_a8c912cd22c53b4274898965ecd7aaee5}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-F\-A\-C\-E@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-F\-A\-C\-E}}
+\index{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-F\-A\-C\-E@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-F\-A\-C\-E}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-F\-A\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-F\-A\-C\-E~4}}\label{wiringPi_8h_a8c912cd22c53b4274898965ecd7aaee5}
+\hypertarget{wiringPi_8h_a7f388096406b9fed5f17926c6793fcf6}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-N\-S@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-N\-S}}
+\index{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-N\-S@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-N\-S}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-P\-I\-N\-S~0}}\label{wiringPi_8h_a7f388096406b9fed5f17926c6793fcf6}
+\hypertarget{wiringPi_8h_ab0caeb2068146dac3faaf56f4dd47c0a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-S\-E\-D@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-S\-E\-D}}
+\index{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-S\-E\-D@{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-S\-E\-D}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-S\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-P\-I\-\_\-\-M\-O\-D\-E\-\_\-\-U\-N\-I\-N\-I\-T\-I\-A\-L\-I\-S\-E\-D~-\/1}}\label{wiringPi_8h_ab0caeb2068146dac3faaf56f4dd47c0a}
+
+
+\subsection{Function Documentation}
+\hypertarget{wiringPi_8h_a6a005b7bdfeeca9d1d61b38929f34c58}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!analog\-Read@{analog\-Read}}
+\index{analog\-Read@{analog\-Read}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{analog\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int analog\-Read (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a6a005b7bdfeeca9d1d61b38929f34c58}
+\hypertarget{wiringPi_8h_a86bb4d3e9f1bdb233cf01d835adcede0}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!analog\-Write@{analog\-Write}}
+\index{analog\-Write@{analog\-Write}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{analog\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void analog\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a86bb4d3e9f1bdb233cf01d835adcede0}
+\hypertarget{wiringPi_8h_a2320922d57a61b6c38fc8275ea52457a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!delay@{delay}}
+\index{delay@{delay}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{delay}]{\setlength{\rightskip}{0pt plus 5cm}void delay (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{how\-Long}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a2320922d57a61b6c38fc8275ea52457a}
+\hypertarget{wiringPi_8h_ade736f9c658bbc39a7eb81ae2796b2f4}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!delay\-Microseconds@{delay\-Microseconds}}
+\index{delay\-Microseconds@{delay\-Microseconds}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{delay\-Microseconds}]{\setlength{\rightskip}{0pt plus 5cm}void delay\-Microseconds (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{how\-Long}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ade736f9c658bbc39a7eb81ae2796b2f4}
+\hypertarget{wiringPi_8h_ae1e3d979645a535a8ce49f935392d8bc}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Read@{digital\-Read}}
+\index{digital\-Read@{digital\-Read}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int digital\-Read (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ae1e3d979645a535a8ce49f935392d8bc}
+\hypertarget{wiringPi_8h_aa8fdf76d08b8ec7caf6aed1681a124cd}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Read8@{digital\-Read8}}
+\index{digital\-Read8@{digital\-Read8}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Read8}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int digital\-Read8 (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_aa8fdf76d08b8ec7caf6aed1681a124cd}
+\hypertarget{wiringPi_8h_a5c1bf3b492dae2a009fb7940606a178e}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Read\-Byte@{digital\-Read\-Byte}}
+\index{digital\-Read\-Byte@{digital\-Read\-Byte}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Read\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int digital\-Read\-Byte (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a5c1bf3b492dae2a009fb7940606a178e}
+\hypertarget{wiringPi_8h_a0eb46d8c56bffe169ae669abab01ce5b}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Read\-Byte2@{digital\-Read\-Byte2}}
+\index{digital\-Read\-Byte2@{digital\-Read\-Byte2}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Read\-Byte2}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int digital\-Read\-Byte2 (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a0eb46d8c56bffe169ae669abab01ce5b}
+\hypertarget{wiringPi_8h_ae9647a9a056bb33fd1206da70c83bde3}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Write@{digital\-Write}}
+\index{digital\-Write@{digital\-Write}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void digital\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ae9647a9a056bb33fd1206da70c83bde3}
+\hypertarget{wiringPi_8h_acc454632bb34fd86ac74a875b3ed3702}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Write8@{digital\-Write8}}
+\index{digital\-Write8@{digital\-Write8}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Write8}]{\setlength{\rightskip}{0pt plus 5cm}void digital\-Write8 (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_acc454632bb34fd86ac74a875b3ed3702}
+\hypertarget{wiringPi_8h_ad9df49e69cdfd96c7299c039a22d0953}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Write\-Byte@{digital\-Write\-Byte}}
+\index{digital\-Write\-Byte@{digital\-Write\-Byte}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Write\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}void digital\-Write\-Byte (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ad9df49e69cdfd96c7299c039a22d0953}
+\hypertarget{wiringPi_8h_a41d4065023f93636cf2b76ab40bb2948}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!digital\-Write\-Byte2@{digital\-Write\-Byte2}}
+\index{digital\-Write\-Byte2@{digital\-Write\-Byte2}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{digital\-Write\-Byte2}]{\setlength{\rightskip}{0pt plus 5cm}void digital\-Write\-Byte2 (
+\begin{DoxyParamCaption}
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a41d4065023f93636cf2b76ab40bb2948}
+\hypertarget{wiringPi_8h_a88c90e293d609946cac40381ada1897f}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!get\-Alt@{get\-Alt}}
+\index{get\-Alt@{get\-Alt}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{get\-Alt}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Alt (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a88c90e293d609946cac40381ada1897f}
+\hypertarget{wiringPi_8h_a03618d178ef48c641da9aed859ea3b02}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!gpio\-Clock\-Set@{gpio\-Clock\-Set}}
+\index{gpio\-Clock\-Set@{gpio\-Clock\-Set}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{gpio\-Clock\-Set}]{\setlength{\rightskip}{0pt plus 5cm}void gpio\-Clock\-Set (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{freq}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a03618d178ef48c641da9aed859ea3b02}
+\hypertarget{wiringPi_8h_a4fbda8f4c61d3309b5a8436a916a314d}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!micros@{micros}}
+\index{micros@{micros}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{micros}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int micros (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a4fbda8f4c61d3309b5a8436a916a314d}
+\hypertarget{wiringPi_8h_a941a22cb7e0f6429fe40f91e83ead3d9}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!millis@{millis}}
+\index{millis@{millis}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{millis}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int millis (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a941a22cb7e0f6429fe40f91e83ead3d9}
+\hypertarget{wiringPi_8h_ada69b4b78341528a4d9efeac5f97436e}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!phys\-Pin\-To\-Gpio@{phys\-Pin\-To\-Gpio}}
+\index{phys\-Pin\-To\-Gpio@{phys\-Pin\-To\-Gpio}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{phys\-Pin\-To\-Gpio}]{\setlength{\rightskip}{0pt plus 5cm}int phys\-Pin\-To\-Gpio (
+\begin{DoxyParamCaption}
+\item[{int}]{phys\-Pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ada69b4b78341528a4d9efeac5f97436e}
+\hypertarget{wiringPi_8h_a31bb652fdb359b7bcd69947587b7f887}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Board\-Id@{pi\-Board\-Id}}
+\index{pi\-Board\-Id@{pi\-Board\-Id}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Board\-Id}]{\setlength{\rightskip}{0pt plus 5cm}void pi\-Board\-Id (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{model, }
+\item[{int $\ast$}]{rev, }
+\item[{int $\ast$}]{mem, }
+\item[{int $\ast$}]{maker, }
+\item[{int $\ast$}]{over\-Volted}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a31bb652fdb359b7bcd69947587b7f887}
+\hypertarget{wiringPi_8h_a6ed951d849e6f424c96c06aab0d10076}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Board\-Rev@{pi\-Board\-Rev}}
+\index{pi\-Board\-Rev@{pi\-Board\-Rev}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Board\-Rev}]{\setlength{\rightskip}{0pt plus 5cm}int pi\-Board\-Rev (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a6ed951d849e6f424c96c06aab0d10076}
+\hypertarget{wiringPi_8h_ab433376fc743f44d315ae87c4dfc3812}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Gpio\-Layout@{pi\-Gpio\-Layout}}
+\index{pi\-Gpio\-Layout@{pi\-Gpio\-Layout}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Gpio\-Layout}]{\setlength{\rightskip}{0pt plus 5cm}int pi\-Gpio\-Layout (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ab433376fc743f44d315ae87c4dfc3812}
+\hypertarget{wiringPi_8h_a4e95094b413864875918b220bdda678d}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Hi\-Pri@{pi\-Hi\-Pri}}
+\index{pi\-Hi\-Pri@{pi\-Hi\-Pri}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Hi\-Pri}]{\setlength{\rightskip}{0pt plus 5cm}int pi\-Hi\-Pri (
+\begin{DoxyParamCaption}
+\item[{const int}]{pri}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a4e95094b413864875918b220bdda678d}
+\hypertarget{wiringPi_8h_a93b62338e5e3bf52eb893de8a3c02af1}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Lock@{pi\-Lock}}
+\index{pi\-Lock@{pi\-Lock}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Lock}]{\setlength{\rightskip}{0pt plus 5cm}void pi\-Lock (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a93b62338e5e3bf52eb893de8a3c02af1}
+\hypertarget{wiringPi_8h_ac7bdb53335528ad073ca13eb2b1bdc00}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pin\-Mode@{pin\-Mode}}
+\index{pin\-Mode@{pin\-Mode}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pin\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void pin\-Mode (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ac7bdb53335528ad073ca13eb2b1bdc00}
+\hypertarget{wiringPi_8h_a6c14f26b60c91e30790493f96ff2a3a2}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pin\-Mode\-Alt@{pin\-Mode\-Alt}}
+\index{pin\-Mode\-Alt@{pin\-Mode\-Alt}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pin\-Mode\-Alt}]{\setlength{\rightskip}{0pt plus 5cm}void pin\-Mode\-Alt (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a6c14f26b60c91e30790493f96ff2a3a2}
+\hypertarget{wiringPi_8h_af71e1183447a24d236fddbec201188cf}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Thread\-Create@{pi\-Thread\-Create}}
+\index{pi\-Thread\-Create@{pi\-Thread\-Create}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Thread\-Create}]{\setlength{\rightskip}{0pt plus 5cm}int pi\-Thread\-Create (
+\begin{DoxyParamCaption}
+\item[{void $\ast$($\ast$)(void $\ast$)}]{fn}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_af71e1183447a24d236fddbec201188cf}
+\hypertarget{wiringPi_8h_a388a56daee0d84c2a5143b4545bfb06d}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Unlock@{pi\-Unlock}}
+\index{pi\-Unlock@{pi\-Unlock}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Unlock}]{\setlength{\rightskip}{0pt plus 5cm}void pi\-Unlock (
+\begin{DoxyParamCaption}
+\item[{int}]{key}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a388a56daee0d84c2a5143b4545bfb06d}
+\hypertarget{wiringPi_8h_a031a2aede96979393431266819a99db5}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pull\-Up\-Dn\-Control@{pull\-Up\-Dn\-Control}}
+\index{pull\-Up\-Dn\-Control@{pull\-Up\-Dn\-Control}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pull\-Up\-Dn\-Control}]{\setlength{\rightskip}{0pt plus 5cm}void pull\-Up\-Dn\-Control (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{pud}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a031a2aede96979393431266819a99db5}
+\hypertarget{wiringPi_8h_a4e0d8cbb2733a0700a6f1698ab838b56}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pwm\-Set\-Clock@{pwm\-Set\-Clock}}
+\index{pwm\-Set\-Clock@{pwm\-Set\-Clock}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pwm\-Set\-Clock}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Set\-Clock (
+\begin{DoxyParamCaption}
+\item[{int}]{divisor}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a4e0d8cbb2733a0700a6f1698ab838b56}
+\hypertarget{wiringPi_8h_ad5eb24ef672510c91ea29d5db3949bc9}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pwm\-Set\-Mode@{pwm\-Set\-Mode}}
+\index{pwm\-Set\-Mode@{pwm\-Set\-Mode}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pwm\-Set\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Set\-Mode (
+\begin{DoxyParamCaption}
+\item[{int}]{mode}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ad5eb24ef672510c91ea29d5db3949bc9}
+\hypertarget{wiringPi_8h_af8975182b539c84806fe30d011542cc0}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pwm\-Set\-Range@{pwm\-Set\-Range}}
+\index{pwm\-Set\-Range@{pwm\-Set\-Range}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pwm\-Set\-Range}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Set\-Range (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{range}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_af8975182b539c84806fe30d011542cc0}
+\hypertarget{wiringPi_8h_a2706c5a6198248c0fec5cef4d59feb87}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pwm\-Tone\-Write@{pwm\-Tone\-Write}}
+\index{pwm\-Tone\-Write@{pwm\-Tone\-Write}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pwm\-Tone\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Tone\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{freq}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a2706c5a6198248c0fec5cef4d59feb87}
+\hypertarget{wiringPi_8h_a4deb71d5d98976ffa32d167a84b58d9f}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pwm\-Write@{pwm\-Write}}
+\index{pwm\-Write@{pwm\-Write}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pwm\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void pwm\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a4deb71d5d98976ffa32d167a84b58d9f}
+\hypertarget{wiringPi_8h_ae5484ece7f5b346c0108c4df0abeafc4}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!set\-Pad\-Drive@{set\-Pad\-Drive}}
+\index{set\-Pad\-Drive@{set\-Pad\-Drive}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{set\-Pad\-Drive}]{\setlength{\rightskip}{0pt plus 5cm}void set\-Pad\-Drive (
+\begin{DoxyParamCaption}
+\item[{int}]{group, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ae5484ece7f5b346c0108c4df0abeafc4}
+\hypertarget{wiringPi_8h_a886ac1c4f87c9fbe6608eb016a94c097}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wait\-For\-Interrupt@{wait\-For\-Interrupt}}
+\index{wait\-For\-Interrupt@{wait\-For\-Interrupt}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wait\-For\-Interrupt}]{\setlength{\rightskip}{0pt plus 5cm}int wait\-For\-Interrupt (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{m\-S}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a886ac1c4f87c9fbe6608eb016a94c097}
+\hypertarget{wiringPi_8h_a0f60588b8102833be774ac9f2d574999}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Failure@{wiring\-Pi\-Failure}}
+\index{wiring\-Pi\-Failure@{wiring\-Pi\-Failure}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Failure}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Failure (
+\begin{DoxyParamCaption}
+\item[{int}]{fatal, }
+\item[{const char $\ast$}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a0f60588b8102833be774ac9f2d574999}
+\hypertarget{wiringPi_8h_af45033e857af13da7a877c997fcbe03a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Find\-Node@{wiring\-Pi\-Find\-Node}}
+\index{wiring\-Pi\-Find\-Node@{wiring\-Pi\-Find\-Node}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Find\-Node}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf wiring\-Pi\-Node\-Struct}$\ast$ wiring\-Pi\-Find\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_af45033e857af13da7a877c997fcbe03a}
+\hypertarget{wiringPi_8h_a76be5f0d33da9981d2b619bede61a351}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-I\-S\-R@{wiring\-Pi\-I\-S\-R}}
+\index{wiring\-Pi\-I\-S\-R@{wiring\-Pi\-I\-S\-R}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I\-S\-R (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{mode, }
+\item[{void($\ast$)(void)}]{function}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a76be5f0d33da9981d2b619bede61a351}
+\hypertarget{wiringPi_8h_a2034c2eb3350cf4813e0e405f1d273d7}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-New\-Node@{wiring\-Pi\-New\-Node}}
+\index{wiring\-Pi\-New\-Node@{wiring\-Pi\-New\-Node}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-New\-Node}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf wiring\-Pi\-Node\-Struct}$\ast$ wiring\-Pi\-New\-Node (
+\begin{DoxyParamCaption}
+\item[{int}]{pin\-Base, }
+\item[{int}]{num\-Pins}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a2034c2eb3350cf4813e0e405f1d273d7}
+\hypertarget{wiringPi_8h_a25277e2613bec7c9f9ca2f0e2643dbe2}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Setup@{wiring\-Pi\-Setup}}
+\index{wiring\-Pi\-Setup@{wiring\-Pi\-Setup}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a25277e2613bec7c9f9ca2f0e2643dbe2}
+\hypertarget{wiringPi_8h_ac928832a6ac6021a75db885b9889c46a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Setup\-Gpio@{wiring\-Pi\-Setup\-Gpio}}
+\index{wiring\-Pi\-Setup\-Gpio@{wiring\-Pi\-Setup\-Gpio}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Setup\-Gpio}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Setup\-Gpio (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ac928832a6ac6021a75db885b9889c46a}
+\hypertarget{wiringPi_8h_abb5d1ac417f0d12e808bf3ec245caeb8}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Setup\-Phys@{wiring\-Pi\-Setup\-Phys}}
+\index{wiring\-Pi\-Setup\-Phys@{wiring\-Pi\-Setup\-Phys}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Setup\-Phys}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Setup\-Phys (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_abb5d1ac417f0d12e808bf3ec245caeb8}
+\hypertarget{wiringPi_8h_ad175ceda00a963dbe228805930942f9a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Setup\-Pi\-Face@{wiring\-Pi\-Setup\-Pi\-Face}}
+\index{wiring\-Pi\-Setup\-Pi\-Face@{wiring\-Pi\-Setup\-Pi\-Face}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Setup\-Pi\-Face}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Setup\-Pi\-Face (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_ad175ceda00a963dbe228805930942f9a}
+\hypertarget{wiringPi_8h_aee81a3eefe4eb2ce500b7f4c6cdb341b}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Setup\-Pi\-Face\-For\-Gpio\-Prog@{wiring\-Pi\-Setup\-Pi\-Face\-For\-Gpio\-Prog}}
+\index{wiring\-Pi\-Setup\-Pi\-Face\-For\-Gpio\-Prog@{wiring\-Pi\-Setup\-Pi\-Face\-For\-Gpio\-Prog}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Setup\-Pi\-Face\-For\-Gpio\-Prog}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Setup\-Pi\-Face\-For\-Gpio\-Prog (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_aee81a3eefe4eb2ce500b7f4c6cdb341b}
+\hypertarget{wiringPi_8h_a2e77cce0e489657e2540a46917fd032c}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Setup\-Sys@{wiring\-Pi\-Setup\-Sys}}
+\index{wiring\-Pi\-Setup\-Sys@{wiring\-Pi\-Setup\-Sys}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Setup\-Sys}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Setup\-Sys (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a2e77cce0e489657e2540a46917fd032c}
+\hypertarget{wiringPi_8h_a125a355f46cefbb6671e5c154735cf00}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Version@{wiring\-Pi\-Version}}
+\index{wiring\-Pi\-Version@{wiring\-Pi\-Version}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Version}]{\setlength{\rightskip}{0pt plus 5cm}void wiring\-Pi\-Version (
+\begin{DoxyParamCaption}
+\item[{int $\ast$}]{major, }
+\item[{int $\ast$}]{minor}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a125a355f46cefbb6671e5c154735cf00}
+\hypertarget{wiringPi_8h_a4d196ecbe24eb4ac7cf44daeefcef9d9}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wpi\-Pin\-To\-Gpio@{wpi\-Pin\-To\-Gpio}}
+\index{wpi\-Pin\-To\-Gpio@{wpi\-Pin\-To\-Gpio}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wpi\-Pin\-To\-Gpio}]{\setlength{\rightskip}{0pt plus 5cm}int wpi\-Pin\-To\-Gpio (
+\begin{DoxyParamCaption}
+\item[{int}]{wpi\-Pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_8h_a4d196ecbe24eb4ac7cf44daeefcef9d9}
+
+
+\subsection{Variable Documentation}
+\hypertarget{wiringPi_8h_ac48ac545fcafb4a5fcf6c79e0f8a8f6a}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!\-\_\-wiring\-Pi\-Clk@{\-\_\-wiring\-Pi\-Clk}}
+\index{\-\_\-wiring\-Pi\-Clk@{\-\_\-wiring\-Pi\-Clk}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{\-\_\-wiring\-Pi\-Clk}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int$\ast$ \-\_\-wiring\-Pi\-Clk}}\label{wiringPi_8h_ac48ac545fcafb4a5fcf6c79e0f8a8f6a}
+\hypertarget{wiringPi_8h_a55668261a29a9e96506bc8f30562bf3c}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!\-\_\-wiring\-Pi\-Gpio@{\-\_\-wiring\-Pi\-Gpio}}
+\index{\-\_\-wiring\-Pi\-Gpio@{\-\_\-wiring\-Pi\-Gpio}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{\-\_\-wiring\-Pi\-Gpio}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int$\ast$ \-\_\-wiring\-Pi\-Gpio}}\label{wiringPi_8h_a55668261a29a9e96506bc8f30562bf3c}
+\hypertarget{wiringPi_8h_adaca169f26d316e6aa1090609d77b296}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!\-\_\-wiring\-Pi\-Pads@{\-\_\-wiring\-Pi\-Pads}}
+\index{\-\_\-wiring\-Pi\-Pads@{\-\_\-wiring\-Pi\-Pads}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{\-\_\-wiring\-Pi\-Pads}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int$\ast$ \-\_\-wiring\-Pi\-Pads}}\label{wiringPi_8h_adaca169f26d316e6aa1090609d77b296}
+\hypertarget{wiringPi_8h_adcdf25f0f97f067c58e548f6971309c8}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!\-\_\-wiring\-Pi\-Pwm@{\-\_\-wiring\-Pi\-Pwm}}
+\index{\-\_\-wiring\-Pi\-Pwm@{\-\_\-wiring\-Pi\-Pwm}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{\-\_\-wiring\-Pi\-Pwm}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int$\ast$ \-\_\-wiring\-Pi\-Pwm}}\label{wiringPi_8h_adcdf25f0f97f067c58e548f6971309c8}
+\hypertarget{wiringPi_8h_ac8a008236de283f5842234ad4b00af96}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!\-\_\-wiring\-Pi\-Timer@{\-\_\-wiring\-Pi\-Timer}}
+\index{\-\_\-wiring\-Pi\-Timer@{\-\_\-wiring\-Pi\-Timer}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{\-\_\-wiring\-Pi\-Timer}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int$\ast$ \-\_\-wiring\-Pi\-Timer}}\label{wiringPi_8h_ac8a008236de283f5842234ad4b00af96}
+\hypertarget{wiringPi_8h_ab22b645f8685a5ab1f968d8379141674}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!\-\_\-wiring\-Pi\-Timer\-Irq\-Raw@{\-\_\-wiring\-Pi\-Timer\-Irq\-Raw}}
+\index{\-\_\-wiring\-Pi\-Timer\-Irq\-Raw@{\-\_\-wiring\-Pi\-Timer\-Irq\-Raw}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{\-\_\-wiring\-Pi\-Timer\-Irq\-Raw}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned int$\ast$ \-\_\-wiring\-Pi\-Timer\-Irq\-Raw}}\label{wiringPi_8h_ab22b645f8685a5ab1f968d8379141674}
+\hypertarget{wiringPi_8h_ae93b02d5724399a16f3ef4df4f733a64}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Maker\-Names@{pi\-Maker\-Names}}
+\index{pi\-Maker\-Names@{pi\-Maker\-Names}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Maker\-Names}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ pi\-Maker\-Names\mbox{[}16\mbox{]}}}\label{wiringPi_8h_ae93b02d5724399a16f3ef4df4f733a64}
+\hypertarget{wiringPi_8h_a4476d92fa41ed2b8c2ed106b72f290bc}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Memory\-Size@{pi\-Memory\-Size}}
+\index{pi\-Memory\-Size@{pi\-Memory\-Size}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Memory\-Size}]{\setlength{\rightskip}{0pt plus 5cm}const int pi\-Memory\-Size\mbox{[}8\mbox{]}}}\label{wiringPi_8h_a4476d92fa41ed2b8c2ed106b72f290bc}
+\hypertarget{wiringPi_8h_a54ae516e20945fa2dd8cfcdc525e2e22}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Model\-Names@{pi\-Model\-Names}}
+\index{pi\-Model\-Names@{pi\-Model\-Names}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Model\-Names}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ pi\-Model\-Names\mbox{[}20\mbox{]}}}\label{wiringPi_8h_a54ae516e20945fa2dd8cfcdc525e2e22}
+\hypertarget{wiringPi_8h_a23023c5ada5e69659cc6c3b3991b8f9d}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!pi\-Revision\-Names@{pi\-Revision\-Names}}
+\index{pi\-Revision\-Names@{pi\-Revision\-Names}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{pi\-Revision\-Names}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ pi\-Revision\-Names\mbox{[}16\mbox{]}}}\label{wiringPi_8h_a23023c5ada5e69659cc6c3b3991b8f9d}
+\hypertarget{wiringPi_8h_a79f9d75d826469a73e2b8651fce1751f}{\index{wiring\-Pi.\-h@{wiring\-Pi.\-h}!wiring\-Pi\-Nodes@{wiring\-Pi\-Nodes}}
+\index{wiring\-Pi\-Nodes@{wiring\-Pi\-Nodes}!wiringPi.h@{wiring\-Pi.\-h}}
+\subsubsection[{wiring\-Pi\-Nodes}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf wiring\-Pi\-Node\-Struct}$\ast$ wiring\-Pi\-Nodes}}\label{wiringPi_8h_a79f9d75d826469a73e2b8651fce1751f}

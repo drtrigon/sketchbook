@@ -1,0 +1,144 @@
+\hypertarget{OWGeneric_8ino}{\section{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic/\-O\-W\-Generic.ino File Reference}
+\label{OWGeneric_8ino}\index{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic/\-O\-W\-Generic.\-ino@{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic/\-O\-W\-Generic.\-ino}}
+}
+{\ttfamily \#include $<$One\-Wire\-Slave.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWGeneric_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}{Software\-Ver}~1.\-0
+\item 
+\#define \hyperlink{OWGeneric_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}{Sensor\-Count}~3
+\item 
+\#define \hyperlink{OWGeneric_8ino_abd966e26c1237652c6c1dc46a8f14203}{L\-E\-D\-Pin}~13
+\item 
+\#define \hyperlink{OWGeneric_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin}~2
+\item 
+\#define \hyperlink{OWGeneric_8ino_ac71a92c90affb3d6a66641ac05f1545c}{flash\-Pause}~100
+\item 
+\#define \hyperlink{OWGeneric_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{flash\-Length}~50
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+One\-Wire\-Slave \hyperlink{OWGeneric_8ino_a29dc68449cb5938be210109740e26ce3}{ds} (\hyperlink{OWRain1_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin})
+\item 
+void \hyperlink{OWGeneric_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWGeneric_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{OWGeneric_8ino_a2e9c5136d19b1a95fc427e0852deab5c}{process} ()
+\item 
+void \hyperlink{OWGeneric_8ino_a097292225769f56d224f441fee48cbdb}{pack} (float \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+void \hyperlink{OWGeneric_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}{Flash\-L\-E\-D\-\_\-blocking} (void)
+\item 
+void \hyperlink{OWGeneric_8ino_aea2efd3e27dd82d17fd923d99287f981}{debug\-Print} (int time)
+\item 
+long \hyperlink{OWGeneric_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{read\-Vcc} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{OWGeneric_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{rom} \mbox{[}8\mbox{]} = \{D\-S2415, 0x\-E2, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00\}
+\item 
+char \hyperlink{OWGeneric_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}{rtccountr\-\_\-in} \mbox{[}5\mbox{]} = \{ 0x00, 0x00, 0x00, 0x00, 0x00\}
+\item 
+char \hyperlink{OWGeneric_8ino_ac150db4005f4bac8510f9e697f1c291a}{rtccountr\-\_\-out} \mbox{[}5\mbox{]} = \{B11110000, 0x01, 0x23, 0x\-C\-D, 0x\-E\-F\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWGeneric_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!flash\-Length@{flash\-Length}}
+\index{flash\-Length@{flash\-Length}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{flash\-Length}]{\setlength{\rightskip}{0pt plus 5cm}\#define flash\-Length~50}}\label{OWGeneric_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}
+\hypertarget{OWGeneric_8ino_ac71a92c90affb3d6a66641ac05f1545c}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!flash\-Pause@{flash\-Pause}}
+\index{flash\-Pause@{flash\-Pause}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{flash\-Pause}]{\setlength{\rightskip}{0pt plus 5cm}\#define flash\-Pause~100}}\label{OWGeneric_8ino_ac71a92c90affb3d6a66641ac05f1545c}
+\hypertarget{OWGeneric_8ino_abd966e26c1237652c6c1dc46a8f14203}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!L\-E\-D\-Pin@{L\-E\-D\-Pin}}
+\index{L\-E\-D\-Pin@{L\-E\-D\-Pin}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{L\-E\-D\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D\-Pin~13}}\label{OWGeneric_8ino_abd966e26c1237652c6c1dc46a8f14203}
+\hypertarget{OWGeneric_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!O\-W\-Pin@{O\-W\-Pin}}
+\index{O\-W\-Pin@{O\-W\-Pin}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{O\-W\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-Pin~2}}\label{OWGeneric_8ino_a7f5aa1ac0711ae18877a165a9bf24625}
+\hypertarget{OWGeneric_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!Sensor\-Count@{Sensor\-Count}}
+\index{Sensor\-Count@{Sensor\-Count}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{Sensor\-Count}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sensor\-Count~3}}\label{OWGeneric_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}
+\hypertarget{OWGeneric_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!Software\-Ver@{Software\-Ver}}
+\index{Software\-Ver@{Software\-Ver}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{Software\-Ver}]{\setlength{\rightskip}{0pt plus 5cm}\#define Software\-Ver~1.\-0}}\label{OWGeneric_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWGeneric_8ino_aea2efd3e27dd82d17fd923d99287f981}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!debug\-Print@{debug\-Print}}
+\index{debug\-Print@{debug\-Print}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{debug\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void debug\-Print (
+\begin{DoxyParamCaption}
+\item[{int}]{time}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_aea2efd3e27dd82d17fd923d99287f981}
+\hypertarget{OWGeneric_8ino_a29dc68449cb5938be210109740e26ce3}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!ds@{ds}}
+\index{ds@{ds}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{ds}]{\setlength{\rightskip}{0pt plus 5cm}One\-Wire\-Slave ds (
+\begin{DoxyParamCaption}
+\item[{{\bf O\-W\-Pin}}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_a29dc68449cb5938be210109740e26ce3}
+\hypertarget{OWGeneric_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!Flash\-L\-E\-D\-\_\-blocking@{Flash\-L\-E\-D\-\_\-blocking}}
+\index{Flash\-L\-E\-D\-\_\-blocking@{Flash\-L\-E\-D\-\_\-blocking}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{Flash\-L\-E\-D\-\_\-blocking}]{\setlength{\rightskip}{0pt plus 5cm}void Flash\-L\-E\-D\-\_\-blocking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}
+\hypertarget{OWGeneric_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{OWGeneric_8ino_a097292225769f56d224f441fee48cbdb}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!pack@{pack}}
+\index{pack@{pack}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{pack}]{\setlength{\rightskip}{0pt plus 5cm}void pack (
+\begin{DoxyParamCaption}
+\item[{float}]{val}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_a097292225769f56d224f441fee48cbdb}
+\hypertarget{OWGeneric_8ino_a2e9c5136d19b1a95fc427e0852deab5c}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!process@{process}}
+\index{process@{process}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_a2e9c5136d19b1a95fc427e0852deab5c}
+\hypertarget{OWGeneric_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}long read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_a8e23c9421f6663303ea22e4969e2f6c1}
+\hypertarget{OWGeneric_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWGeneric_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!rom@{rom}}
+\index{rom@{rom}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{rom}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char rom\mbox{[}8\mbox{]} = \{D\-S2415, 0x\-E2, 0x00, 0x00, 0x00, 0x00, 0x01, 0x00\}}}\label{OWGeneric_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}
+\hypertarget{OWGeneric_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!rtccountr\-\_\-in@{rtccountr\-\_\-in}}
+\index{rtccountr\-\_\-in@{rtccountr\-\_\-in}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{rtccountr\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}char rtccountr\-\_\-in\mbox{[}5\mbox{]} = \{ 0x00, 0x00, 0x00, 0x00, 0x00\}}}\label{OWGeneric_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}
+\hypertarget{OWGeneric_8ino_ac150db4005f4bac8510f9e697f1c291a}{\index{O\-W\-Generic.\-ino@{O\-W\-Generic.\-ino}!rtccountr\-\_\-out@{rtccountr\-\_\-out}}
+\index{rtccountr\-\_\-out@{rtccountr\-\_\-out}!OWGeneric.ino@{O\-W\-Generic.\-ino}}
+\subsubsection[{rtccountr\-\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}char rtccountr\-\_\-out\mbox{[}5\mbox{]} = \{B11110000, 0x01, 0x23, 0x\-C\-D, 0x\-E\-F\}}}\label{OWGeneric_8ino_ac150db4005f4bac8510f9e697f1c291a}

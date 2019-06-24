@@ -1,0 +1,108 @@
+\hypertarget{ammintrin_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/ammintrin.h File Reference}
+\label{ammintrin_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/ammintrin.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/ammintrin.\-h}}
+}
+{\ttfamily \#include $<$pmmintrin.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ammintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse4a\char`\"{})))
+\item 
+\#define \hyperlink{ammintrin_8h_ac97bad6d021060070704b0c47cc20091}{\-\_\-mm\-\_\-extracti\-\_\-si64}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, len, idx)
+\begin{DoxyCompactList}\small\item\em Extracts the specified bits from the lower 64 bits of the 128-\/bit integer vector operand at the index idx and of the length len. \end{DoxyCompactList}\item 
+\#define \hyperlink{ammintrin_8h_a8d5ce6808860de897716faba29bc8dce}{\-\_\-mm\-\_\-inserti\-\_\-si64}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, len, idx)
+\begin{DoxyCompactList}\small\item\em Inserts bits of a specified length from the source integer vector y into the lower 64 bits of the destination integer vector x at the index idx and of the length len. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ammintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\index{ammintrin.\-h@{ammintrin.\-h}!\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}}
+\index{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}!ammintrin.h@{ammintrin.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse4a\char`\"{})))}}\label{ammintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}
+\hypertarget{ammintrin_8h_ac97bad6d021060070704b0c47cc20091}{\index{ammintrin.\-h@{ammintrin.\-h}!\-\_\-mm\-\_\-extracti\-\_\-si64@{\-\_\-mm\-\_\-extracti\-\_\-si64}}
+\index{\-\_\-mm\-\_\-extracti\-\_\-si64@{\-\_\-mm\-\_\-extracti\-\_\-si64}!ammintrin.h@{ammintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-extracti\-\_\-si64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-extracti\-\_\-si64(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{len, }
+\item[{}]{idx}
+\end{DoxyParamCaption}
+)}}\label{ammintrin_8h_ac97bad6d021060070704b0c47cc20091}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((\_\_m128i)\_\_builtin\_ia32\_extrqi((\_\_v2di)(\_\_m128i)(x), \(\backslash\)
+                                  (char)(len), (char)(idx)))
+\end{DoxyCode}
+
+
+Extracts the specified bits from the lower 64 bits of the 128-\/bit integer vector operand at the index idx and of the length len. 
+
+
+\begin{DoxyCode}
+\_\_m128i \hyperlink{ammintrin_8h_ac97bad6d021060070704b0c47cc20091}{\_mm\_extracti\_si64}(\_\_m128i x, \textcolor{keyword}{const} \textcolor{keywordtype}{int} len, \textcolor{keyword}{const} \textcolor{keywordtype}{int} idx);
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+This intrinsic corresponds to the \(\backslash\)c EXTRQ instruction.
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The value from which bits are extracted. \\
+\hline
+{\em len} & Bits \mbox{[}5\-:0\mbox{]} specify the length; the other bits are ignored. If bits \mbox{[}5\-:0\mbox{]} are zero, the length is interpreted as 64. \\
+\hline
+{\em idx} & Bits \mbox{[}5\-:0\mbox{]} specify the index of the least significant bit; the other bits are ignored. If the sum of the index and length is greater than 64, the result is undefined. If the length and index are both zero, bits \mbox{[}63\-:0\mbox{]} of parameter x are extracted. If the length is zero but the index is non-\/zero, the result is undefined. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 128-\/bit integer vector whose lower 64 bits contain the bits extracted from the source operand. 
+\end{DoxyReturn}
+\hypertarget{ammintrin_8h_a8d5ce6808860de897716faba29bc8dce}{\index{ammintrin.\-h@{ammintrin.\-h}!\-\_\-mm\-\_\-inserti\-\_\-si64@{\-\_\-mm\-\_\-inserti\-\_\-si64}}
+\index{\-\_\-mm\-\_\-inserti\-\_\-si64@{\-\_\-mm\-\_\-inserti\-\_\-si64}!ammintrin.h@{ammintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-inserti\-\_\-si64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-inserti\-\_\-si64(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}, }
+\item[{}]{len, }
+\item[{}]{idx}
+\end{DoxyParamCaption}
+)}}\label{ammintrin_8h_a8d5ce6808860de897716faba29bc8dce}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+((\_\_m128i)\_\_builtin\_ia32\_insertqi((\_\_v2di)(\_\_m128i)(x), \(\backslash\)
+                                    (\_\_v2di)(\_\_m128i)(\hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y}), \(\backslash\)
+                                    (\textcolor{keywordtype}{char})(len), (\textcolor{keywordtype}{char})(idx)))
+\end{DoxyCode}
+
+
+Inserts bits of a specified length from the source integer vector y into the lower 64 bits of the destination integer vector x at the index idx and of the length len. 
+
+
+\begin{DoxyCode}
+\_\_m128i \hyperlink{ammintrin_8h_a8d5ce6808860de897716faba29bc8dce}{\_mm\_inserti\_si64}(\_\_m128i x, \_\_m128i \hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y}, \textcolor{keyword}{const} \textcolor{keywordtype}{int} len,
+\textcolor{keyword}{const} \textcolor{keywordtype}{int} idx);
+\end{DoxyCode}
+
+
+
+\begin{DoxyCode}
+This intrinsic corresponds to the \(\backslash\)c INSERTQ instruction.
+\end{DoxyCode}
+
+
+
+\begin{DoxyParams}{Parameters}
+{\em x} & The destination operand where bits will be inserted. The inserted bits are defined by the length len and by the index idx specifying the least significant bit. \\
+\hline
+{\em y} & The source operand containing the bits to be extracted. The extracted bits are the least significant bits of operand y of length len. \\
+\hline
+{\em len} & Bits \mbox{[}5\-:0\mbox{]} specify the length; the other bits are ignored. If bits \mbox{[}5\-:0\mbox{]} are zero, the length is interpreted as 64. \\
+\hline
+{\em idx} & Bits \mbox{[}5\-:0\mbox{]} specify the index of the least significant bit; the other bits are ignored. If the sum of the index and length is greater than 64, the result is undefined. If the length and index are both zero, bits \mbox{[}63\-:0\mbox{]} of parameter y are inserted into parameter x. If the length is zero but the index is non-\/zero, the result is undefined. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+A 128-\/bit integer vector containing the original lower 64-\/bits of destination operand x with the specified bitfields replaced by the lower bits of source operand y. The upper 64 bits of the return value are undefined. 
+\end{DoxyReturn}

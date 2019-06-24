@@ -1,0 +1,105 @@
+\hypertarget{Output_8cpp}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Output.cpp File Reference}
+\label{Output_8cpp}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Output.\-cpp@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Output.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Arduino.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}config.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Multi\-Wii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Alarms.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Output_8cpp_aef1bba32400a6796904949599aac92a9}{P\-I\-D\-M\-I\-X}(\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}, \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}, \hyperlink{OWGeneric__SensorStation_8ino_aa65967cca170d24dcd0d555df0d5ee4f}{Z})~\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2MultiWii_8h_a9a0c78dfc7223feffbdd4f1d4f0f5b62}{rc\-Command}\mbox{[}\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2types_8h_a30467b1dec89ba4714905eed4c11b38aa73fe0376eae56e950136313f635836e2}{T\-H\-R\-O\-T\-T\-L\-E}\mbox{]} + \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2MultiWii_8h_aa68c8f320d3fad69ce42f0279512f978}{axis\-P\-I\-D}\mbox{[}\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2types_8h_a30467b1dec89ba4714905eed4c11b38aa2eeb9fef8a6a516fa6437a44a6efbd52}{R\-O\-L\-L}\mbox{]}$\ast$\hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X} + \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2MultiWii_8h_aa68c8f320d3fad69ce42f0279512f978}{axis\-P\-I\-D}\mbox{[}\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2types_8h_a30467b1dec89ba4714905eed4c11b38aaa4ed247aa19723caf868d2b2dd5cf4ff}{P\-I\-T\-C\-H}\mbox{]}$\ast$\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y} + \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2config_8h_ac69dde9818634637c81dc6a9f2dc0468}{Y\-A\-W\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N} $\ast$ \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2MultiWii_8h_aa68c8f320d3fad69ce42f0279512f978}{axis\-P\-I\-D}\mbox{[}\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2types_8h_a30467b1dec89ba4714905eed4c11b38aa60ae774ecd1cf97a0e91f76970d64491}{Y\-A\-W}\mbox{]}$\ast$\hyperlink{OWGeneric__SensorStation_8ino_aa65967cca170d24dcd0d555df0d5ee4f}{Z}
+\item 
+\#define \hyperlink{Output_8cpp_a3ea1a8c3a8cf6e1eefe73904b3abb693}{S\-E\-R\-V\-O\-D\-I\-R}(\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})~((conf.\-servo\-Conf\mbox{[}\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}\mbox{]}.rate \& \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}) ? -\/1 \-: 1)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Output_8cpp_a39fdc84d71e75fcb64a3470496f1a117}{initialize\-Soft\-P\-W\-M} (void)
+\item 
+void \hyperlink{Output_8cpp_a892aabea988ad2f72ee2070be200f294}{write\-Servos} ()
+\item 
+void \hyperlink{Output_8cpp_ad9e20f4eb88f350fd14128fa7680fbb7}{write\-Motors} ()
+\item 
+void \hyperlink{Output_8cpp_a03384ec40403cd4484899f329bac6283}{write\-All\-Motors} (int16\-\_\-t mc)
+\item 
+void \hyperlink{Output_8cpp_a590ab9db73d84c59df35ae272194e3a7}{init\-Output} ()
+\item 
+int16\-\_\-t \hyperlink{Output_8cpp_aca6be93b503712b4b05d1cbb1d177efc}{get\-\_\-middle} (uint8\-\_\-t nr)
+\item 
+void \hyperlink{Output_8cpp_a14276b20d03d6669c696fc3151c02b4d}{mix\-Table} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Output_8cpp_aef1bba32400a6796904949599aac92a9}{\index{Output.\-cpp@{Output.\-cpp}!P\-I\-D\-M\-I\-X@{P\-I\-D\-M\-I\-X}}
+\index{P\-I\-D\-M\-I\-X@{P\-I\-D\-M\-I\-X}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{P\-I\-D\-M\-I\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-D\-M\-I\-X(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf X}, }
+\item[{}]{{\bf Y}, }
+\item[{}]{{\bf Z}}
+\end{DoxyParamCaption}
+)~{\bf rc\-Command}\mbox{[}{\bf T\-H\-R\-O\-T\-T\-L\-E}\mbox{]} + {\bf axis\-P\-I\-D}\mbox{[}{\bf R\-O\-L\-L}\mbox{]}$\ast${\bf X} + {\bf axis\-P\-I\-D}\mbox{[}{\bf P\-I\-T\-C\-H}\mbox{]}$\ast${\bf Y} + {\bf Y\-A\-W\-\_\-\-D\-I\-R\-E\-C\-T\-I\-O\-N} $\ast$ {\bf axis\-P\-I\-D}\mbox{[}{\bf Y\-A\-W}\mbox{]}$\ast${\bf Z}}}\label{Output_8cpp_aef1bba32400a6796904949599aac92a9}
+\hypertarget{Output_8cpp_a3ea1a8c3a8cf6e1eefe73904b3abb693}{\index{Output.\-cpp@{Output.\-cpp}!S\-E\-R\-V\-O\-D\-I\-R@{S\-E\-R\-V\-O\-D\-I\-R}}
+\index{S\-E\-R\-V\-O\-D\-I\-R@{S\-E\-R\-V\-O\-D\-I\-R}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{S\-E\-R\-V\-O\-D\-I\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-V\-O\-D\-I\-R(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf n}, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~((conf.\-servo\-Conf\mbox{[}{\bf n}\mbox{]}.rate \& {\bf b}) ? -\/1 \-: 1)}}\label{Output_8cpp_a3ea1a8c3a8cf6e1eefe73904b3abb693}
+
+
+\subsection{Function Documentation}
+\hypertarget{Output_8cpp_aca6be93b503712b4b05d1cbb1d177efc}{\index{Output.\-cpp@{Output.\-cpp}!get\-\_\-middle@{get\-\_\-middle}}
+\index{get\-\_\-middle@{get\-\_\-middle}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{get\-\_\-middle}]{\setlength{\rightskip}{0pt plus 5cm}int16\-\_\-t get\-\_\-middle (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{nr}
+\end{DoxyParamCaption}
+)}}\label{Output_8cpp_aca6be93b503712b4b05d1cbb1d177efc}
+\hypertarget{Output_8cpp_a39fdc84d71e75fcb64a3470496f1a117}{\index{Output.\-cpp@{Output.\-cpp}!initialize\-Soft\-P\-W\-M@{initialize\-Soft\-P\-W\-M}}
+\index{initialize\-Soft\-P\-W\-M@{initialize\-Soft\-P\-W\-M}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{initialize\-Soft\-P\-W\-M}]{\setlength{\rightskip}{0pt plus 5cm}void initialize\-Soft\-P\-W\-M (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Output_8cpp_a39fdc84d71e75fcb64a3470496f1a117}
+\hypertarget{Output_8cpp_a590ab9db73d84c59df35ae272194e3a7}{\index{Output.\-cpp@{Output.\-cpp}!init\-Output@{init\-Output}}
+\index{init\-Output@{init\-Output}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{init\-Output}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Output (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Output_8cpp_a590ab9db73d84c59df35ae272194e3a7}
+\hypertarget{Output_8cpp_a14276b20d03d6669c696fc3151c02b4d}{\index{Output.\-cpp@{Output.\-cpp}!mix\-Table@{mix\-Table}}
+\index{mix\-Table@{mix\-Table}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{mix\-Table}]{\setlength{\rightskip}{0pt plus 5cm}void mix\-Table (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Output_8cpp_a14276b20d03d6669c696fc3151c02b4d}
+\hypertarget{Output_8cpp_a03384ec40403cd4484899f329bac6283}{\index{Output.\-cpp@{Output.\-cpp}!write\-All\-Motors@{write\-All\-Motors}}
+\index{write\-All\-Motors@{write\-All\-Motors}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{write\-All\-Motors}]{\setlength{\rightskip}{0pt plus 5cm}void write\-All\-Motors (
+\begin{DoxyParamCaption}
+\item[{int16\-\_\-t}]{mc}
+\end{DoxyParamCaption}
+)}}\label{Output_8cpp_a03384ec40403cd4484899f329bac6283}
+\hypertarget{Output_8cpp_ad9e20f4eb88f350fd14128fa7680fbb7}{\index{Output.\-cpp@{Output.\-cpp}!write\-Motors@{write\-Motors}}
+\index{write\-Motors@{write\-Motors}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{write\-Motors}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Motors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Output_8cpp_ad9e20f4eb88f350fd14128fa7680fbb7}
+\hypertarget{Output_8cpp_a892aabea988ad2f72ee2070be200f294}{\index{Output.\-cpp@{Output.\-cpp}!write\-Servos@{write\-Servos}}
+\index{write\-Servos@{write\-Servos}!Output.cpp@{Output.\-cpp}}
+\subsubsection[{write\-Servos}]{\setlength{\rightskip}{0pt plus 5cm}void write\-Servos (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Output_8cpp_a892aabea988ad2f72ee2070be200f294}

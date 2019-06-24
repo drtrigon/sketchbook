@@ -1,0 +1,124 @@
+\hypertarget{General__Stuff_8h}{\section{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/\-General\-\_\-\-Stuff.h File Reference}
+\label{General__Stuff_8h}\index{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/\-General\-\_\-\-Stuff.\-h@{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/\-General\-\_\-\-Stuff.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{General__Stuff_8h_a27dc0888f568d966f13a868b611f2a25}{N\-U\-M\-I\-T\-E\-M\-S}(arg)~((unsigned int) (sizeof (arg) / sizeof (arg \mbox{[}0\mbox{]})))
+\item 
+\#define \hyperlink{General__Stuff_8h_aeec40e2b433cc2844853d184006edff0}{xstr}(s)~\hyperlink{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}{str}(s)
+\item 
+\#define \hyperlink{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}{str}(s)~\#s
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{General__Stuff_8h_a01d27adcd441d5d4333ac8e76749acec}{show\-Hex} (const \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}, const boolean newline=\hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}, const boolean show0x=\hyperlink{stdbool_8h_a41f9c5fb8b08eb5dc3edce4dcb37fee7}{true})
+\item 
+void \hyperlink{General__Stuff_8h_a3eacfd81f8bc0cdf520a8b76e851604e}{show\-Yes\-No} (const boolean \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}, const boolean newline=\hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false})
+\item 
+void \hyperlink{General__Stuff_8h_a855f62652fba8e1880badf862075b28f}{commit\-Page} (unsigned long \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, \hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} show\-Message=\hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{General__Stuff_8h_af61422de3418f2de5f85066bbec5739a}{pagesize}
+\item 
+unsigned long \hyperlink{General__Stuff_8h_a982e3b2d0f36c6458c339a8ba6973f17}{pagemask}
+\item 
+unsigned long \hyperlink{General__Stuff_8h_a897b36484e1a897c974abfce82584f10}{old\-Page}
+\item 
+unsigned int \hyperlink{General__Stuff_8h_a88ca701b8d18d701c67f6d23b3174487}{errors}
+\item 
+const unsigned long \hyperlink{General__Stuff_8h_a506fea996f30bbaa972473a59bc1cb39}{N\-O\-\_\-\-P\-A\-G\-E} = 0x\-F\-F\-F\-F\-F\-F\-F\-F
+\item 
+unsigned int \hyperlink{General__Stuff_8h_a184e608a0fd1a552f45aea3bb51f69d9}{progress\-Bar\-Count}
+\item 
+int \hyperlink{General__Stuff_8h_afc7525c23d92fbb96b515c6f70bf3ca6}{found\-Sig} = -\/1
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{General__Stuff_8h_af7c986449ad53e3935f5ed2c52c2a777}{last\-Address\-M\-S\-B} = 0
+\item 
+\hyperlink{structsignatureType}{signature\-Type} \hyperlink{General__Stuff_8h_aa400b195a99e70336186c2a183b3f00c}{current\-Signature}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{General__Stuff_8h_a27dc0888f568d966f13a868b611f2a25}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!N\-U\-M\-I\-T\-E\-M\-S@{N\-U\-M\-I\-T\-E\-M\-S}}
+\index{N\-U\-M\-I\-T\-E\-M\-S@{N\-U\-M\-I\-T\-E\-M\-S}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{N\-U\-M\-I\-T\-E\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-I\-T\-E\-M\-S(
+\begin{DoxyParamCaption}
+\item[{}]{arg}
+\end{DoxyParamCaption}
+)~((unsigned int) (sizeof (arg) / sizeof (arg \mbox{[}0\mbox{]})))}}\label{General__Stuff_8h_a27dc0888f568d966f13a868b611f2a25}
+\hypertarget{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!str@{str}}
+\index{str@{str}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{str}]{\setlength{\rightskip}{0pt plus 5cm}\#define str(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~\#s}}\label{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}
+\hypertarget{General__Stuff_8h_aeec40e2b433cc2844853d184006edff0}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!xstr@{xstr}}
+\index{xstr@{xstr}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{xstr}]{\setlength{\rightskip}{0pt plus 5cm}\#define xstr(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~{\bf str}(s)}}\label{General__Stuff_8h_aeec40e2b433cc2844853d184006edff0}
+
+
+\subsection{Function Documentation}
+\hypertarget{General__Stuff_8h_a855f62652fba8e1880badf862075b28f}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!commit\-Page@{commit\-Page}}
+\index{commit\-Page@{commit\-Page}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{commit\-Page}]{\setlength{\rightskip}{0pt plus 5cm}void commit\-Page (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{addr, }
+\item[{{\bf bool}}]{show\-Message = {\ttfamily {\bf false}}}
+\end{DoxyParamCaption}
+)}}\label{General__Stuff_8h_a855f62652fba8e1880badf862075b28f}
+\hypertarget{General__Stuff_8h_a01d27adcd441d5d4333ac8e76749acec}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!show\-Hex@{show\-Hex}}
+\index{show\-Hex@{show\-Hex}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{show\-Hex}]{\setlength{\rightskip}{0pt plus 5cm}void show\-Hex (
+\begin{DoxyParamCaption}
+\item[{const {\bf byte}}]{b, }
+\item[{const boolean}]{newline = {\ttfamily {\bf false}}, }
+\item[{const boolean}]{show0x = {\ttfamily {\bf true}}}
+\end{DoxyParamCaption}
+)}}\label{General__Stuff_8h_a01d27adcd441d5d4333ac8e76749acec}
+\hypertarget{General__Stuff_8h_a3eacfd81f8bc0cdf520a8b76e851604e}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!show\-Yes\-No@{show\-Yes\-No}}
+\index{show\-Yes\-No@{show\-Yes\-No}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{show\-Yes\-No}]{\setlength{\rightskip}{0pt plus 5cm}void show\-Yes\-No (
+\begin{DoxyParamCaption}
+\item[{const boolean}]{b, }
+\item[{const boolean}]{newline = {\ttfamily {\bf false}}}
+\end{DoxyParamCaption}
+)}}\label{General__Stuff_8h_a3eacfd81f8bc0cdf520a8b76e851604e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{General__Stuff_8h_aa400b195a99e70336186c2a183b3f00c}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!current\-Signature@{current\-Signature}}
+\index{current\-Signature@{current\-Signature}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{current\-Signature}]{\setlength{\rightskip}{0pt plus 5cm}{\bf signature\-Type} current\-Signature}}\label{General__Stuff_8h_aa400b195a99e70336186c2a183b3f00c}
+\hypertarget{General__Stuff_8h_a88ca701b8d18d701c67f6d23b3174487}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!errors@{errors}}
+\index{errors@{errors}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{errors}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int errors}}\label{General__Stuff_8h_a88ca701b8d18d701c67f6d23b3174487}
+\hypertarget{General__Stuff_8h_afc7525c23d92fbb96b515c6f70bf3ca6}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!found\-Sig@{found\-Sig}}
+\index{found\-Sig@{found\-Sig}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{found\-Sig}]{\setlength{\rightskip}{0pt plus 5cm}int found\-Sig = -\/1}}\label{General__Stuff_8h_afc7525c23d92fbb96b515c6f70bf3ca6}
+\hypertarget{General__Stuff_8h_af7c986449ad53e3935f5ed2c52c2a777}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!last\-Address\-M\-S\-B@{last\-Address\-M\-S\-B}}
+\index{last\-Address\-M\-S\-B@{last\-Address\-M\-S\-B}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{last\-Address\-M\-S\-B}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} last\-Address\-M\-S\-B = 0}}\label{General__Stuff_8h_af7c986449ad53e3935f5ed2c52c2a777}
+\hypertarget{General__Stuff_8h_a506fea996f30bbaa972473a59bc1cb39}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!N\-O\-\_\-\-P\-A\-G\-E@{N\-O\-\_\-\-P\-A\-G\-E}}
+\index{N\-O\-\_\-\-P\-A\-G\-E@{N\-O\-\_\-\-P\-A\-G\-E}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{N\-O\-\_\-\-P\-A\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned long N\-O\-\_\-\-P\-A\-G\-E = 0x\-F\-F\-F\-F\-F\-F\-F\-F}}\label{General__Stuff_8h_a506fea996f30bbaa972473a59bc1cb39}
+\hypertarget{General__Stuff_8h_a897b36484e1a897c974abfce82584f10}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!old\-Page@{old\-Page}}
+\index{old\-Page@{old\-Page}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{old\-Page}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long old\-Page}}\label{General__Stuff_8h_a897b36484e1a897c974abfce82584f10}
+\hypertarget{General__Stuff_8h_a982e3b2d0f36c6458c339a8ba6973f17}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!pagemask@{pagemask}}
+\index{pagemask@{pagemask}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{pagemask}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long pagemask}}\label{General__Stuff_8h_a982e3b2d0f36c6458c339a8ba6973f17}
+\hypertarget{General__Stuff_8h_af61422de3418f2de5f85066bbec5739a}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!pagesize@{pagesize}}
+\index{pagesize@{pagesize}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{pagesize}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long pagesize}}\label{General__Stuff_8h_af61422de3418f2de5f85066bbec5739a}
+\hypertarget{General__Stuff_8h_a184e608a0fd1a552f45aea3bb51f69d9}{\index{General\-\_\-\-Stuff.\-h@{General\-\_\-\-Stuff.\-h}!progress\-Bar\-Count@{progress\-Bar\-Count}}
+\index{progress\-Bar\-Count@{progress\-Bar\-Count}!General_Stuff.h@{General\-\_\-\-Stuff.\-h}}
+\subsubsection[{progress\-Bar\-Count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int progress\-Bar\-Count}}\label{General__Stuff_8h_a184e608a0fd1a552f45aea3bb51f69d9}

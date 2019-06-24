@@ -1,0 +1,268 @@
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino}{\section{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors/\-O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.ino File Reference}
+\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino}\index{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors/\-O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors/\-O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+}
+
+
+Code that emulates a 1wire L\-C\-D/\-O\-L\-E\-D Display (D\-S2433 4096 bits E\-E\-P\-R\-O\-M)  
+
+
+{\ttfamily \#include \char`\"{}One\-Wire\-Hub.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\-S2433.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\-S18\-B20.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include $<$Seeed\-Gray\-O\-L\-E\-D.\-h$>$}\\*
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include $<$E\-E\-P\-R\-O\-M.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a9599efa23e764c5668c6a8ee51c8228e}{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K}~2000
+\item 
+\#define \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afcca8b19968c1fe4a177d898c82b3cf5}{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R}~4000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long R\-A\-M\-\_\-l\-Reboot\-Count0 \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((section(\char`\"{}.noinit\char`\"{})))
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a6766eee584b84ead350781efbabe36d7}{blinking} (void)
+\item 
+void \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+long \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{read\-Vcc} ()
+\item 
+double \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a0a60fd2316c16170dc7aa6aa0f5f485d}{Get\-Temp} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\-\_\-t \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire} \{ 8 \}
+\item 
+constexpr uint8\-\_\-t \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_add5a7eb759d22b21f8875663ed2c1528}{pin\-\_\-led} \{ 13 \}
+\item 
+constexpr uint8\-\_\-t \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a13a0c8ba7354e8bfab091549ab594ce5}{pin\-\_\-button} \{ 2 \}
+\item 
+uint8\-\_\-t \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a618ff393e228f15164df833cb5464dc7}{mem\-\_\-read} \mbox{[}16\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a7f9b7e8a2f8897f9d6221cc258f63896}{display\-\_\-mode} = 0
+\item 
+uint8\-\_\-t \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a768b8dfff3adb26417d2833fd19120ef}{mem\-\_\-buffer} \mbox{[}144\mbox{]}
+\item 
+unsigned long \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_aa51ab451790714629df8a1476dd5b116}{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count0}
+\item 
+unsigned long \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_aba7bc2b980ffe61d60184741f294502e}{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count1}
+\item 
+unsigned long \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a65605eb57f7500313270f147580cf26c}{time\-\_\-last\-\_\-update}
+\item 
+auto \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{hub} = One\-Wire\-Hub(\hyperlink{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire})
+\item 
+auto \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_acfab931e46e8e28ffc06c70de2a7a806}{ds2433} = D\-S2433(D\-S2433\-::family\-\_\-code, 0x00, 0x00, 0x33, 0x24, 0x\-D\-A, 0x00)
+\item 
+auto \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_ab62c2596d71d9dddf2cd1e30bfaf15ac}{ds18b0} = D\-S18\-B20(0x28, 0x00, 0x00, 0x33, 0x24, 0x\-D\-A, 0x00)
+\item 
+auto \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a48f142bea8e06f83bc9e7f998d712485}{ds18b1} = D\-S18\-B20(0x28, 0x01, 0x00, 0x33, 0x24, 0x\-D\-A, 0x00)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Code that emulates a 1wire L\-C\-D/\-O\-L\-E\-D Display (D\-S2433 4096 bits E\-E\-P\-R\-O\-M) \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/06-\/21 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-1 \begin{DoxyItemize}
+\item add led feedback indicating missing update for more than 3 mins. confer \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a9599efa23e764c5668c6a8ee51c8228e}{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K} and \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afcca8b19968c1fe4a177d898c82b3cf5}{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R} \end{DoxyItemize}
+
+
+1.\-0 \begin{DoxyItemize}
+\item add supply voltage and chip temperature sensors \item first version providing all basic features\end{DoxyItemize}
+
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See Also}
+\href{http://www.seeedstudio.com/wiki/Grove_-_OLED_Display_1.12%22}{\tt http\-://www.\-seeedstudio.\-com/wiki/\-Grove\-\_\--\/\-\_\-\-O\-L\-E\-D\-\_\-\-Display\-\_\-1.\-12\%22} 
+
+\href{http://www.seeedstudio.com/wiki/File:Stem-diagram-sign.jpg}{\tt http\-://www.\-seeedstudio.\-com/wiki/\-File\-:\-Stem-\/diagram-\/sign.\-jpg} 
+
+\href{http://www.instructables.com/id/Arduino-1-wire-Display-144-Chars/}{\tt http\-://www.\-instructables.\-com/id/\-Arduino-\/1-\/wire-\/\-Display-\/144-\/\-Chars/}
+\end{DoxySeeAlso}
+\begin{DoxyVerb}* OneWireHub library compilation for v2.2.0:
+*   Needs for compilation Arduino IDE version >= 1.8.3 due to used syntax.
+* OneWireHub library settings for v2.2.0:
+*   In order to make OneWireHub library v2.2.0 work properly with my 1wire network
+*   (Raspberry Pi Server with iButton LinkHub-E) I need to adopt
+*     'libraries/OneWireHub/OneWireHub_config.h':
+*       constexpr timeOW_t ONEWIRE_TIME_MSG_HIGH_TIMEOUT     = { 150000_us };
+*     this is 10x the default value (may be smaller works too).
+*     @see https://github.com/orgua/OneWireHub/issues/43
+*   Optionally we can also change
+*     'libraries/OneWireHub/OneWireHub_config.h':
+*       #define HUB_SLAVE_LIMIT     8
+*     as we need only 3 slots and the lower the value the faster are responses.
+*   These settings might cause issues with other sketches - be aware of that.
+*
+* Pinout:
+*   OLED (Grove Shield I2C/Wire):
+*     1: GND black     -> Arduino GND
+*     2: VCC red       -> Arduino 5V
+*     3: SDA white     -> Arduino Pin A4
+*     4: SCL yellow    -> Arduino Pin A5
+*   Status LED:
+*        STATUS LED    -> Arduino Pin D13
+*                      -> Arduino GND via 4.7k resistor eg.
+*   Control Buttons or Switch:
+*        RESET BTN     -> Arduino Pin RST
+*                      -> Arduino GND
+*        LCD MODE BTN  -> Arduino Pin D2 (internal pullup enabled)
+*                      -> Arduino GND
+*   1wire data bus (MicroLAN):
+*        1WIRE DATA    -> Arduino Pin D8
+*
+* Test on Raspberry Pi Server using OWFS (owshell):
+*   $ /opt/owfs/bin/owwrite 2D.00003124DA00/memory 'hello world!'
+*   $ /opt/owfs/bin/owget 2D.00003124DA00/memory
+*
+* Tested with:
+*   - 1wire LCD/OLED Display:
+*     LinkHubE-Master, atmega328@16MHz (Arduino Uno) as Slave
+*   - OneWire HubDS2433 4096 bits EEPROM:
+*     DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
+*
+* Thanks to:
+* orgua - OneWireHub OneWire slave device emulator
+*         @see https://github.com/orgua/OneWireHub
+* \end{DoxyVerb}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afcca8b19968c1fe4a177d898c82b3cf5}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R@{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R}}
+\index{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R@{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-E\-R\-R~4000}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afcca8b19968c1fe4a177d898c82b3cf5}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a9599efa23e764c5668c6a8ee51c8228e}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K@{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K}}
+\index{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K@{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-Q\-\_\-\-B\-L\-I\-N\-K\-\_\-\-O\-K~2000}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a9599efa23e764c5668c6a8ee51c8228e}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long R\-A\-M\-\_\-l\-Reboot\-Count0 \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(section(\char`\"{}.noinit\char`\"{}))}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a6766eee584b84ead350781efbabe36d7}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!blinking@{blinking}}
+\index{blinking@{blinking}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{blinking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} blinking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a6766eee584b84ead350781efbabe36d7}
+One\-Wire\-Hub One\-Wire slave status update function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer indicating whether status updated with 1 
+\end{DoxyReturn}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a0a60fd2316c16170dc7aa6aa0f5f485d}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!Get\-Temp@{Get\-Temp}}
+\index{Get\-Temp@{Get\-Temp}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{Get\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}double Get\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a0a60fd2316c16170dc7aa6aa0f5f485d}
+Internal Temperature Sensor for A\-Tmega328 types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}{loop()} 
+
+\href{https://playground.arduino.cc/Main/InternalTemperatureSensor}{\tt https\-://playground.\-arduino.\-cc/\-Main/\-Internal\-Temperature\-Sensor} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The chip temperature in \mbox{[}°\-C\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}long read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a8e23c9421f6663303ea22e4969e2f6c1}
+Accessing the secret voltmeter on the Arduino 168 or 328.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}{loop()} 
+
+\href{http://code.google.com/p/tinkerit/wiki/SecretVoltmeter}{\tt http\-://code.\-google.\-com/p/tinkerit/wiki/\-Secret\-Voltmeter} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The supply voltage in \mbox{[}m\-V\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a7f9b7e8a2f8897f9d6221cc258f63896}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!display\-\_\-mode@{display\-\_\-mode}}
+\index{display\-\_\-mode@{display\-\_\-mode}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{display\-\_\-mode}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t display\-\_\-mode = 0}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a7f9b7e8a2f8897f9d6221cc258f63896}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_ab62c2596d71d9dddf2cd1e30bfaf15ac}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!ds18b0@{ds18b0}}
+\index{ds18b0@{ds18b0}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{ds18b0}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b0 = D\-S18\-B20(0x28, 0x00, 0x00, 0x33, 0x24, 0x\-D\-A, 0x00)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_ab62c2596d71d9dddf2cd1e30bfaf15ac}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a48f142bea8e06f83bc9e7f998d712485}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!ds18b1@{ds18b1}}
+\index{ds18b1@{ds18b1}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{ds18b1}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b1 = D\-S18\-B20(0x28, 0x01, 0x00, 0x33, 0x24, 0x\-D\-A, 0x00)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a48f142bea8e06f83bc9e7f998d712485}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_acfab931e46e8e28ffc06c70de2a7a806}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!ds2433@{ds2433}}
+\index{ds2433@{ds2433}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{ds2433}]{\setlength{\rightskip}{0pt plus 5cm}auto ds2433 = D\-S2433(D\-S2433\-::family\-\_\-code, 0x00, 0x00, 0x33, 0x24, 0x\-D\-A, 0x00)}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_acfab931e46e8e28ffc06c70de2a7a806}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_aa51ab451790714629df8a1476dd5b116}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count0@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count0}}
+\index{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count0@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count0}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count0}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count0}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_aa51ab451790714629df8a1476dd5b116}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_aba7bc2b980ffe61d60184741f294502e}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count1@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count1}}
+\index{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count1@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count1}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count1}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count1}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_aba7bc2b980ffe61d60184741f294502e}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!hub@{hub}}
+\index{hub@{hub}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{hub}]{\setlength{\rightskip}{0pt plus 5cm}auto hub = One\-Wire\-Hub({\bf pin\-\_\-onewire})}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a3beb275f1ae5db0a79499403dd2fbff8}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a768b8dfff3adb26417d2833fd19120ef}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!mem\-\_\-buffer@{mem\-\_\-buffer}}
+\index{mem\-\_\-buffer@{mem\-\_\-buffer}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{mem\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mem\-\_\-buffer\mbox{[}144\mbox{]}}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a768b8dfff3adb26417d2833fd19120ef}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a618ff393e228f15164df833cb5464dc7}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!mem\-\_\-read@{mem\-\_\-read}}
+\index{mem\-\_\-read@{mem\-\_\-read}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{mem\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mem\-\_\-read\mbox{[}16\mbox{]}}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a618ff393e228f15164df833cb5464dc7}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a13a0c8ba7354e8bfab091549ab594ce5}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!pin\-\_\-button@{pin\-\_\-button}}
+\index{pin\-\_\-button@{pin\-\_\-button}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{pin\-\_\-button}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-button \{ 2 \}}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a13a0c8ba7354e8bfab091549ab594ce5}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_add5a7eb759d22b21f8875663ed2c1528}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!pin\-\_\-led@{pin\-\_\-led}}
+\index{pin\-\_\-led@{pin\-\_\-led}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{pin\-\_\-led}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-led \{ 13 \}}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_add5a7eb759d22b21f8875663ed2c1528}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_ad4f51a015485d98cc3a8a79f41a81027}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!pin\-\_\-onewire@{pin\-\_\-onewire}}
+\index{pin\-\_\-onewire@{pin\-\_\-onewire}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{pin\-\_\-onewire}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-onewire \{ 8 \}}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_ad4f51a015485d98cc3a8a79f41a81027}
+\hypertarget{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a65605eb57f7500313270f147580cf26c}{\index{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!time\-\_\-last\-\_\-update@{time\-\_\-last\-\_\-update}}
+\index{time\-\_\-last\-\_\-update@{time\-\_\-last\-\_\-update}!OWH_DS2433_EEPROM_LCD_Sensors.ino@{O\-W\-H\-\_\-\-D\-S2433\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{time\-\_\-last\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long time\-\_\-last\-\_\-update}}\label{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a65605eb57f7500313270f147580cf26c}

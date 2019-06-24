@@ -1,0 +1,44 @@
+\hypertarget{usbportability_8h}{\section{cli/n64dual\-\_\-tiny45/usbdrv/usbportability.h File Reference}
+\label{usbportability_8h}\index{cli/n64dual\-\_\-tiny45/usbdrv/usbportability.\-h@{cli/n64dual\-\_\-tiny45/usbdrv/usbportability.\-h}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/pgmspace.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{usbportability_8h_a078882d037ab92d73cc70b97738d552d}{U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H}(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})~pgm\-\_\-read\-\_\-byte(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+\#define \hyperlink{usbportability_8h_a27188a3f4bdad4750865cc4b0d001559}{macro}~.macro
+\item 
+\#define \hyperlink{usbportability_8h_a42431a55be9ecfc03292cc1601e5c4d9}{endm}~.endm
+\item 
+\#define \hyperlink{usbportability_8h_a62df5117c12fbb897e5d6956620d794b}{nop2}~rjmp    .+0 /$\ast$ jump to next instruction $\ast$/
+\item 
+\#define \hyperlink{usbportability_8h_af7c7b7892c3be6693e9107a0b4e1a75e}{P\-R\-G\-\_\-\-R\-D\-B}(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})~\hyperlink{usbportability_8h_a078882d037ab92d73cc70b97738d552d}{U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H}(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{usbportability_8h_a42431a55be9ecfc03292cc1601e5c4d9}{\index{usbportability.\-h@{usbportability.\-h}!endm@{endm}}
+\index{endm@{endm}!usbportability.h@{usbportability.\-h}}
+\subsubsection[{endm}]{\setlength{\rightskip}{0pt plus 5cm}\#define endm~.endm}}\label{usbportability_8h_a42431a55be9ecfc03292cc1601e5c4d9}
+\hypertarget{usbportability_8h_a27188a3f4bdad4750865cc4b0d001559}{\index{usbportability.\-h@{usbportability.\-h}!macro@{macro}}
+\index{macro@{macro}!usbportability.h@{usbportability.\-h}}
+\subsubsection[{macro}]{\setlength{\rightskip}{0pt plus 5cm}\#define macro~.macro}}\label{usbportability_8h_a27188a3f4bdad4750865cc4b0d001559}
+\hypertarget{usbportability_8h_a62df5117c12fbb897e5d6956620d794b}{\index{usbportability.\-h@{usbportability.\-h}!nop2@{nop2}}
+\index{nop2@{nop2}!usbportability.h@{usbportability.\-h}}
+\subsubsection[{nop2}]{\setlength{\rightskip}{0pt plus 5cm}\#define nop2~rjmp    .+0 /$\ast$ jump to next instruction $\ast$/}}\label{usbportability_8h_a62df5117c12fbb897e5d6956620d794b}
+\hypertarget{usbportability_8h_af7c7b7892c3be6693e9107a0b4e1a75e}{\index{usbportability.\-h@{usbportability.\-h}!P\-R\-G\-\_\-\-R\-D\-B@{P\-R\-G\-\_\-\-R\-D\-B}}
+\index{P\-R\-G\-\_\-\-R\-D\-B@{P\-R\-G\-\_\-\-R\-D\-B}!usbportability.h@{usbportability.\-h}}
+\subsubsection[{P\-R\-G\-\_\-\-R\-D\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-R\-G\-\_\-\-R\-D\-B(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf addr}}
+\end{DoxyParamCaption}
+)~{\bf U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H}({\bf addr})}}\label{usbportability_8h_af7c7b7892c3be6693e9107a0b4e1a75e}
+\hypertarget{usbportability_8h_a078882d037ab92d73cc70b97738d552d}{\index{usbportability.\-h@{usbportability.\-h}!U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H@{U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H}}
+\index{U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H@{U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H}!usbportability.h@{usbportability.\-h}}
+\subsubsection[{U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-R\-E\-A\-D\-\_\-\-F\-L\-A\-S\-H(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf addr}}
+\end{DoxyParamCaption}
+)~pgm\-\_\-read\-\_\-byte({\bf addr})}}\label{usbportability_8h_a078882d037ab92d73cc70b97738d552d}

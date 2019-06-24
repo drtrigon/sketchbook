@@ -1,0 +1,156 @@
+\hypertarget{Atmega__Board__Detector_8ino}{\section{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/\-Atmega\-\_\-\-Board\-\_\-\-Detector.ino File Reference}
+\label{Atmega__Board__Detector_8ino}\index{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/\-Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/\-Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+}
+{\ttfamily \#include $<$S\-P\-I.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}md5.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}H\-V\-\_\-\-Pins.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Signatures.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}General\-\_\-\-Stuff.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdeviceDatabaseType}{device\-Database\-Type}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Atmega__Board__Detector_8ino_a00903e98b6ab522c9725fea2af17ed7b}{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-P\-A\-R\-A\-L\-L\-E\-L}~\hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\item 
+\#define \hyperlink{Atmega__Board__Detector_8ino_a22d91d65bc68333d9573450ab71960b1}{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-S\-E\-R\-I\-A\-L}~\hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\item 
+\#define \hyperlink{Atmega__Board__Detector_8ino_a3e7ecf511d36afaf581ec50b5f6748d6}{I\-C\-S\-P\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G}~\hyperlink{stdbool_8h_a41f9c5fb8b08eb5dc3edce4dcb37fee7}{true}
+\item 
+\#define \hyperlink{Atmega__Board__Detector_8ino_a561e6ef25cbccae64b01143c40c9ad69}{U\-S\-E\-\_\-\-B\-I\-T\-\_\-\-B\-A\-N\-G\-E\-D\-\_\-\-S\-P\-I}~\hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Atmega__Board__Detector_8ino_af35dbdda9438dd13b4e6a50d96fa27b1}{print\-Prog\-Str} (const char $\ast$\hyperlink{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}{str})
+\item 
+void \hyperlink{Atmega__Board__Detector_8ino_a3494f6389f7ea38e13e4e9e07bb997f0}{read\-Bootloader} ()
+\item 
+void \hyperlink{Atmega__Board__Detector_8ino_acc9003846b9893fd504e16f7dc01d11a}{read\-Program} ()
+\item 
+void \hyperlink{Atmega__Board__Detector_8ino_aa71c134dd9d74e2e7482f627469048a8}{get\-Signature} ()
+\item 
+void \hyperlink{Atmega__Board__Detector_8ino_a7431366a2b20f775381b4433ce6841a7}{get\-Fuse\-Bytes} ()
+\item 
+void \hyperlink{Atmega__Board__Detector_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Atmega__Board__Detector_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+typedef \hyperlink{Atmega__Board__Detector_8ino_aeab68f17dc686a2f7dc72ab2b712e464}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}
+\item 
+const char \hyperlink{Atmega__Board__Detector_8ino_a28e0492af3cb02370c5f928d74f60fd1}{Version} \mbox{[}$\,$\mbox{]} = \char`\"{}1.\-20\char`\"{}
+\item 
+const \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{Atmega__Board__Detector_8ino_ae19697f5162bff99d761fa51490bd7ff}{C\-L\-O\-C\-K\-O\-U\-T} = 9
+\item 
+const \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{Atmega__Board__Detector_8ino_a802da4bdd8e165d19d8b7dce4ffb0eb2}{R\-E\-S\-E\-T} = 10
+\item 
+const int \hyperlink{Atmega__Board__Detector_8ino_aaaab39242a7b1fd7494be8c54853b309}{E\-N\-T\-E\-R\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S} = 50
+\item 
+const \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{Atmega__Board__Detector_8ino_a3badd15d680e205979acf81af5aae7be}{S\-C\-K} = 13
+\item 
+const char \\*
+A\-Tmega\-B\-O\-O\-T\-\_\-168\-\_\-atmega328\mbox{[}$\,$\mbox{]} \hyperlink{Atmega__Board__Detector_8ino_a92c672ee796af9cd4e0c21a4304322a1}{P\-R\-O\-G\-M\-E\-M} = \char`\"{}A\-Tmega\-B\-O\-O\-T\-\_\-168\-\_\-atmega328\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Atmega__Board__Detector_8ino_a00903e98b6ab522c9725fea2af17ed7b}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-P\-A\-R\-A\-L\-L\-E\-L@{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-P\-A\-R\-A\-L\-L\-E\-L}}
+\index{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-P\-A\-R\-A\-L\-L\-E\-L@{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-P\-A\-R\-A\-L\-L\-E\-L}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-P\-A\-R\-A\-L\-L\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-P\-A\-R\-A\-L\-L\-E\-L~{\bf false}}}\label{Atmega__Board__Detector_8ino_a00903e98b6ab522c9725fea2af17ed7b}
+\hypertarget{Atmega__Board__Detector_8ino_a22d91d65bc68333d9573450ab71960b1}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-S\-E\-R\-I\-A\-L@{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-S\-E\-R\-I\-A\-L}}
+\index{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-S\-E\-R\-I\-A\-L@{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-S\-E\-R\-I\-A\-L}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-S\-E\-R\-I\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-I\-G\-H\-\_\-\-V\-O\-L\-T\-A\-G\-E\-\_\-\-S\-E\-R\-I\-A\-L~{\bf false}}}\label{Atmega__Board__Detector_8ino_a22d91d65bc68333d9573450ab71960b1}
+\hypertarget{Atmega__Board__Detector_8ino_a3e7ecf511d36afaf581ec50b5f6748d6}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!I\-C\-S\-P\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G@{I\-C\-S\-P\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G}}
+\index{I\-C\-S\-P\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G@{I\-C\-S\-P\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{I\-C\-S\-P\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-C\-S\-P\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G~{\bf true}}}\label{Atmega__Board__Detector_8ino_a3e7ecf511d36afaf581ec50b5f6748d6}
+\hypertarget{Atmega__Board__Detector_8ino_a561e6ef25cbccae64b01143c40c9ad69}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!U\-S\-E\-\_\-\-B\-I\-T\-\_\-\-B\-A\-N\-G\-E\-D\-\_\-\-S\-P\-I@{U\-S\-E\-\_\-\-B\-I\-T\-\_\-\-B\-A\-N\-G\-E\-D\-\_\-\-S\-P\-I}}
+\index{U\-S\-E\-\_\-\-B\-I\-T\-\_\-\-B\-A\-N\-G\-E\-D\-\_\-\-S\-P\-I@{U\-S\-E\-\_\-\-B\-I\-T\-\_\-\-B\-A\-N\-G\-E\-D\-\_\-\-S\-P\-I}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{U\-S\-E\-\_\-\-B\-I\-T\-\_\-\-B\-A\-N\-G\-E\-D\-\_\-\-S\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-E\-\_\-\-B\-I\-T\-\_\-\-B\-A\-N\-G\-E\-D\-\_\-\-S\-P\-I~{\bf false}}}\label{Atmega__Board__Detector_8ino_a561e6ef25cbccae64b01143c40c9ad69}
+
+
+\subsection{Function Documentation}
+\hypertarget{Atmega__Board__Detector_8ino_a7431366a2b20f775381b4433ce6841a7}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!get\-Fuse\-Bytes@{get\-Fuse\-Bytes}}
+\index{get\-Fuse\-Bytes@{get\-Fuse\-Bytes}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{get\-Fuse\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}void get\-Fuse\-Bytes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Atmega__Board__Detector_8ino_a7431366a2b20f775381b4433ce6841a7}
+\hypertarget{Atmega__Board__Detector_8ino_aa71c134dd9d74e2e7482f627469048a8}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!get\-Signature@{get\-Signature}}
+\index{get\-Signature@{get\-Signature}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{get\-Signature}]{\setlength{\rightskip}{0pt plus 5cm}void get\-Signature (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Atmega__Board__Detector_8ino_aa71c134dd9d74e2e7482f627469048a8}
+\hypertarget{Atmega__Board__Detector_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!loop@{loop}}
+\index{loop@{loop}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Atmega__Board__Detector_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Atmega__Board__Detector_8ino_af35dbdda9438dd13b4e6a50d96fa27b1}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!print\-Prog\-Str@{print\-Prog\-Str}}
+\index{print\-Prog\-Str@{print\-Prog\-Str}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{print\-Prog\-Str}]{\setlength{\rightskip}{0pt plus 5cm}void print\-Prog\-Str (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{Atmega__Board__Detector_8ino_af35dbdda9438dd13b4e6a50d96fa27b1}
+\hypertarget{Atmega__Board__Detector_8ino_a3494f6389f7ea38e13e4e9e07bb997f0}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!read\-Bootloader@{read\-Bootloader}}
+\index{read\-Bootloader@{read\-Bootloader}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{read\-Bootloader}]{\setlength{\rightskip}{0pt plus 5cm}void read\-Bootloader (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Atmega__Board__Detector_8ino_a3494f6389f7ea38e13e4e9e07bb997f0}
+\hypertarget{Atmega__Board__Detector_8ino_acc9003846b9893fd504e16f7dc01d11a}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!read\-Program@{read\-Program}}
+\index{read\-Program@{read\-Program}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{read\-Program}]{\setlength{\rightskip}{0pt plus 5cm}void read\-Program (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Atmega__Board__Detector_8ino_acc9003846b9893fd504e16f7dc01d11a}
+\hypertarget{Atmega__Board__Detector_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!setup@{setup}}
+\index{setup@{setup}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Atmega__Board__Detector_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Atmega__Board__Detector_8ino_aeab68f17dc686a2f7dc72ab2b712e464}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}typedef    \-\_\-\-\_\-attribute\-\_\-\-\_\-}}\label{Atmega__Board__Detector_8ino_aeab68f17dc686a2f7dc72ab2b712e464}
+\hypertarget{Atmega__Board__Detector_8ino_ae19697f5162bff99d761fa51490bd7ff}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!C\-L\-O\-C\-K\-O\-U\-T@{C\-L\-O\-C\-K\-O\-U\-T}}
+\index{C\-L\-O\-C\-K\-O\-U\-T@{C\-L\-O\-C\-K\-O\-U\-T}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{C\-L\-O\-C\-K\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf byte} C\-L\-O\-C\-K\-O\-U\-T = 9}}\label{Atmega__Board__Detector_8ino_ae19697f5162bff99d761fa51490bd7ff}
+\hypertarget{Atmega__Board__Detector_8ino_aaaab39242a7b1fd7494be8c54853b309}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!E\-N\-T\-E\-R\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S@{E\-N\-T\-E\-R\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S}}
+\index{E\-N\-T\-E\-R\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S@{E\-N\-T\-E\-R\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{E\-N\-T\-E\-R\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}const int E\-N\-T\-E\-R\-\_\-\-P\-R\-O\-G\-R\-A\-M\-M\-I\-N\-G\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S = 50}}\label{Atmega__Board__Detector_8ino_aaaab39242a7b1fd7494be8c54853b309}
+\hypertarget{Atmega__Board__Detector_8ino_a92c672ee796af9cd4e0c21a4304322a1}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!P\-R\-O\-G\-M\-E\-M@{P\-R\-O\-G\-M\-E\-M}}
+\index{P\-R\-O\-G\-M\-E\-M@{P\-R\-O\-G\-M\-E\-M}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{P\-R\-O\-G\-M\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf device\-Database\-Type} device\-Database \mbox{[}$\,$\mbox{]} P\-R\-O\-G\-M\-E\-M = \char`\"{}A\-Tmega\-B\-O\-O\-T\-\_\-168\-\_\-atmega328\char`\"{}}}\label{Atmega__Board__Detector_8ino_a92c672ee796af9cd4e0c21a4304322a1}
+\hypertarget{Atmega__Board__Detector_8ino_a802da4bdd8e165d19d8b7dce4ffb0eb2}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!R\-E\-S\-E\-T@{R\-E\-S\-E\-T}}
+\index{R\-E\-S\-E\-T@{R\-E\-S\-E\-T}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{R\-E\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf byte} R\-E\-S\-E\-T = 10}}\label{Atmega__Board__Detector_8ino_a802da4bdd8e165d19d8b7dce4ffb0eb2}
+\hypertarget{Atmega__Board__Detector_8ino_a3badd15d680e205979acf81af5aae7be}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!S\-C\-K@{S\-C\-K}}
+\index{S\-C\-K@{S\-C\-K}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{S\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf byte} S\-C\-K = 13}}\label{Atmega__Board__Detector_8ino_a3badd15d680e205979acf81af5aae7be}
+\hypertarget{Atmega__Board__Detector_8ino_a28e0492af3cb02370c5f928d74f60fd1}{\index{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}!Version@{Version}}
+\index{Version@{Version}!Atmega_Board_Detector.ino@{Atmega\-\_\-\-Board\-\_\-\-Detector.\-ino}}
+\subsubsection[{Version}]{\setlength{\rightskip}{0pt plus 5cm}const char Version\mbox{[}$\,$\mbox{]} = \char`\"{}1.\-20\char`\"{}}}\label{Atmega__Board__Detector_8ino_a28e0492af3cb02370c5f928d74f60fd1}

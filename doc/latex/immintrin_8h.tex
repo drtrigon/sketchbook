@@ -1,0 +1,55 @@
+\hypertarget{immintrin_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/immintrin.h File Reference}
+\label{immintrin_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/immintrin.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/immintrin.\-h}}
+}
+{\ttfamily \#include $<$mmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$xmmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$emmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$pmmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$tmmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$smmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$wmmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avxintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx2intrin.\-h$>$}\\*
+{\ttfamily \#include $<$bmiintrin.\-h$>$}\\*
+{\ttfamily \#include $<$bmi2intrin.\-h$>$}\\*
+{\ttfamily \#include $<$lzcntintrin.\-h$>$}\\*
+{\ttfamily \#include $<$fmaintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512fintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512vlintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512bwintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512cdintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512dqintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512vlbwintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512vldqintrin.\-h$>$}\\*
+{\ttfamily \#include $<$avx512erintrin.\-h$>$}\\*
+{\ttfamily \#include $<$pkuintrin.\-h$>$}\\*
+{\ttfamily \#include $<$rtmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$xtestintrin.\-h$>$}\\*
+{\ttfamily \#include $<$shaintrin.\-h$>$}\\*
+{\ttfamily \#include $<$fxsrintrin.\-h$>$}\\*
+{\ttfamily \#include $<$xsaveintrin.\-h$>$}\\*
+{\ttfamily \#include $<$xsaveoptintrin.\-h$>$}\\*
+{\ttfamily \#include $<$xsavecintrin.\-h$>$}\\*
+{\ttfamily \#include $<$xsavesintrin.\-h$>$}\\*
+{\ttfamily \#include $<$adxintrin.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{immintrin_8h_ad1cae0481f65ec5c509425d5b4ccc5c1}{\-\_\-mm256\-\_\-cvtps\-\_\-ph}(a, imm)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{immintrin_8h_ad1cae0481f65ec5c509425d5b4ccc5c1}{\index{immintrin.\-h@{immintrin.\-h}!\-\_\-mm256\-\_\-cvtps\-\_\-ph@{\-\_\-mm256\-\_\-cvtps\-\_\-ph}}
+\index{\-\_\-mm256\-\_\-cvtps\-\_\-ph@{\-\_\-mm256\-\_\-cvtps\-\_\-ph}!immintrin.h@{immintrin.\-h}}
+\subsubsection[{\-\_\-mm256\-\_\-cvtps\-\_\-ph}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm256\-\_\-cvtps\-\_\-ph(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)}}\label{immintrin_8h_ad1cae0481f65ec5c509425d5b4ccc5c1}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+ (\_\_m128i)\_\_builtin\_ia32\_vcvtps2ph256((\_\_v8sf)(\_\_m256)(a), (imm)); \})
+\end{DoxyCode}

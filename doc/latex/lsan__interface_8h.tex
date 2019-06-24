@@ -1,0 +1,93 @@
+\hypertarget{lsan__interface_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/sanitizer/lsan\-\_\-interface.h File Reference}
+\label{lsan__interface_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/lsan\-\_\-interface.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/lsan\-\_\-interface.\-h}}
+}
+{\ttfamily \#include $<$sanitizer/common\-\_\-interface\-\_\-defs.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lsan__interface_8h_ae804f2f29334d2ee281f2c4509faace3}{\-\_\-\-\_\-lsan\-\_\-disable} ()
+\item 
+void \hyperlink{lsan__interface_8h_ac1a62a9b16a30b6fe949de1410b3f5ac}{\-\_\-\-\_\-lsan\-\_\-enable} ()
+\item 
+void \hyperlink{lsan__interface_8h_a5e8c22ae7505982da2e4b349f5001ea2}{\-\_\-\-\_\-lsan\-\_\-ignore\-\_\-object} (const void $\ast$\hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p})
+\item 
+void \hyperlink{lsan__interface_8h_ab71fffbf81ee6d7a2d9f37da0d2b5c86}{\-\_\-\-\_\-lsan\-\_\-register\-\_\-root\-\_\-region} (const void $\ast$\hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{lsan__interface_8h_a613eaf370863593c635e102483af63e5}{\-\_\-\-\_\-lsan\-\_\-unregister\-\_\-root\-\_\-region} (const void $\ast$\hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{lsan__interface_8h_aa7f4162143cc577ad7603a83c819b32e}{\-\_\-\-\_\-lsan\-\_\-do\-\_\-leak\-\_\-check} ()
+\item 
+int \hyperlink{lsan__interface_8h_a2596c7dc2e332c0228b577506d8cfbb4}{\-\_\-\-\_\-lsan\-\_\-do\-\_\-recoverable\-\_\-leak\-\_\-check} ()
+\item 
+int \hyperlink{lsan__interface_8h_a2b33eff9bc50550556224cc6300abe61}{\-\_\-\-\_\-lsan\-\_\-is\-\_\-turned\-\_\-off} ()
+\item 
+const char $\ast$ \hyperlink{lsan__interface_8h_aab35b4f23f8560a14f86a5f9a8080826}{\-\_\-\-\_\-lsan\-\_\-default\-\_\-suppressions} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{lsan__interface_8h_aab35b4f23f8560a14f86a5f9a8080826}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-default\-\_\-suppressions@{\-\_\-\-\_\-lsan\-\_\-default\-\_\-suppressions}}
+\index{\-\_\-\-\_\-lsan\-\_\-default\-\_\-suppressions@{\-\_\-\-\_\-lsan\-\_\-default\-\_\-suppressions}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-default\-\_\-suppressions}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ \-\_\-\-\_\-lsan\-\_\-default\-\_\-suppressions (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_aab35b4f23f8560a14f86a5f9a8080826}
+\hypertarget{lsan__interface_8h_ae804f2f29334d2ee281f2c4509faace3}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-disable@{\-\_\-\-\_\-lsan\-\_\-disable}}
+\index{\-\_\-\-\_\-lsan\-\_\-disable@{\-\_\-\-\_\-lsan\-\_\-disable}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-disable}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-lsan\-\_\-disable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_ae804f2f29334d2ee281f2c4509faace3}
+\hypertarget{lsan__interface_8h_aa7f4162143cc577ad7603a83c819b32e}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-do\-\_\-leak\-\_\-check@{\-\_\-\-\_\-lsan\-\_\-do\-\_\-leak\-\_\-check}}
+\index{\-\_\-\-\_\-lsan\-\_\-do\-\_\-leak\-\_\-check@{\-\_\-\-\_\-lsan\-\_\-do\-\_\-leak\-\_\-check}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-do\-\_\-leak\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-lsan\-\_\-do\-\_\-leak\-\_\-check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_aa7f4162143cc577ad7603a83c819b32e}
+\hypertarget{lsan__interface_8h_a2596c7dc2e332c0228b577506d8cfbb4}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-do\-\_\-recoverable\-\_\-leak\-\_\-check@{\-\_\-\-\_\-lsan\-\_\-do\-\_\-recoverable\-\_\-leak\-\_\-check}}
+\index{\-\_\-\-\_\-lsan\-\_\-do\-\_\-recoverable\-\_\-leak\-\_\-check@{\-\_\-\-\_\-lsan\-\_\-do\-\_\-recoverable\-\_\-leak\-\_\-check}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-do\-\_\-recoverable\-\_\-leak\-\_\-check}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-lsan\-\_\-do\-\_\-recoverable\-\_\-leak\-\_\-check (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_a2596c7dc2e332c0228b577506d8cfbb4}
+\hypertarget{lsan__interface_8h_ac1a62a9b16a30b6fe949de1410b3f5ac}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-enable@{\-\_\-\-\_\-lsan\-\_\-enable}}
+\index{\-\_\-\-\_\-lsan\-\_\-enable@{\-\_\-\-\_\-lsan\-\_\-enable}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-enable}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-lsan\-\_\-enable (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_ac1a62a9b16a30b6fe949de1410b3f5ac}
+\hypertarget{lsan__interface_8h_a5e8c22ae7505982da2e4b349f5001ea2}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-ignore\-\_\-object@{\-\_\-\-\_\-lsan\-\_\-ignore\-\_\-object}}
+\index{\-\_\-\-\_\-lsan\-\_\-ignore\-\_\-object@{\-\_\-\-\_\-lsan\-\_\-ignore\-\_\-object}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-ignore\-\_\-object}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-lsan\-\_\-ignore\-\_\-object (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_a5e8c22ae7505982da2e4b349f5001ea2}
+\hypertarget{lsan__interface_8h_a2b33eff9bc50550556224cc6300abe61}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-is\-\_\-turned\-\_\-off@{\-\_\-\-\_\-lsan\-\_\-is\-\_\-turned\-\_\-off}}
+\index{\-\_\-\-\_\-lsan\-\_\-is\-\_\-turned\-\_\-off@{\-\_\-\-\_\-lsan\-\_\-is\-\_\-turned\-\_\-off}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-is\-\_\-turned\-\_\-off}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-lsan\-\_\-is\-\_\-turned\-\_\-off (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_a2b33eff9bc50550556224cc6300abe61}
+\hypertarget{lsan__interface_8h_ab71fffbf81ee6d7a2d9f37da0d2b5c86}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-register\-\_\-root\-\_\-region@{\-\_\-\-\_\-lsan\-\_\-register\-\_\-root\-\_\-region}}
+\index{\-\_\-\-\_\-lsan\-\_\-register\-\_\-root\-\_\-region@{\-\_\-\-\_\-lsan\-\_\-register\-\_\-root\-\_\-region}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-register\-\_\-root\-\_\-region}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-lsan\-\_\-register\-\_\-root\-\_\-region (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{p, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_ab71fffbf81ee6d7a2d9f37da0d2b5c86}
+\hypertarget{lsan__interface_8h_a613eaf370863593c635e102483af63e5}{\index{lsan\-\_\-interface.\-h@{lsan\-\_\-interface.\-h}!\-\_\-\-\_\-lsan\-\_\-unregister\-\_\-root\-\_\-region@{\-\_\-\-\_\-lsan\-\_\-unregister\-\_\-root\-\_\-region}}
+\index{\-\_\-\-\_\-lsan\-\_\-unregister\-\_\-root\-\_\-region@{\-\_\-\-\_\-lsan\-\_\-unregister\-\_\-root\-\_\-region}!lsan_interface.h@{lsan\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-lsan\-\_\-unregister\-\_\-root\-\_\-region}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-lsan\-\_\-unregister\-\_\-root\-\_\-region (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{p, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{lsan__interface_8h_a613eaf370863593c635e102483af63e5}

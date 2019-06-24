@@ -1,0 +1,50 @@
+\hypertarget{mcp3422_8c}{\section{wiring\-Pi/wiring\-Pi/mcp3422.c File Reference}
+\label{mcp3422_8c}\index{wiring\-Pi/wiring\-Pi/mcp3422.\-c@{wiring\-Pi/wiring\-Pi/mcp3422.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi\-I2\-C.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}mcp3422.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{mcp3422_8c_a3880992b41fd1ad89e3dd9ff862b7470}{wait\-For\-Conversion} (int fd, unsigned char $\ast$\hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}{buffer}, int \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})
+\item 
+int \hyperlink{mcp3422_8c_a97ceb8e6f021a2f59a7c4873646fadce}{my\-Analog\-Read} (struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct} $\ast$node, int chan)
+\item 
+int \hyperlink{mcp3422_8c_a9a1edac949cc6b3e04e9f59ab0ce9684}{mcp3422\-Setup} (int pin\-Base, int i2c\-Address, int sample\-Rate, int \hyperlink{Due__AS7265X__Spectrometer_8ino_a5c9c0f59d06b7360c990c3f49be81fa7}{gain})
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mcp3422_8c_a9a1edac949cc6b3e04e9f59ab0ce9684}{\index{mcp3422.\-c@{mcp3422.\-c}!mcp3422\-Setup@{mcp3422\-Setup}}
+\index{mcp3422\-Setup@{mcp3422\-Setup}!mcp3422.c@{mcp3422.\-c}}
+\subsubsection[{mcp3422\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int mcp3422\-Setup (
+\begin{DoxyParamCaption}
+\item[{int}]{pin\-Base, }
+\item[{int}]{i2c\-Address, }
+\item[{int}]{sample\-Rate, }
+\item[{int}]{gain}
+\end{DoxyParamCaption}
+)}}\label{mcp3422_8c_a9a1edac949cc6b3e04e9f59ab0ce9684}
+\hypertarget{mcp3422_8c_a97ceb8e6f021a2f59a7c4873646fadce}{\index{mcp3422.\-c@{mcp3422.\-c}!my\-Analog\-Read@{my\-Analog\-Read}}
+\index{my\-Analog\-Read@{my\-Analog\-Read}!mcp3422.c@{mcp3422.\-c}}
+\subsubsection[{my\-Analog\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int my\-Analog\-Read (
+\begin{DoxyParamCaption}
+\item[{struct {\bf wiring\-Pi\-Node\-Struct} $\ast$}]{node, }
+\item[{int}]{chan}
+\end{DoxyParamCaption}
+)}}\label{mcp3422_8c_a97ceb8e6f021a2f59a7c4873646fadce}
+\hypertarget{mcp3422_8c_a3880992b41fd1ad89e3dd9ff862b7470}{\index{mcp3422.\-c@{mcp3422.\-c}!wait\-For\-Conversion@{wait\-For\-Conversion}}
+\index{wait\-For\-Conversion@{wait\-For\-Conversion}!mcp3422.c@{mcp3422.\-c}}
+\subsubsection[{wait\-For\-Conversion}]{\setlength{\rightskip}{0pt plus 5cm}void wait\-For\-Conversion (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{unsigned char $\ast$}]{buffer, }
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)}}\label{mcp3422_8c_a3880992b41fd1ad89e3dd9ff862b7470}

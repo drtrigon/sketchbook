@@ -1,0 +1,154 @@
+\hypertarget{USBtxEx_8ino}{\section{Uno\-\_\-ppm\-U\-S\-Bjoy/\-U\-S\-Btx\-Ex/\-U\-S\-Btx\-Ex.ino File Reference}
+\label{USBtxEx_8ino}\index{Uno\-\_\-ppm\-U\-S\-Bjoy/\-U\-S\-Btx\-Ex/\-U\-S\-Btx\-Ex.\-ino@{Uno\-\_\-ppm\-U\-S\-Bjoy/\-U\-S\-Btx\-Ex/\-U\-S\-Btx\-Ex.\-ino}}
+}
+{\ttfamily \#include $<$H\-I\-D\-Joy.\-h$>$}\\*
+{\ttfamily \#include $<$Rc\-Trainer.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Rc\-Trainer \hyperlink{USBtxEx_8ino_a936a44d3f93ba7d2286b7bbb37a41ca8}{tx} (1)
+\item 
+void \hyperlink{USBtxEx_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{USBtxEx_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+H\-I\-D\-Joy \hyperlink{USBtxEx_8ino_a007be0d4a5f1eeab33bfa3d8cd1a63a3}{joy}
+\item 
+int \hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode} = 0
+\item 
+boolean \hyperlink{USBtxEx_8ino_ab2140d645e3e795b240cdf70b7bc7c1a}{ledon} = \hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\item 
+long \hyperlink{USBtxEx_8ino_a7839ec1641f6f4c0aa6790e095b8e128}{lastmillisbtn} = \hyperlink{wiringPi_8h_a941a22cb7e0f6429fe40f91e83ead3d9}{millis}()
+\item 
+long \hyperlink{USBtxEx_8ino_a7f5b47c849eef63c79b4d9bb7d7f8296}{lastmillisblink} = \hyperlink{wiringPi_8h_a941a22cb7e0f6429fe40f91e83ead3d9}{millis}()
+\item 
+int \hyperlink{USBtxEx_8ino_aa6fec60ec2aa8c5a5bafed3a065a138d}{lxul} = 1900
+\item 
+int \hyperlink{USBtxEx_8ino_a55b62414fa89038f95180ac7a687aefa}{lyul} = 1900
+\item 
+int \hyperlink{USBtxEx_8ino_a8b39276be6e96eca17230ee5b3c79dca}{rxul} = 1105
+\item 
+int \hyperlink{USBtxEx_8ino_acf351f756f45d66d2050da5f1fc42b60}{ryul} = 1900
+\item 
+int \hyperlink{USBtxEx_8ino_a4292e7f32256a5c878f8a7947ca07e16}{lxuh} = 1105
+\item 
+int \hyperlink{USBtxEx_8ino_ac705af2d3b08651b36ecd15e80ba2922}{lyuh} = 1105
+\item 
+int \hyperlink{USBtxEx_8ino_abfea8543614f15a6f21030432e388719}{rxuh} = 1900
+\item 
+int \hyperlink{USBtxEx_8ino_ab2ce2b094b3a0c5b7e13c7bae3dc2c76}{ryuh} = 1105
+\item 
+int \hyperlink{USBtxEx_8ino_af3d48f5fe6d1fec0c31b6d3482302acf}{lxtl} = 0
+\item 
+int \hyperlink{USBtxEx_8ino_a0b6d889f0afe0c143e19adafb28c4e64}{lytl} = 0
+\item 
+int \hyperlink{USBtxEx_8ino_aa61ea55df1be91d382798aab04625be1}{rxtl} = 0
+\item 
+int \hyperlink{USBtxEx_8ino_a6be04dbd0af0f5ed945df3621b70580f}{rytl} = 0
+\item 
+int \hyperlink{USBtxEx_8ino_aa3e6d73d993d921b550ccb402597f15b}{lxth} = 0
+\item 
+int \hyperlink{USBtxEx_8ino_a6ca09c5953ce45a5669119a3bc7877ae}{lyth} = 0
+\item 
+int \hyperlink{USBtxEx_8ino_a4a3663c7b40778146199b115d01ebf95}{rxth} = 0
+\item 
+int \hyperlink{USBtxEx_8ino_a8599d24fb59a5fe2202e41fe60fdfc3a}{ryth} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{USBtxEx_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!loop@{loop}}
+\index{loop@{loop}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{USBtxEx_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{USBtxEx_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!setup@{setup}}
+\index{setup@{setup}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{USBtxEx_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{USBtxEx_8ino_a936a44d3f93ba7d2286b7bbb37a41ca8}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!tx@{tx}}
+\index{tx@{tx}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{tx}]{\setlength{\rightskip}{0pt plus 5cm}Rc\-Trainer tx (
+\begin{DoxyParamCaption}
+\item[{1}]{}
+\end{DoxyParamCaption}
+)}}\label{USBtxEx_8ino_a936a44d3f93ba7d2286b7bbb37a41ca8}
+
+
+\subsection{Variable Documentation}
+\hypertarget{USBtxEx_8ino_a007be0d4a5f1eeab33bfa3d8cd1a63a3}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!joy@{joy}}
+\index{joy@{joy}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{joy}]{\setlength{\rightskip}{0pt plus 5cm}H\-I\-D\-Joy joy}}\label{USBtxEx_8ino_a007be0d4a5f1eeab33bfa3d8cd1a63a3}
+\hypertarget{USBtxEx_8ino_a7f5b47c849eef63c79b4d9bb7d7f8296}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lastmillisblink@{lastmillisblink}}
+\index{lastmillisblink@{lastmillisblink}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lastmillisblink}]{\setlength{\rightskip}{0pt plus 5cm}long lastmillisblink = {\bf millis}()}}\label{USBtxEx_8ino_a7f5b47c849eef63c79b4d9bb7d7f8296}
+\hypertarget{USBtxEx_8ino_a7839ec1641f6f4c0aa6790e095b8e128}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lastmillisbtn@{lastmillisbtn}}
+\index{lastmillisbtn@{lastmillisbtn}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lastmillisbtn}]{\setlength{\rightskip}{0pt plus 5cm}long lastmillisbtn = {\bf millis}()}}\label{USBtxEx_8ino_a7839ec1641f6f4c0aa6790e095b8e128}
+\hypertarget{USBtxEx_8ino_ab2140d645e3e795b240cdf70b7bc7c1a}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!ledon@{ledon}}
+\index{ledon@{ledon}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{ledon}]{\setlength{\rightskip}{0pt plus 5cm}boolean ledon = {\bf false}}}\label{USBtxEx_8ino_ab2140d645e3e795b240cdf70b7bc7c1a}
+\hypertarget{USBtxEx_8ino_aa3e6d73d993d921b550ccb402597f15b}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lxth@{lxth}}
+\index{lxth@{lxth}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lxth}]{\setlength{\rightskip}{0pt plus 5cm}int lxth = 0}}\label{USBtxEx_8ino_aa3e6d73d993d921b550ccb402597f15b}
+\hypertarget{USBtxEx_8ino_af3d48f5fe6d1fec0c31b6d3482302acf}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lxtl@{lxtl}}
+\index{lxtl@{lxtl}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lxtl}]{\setlength{\rightskip}{0pt plus 5cm}int lxtl = 0}}\label{USBtxEx_8ino_af3d48f5fe6d1fec0c31b6d3482302acf}
+\hypertarget{USBtxEx_8ino_a4292e7f32256a5c878f8a7947ca07e16}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lxuh@{lxuh}}
+\index{lxuh@{lxuh}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lxuh}]{\setlength{\rightskip}{0pt plus 5cm}int lxuh = 1105}}\label{USBtxEx_8ino_a4292e7f32256a5c878f8a7947ca07e16}
+\hypertarget{USBtxEx_8ino_aa6fec60ec2aa8c5a5bafed3a065a138d}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lxul@{lxul}}
+\index{lxul@{lxul}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lxul}]{\setlength{\rightskip}{0pt plus 5cm}int lxul = 1900}}\label{USBtxEx_8ino_aa6fec60ec2aa8c5a5bafed3a065a138d}
+\hypertarget{USBtxEx_8ino_a6ca09c5953ce45a5669119a3bc7877ae}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lyth@{lyth}}
+\index{lyth@{lyth}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lyth}]{\setlength{\rightskip}{0pt plus 5cm}int lyth = 0}}\label{USBtxEx_8ino_a6ca09c5953ce45a5669119a3bc7877ae}
+\hypertarget{USBtxEx_8ino_a0b6d889f0afe0c143e19adafb28c4e64}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lytl@{lytl}}
+\index{lytl@{lytl}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lytl}]{\setlength{\rightskip}{0pt plus 5cm}int lytl = 0}}\label{USBtxEx_8ino_a0b6d889f0afe0c143e19adafb28c4e64}
+\hypertarget{USBtxEx_8ino_ac705af2d3b08651b36ecd15e80ba2922}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lyuh@{lyuh}}
+\index{lyuh@{lyuh}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lyuh}]{\setlength{\rightskip}{0pt plus 5cm}int lyuh = 1105}}\label{USBtxEx_8ino_ac705af2d3b08651b36ecd15e80ba2922}
+\hypertarget{USBtxEx_8ino_a55b62414fa89038f95180ac7a687aefa}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!lyul@{lyul}}
+\index{lyul@{lyul}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{lyul}]{\setlength{\rightskip}{0pt plus 5cm}int lyul = 1900}}\label{USBtxEx_8ino_a55b62414fa89038f95180ac7a687aefa}
+\hypertarget{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!mode@{mode}}
+\index{mode@{mode}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{mode}]{\setlength{\rightskip}{0pt plus 5cm}int mode = 0}}\label{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}
+\hypertarget{USBtxEx_8ino_a4a3663c7b40778146199b115d01ebf95}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!rxth@{rxth}}
+\index{rxth@{rxth}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{rxth}]{\setlength{\rightskip}{0pt plus 5cm}int rxth = 0}}\label{USBtxEx_8ino_a4a3663c7b40778146199b115d01ebf95}
+\hypertarget{USBtxEx_8ino_aa61ea55df1be91d382798aab04625be1}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!rxtl@{rxtl}}
+\index{rxtl@{rxtl}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{rxtl}]{\setlength{\rightskip}{0pt plus 5cm}int rxtl = 0}}\label{USBtxEx_8ino_aa61ea55df1be91d382798aab04625be1}
+\hypertarget{USBtxEx_8ino_abfea8543614f15a6f21030432e388719}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!rxuh@{rxuh}}
+\index{rxuh@{rxuh}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{rxuh}]{\setlength{\rightskip}{0pt plus 5cm}int rxuh = 1900}}\label{USBtxEx_8ino_abfea8543614f15a6f21030432e388719}
+\hypertarget{USBtxEx_8ino_a8b39276be6e96eca17230ee5b3c79dca}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!rxul@{rxul}}
+\index{rxul@{rxul}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{rxul}]{\setlength{\rightskip}{0pt plus 5cm}int rxul = 1105}}\label{USBtxEx_8ino_a8b39276be6e96eca17230ee5b3c79dca}
+\hypertarget{USBtxEx_8ino_a8599d24fb59a5fe2202e41fe60fdfc3a}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!ryth@{ryth}}
+\index{ryth@{ryth}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{ryth}]{\setlength{\rightskip}{0pt plus 5cm}int ryth = 0}}\label{USBtxEx_8ino_a8599d24fb59a5fe2202e41fe60fdfc3a}
+\hypertarget{USBtxEx_8ino_a6be04dbd0af0f5ed945df3621b70580f}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!rytl@{rytl}}
+\index{rytl@{rytl}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{rytl}]{\setlength{\rightskip}{0pt plus 5cm}int rytl = 0}}\label{USBtxEx_8ino_a6be04dbd0af0f5ed945df3621b70580f}
+\hypertarget{USBtxEx_8ino_ab2ce2b094b3a0c5b7e13c7bae3dc2c76}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!ryuh@{ryuh}}
+\index{ryuh@{ryuh}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{ryuh}]{\setlength{\rightskip}{0pt plus 5cm}int ryuh = 1105}}\label{USBtxEx_8ino_ab2ce2b094b3a0c5b7e13c7bae3dc2c76}
+\hypertarget{USBtxEx_8ino_acf351f756f45d66d2050da5f1fc42b60}{\index{U\-S\-Btx\-Ex.\-ino@{U\-S\-Btx\-Ex.\-ino}!ryul@{ryul}}
+\index{ryul@{ryul}!USBtxEx.ino@{U\-S\-Btx\-Ex.\-ino}}
+\subsubsection[{ryul}]{\setlength{\rightskip}{0pt plus 5cm}int ryul = 1900}}\label{USBtxEx_8ino_acf351f756f45d66d2050da5f1fc42b60}

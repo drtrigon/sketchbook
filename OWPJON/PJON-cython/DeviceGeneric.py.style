@@ -1,0 +1,27 @@
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:19:80: E501 line too long (111 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:32:80: E501 line too long (96 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:47:80: E501 line too long (92 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:61:80: E501 line too long (80 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:63:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:63:1: D101 Missing docstring in public class
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:66:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:66:1: D101 Missing docstring in public class
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:82:80: E501 line too long (103 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:84:80: E501 line too long (87 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:86:80: E501 line too long (90 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:105:80: E501 line too long (85 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:118:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:138:80: E501 line too long (111 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/DeviceGeneric.py:148:80: E501 line too long (96 > 79 characters)
+2     D101 Missing docstring in public class
+2     E302 expected 2 blank lines, found 1
+11    E501 line too long (111 > 79 characters)
+0.864      seconds elapsed
+130        total logical lines processed
+150        logical lines processed per second
+163        total physical lines processed
+188        physical lines processed per second
+839        total tokens processed
+970        tokens processed per second
+1          total files processed
+1          files processed per second

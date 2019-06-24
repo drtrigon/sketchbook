@@ -1,0 +1,334 @@
+\hypertarget{OWP__DG__1w-adaptor_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.ino File Reference}
+\label{OWP__DG__1w-adaptor_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+}
+
+
+Example-\/\-Code for Adaptor Device to connect Dallas/\-Maxim D\-S2438 and D\-S18x20 1wire Slaves.  
+
+
+{\ttfamily \#include $<$One\-Wire.\-h$>$}\\*
+{\ttfamily \#include $<$D\-S2438.\-h$>$}\\*
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a84f1ead330bbcc83a63929c4726080d7}{S\-E\-N\-S\-O\-R}~\char`\"{}owp\-:1w\-:v1\char`\"{}
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_aff6283040066cbe0e6d17cbcd83abffc}{O\-W\-P\-J\-O\-N\-I\-D}~42
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a56e661b1bfea8fcdd1bc25c6cdfe2a73}{O\-W\-P\-J\-O\-N\-P\-I\-N}~4
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a394c6366a35129c8aece2e331c3263d5}{O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N}~2
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a35be658482f544255f771c4c69982391}{\-\_\-\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}~8
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}~0x01
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a3563b296d5f60635a1256e8a12261d74}{R\-E\-A\-D\-\_\-\-V\-C\-C}~0x11
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_ac8c23082885adeec4834469b64e00bb9}{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}~0x12
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_ada74e7db007a68e763f20c17f2985356}{R\-E\-A\-D}~0x21
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_aa10f470e996d0f51210d24f442d25e1e}{W\-R\-I\-T\-E}~0x22
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a9418b096dba157494f523dc01b82a760}{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}~0x32
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a7dda9dd96643c5e273bce5f237f6c3c9}{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-T\-E\-M\-P}~0x41
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a63f32f386170e4065b5fdd7a1a8521cf}{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-A}~0x42
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a0cc83db22607312d835fd8da13968847}{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-B}~0x43
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a4e819c3b3fde201781ca4a9a1797c188}{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-T\-E\-M\-P}~0x44
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a755ae07d8f76c19ddc3d8b1cc3a753c2}{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-R\-O\-M}~0x4\-A
+\item 
+\#define \hyperlink{OWP__DG__1w-adaptor_8ino_a7ca8c60e0479524189c52f6179a18244}{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-R\-O\-M}~0x4\-B
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+One\-Wire \hyperlink{OWP__DG__1w-adaptor_8ino_a53c83fb23c85b9fcc2903da7910645dc}{ow} (\hyperlink{OWP__DG__1w-adaptor_8ino_a394c6366a35129c8aece2e331c3263d5}{O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N})
+\item 
+P\-J\-O\-N$<$ Software\-Bit\-Bang $>$ \hyperlink{OWP__DG__1w-adaptor_8ino_a5b555b33c74db25f14ae6a0906d55596}{bus} (\hyperlink{OWP__DG__Si7021__thermo-hygrometer_8ino_aff6283040066cbe0e6d17cbcd83abffc}{O\-W\-P\-J\-O\-N\-I\-D})
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{OWP__DG__1w-adaptor_8ino_a7280c6634da12135cdb3ff5645c34e28}{discover\-One\-Wire\-Devices} (const One\-Wire \&\hyperlink{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{ds}, const uint8\-\_\-t family=\hyperlink{stddef_8h_a070d2ce7b6bb7e5c05602aa8c308d0c4}{N\-U\-L\-L})
+\item 
+void \hyperlink{OWP__DG__1w-adaptor_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWP__DG__1w-adaptor_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{OWP__DG__1w-adaptor_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{OWP__DG__1w-adaptor_8ino_a0b3195c3893f02cb1b80d878b89549d6}{read\-Vcc} ()
+\item 
+float \hyperlink{OWP__DG__1w-adaptor_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{read\-Temp} (void)
+\item 
+float \hyperlink{OWP__DG__1w-adaptor_8ino_a871ed6a41673436aa85b1c06d1034594}{read\-D\-S18x20} (const One\-Wire \hyperlink{OWRain1_8ino_af75456870b9486275b406e13b003fb11}{ds}, const \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{OWP__DG__1w-adaptor_8ino_a02235b4e96743403348a58d554caa3dc}{mem\-\_\-buffer} \mbox{[}256\mbox{]}
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr} \mbox{[}8\mbox{]}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{OWP__DG__1w-adaptor_8ino_ac6c5f6800825a23136e17911f1fe95fc}{D\-S2438\-\_\-\-E\-N\-A\-B\-L\-E} = \hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{OWP__DG__1w-adaptor_8ino_a7adb309e847ab8e7bc2d33c272ae0330}{D\-S2438\-\_\-addr} \mbox{[}8\mbox{]}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{OWP__DG__1w-adaptor_8ino_a868bfbc1df5a872fa1d0ad3e28281840}{D\-S18x20\-\_\-\-E\-N\-A\-B\-L\-E} = \hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{OWP__DG__1w-adaptor_8ino_a3dc83f7f3aaaf79eea4271a94aa6995d}{D\-S18x20\-\_\-addr} \mbox{[}8\mbox{]}
+\item 
+D\-S2438 \hyperlink{OWH__DS2438__battMon__Test_8ino_ab30c05f5b0dc2426f77bf9e5e1de8508}{ds2438} \& \hyperlink{OWP__DG__1w-adaptor_8ino_a6b4e7e842c912b39dbbaca4973ad2f52}{ow}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Example-\/\-Code for Adaptor Device to connect Dallas/\-Maxim D\-S2438 and D\-S18x20 1wire Slaves. \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/02 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0 \begin{DoxyItemize}
+\item first version derived from \hyperlink{ARDUINO_2Local_2SoftwareBitBang_2DeviceGeneric_2DeviceGeneric_8ino}{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Device\-Generic/\-Device\-Generic.\-ino} using Arduino One\-Wire docu and D\-S2438 Arduino One\-Wire Library\end{DoxyItemize}
+\hyperlink{ARDUINO_2Local_2SoftwareBitBang_2DeviceGeneric_2DeviceGeneric_8ino}{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Device\-Generic/\-Device\-Generic.\-ino} 
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See Also}
+\href{https://playground.arduino.cc/Learning/OneWire}{\tt https\-://playground.\-arduino.\-cc/\-Learning/\-One\-Wire} 
+
+\href{https://github.com/jbechter/arduino-onewire-DS2438/blob/master/examples/DS2438TemperatureAndVoltage/DS2438TemperatureAndVoltage.ino}{\tt https\-://github.\-com/jbechter/arduino-\/onewire-\/\-D\-S2438/blob/master/examples/\-D\-S2438\-Temperature\-And\-Voltage/\-D\-S2438\-Temperature\-And\-Voltage.\-ino} 
+
+\href{https://cdn.shopify.com/s/files/1/0164/3524/files/MultiSensor_Manual_v1.5.pdf?15845834050373852166}{\tt https\-://cdn.\-shopify.\-com/s/files/1/0164/3524/files/\-Multi\-Sensor\-\_\-\-Manual\-\_\-v1.\-5.\-pdf?15845834050373852166}
+\end{DoxySeeAlso}
+\begin{DoxyVerb}* OneWire PJON Generic "OWPG" scheme:
+*   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*
+* Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+*   ID 42: Nano Test Device on outdoor SWBB bus (testing)
+*
+* Pinout (Uno, Nano):
+*   1wire PJON data bus (OWPJON SWBB):
+*        1WIRE DATA    -> Arduino Pin D12
+*        GND black     -> Arduino GND
+*   1wire Dallas/Maxim data bus (MicroLAN):
+*        1WIRE DATA    -> Arduino Pin D2
+*   A 4.7k pull-up resistor must be connected to the 1-wire bus (Pin D2).
+*   Needs a weak pull-up (that the uP cannot provide).
+*
+* Example sending READ_DS... commands to device id 42:
+* $ printf "\x4A" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py BBBBBBBB
+* 38, 0, 0, 215, 1, 0, 0, 77
+* $ printf "\x4B" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py BBBBBBBB
+* 40, 66, 243, 63, 5, 0, 0, 10
+* $ printf "\x41" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+* 23.03125,
+* $ printf "\x42" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+* 1.690000057220459,
+* $ printf "\x43" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+* 4.590000152587891,
+* $ printf "\x44" | ./owpshell - - 42 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+* 27.125,
+* More info can be found in @ref OWPJON/README.md. Confer also the docu of
+* following files for info about tests on Ubuntu or Raspberry Pi Server (owpshell):
+*   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*
+* Using on (minimal/raw) atmega328 w. 16MHz oscil.
+*   use Uno with ArduinoISP Example and "Arduino as ISP"
+*   connect (like attiny85) for ISP (SPI) programming, see e.g.
+*     http://www.gammon.com.au/breadboard
+*     https://github.com/nickgammon/arduino_sketches
+*     (for debugging see "Chip not detected", "Alternate clock source")
+*   select "Arduino/Genuino Uno" board and Tools > Burn Bootloader
+*   then compile and upload sketch with (Upload button doesn't work)
+*     Sketch > Upload Using Programmer
+*
+* Thanks to:
+* gioblu - PJON 11.0 and support
+*          @see https://www.pjon.org/
+*          @see https://github.com/gioblu/PJON
+* fredilarsen - support
+* \end{DoxyVerb}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a35be658482f544255f771c4c69982391}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!\-\_\-\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N@{\-\_\-\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}}
+\index{\-\_\-\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N@{\-\_\-\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{\-\_\-\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N~8}}\label{OWP__DG__1w-adaptor_8ino_a35be658482f544255f771c4c69982391}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a394c6366a35129c8aece2e331c3263d5}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N@{O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N}}
+\index{O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N@{O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N~2}}\label{OWP__DG__1w-adaptor_8ino_a394c6366a35129c8aece2e331c3263d5}
+\hypertarget{OWP__DG__1w-adaptor_8ino_aff6283040066cbe0e6d17cbcd83abffc}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!O\-W\-P\-J\-O\-N\-I\-D@{O\-W\-P\-J\-O\-N\-I\-D}}
+\index{O\-W\-P\-J\-O\-N\-I\-D@{O\-W\-P\-J\-O\-N\-I\-D}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{O\-W\-P\-J\-O\-N\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-P\-J\-O\-N\-I\-D~42}}\label{OWP__DG__1w-adaptor_8ino_aff6283040066cbe0e6d17cbcd83abffc}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a56e661b1bfea8fcdd1bc25c6cdfe2a73}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!O\-W\-P\-J\-O\-N\-P\-I\-N@{O\-W\-P\-J\-O\-N\-P\-I\-N}}
+\index{O\-W\-P\-J\-O\-N\-P\-I\-N@{O\-W\-P\-J\-O\-N\-P\-I\-N}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{O\-W\-P\-J\-O\-N\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-P\-J\-O\-N\-P\-I\-N~4}}\label{OWP__DG__1w-adaptor_8ino_a56e661b1bfea8fcdd1bc25c6cdfe2a73}
+\hypertarget{OWP__DG__1w-adaptor_8ino_ada74e7db007a68e763f20c17f2985356}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D@{R\-E\-A\-D}}
+\index{R\-E\-A\-D@{R\-E\-A\-D}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D~0x21}}\label{OWP__DG__1w-adaptor_8ino_ada74e7db007a68e763f20c17f2985356}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a7ca8c60e0479524189c52f6179a18244}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-R\-O\-M@{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-R\-O\-M}}
+\index{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-R\-O\-M@{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-R\-O\-M}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-R\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-R\-O\-M~0x4\-B}}\label{OWP__DG__1w-adaptor_8ino_a7ca8c60e0479524189c52f6179a18244}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a4e819c3b3fde201781ca4a9a1797c188}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-T\-E\-M\-P}}
+\index{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-T\-E\-M\-P}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-T\-E\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-D\-S18x20\-\_\-\-T\-E\-M\-P~0x44}}\label{OWP__DG__1w-adaptor_8ino_a4e819c3b3fde201781ca4a9a1797c188}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a63f32f386170e4065b5fdd7a1a8521cf}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-A@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-A}}
+\index{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-A@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-A}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-A~0x42}}\label{OWP__DG__1w-adaptor_8ino_a63f32f386170e4065b5fdd7a1a8521cf}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a0cc83db22607312d835fd8da13968847}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-B@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-B}}
+\index{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-B@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-B}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-C\-H\-B~0x43}}\label{OWP__DG__1w-adaptor_8ino_a0cc83db22607312d835fd8da13968847}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a755ae07d8f76c19ddc3d8b1cc3a753c2}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-R\-O\-M@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-R\-O\-M}}
+\index{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-R\-O\-M@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-R\-O\-M}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-R\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-R\-O\-M~0x4\-A}}\label{OWP__DG__1w-adaptor_8ino_a755ae07d8f76c19ddc3d8b1cc3a753c2}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a7dda9dd96643c5e273bce5f237f6c3c9}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-T\-E\-M\-P}}
+\index{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-T\-E\-M\-P}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-T\-E\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-D\-S2438\-\_\-\-T\-E\-M\-P~0x41}}\label{OWP__DG__1w-adaptor_8ino_a7dda9dd96643c5e273bce5f237f6c3c9}
+\hypertarget{OWP__DG__1w-adaptor_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}}
+\index{R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-I\-N\-F\-O~0x01}}\label{OWP__DG__1w-adaptor_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}
+\hypertarget{OWP__DG__1w-adaptor_8ino_ac8c23082885adeec4834469b64e00bb9}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}}
+\index{R\-E\-A\-D\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-T\-E\-M\-P~0x12}}\label{OWP__DG__1w-adaptor_8ino_ac8c23082885adeec4834469b64e00bb9}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a3563b296d5f60635a1256e8a12261d74}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!R\-E\-A\-D\-\_\-\-V\-C\-C@{R\-E\-A\-D\-\_\-\-V\-C\-C}}
+\index{R\-E\-A\-D\-\_\-\-V\-C\-C@{R\-E\-A\-D\-\_\-\-V\-C\-C}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-V\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-V\-C\-C~0x11}}\label{OWP__DG__1w-adaptor_8ino_a3563b296d5f60635a1256e8a12261d74}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a84f1ead330bbcc83a63929c4726080d7}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}}
+\index{S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{S\-E\-N\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-N\-S\-O\-R~\char`\"{}owp\-:1w\-:v1\char`\"{}}}\label{OWP__DG__1w-adaptor_8ino_a84f1ead330bbcc83a63929c4726080d7}
+\hypertarget{OWP__DG__1w-adaptor_8ino_aa10f470e996d0f51210d24f442d25e1e}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!W\-R\-I\-T\-E@{W\-R\-I\-T\-E}}
+\index{W\-R\-I\-T\-E@{W\-R\-I\-T\-E}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{W\-R\-I\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-R\-I\-T\-E~0x22}}\label{OWP__DG__1w-adaptor_8ino_aa10f470e996d0f51210d24f442d25e1e}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a9418b096dba157494f523dc01b82a760}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!W\-R\-I\-T\-E\-\_\-\-C\-A\-L@{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}}
+\index{W\-R\-I\-T\-E\-\_\-\-C\-A\-L@{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-R\-I\-T\-E\-\_\-\-C\-A\-L~0x32}}\label{OWP__DG__1w-adaptor_8ino_a9418b096dba157494f523dc01b82a760}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a5b555b33c74db25f14ae6a0906d55596}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!bus@{bus}}
+\index{bus@{bus}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Software\-Bit\-Bang$>$ bus (
+\begin{DoxyParamCaption}
+\item[{{\bf O\-W\-P\-J\-O\-N\-I\-D}}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_a5b555b33c74db25f14ae6a0906d55596}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a7280c6634da12135cdb3ff5645c34e28}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!discover\-One\-Wire\-Devices@{discover\-One\-Wire\-Devices}}
+\index{discover\-One\-Wire\-Devices@{discover\-One\-Wire\-Devices}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{discover\-One\-Wire\-Devices}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} discover\-One\-Wire\-Devices (
+\begin{DoxyParamCaption}
+\item[{const One\-Wire \&}]{ds, }
+\item[{const uint8\-\_\-t}]{family = {\ttfamily {\bf N\-U\-L\-L}}}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_a7280c6634da12135cdb3ff5645c34e28}
+\hypertarget{OWP__DG__1w-adaptor_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a53c83fb23c85b9fcc2903da7910645dc}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!ow@{ow}}
+\index{ow@{ow}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{ow}]{\setlength{\rightskip}{0pt plus 5cm}One\-Wire ow (
+\begin{DoxyParamCaption}
+\item[{{\bf O\-N\-E\-\_\-\-W\-I\-R\-E\-\_\-\-P\-I\-N}}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_a53c83fb23c85b9fcc2903da7910645dc}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a871ed6a41673436aa85b1c06d1034594}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!read\-D\-S18x20@{read\-D\-S18x20}}
+\index{read\-D\-S18x20@{read\-D\-S18x20}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{read\-D\-S18x20}]{\setlength{\rightskip}{0pt plus 5cm}float read\-D\-S18x20 (
+\begin{DoxyParamCaption}
+\item[{const One\-Wire}]{ds, }
+\item[{const {\bf byte}}]{addr\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_a871ed6a41673436aa85b1c06d1034594}
+\hypertarget{OWP__DG__1w-adaptor_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!read\-Temp@{read\-Temp}}
+\index{read\-Temp@{read\-Temp}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{read\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_ada109bb0cdc12131465dfe7a74f93b1e}
+Internal Temperature Sensor for A\-Tmega328 types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWP__DG__1w-adaptor_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{https://playground.arduino.cc/Main/InternalTemperatureSensor}{\tt https\-://playground.\-arduino.\-cc/\-Main/\-Internal\-Temperature\-Sensor} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The chip temperature in \mbox{[}°\-C\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a0b3195c3893f02cb1b80d878b89549d6}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_a0b3195c3893f02cb1b80d878b89549d6}
+Accessing the secret voltmeter on the Arduino 168 or 328.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWP__DG__1w-adaptor_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{http://code.google.com/p/tinkerit/wiki/SecretVoltmeter}{\tt http\-://code.\-google.\-com/p/tinkerit/wiki/\-Secret\-Voltmeter} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The supply voltage in \mbox{[}V\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!receiver\-\_\-function@{receiver\-\_\-function}}
+\index{receiver\-\_\-function@{receiver\-\_\-function}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{receiver\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_a76fc5e73c141f748dcc1809fdcfa1714}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__1w-adaptor_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!addr@{addr}}
+\index{addr@{addr}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} addr\mbox{[}8\mbox{]}}}\label{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a3dc83f7f3aaaf79eea4271a94aa6995d}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!D\-S18x20\-\_\-addr@{D\-S18x20\-\_\-addr}}
+\index{D\-S18x20\-\_\-addr@{D\-S18x20\-\_\-addr}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{D\-S18x20\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} D\-S18x20\-\_\-addr\mbox{[}8\mbox{]}}}\label{OWP__DG__1w-adaptor_8ino_a3dc83f7f3aaaf79eea4271a94aa6995d}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a868bfbc1df5a872fa1d0ad3e28281840}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!D\-S18x20\-\_\-\-E\-N\-A\-B\-L\-E@{D\-S18x20\-\_\-\-E\-N\-A\-B\-L\-E}}
+\index{D\-S18x20\-\_\-\-E\-N\-A\-B\-L\-E@{D\-S18x20\-\_\-\-E\-N\-A\-B\-L\-E}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{D\-S18x20\-\_\-\-E\-N\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} D\-S18x20\-\_\-\-E\-N\-A\-B\-L\-E = {\bf false}}}\label{OWP__DG__1w-adaptor_8ino_a868bfbc1df5a872fa1d0ad3e28281840}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a7adb309e847ab8e7bc2d33c272ae0330}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!D\-S2438\-\_\-addr@{D\-S2438\-\_\-addr}}
+\index{D\-S2438\-\_\-addr@{D\-S2438\-\_\-addr}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{D\-S2438\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} D\-S2438\-\_\-addr\mbox{[}8\mbox{]}}}\label{OWP__DG__1w-adaptor_8ino_a7adb309e847ab8e7bc2d33c272ae0330}
+\hypertarget{OWP__DG__1w-adaptor_8ino_ac6c5f6800825a23136e17911f1fe95fc}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!D\-S2438\-\_\-\-E\-N\-A\-B\-L\-E@{D\-S2438\-\_\-\-E\-N\-A\-B\-L\-E}}
+\index{D\-S2438\-\_\-\-E\-N\-A\-B\-L\-E@{D\-S2438\-\_\-\-E\-N\-A\-B\-L\-E}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{D\-S2438\-\_\-\-E\-N\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} D\-S2438\-\_\-\-E\-N\-A\-B\-L\-E = {\bf false}}}\label{OWP__DG__1w-adaptor_8ino_ac6c5f6800825a23136e17911f1fe95fc}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a02235b4e96743403348a58d554caa3dc}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!mem\-\_\-buffer@{mem\-\_\-buffer}}
+\index{mem\-\_\-buffer@{mem\-\_\-buffer}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{mem\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mem\-\_\-buffer\mbox{[}256\mbox{]}}}\label{OWP__DG__1w-adaptor_8ino_a02235b4e96743403348a58d554caa3dc}
+\hypertarget{OWP__DG__1w-adaptor_8ino_a6b4e7e842c912b39dbbaca4973ad2f52}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}!ow@{ow}}
+\index{ow@{ow}!OWP_DG_1w-adaptor.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino}}
+\subsubsection[{ow}]{\setlength{\rightskip}{0pt plus 5cm}D\-S2438 {\bf ds2438}\& ow}}\label{OWP__DG__1w-adaptor_8ino_a6b4e7e842c912b39dbbaca4973ad2f52}

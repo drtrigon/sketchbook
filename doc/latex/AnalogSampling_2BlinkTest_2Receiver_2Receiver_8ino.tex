@@ -1,0 +1,74 @@
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.ino File Reference}
+\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+}
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a4e74dbda50d34621af93621e67294482}{A\-S\-\_\-\-M\-O\-D\-E}~1
+\item 
+\#define \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ab93065a204a9cfd4c1857a3ae70eb93a}{A\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}~15000
+\item 
+\#define \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ae52002e6f7038dfa1b1233b8c8f8fffe}{A\-S\-\_\-\-B\-A\-C\-K\-\_\-\-O\-F\-F\-\_\-\-D\-E\-G\-R\-E\-E}~5
+\item 
+\#define \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ac34d08b3c89dbfda92dec678ab6a7a2e}{A\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S}~10
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N$<$ Analog\-Sampling $>$ \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ae99b22688af56bff137f8417dd489c0e}{bus} (44)
+\item 
+void \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ae52002e6f7038dfa1b1233b8c8f8fffe}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!A\-S\-\_\-\-B\-A\-C\-K\-\_\-\-O\-F\-F\-\_\-\-D\-E\-G\-R\-E\-E@{A\-S\-\_\-\-B\-A\-C\-K\-\_\-\-O\-F\-F\-\_\-\-D\-E\-G\-R\-E\-E}}
+\index{A\-S\-\_\-\-B\-A\-C\-K\-\_\-\-O\-F\-F\-\_\-\-D\-E\-G\-R\-E\-E@{A\-S\-\_\-\-B\-A\-C\-K\-\_\-\-O\-F\-F\-\_\-\-D\-E\-G\-R\-E\-E}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{A\-S\-\_\-\-B\-A\-C\-K\-\_\-\-O\-F\-F\-\_\-\-D\-E\-G\-R\-E\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-\_\-\-B\-A\-C\-K\-\_\-\-O\-F\-F\-\_\-\-D\-E\-G\-R\-E\-E~5}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ae52002e6f7038dfa1b1233b8c8f8fffe}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ac34d08b3c89dbfda92dec678ab6a7a2e}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!A\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S@{A\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S}}
+\index{A\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S@{A\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{A\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-\_\-\-M\-A\-X\-\_\-\-A\-T\-T\-E\-M\-P\-T\-S~10}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ac34d08b3c89dbfda92dec678ab6a7a2e}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a4e74dbda50d34621af93621e67294482}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!A\-S\-\_\-\-M\-O\-D\-E@{A\-S\-\_\-\-M\-O\-D\-E}}
+\index{A\-S\-\_\-\-M\-O\-D\-E@{A\-S\-\_\-\-M\-O\-D\-E}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{A\-S\-\_\-\-M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-\_\-\-M\-O\-D\-E~1}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a4e74dbda50d34621af93621e67294482}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ab93065a204a9cfd4c1857a3ae70eb93a}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!A\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T@{A\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}}
+\index{A\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T@{A\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{A\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T~15000}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ab93065a204a9cfd4c1857a3ae70eb93a}
+
+
+\subsection{Function Documentation}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ae99b22688af56bff137f8417dd489c0e}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!bus@{bus}}
+\index{bus@{bus}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Analog\-Sampling$>$ bus (
+\begin{DoxyParamCaption}
+\item[{44}]{}
+\end{DoxyParamCaption}
+)}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_ae99b22688af56bff137f8417dd489c0e}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!loop@{loop}}
+\index{loop@{loop}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_afe461d27b9c48d5921c00d521181f12f}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!receiver\-\_\-function@{receiver\-\_\-function}}
+\index{receiver\-\_\-function@{receiver\-\_\-function}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{receiver\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a76fc5e73c141f748dcc1809fdcfa1714}
+\hypertarget{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}!setup@{setup}}
+\index{setup@{setup}!AnalogSampling/BlinkTest/Receiver/Receiver.ino@{Analog\-Sampling/\-Blink\-Test/\-Receiver/\-Receiver.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a4fc01d736fe50cf5b977f755b675f11d}

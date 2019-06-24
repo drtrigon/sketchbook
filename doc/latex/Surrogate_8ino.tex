@@ -1,0 +1,100 @@
+\hypertarget{Surrogate_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Serial/\-Software\-Bit\-Bang\-Surrogate/\-Surrogate/\-Surrogate.ino File Reference}
+\label{Surrogate_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Serial/\-Software\-Bit\-Bang\-Surrogate/\-Surrogate/\-Surrogate.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Serial/\-Software\-Bit\-Bang\-Surrogate/\-Surrogate/\-Surrogate.\-ino}}
+}
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Surrogate_8ino_a58d21a16328181d94e377cb6dd32f680}{P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H}~50
+\item 
+\#define \hyperlink{Surrogate_8ino_af093da5eac99580be6ba61b4dc79f2c1}{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N$<$ Software\-Bit\-Bang $>$ \hyperlink{Surrogate_8ino_a3996eb0beabfbf03ec6f65281744698a}{bus\-A} (\hyperlink{Surrogate_8ino_ab626366a28e9f4d297a10d5958647f3a}{D\-E\-V\-I\-C\-E\-\_\-\-I\-D})
+\item 
+P\-J\-O\-N$<$ Through\-Serial $>$ \hyperlink{Surrogate_8ino_a4addaf9e46a29372ea7a59e3fc889833}{bus\-B} (1)
+\item 
+void \hyperlink{Surrogate_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Surrogate_8ino_ac08d28e60bf73a1cecb88b0a20a4b77c}{receiver\-\_\-function\-A} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{Surrogate_8ino_a957d4a297d3571c03bc1ab4617e6fd7b}{receiver\-\_\-function\-B} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{Surrogate_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const uint8\-\_\-t \hyperlink{Surrogate_8ino_ab626366a28e9f4d297a10d5958647f3a}{D\-E\-V\-I\-C\-E\-\_\-\-I\-D} = 45
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Surrogate_8ino_af093da5eac99580be6ba61b4dc79f2c1}{\index{Surrogate.\-ino@{Surrogate.\-ino}!P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}}
+\index{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S~3}}\label{Surrogate_8ino_af093da5eac99580be6ba61b4dc79f2c1}
+\hypertarget{Surrogate_8ino_a58d21a16328181d94e377cb6dd32f680}{\index{Surrogate.\-ino@{Surrogate.\-ino}!P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H@{P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H@{P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-P\-A\-C\-K\-E\-T\-\_\-\-M\-A\-X\-\_\-\-L\-E\-N\-G\-T\-H~50}}\label{Surrogate_8ino_a58d21a16328181d94e377cb6dd32f680}
+
+
+\subsection{Function Documentation}
+\hypertarget{Surrogate_8ino_a3996eb0beabfbf03ec6f65281744698a}{\index{Surrogate.\-ino@{Surrogate.\-ino}!bus\-A@{bus\-A}}
+\index{bus\-A@{bus\-A}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{bus\-A}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Software\-Bit\-Bang$>$ bus\-A (
+\begin{DoxyParamCaption}
+\item[{{\bf D\-E\-V\-I\-C\-E\-\_\-\-I\-D}}]{}
+\end{DoxyParamCaption}
+)}}\label{Surrogate_8ino_a3996eb0beabfbf03ec6f65281744698a}
+\hypertarget{Surrogate_8ino_a4addaf9e46a29372ea7a59e3fc889833}{\index{Surrogate.\-ino@{Surrogate.\-ino}!bus\-B@{bus\-B}}
+\index{bus\-B@{bus\-B}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{bus\-B}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Through\-Serial$>$ bus\-B (
+\begin{DoxyParamCaption}
+\item[{1}]{}
+\end{DoxyParamCaption}
+)}}\label{Surrogate_8ino_a4addaf9e46a29372ea7a59e3fc889833}
+\hypertarget{Surrogate_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Surrogate.\-ino@{Surrogate.\-ino}!loop@{loop}}
+\index{loop@{loop}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Surrogate_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Surrogate_8ino_ac08d28e60bf73a1cecb88b0a20a4b77c}{\index{Surrogate.\-ino@{Surrogate.\-ino}!receiver\-\_\-function\-A@{receiver\-\_\-function\-A}}
+\index{receiver\-\_\-function\-A@{receiver\-\_\-function\-A}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{receiver\-\_\-function\-A}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function\-A (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{Surrogate_8ino_ac08d28e60bf73a1cecb88b0a20a4b77c}
+\hypertarget{Surrogate_8ino_a957d4a297d3571c03bc1ab4617e6fd7b}{\index{Surrogate.\-ino@{Surrogate.\-ino}!receiver\-\_\-function\-B@{receiver\-\_\-function\-B}}
+\index{receiver\-\_\-function\-B@{receiver\-\_\-function\-B}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{receiver\-\_\-function\-B}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function\-B (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{Surrogate_8ino_a957d4a297d3571c03bc1ab4617e6fd7b}
+\hypertarget{Surrogate_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Surrogate.\-ino@{Surrogate.\-ino}!setup@{setup}}
+\index{setup@{setup}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Surrogate_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Surrogate_8ino_ab626366a28e9f4d297a10d5958647f3a}{\index{Surrogate.\-ino@{Surrogate.\-ino}!D\-E\-V\-I\-C\-E\-\_\-\-I\-D@{D\-E\-V\-I\-C\-E\-\_\-\-I\-D}}
+\index{D\-E\-V\-I\-C\-E\-\_\-\-I\-D@{D\-E\-V\-I\-C\-E\-\_\-\-I\-D}!Surrogate.ino@{Surrogate.\-ino}}
+\subsubsection[{D\-E\-V\-I\-C\-E\-\_\-\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}const uint8\-\_\-t D\-E\-V\-I\-C\-E\-\_\-\-I\-D = 45}}\label{Surrogate_8ino_ab626366a28e9f4d297a10d5958647f3a}

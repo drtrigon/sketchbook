@@ -1,0 +1,59 @@
+\hypertarget{features_8h}{\section{cli/owslave/features.h File Reference}
+\label{features_8h}\index{cli/owslave/features.\-h@{cli/owslave/features.\-h}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}dev\-\_\-config.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{features_8h_a77366c1bd428629dc898e188bfd182a3}{E\-X\-T\-E\-R\-N}~extern
+\item 
+\#define \hyperlink{features_8h_a6964dec5207b7152ab40ad9402b46727}{I\-N\-I\-T}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})
+\item 
+\#define \hyperlink{features_8h_a734bbab06e1a9fd2e5522db0221ff6e3}{B\-A\-U\-D\-R\-A\-T\-E}~38400
+\item 
+\#define \hyperlink{features_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U}~F\-\_\-\-C\-P\-U\-\_\-
+\item 
+\#define \hyperlink{features_8h_aa5b6df77241d9112f20c29e19c834f87}{O\-N\-E\-W\-I\-R\-E\-\_\-\-U\-S\-E\-\_\-\-T0}
+\item 
+\#define \hyperlink{features_8h_a217a0bd562b98ae8c2ffce44935351e1}{likely}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~\-\_\-\-\_\-builtin\-\_\-expect(!!(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}), 1)
+\item 
+\#define \hyperlink{features_8h_ac6c45889010c1bd68631771b64f18101}{unlikely}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~\-\_\-\-\_\-builtin\-\_\-expect(!!(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}), 0)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{features_8h_a734bbab06e1a9fd2e5522db0221ff6e3}{\index{features.\-h@{features.\-h}!B\-A\-U\-D\-R\-A\-T\-E@{B\-A\-U\-D\-R\-A\-T\-E}}
+\index{B\-A\-U\-D\-R\-A\-T\-E@{B\-A\-U\-D\-R\-A\-T\-E}!features.h@{features.\-h}}
+\subsubsection[{B\-A\-U\-D\-R\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-A\-U\-D\-R\-A\-T\-E~38400}}\label{features_8h_a734bbab06e1a9fd2e5522db0221ff6e3}
+\hypertarget{features_8h_a77366c1bd428629dc898e188bfd182a3}{\index{features.\-h@{features.\-h}!E\-X\-T\-E\-R\-N@{E\-X\-T\-E\-R\-N}}
+\index{E\-X\-T\-E\-R\-N@{E\-X\-T\-E\-R\-N}!features.h@{features.\-h}}
+\subsubsection[{E\-X\-T\-E\-R\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-T\-E\-R\-N~extern}}\label{features_8h_a77366c1bd428629dc898e188bfd182a3}
+\hypertarget{features_8h_a43bafb28b29491ec7f871319b5a3b2f8}{\index{features.\-h@{features.\-h}!F\-\_\-\-C\-P\-U@{F\-\_\-\-C\-P\-U}}
+\index{F\-\_\-\-C\-P\-U@{F\-\_\-\-C\-P\-U}!features.h@{features.\-h}}
+\subsubsection[{F\-\_\-\-C\-P\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-\_\-\-C\-P\-U~F\-\_\-\-C\-P\-U\-\_\-}}\label{features_8h_a43bafb28b29491ec7f871319b5a3b2f8}
+\hypertarget{features_8h_a6964dec5207b7152ab40ad9402b46727}{\index{features.\-h@{features.\-h}!I\-N\-I\-T@{I\-N\-I\-T}}
+\index{I\-N\-I\-T@{I\-N\-I\-T}!features.h@{features.\-h}}
+\subsubsection[{I\-N\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-I\-T(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)}}\label{features_8h_a6964dec5207b7152ab40ad9402b46727}
+\hypertarget{features_8h_a217a0bd562b98ae8c2ffce44935351e1}{\index{features.\-h@{features.\-h}!likely@{likely}}
+\index{likely@{likely}!features.h@{features.\-h}}
+\subsubsection[{likely}]{\setlength{\rightskip}{0pt plus 5cm}\#define likely(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-expect(!!({\bf x}), 1)}}\label{features_8h_a217a0bd562b98ae8c2ffce44935351e1}
+\hypertarget{features_8h_aa5b6df77241d9112f20c29e19c834f87}{\index{features.\-h@{features.\-h}!O\-N\-E\-W\-I\-R\-E\-\_\-\-U\-S\-E\-\_\-\-T0@{O\-N\-E\-W\-I\-R\-E\-\_\-\-U\-S\-E\-\_\-\-T0}}
+\index{O\-N\-E\-W\-I\-R\-E\-\_\-\-U\-S\-E\-\_\-\-T0@{O\-N\-E\-W\-I\-R\-E\-\_\-\-U\-S\-E\-\_\-\-T0}!features.h@{features.\-h}}
+\subsubsection[{O\-N\-E\-W\-I\-R\-E\-\_\-\-U\-S\-E\-\_\-\-T0}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-N\-E\-W\-I\-R\-E\-\_\-\-U\-S\-E\-\_\-\-T0}}\label{features_8h_aa5b6df77241d9112f20c29e19c834f87}
+\hypertarget{features_8h_ac6c45889010c1bd68631771b64f18101}{\index{features.\-h@{features.\-h}!unlikely@{unlikely}}
+\index{unlikely@{unlikely}!features.h@{features.\-h}}
+\subsubsection[{unlikely}]{\setlength{\rightskip}{0pt plus 5cm}\#define unlikely(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-expect(!!({\bf x}), 0)}}\label{features_8h_ac6c45889010c1bd68631771b64f18101}

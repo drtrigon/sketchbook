@@ -1,0 +1,211 @@
+( osboxes\-:$\sim$/sketchbook/cli/owslave\$ sudo apt-\/get install gcc-\/avr\-\_\-4.\-5.\-3 )
+
+--- using A\-Ttiny84 (attiny84) ---
+
+-\/--- programmer -\/---
+
+Use Arduino Uno and my \char`\"{}\-Programmer Shield\char`\"{}.
+
+Open Arduino I\-D\-E (e.\-g. 1.\-6.\-5) and open File $>$ Examples $>$ Ardino\-I\-S\-P
+
+Upload the sketch to an Arduino Uno board.
+
+Adopt \char`\"{}\-Programmer Shield\char`\"{} to be wired for a tiny84, see sketch and\-: \href{http://ww1.microchip.com/downloads/en/DeviceDoc/8006S.pdf}{\tt http\-://ww1.\-microchip.\-com/downloads/en/\-Device\-Doc/8006\-S.\-pdf} \href{http://www.3bm.de/2013/09/17/attiny84-mit-arduino-uno-programmieren/}{\tt http\-://www.\-3bm.\-de/2013/09/17/attiny84-\/mit-\/arduino-\/uno-\/programmieren/}
+
+
+\begin{DoxyItemize}
+\item Arduino 5\-V an A\-Ttiny84 Pin 1 (V\-C\-C +)
+\item Arduino G\-N\-D an A\-T\-Tiny84 Pin 14 (G\-N\-D -\/)
+\item Arduino Pin 10 an A\-Ttiny84 Pin 4 (Reset)
+\item Arduino Pin 11 an A\-T\-Tiny84 Pin 7 (Pin 6, P\-W\-M, Analog Input 7)
+\item Arduino Pin 12 an A\-T\-Tiny84 Pin 8 (Pin 5, Analog Input 5, P\-W\-M, M\-I\-S\-O)
+\item Arduino Pin 13 an A\-T\-Tiny84 Pin 9 (Pin 4, Analog Input 4, S\-C\-K)
+\end{DoxyItemize}
+
+-\/--- chip -\/---
+
+create or add you project.\-cfg (project.\-cfg.\-tiny84) to the folder
+
+osboxes\-:$\sim$/sketchbook/cli/owslave\$ nano Makefile
+
+change the line  -\/c  -\/p  -\/\-C +\$\$\-T\-F\textbackslash{} into  -\/c  -\/p t84 -\/b 19200 -\/\-P /dev/tty\-A\-C\-M0 -\/\-C +\$\$\-T\-F\textbackslash{} save and quit
+
+osboxes\-:$\sim$/sketchbook/cli/owslave\$ chmod +x cfg \hyperlink{Cfg_8py}{Cfg.\-py} cfg\-\_\-write gen\-\_\-eeprom \hyperlink{ordered__yaml_8py}{ordered\-\_\-yaml.\-py}
+
+osboxes\-:$\sim$/sketchbook/cli/owslave\$ make C\-F\-G=project.\-cfg try1 make\mbox{[}1\mbox{]}\-: Entering directory `/home/osboxes/sketchbook/cli/owslave' mkdir -\/p device/try1 M\-C\-U\-:atmega88 M\-C\-U\-\_\-\-P\-R\-O\-G\-:m88 P\-R\-O\-G\-:avrisp A\-V\-R\-D\-U\-D\-E\-:sudo avrdude C\-F\-I\-L\-E\-S\-:\hyperlink{moat__backend_8c}{moat\-\_\-backend.\-c} main.\-c jmp.\-S \hyperlink{dev__data_8c}{dev\-\_\-data.\-c} config.\-o \hyperlink{timer_8c}{timer.\-c} \hyperlink{ds2423_8c}{ds2423.\-c} \hyperlink{onewire_8c}{onewire.\-c} \hyperlink{crc_8c}{crc.\-c} T\-Y\-P\-E\-:alert -\/1 count 0 config -\/1 port 0 humid 0 pid 0 temp 0 console 0 smoke 0 pwm 0 adc 0 mkdir -\/p device/try1 ./cfg project.\-cfg .hdr try1 avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/moat\-\_\-backend.\-o \hyperlink{moat__backend_8c}{moat\-\_\-backend.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/main.\-o main.\-c main.\-c\-:120\-:17\-: warning\-: ‘bootseq’ defined but not used \mbox{[}-\/\-Wunused-\/variable\mbox{]} static uint16\-\_\-t bootseq {\bfseries attribute}((section(\char`\"{}.\-noinit\char`\"{}))); $^\wedge$ avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/jmp.\-o jmp.\-S avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/dev\-\_\-data.\-o \hyperlink{dev__data_8c}{dev\-\_\-data.\-c} set -\/e; \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin type \$(./cfg project.\-cfg .type try1); \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin name $>$/dev/null 2$>$\&1 ; then \-: ; else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin name try1 ; fi ; \textbackslash{} if \mbox{[} ds2423 != 0 \mbox{]} ; then \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} if ./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} test \char`\"{}\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id)\char`\"{} = \char`\"{}\$\-S\-E\-R\char`\"{} ; \textbackslash{} else \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$\-S\-E\-R; \textbackslash{} fi; \textbackslash{} elif ./cfg project.\-cfg .nofollow devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id); \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial \$\-S\-E\-R; \textbackslash{} else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial random; \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} fi; \textbackslash{} fi avr-\/objcopy -\/\-I binary -\/\-O elf32-\/avr --prefix-\/sections=.eeprom \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-start=\-\_\-econfig\-\_\-start\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-size=\-\_\-econfig\-\_\-size\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-end=\-\_\-econfig\-\_\-end\char`\"{} \textbackslash{} device/try1/eprom.\-bin device/try1/config.\-o avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/timer.\-o \hyperlink{timer_8c}{timer.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/ds2423.\-o \hyperlink{ds2423_8c}{ds2423.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/onewire.\-o \hyperlink{onewire_8c}{onewire.\-c} \hyperlink{onewire_8c}{onewire.\-c}\-:553\-:2\-: warning\-: \#warning \char`\"{}\-Ignore the 'appears to be a misspelled signal handler' warning\char`\"{} \mbox{[}-\/\-Wcpp\mbox{]} \#warning \char`\"{}\-Ignore the 'appears to be a misspelled signal handler' warning\char`\"{} $^\wedge$ \hyperlink{onewire_8c}{onewire.\-c}\-: In function ‘real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T’\-: \hyperlink{onewire_8c}{onewire.\-c}\-:554\-:6\-: warning\-: ‘real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T’ appears to be a misspelled signal handler \mbox{[}enabled by default\mbox{]} void \hyperlink{onewire_8c_ad685ebd23c8e96348e9924394dc696a8}{real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T(void)} \{ $^\wedge$ avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/crc.\-o \hyperlink{crc_8c}{crc.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/o device/try1/image.\-elf -\/\-Wl,-\/\-Map,device/try1/image.\-map,--cref device/try1/moat\-\_\-backend.\-o device/try1/main.\-o device/try1/jmp.\-o device/try1/dev\-\_\-data.\-o device/try1/config.\-o device/try1/timer.\-o device/try1/ds2423.\-o device/try1/onewire.\-o device/try1/crc.\-o avr-\/objcopy -\/\-R .eeprom -\/\-O ihex device/try1/image.\-elf device/try1/image.\-hex avr-\/objcopy -\/j .eeprom --change-\/section-\/address .eeprom=0 -\/\-O ihex device/try1/image.\-elf device/try1/eprom.\-hex avr-\/objdump -\/h -\/\-S device/try1/image.\-elf $>$ device/try1/image.\-lss make\mbox{[}1\mbox{]}\-: Leaving directory `/home/osboxes/sketchbook/cli/owslave'
+
+Press R\-E\-S\-E\-T button on \char`\"{}\-Programmer Shield\char`\"{}.
+
+Insert tiny84 into \char`\"{}\-Programmer Shield\char`\"{} socket (connect I\-S\-P).
+
+Press R\-E\-S\-E\-T button on \char`\"{}\-Programmer Shield\char`\"{}. L\-E\-D (Pin 8) should be off.
+
+osboxes\-:$\sim$/sketchbook/cli/owslave\$ make C\-F\-G=project.\-cfg burn\-\_\-try1 B\-U\-R\-N try1 make\mbox{[}1\mbox{]}\-: Entering directory `/home/osboxes/sketchbook/cli/owslave' L\-F\-U\-S\-E\-:E2 H\-F\-U\-S\-E\-:D\-C E\-F\-U\-S\-E\-:00 E\-E\-P\-R\-O\-M\-:1 M\-C\-U\-:atmega88 M\-C\-U\-\_\-\-P\-R\-O\-G\-:m88 P\-R\-O\-G\-:avrisp A\-V\-R\-D\-U\-D\-E\-:sudo avrdude C\-F\-I\-L\-E\-S\-:\hyperlink{moat__backend_8c}{moat\-\_\-backend.\-c} main.\-c jmp.\-S \hyperlink{dev__data_8c}{dev\-\_\-data.\-c} config.\-o \hyperlink{timer_8c}{timer.\-c} \hyperlink{ds2423_8c}{ds2423.\-c} \hyperlink{onewire_8c}{onewire.\-c} \hyperlink{crc_8c}{crc.\-c} T\-Y\-P\-E\-:alert -\/1 humid 0 temp 0 pid 0 smoke 0 adc 0 port 0 config -\/1 pwm 0 console 0 count 0 set -\/e; \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin type \$(./cfg project.\-cfg .type try1); \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin name $>$/dev/null 2$>$\&1 ; then \-: ; else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin name try1 ; fi ; \textbackslash{} if \mbox{[} ds2423 != 0 \mbox{]} ; then \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} if ./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} test \char`\"{}\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id)\char`\"{} = \char`\"{}\$\-S\-E\-R\char`\"{} ; \textbackslash{} else \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$\-S\-E\-R; \textbackslash{} fi; \textbackslash{} elif ./cfg project.\-cfg .nofollow devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id); \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial \$\-S\-E\-R; \textbackslash{} else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial random; \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} fi; \textbackslash{} fi avr-\/objcopy -\/\-I binary -\/\-O elf32-\/avr --prefix-\/sections=.eeprom \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-start=\-\_\-econfig\-\_\-start\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-size=\-\_\-econfig\-\_\-size\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-end=\-\_\-econfig\-\_\-end\char`\"{} \textbackslash{} device/try1/eprom.\-bin device/try1/config.\-o avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/o device/try1/image.\-elf -\/\-Wl,-\/\-Map,device/try1/image.\-map,--cref device/try1/moat\-\_\-backend.\-o device/try1/main.\-o device/try1/jmp.\-o device/try1/dev\-\_\-data.\-o device/try1/config.\-o device/try1/timer.\-o device/try1/ds2423.\-o device/try1/onewire.\-o device/try1/crc.\-o avr-\/objcopy -\/\-R .eeprom -\/\-O ihex device/try1/image.\-elf device/try1/image.\-hex avr-\/objcopy -\/j .eeprom --change-\/section-\/address .eeprom=0 -\/\-O ihex device/try1/image.\-elf device/try1/eprom.\-hex avr-\/objdump -\/h -\/\-S device/try1/image.\-elf $>$ device/try1/image.\-lss T\-F=\$(mktemp avrdude-\/cfg.\-X\-X\-X\-X\-X); echo \char`\"{}default\-\_\-safemode = no;\char`\"{} $>$\$\-T\-F; \textbackslash{} E\-F\-U\-S\-E=00; \textbackslash{} \mbox{[} \char`\"{}\char`\"{} != \char`\"{}\char`\"{} \mbox{]} \&\& S\-E\-T\-\_\-\-E\-F\-U\-S\-E=\char`\"{}-\/\-U efuse\-:w\-:0x00\-:m\char`\"{}; \textbackslash{} sudo avrdude -\/c avrisp -\/p t84 -\/b 19200 -\/\-P /dev/tty\-A\-C\-M0 -\/\-C +\$\-T\-F\textbackslash{} -\/\-U flash\-:w\-:device/try1/image.\-hex\-:i -\/\-U eeprom\-:w\-:device/try1/eprom.\-hex\-:i \textbackslash{} -\/\-U lfuse\-:w\-:0x\-E2\-:m \textbackslash{} -\/\-U hfuse\-:w\-:0x\-D\-C\-:m \textbackslash{} \textbackslash{} ; X=\$?; rm \$\-T\-F; exit \$\-X
+
+avrdude\-: A\-V\-R device initialized and ready to accept instructions
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-05s
+
+avrdude\-: Device signature = 0x1e930c avrdude\-: N\-O\-T\-E\-: \char`\"{}flash\char`\"{} memory has been specified, an erase cycle will be performed To disable this feature, specify the -\/\-D option. avrdude\-: erasing chip avrdude\-: reading input file \char`\"{}device/try1/image.\-hex\char`\"{} avrdude\-: writing flash (3338 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 5.\-65s
+
+avrdude\-: 3338 bytes of flash written avrdude\-: verifying flash memory against device/try1/image.\-hex\-: avrdude\-: load data flash data from input file device/try1/image.\-hex\-: avrdude\-: input file device/try1/image.\-hex contains 3338 bytes avrdude\-: reading on-\/chip flash data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 3.\-90s
+
+avrdude\-: verifying ... avrdude\-: 3338 bytes of flash verified avrdude\-: reading input file \char`\"{}device/try1/eprom.\-hex\char`\"{} avrdude\-: writing eeprom (26 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 1.\-55s
+
+avrdude\-: 26 bytes of eeprom written avrdude\-: verifying eeprom memory against device/try1/eprom.\-hex\-: avrdude\-: load data eeprom data from input file device/try1/eprom.\-hex\-: avrdude\-: input file device/try1/eprom.\-hex contains 26 bytes avrdude\-: reading on-\/chip eeprom data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-29s
+
+avrdude\-: verifying ... avrdude\-: 26 bytes of eeprom verified avrdude\-: reading input file \char`\"{}0x\-E2\char`\"{} avrdude\-: writing lfuse (1 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-02s
+
+avrdude\-: 1 bytes of lfuse written avrdude\-: verifying lfuse memory against 0x\-E2\-: avrdude\-: load data lfuse data from input file 0x\-E2\-: avrdude\-: input file 0x\-E2 contains 1 bytes avrdude\-: reading on-\/chip lfuse data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-02s
+
+avrdude\-: verifying ... avrdude\-: 1 bytes of lfuse verified avrdude\-: reading input file \char`\"{}0x\-D\-C\char`\"{} avrdude\-: writing hfuse (1 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-02s
+
+avrdude\-: 1 bytes of hfuse written avrdude\-: verifying hfuse memory against 0x\-D\-C\-: avrdude\-: load data hfuse data from input file 0x\-D\-C\-: avrdude\-: input file 0x\-D\-C contains 1 bytes avrdude\-: reading on-\/chip hfuse data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-02s
+
+avrdude\-: verifying ... avrdude\-: 1 bytes of hfuse verified
+
+avrdude done. Thank you.
+
+make\mbox{[}1\mbox{]}\-: Leaving directory `/home/osboxes/sketchbook/cli/owslave' osboxes\-:$\sim$/sketchbook/cli/owslave\$
+
+B\-I\-N\-G\-O! It works! \-:))
+
+test now... (\href{https://github.com/M-o-a-T/owslave/blob/master/HOWTO.md}{\tt https\-://github.\-com/\-M-\/o-\/a-\/\-T/owslave/blob/master/\-H\-O\-W\-T\-O.\-md}) onewire\-\_\-io Choose which pin to connect your 1wire bus to. For now, only pins with dedicated interrupts (I\-N\-Tx) can be used. On an A\-Tmega168, these are pins D2 and D3. The default is I\-N\-T0. \href{http://ww1.microchip.com/downloads/en/DeviceDoc/8006S.pdf}{\tt http\-://ww1.\-microchip.\-com/downloads/en/\-Device\-Doc/8006\-S.\-pdf} I\-N\-T0 -\/$>$ Pin 5 P\-C\-I\-N\-T0 -\/$>$ Pin 13 V\-C\-C -\/$>$ Pin 1 G\-N\-D -\/$>$ Pin 14
+
+D\-O\-E\-S N\-O\-T W\-O\-R\-K O\-N T\-H\-E B\-U\-S -\/ M\-A\-Y B\-E D\-U\-E T\-O T\-H\-E F\-A\-C\-T T\-H\-A\-T 't84' I\-S N\-O\-T R\-E\-C\-O\-G\-N\-I\-Z\-E\-D A\-N\-D I\-T C\-O\-M\-P\-I\-L\-E\-S A\-S 'm88'.
+
+See also\-: \href{https://electronics.stackexchange.com/questions/205055/using-avrdude-to-program-attiny-via-arduino-as-isp}{\tt https\-://electronics.\-stackexchange.\-com/questions/205055/using-\/avrdude-\/to-\/program-\/attiny-\/via-\/arduino-\/as-\/isp} \href{https://forum.arduino.cc/index.php?topic=349912.0}{\tt https\-://forum.\-arduino.\-cc/index.\-php?topic=349912.\-0}
+
+--- Issues ---
+
+In project.\-cfg \char`\"{}defaults.\-target.\-t85\char`\"{} is recognized as attiny85 but does N\-O\-T compile.
+
+In project.\-cfg \char`\"{}defaults.\-target.\-t84\char`\"{} is N\-O\-T recognized as attiny84 but does compile as m88 (atmega88).
+
+--- using A\-Tmega88 (mega88) ---
+
+\href{https://www.avrprogrammers.com/articles/atmega8-vs-atmega328}{\tt https\-://www.\-avrprogrammers.\-com/articles/atmega8-\/vs-\/atmega328}
+
+-\/--- programmer -\/---
+
+Use Arduino Uno and my \char`\"{}\-Programmer Shield\char`\"{}.
+
+Open Arduino I\-D\-E (e.\-g. 1.\-6.\-5) and open File $>$ Examples $>$ Ardino\-I\-S\-P
+
+Upload the sketch to an Arduino Uno board.
+
+Adopt \char`\"{}\-Programmer Shield\char`\"{} to be wired for a mega88, see sketch and\-: \href{http://ww1.microchip.com/downloads/en/DeviceDoc/Atmel-2545-8-bit-AVR-Microcontroller-ATmega48-88-168_Summary.pdf}{\tt http\-://ww1.\-microchip.\-com/downloads/en/\-Device\-Doc/\-Atmel-\/2545-\/8-\/bit-\/\-A\-V\-R-\/\-Microcontroller-\/\-A\-Tmega48-\/88-\/168\-\_\-\-Summary.\-pdf}
+
+
+\begin{DoxyItemize}
+\item Arduino 5\-V an A\-Tmega88 Pin 7 (V\-C\-C +) und A\-Tmega88 Pin 20 A\-V\-C\-C
+\item Arduino G\-N\-D an A\-Tmega88 Pin 8 (G\-N\-D -\/)
+\item Arduino Pin 10 an A\-Tmega88 Pin 1 P\-C6 (P\-C\-I\-N\-T14/\-R\-E\-S\-E\-T)
+\item Arduino Pin 11 an A\-Tmega88 Pin 17 P\-B3 (M\-O\-S\-I/\-O\-C2\-A/\-P\-C\-I\-N\-T3)
+\item Arduino Pin 12 an A\-Tmega88 Pin 18 P\-B4 (M\-I\-S\-O/\-P\-C\-I\-N\-T4)
+\item Arduino Pin 13 an A\-Tmega88 Pin 19 P\-B5 (S\-C\-K/\-P\-C\-I\-N\-T5)
+\end{DoxyItemize}
+
+-\/--- chip -\/---
+
+create or add you project.\-cfg (project.\-cfg.\-mega88) to the folder
+
+osboxes\-:$\sim$/sketchbook/cli/owslave\$ nano Makefile
+
+change the line  -\/c  -\/p  -\/\-C +\$\$\-T\-F\textbackslash{} into  -\/c  -\/p  -\/b 19200 -\/\-P /dev/tty\-A\-C\-M0 -\/\-C +\$\$\-T\-F\textbackslash{} save and quit
+
+( osboxes\-:$\sim$/sketchbook/cli/owslave\$ chmod +x cfg \hyperlink{Cfg_8py}{Cfg.\-py} cfg\-\_\-write gen\-\_\-eeprom \hyperlink{ordered__yaml_8py}{ordered\-\_\-yaml.\-py} )
+
+osboxes\-:$\sim$/sketchbook/cli/owslave\$ make C\-F\-G=project.\-cfg try1 make\mbox{[}1\mbox{]}\-: Entering directory `/home/osboxes/sketchbook/cli/owslave' mkdir -\/p device/try1 M\-C\-U\-:atmega88 M\-C\-U\-\_\-\-P\-R\-O\-G\-:m88 P\-R\-O\-G\-:avrisp A\-V\-R\-D\-U\-D\-E\-:sudo avrdude C\-F\-I\-L\-E\-S\-:\hyperlink{moat__backend_8c}{moat\-\_\-backend.\-c} main.\-c jmp.\-S \hyperlink{dev__data_8c}{dev\-\_\-data.\-c} config.\-o \hyperlink{timer_8c}{timer.\-c} \hyperlink{ds2423_8c}{ds2423.\-c} \hyperlink{onewire_8c}{onewire.\-c} \hyperlink{crc_8c}{crc.\-c} T\-Y\-P\-E\-:port 0 temp 0 pwm 0 alert -\/1 adc 0 console 0 pid 0 config -\/1 humid 0 count 0 smoke 0 mkdir -\/p device/try1 ./cfg project.\-cfg .hdr try1 avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/moat\-\_\-backend.\-o \hyperlink{moat__backend_8c}{moat\-\_\-backend.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/main.\-o main.\-c main.\-c\-:120\-:17\-: warning\-: ‘bootseq’ defined but not used \mbox{[}-\/\-Wunused-\/variable\mbox{]} static uint16\-\_\-t bootseq {\bfseries attribute}((section(\char`\"{}.\-noinit\char`\"{}))); $^\wedge$ avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/jmp.\-o jmp.\-S avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/dev\-\_\-data.\-o \hyperlink{dev__data_8c}{dev\-\_\-data.\-c} set -\/e; \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin type \$(./cfg project.\-cfg .type try1); \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin name $>$/dev/null 2$>$\&1 ; then \-: ; else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin name try1 ; fi ; \textbackslash{} if \mbox{[} ds2423 != 0 \mbox{]} ; then \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} if ./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} test \char`\"{}\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id)\char`\"{} = \char`\"{}\$\-S\-E\-R\char`\"{} ; \textbackslash{} else \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$\-S\-E\-R; \textbackslash{} fi; \textbackslash{} elif ./cfg project.\-cfg .nofollow devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id); \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial \$\-S\-E\-R; \textbackslash{} else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial random; \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} fi; \textbackslash{} fi avr-\/objcopy -\/\-I binary -\/\-O elf32-\/avr --prefix-\/sections=.eeprom \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-start=\-\_\-econfig\-\_\-start\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-size=\-\_\-econfig\-\_\-size\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-end=\-\_\-econfig\-\_\-end\char`\"{} \textbackslash{} device/try1/eprom.\-bin device/try1/config.\-o avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/timer.\-o \hyperlink{timer_8c}{timer.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/ds2423.\-o \hyperlink{ds2423_8c}{ds2423.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/onewire.\-o \hyperlink{onewire_8c}{onewire.\-c} \hyperlink{onewire_8c}{onewire.\-c}\-:553\-:2\-: warning\-: \#warning \char`\"{}\-Ignore the 'appears to be a misspelled signal handler' warning\char`\"{} \mbox{[}-\/\-Wcpp\mbox{]} \#warning \char`\"{}\-Ignore the 'appears to be a misspelled signal handler' warning\char`\"{} $^\wedge$ \hyperlink{onewire_8c}{onewire.\-c}\-: In function ‘real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T’\-: \hyperlink{onewire_8c}{onewire.\-c}\-:554\-:6\-: warning\-: ‘real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T’ appears to be a misspelled signal handler \mbox{[}enabled by default\mbox{]} void \hyperlink{onewire_8c_ad685ebd23c8e96348e9924394dc696a8}{real\-\_\-\-P\-I\-N\-\_\-\-I\-N\-T(void)} \{ $^\wedge$ avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/c -\/o device/try1/crc.\-o \hyperlink{crc_8c}{crc.\-c} avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/o device/try1/image.\-elf -\/\-Wl,-\/\-Map,device/try1/image.\-map,--cref device/try1/moat\-\_\-backend.\-o device/try1/main.\-o device/try1/jmp.\-o device/try1/dev\-\_\-data.\-o device/try1/config.\-o device/try1/timer.\-o device/try1/ds2423.\-o device/try1/onewire.\-o device/try1/crc.\-o avr-\/objcopy -\/\-R .eeprom -\/\-O ihex device/try1/image.\-elf device/try1/image.\-hex avr-\/objcopy -\/j .eeprom --change-\/section-\/address .eeprom=0 -\/\-O ihex device/try1/image.\-elf device/try1/eprom.\-hex avr-\/objdump -\/h -\/\-S device/try1/image.\-elf $>$ device/try1/image.\-lss make\mbox{[}1\mbox{]}\-: Leaving directory `/home/osboxes/sketchbook/cli/owslave'
+
+Press R\-E\-S\-E\-T button on \char`\"{}\-Programmer Shield\char`\"{} if L\-E\-D (Pin 8) is on (should be off).
+
+osboxes\-:$\sim$/sketchbook/cli/owslave\$ make C\-F\-G=project.\-cfg burn\-\_\-try1 B\-U\-R\-N try1 make\mbox{[}1\mbox{]}\-: Entering directory `/home/osboxes/sketchbook/cli/owslave' L\-F\-U\-S\-E\-:E2 H\-F\-U\-S\-E\-:D\-C E\-F\-U\-S\-E\-:00 E\-E\-P\-R\-O\-M\-:1 M\-C\-U\-:atmega88 M\-C\-U\-\_\-\-P\-R\-O\-G\-:m88 P\-R\-O\-G\-:avrisp A\-V\-R\-D\-U\-D\-E\-:sudo avrdude C\-F\-I\-L\-E\-S\-:\hyperlink{moat__backend_8c}{moat\-\_\-backend.\-c} main.\-c jmp.\-S \hyperlink{dev__data_8c}{dev\-\_\-data.\-c} config.\-o \hyperlink{timer_8c}{timer.\-c} \hyperlink{ds2423_8c}{ds2423.\-c} \hyperlink{onewire_8c}{onewire.\-c} \hyperlink{crc_8c}{crc.\-c} T\-Y\-P\-E\-:smoke 0 humid 0 temp 0 pwm 0 adc 0 port 0 config -\/1 alert -\/1 console 0 count 0 pid 0 set -\/e; \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin type \$(./cfg project.\-cfg .type try1); \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin name $>$/dev/null 2$>$\&1 ; then \-: ; else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin name try1 ; fi ; \textbackslash{} if \mbox{[} ds2423 != 0 \mbox{]} ; then \textbackslash{} if ./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} if ./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} test \char`\"{}\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id)\char`\"{} = \char`\"{}\$\-S\-E\-R\char`\"{} ; \textbackslash{} else \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$\-S\-E\-R; \textbackslash{} fi; \textbackslash{} elif ./cfg project.\-cfg .nofollow devices.\-try1.\-onewire\-\_\-id $>$/dev/null 2$>$\&1 ; then \textbackslash{} S\-E\-R=\$(./cfg project.\-cfg devices.\-try1.\-onewire\-\_\-id); \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial \$\-S\-E\-R; \textbackslash{} else \textbackslash{} ./gen\-\_\-eeprom device/try1/eprom.\-bin owid type 0x\$(./cfg project.\-cfg codes.\-onewire.\-ds2423) serial random; \textbackslash{} ./cfg\-\_\-write project.\-cfg devices.\-try1.\-onewire\-\_\-id x\$(./gen\-\_\-eeprom device/try1/eprom.\-bin owid serial); \textbackslash{} fi; \textbackslash{} fi avr-\/objcopy -\/\-I binary -\/\-O elf32-\/avr --prefix-\/sections=.eeprom \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-start=\-\_\-econfig\-\_\-start\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-size=\-\_\-econfig\-\_\-size\char`\"{} \textbackslash{} --redefine-\/sym \char`\"{}\-\_\-binary\-\_\-device\-\_\-try1\-\_\-eprom\-\_\-bin\-\_\-end=\-\_\-econfig\-\_\-end\char`\"{} \textbackslash{} device/try1/eprom.\-bin device/try1/config.\-o avr-\/gcc -\/g -\/mmcu=atmega88 -\/\-Wall -\/\-Wstrict-\/prototypes -\/\-Os -\/mcall-\/prologues -\/fshort-\/enums -\/\-Idevice/try1 -\/o device/try1/image.\-elf -\/\-Wl,-\/\-Map,device/try1/image.\-map,--cref device/try1/moat\-\_\-backend.\-o device/try1/main.\-o device/try1/jmp.\-o device/try1/dev\-\_\-data.\-o device/try1/config.\-o device/try1/timer.\-o device/try1/ds2423.\-o device/try1/onewire.\-o device/try1/crc.\-o avr-\/objcopy -\/\-R .eeprom -\/\-O ihex device/try1/image.\-elf device/try1/image.\-hex avr-\/objcopy -\/j .eeprom --change-\/section-\/address .eeprom=0 -\/\-O ihex device/try1/image.\-elf device/try1/eprom.\-hex avr-\/objdump -\/h -\/\-S device/try1/image.\-elf $>$ device/try1/image.\-lss T\-F=\$(mktemp avrdude-\/cfg.\-X\-X\-X\-X\-X); echo \char`\"{}default\-\_\-safemode = no;\char`\"{} $>$\$\-T\-F; \textbackslash{} E\-F\-U\-S\-E=00; \textbackslash{} \mbox{[} \char`\"{}\char`\"{} != \char`\"{}\char`\"{} \mbox{]} \&\& S\-E\-T\-\_\-\-E\-F\-U\-S\-E=\char`\"{}-\/\-U efuse\-:w\-:0x00\-:m\char`\"{}; \textbackslash{} sudo avrdude -\/c avrisp -\/p m88 -\/b 19200 -\/\-P /dev/tty\-A\-C\-M0 -\/\-C +\$\-T\-F\textbackslash{} -\/\-U flash\-:w\-:device/try1/image.\-hex\-:i -\/\-U eeprom\-:w\-:device/try1/eprom.\-hex\-:i \textbackslash{} -\/\-U lfuse\-:w\-:0x\-E2\-:m \textbackslash{} -\/\-U hfuse\-:w\-:0x\-D\-C\-:m \textbackslash{} \textbackslash{} ; X=\$?; rm \$\-T\-F; exit \$\-X \mbox{[}sudo\mbox{]} password for osboxes\-:
+
+avrdude\-: A\-V\-R device initialized and ready to accept instructions
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-02s
+
+avrdude\-: Device signature = 0x1e930a avrdude\-: N\-O\-T\-E\-: \char`\"{}flash\char`\"{} memory has been specified, an erase cycle will be performed To disable this feature, specify the -\/\-D option. avrdude\-: erasing chip avrdude\-: reading input file \char`\"{}device/try1/image.\-hex\char`\"{} avrdude\-: writing flash (3338 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 4.\-99s
+
+avrdude\-: 3338 bytes of flash written avrdude\-: verifying flash memory against device/try1/image.\-hex\-: avrdude\-: load data flash data from input file device/try1/image.\-hex\-: avrdude\-: input file device/try1/image.\-hex contains 3338 bytes avrdude\-: reading on-\/chip flash data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 2.\-60s
+
+avrdude\-: verifying ... avrdude\-: 3338 bytes of flash verified avrdude\-: reading input file \char`\"{}device/try1/eprom.\-hex\char`\"{} avrdude\-: writing eeprom (26 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 1.\-37s
+
+avrdude\-: 26 bytes of eeprom written avrdude\-: verifying eeprom memory against device/try1/eprom.\-hex\-: avrdude\-: load data eeprom data from input file device/try1/eprom.\-hex\-: avrdude\-: input file device/try1/eprom.\-hex contains 26 bytes avrdude\-: reading on-\/chip eeprom data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-11s
+
+avrdude\-: verifying ... avrdude\-: 26 bytes of eeprom verified avrdude\-: reading input file \char`\"{}0x\-E2\char`\"{} avrdude\-: writing lfuse (1 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-02s
+
+avrdude\-: 1 bytes of lfuse written avrdude\-: verifying lfuse memory against 0x\-E2\-: avrdude\-: load data lfuse data from input file 0x\-E2\-: avrdude\-: input file 0x\-E2 contains 1 bytes avrdude\-: reading on-\/chip lfuse data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-01s
+
+avrdude\-: verifying ... avrdude\-: 1 bytes of lfuse verified avrdude\-: reading input file \char`\"{}0x\-D\-C\char`\"{} avrdude\-: writing hfuse (1 bytes)\-:
+
+Writing $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-02s
+
+avrdude\-: 1 bytes of hfuse written avrdude\-: verifying hfuse memory against 0x\-D\-C\-: avrdude\-: load data hfuse data from input file 0x\-D\-C\-: avrdude\-: input file 0x\-D\-C contains 1 bytes avrdude\-: reading on-\/chip hfuse data\-:
+
+Reading $\vert$ \#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\#\# $\vert$ 100\% 0.\-01s
+
+avrdude\-: verifying ... avrdude\-: 1 bytes of hfuse verified
+
+avrdude done. Thank you.
+
+make\mbox{[}1\mbox{]}\-: Leaving directory `/home/osboxes/sketchbook/cli/owslave' osboxes\-:$\sim$/sketchbook/cli/owslave\$
+
+Test the device by connecting it to a 1-\/wire bus and check for the presence of a new D\-S2423.
+
+(\href{https://github.com/M-o-a-T/owslave/blob/master/HOWTO.md}{\tt https\-://github.\-com/\-M-\/o-\/a-\/\-T/owslave/blob/master/\-H\-O\-W\-T\-O.\-md}) onewire\-\_\-io Choose which pin to connect your 1wire bus to. For now, only pins with dedicated interrupts (I\-N\-Tx) can be used. On an A\-Tmega168, these are pins D2 and D3. The default is I\-N\-T0.
+
+
+\begin{DoxyItemize}
+\item D\-A\-T\-A to A\-Tmega88 Pin 4 P\-D2 (P\-C\-I\-N\-T18/\-I\-N\-T0)
+\item 5\-V to A\-Tmega88 Pin 7 (V\-C\-C +)
+\item G\-N\-D to A\-Tmega88 Pin 8 (G\-N\-D -\/)
+\item 5\-V to A\-Tmega88 Pin 20 A\-V\-C\-C
+\item I\-N\-\_\-\-A to A\-Tmega88 Pin 23 P\-C0 (A\-D\-C0/\-P\-C\-I\-N\-T8)
+\item I\-N\-\_\-\-B to A\-Tmega88 Pin 24 P\-C1 (A\-D\-C1/\-P\-C\-I\-N\-T9)
+\end{DoxyItemize}
+
+B\-I\-N\-G\-O! It works! \-:))
+
+--- using Tiny (not working yet) ---
+
+Issues with A\-Ttiny85\-: \href{https://github.com/M-o-a-T/owslave/issues/16}{\tt https\-://github.\-com/\-M-\/o-\/a-\/\-T/owslave/issues/16} Support for A\-Ttiny84\-: \href{https://github.com/M-o-a-T/owslave/issues/17}{\tt https\-://github.\-com/\-M-\/o-\/a-\/\-T/owslave/issues/17}
+
+--- using Arduino Uno or Nano Board (not recommened) ---
+
+You need to bypass the bootloader and program the raw/whole chip by connecting another Arduino Board to the I\-S\-P header of the first (the one to be programmed). See \href{https://www.arduino.cc/en/Tutorial/ArduinoISP}{\tt https\-://www.\-arduino.\-cc/en/\-Tutorial/\-Arduino\-I\-S\-P}
+
+During this process the bootloader get bypassed and overwritten, so to use the Board as usual again you have to load the bootloader by I\-S\-P header again.
+
+You should also check first whether the pins wirde on the Board are the ones you need and that they are wired properly.
+
+The Makefile should then may be contain something like\-:  -\/c arduino -\/p atmega328p -\/b 57600 -\/\-P /dev/tty\-U\-S\-B0 -\/\-C +\$\$\-T\-F\textbackslash{} 

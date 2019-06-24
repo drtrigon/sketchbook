@@ -1,0 +1,69 @@
+\hypertarget{OWH__DS2438__battMon__Test_8ino}{\section{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test/\-O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.ino File Reference}
+\label{OWH__DS2438__battMon__Test_8ino}\index{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test/\-O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test/\-O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+}
+{\ttfamily \#include \char`\"{}One\-Wire\-Hub.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\-S2438.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{OWH__DS2438__battMon__Test_8ino_a6766eee584b84ead350781efbabe36d7}{blinking} (void)
+\item 
+void \hyperlink{OWH__DS2438__battMon__Test_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWH__DS2438__battMon__Test_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\-\_\-t \hyperlink{OWH__DS2438__battMon__Test_8ino_add5a7eb759d22b21f8875663ed2c1528}{pin\-\_\-led} \{ 13 \}
+\item 
+constexpr uint8\-\_\-t \hyperlink{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire} \{ 8 \}
+\item 
+auto \hyperlink{OWH__DS2438__battMon__Test_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{hub} = One\-Wire\-Hub(\hyperlink{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire})
+\item 
+auto \hyperlink{OWH__DS2438__battMon__Test_8ino_ab30c05f5b0dc2426f77bf9e5e1de8508}{ds2438} = D\-S2438( D\-S2438\-::family\-\_\-code, 0x00, 0x00, 0x38, 0x24, 0x\-D\-A, 0x00 )
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWH__DS2438__battMon__Test_8ino_a6766eee584b84ead350781efbabe36d7}{\index{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}!blinking@{blinking}}
+\index{blinking@{blinking}!OWH_DS2438_battMon_Test.ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+\subsubsection[{blinking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} blinking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2438__battMon__Test_8ino_a6766eee584b84ead350781efbabe36d7}
+\hypertarget{OWH__DS2438__battMon__Test_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWH_DS2438_battMon_Test.ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2438__battMon__Test_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{OWH__DS2438__battMon__Test_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWH_DS2438_battMon_Test.ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS2438__battMon__Test_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWH__DS2438__battMon__Test_8ino_ab30c05f5b0dc2426f77bf9e5e1de8508}{\index{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}!ds2438@{ds2438}}
+\index{ds2438@{ds2438}!OWH_DS2438_battMon_Test.ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+\subsubsection[{ds2438}]{\setlength{\rightskip}{0pt plus 5cm}auto ds2438 = D\-S2438( D\-S2438\-::family\-\_\-code, 0x00, 0x00, 0x38, 0x24, 0x\-D\-A, 0x00 )}}\label{OWH__DS2438__battMon__Test_8ino_ab30c05f5b0dc2426f77bf9e5e1de8508}
+\hypertarget{OWH__DS2438__battMon__Test_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{\index{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}!hub@{hub}}
+\index{hub@{hub}!OWH_DS2438_battMon_Test.ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+\subsubsection[{hub}]{\setlength{\rightskip}{0pt plus 5cm}auto hub = One\-Wire\-Hub({\bf pin\-\_\-onewire})}}\label{OWH__DS2438__battMon__Test_8ino_a3beb275f1ae5db0a79499403dd2fbff8}
+\hypertarget{OWH__DS2438__battMon__Test_8ino_add5a7eb759d22b21f8875663ed2c1528}{\index{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}!pin\-\_\-led@{pin\-\_\-led}}
+\index{pin\-\_\-led@{pin\-\_\-led}!OWH_DS2438_battMon_Test.ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+\subsubsection[{pin\-\_\-led}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-led \{ 13 \}}}\label{OWH__DS2438__battMon__Test_8ino_add5a7eb759d22b21f8875663ed2c1528}
+\hypertarget{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}{\index{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}!pin\-\_\-onewire@{pin\-\_\-onewire}}
+\index{pin\-\_\-onewire@{pin\-\_\-onewire}!OWH_DS2438_battMon_Test.ino@{O\-W\-H\-\_\-\-D\-S2438\-\_\-batt\-Mon\-\_\-\-Test.\-ino}}
+\subsubsection[{pin\-\_\-onewire}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-onewire \{ 8 \}}}\label{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}

@@ -1,0 +1,64 @@
+\hypertarget{wiringpid_8c}{\section{wiring\-Pi/wiring\-Pi\-D/wiringpid.c File Reference}
+\label{wiringpid_8c}\index{wiring\-Pi/wiring\-Pi\-D/wiringpid.\-c@{wiring\-Pi/wiring\-Pi\-D/wiringpid.\-c}}
+}
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$syslog.\-h$>$}\\*
+{\ttfamily \#include $<$signal.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$wpi\-Extensions.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}drc\-Net\-Cmd.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}network.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}run\-Remote.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}daemonise.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{wiringpid_8c_af5fe208f8640c8c789a4d5d5b8ad47f5}{P\-I\-D\-F\-I\-L\-E}~\char`\"{}/var/run/\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2types_8h_ac47ca0713353d3fc9435a4f208f6b9a3}{wiring\-Pi\-D.\-pid}\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{wiringpid_8c_a844160e16f1a3e514df9ce65683e17bd}{sig\-Handler} (int sig)
+\item 
+void \hyperlink{wiringpid_8c_a462d95cfe8b0725ff7c626be95b38ad2}{setup\-Sig\-Handler} (void)
+\item 
+int \hyperlink{wiringpid_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{wiringpid_8c_af5fe208f8640c8c789a4d5d5b8ad47f5}{\index{wiringpid.\-c@{wiringpid.\-c}!P\-I\-D\-F\-I\-L\-E@{P\-I\-D\-F\-I\-L\-E}}
+\index{P\-I\-D\-F\-I\-L\-E@{P\-I\-D\-F\-I\-L\-E}!wiringpid.c@{wiringpid.\-c}}
+\subsubsection[{P\-I\-D\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-D\-F\-I\-L\-E~\char`\"{}/var/run/{\bf wiring\-Pi\-D.\-pid}\char`\"{}}}\label{wiringpid_8c_af5fe208f8640c8c789a4d5d5b8ad47f5}
+
+
+\subsection{Function Documentation}
+\hypertarget{wiringpid_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{wiringpid.\-c@{wiringpid.\-c}!main@{main}}
+\index{main@{main}!wiringpid.c@{wiringpid.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{wiringpid_8c_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{wiringpid_8c_a462d95cfe8b0725ff7c626be95b38ad2}{\index{wiringpid.\-c@{wiringpid.\-c}!setup\-Sig\-Handler@{setup\-Sig\-Handler}}
+\index{setup\-Sig\-Handler@{setup\-Sig\-Handler}!wiringpid.c@{wiringpid.\-c}}
+\subsubsection[{setup\-Sig\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}void setup\-Sig\-Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{wiringpid_8c_a462d95cfe8b0725ff7c626be95b38ad2}
+\hypertarget{wiringpid_8c_a844160e16f1a3e514df9ce65683e17bd}{\index{wiringpid.\-c@{wiringpid.\-c}!sig\-Handler@{sig\-Handler}}
+\index{sig\-Handler@{sig\-Handler}!wiringpid.c@{wiringpid.\-c}}
+\subsubsection[{sig\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}void sig\-Handler (
+\begin{DoxyParamCaption}
+\item[{int}]{sig}
+\end{DoxyParamCaption}
+)}}\label{wiringpid_8c_a844160e16f1a3e514df9ce65683e17bd}

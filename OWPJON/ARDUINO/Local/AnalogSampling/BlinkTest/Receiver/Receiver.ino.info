@@ -1,0 +1,556 @@
+
+File: /tmp/arduino_build_914281/Receiver.ino.elf
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Atmel AVR 8-bit microcontroller
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          49852 (bytes into file)
+  Flags:                             0x5
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         3
+  Size of section headers:           40 (bytes)
+  Number of section headers:         17
+  Section header string table index: 14
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .data             PROGBITS        00800100 0017c4 000028 00  WA  0   0  1
+  [ 2] .text             PROGBITS        00000000 000094 001730 00  AX  0   0  2
+  [ 3] .bss              NOBITS          00800128 0017ec 000280 00  WA  0   0  1
+  [ 4] .comment          PROGBITS        00000000 0017ec 000011 01  MS  0   0  1
+  [ 5] .note.gnu.avr.dev NOTE            00000000 001800 000040 00      0   0  4
+  [ 6] .debug_aranges    PROGBITS        00000000 001840 000050 00      0   0  1
+  [ 7] .debug_info       PROGBITS        00000000 001890 003e3e 00      0   0  1
+  [ 8] .debug_abbrev     PROGBITS        00000000 0056ce 0011fb 00      0   0  1
+  [ 9] .debug_line       PROGBITS        00000000 0068c9 0011ed 00      0   0  1
+  [10] .debug_frame      PROGBITS        00000000 007ab8 0003cc 00      0   0  4
+  [11] .debug_str        PROGBITS        00000000 007e84 0010f6 00      0   0  1
+  [12] .debug_loc        PROGBITS        00000000 008f7a 001a52 00      0   0  1
+  [13] .debug_ranges     PROGBITS        00000000 00a9cc 0002d8 00      0   0  1
+  [14] .shstrtab         STRTAB          00000000 00c205 0000b4 00      0   0  1
+  [15] .symtab           SYMTAB          00000000 00aca4 000b90 10     16  74  4
+  [16] .strtab           STRTAB          00000000 00b834 0009d1 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000094 0x00000000 0x00000000 0x01730 0x01730 R E 0x2
+  LOAD           0x0017c4 0x00800100 0x00001730 0x00028 0x00028 RW  0x1
+  LOAD           0x0017ec 0x00800128 0x00800128 0x00000 0x00280 RW  0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .text 
+   01     .data 
+   02     .bss 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+The decoding of unwind sections for machine type Atmel AVR 8-bit microcontroller is not currently supported.
+
+Symbol table '.symtab' contains 185 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00800100     0 SECTION LOCAL  DEFAULT    1 
+     2: 00000000     0 SECTION LOCAL  DEFAULT    2 
+     3: 00800128     0 SECTION LOCAL  DEFAULT    3 
+     4: 00000000     0 SECTION LOCAL  DEFAULT    4 
+     5: 00000000     0 SECTION LOCAL  DEFAULT    5 
+     6: 00000000     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+    15: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    16: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    17: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    18: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    19: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    20: 000001c0    20 FUNC    LOCAL  DEFAULT    2 _Z17Serial0_availablev
+    21: 000001d4    66 FUNC    LOCAL  DEFAULT    2 _ZN14HardwareSerial17_tx_
+    22: 000002e8    20 FUNC    LOCAL  DEFAULT    2 _Z14serialEventRunv
+    23: 00000300    54 FUNC    LOCAL  DEFAULT    2 _ZN9PJON_crc87computeEPKh
+    24: 0000033a    42 FUNC    LOCAL  DEFAULT    2 _ZN5Print5writeEPKc
+    25: 00000364   146 FUNC    LOCAL  DEFAULT    2 _ZN5Print11printNumberEmh
+    26: 000000a4    20 OBJECT  LOCAL  DEFAULT    2 digital_pin_to_timer_PGM
+    27: 00000090    20 OBJECT  LOCAL  DEFAULT    2 digital_pin_to_bit_mask_P
+    28: 0000007c    20 OBJECT  LOCAL  DEFAULT    2 digital_pin_to_port_PGM
+    29: 00000072    10 OBJECT  LOCAL  DEFAULT    2 port_to_output_PGM
+    30: 00000068    10 OBJECT  LOCAL  DEFAULT    2 port_to_mode_PGM
+    31: 00800100     1 OBJECT  LOCAL  DEFAULT    1 analog_reference
+    32: 0080012d     4 OBJECT  LOCAL  DEFAULT    3 timer0_overflow_count
+    33: 000006ce   116 FUNC    LOCAL  DEFAULT    2 delay
+    34: 00000742    62 FUNC    LOCAL  DEFAULT    2 _Z17receiver_functionPhjR
+    35: 00800129     4 OBJECT  LOCAL  DEFAULT    3 timer0_millis
+    36: 00800128     1 OBJECT  LOCAL  DEFAULT    3 timer0_fract
+    37: 00000000     0 FILE    LOCAL  DEFAULT  ABS random.c
+    38: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    39: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    40: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    41: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    42: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    43: 000012f2   150 FUNC    LOCAL  DEFAULT    2 do_random
+    44: 00800101     4 OBJECT  LOCAL  DEFAULT    1 next
+    45: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+    46: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    47: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    48: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    49: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    50: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    51: 000010c4   558 FUNC    LOCAL  DEFAULT    2 _GLOBAL__I_65535_0_Receiv
+    52: 00800115     6 OBJECT  LOCAL  DEFAULT    1 _ZTV9IPAddress
+    53: 00800370     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    54: 00800105    16 OBJECT  LOCAL  DEFAULT    1 _ZTV14HardwareSerial
+    55: 00800376     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    56: 0080037c     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    57: 00800382     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    58: 00800390     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    59: 00800388     8 OBJECT  LOCAL  DEFAULT    3 Ethernet
+    60: 00800396     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    61: 0080039c     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    62: 008003a2     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    63: 00000000     0 FILE    LOCAL  DEFAULT  ABS _clear_bss.o
+    64: 000000e6     0 NOTYPE  LOCAL  DEFAULT    2 .do_clear_bss_start
+    65: 000000e4     0 NOTYPE  LOCAL  DEFAULT    2 .do_clear_bss_loop
+    66: 00000000     0 FILE    LOCAL  DEFAULT  ABS _divmodsi4.o
+    67: 000013c8     0 NOTYPE  LOCAL  DEFAULT    2 __divmodsi4_neg2
+    68: 000013d6     0 NOTYPE  LOCAL  DEFAULT    2 __divmodsi4_exit
+    69: 00000000     0 FILE    LOCAL  DEFAULT  ABS _udivmodsi4.o
+    70: 00001434     0 NOTYPE  LOCAL  DEFAULT    2 __udivmodsi4_ep
+    71: 0000141a     0 NOTYPE  LOCAL  DEFAULT    2 __udivmodsi4_loop
+    72: 00000000     0 FILE    LOCAL  DEFAULT  ABS _exit.o
+    73: 0000172e     0 NOTYPE  LOCAL  DEFAULT    2 __stop_program
+    74: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_22
+    75: 000002fc     2 FUNC    GLOBAL HIDDEN     2 _ZL24PJON_dummy_error_han
+    76: 00001452    30 NOTYPE  GLOBAL HIDDEN     2 __umulhisi3
+    77: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_1
+    78: 0000138e    10 FUNC    GLOBAL DEFAULT    2 random
+    79: 0000ffa0     0 NOTYPE  GLOBAL DEFAULT  ABS __DATA_REGION_LENGTH__
+    80: 000016f4    34 FUNC    GLOBAL DEFAULT    2 __fp_round
+    81: 0000018c    28 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial4peekE
+    82: 0000159a    68 FUNC    GLOBAL DEFAULT    2 __fp_split3
+    83: 0000010e    86 FUNC    GLOBAL HIDDEN     2 _ZN5Print5writeEPKhj
+    84: 00000068     0 NOTYPE  GLOBAL DEFAULT    2 __trampolines_start
+    85: 00001552    72 FUNC    GLOBAL DEFAULT    2 __fp_cmp
+    86: 00001730     0 NOTYPE  GLOBAL DEFAULT    2 _etext
+    87: 000001a8    24 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial9avail
+    88: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_24
+    89: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_12
+    90: 000003f6   148 FUNC    GLOBAL HIDDEN     2 _ZNK9IPAddress7printToER5
+    91: 00000216   142 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial5write
+    92: 0000010a     0 NOTYPE  GLOBAL DEFAULT    2 __bad_interrupt
+    93: 00001758     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_end
+    94: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_6
+    95: 00001470     0 NOTYPE  GLOBAL DEFAULT    2 __lesf2
+    96: 00001388     6 FUNC    GLOBAL DEFAULT    2 random_r
+    97: 00000068     0 NOTYPE  GLOBAL DEFAULT    2 __trampolines_end
+    98: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_3
+    99: 000015de    14 FUNC    GLOBAL DEFAULT    2 __fp_zero
+   100: 0000053a   152 FUNC    GLOBAL HIDDEN     2 digitalWrite
+   101: 000005d2   120 FUNC    GLOBAL HIDDEN     2 pinMode
+   102: 00001470     0 NOTYPE  GLOBAL DEFAULT    2 __nesf2
+   103: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_23
+   104: 00001730     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_start
+   105: 000000ba     0 NOTYPE  GLOBAL DEFAULT    2 __dtors_end
+   106: 008003a8     0 NOTYPE  GLOBAL DEFAULT    3 __bss_end
+   107: 000013e8    22 NOTYPE  GLOBAL HIDDEN     2 __muluhisi3
+   108: 00000400     0 NOTYPE  GLOBAL DEFAULT  ABS __LOCK_REGION_LENGTH__
+   109: 00001722    10 FUNC    GLOBAL DEFAULT    2 abort
+   110: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_25
+   111: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_11
+   112: 000000ba     0 NOTYPE  WEAK   DEFAULT    2 __init
+   113: 00000814   544 FUNC    GLOBAL HIDDEN     2 _ZN14AnalogSampling12rece
+   114: 000002a4    68 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial5flush
+   115: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_13
+   116: 00001618     0 NOTYPE  GLOBAL DEFAULT    2 __mulsf3_pse
+   117: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_17
+   118: 000016d2     6 FUNC    GLOBAL DEFAULT    2 __fp_nan
+   119: 0000048a    76 FUNC    GLOBAL DEFAULT    2 __vector_19
+   120: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_7
+   121: 000016c6    12 FUNC    GLOBAL DEFAULT    2 __fp_inf
+   122: 00800131   157 OBJECT  GLOBAL HIDDEN     3 Serial
+   123: 000000dc    16 NOTYPE  GLOBAL HIDDEN     2 __do_clear_bss
+   124: 00810000     0 NOTYPE  GLOBAL DEFAULT    4 __eeprom_end
+   125: 00001612   210 FUNC    GLOBAL DEFAULT    2 __mulsf3x
+   126: 00000336     4 FUNC    GLOBAL HIDDEN     2 __cxa_pure_virtual
+   127: 000014dc     0 NOTYPE  GLOBAL DEFAULT    2 __floatsisf
+   128: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _Z11serialEventv
+   129: 00000000     0 NOTYPE  GLOBAL DEFAULT    2 __vectors
+   130: 00800128     0 NOTYPE  GLOBAL DEFAULT    1 __data_end
+   131: 00001470     0 NOTYPE  GLOBAL DEFAULT    2 __eqsf2
+   132: 00000000     0 NOTYPE  WEAK   DEFAULT    2 __vector_default
+   133: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_5
+   134: 00000400     0 NOTYPE  GLOBAL DEFAULT  ABS __SIGNATURE_REGION_LENGTH
+   135: 00001716    12 NOTYPE  GLOBAL HIDDEN     2 __tablejump2__
+   136: 000000b8     0 NOTYPE  GLOBAL DEFAULT    2 __ctors_start
+   137: 000000c6    22 NOTYPE  GLOBAL HIDDEN     2 __do_copy_data
+   138: 00001470    10 FUNC    GLOBAL DEFAULT    2 __cmpsf2
+   139: 000016e6    14 FUNC    GLOBAL DEFAULT    2 __fp_pscB
+   140: 000015aa     0 NOTYPE  GLOBAL DEFAULT    2 __fp_splitA
+   141: 00800128     0 NOTYPE  GLOBAL DEFAULT    3 __bss_start
+   142: 00000a34  1680 FUNC    GLOBAL DEFAULT    2 main
+   143: 00001470     0 NOTYPE  GLOBAL DEFAULT    2 __ltsf2
+   144: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_4
+   145: 00000684    74 FUNC    GLOBAL HIDDEN     2 micros
+   146: 000013d8    16 NOTYPE  GLOBAL HIDDEN     2 __negsi2
+   147: 000015ec     8 FUNC    GLOBAL DEFAULT    2 __mulsf3
+   148: 00000000     0 NOTYPE  WEAK   DEFAULT  ABS __heap_end
+   149: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_9
+   150: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_2
+   151: 00000400     0 NOTYPE  GLOBAL DEFAULT  ABS __USER_SIGNATURE_REGION_L
+   152: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_21
+   153: 00001398    18 FUNC    GLOBAL DEFAULT    2 srandom
+   154: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_15
+   155: 000016d8    14 FUNC    GLOBAL DEFAULT    2 __fp_pscA
+   156: 00001404    10 NOTYPE  GLOBAL HIDDEN     2 __mulohisi3
+   157: 000000ba     0 NOTYPE  GLOBAL DEFAULT    2 __dtors_start
+   158: 000000ba     0 NOTYPE  GLOBAL DEFAULT    2 __ctors_end
+   159: 000013aa    46 NOTYPE  GLOBAL HIDDEN     2 __divmodsi4
+   160: 000008ff     0 NOTYPE  WEAK   DEFAULT  ABS __stack
+   161: 00800128     0 NOTYPE  GLOBAL DEFAULT    1 _edata
+   162: 008003a8     0 NOTYPE  GLOBAL DEFAULT    4 _end
+   163: 000002fe     2 FUNC    GLOBAL HIDDEN     2 _ZL27PJON_dummy_receiver_
+   164: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_8
+   165: 0000172c     0 NOTYPE  WEAK   HIDDEN     2 exit
+   166: 000014d8   122 FUNC    GLOBAL DEFAULT    2 __floatunsisf
+   167: 00000164    40 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial4readE
+   168: 0000140e    68 NOTYPE  GLOBAL HIDDEN     2 __udivmodsi4
+   169: 0000064a    58 FUNC    GLOBAL HIDDEN     2 analogRead
+   170: 0000147a    94 FUNC    GLOBAL DEFAULT    2 __fixunssfsi
+   171: 00010000     0 NOTYPE  GLOBAL DEFAULT  ABS __EEPROM_REGION_LENGTH__
+   172: 0000172c     0 NOTYPE  GLOBAL HIDDEN     2 _exit
+   173: 008001ce   418 OBJECT  GLOBAL HIDDEN     3 bus
+   174: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_14
+   175: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_10
+   176: 00000780   148 FUNC    GLOBAL DEFAULT    2 __vector_16
+   177: 00800100     0 NOTYPE  GLOBAL DEFAULT    1 __data_start
+   178: 000004d6   100 FUNC    GLOBAL DEFAULT    2 __vector_18
+   179: 00000003     0 NOTYPE  GLOBAL DEFAULT  ABS __FUSE_REGION_LENGTH__
+   180: 00020000     0 NOTYPE  GLOBAL DEFAULT  ABS __TEXT_REGION_LENGTH__
+   181: 0000010a     0 NOTYPE  WEAK   DEFAULT    2 __vector_20
+   182: 000015e0     0 NOTYPE  GLOBAL DEFAULT    2 __fp_szero
+   183: 000000ec    22 NOTYPE  GLOBAL HIDDEN     2 __do_global_ctors
+   184: 000013fe     6 NOTYPE  GLOBAL HIDDEN     2 __mulshisi3
+
+No version information found in this file.
+
+Displaying notes found at file offset 0x00001800 with length 0x00000040:
+  Owner                 Data size	Description
+  AVR                  0x0000002d	NT_VERSION (version)
+
+File: /tmp/arduino_build_53868/Receiver.ino.elf
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Atmel AVR 8-bit microcontroller
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          63816 (bytes into file)
+  Flags:                             0x5
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         3
+  Size of section headers:           40 (bytes)
+  Number of section headers:         17
+  Section header string table index: 14
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .data             PROGBITS        00800100 001b36 000024 00  WA  0   0  1
+  [ 2] .text             PROGBITS        00000000 000094 001aa2 00  AX  0   0  2
+  [ 3] .bss              NOBITS          00800124 001b5a 000277 00  WA  0   0  1
+  [ 4] .comment          PROGBITS        00000000 001b5a 000011 01  MS  0   0  1
+  [ 5] .note.gnu.avr.dev NOTE            00000000 001b6c 000040 00      0   0  4
+  [ 6] .debug_aranges    PROGBITS        00000000 001bac 000088 00      0   0  1
+  [ 7] .debug_info       PROGBITS        00000000 001c34 0053d6 00      0   0  1
+  [ 8] .debug_abbrev     PROGBITS        00000000 00700a 0017cb 00      0   0  1
+  [ 9] .debug_line       PROGBITS        00000000 0087d5 001991 00      0   0  1
+  [10] .debug_frame      PROGBITS        00000000 00a168 0004b0 00      0   0  4
+  [11] .debug_str        PROGBITS        00000000 00a618 0013c3 00      0   0  1
+  [12] .debug_loc        PROGBITS        00000000 00b9db 00252b 00      0   0  1
+  [13] .debug_ranges     PROGBITS        00000000 00df06 000458 00      0   0  1
+  [14] .shstrtab         STRTAB          00000000 00f892 0000b4 00      0   0  1
+  [15] .symtab           SYMTAB          00000000 00e360 000b60 10     16  83  4
+  [16] .strtab           STRTAB          00000000 00eec0 0009d2 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000094 0x00000000 0x00000000 0x01aa2 0x01aa2 R E 0x2
+  LOAD           0x001b36 0x00800100 0x00001aa2 0x00024 0x00024 RW  0x1
+  LOAD           0x001b5a 0x00800124 0x00800124 0x00000 0x00277 RW  0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .text 
+   01     .data 
+   02     .bss 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+The decoding of unwind sections for machine type Atmel AVR 8-bit microcontroller is not currently supported.
+
+Symbol table '.symtab' contains 182 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00800100     0 SECTION LOCAL  DEFAULT    1 
+     2: 00000000     0 SECTION LOCAL  DEFAULT    2 
+     3: 00800124     0 SECTION LOCAL  DEFAULT    3 
+     4: 00000000     0 SECTION LOCAL  DEFAULT    4 
+     5: 00000000     0 SECTION LOCAL  DEFAULT    5 
+     6: 00000000     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000     0 FILE    LOCAL  DEFAULT  ABS random.c
+    15: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    16: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    17: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    18: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    19: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    20: 000018ea   150 FUNC    LOCAL  DEFAULT    2 do_random
+    21: 00800100     4 OBJECT  LOCAL  DEFAULT    1 next
+    22: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+    23: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    24: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    25: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    26: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    27: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    28: 000016ce   540 FUNC    LOCAL  DEFAULT    2 _GLOBAL__I_65535_0_Receiv
+    29: 00800114     6 OBJECT  LOCAL  DEFAULT    1 _ZTV9IPAddress
+    30: 00800363     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    31: 00800104    16 OBJECT  LOCAL  DEFAULT    1 _ZTV14HardwareSerial
+    32: 00800369     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    33: 0080036f     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    34: 00800375     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    35: 00800383     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    36: 0080037b     8 OBJECT  LOCAL  DEFAULT    3 Ethernet
+    37: 00800389     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    38: 0080038f     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    39: 00800395     6 OBJECT  LOCAL  DEFAULT    3 _ZL11INADDR_NONE.lto_priv
+    40: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+    41: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    42: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    43: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    44: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    45: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    46: 000001ca    20 FUNC    LOCAL  DEFAULT    2 _Z17Serial0_availablev
+    47: 000001de    66 FUNC    LOCAL  DEFAULT    2 _ZN14HardwareSerial17_tx_
+    48: 00000306    82 FUNC    LOCAL  DEFAULT    2 turnOffPWM
+    49: 00000360    42 FUNC    LOCAL  DEFAULT    2 _ZN5Print5writeEPKc
+    50: 0000038a   146 FUNC    LOCAL  DEFAULT    2 _ZN5Print11printNumberEmh
+    51: 000000ae    20 OBJECT  LOCAL  DEFAULT    2 digital_pin_to_timer_PGM
+    52: 0000009a    20 OBJECT  LOCAL  DEFAULT    2 digital_pin_to_bit_mask_P
+    53: 00000086    20 OBJECT  LOCAL  DEFAULT    2 digital_pin_to_port_PGM
+    54: 0000007c    10 OBJECT  LOCAL  DEFAULT    2 port_to_input_PGM
+    55: 00000072    10 OBJECT  LOCAL  DEFAULT    2 port_to_output_PGM
+    56: 00000068    10 OBJECT  LOCAL  DEFAULT    2 port_to_mode_PGM
+    57: 00800129     4 OBJECT  LOCAL  DEFAULT    3 timer0_overflow_count
+    58: 00800125     4 OBJECT  LOCAL  DEFAULT    3 timer0_millis
+    59: 00800124     1 OBJECT  LOCAL  DEFAULT    3 timer0_fract
+    60: 00000000     0 FILE    LOCAL  DEFAULT  ABS _clear_bss.o
+    61: 000000f0     0 NOTYPE  LOCAL  DEFAULT    2 .do_clear_bss_start
+    62: 000000ee     0 NOTYPE  LOCAL  DEFAULT    2 .do_clear_bss_loop
+    63: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+    64: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    65: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    66: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    67: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    68: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    69: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+    70: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    71: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    72: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    73: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    74: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    75: 00000000     0 FILE    LOCAL  DEFAULT  ABS _divmodsi4.o
+    76: 000019c0     0 NOTYPE  LOCAL  DEFAULT    2 __divmodsi4_neg2
+    77: 000019ce     0 NOTYPE  LOCAL  DEFAULT    2 __divmodsi4_exit
+    78: 00000000     0 FILE    LOCAL  DEFAULT  ABS _udivmodsi4.o
+    79: 00001a2c     0 NOTYPE  LOCAL  DEFAULT    2 __udivmodsi4_ep
+    80: 00001a12     0 NOTYPE  LOCAL  DEFAULT    2 __udivmodsi4_loop
+    81: 00000000     0 FILE    LOCAL  DEFAULT  ABS _exit.o
+    82: 00001aa0     0 NOTYPE  LOCAL  DEFAULT    2 __stop_program
+    83: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_22
+    84: 00001a4a    30 NOTYPE  GLOBAL HIDDEN     2 __umulhisi3
+    85: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_1
+    86: 00001986    10 FUNC    GLOBAL DEFAULT    2 random
+    87: 0000ffa0     0 NOTYPE  GLOBAL DEFAULT  ABS __DATA_REGION_LENGTH__
+    88: 00000196    28 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial4peekE
+    89: 00000118    86 FUNC    GLOBAL HIDDEN     2 _ZN5Print5writeEPKhj
+    90: 00000068     0 NOTYPE  GLOBAL DEFAULT    2 __trampolines_start
+    91: 00001aa2     0 NOTYPE  GLOBAL DEFAULT    2 _etext
+    92: 000001b2    24 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial9avail
+    93: 00000560    82 FUNC    GLOBAL HIDDEN     2 digitalRead
+    94: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_24
+    95: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_12
+    96: 0000041c   148 FUNC    GLOBAL HIDDEN     2 _ZNK9IPAddress7printToER5
+    97: 00000220   142 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial5write
+    98: 00000114     0 NOTYPE  GLOBAL DEFAULT    2 __bad_interrupt
+    99: 00001ac6     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_end
+   100: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_6
+   101: 00001980     6 FUNC    GLOBAL DEFAULT    2 random_r
+   102: 00000068     0 NOTYPE  GLOBAL DEFAULT    2 __trampolines_end
+   103: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_3
+   104: 000005b2    96 FUNC    GLOBAL HIDDEN     2 digitalWrite
+   105: 00000612   120 FUNC    GLOBAL HIDDEN     2 pinMode
+   106: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_23
+   107: 00001aa2     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_start
+   108: 000000c4     0 NOTYPE  GLOBAL DEFAULT    2 __dtors_end
+   109: 0080039b     0 NOTYPE  GLOBAL DEFAULT    3 __bss_end
+   110: 000019e0    22 NOTYPE  GLOBAL HIDDEN     2 __muluhisi3
+   111: 00000400     0 NOTYPE  GLOBAL DEFAULT  ABS __LOCK_REGION_LENGTH__
+   112: 00001a94    10 FUNC    GLOBAL DEFAULT    2 abort
+   113: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_25
+   114: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_11
+   115: 000000c4     0 NOTYPE  WEAK   DEFAULT    2 __init
+   116: 000002f2    20 FUNC    GLOBAL HIDDEN     2 _Z14serialEventRunv
+   117: 000002ae    68 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial5flush
+   118: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_13
+   119: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_17
+   120: 000004b0    76 FUNC    GLOBAL DEFAULT    2 __vector_19
+   121: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_7
+   122: 00000cba   100 FUNC    GLOBAL HIDDEN     2 _ZN15SoftwareBitBang9send
+   123: 0080012d   157 OBJECT  GLOBAL HIDDEN     3 Serial
+   124: 000000e6    16 NOTYPE  GLOBAL HIDDEN     2 __do_clear_bss
+   125: 00810000     0 NOTYPE  GLOBAL DEFAULT    4 __eeprom_end
+   126: 00000358     2 FUNC    GLOBAL HIDDEN     2 _ZL24PJON_dummy_error_han
+   127: 00000c50   106 FUNC    GLOBAL HIDDEN     2 _ZN15SoftwareBitBang9read
+   128: 0000035c     4 FUNC    GLOBAL HIDDEN     2 __cxa_pure_virtual
+   129: 00000836    54 FUNC    GLOBAL HIDDEN     2 _ZN9PJON_crc87computeEPKh
+   130: 00000000     0 NOTYPE  WEAK   DEFAULT  UND _Z11serialEventv
+   131: 00000000     0 NOTYPE  GLOBAL DEFAULT    2 __vectors
+   132: 00800124     0 NOTYPE  GLOBAL DEFAULT    1 __data_end
+   133: 00001a68    32 NOTYPE  GLOBAL HIDDEN     2 __mulsi3
+   134: 00000000     0 NOTYPE  WEAK   DEFAULT    2 __vector_default
+   135: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_5
+   136: 00000400     0 NOTYPE  GLOBAL DEFAULT  ABS __SIGNATURE_REGION_LENGTH
+   137: 00001a88    12 NOTYPE  GLOBAL HIDDEN     2 __tablejump2__
+   138: 00000b3a   174 FUNC    GLOBAL HIDDEN     2 _ZN15SoftwareBitBang4sync
+   139: 000000c2     0 NOTYPE  GLOBAL DEFAULT    2 __ctors_start
+   140: 000000d0    22 NOTYPE  GLOBAL HIDDEN     2 __do_copy_data
+   141: 00800124     0 NOTYPE  GLOBAL DEFAULT    3 __bss_start
+   142: 00000d1e  2480 FUNC    GLOBAL DEFAULT    2 main
+   143: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_4
+   144: 000007dc    90 FUNC    GLOBAL HIDDEN     2 _ZNK4PJONI15SoftwareBitBa
+   145: 0000068a    74 FUNC    GLOBAL HIDDEN     2 micros
+   146: 000019d0    16 NOTYPE  GLOBAL HIDDEN     2 __negsi2
+   147: 0000035a     2 FUNC    GLOBAL HIDDEN     2 _ZL27PJON_dummy_receiver_
+   148: 00000000     0 NOTYPE  WEAK   DEFAULT  ABS __heap_end
+   149: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_9
+   150: 000006d4   116 FUNC    GLOBAL HIDDEN     2 delay
+   151: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_2
+   152: 00000400     0 NOTYPE  GLOBAL DEFAULT  ABS __USER_SIGNATURE_REGION_L
+   153: 0000086c   718 FUNC    GLOBAL HIDDEN     2 _Z17receiver_functionPhjR
+   154: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_21
+   155: 00001990    18 FUNC    GLOBAL DEFAULT    2 srandom
+   156: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_15
+   157: 000019fc    10 NOTYPE  GLOBAL HIDDEN     2 __mulohisi3
+   158: 000000c4     0 NOTYPE  GLOBAL DEFAULT    2 __dtors_start
+   159: 000000c4     0 NOTYPE  GLOBAL DEFAULT    2 __ctors_end
+   160: 000019a2    46 NOTYPE  GLOBAL HIDDEN     2 __divmodsi4
+   161: 000008ff     0 NOTYPE  WEAK   DEFAULT  ABS __stack
+   162: 00800124     0 NOTYPE  GLOBAL DEFAULT    1 _edata
+   163: 0080039b     0 NOTYPE  GLOBAL DEFAULT    4 _end
+   164: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_8
+   165: 00001a9e     0 NOTYPE  WEAK   HIDDEN     2 exit
+   166: 0000016e    40 FUNC    GLOBAL HIDDEN     2 _ZN14HardwareSerial4readE
+   167: 00001a06    68 NOTYPE  GLOBAL HIDDEN     2 __udivmodsi4
+   168: 00000be8   104 FUNC    GLOBAL HIDDEN     2 _ZN10PJON_crc327computeEP
+   169: 00010000     0 NOTYPE  GLOBAL DEFAULT  ABS __EEPROM_REGION_LENGTH__
+   170: 00001a9e     0 NOTYPE  GLOBAL HIDDEN     2 _exit
+   171: 008001ca   409 OBJECT  GLOBAL HIDDEN     3 bus
+   172: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_14
+   173: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_10
+   174: 00000748   148 FUNC    GLOBAL DEFAULT    2 __vector_16
+   175: 00800100     0 NOTYPE  GLOBAL DEFAULT    1 __data_start
+   176: 000004fc   100 FUNC    GLOBAL DEFAULT    2 __vector_18
+   177: 00000003     0 NOTYPE  GLOBAL DEFAULT  ABS __FUSE_REGION_LENGTH__
+   178: 00020000     0 NOTYPE  GLOBAL DEFAULT  ABS __TEXT_REGION_LENGTH__
+   179: 00000114     0 NOTYPE  WEAK   DEFAULT    2 __vector_20
+   180: 000000f6    22 NOTYPE  GLOBAL HIDDEN     2 __do_global_ctors
+   181: 000019f6     6 NOTYPE  GLOBAL HIDDEN     2 __mulshisi3
+
+No version information found in this file.
+
+Displaying notes found at file offset 0x00001b6c with length 0x00000040:
+  Owner                 Data size	Description
+  AVR                  0x0000002d	NT_VERSION (version)
+Received!
+')/0
+OB.Q,a,q,
+#+$+%+a
+1,!,
+/8/8p
+(/ t
+9/0q
+8/"'
+!P1	
+(P1	 >
+i/fp
+)/"p
+?OOO_O
+g/x/
+#+$+%+!
+'f'w'
+/v/j/
+BLINK
+OB.Q,a,q,
+#+$+%+a
+&/ qd
+')/0
+aPq	!/ r
+,a/`#
+!,1,
+J.Q,a,q,
+ePq	
+ePq	
+A\_O\
+FS^Oj
+8/"'
+dPq	
+(^?Ok
+HPQ	@>/
+?OOO_O
+   text	   data	    bss	    dec	    hex	filename
+   5936	     40	    640	   6616	   19d8	/tmp/arduino_build_914281/Receiver.ino.elf
+   6818	     36	    631	   7485	   1d3d	/tmp/arduino_build_53868/Receiver.ino.elf

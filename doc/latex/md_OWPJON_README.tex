@@ -1,0 +1,157 @@
+Meant to replace all 1wire stuff (Dallas/\-Maxim commercial) some day. Meantwhile both busses/systems can be used together. The Software\-Bit\-Bang (S\-W\-B\-B) part is the O\-W\-P\-J\-O\-N or 1w\-P\-J\-O\-N bus.
+
+``` 
+
+ $\vert$ kubuntu 14.\-04 $\vert$ $\vert$ Arduino Uno $\vert$ $\vert$ Arduino Yun $\vert$ $\vert$ Through\-Serial $\vert$ $<$---$>$ $\vert$ Through\-Serial $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ S\-W\-B\-B pin 7 $\vert$ $<$---$>$ $\vert$ S\-W\-B\-B pin 12 $\vert$ $\vert$ Server $\vert$ $\vert$ Master $\vert$ $\vert$ Slaves $\vert$ 
+
+
+
+Server\-: L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Transmitter/ (kubuntu 14.\-04, T\-S) Master\-: A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Serial/\-Software\-Bit\-Bang\-Surrogate/\-Surrogate/ (Uno, T\-S, S\-W\-B\-B pin 7) Slaves\-: A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Blink\-With\-Response/\-Receiver/ (Yun, S\-W\-B\-B pin12) ```
+
+Notes\-:
+\begin{DoxyItemize}
+\item putting {\ttfamily bus.\-set\-\_\-synchronous\-\_\-acknowledge(false);} before {\ttfamily bus.\-begin();} in both, the Receiver and the Transmitter makes T\-S run stable
+\item the terms \char`\"{}\-Master\char`\"{} and \char`\"{}\-Slave\char`\"{} might be missleading, as basically communication between all devices in any direction is possible
+\item \href{https://github.com/gioblu/PJON/tree/master/src/strategies/SoftwareBitBang}{\tt https\-://github.\-com/gioblu/\-P\-J\-O\-N/tree/master/src/strategies/\-Software\-Bit\-Bang} (pull-\/down resistor etc.)
+\end{DoxyItemize}
+
+Arduino Uno and Yun can basically be any kind of A\-V\-R/\-Arduino (as supported by P\-J\-O\-N), no special needs except for a serial-\/usb port on one of them.
+
+Linux parts (server) are derived from Raspi (R\-P\-I) and therefore need wiring\-Pi in order to compile succesfully\-: \begin{DoxyVerb}$ git clone git://git.drogon.net/wiringPi
+$ cd wiringPi
+$ ./build
+
+$ make
+$ sudo ./Transmitter
+\end{DoxyVerb}
+
+
+This setup can be used for developping, testing and also as a first productive system.
+
+There are already solutions around like P\-J\-O\-N-\/g\-R\-P\-C or Module\-Interface\-: \href{https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage}{\tt https\-://github.\-com/fredilarsen/\-Module\-Interface/tree/master/examples/\-Web\-Page} Currently both are hard to compile and understand, but that will change (P\-J\-O\-N-\/g\-R\-P\-C is easier to compile in ubuntu 16.\-10, docu of Module\-Interface is up to be improved).
+
+``` 
+
+ $\vert$ kubuntu 14.\-04 $\vert$ $\vert$ Arduino Uno $\vert$ $\vert$ Arduino Yun $\vert$ $\vert$ Through\-Serial $\vert$ $<$---$>$ $\vert$ Through\-Serial $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ S\-W\-B\-B pin 7 $\vert$ $<$---$>$ $\vert$ S\-W\-B\-B pin 12 $\vert$ $\vert$ Server $\vert$ $\vert$ Master $\vert$ $\vert$ Slaves $\vert$ 
+
+
+
+Server\-: L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Device\-Generic/ (kubuntu 14.\-04, T\-S) Master\-: A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Serial/\-Software\-Bit\-Bang\-Surrogate/\-Surrogate/ (Uno, T\-S, S\-W\-B\-B pin 7) Slaves\-: A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Device\-Generic/ A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors/ A\-T\-T\-I\-N\-Y/\-Local/\-Software\-Bit\-Bang/\-Device\-Generic/ (Yun, S\-W\-B\-B pin12) ```
+
+Notes\-:
+\begin{DoxyItemize}
+\item the attiny code uses 5554 bytes (67\%) compiled (may be less with L\-T\-O), see \href{https://github.com/drtrigon/sketchbook/blob/result/docu/OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino.compile#L55}{\tt https\-://github.\-com/drtrigon/sketchbook/blob/result/docu/\-O\-W\-P\-J\-O\-N/\-A\-T\-T\-I\-N\-Y/\-Local/\-Software\-Bit\-Bang/\-Device\-Generic/\-Device\-Generic.\-ino.\-compile\#\-L55}
+\end{DoxyItemize}
+
+The program {\ttfamily owpshell} (\hyperlink{namespaceDeviceGeneric}{Device\-Generic}) allows e.\-g. shell/command line access to the bus (similar to owshell read and write funcs). That can also be used from collectd e.\-g. It supports passing of data as command line parameter and via stdin (pipe). Later supports all posible chars.
+
+Read device info\-: \begin{DoxyVerb}$ printf "\x01" | sudo ./owpshell /dev/ttyACM0 9600 44
+\end{DoxyVerb}
+
+
+Write to device memory and read for verification\-: \begin{DoxyVerb}$ printf "\x22ABC" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py B
+$ printf "\x21" | sudo ./owpshell /dev/ttyACM0 9600 44
+\end{DoxyVerb}
+
+
+Write a float e.\-g. for calibration/configuration of device\-: \begin{DoxyVerb}$ printf "\x32`python pack.py f 7.1`" | sudo ./owpshell /dev/ttyACM0 9600 44 | python unpack.py f
+\end{DoxyVerb}
+
+
+As can be seen the un-\//packing of values (casting from/to binary representation) is done by two python script {\ttfamily \hyperlink{unpack_8py}{unpack.\-py}} and {\ttfamily \hyperlink{pack_8py}{pack.\-py}}. Furthermore there is also a unittest python script called {\ttfamily test.\-py}.
+
+Automatically detect the device type and test it\-: \begin{DoxyVerb}$ sudo python test.py
+\end{DoxyVerb}
+
+
+Force to test against a specific device type\-: \begin{DoxyVerb}$ sudo python test.py owp:dg:v1
+\end{DoxyVerb}
+
+
+Now the Through\-Serial (T\-S) part can be replaced by Local\-U\-D\-P (L\-U\-D\-P may be over wifi?) according to\-:
+
+The setup can also be modified by replacing the Through\-Serial (T\-S) part by Local\-U\-D\-P (L\-U\-D\-P may be over wifi?). This needs an Ethernet\-Shield for the Arduino Uno used as Master.
+
+``` 
+
+ $\vert$ kubuntu 14.\-04 $\vert$ $\vert$ Arduino Uno $\vert$ $\vert$ Arduino Yun $\vert$ $\vert$ Local\-U\-D\-P $\vert$ $<$---$>$ $\vert$ Local\-U\-D\-P $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ S\-W\-B\-B pin 7 $\vert$ $<$---$>$ $\vert$ S\-W\-B\-B pin 12 $\vert$ $\vert$ Server $\vert$ $\vert$ Master $\vert$ $\vert$ Slaves $\vert$ 
+
+
+
+Server\-: L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/ (kubuntu 14.\-04, L\-U\-D\-P) Master\-: A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch/ (Uno+\-Ethernet\-Shield W5100 based, L\-U\-D\-P, S\-W\-B\-B pin 7) Slaves\-: (all as mentioned before) ```
+
+In this case the {\ttfamily owpshell} program works exactly the same except for the fact that it does not need any serial port info (and thus no sudo either)\-: \begin{DoxyVerb}$ printf "\x01" | ./owpshell - - 44
+\end{DoxyVerb}
+
+
+R\-A\-S\-P\-B\-E\-R\-R\-Y P\-I (1) S\-E\-T\-U\-P
+
+We now want to setup this schemes (productive system)\-:
+
+``` 
+
+ $\vert$ linuxpc/raspi $\vert$ $\vert$ Arduino+\-E\-T\-H $\vert$ $\vert$ Arduino/\-A\-V\-R $\vert$ $\vert$ Local\-U\-D\-P $\vert$ $<$---$>$ $\vert$ Local\-U\-D\-P $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ $\vert$ S\-W\-B\-B $\vert$ $<$---$>$ $\vert$ S\-W\-B\-B $\vert$ $\vert$ Server $\vert$ $\vert$ Master $\vert$ $\vert$ Slaves $\vert$ 
+
+ ```
+
+Installation of g++ 4.\-8 is needed if missing due to '-\/std=c++11' on Wheezy follow these steps\-:
+
+``` pi $\sim$ \$ cat /etc/os-\/release ``` gives \char`\"{}wheezy\char`\"{}, see output\-: ``` P\-R\-E\-T\-T\-Y\-\_\-\-N\-A\-M\-E=\char`\"{}\-Raspbian G\-N\-U/\-Linux 7 (wheezy)\char`\"{} ... V\-E\-R\-S\-I\-O\-N=\char`\"{}7 (wheezy)\char`\"{} ``` so we can install g++ 4.\-8 in order to be able to compile P\-J\-O\-N 11.\-0 (adds $\sim$30-\/50\-M\-B) ``` pi $\sim$ \$ sudo apt-\/get install g++-\/4.8 pi $\sim$ \$ g++ ``` auto tab completition gives\-: g++ g++-\/4.6 g++-\/4.8
+
+Next step is to get and compile (O\-W)P\-J\-O\-N 11\-:
+
+``` pi $\sim$ \$ mkdir O\-W\-P\-J\-O\-N pi $\sim$ \$ cd O\-W\-P\-J\-O\-N/ pi $\sim$/\-O\-W\-P\-J\-O\-N \$ wget \href{https://github.com/gioblu/PJON/archive/11.0.tar.gz}{\tt https\-://github.\-com/gioblu/\-P\-J\-O\-N/archive/11.\-0.\-tar.\-gz} pi $\sim$/\-O\-W\-P\-J\-O\-N \$ tar -\/xvzf 11.\-0.\-tar.\-gz pi $\sim$/\-O\-W\-P\-J\-O\-N \$ cd P\-J\-O\-N-\/11.\-0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/ pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P \$ mkdir -\/p Remote\-Worker/\-Device\-Generic/ pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P \$ cd Remote\-Worker/\-Device\-Generic/ ``` copy files, e.\-g. by copy-\/paste from kate to nano window\-: ``` pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ nano Makefile pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ nano Device\-Generic.\-cpp pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ nano \hyperlink{pack_8py}{pack.\-py} pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ nano \hyperlink{unpack_8py}{unpack.\-py} pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ chmod +x \hyperlink{pack_8py}{pack.\-py} \hyperlink{unpack_8py}{unpack.\-py} pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ ls -\/la total 72 drwxr-\/xr-\/x 2 pi pi 4096 Jul 7 15\-:06 . drwxr-\/xr-\/x 3 pi pi 4096 Jul 7 09\-:53 .. -\/rw-\/r--r-- 1 pi pi 4422 Jul 7 15\-:01 Device\-Generic.\-cpp -\/rw-\/r--r-- 1 pi pi 305 Jul 7 15\-:03 Makefile -\/rwxr-\/xr-\/x 1 pi pi 41259 Jul 7 15\-:04 owpshell -\/rwxr-\/xr-\/x 1 pi pi 162 Jul 7 15\-:06 \hyperlink{pack_8py}{pack.\-py} -\/rwxr-\/xr-\/x 1 pi pi 325 Jul 7 15\-:06 \hyperlink{unpack_8py}{unpack.\-py} pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ make raspi pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ printf \char`\"{}\textbackslash{}x01\char`\"{} $\vert$ ./owpshell -\/ -\/ 44 owp\-:dg\-:v1 pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ printf \char`\"{}\textbackslash{}x11\char`\"{} $\vert$ ./owpshell -\/ -\/ 44 $\vert$ ./unpack.py f 4.\-751999855041504, pi $\sim$/\-O\-W\-P\-J\-O\-N/\-P\-J\-O\-N-\/11.0/examples/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic \$ printf \char`\"{}\textbackslash{}x12\char`\"{} $\vert$ ./owpshell -\/ -\/ 44 $\vert$ ./unpack.py f 28.\-02459144592285, ``` and finally add the sensors/devices to your logging system e.\-g. collectd\-: ``` \$ python owpjon\-\_\-sensor.\-py \$ collectd -\/\-C /etc/collectd/collectd.conf -\/\-T \$ cat /var/log/syslog \$ sudo /etc/init.d/collectd restart ```
+
+Possible wireless solutions going through wall e.\-g. (galvanic isolated)\-: (would allow to turn wifi -\/ used for 1wire -\/ off during night again)
+
+``` 
+
+ $\vert$ Dragino\-L\-G01-\/\-S $\vert$ $\vert$ Arduino+\-Lo\-Ra $\vert$ $\vert$ Arduino/\-A\-V\-R $\vert$ $\vert$ Lo\-Ra $\vert$ $<$---$>$ $\vert$ Lo\-Ra $\vert$ $\vert$ $\vert$ $\vert$ S\-W\-B\-B $\vert$ $\vert$ S\-W\-B\-B $\vert$ $<$---$>$ $\vert$ S\-W\-B\-B $\vert$ $\vert$ Slaves/\-Tunnel $\vert$ $\vert$ Master/\-Tunnel $\vert$ $\vert$ Slaves $\vert$ 
+
+ S\-W\-B\-B bus indoors S\-W\-B\-B bus outdoors ```
+
+Dragino is 3v3 and needs a level shifter -\/ I used this circuit (somehow inspired by V-\/\-U\-S\-B but is not the same)\-: ``` 3v3 I\-O ---o---\textbackslash{}/\textbackslash{}/\textbackslash{}/-\/-- 5v I\-O \subsection*{$\vert$ resistor (68 better 150...4k7) }
+
+\subsection*{$\vert$ $\vert$ 3v6 Zener (protect 3v3) }
+
+$\vert$ G\-N\-D ``` see also \href{http://www.partsim.com/simulator/#148247}{\tt http\-://www.\-partsim.\-com/simulator/\#148247}.
+
+It works but has at least these disadvantages\-:
+\begin{DoxyItemize}
+\item knee of zener known not to be very sharp, so 3v6 are not precise
+\item using 150 ohms as minimum is recommended in order to be protected against shorts
+\begin{DoxyItemize}
+\item a device on the 5v bus needs to be able to drive (5v -\/ 3.\-6v) / R $\sim$ 0.\-4..20m\-A for a high
+\item currently 4k7 is used
+\item current through zener might peak if 3.\-3\-V supply is higher (simulation above shows about 3.\-6\-V@20m\-A -\/ so using 3.\-6\-V zener might be the safe choice)
+\end{DoxyItemize}
+\item (cut-\/off frequency might be low due to big capacity and big resistor)
+\end{DoxyItemize}
+
+Further improvements might include; setup a \char`\"{}3 way\char`\"{} tunneler (L\-U\-D\-P, S\-W\-B\-B, S\-W\-B\-B) that gives 2 S\-W\-B\-B pins (on same bus; a 5v and a 3v3 bus).
+
+An alternative proposal using a schottky diode is shown in \href{http://www.partsim.com/simulator/#148244}{\tt http\-://www.\-partsim.\-com/simulator/\#148244}.
+
+Notes\-:
+\begin{DoxyItemize}
+\item O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor for mega328 could may be modified to fit in an attiny (mega88); O\-W\-P\-J\-O\-N-\/1wire (master) converter for refurbishing of old 1wire devices
+\begin{DoxyItemize}
+\item \href{https://github.com/mikaelpatel/Arduino-OWI,}{\tt https\-://github.\-com/mikaelpatel/\-Arduino-\/\-O\-W\-I,} \href{https://github.com/mikaelpatel/Arduino-OWI/tree/master/examples/ATtiny}{\tt https\-://github.\-com/mikaelpatel/\-Arduino-\/\-O\-W\-I/tree/master/examples/\-A\-Ttiny}
+\end{DoxyItemize}
+\item Outdoor/\-Isolated bus branch; \href{https://github.com/gioblu/PJON/issues/222}{\tt https\-://github.\-com/gioblu/\-P\-J\-O\-N/issues/222}
+\begin{DoxyItemize}
+\item Lo\-Ra-\/\-S\-W\-B\-B switch/tunnel; Dargino/\-Yun for Lo\-Ra indoors, Uno+\-Lo\-Ra outdoors -\/ outdoor low-\/power possible
+\item alternative solutions;
+\begin{DoxyItemize}
+\item Analog\-Sampling-\/\-S\-W\-B\-B\-: Single L\-E\-D or Laser Diode bidirectional through window -\/ low-\/power posible -\/ needs testing and safety measure, e.\-g. cats remove sender and look into laser diode ...
+\item Over\-Sampling-\/\-S\-W\-B\-B\-: 315/433\-M\-Hz or H\-C-\/12 radio -\/ low-\/power possible? where to order from?
+\item L\-U\-D\-P-\/\-S\-W\-B\-B (L\-U\-D\-P via wifi); Yun, E\-S\-P8266 (G\-U\-P\-D, 3.\-3v), raspi zero (3.\-3v using wifi stick or zero w), uno+eth+lan2wifi (like now), maybe use yun as \char`\"{}router\char`\"{}/lan2wifi (\href{https://hackingmajenkoblog.wordpress.com/2017/06/02/configuring-yun-wifi/}{\tt https\-://hackingmajenkoblog.\-wordpress.\-com/2017/06/02/configuring-\/yun-\/wifi/}) -\/ wifi thus high-\/power
+\end{DoxyItemize}
+\item for testing and specifing network stability use; \href{https://github.com/gioblu/PJON/tree/master/examples/ARDUINO/Local/Any/StrategyLinkNetworkAnalysis}{\tt https\-://github.\-com/gioblu/\-P\-J\-O\-N/tree/master/examples/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Any/\-Strategy\-Link\-Network\-Analysis} (same for Software\-Bit\-Bang, Analog\-Sampling)
+\end{DoxyItemize}
+\item Setup, test and enjoy \href{https://github.com/fredilarsen/ModuleInterface/tree/master/examples/WebPage}{\tt https\-://github.\-com/fredilarsen/\-Module\-Interface/tree/master/examples/\-Web\-Page} (may be on a Raspi2)
+\item Arduino+\-E\-T\-H can be replaced by E\-S\-P8266 (3.\-3$<$-\/$>$5.\-0v shifting might be needed, may be not) but needs Global\-U\-D\-P (L\-U\-D\-P would be nice)
+\item Arduino+\-E\-T\-H could be replaced by Arduino Yun or even Dragino, if P\-J\-O\-N L\-U\-D\-P would support Yun (needs Yun to support U\-D\-P)
+\item Server and Master might be joined (linuxpc/raspi + Arduino+\-E\-T\-H) into a Raspi(\-Zero) with wifi (3.\-3$<$-\/$>$5.\-0v shifting?)
+\item Local\-U\-D\-P could also be replaced by Ethernet\-T\-C\-P but like Global\-U\-D\-P not so convenient 
+\end{DoxyItemize}

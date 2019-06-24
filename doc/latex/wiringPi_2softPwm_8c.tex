@@ -1,0 +1,60 @@
+\hypertarget{wiringPi_2softPwm_8c}{\section{wiring\-Pi/wiring\-Pi/soft\-Pwm.c File Reference}
+\label{wiringPi_2softPwm_8c}\index{wiring\-Pi/wiring\-Pi/soft\-Pwm.\-c@{wiring\-Pi/wiring\-Pi/soft\-Pwm.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$malloc.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}soft\-Pwm.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{wiringPi_2softPwm_8c_ab3b88b57fbf8396ce4d9b39815ecdff8}{M\-A\-X\-\_\-\-P\-I\-N\-S}~64
+\item 
+\#define \hyperlink{wiringPi_2softPwm_8c_ac877c243f61b4d41a089602b62703bef}{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}~100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{wiringPi_2softPwm_8c_ac3e8f75f1f75bfca9a8bea233829ea0d}{soft\-Pwm\-Write} (int pin, int value)
+\item 
+int \hyperlink{wiringPi_2softPwm_8c_abeb94225720b402efb08495a2a588c79}{soft\-Pwm\-Create} (int pin, int initial\-Value, int pwm\-Range)
+\item 
+void \hyperlink{wiringPi_2softPwm_8c_ab0e872b9a71dcf488d3af50462741b0f}{soft\-Pwm\-Stop} (int pin)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{wiringPi_2softPwm_8c_ab3b88b57fbf8396ce4d9b39815ecdff8}{\index{wiring\-Pi/soft\-Pwm.\-c@{wiring\-Pi/soft\-Pwm.\-c}!M\-A\-X\-\_\-\-P\-I\-N\-S@{M\-A\-X\-\_\-\-P\-I\-N\-S}}
+\index{M\-A\-X\-\_\-\-P\-I\-N\-S@{M\-A\-X\-\_\-\-P\-I\-N\-S}!wiringPi/softPwm.c@{wiring\-Pi/soft\-Pwm.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-P\-I\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-P\-I\-N\-S~64}}\label{wiringPi_2softPwm_8c_ab3b88b57fbf8396ce4d9b39815ecdff8}
+\hypertarget{wiringPi_2softPwm_8c_ac877c243f61b4d41a089602b62703bef}{\index{wiring\-Pi/soft\-Pwm.\-c@{wiring\-Pi/soft\-Pwm.\-c}!P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E@{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}}
+\index{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E@{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}!wiringPi/softPwm.c@{wiring\-Pi/soft\-Pwm.\-c}}
+\subsubsection[{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E~100}}\label{wiringPi_2softPwm_8c_ac877c243f61b4d41a089602b62703bef}
+
+
+\subsection{Function Documentation}
+\hypertarget{wiringPi_2softPwm_8c_abeb94225720b402efb08495a2a588c79}{\index{wiring\-Pi/soft\-Pwm.\-c@{wiring\-Pi/soft\-Pwm.\-c}!soft\-Pwm\-Create@{soft\-Pwm\-Create}}
+\index{soft\-Pwm\-Create@{soft\-Pwm\-Create}!wiringPi/softPwm.c@{wiring\-Pi/soft\-Pwm.\-c}}
+\subsubsection[{soft\-Pwm\-Create}]{\setlength{\rightskip}{0pt plus 5cm}int soft\-Pwm\-Create (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{initial\-Value, }
+\item[{int}]{pwm\-Range}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_2softPwm_8c_abeb94225720b402efb08495a2a588c79}
+\hypertarget{wiringPi_2softPwm_8c_ab0e872b9a71dcf488d3af50462741b0f}{\index{wiring\-Pi/soft\-Pwm.\-c@{wiring\-Pi/soft\-Pwm.\-c}!soft\-Pwm\-Stop@{soft\-Pwm\-Stop}}
+\index{soft\-Pwm\-Stop@{soft\-Pwm\-Stop}!wiringPi/softPwm.c@{wiring\-Pi/soft\-Pwm.\-c}}
+\subsubsection[{soft\-Pwm\-Stop}]{\setlength{\rightskip}{0pt plus 5cm}void soft\-Pwm\-Stop (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_2softPwm_8c_ab0e872b9a71dcf488d3af50462741b0f}
+\hypertarget{wiringPi_2softPwm_8c_ac3e8f75f1f75bfca9a8bea233829ea0d}{\index{wiring\-Pi/soft\-Pwm.\-c@{wiring\-Pi/soft\-Pwm.\-c}!soft\-Pwm\-Write@{soft\-Pwm\-Write}}
+\index{soft\-Pwm\-Write@{soft\-Pwm\-Write}!wiringPi/softPwm.c@{wiring\-Pi/soft\-Pwm.\-c}}
+\subsubsection[{soft\-Pwm\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void soft\-Pwm\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_2softPwm_8c_ac3e8f75f1f75bfca9a8bea233829ea0d}

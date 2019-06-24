@@ -1,0 +1,79 @@
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:1:1: D100 Missing docstring in public module
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:22:80: E501 line too long (90 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:37:80: E501 line too long (82 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:38:80: E501 line too long (97 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:39:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:39:1: D103 Missing docstring in public function
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:42:1: S105 Possible hardcoded password: '14661655'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:52:80: E501 line too long (82 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:56:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:56:1: D103 Missing docstring in public function
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:68:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:68:1: D103 Missing docstring in public function
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:70:80: E501 line too long (85 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:75:80: E501 line too long (84 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:76:1: S110 Try, Except, Pass detected.
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:76:9: E722 do not use bare 'except'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:84:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:84:1: D103 Missing docstring in public function
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:90:80: E501 line too long (83 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:101:12: E225 missing whitespace around operator
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:128:1: E305 expected 2 blank lines after class or function definition, found 1
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/main.py:143:1: W391 blank line at end of file
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:1:1: D100 Missing docstring in public module
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:4:12: F821 undefined name 'const'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:5:12: F821 undefined name 'const'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:6:12: F821 undefined name 'const'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:8:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:9:1: D400 First line should end with a period
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:9:1: D205 1 blank line required between summary line and description
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:16:5: E101 indentation contains mixed spaces and tabs
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:16:5: W191 indentation contains tabs
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:17:19: E203 whitespace before ':'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:18:21: E203 whitespace before ':'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:20:13: E123 closing bracket does not match indentation of opening bracket's line
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:22:19: E203 whitespace before ':'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:23:21: E203 whitespace before ':'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:25:13: E123 closing bracket does not match indentation of opening bracket's line
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:26:9: E123 closing bracket does not match indentation of opening bracket's line
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:29:1: D400 First line should end with a period
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:29:1: D205 1 blank line required between summary line and description
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:33:16: E711 comparison to None should be 'if cond is None:'
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:39:1: D401 First line should be in imperative mood
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:39:1: D200 One-line docstring should fit on one line with quotes
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:45:1: D400 First line should end with a period
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:45:1: D205 1 blank line required between summary line and description
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:53:1: D400 First line should end with a period
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:53:1: D205 1 blank line required between summary line and description
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:65:80: E501 line too long (81 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:66:1: D400 First line should end with a period
+/home/travis/build/drtrigon/sketchbook/micpy/ESP8266_SHT31_WiFi_pseudoREST/sht31.py:66:1: D205 1 blank line required between summary line and description
+2     D100 Missing docstring in public module
+4     D103 Missing docstring in public function
+1     D200 One-line docstring should fit on one line with quotes
+5     D205 1 blank line required between summary line and description
+5     D400 First line should end with a period
+1     D401 First line should be in imperative mood
+1     E101 indentation contains mixed spaces and tabs
+3     E123 closing bracket does not match indentation of opening bracket's line
+4     E203 whitespace before ':'
+1     E225 missing whitespace around operator
+5     E302 expected 2 blank lines, found 1
+1     E305 expected 2 blank lines after class or function definition, found 1
+8     E501 line too long (90 > 79 characters)
+1     E711 comparison to None should be 'if cond is None:'
+1     E722 do not use bare 'except'
+3     F821 undefined name 'const'
+1     S105 Possible hardcoded password: '14661655'
+1     S110 Try, Except, Pass detected.
+1     W191 indentation contains tabs
+1     W391 blank line at end of file
+1.37       seconds elapsed
+147        total logical lines processed
+107        logical lines processed per second
+219        total physical lines processed
+159        physical lines processed per second
+1206       total tokens processed
+879        tokens processed per second
+2          total files processed
+1          files processed per second

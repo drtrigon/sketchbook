@@ -1,0 +1,125 @@
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino}{\section{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer/\-Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.ino File Reference}
+\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino}\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer/\-Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer/\-Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+}
+{\ttfamily \#include \char`\"{}One\-Wire\-Hub.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\-S18\-B20.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Adafruit\-\_\-\-Si7021\-\_\-\-Tiny.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a3cb24f09004f92185b77e9e7bac6ea61}{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}~-\/260
+\item 
+\#define \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ab667d793bed5c1fb5503624b0ab7504a}{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}~1.\-0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a6766eee584b84ead350781efbabe36d7}{blinking} (void)
+\item 
+void \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_af457592e93b296e5ea12f1cc16ec7795}{get\-Temp} (void)
+\item 
+float \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_acd16ee68f07b74cf5f62870589bf3d70}{get\-Vcc} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr uint8\-\_\-t \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_add5a7eb759d22b21f8875663ed2c1528}{pin\-\_\-led} \{ 1 \}
+\item 
+constexpr uint8\-\_\-t \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire} \{ 4 \}
+\item 
+auto \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{hub} = One\-Wire\-Hub(\hyperlink{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire})
+\item 
+auto \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ae38016b79711fa4f32a36debda7ae0f2}{ds18b20} = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x00, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)
+\item 
+auto \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a1f72447c574df0bfefa4743f352b8dcc}{ds18b21} = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x01, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)
+\item 
+auto \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a7462aab956e92631bce324250cfc621f}{ds18b22} = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x02, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)
+\item 
+auto \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a611cdf853a345f5e3f5c4f854febac67}{ds18b23} = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x03, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)
+\item 
+Adafruit\-\_\-\-Si7021\-\_\-\-Tiny \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_abdb2aa4e7ca4f99842081342ca9d8830}{sensor} = Adafruit\-\_\-\-Si7021\-\_\-\-Tiny()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ab667d793bed5c1fb5503624b0ab7504a}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F@{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}}
+\index{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F@{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F~1.\-0}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ab667d793bed5c1fb5503624b0ab7504a}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a3cb24f09004f92185b77e9e7bac6ea61}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T@{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T@{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T~-\/260}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a3cb24f09004f92185b77e9e7bac6ea61}
+
+
+\subsection{Function Documentation}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a6766eee584b84ead350781efbabe36d7}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!blinking@{blinking}}
+\index{blinking@{blinking}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{blinking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} blinking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a6766eee584b84ead350781efbabe36d7}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_af457592e93b296e5ea12f1cc16ec7795}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!get\-Temp@{get\-Temp}}
+\index{get\-Temp@{get\-Temp}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{get\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float get\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_af457592e93b296e5ea12f1cc16ec7795}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_acd16ee68f07b74cf5f62870589bf3d70}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!get\-Vcc@{get\-Vcc}}
+\index{get\-Vcc@{get\-Vcc}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{get\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}float get\-Vcc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_acd16ee68f07b74cf5f62870589bf3d70}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!loop@{loop}}
+\index{loop@{loop}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!setup@{setup}}
+\index{setup@{setup}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ae38016b79711fa4f32a36debda7ae0f2}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!ds18b20@{ds18b20}}
+\index{ds18b20@{ds18b20}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{ds18b20}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b20 = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x00, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ae38016b79711fa4f32a36debda7ae0f2}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a1f72447c574df0bfefa4743f352b8dcc}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!ds18b21@{ds18b21}}
+\index{ds18b21@{ds18b21}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{ds18b21}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b21 = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x01, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a1f72447c574df0bfefa4743f352b8dcc}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a7462aab956e92631bce324250cfc621f}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!ds18b22@{ds18b22}}
+\index{ds18b22@{ds18b22}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{ds18b22}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b22 = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x02, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a7462aab956e92631bce324250cfc621f}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a611cdf853a345f5e3f5c4f854febac67}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!ds18b23@{ds18b23}}
+\index{ds18b23@{ds18b23}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{ds18b23}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b23 = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x03, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a611cdf853a345f5e3f5c4f854febac67}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!hub@{hub}}
+\index{hub@{hub}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{hub}]{\setlength{\rightskip}{0pt plus 5cm}auto hub = One\-Wire\-Hub({\bf pin\-\_\-onewire})}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_a3beb275f1ae5db0a79499403dd2fbff8}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_add5a7eb759d22b21f8875663ed2c1528}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!pin\-\_\-led@{pin\-\_\-led}}
+\index{pin\-\_\-led@{pin\-\_\-led}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{pin\-\_\-led}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-led \{ 1 \}}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_add5a7eb759d22b21f8875663ed2c1528}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ad4f51a015485d98cc3a8a79f41a81027}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!pin\-\_\-onewire@{pin\-\_\-onewire}}
+\index{pin\-\_\-onewire@{pin\-\_\-onewire}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{pin\-\_\-onewire}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-onewire \{ 4 \}}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_ad4f51a015485d98cc3a8a79f41a81027}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_abdb2aa4e7ca4f99842081342ca9d8830}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}!sensor@{sensor}}
+\index{sensor@{sensor}!Tiny_OWSlave_OWH_DS18B20_thermo-hygrometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer.\-ino}}
+\subsubsection[{sensor}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-Si7021\-\_\-\-Tiny sensor = Adafruit\-\_\-\-Si7021\-\_\-\-Tiny()}}\label{Tiny__OWSlave__OWH__DS18B20__thermo-hygrometer_8ino_abdb2aa4e7ca4f99842081342ca9d8830}

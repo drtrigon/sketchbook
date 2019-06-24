@@ -1,0 +1,66 @@
+\hypertarget{spiSpeed_8c}{\section{wiring\-Pi/examples/spi\-Speed.c File Reference}
+\label{spiSpeed_8c}\index{wiring\-Pi/examples/spi\-Speed.\-c@{wiring\-Pi/examples/spi\-Speed.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi\-S\-P\-I.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{spiSpeed_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{spiSpeed_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(!\hyperlink{network_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{spiSpeed_8c_ae915de38397fbdc90276fa44e148c686}{S\-P\-I\-\_\-\-C\-H\-A\-N}~0
+\item 
+\#define \hyperlink{spiSpeed_8c_a73381138460517321b6a9108dc3739b9}{N\-U\-M\-\_\-\-T\-I\-M\-E\-S}~100
+\item 
+\#define \hyperlink{spiSpeed_8c_a0592dba56693fad79136250c11e5a7fe}{M\-A\-X\-\_\-\-S\-I\-Z\-E}~(1024$\ast$1024)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{spiSpeed_8c_ac3ec2773e3d9ca3a9c5255c8df36ce0d}{spi\-Setup} (int speed)
+\item 
+int \hyperlink{spiSpeed_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{spiSpeed_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{spi\-Speed.\-c@{spi\-Speed.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!spiSpeed.c@{spi\-Speed.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(!{\bf T\-R\-U\-E})}}\label{spiSpeed_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{spiSpeed_8c_a0592dba56693fad79136250c11e5a7fe}{\index{spi\-Speed.\-c@{spi\-Speed.\-c}!M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}}
+\index{M\-A\-X\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-S\-I\-Z\-E}!spiSpeed.c@{spi\-Speed.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-S\-I\-Z\-E~(1024$\ast$1024)}}\label{spiSpeed_8c_a0592dba56693fad79136250c11e5a7fe}
+\hypertarget{spiSpeed_8c_a73381138460517321b6a9108dc3739b9}{\index{spi\-Speed.\-c@{spi\-Speed.\-c}!N\-U\-M\-\_\-\-T\-I\-M\-E\-S@{N\-U\-M\-\_\-\-T\-I\-M\-E\-S}}
+\index{N\-U\-M\-\_\-\-T\-I\-M\-E\-S@{N\-U\-M\-\_\-\-T\-I\-M\-E\-S}!spiSpeed.c@{spi\-Speed.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-T\-I\-M\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-T\-I\-M\-E\-S~100}}\label{spiSpeed_8c_a73381138460517321b6a9108dc3739b9}
+\hypertarget{spiSpeed_8c_ae915de38397fbdc90276fa44e148c686}{\index{spi\-Speed.\-c@{spi\-Speed.\-c}!S\-P\-I\-\_\-\-C\-H\-A\-N@{S\-P\-I\-\_\-\-C\-H\-A\-N}}
+\index{S\-P\-I\-\_\-\-C\-H\-A\-N@{S\-P\-I\-\_\-\-C\-H\-A\-N}!spiSpeed.c@{spi\-Speed.\-c}}
+\subsubsection[{S\-P\-I\-\_\-\-C\-H\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-C\-H\-A\-N~0}}\label{spiSpeed_8c_ae915de38397fbdc90276fa44e148c686}
+\hypertarget{spiSpeed_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{spi\-Speed.\-c@{spi\-Speed.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!spiSpeed.c@{spi\-Speed.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{spiSpeed_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{spiSpeed_8c_a840291bc02cba5474a4cb46a9b9566fe}{\index{spi\-Speed.\-c@{spi\-Speed.\-c}!main@{main}}
+\index{main@{main}!spiSpeed.c@{spi\-Speed.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{spiSpeed_8c_a840291bc02cba5474a4cb46a9b9566fe}
+\hypertarget{spiSpeed_8c_ac3ec2773e3d9ca3a9c5255c8df36ce0d}{\index{spi\-Speed.\-c@{spi\-Speed.\-c}!spi\-Setup@{spi\-Setup}}
+\index{spi\-Setup@{spi\-Setup}!spiSpeed.c@{spi\-Speed.\-c}}
+\subsubsection[{spi\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}void spi\-Setup (
+\begin{DoxyParamCaption}
+\item[{int}]{speed}
+\end{DoxyParamCaption}
+)}}\label{spiSpeed_8c_ac3ec2773e3d9ca3a9c5255c8df36ce0d}

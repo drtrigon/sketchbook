@@ -1,0 +1,282 @@
+Call the P\-J\-O\-N C++ library directly from Python 2 or Python 3 (via \href{http://cython.org/}{\tt Cython})
+
+P\-J\-O\-N (Github\-: \href{https://github.com/gioblu/PJON/}{\tt P\-J\-O\-N} ) is an open-\/source, multi-\/master, multi-\/media (one-\/wire, two-\/wires, radio) communication protocol available for various platforms (Arduino/\-A\-V\-R, E\-S\-P8266, Teensy).
+
+P\-J\-O\-N is one of very few open-\/source implementations of multi-\/master communication protocols for microcontrollers.
+
+\subsection*{P\-J\-O\-N-\/cython vs P\-J\-O\-N-\/python}
+
+{\bfseries P\-J\-O\-N-\/cython} allows you to use the C++ P\-J\-O\-N library from Python via Cython (C++ wrappers for Python) while {\bfseries P\-J\-O\-N-\/python} is a re-\/implementation of the P\-J\-O\-N protocol in Python
+
+\subsection*{Current status\-:}
+
+Support for P\-J\-O\-N 11.\-1 {\itshape only} and the following strategies \-:-\/
+\begin{DoxyItemize}
+\item Local\-U\-D\-P
+\item Global\-U\-D\-P
+\item Through\-Serial
+\item Through\-Serial\-Async {\itshape new}
+\end{DoxyItemize}
+
+Note
+
+
+\begin{DoxyItemize}
+\item P\-J\-O\-N-\/cython versions are aligned with P\-J\-O\-N versions to indicate compatibility with C implementation for u\-C platforms.
+\end{DoxyItemize}
+
+\paragraph*{Python support}
+
+Python 2.\-7, 3.\-4, 3.\-5 and 3.\-6 are tested and considered supported
+
+\paragraph*{Platform support}
+
+Linux and Mac O\-S X are considered supported. Windows is not supported (sorry!).
+
+\subsection*{Install from pip}
+
+Current version is 11.\-1.\-5-\/1
+
+```bash pip install pjon-\/cython ```
+
+\subsection*{Testing}
+
+```bash \$(which python) \hyperlink{setup_8py}{setup.\-py} nosetests --with-\/doctest --doctest-\/extension=md ```
+
+\subsection*{Global\-U\-D\-P example}
+
+```python \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+import \hyperlink{namespacepjon__cython}{pjon\-\_\-cython} as P\-J\-O\-N class Global\-U\-D\-P(P\-J\-O\-N.\-Global\-U\-D\-P)\-:
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+... \# you can overload {\bfseries init} if you want ... def {\bfseries init}(self, device\-\_\-id)\-: ... P\-J\-O\-N.\-Global\-U\-D\-P.\-\_\-\-\_\-init\-\_\-\-\_\-(self, device\-\_\-id) ... self.\-packets\-\_\-received = 0 ... def receive(self, data, length, packet\-\_\-info)\-: ... print (\char`\"{}\-Recv (\{\})\-: \{\}\char`\"{}.format(length, data)) ... print (packet\-\_\-info) ... self.\-packets\-\_\-received += 1 ... self.\-reply(b'P')
+
+\begin{quotation}
+\begin{quotation}
+\begin{quotation}
+g = Global\-U\-D\-P(44) idx = g.\-send(123, b'H\-E\-L\-O') \section*{calling loop calls the P\-J\-O\-N bus.\-update() and bus.\-receive()}
+
+\section*{and the return is the results of those functions -\/}
+
+packets\-\_\-to\-\_\-send, receive\-\_\-status = g.\-loop() \section*{packets\-\_\-to\-\_\-send is the Number of packets in the P\-J\-O\-N buffer}
+
+packets\-\_\-to\-\_\-send
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+1 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+\#\-P\-J\-O\-N constants are available too receive\-\_\-status == P\-J\-O\-N.\-P\-J\-O\-N\-\_\-\-F\-A\-I\-L
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+True \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+\section*{When you're done with your P\-J\-O\-N interface, you can cleanup the connection by deleting it}
+
+del g
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+```
+
+\subsection*{Through Serial example}
+
+```python \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+import \hyperlink{namespacepjon__cython}{pjon\-\_\-cython} as P\-J\-O\-N \#\-Through\-Serial Example \section*{Make sure you set self.\-bus.\-set\-\_\-synchronous\-\_\-acknowledge(false) on the other side}
+
+
+
+class Through\-Serial(P\-J\-O\-N.\-Through\-Serial)\-:
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+... ... def receive(self, data, length, packet\-\_\-info)\-: ... if data.\-startswith(b'H')\-: ... print (\char`\"{}\-Recv (\{\})\-: \{\} -\/ R\-E\-P\-L\-Y\-I\-N\-G\char`\"{}.format(length, data)) ... self.\-reply(b'B\-O\-N\-Z\-A') ... else\-: ... print (\char`\"{}\-Recv (\{\})\-: \{\}\char`\"{}.format(length, data)) ... print ('') ... \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+\section*{Put your actual serial device in here...}
+
+ts = Through\-Serial(44, b\char`\"{}/dev/null\char`\"{}, 115200) \section*{Send returns the packet's index in the packet buffer}
+
+ts.\-send(100, b'P\-I\-N\-G 1')
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+0 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+ts.\-send(100, b'P\-I\-N\-G 2')
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+1 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+\section*{Error handling happens through exceptions such as P\-J\-O\-N.\-P\-J\-O\-N\-\_\-\-Connection\-\_\-\-Lost}
+
+while True\-:
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+... packets\-\_\-to\-\_\-send, receive\-\_\-status = ts.\-loop() Traceback (most recent call last)\-: ... P\-J\-O\-N\-\_\-\-Connection\-\_\-\-Lost
+
+```
+
+\subsection*{Setting configurable properties}
+
+```python \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+import \hyperlink{namespacepjon__cython}{pjon\-\_\-cython} as P\-J\-O\-N class Global\-U\-D\-P(P\-J\-O\-N.\-Global\-U\-D\-P)\-:
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+... def receive(self, data, length, packet\-\_\-info)\-: ... print (\char`\"{}\-Recv (\{\})\-: \{\}\char`\"{}.format(length, data))
+
+\begin{quotation}
+\begin{quotation}
+\begin{quotation}
+\section*{Global\-U\-D\-P and Local\-U\-D\-P both support set\-\_\-port to configure their U\-D\-P listening port}
+
+g = Global\-U\-D\-P(99, 8821) del g \#\-They return the class object, so you can \char`\"{}chain them\char`\"{} pjon = Global\-U\-D\-P(100,8821).set\-\_\-autoregistration(\-False) pjon \# doctest\-: +\-E\-L\-L\-I\-P\-S\-I\-S
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+$<${\bfseries main}.Global\-U\-D\-P object at 0x...$>$ \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+
+
+\section*{These options affect packet overhead (in bytes)}
+
+pjon.\-packet\-\_\-overhead()
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+6 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+pjon.\-set\-\_\-crc\-\_\-32(\-True).packet\-\_\-overhead()
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+9 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+pjon.\-set\-\_\-packet\-\_\-id(\-True).packet\-\_\-overhead()
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+11 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+pjon.\-set\-\_\-synchronous\-\_\-acknowledge(\-True).packet\-\_\-overhead()
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+11 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+pjon.\-set\-\_\-packet\-\_\-id(\-False).set\-\_\-asynchronous\-\_\-acknowledge(\-False).packet\-\_\-overhead()
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+9 \begin{quotation}
+\begin{quotation}
+\begin{quotation}
+pjon.\-set\-\_\-crc\-\_\-32(\-False).include\-\_\-sender\-\_\-info(\-False).packet\-\_\-overhead()
+
+\end{quotation}
+
+
+\end{quotation}
+
+
+\end{quotation}
+5
+
+``` 

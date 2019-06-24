@@ -1,0 +1,77 @@
+\hypertarget{namespaceUno__OWSniffer}{\section{Uno\-\_\-\-O\-W\-Sniffer Namespace Reference}
+\label{namespaceUno__OWSniffer}\index{Uno\-\_\-\-O\-W\-Sniffer@{Uno\-\_\-\-O\-W\-Sniffer}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceUno__OWSniffer_ab9b7dbfd72b7d37ee84523977c52fc53}{sniff\-\_\-\-T\-U\-T214}
+\item 
+def \hyperlink{namespaceUno__OWSniffer_adafc8a4e9025e3c731c0d0c50e475350}{sniff\-\_\-115200}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+list \hyperlink{namespaceUno__OWSniffer_a0c1cd33218ffd203a838f4c363260b49}{R\-E\-S\-E\-T} = \mbox{[}'\textbackslash{}x\-F0', '\textbackslash{}x\-E0', '\textbackslash{}x90', \mbox{]}
+\item 
+list \hyperlink{namespaceUno__OWSniffer_a81c5acf2bd7c14bbe7f42d298aecdbb2}{R\-E\-S\-E\-T115200} = \mbox{[}'\textbackslash{}x00\textbackslash{}x00', \mbox{]}
+\item 
+dictionary \hyperlink{namespaceUno__OWSniffer_acad62719eb322f74fd0ad2b3189cef0a}{commands}
+\item 
+tuple \hyperlink{namespaceUno__OWSniffer_a89deaca78d0f86d69cd8825306cf0ac2}{ser} = \hyperlink{HardwareSerial_8h_a7b8c4a195c58f9eb8750e94955c5aa4b}{serial.\-Serial}('/dev/tty\-A\-C\-M0')
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceUno__OWSniffer_adafc8a4e9025e3c731c0d0c50e475350}{\index{Uno\-\_\-\-O\-W\-Sniffer@{Uno\-\_\-\-O\-W\-Sniffer}!sniff\-\_\-115200@{sniff\-\_\-115200}}
+\index{sniff\-\_\-115200@{sniff\-\_\-115200}!Uno_OWSniffer@{Uno\-\_\-\-O\-W\-Sniffer}}
+\subsubsection[{sniff\-\_\-115200}]{\setlength{\rightskip}{0pt plus 5cm}def Uno\-\_\-\-O\-W\-Sniffer.\-sniff\-\_\-115200 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceUno__OWSniffer_adafc8a4e9025e3c731c0d0c50e475350}
+\begin{DoxyVerb}Sniffer always @115200.
+
+Not according to official Standards/Specs but possible to implement
+RESET and PRESENCE, READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
+
+(no switching of baud rates needed, thus we can control
+the possition in the input buffer and it's not lossy)
+\end{DoxyVerb}
+ \hypertarget{namespaceUno__OWSniffer_ab9b7dbfd72b7d37ee84523977c52fc53}{\index{Uno\-\_\-\-O\-W\-Sniffer@{Uno\-\_\-\-O\-W\-Sniffer}!sniff\-\_\-\-T\-U\-T214@{sniff\-\_\-\-T\-U\-T214}}
+\index{sniff\-\_\-\-T\-U\-T214@{sniff\-\_\-\-T\-U\-T214}!Uno_OWSniffer@{Uno\-\_\-\-O\-W\-Sniffer}}
+\subsubsection[{sniff\-\_\-\-T\-U\-T214}]{\setlength{\rightskip}{0pt plus 5cm}def Uno\-\_\-\-O\-W\-Sniffer.\-sniff\-\_\-\-T\-U\-T214 (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceUno__OWSniffer_ab9b7dbfd72b7d37ee84523977c52fc53}
+\begin{DoxyVerb}Sniffer according to official Standards/Specs.
+
+TUTORIAL 214: Using a UART to Implement a 1-Wire Bus Master
+RESET and PRESENCE: 9600 Baud, 8 bits, no parity, 1 stop
+READ and WRITE: 115200 Baud, 8 bits, no parity, 1 stop
+
+(fast switching of baud rates is possible, but we cannot
+control the possition in the input buffer, thus it's lossy)
+\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceUno__OWSniffer_acad62719eb322f74fd0ad2b3189cef0a}{\index{Uno\-\_\-\-O\-W\-Sniffer@{Uno\-\_\-\-O\-W\-Sniffer}!commands@{commands}}
+\index{commands@{commands}!Uno_OWSniffer@{Uno\-\_\-\-O\-W\-Sniffer}}
+\subsubsection[{commands}]{\setlength{\rightskip}{0pt plus 5cm}dictionary Uno\-\_\-\-O\-W\-Sniffer.\-commands}}\label{namespaceUno__OWSniffer_acad62719eb322f74fd0ad2b3189cef0a}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+1 = \{
+2     0x55: (\textcolor{stringliteral}{"MATCH\_ROM"}, 7),    \textcolor{comment}{# (command, # of data bytes)}
+3     0xF0: (\textcolor{stringliteral}{"SEARCH\_ROM"}, 0),
+4 \}
+\end{DoxyCode}
+\hypertarget{namespaceUno__OWSniffer_a0c1cd33218ffd203a838f4c363260b49}{\index{Uno\-\_\-\-O\-W\-Sniffer@{Uno\-\_\-\-O\-W\-Sniffer}!R\-E\-S\-E\-T@{R\-E\-S\-E\-T}}
+\index{R\-E\-S\-E\-T@{R\-E\-S\-E\-T}!Uno_OWSniffer@{Uno\-\_\-\-O\-W\-Sniffer}}
+\subsubsection[{R\-E\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}list Uno\-\_\-\-O\-W\-Sniffer.\-R\-E\-S\-E\-T = \mbox{[}'\textbackslash{}x\-F0', '\textbackslash{}x\-E0', '\textbackslash{}x90', \mbox{]}}}\label{namespaceUno__OWSniffer_a0c1cd33218ffd203a838f4c363260b49}
+\hypertarget{namespaceUno__OWSniffer_a81c5acf2bd7c14bbe7f42d298aecdbb2}{\index{Uno\-\_\-\-O\-W\-Sniffer@{Uno\-\_\-\-O\-W\-Sniffer}!R\-E\-S\-E\-T115200@{R\-E\-S\-E\-T115200}}
+\index{R\-E\-S\-E\-T115200@{R\-E\-S\-E\-T115200}!Uno_OWSniffer@{Uno\-\_\-\-O\-W\-Sniffer}}
+\subsubsection[{R\-E\-S\-E\-T115200}]{\setlength{\rightskip}{0pt plus 5cm}list Uno\-\_\-\-O\-W\-Sniffer.\-R\-E\-S\-E\-T115200 = \mbox{[}'\textbackslash{}x00\textbackslash{}x00', \mbox{]}}}\label{namespaceUno__OWSniffer_a81c5acf2bd7c14bbe7f42d298aecdbb2}
+\hypertarget{namespaceUno__OWSniffer_a89deaca78d0f86d69cd8825306cf0ac2}{\index{Uno\-\_\-\-O\-W\-Sniffer@{Uno\-\_\-\-O\-W\-Sniffer}!ser@{ser}}
+\index{ser@{ser}!Uno_OWSniffer@{Uno\-\_\-\-O\-W\-Sniffer}}
+\subsubsection[{ser}]{\setlength{\rightskip}{0pt plus 5cm}tuple Uno\-\_\-\-O\-W\-Sniffer.\-ser = {\bf serial.\-Serial}('/dev/tty\-A\-C\-M0')}}\label{namespaceUno__OWSniffer_a89deaca78d0f86d69cd8825306cf0ac2}

@@ -1,0 +1,552 @@
+\hypertarget{cpuid_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/cpuid.h File Reference}
+\label{cpuid_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/cpuid.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/cpuid.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cpuid_8h_ae29d9e83145d796b5590e79bfc43daf9}{signature\-\_\-\-A\-M\-D\-\_\-ebx}~0x68747541
+\item 
+\#define \hyperlink{cpuid_8h_aaad17d879d4cb595f5e5ea90cfa94910}{signature\-\_\-\-A\-M\-D\-\_\-edx}~0x69746e65
+\item 
+\#define \hyperlink{cpuid_8h_a9b3834ca1db15bc2190239b8fe7834c8}{signature\-\_\-\-A\-M\-D\-\_\-ecx}~0x444d4163
+\item 
+\#define \hyperlink{cpuid_8h_a1bee9c152b071f15eb357eb24c3801fb}{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ebx}~0x746e6543
+\item 
+\#define \hyperlink{cpuid_8h_af5992bffbbc24851b6b165459d44b9ab}{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-edx}~0x48727561
+\item 
+\#define \hyperlink{cpuid_8h_a63d6ab03992dd39e28da54f6cdc7978f}{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ecx}~0x736c7561
+\item 
+\#define \hyperlink{cpuid_8h_a657c3994ed4f4d594ba184db19eb3415}{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ebx}~0x69727943
+\item 
+\#define \hyperlink{cpuid_8h_a0fafa9df3741e10ee3f85663f1bb9f6d}{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-edx}~0x736e4978
+\item 
+\#define \hyperlink{cpuid_8h_acdd572fb73d8e8dc180dae2afd80aff6}{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ecx}~0x64616574
+\item 
+\#define \hyperlink{cpuid_8h_a52ceab3f634a5ca25efe7179f5d6b836}{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ebx}~0x756e6547
+\item 
+\#define \hyperlink{cpuid_8h_a1a2c32389501e2494419941597c5aaf0}{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-edx}~0x49656e69
+\item 
+\#define \hyperlink{cpuid_8h_acacb67ab3d1837fdf787666c884db84e}{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ecx}~0x6c65746e
+\item 
+\#define \hyperlink{cpuid_8h_a9167218e3a53e2bb021ae0cdd16f0fbc}{signature\-\_\-\-T\-M1\-\_\-ebx}~0x6e617254
+\item 
+\#define \hyperlink{cpuid_8h_ac7d68b191099d1158ff426d5de861f18}{signature\-\_\-\-T\-M1\-\_\-edx}~0x74656d73
+\item 
+\#define \hyperlink{cpuid_8h_a39d328ec06bb863821ed7bea4df58b11}{signature\-\_\-\-T\-M1\-\_\-ecx}~0x55504361
+\item 
+\#define \hyperlink{cpuid_8h_af32afcfdedaf30264d49c1463a003d48}{signature\-\_\-\-T\-M2\-\_\-ebx}~0x756e6547
+\item 
+\#define \hyperlink{cpuid_8h_a55db3c6d4c57f4c8a41b1dcbb6ff921c}{signature\-\_\-\-T\-M2\-\_\-edx}~0x54656e69
+\item 
+\#define \hyperlink{cpuid_8h_ade44374c5d0cd24512ceb5133a73dcf9}{signature\-\_\-\-T\-M2\-\_\-ecx}~0x3638784d
+\item 
+\#define \hyperlink{cpuid_8h_aecf9fffd103342752afc4235d1317223}{signature\-\_\-\-N\-S\-C\-\_\-ebx}~0x646f6547
+\item 
+\#define \hyperlink{cpuid_8h_a2156399f3a733096bd25ac7c1daea826}{signature\-\_\-\-N\-S\-C\-\_\-edx}~0x43534e20
+\item 
+\#define \hyperlink{cpuid_8h_a0c83154b6a024223a472b796b7770cda}{signature\-\_\-\-N\-S\-C\-\_\-ecx}~0x79622065
+\item 
+\#define \hyperlink{cpuid_8h_a1ede60d0f1c35b4393e9483868de3e3a}{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ebx}~0x4778654e
+\item 
+\#define \hyperlink{cpuid_8h_a4173cbb3aad28cf37f062a7d5096a135}{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-edx}~0x72446e65
+\item 
+\#define \hyperlink{cpuid_8h_aeb60ec011767a5ca58b3976912f5d88b}{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ecx}~0x6e657669
+\item 
+\#define \hyperlink{cpuid_8h_a299d8b43de0add3456f85735c40df454}{signature\-\_\-\-R\-I\-S\-E\-\_\-ebx}~0x65736952
+\item 
+\#define \hyperlink{cpuid_8h_afc42d0b0da2535fd531dfc455c408fb6}{signature\-\_\-\-R\-I\-S\-E\-\_\-edx}~0x65736952
+\item 
+\#define \hyperlink{cpuid_8h_a7138e804a2d7aa76e623390e7934af03}{signature\-\_\-\-R\-I\-S\-E\-\_\-ecx}~0x65736952
+\item 
+\#define \hyperlink{cpuid_8h_a78442af1141d1bb56f7a2aa510543957}{signature\-\_\-\-S\-I\-S\-\_\-ebx}~0x20536953
+\item 
+\#define \hyperlink{cpuid_8h_a0730448e589e694586ef472f142baac3}{signature\-\_\-\-S\-I\-S\-\_\-edx}~0x20536953
+\item 
+\#define \hyperlink{cpuid_8h_a15be63fad228f3de2faf692ce0ab86ea}{signature\-\_\-\-S\-I\-S\-\_\-ecx}~0x20536953
+\item 
+\#define \hyperlink{cpuid_8h_adbf3197b243fb43cc6a6518fb6cbb34a}{signature\-\_\-\-U\-M\-C\-\_\-ebx}~0x20434d55
+\item 
+\#define \hyperlink{cpuid_8h_aa0624da176b0ee89b5876d5155c2defc}{signature\-\_\-\-U\-M\-C\-\_\-edx}~0x20434d55
+\item 
+\#define \hyperlink{cpuid_8h_a1d1b0bac18812bcbb187d70a4e48c844}{signature\-\_\-\-U\-M\-C\-\_\-ecx}~0x20434d55
+\item 
+\#define \hyperlink{cpuid_8h_a6b68e99fbe00e03d5cd828839c4cbbe7}{signature\-\_\-\-V\-I\-A\-\_\-ebx}~0x20414956
+\item 
+\#define \hyperlink{cpuid_8h_a4b44bc687145fda4760403cc1d841b61}{signature\-\_\-\-V\-I\-A\-\_\-edx}~0x20414956
+\item 
+\#define \hyperlink{cpuid_8h_a71f1e105f986dd27289015b1b1a481ce}{signature\-\_\-\-V\-I\-A\-\_\-ecx}~0x20414956
+\item 
+\#define \hyperlink{cpuid_8h_ab021341ccc687faa1670c0f595fe162e}{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ebx}~0x74726f56
+\item 
+\#define \hyperlink{cpuid_8h_a58542434d6a5acd4d522352e9f1eea6e}{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-edx}~0x36387865
+\item 
+\#define \hyperlink{cpuid_8h_a69590add84a4349077775cf541c45c86}{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ecx}~0x436f5320
+\item 
+\#define \hyperlink{cpuid_8h_a9a66a1147bb2ce91a61ea0817219268d}{bit\-\_\-\-S\-S\-E3}~0x00000001
+\item 
+\#define \hyperlink{cpuid_8h_ae4fb5eda88a158cb0c41245fae768bef}{bit\-\_\-\-P\-C\-L\-M\-U\-L\-Q\-D\-Q}~0x00000002
+\item 
+\#define \hyperlink{cpuid_8h_a638a927da1aaa560a0ca7c6fb1a67d7f}{bit\-\_\-\-D\-T\-E\-S64}~0x00000004
+\item 
+\#define \hyperlink{cpuid_8h_a6bd4e7c122a88fdcd2a4c9f2cc51d7b3}{bit\-\_\-\-M\-O\-N\-I\-T\-O\-R}~0x00000008
+\item 
+\#define \hyperlink{cpuid_8h_a59f0dd2f01c2d91be8e01877fed9f736}{bit\-\_\-\-D\-S\-C\-P\-L}~0x00000010
+\item 
+\#define \hyperlink{cpuid_8h_afaac592ac3732fcf8ec0fbbe150d075e}{bit\-\_\-\-V\-M\-X}~0x00000020
+\item 
+\#define \hyperlink{cpuid_8h_ad4ea96d09531b0794a9f92c6ac7a3433}{bit\-\_\-\-S\-M\-X}~0x00000040
+\item 
+\#define \hyperlink{cpuid_8h_a623614dc56cd16e19f04eeb487877eb3}{bit\-\_\-\-E\-I\-S\-T}~0x00000080
+\item 
+\#define \hyperlink{cpuid_8h_a2d66a484396a9eda3ca58eae86919e12}{bit\-\_\-\-T\-M2}~0x00000100
+\item 
+\#define \hyperlink{cpuid_8h_abf7c619397818789919a00dd0ca091f6}{bit\-\_\-\-S\-S\-S\-E3}~0x00000200
+\item 
+\#define \hyperlink{cpuid_8h_a135fb9ee37feda5f15271bdcb51a838a}{bit\-\_\-\-C\-N\-X\-T\-I\-D}~0x00000400
+\item 
+\#define \hyperlink{cpuid_8h_ac14eff35dc022531d51e5b30cc7426d3}{bit\-\_\-\-F\-M\-A}~0x00001000
+\item 
+\#define \hyperlink{cpuid_8h_a5a9eefc6a7ebb022aaafc7cb91e1f456}{bit\-\_\-\-C\-M\-P\-X\-C\-H\-G16\-B}~0x00002000
+\item 
+\#define \hyperlink{cpuid_8h_a8ef2e9bf14441391c09132ebf2564f5f}{bit\-\_\-x\-T\-P\-R}~0x00004000
+\item 
+\#define \hyperlink{cpuid_8h_aa5cbd15c096963f12a86092d708df5e4}{bit\-\_\-\-P\-D\-C\-M}~0x00008000
+\item 
+\#define \hyperlink{cpuid_8h_a263b5bbbcbbe5b0c03931592637a2820}{bit\-\_\-\-P\-C\-I\-D}~0x00020000
+\item 
+\#define \hyperlink{cpuid_8h_a4de0034f4fd7b0613c1252715f40dc58}{bit\-\_\-\-D\-C\-A}~0x00040000
+\item 
+\#define \hyperlink{cpuid_8h_aa2e8f8be7e49b7f7aedda1d5be3f9b5f}{bit\-\_\-\-S\-S\-E41}~0x00080000
+\item 
+\#define \hyperlink{cpuid_8h_a665c41747dce6378996553d425ebc641}{bit\-\_\-\-S\-S\-E42}~0x00100000
+\item 
+\#define \hyperlink{cpuid_8h_a8bc34a6e06b4bf0628ccb6c5d128c731}{bit\-\_\-x2\-A\-P\-I\-C}~0x00200000
+\item 
+\#define \hyperlink{cpuid_8h_aa9906d419c821b9f58d053a2d2a84095}{bit\-\_\-\-M\-O\-V\-B\-E}~0x00400000
+\item 
+\#define \hyperlink{cpuid_8h_a9390a497a67797d9f74d32e07973f5ac}{bit\-\_\-\-P\-O\-P\-C\-N\-T}~0x00800000
+\item 
+\#define \hyperlink{cpuid_8h_a5cfcd2d925fc7fb4308b1edec0d96e5f}{bit\-\_\-\-T\-S\-C\-Deadline}~0x01000000
+\item 
+\#define \hyperlink{cpuid_8h_ade109562ee891d39067211e805d1213d}{bit\-\_\-\-A\-E\-S\-N\-I}~0x02000000
+\item 
+\#define \hyperlink{cpuid_8h_af22114166abcfbbfcf1f9a2f6cda1561}{bit\-\_\-\-X\-S\-A\-V\-E}~0x04000000
+\item 
+\#define \hyperlink{cpuid_8h_a70fc14c9fdf0a79d0108cb4745431211}{bit\-\_\-\-O\-S\-X\-S\-A\-V\-E}~0x08000000
+\item 
+\#define \hyperlink{cpuid_8h_aae8da26de884c5807b5c6b1a2670b2dd}{bit\-\_\-\-A\-V\-X}~0x10000000
+\item 
+\#define \hyperlink{cpuid_8h_a35c3d8674c28eb3fae8286a73fea4bd9}{bit\-\_\-\-R\-D\-R\-N\-D}~0x40000000
+\item 
+\#define \hyperlink{cpuid_8h_acff2f9d2477d3d5a06af79468228f91e}{bit\-\_\-\-F\-P\-U}~0x00000001
+\item 
+\#define \hyperlink{cpuid_8h_a14262a26c707fa01d9d65f76d7801ccd}{bit\-\_\-\-V\-M\-E}~0x00000002
+\item 
+\#define \hyperlink{cpuid_8h_ac228680393a1c1cde54db0c90a611ff2}{bit\-\_\-\-D\-E}~0x00000004
+\item 
+\#define \hyperlink{cpuid_8h_abafe200097d558108dc431c5a978ec54}{bit\-\_\-\-P\-S\-E}~0x00000008
+\item 
+\#define \hyperlink{cpuid_8h_a96376b13571bbb3beacf0b441a9d855a}{bit\-\_\-\-T\-S\-C}~0x00000010
+\item 
+\#define \hyperlink{cpuid_8h_a5f445550b868d9508b7f8d2c2c294561}{bit\-\_\-\-M\-S\-R}~0x00000020
+\item 
+\#define \hyperlink{cpuid_8h_a24464b0a893bf70a4553d75c446524df}{bit\-\_\-\-P\-A\-E}~0x00000040
+\item 
+\#define \hyperlink{cpuid_8h_adc351450c4930c537482a54f9c7fc9ea}{bit\-\_\-\-M\-C\-E}~0x00000080
+\item 
+\#define \hyperlink{cpuid_8h_a909235e8439704054d062b983d344586}{bit\-\_\-\-C\-X8}~0x00000100
+\item 
+\#define \hyperlink{cpuid_8h_a565dd41d169dfe4f5fb53476ceab9541}{bit\-\_\-\-A\-P\-I\-C}~0x00000200
+\item 
+\#define \hyperlink{cpuid_8h_add146b36a0cdf9c5086c731a15d6fafe}{bit\-\_\-\-S\-E\-P}~0x00000800
+\item 
+\#define \hyperlink{cpuid_8h_aa037fb4e6748db90ef7e4e028be35799}{bit\-\_\-\-M\-T\-R\-R}~0x00001000
+\item 
+\#define \hyperlink{cpuid_8h_abfd4d532a32cb50eb83a9acb8ead527e}{bit\-\_\-\-P\-G\-E}~0x00002000
+\item 
+\#define \hyperlink{cpuid_8h_a4effe02d086fd97111523927eb23e70c}{bit\-\_\-\-M\-C\-A}~0x00004000
+\item 
+\#define \hyperlink{cpuid_8h_a435f91aa653cce88b2dc0acda83dfb6f}{bit\-\_\-\-C\-M\-O\-V}~0x00008000
+\item 
+\#define \hyperlink{cpuid_8h_a91329b6bc98a027b33b346ebfa8d78ff}{bit\-\_\-\-P\-A\-T}~0x00010000
+\item 
+\#define \hyperlink{cpuid_8h_a67e198b1e9cecb252561f3624538d930}{bit\-\_\-\-P\-S\-E36}~0x00020000
+\item 
+\#define \hyperlink{cpuid_8h_a8a0edb841b83d8d0d1486cb6f01dfcd2}{bit\-\_\-\-P\-S\-N}~0x00040000
+\item 
+\#define \hyperlink{cpuid_8h_ac17765bc86560ce472fb8ddbc836b25b}{bit\-\_\-\-C\-L\-F\-S\-H}~0x00080000
+\item 
+\#define \hyperlink{cpuid_8h_affc550e5537b158bb34b95ea7f6a0826}{bit\-\_\-\-D\-S}~0x00200000
+\item 
+\#define \hyperlink{cpuid_8h_a9c092e8ca5fc7c231c982e59eb936eee}{bit\-\_\-\-A\-C\-P\-I}~0x00400000
+\item 
+\#define \hyperlink{cpuid_8h_a5c747adebe3029821e8efbdb89ba6727}{bit\-\_\-\-M\-M\-X}~0x00800000
+\item 
+\#define \hyperlink{cpuid_8h_ae1f2cddd0b95b6037b22ebcb783aa0ce}{bit\-\_\-\-F\-X\-S\-R}~0x01000000
+\item 
+\#define \hyperlink{cpuid_8h_ab47a9935f2e1f4e69f853a743dbda913}{bit\-\_\-\-F\-X\-S\-A\-V\-E}~\hyperlink{cpuid_8h_ae1f2cddd0b95b6037b22ebcb783aa0ce}{bit\-\_\-\-F\-X\-S\-R}    /$\ast$ for gcc compat $\ast$/
+\item 
+\#define \hyperlink{cpuid_8h_a13ae9a1808a69e6e1c1cf39bad66675f}{bit\-\_\-\-S\-S\-E}~0x02000000
+\item 
+\#define \hyperlink{cpuid_8h_af2331cf29bbb77a434d6475ac753967f}{bit\-\_\-\-S\-S\-E2}~0x04000000
+\item 
+\#define \hyperlink{cpuid_8h_a0e9a0773b9c02c402d754139b5baa9d7}{bit\-\_\-\-S\-S}~0x08000000
+\item 
+\#define \hyperlink{cpuid_8h_aa4a29c26638b21b681804e8a35b9e4dd}{bit\-\_\-\-H\-T\-T}~0x10000000
+\item 
+\#define \hyperlink{cpuid_8h_aec7ce61808b5b13fbd41805030bd8e9d}{bit\-\_\-\-T\-M}~0x20000000
+\item 
+\#define \hyperlink{cpuid_8h_a33abcfb38f7cf6210d2beed46ad3e182}{bit\-\_\-\-P\-B\-E}~0x80000000
+\item 
+\#define \hyperlink{cpuid_8h_aa5c6a03ca077588714b6e8acfe50eb3d}{bit\-\_\-\-F\-S\-G\-S\-B\-A\-S\-E}~0x00000001
+\item 
+\#define \hyperlink{cpuid_8h_afa1c7997b1269fed10b7e73cea4e0f30}{bit\-\_\-\-S\-M\-E\-P}~0x00000080
+\item 
+\#define \hyperlink{cpuid_8h_a8f5a73c48b1f23bca0e400963e928f27}{bit\-\_\-\-E\-N\-H\-\_\-\-M\-O\-V\-S\-B}~0x00000200
+\item 
+\#define \hyperlink{cpuid_8h_a662d41126f49cf29c8e21e1c248720c7}{\-\_\-\-\_\-cpuid}(\-\_\-\-\_\-level, \-\_\-\-\_\-eax, \-\_\-\-\_\-ebx, \-\_\-\-\_\-ecx, \-\_\-\-\_\-edx)
+\item 
+\#define \hyperlink{cpuid_8h_a2857a30dc809433f1ce092b99b45487a}{\-\_\-\-\_\-cpuid\-\_\-count}(\-\_\-\-\_\-level, \-\_\-\-\_\-count, \-\_\-\-\_\-eax, \-\_\-\-\_\-ebx, \-\_\-\-\_\-ecx, \-\_\-\-\_\-edx)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{cpuid_8h_a662d41126f49cf29c8e21e1c248720c7}{\index{cpuid.\-h@{cpuid.\-h}!\-\_\-\-\_\-cpuid@{\-\_\-\-\_\-cpuid}}
+\index{\-\_\-\-\_\-cpuid@{\-\_\-\-\_\-cpuid}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{\-\_\-\-\_\-cpuid}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-cpuid(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-level, }
+\item[{}]{\-\_\-\-\_\-eax, }
+\item[{}]{\-\_\-\-\_\-ebx, }
+\item[{}]{\-\_\-\-\_\-ecx, }
+\item[{}]{\-\_\-\-\_\-edx}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8h_a662d41126f49cf29c8e21e1c248720c7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_asm(\textcolor{stringliteral}{"  xchgq  %%rbx,%q1\(\backslash\)n"} \(\backslash\)
+          \textcolor{stringliteral}{"  cpuid\(\backslash\)n"} \(\backslash\)
+          \textcolor{stringliteral}{"  xchgq  %%rbx,%q1"} \(\backslash\)
+        : \textcolor{stringliteral}{"=a"}(\_\_eax), \textcolor{stringliteral}{"=r"} (\_\_ebx), \textcolor{stringliteral}{"=c"}(\_\_ecx), \textcolor{stringliteral}{"=d"}(\_\_edx) \(\backslash\)
+        : \textcolor{stringliteral}{"0"}(\_\_level))
+\end{DoxyCode}
+\hypertarget{cpuid_8h_a2857a30dc809433f1ce092b99b45487a}{\index{cpuid.\-h@{cpuid.\-h}!\-\_\-\-\_\-cpuid\-\_\-count@{\-\_\-\-\_\-cpuid\-\_\-count}}
+\index{\-\_\-\-\_\-cpuid\-\_\-count@{\-\_\-\-\_\-cpuid\-\_\-count}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{\-\_\-\-\_\-cpuid\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-cpuid\-\_\-count(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-level, }
+\item[{}]{\-\_\-\-\_\-count, }
+\item[{}]{\-\_\-\-\_\-eax, }
+\item[{}]{\-\_\-\-\_\-ebx, }
+\item[{}]{\-\_\-\-\_\-ecx, }
+\item[{}]{\-\_\-\-\_\-edx}
+\end{DoxyParamCaption}
+)}}\label{cpuid_8h_a2857a30dc809433f1ce092b99b45487a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_asm(\textcolor{stringliteral}{"  xchgq  %%rbx,%q1\(\backslash\)n"} \(\backslash\)
+          \textcolor{stringliteral}{"  cpuid\(\backslash\)n"} \(\backslash\)
+          \textcolor{stringliteral}{"  xchgq  %%rbx,%q1"} \(\backslash\)
+        : \textcolor{stringliteral}{"=a"}(\_\_eax), \textcolor{stringliteral}{"=r"} (\_\_ebx), \textcolor{stringliteral}{"=c"}(\_\_ecx), \textcolor{stringliteral}{"=d"}(\_\_edx) \(\backslash\)
+        : \textcolor{stringliteral}{"0"}(\_\_level), \textcolor{stringliteral}{"2"}(\_\_count))
+\end{DoxyCode}
+\hypertarget{cpuid_8h_a9c092e8ca5fc7c231c982e59eb936eee}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-A\-C\-P\-I@{bit\-\_\-\-A\-C\-P\-I}}
+\index{bit\-\_\-\-A\-C\-P\-I@{bit\-\_\-\-A\-C\-P\-I}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-A\-C\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-A\-C\-P\-I~0x00400000}}\label{cpuid_8h_a9c092e8ca5fc7c231c982e59eb936eee}
+\hypertarget{cpuid_8h_ade109562ee891d39067211e805d1213d}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-A\-E\-S\-N\-I@{bit\-\_\-\-A\-E\-S\-N\-I}}
+\index{bit\-\_\-\-A\-E\-S\-N\-I@{bit\-\_\-\-A\-E\-S\-N\-I}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-A\-E\-S\-N\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-A\-E\-S\-N\-I~0x02000000}}\label{cpuid_8h_ade109562ee891d39067211e805d1213d}
+\hypertarget{cpuid_8h_a565dd41d169dfe4f5fb53476ceab9541}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-A\-P\-I\-C@{bit\-\_\-\-A\-P\-I\-C}}
+\index{bit\-\_\-\-A\-P\-I\-C@{bit\-\_\-\-A\-P\-I\-C}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-A\-P\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-A\-P\-I\-C~0x00000200}}\label{cpuid_8h_a565dd41d169dfe4f5fb53476ceab9541}
+\hypertarget{cpuid_8h_aae8da26de884c5807b5c6b1a2670b2dd}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-A\-V\-X@{bit\-\_\-\-A\-V\-X}}
+\index{bit\-\_\-\-A\-V\-X@{bit\-\_\-\-A\-V\-X}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-A\-V\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-A\-V\-X~0x10000000}}\label{cpuid_8h_aae8da26de884c5807b5c6b1a2670b2dd}
+\hypertarget{cpuid_8h_ac17765bc86560ce472fb8ddbc836b25b}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-C\-L\-F\-S\-H@{bit\-\_\-\-C\-L\-F\-S\-H}}
+\index{bit\-\_\-\-C\-L\-F\-S\-H@{bit\-\_\-\-C\-L\-F\-S\-H}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-C\-L\-F\-S\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-C\-L\-F\-S\-H~0x00080000}}\label{cpuid_8h_ac17765bc86560ce472fb8ddbc836b25b}
+\hypertarget{cpuid_8h_a435f91aa653cce88b2dc0acda83dfb6f}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-C\-M\-O\-V@{bit\-\_\-\-C\-M\-O\-V}}
+\index{bit\-\_\-\-C\-M\-O\-V@{bit\-\_\-\-C\-M\-O\-V}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-C\-M\-O\-V}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-C\-M\-O\-V~0x00008000}}\label{cpuid_8h_a435f91aa653cce88b2dc0acda83dfb6f}
+\hypertarget{cpuid_8h_a5a9eefc6a7ebb022aaafc7cb91e1f456}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-C\-M\-P\-X\-C\-H\-G16\-B@{bit\-\_\-\-C\-M\-P\-X\-C\-H\-G16\-B}}
+\index{bit\-\_\-\-C\-M\-P\-X\-C\-H\-G16\-B@{bit\-\_\-\-C\-M\-P\-X\-C\-H\-G16\-B}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-C\-M\-P\-X\-C\-H\-G16\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-C\-M\-P\-X\-C\-H\-G16\-B~0x00002000}}\label{cpuid_8h_a5a9eefc6a7ebb022aaafc7cb91e1f456}
+\hypertarget{cpuid_8h_a135fb9ee37feda5f15271bdcb51a838a}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-C\-N\-X\-T\-I\-D@{bit\-\_\-\-C\-N\-X\-T\-I\-D}}
+\index{bit\-\_\-\-C\-N\-X\-T\-I\-D@{bit\-\_\-\-C\-N\-X\-T\-I\-D}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-C\-N\-X\-T\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-C\-N\-X\-T\-I\-D~0x00000400}}\label{cpuid_8h_a135fb9ee37feda5f15271bdcb51a838a}
+\hypertarget{cpuid_8h_a909235e8439704054d062b983d344586}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-C\-X8@{bit\-\_\-\-C\-X8}}
+\index{bit\-\_\-\-C\-X8@{bit\-\_\-\-C\-X8}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-C\-X8}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-C\-X8~0x00000100}}\label{cpuid_8h_a909235e8439704054d062b983d344586}
+\hypertarget{cpuid_8h_a4de0034f4fd7b0613c1252715f40dc58}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-D\-C\-A@{bit\-\_\-\-D\-C\-A}}
+\index{bit\-\_\-\-D\-C\-A@{bit\-\_\-\-D\-C\-A}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-D\-C\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-D\-C\-A~0x00040000}}\label{cpuid_8h_a4de0034f4fd7b0613c1252715f40dc58}
+\hypertarget{cpuid_8h_ac228680393a1c1cde54db0c90a611ff2}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-D\-E@{bit\-\_\-\-D\-E}}
+\index{bit\-\_\-\-D\-E@{bit\-\_\-\-D\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-D\-E~0x00000004}}\label{cpuid_8h_ac228680393a1c1cde54db0c90a611ff2}
+\hypertarget{cpuid_8h_affc550e5537b158bb34b95ea7f6a0826}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-D\-S@{bit\-\_\-\-D\-S}}
+\index{bit\-\_\-\-D\-S@{bit\-\_\-\-D\-S}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-D\-S~0x00200000}}\label{cpuid_8h_affc550e5537b158bb34b95ea7f6a0826}
+\hypertarget{cpuid_8h_a59f0dd2f01c2d91be8e01877fed9f736}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-D\-S\-C\-P\-L@{bit\-\_\-\-D\-S\-C\-P\-L}}
+\index{bit\-\_\-\-D\-S\-C\-P\-L@{bit\-\_\-\-D\-S\-C\-P\-L}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-D\-S\-C\-P\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-D\-S\-C\-P\-L~0x00000010}}\label{cpuid_8h_a59f0dd2f01c2d91be8e01877fed9f736}
+\hypertarget{cpuid_8h_a638a927da1aaa560a0ca7c6fb1a67d7f}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-D\-T\-E\-S64@{bit\-\_\-\-D\-T\-E\-S64}}
+\index{bit\-\_\-\-D\-T\-E\-S64@{bit\-\_\-\-D\-T\-E\-S64}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-D\-T\-E\-S64}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-D\-T\-E\-S64~0x00000004}}\label{cpuid_8h_a638a927da1aaa560a0ca7c6fb1a67d7f}
+\hypertarget{cpuid_8h_a623614dc56cd16e19f04eeb487877eb3}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-E\-I\-S\-T@{bit\-\_\-\-E\-I\-S\-T}}
+\index{bit\-\_\-\-E\-I\-S\-T@{bit\-\_\-\-E\-I\-S\-T}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-E\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-E\-I\-S\-T~0x00000080}}\label{cpuid_8h_a623614dc56cd16e19f04eeb487877eb3}
+\hypertarget{cpuid_8h_a8f5a73c48b1f23bca0e400963e928f27}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-E\-N\-H\-\_\-\-M\-O\-V\-S\-B@{bit\-\_\-\-E\-N\-H\-\_\-\-M\-O\-V\-S\-B}}
+\index{bit\-\_\-\-E\-N\-H\-\_\-\-M\-O\-V\-S\-B@{bit\-\_\-\-E\-N\-H\-\_\-\-M\-O\-V\-S\-B}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-E\-N\-H\-\_\-\-M\-O\-V\-S\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-E\-N\-H\-\_\-\-M\-O\-V\-S\-B~0x00000200}}\label{cpuid_8h_a8f5a73c48b1f23bca0e400963e928f27}
+\hypertarget{cpuid_8h_ac14eff35dc022531d51e5b30cc7426d3}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-F\-M\-A@{bit\-\_\-\-F\-M\-A}}
+\index{bit\-\_\-\-F\-M\-A@{bit\-\_\-\-F\-M\-A}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-F\-M\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-F\-M\-A~0x00001000}}\label{cpuid_8h_ac14eff35dc022531d51e5b30cc7426d3}
+\hypertarget{cpuid_8h_acff2f9d2477d3d5a06af79468228f91e}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-F\-P\-U@{bit\-\_\-\-F\-P\-U}}
+\index{bit\-\_\-\-F\-P\-U@{bit\-\_\-\-F\-P\-U}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-F\-P\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-F\-P\-U~0x00000001}}\label{cpuid_8h_acff2f9d2477d3d5a06af79468228f91e}
+\hypertarget{cpuid_8h_aa5c6a03ca077588714b6e8acfe50eb3d}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-F\-S\-G\-S\-B\-A\-S\-E@{bit\-\_\-\-F\-S\-G\-S\-B\-A\-S\-E}}
+\index{bit\-\_\-\-F\-S\-G\-S\-B\-A\-S\-E@{bit\-\_\-\-F\-S\-G\-S\-B\-A\-S\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-F\-S\-G\-S\-B\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-F\-S\-G\-S\-B\-A\-S\-E~0x00000001}}\label{cpuid_8h_aa5c6a03ca077588714b6e8acfe50eb3d}
+\hypertarget{cpuid_8h_ab47a9935f2e1f4e69f853a743dbda913}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-F\-X\-S\-A\-V\-E@{bit\-\_\-\-F\-X\-S\-A\-V\-E}}
+\index{bit\-\_\-\-F\-X\-S\-A\-V\-E@{bit\-\_\-\-F\-X\-S\-A\-V\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-F\-X\-S\-A\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-F\-X\-S\-A\-V\-E~{\bf bit\-\_\-\-F\-X\-S\-R}    /$\ast$ for gcc compat $\ast$/}}\label{cpuid_8h_ab47a9935f2e1f4e69f853a743dbda913}
+\hypertarget{cpuid_8h_ae1f2cddd0b95b6037b22ebcb783aa0ce}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-F\-X\-S\-R@{bit\-\_\-\-F\-X\-S\-R}}
+\index{bit\-\_\-\-F\-X\-S\-R@{bit\-\_\-\-F\-X\-S\-R}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-F\-X\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-F\-X\-S\-R~0x01000000}}\label{cpuid_8h_ae1f2cddd0b95b6037b22ebcb783aa0ce}
+\hypertarget{cpuid_8h_aa4a29c26638b21b681804e8a35b9e4dd}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-H\-T\-T@{bit\-\_\-\-H\-T\-T}}
+\index{bit\-\_\-\-H\-T\-T@{bit\-\_\-\-H\-T\-T}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-H\-T\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-H\-T\-T~0x10000000}}\label{cpuid_8h_aa4a29c26638b21b681804e8a35b9e4dd}
+\hypertarget{cpuid_8h_a4effe02d086fd97111523927eb23e70c}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-M\-C\-A@{bit\-\_\-\-M\-C\-A}}
+\index{bit\-\_\-\-M\-C\-A@{bit\-\_\-\-M\-C\-A}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-M\-C\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-M\-C\-A~0x00004000}}\label{cpuid_8h_a4effe02d086fd97111523927eb23e70c}
+\hypertarget{cpuid_8h_adc351450c4930c537482a54f9c7fc9ea}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-M\-C\-E@{bit\-\_\-\-M\-C\-E}}
+\index{bit\-\_\-\-M\-C\-E@{bit\-\_\-\-M\-C\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-M\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-M\-C\-E~0x00000080}}\label{cpuid_8h_adc351450c4930c537482a54f9c7fc9ea}
+\hypertarget{cpuid_8h_a5c747adebe3029821e8efbdb89ba6727}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-M\-M\-X@{bit\-\_\-\-M\-M\-X}}
+\index{bit\-\_\-\-M\-M\-X@{bit\-\_\-\-M\-M\-X}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-M\-M\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-M\-M\-X~0x00800000}}\label{cpuid_8h_a5c747adebe3029821e8efbdb89ba6727}
+\hypertarget{cpuid_8h_a6bd4e7c122a88fdcd2a4c9f2cc51d7b3}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-M\-O\-N\-I\-T\-O\-R@{bit\-\_\-\-M\-O\-N\-I\-T\-O\-R}}
+\index{bit\-\_\-\-M\-O\-N\-I\-T\-O\-R@{bit\-\_\-\-M\-O\-N\-I\-T\-O\-R}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-M\-O\-N\-I\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-M\-O\-N\-I\-T\-O\-R~0x00000008}}\label{cpuid_8h_a6bd4e7c122a88fdcd2a4c9f2cc51d7b3}
+\hypertarget{cpuid_8h_aa9906d419c821b9f58d053a2d2a84095}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-M\-O\-V\-B\-E@{bit\-\_\-\-M\-O\-V\-B\-E}}
+\index{bit\-\_\-\-M\-O\-V\-B\-E@{bit\-\_\-\-M\-O\-V\-B\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-M\-O\-V\-B\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-M\-O\-V\-B\-E~0x00400000}}\label{cpuid_8h_aa9906d419c821b9f58d053a2d2a84095}
+\hypertarget{cpuid_8h_a5f445550b868d9508b7f8d2c2c294561}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-M\-S\-R@{bit\-\_\-\-M\-S\-R}}
+\index{bit\-\_\-\-M\-S\-R@{bit\-\_\-\-M\-S\-R}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-M\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-M\-S\-R~0x00000020}}\label{cpuid_8h_a5f445550b868d9508b7f8d2c2c294561}
+\hypertarget{cpuid_8h_aa037fb4e6748db90ef7e4e028be35799}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-M\-T\-R\-R@{bit\-\_\-\-M\-T\-R\-R}}
+\index{bit\-\_\-\-M\-T\-R\-R@{bit\-\_\-\-M\-T\-R\-R}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-M\-T\-R\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-M\-T\-R\-R~0x00001000}}\label{cpuid_8h_aa037fb4e6748db90ef7e4e028be35799}
+\hypertarget{cpuid_8h_a70fc14c9fdf0a79d0108cb4745431211}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-O\-S\-X\-S\-A\-V\-E@{bit\-\_\-\-O\-S\-X\-S\-A\-V\-E}}
+\index{bit\-\_\-\-O\-S\-X\-S\-A\-V\-E@{bit\-\_\-\-O\-S\-X\-S\-A\-V\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-O\-S\-X\-S\-A\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-O\-S\-X\-S\-A\-V\-E~0x08000000}}\label{cpuid_8h_a70fc14c9fdf0a79d0108cb4745431211}
+\hypertarget{cpuid_8h_a24464b0a893bf70a4553d75c446524df}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-A\-E@{bit\-\_\-\-P\-A\-E}}
+\index{bit\-\_\-\-P\-A\-E@{bit\-\_\-\-P\-A\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-A\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-A\-E~0x00000040}}\label{cpuid_8h_a24464b0a893bf70a4553d75c446524df}
+\hypertarget{cpuid_8h_a91329b6bc98a027b33b346ebfa8d78ff}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-A\-T@{bit\-\_\-\-P\-A\-T}}
+\index{bit\-\_\-\-P\-A\-T@{bit\-\_\-\-P\-A\-T}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-A\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-A\-T~0x00010000}}\label{cpuid_8h_a91329b6bc98a027b33b346ebfa8d78ff}
+\hypertarget{cpuid_8h_a33abcfb38f7cf6210d2beed46ad3e182}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-B\-E@{bit\-\_\-\-P\-B\-E}}
+\index{bit\-\_\-\-P\-B\-E@{bit\-\_\-\-P\-B\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-B\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-B\-E~0x80000000}}\label{cpuid_8h_a33abcfb38f7cf6210d2beed46ad3e182}
+\hypertarget{cpuid_8h_a263b5bbbcbbe5b0c03931592637a2820}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-C\-I\-D@{bit\-\_\-\-P\-C\-I\-D}}
+\index{bit\-\_\-\-P\-C\-I\-D@{bit\-\_\-\-P\-C\-I\-D}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-C\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-C\-I\-D~0x00020000}}\label{cpuid_8h_a263b5bbbcbbe5b0c03931592637a2820}
+\hypertarget{cpuid_8h_ae4fb5eda88a158cb0c41245fae768bef}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-C\-L\-M\-U\-L\-Q\-D\-Q@{bit\-\_\-\-P\-C\-L\-M\-U\-L\-Q\-D\-Q}}
+\index{bit\-\_\-\-P\-C\-L\-M\-U\-L\-Q\-D\-Q@{bit\-\_\-\-P\-C\-L\-M\-U\-L\-Q\-D\-Q}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-C\-L\-M\-U\-L\-Q\-D\-Q}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-C\-L\-M\-U\-L\-Q\-D\-Q~0x00000002}}\label{cpuid_8h_ae4fb5eda88a158cb0c41245fae768bef}
+\hypertarget{cpuid_8h_aa5cbd15c096963f12a86092d708df5e4}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-D\-C\-M@{bit\-\_\-\-P\-D\-C\-M}}
+\index{bit\-\_\-\-P\-D\-C\-M@{bit\-\_\-\-P\-D\-C\-M}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-D\-C\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-D\-C\-M~0x00008000}}\label{cpuid_8h_aa5cbd15c096963f12a86092d708df5e4}
+\hypertarget{cpuid_8h_abfd4d532a32cb50eb83a9acb8ead527e}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-G\-E@{bit\-\_\-\-P\-G\-E}}
+\index{bit\-\_\-\-P\-G\-E@{bit\-\_\-\-P\-G\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-G\-E~0x00002000}}\label{cpuid_8h_abfd4d532a32cb50eb83a9acb8ead527e}
+\hypertarget{cpuid_8h_a9390a497a67797d9f74d32e07973f5ac}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-O\-P\-C\-N\-T@{bit\-\_\-\-P\-O\-P\-C\-N\-T}}
+\index{bit\-\_\-\-P\-O\-P\-C\-N\-T@{bit\-\_\-\-P\-O\-P\-C\-N\-T}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-O\-P\-C\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-O\-P\-C\-N\-T~0x00800000}}\label{cpuid_8h_a9390a497a67797d9f74d32e07973f5ac}
+\hypertarget{cpuid_8h_abafe200097d558108dc431c5a978ec54}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-S\-E@{bit\-\_\-\-P\-S\-E}}
+\index{bit\-\_\-\-P\-S\-E@{bit\-\_\-\-P\-S\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-S\-E~0x00000008}}\label{cpuid_8h_abafe200097d558108dc431c5a978ec54}
+\hypertarget{cpuid_8h_a67e198b1e9cecb252561f3624538d930}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-S\-E36@{bit\-\_\-\-P\-S\-E36}}
+\index{bit\-\_\-\-P\-S\-E36@{bit\-\_\-\-P\-S\-E36}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-S\-E36}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-S\-E36~0x00020000}}\label{cpuid_8h_a67e198b1e9cecb252561f3624538d930}
+\hypertarget{cpuid_8h_a8a0edb841b83d8d0d1486cb6f01dfcd2}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-P\-S\-N@{bit\-\_\-\-P\-S\-N}}
+\index{bit\-\_\-\-P\-S\-N@{bit\-\_\-\-P\-S\-N}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-P\-S\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-P\-S\-N~0x00040000}}\label{cpuid_8h_a8a0edb841b83d8d0d1486cb6f01dfcd2}
+\hypertarget{cpuid_8h_a35c3d8674c28eb3fae8286a73fea4bd9}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-R\-D\-R\-N\-D@{bit\-\_\-\-R\-D\-R\-N\-D}}
+\index{bit\-\_\-\-R\-D\-R\-N\-D@{bit\-\_\-\-R\-D\-R\-N\-D}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-R\-D\-R\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-R\-D\-R\-N\-D~0x40000000}}\label{cpuid_8h_a35c3d8674c28eb3fae8286a73fea4bd9}
+\hypertarget{cpuid_8h_add146b36a0cdf9c5086c731a15d6fafe}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-E\-P@{bit\-\_\-\-S\-E\-P}}
+\index{bit\-\_\-\-S\-E\-P@{bit\-\_\-\-S\-E\-P}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-E\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-E\-P~0x00000800}}\label{cpuid_8h_add146b36a0cdf9c5086c731a15d6fafe}
+\hypertarget{cpuid_8h_afa1c7997b1269fed10b7e73cea4e0f30}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-M\-E\-P@{bit\-\_\-\-S\-M\-E\-P}}
+\index{bit\-\_\-\-S\-M\-E\-P@{bit\-\_\-\-S\-M\-E\-P}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-M\-E\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-M\-E\-P~0x00000080}}\label{cpuid_8h_afa1c7997b1269fed10b7e73cea4e0f30}
+\hypertarget{cpuid_8h_ad4ea96d09531b0794a9f92c6ac7a3433}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-M\-X@{bit\-\_\-\-S\-M\-X}}
+\index{bit\-\_\-\-S\-M\-X@{bit\-\_\-\-S\-M\-X}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-M\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-M\-X~0x00000040}}\label{cpuid_8h_ad4ea96d09531b0794a9f92c6ac7a3433}
+\hypertarget{cpuid_8h_a0e9a0773b9c02c402d754139b5baa9d7}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-S@{bit\-\_\-\-S\-S}}
+\index{bit\-\_\-\-S\-S@{bit\-\_\-\-S\-S}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-S~0x08000000}}\label{cpuid_8h_a0e9a0773b9c02c402d754139b5baa9d7}
+\hypertarget{cpuid_8h_a13ae9a1808a69e6e1c1cf39bad66675f}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-S\-E@{bit\-\_\-\-S\-S\-E}}
+\index{bit\-\_\-\-S\-S\-E@{bit\-\_\-\-S\-S\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-S\-E~0x02000000}}\label{cpuid_8h_a13ae9a1808a69e6e1c1cf39bad66675f}
+\hypertarget{cpuid_8h_af2331cf29bbb77a434d6475ac753967f}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-S\-E2@{bit\-\_\-\-S\-S\-E2}}
+\index{bit\-\_\-\-S\-S\-E2@{bit\-\_\-\-S\-S\-E2}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-S\-E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-S\-E2~0x04000000}}\label{cpuid_8h_af2331cf29bbb77a434d6475ac753967f}
+\hypertarget{cpuid_8h_a9a66a1147bb2ce91a61ea0817219268d}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-S\-E3@{bit\-\_\-\-S\-S\-E3}}
+\index{bit\-\_\-\-S\-S\-E3@{bit\-\_\-\-S\-S\-E3}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-S\-E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-S\-E3~0x00000001}}\label{cpuid_8h_a9a66a1147bb2ce91a61ea0817219268d}
+\hypertarget{cpuid_8h_aa2e8f8be7e49b7f7aedda1d5be3f9b5f}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-S\-E41@{bit\-\_\-\-S\-S\-E41}}
+\index{bit\-\_\-\-S\-S\-E41@{bit\-\_\-\-S\-S\-E41}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-S\-E41}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-S\-E41~0x00080000}}\label{cpuid_8h_aa2e8f8be7e49b7f7aedda1d5be3f9b5f}
+\hypertarget{cpuid_8h_a665c41747dce6378996553d425ebc641}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-S\-E42@{bit\-\_\-\-S\-S\-E42}}
+\index{bit\-\_\-\-S\-S\-E42@{bit\-\_\-\-S\-S\-E42}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-S\-E42}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-S\-E42~0x00100000}}\label{cpuid_8h_a665c41747dce6378996553d425ebc641}
+\hypertarget{cpuid_8h_abf7c619397818789919a00dd0ca091f6}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-S\-S\-S\-E3@{bit\-\_\-\-S\-S\-S\-E3}}
+\index{bit\-\_\-\-S\-S\-S\-E3@{bit\-\_\-\-S\-S\-S\-E3}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-S\-S\-S\-E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-S\-S\-S\-E3~0x00000200}}\label{cpuid_8h_abf7c619397818789919a00dd0ca091f6}
+\hypertarget{cpuid_8h_aec7ce61808b5b13fbd41805030bd8e9d}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-T\-M@{bit\-\_\-\-T\-M}}
+\index{bit\-\_\-\-T\-M@{bit\-\_\-\-T\-M}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-T\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-T\-M~0x20000000}}\label{cpuid_8h_aec7ce61808b5b13fbd41805030bd8e9d}
+\hypertarget{cpuid_8h_a2d66a484396a9eda3ca58eae86919e12}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-T\-M2@{bit\-\_\-\-T\-M2}}
+\index{bit\-\_\-\-T\-M2@{bit\-\_\-\-T\-M2}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-T\-M2}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-T\-M2~0x00000100}}\label{cpuid_8h_a2d66a484396a9eda3ca58eae86919e12}
+\hypertarget{cpuid_8h_a96376b13571bbb3beacf0b441a9d855a}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-T\-S\-C@{bit\-\_\-\-T\-S\-C}}
+\index{bit\-\_\-\-T\-S\-C@{bit\-\_\-\-T\-S\-C}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-T\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-T\-S\-C~0x00000010}}\label{cpuid_8h_a96376b13571bbb3beacf0b441a9d855a}
+\hypertarget{cpuid_8h_a5cfcd2d925fc7fb4308b1edec0d96e5f}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-T\-S\-C\-Deadline@{bit\-\_\-\-T\-S\-C\-Deadline}}
+\index{bit\-\_\-\-T\-S\-C\-Deadline@{bit\-\_\-\-T\-S\-C\-Deadline}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-T\-S\-C\-Deadline}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-T\-S\-C\-Deadline~0x01000000}}\label{cpuid_8h_a5cfcd2d925fc7fb4308b1edec0d96e5f}
+\hypertarget{cpuid_8h_a14262a26c707fa01d9d65f76d7801ccd}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-V\-M\-E@{bit\-\_\-\-V\-M\-E}}
+\index{bit\-\_\-\-V\-M\-E@{bit\-\_\-\-V\-M\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-V\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-V\-M\-E~0x00000002}}\label{cpuid_8h_a14262a26c707fa01d9d65f76d7801ccd}
+\hypertarget{cpuid_8h_afaac592ac3732fcf8ec0fbbe150d075e}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-V\-M\-X@{bit\-\_\-\-V\-M\-X}}
+\index{bit\-\_\-\-V\-M\-X@{bit\-\_\-\-V\-M\-X}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-V\-M\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-V\-M\-X~0x00000020}}\label{cpuid_8h_afaac592ac3732fcf8ec0fbbe150d075e}
+\hypertarget{cpuid_8h_a8bc34a6e06b4bf0628ccb6c5d128c731}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-x2\-A\-P\-I\-C@{bit\-\_\-x2\-A\-P\-I\-C}}
+\index{bit\-\_\-x2\-A\-P\-I\-C@{bit\-\_\-x2\-A\-P\-I\-C}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-x2\-A\-P\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-x2\-A\-P\-I\-C~0x00200000}}\label{cpuid_8h_a8bc34a6e06b4bf0628ccb6c5d128c731}
+\hypertarget{cpuid_8h_af22114166abcfbbfcf1f9a2f6cda1561}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-\-X\-S\-A\-V\-E@{bit\-\_\-\-X\-S\-A\-V\-E}}
+\index{bit\-\_\-\-X\-S\-A\-V\-E@{bit\-\_\-\-X\-S\-A\-V\-E}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-\-X\-S\-A\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-\-X\-S\-A\-V\-E~0x04000000}}\label{cpuid_8h_af22114166abcfbbfcf1f9a2f6cda1561}
+\hypertarget{cpuid_8h_a8ef2e9bf14441391c09132ebf2564f5f}{\index{cpuid.\-h@{cpuid.\-h}!bit\-\_\-x\-T\-P\-R@{bit\-\_\-x\-T\-P\-R}}
+\index{bit\-\_\-x\-T\-P\-R@{bit\-\_\-x\-T\-P\-R}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{bit\-\_\-x\-T\-P\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define bit\-\_\-x\-T\-P\-R~0x00004000}}\label{cpuid_8h_a8ef2e9bf14441391c09132ebf2564f5f}
+\hypertarget{cpuid_8h_ae29d9e83145d796b5590e79bfc43daf9}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-A\-M\-D\-\_\-ebx@{signature\-\_\-\-A\-M\-D\-\_\-ebx}}
+\index{signature\-\_\-\-A\-M\-D\-\_\-ebx@{signature\-\_\-\-A\-M\-D\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-A\-M\-D\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-A\-M\-D\-\_\-ebx~0x68747541}}\label{cpuid_8h_ae29d9e83145d796b5590e79bfc43daf9}
+\hypertarget{cpuid_8h_a9b3834ca1db15bc2190239b8fe7834c8}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-A\-M\-D\-\_\-ecx@{signature\-\_\-\-A\-M\-D\-\_\-ecx}}
+\index{signature\-\_\-\-A\-M\-D\-\_\-ecx@{signature\-\_\-\-A\-M\-D\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-A\-M\-D\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-A\-M\-D\-\_\-ecx~0x444d4163}}\label{cpuid_8h_a9b3834ca1db15bc2190239b8fe7834c8}
+\hypertarget{cpuid_8h_aaad17d879d4cb595f5e5ea90cfa94910}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-A\-M\-D\-\_\-edx@{signature\-\_\-\-A\-M\-D\-\_\-edx}}
+\index{signature\-\_\-\-A\-M\-D\-\_\-edx@{signature\-\_\-\-A\-M\-D\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-A\-M\-D\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-A\-M\-D\-\_\-edx~0x69746e65}}\label{cpuid_8h_aaad17d879d4cb595f5e5ea90cfa94910}
+\hypertarget{cpuid_8h_a1bee9c152b071f15eb357eb24c3801fb}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ebx@{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ebx}}
+\index{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ebx@{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ebx~0x746e6543}}\label{cpuid_8h_a1bee9c152b071f15eb357eb24c3801fb}
+\hypertarget{cpuid_8h_a63d6ab03992dd39e28da54f6cdc7978f}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ecx@{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ecx}}
+\index{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ecx@{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-ecx~0x736c7561}}\label{cpuid_8h_a63d6ab03992dd39e28da54f6cdc7978f}
+\hypertarget{cpuid_8h_af5992bffbbc24851b6b165459d44b9ab}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-edx@{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-edx}}
+\index{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-edx@{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-C\-E\-N\-T\-A\-U\-R\-\_\-edx~0x48727561}}\label{cpuid_8h_af5992bffbbc24851b6b165459d44b9ab}
+\hypertarget{cpuid_8h_a657c3994ed4f4d594ba184db19eb3415}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ebx@{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ebx}}
+\index{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ebx@{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ebx~0x69727943}}\label{cpuid_8h_a657c3994ed4f4d594ba184db19eb3415}
+\hypertarget{cpuid_8h_acdd572fb73d8e8dc180dae2afd80aff6}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ecx@{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ecx}}
+\index{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ecx@{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-ecx~0x64616574}}\label{cpuid_8h_acdd572fb73d8e8dc180dae2afd80aff6}
+\hypertarget{cpuid_8h_a0fafa9df3741e10ee3f85663f1bb9f6d}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-edx@{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-edx}}
+\index{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-edx@{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-C\-Y\-R\-I\-X\-\_\-edx~0x736e4978}}\label{cpuid_8h_a0fafa9df3741e10ee3f85663f1bb9f6d}
+\hypertarget{cpuid_8h_a52ceab3f634a5ca25efe7179f5d6b836}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ebx@{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ebx}}
+\index{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ebx@{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ebx~0x756e6547}}\label{cpuid_8h_a52ceab3f634a5ca25efe7179f5d6b836}
+\hypertarget{cpuid_8h_acacb67ab3d1837fdf787666c884db84e}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ecx@{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ecx}}
+\index{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ecx@{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-I\-N\-T\-E\-L\-\_\-ecx~0x6c65746e}}\label{cpuid_8h_acacb67ab3d1837fdf787666c884db84e}
+\hypertarget{cpuid_8h_a1a2c32389501e2494419941597c5aaf0}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-I\-N\-T\-E\-L\-\_\-edx@{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-edx}}
+\index{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-edx@{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-I\-N\-T\-E\-L\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-I\-N\-T\-E\-L\-\_\-edx~0x49656e69}}\label{cpuid_8h_a1a2c32389501e2494419941597c5aaf0}
+\hypertarget{cpuid_8h_a1ede60d0f1c35b4393e9483868de3e3a}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ebx@{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ebx}}
+\index{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ebx@{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ebx~0x4778654e}}\label{cpuid_8h_a1ede60d0f1c35b4393e9483868de3e3a}
+\hypertarget{cpuid_8h_aeb60ec011767a5ca58b3976912f5d88b}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ecx@{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ecx}}
+\index{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ecx@{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-ecx~0x6e657669}}\label{cpuid_8h_aeb60ec011767a5ca58b3976912f5d88b}
+\hypertarget{cpuid_8h_a4173cbb3aad28cf37f062a7d5096a135}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-edx@{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-edx}}
+\index{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-edx@{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-N\-E\-X\-G\-E\-N\-\_\-edx~0x72446e65}}\label{cpuid_8h_a4173cbb3aad28cf37f062a7d5096a135}
+\hypertarget{cpuid_8h_aecf9fffd103342752afc4235d1317223}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-N\-S\-C\-\_\-ebx@{signature\-\_\-\-N\-S\-C\-\_\-ebx}}
+\index{signature\-\_\-\-N\-S\-C\-\_\-ebx@{signature\-\_\-\-N\-S\-C\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-N\-S\-C\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-N\-S\-C\-\_\-ebx~0x646f6547}}\label{cpuid_8h_aecf9fffd103342752afc4235d1317223}
+\hypertarget{cpuid_8h_a0c83154b6a024223a472b796b7770cda}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-N\-S\-C\-\_\-ecx@{signature\-\_\-\-N\-S\-C\-\_\-ecx}}
+\index{signature\-\_\-\-N\-S\-C\-\_\-ecx@{signature\-\_\-\-N\-S\-C\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-N\-S\-C\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-N\-S\-C\-\_\-ecx~0x79622065}}\label{cpuid_8h_a0c83154b6a024223a472b796b7770cda}
+\hypertarget{cpuid_8h_a2156399f3a733096bd25ac7c1daea826}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-N\-S\-C\-\_\-edx@{signature\-\_\-\-N\-S\-C\-\_\-edx}}
+\index{signature\-\_\-\-N\-S\-C\-\_\-edx@{signature\-\_\-\-N\-S\-C\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-N\-S\-C\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-N\-S\-C\-\_\-edx~0x43534e20}}\label{cpuid_8h_a2156399f3a733096bd25ac7c1daea826}
+\hypertarget{cpuid_8h_a299d8b43de0add3456f85735c40df454}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-R\-I\-S\-E\-\_\-ebx@{signature\-\_\-\-R\-I\-S\-E\-\_\-ebx}}
+\index{signature\-\_\-\-R\-I\-S\-E\-\_\-ebx@{signature\-\_\-\-R\-I\-S\-E\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-R\-I\-S\-E\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-R\-I\-S\-E\-\_\-ebx~0x65736952}}\label{cpuid_8h_a299d8b43de0add3456f85735c40df454}
+\hypertarget{cpuid_8h_a7138e804a2d7aa76e623390e7934af03}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-R\-I\-S\-E\-\_\-ecx@{signature\-\_\-\-R\-I\-S\-E\-\_\-ecx}}
+\index{signature\-\_\-\-R\-I\-S\-E\-\_\-ecx@{signature\-\_\-\-R\-I\-S\-E\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-R\-I\-S\-E\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-R\-I\-S\-E\-\_\-ecx~0x65736952}}\label{cpuid_8h_a7138e804a2d7aa76e623390e7934af03}
+\hypertarget{cpuid_8h_afc42d0b0da2535fd531dfc455c408fb6}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-R\-I\-S\-E\-\_\-edx@{signature\-\_\-\-R\-I\-S\-E\-\_\-edx}}
+\index{signature\-\_\-\-R\-I\-S\-E\-\_\-edx@{signature\-\_\-\-R\-I\-S\-E\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-R\-I\-S\-E\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-R\-I\-S\-E\-\_\-edx~0x65736952}}\label{cpuid_8h_afc42d0b0da2535fd531dfc455c408fb6}
+\hypertarget{cpuid_8h_a78442af1141d1bb56f7a2aa510543957}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-S\-I\-S\-\_\-ebx@{signature\-\_\-\-S\-I\-S\-\_\-ebx}}
+\index{signature\-\_\-\-S\-I\-S\-\_\-ebx@{signature\-\_\-\-S\-I\-S\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-S\-I\-S\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-S\-I\-S\-\_\-ebx~0x20536953}}\label{cpuid_8h_a78442af1141d1bb56f7a2aa510543957}
+\hypertarget{cpuid_8h_a15be63fad228f3de2faf692ce0ab86ea}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-S\-I\-S\-\_\-ecx@{signature\-\_\-\-S\-I\-S\-\_\-ecx}}
+\index{signature\-\_\-\-S\-I\-S\-\_\-ecx@{signature\-\_\-\-S\-I\-S\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-S\-I\-S\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-S\-I\-S\-\_\-ecx~0x20536953}}\label{cpuid_8h_a15be63fad228f3de2faf692ce0ab86ea}
+\hypertarget{cpuid_8h_a0730448e589e694586ef472f142baac3}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-S\-I\-S\-\_\-edx@{signature\-\_\-\-S\-I\-S\-\_\-edx}}
+\index{signature\-\_\-\-S\-I\-S\-\_\-edx@{signature\-\_\-\-S\-I\-S\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-S\-I\-S\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-S\-I\-S\-\_\-edx~0x20536953}}\label{cpuid_8h_a0730448e589e694586ef472f142baac3}
+\hypertarget{cpuid_8h_a9167218e3a53e2bb021ae0cdd16f0fbc}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-T\-M1\-\_\-ebx@{signature\-\_\-\-T\-M1\-\_\-ebx}}
+\index{signature\-\_\-\-T\-M1\-\_\-ebx@{signature\-\_\-\-T\-M1\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-T\-M1\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-T\-M1\-\_\-ebx~0x6e617254}}\label{cpuid_8h_a9167218e3a53e2bb021ae0cdd16f0fbc}
+\hypertarget{cpuid_8h_a39d328ec06bb863821ed7bea4df58b11}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-T\-M1\-\_\-ecx@{signature\-\_\-\-T\-M1\-\_\-ecx}}
+\index{signature\-\_\-\-T\-M1\-\_\-ecx@{signature\-\_\-\-T\-M1\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-T\-M1\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-T\-M1\-\_\-ecx~0x55504361}}\label{cpuid_8h_a39d328ec06bb863821ed7bea4df58b11}
+\hypertarget{cpuid_8h_ac7d68b191099d1158ff426d5de861f18}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-T\-M1\-\_\-edx@{signature\-\_\-\-T\-M1\-\_\-edx}}
+\index{signature\-\_\-\-T\-M1\-\_\-edx@{signature\-\_\-\-T\-M1\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-T\-M1\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-T\-M1\-\_\-edx~0x74656d73}}\label{cpuid_8h_ac7d68b191099d1158ff426d5de861f18}
+\hypertarget{cpuid_8h_af32afcfdedaf30264d49c1463a003d48}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-T\-M2\-\_\-ebx@{signature\-\_\-\-T\-M2\-\_\-ebx}}
+\index{signature\-\_\-\-T\-M2\-\_\-ebx@{signature\-\_\-\-T\-M2\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-T\-M2\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-T\-M2\-\_\-ebx~0x756e6547}}\label{cpuid_8h_af32afcfdedaf30264d49c1463a003d48}
+\hypertarget{cpuid_8h_ade44374c5d0cd24512ceb5133a73dcf9}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-T\-M2\-\_\-ecx@{signature\-\_\-\-T\-M2\-\_\-ecx}}
+\index{signature\-\_\-\-T\-M2\-\_\-ecx@{signature\-\_\-\-T\-M2\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-T\-M2\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-T\-M2\-\_\-ecx~0x3638784d}}\label{cpuid_8h_ade44374c5d0cd24512ceb5133a73dcf9}
+\hypertarget{cpuid_8h_a55db3c6d4c57f4c8a41b1dcbb6ff921c}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-T\-M2\-\_\-edx@{signature\-\_\-\-T\-M2\-\_\-edx}}
+\index{signature\-\_\-\-T\-M2\-\_\-edx@{signature\-\_\-\-T\-M2\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-T\-M2\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-T\-M2\-\_\-edx~0x54656e69}}\label{cpuid_8h_a55db3c6d4c57f4c8a41b1dcbb6ff921c}
+\hypertarget{cpuid_8h_adbf3197b243fb43cc6a6518fb6cbb34a}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-U\-M\-C\-\_\-ebx@{signature\-\_\-\-U\-M\-C\-\_\-ebx}}
+\index{signature\-\_\-\-U\-M\-C\-\_\-ebx@{signature\-\_\-\-U\-M\-C\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-U\-M\-C\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-U\-M\-C\-\_\-ebx~0x20434d55}}\label{cpuid_8h_adbf3197b243fb43cc6a6518fb6cbb34a}
+\hypertarget{cpuid_8h_a1d1b0bac18812bcbb187d70a4e48c844}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-U\-M\-C\-\_\-ecx@{signature\-\_\-\-U\-M\-C\-\_\-ecx}}
+\index{signature\-\_\-\-U\-M\-C\-\_\-ecx@{signature\-\_\-\-U\-M\-C\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-U\-M\-C\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-U\-M\-C\-\_\-ecx~0x20434d55}}\label{cpuid_8h_a1d1b0bac18812bcbb187d70a4e48c844}
+\hypertarget{cpuid_8h_aa0624da176b0ee89b5876d5155c2defc}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-U\-M\-C\-\_\-edx@{signature\-\_\-\-U\-M\-C\-\_\-edx}}
+\index{signature\-\_\-\-U\-M\-C\-\_\-edx@{signature\-\_\-\-U\-M\-C\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-U\-M\-C\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-U\-M\-C\-\_\-edx~0x20434d55}}\label{cpuid_8h_aa0624da176b0ee89b5876d5155c2defc}
+\hypertarget{cpuid_8h_a6b68e99fbe00e03d5cd828839c4cbbe7}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-V\-I\-A\-\_\-ebx@{signature\-\_\-\-V\-I\-A\-\_\-ebx}}
+\index{signature\-\_\-\-V\-I\-A\-\_\-ebx@{signature\-\_\-\-V\-I\-A\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-V\-I\-A\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-V\-I\-A\-\_\-ebx~0x20414956}}\label{cpuid_8h_a6b68e99fbe00e03d5cd828839c4cbbe7}
+\hypertarget{cpuid_8h_a71f1e105f986dd27289015b1b1a481ce}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-V\-I\-A\-\_\-ecx@{signature\-\_\-\-V\-I\-A\-\_\-ecx}}
+\index{signature\-\_\-\-V\-I\-A\-\_\-ecx@{signature\-\_\-\-V\-I\-A\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-V\-I\-A\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-V\-I\-A\-\_\-ecx~0x20414956}}\label{cpuid_8h_a71f1e105f986dd27289015b1b1a481ce}
+\hypertarget{cpuid_8h_a4b44bc687145fda4760403cc1d841b61}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-V\-I\-A\-\_\-edx@{signature\-\_\-\-V\-I\-A\-\_\-edx}}
+\index{signature\-\_\-\-V\-I\-A\-\_\-edx@{signature\-\_\-\-V\-I\-A\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-V\-I\-A\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-V\-I\-A\-\_\-edx~0x20414956}}\label{cpuid_8h_a4b44bc687145fda4760403cc1d841b61}
+\hypertarget{cpuid_8h_ab021341ccc687faa1670c0f595fe162e}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ebx@{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ebx}}
+\index{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ebx@{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ebx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ebx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ebx~0x74726f56}}\label{cpuid_8h_ab021341ccc687faa1670c0f595fe162e}
+\hypertarget{cpuid_8h_a69590add84a4349077775cf541c45c86}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ecx@{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ecx}}
+\index{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ecx@{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ecx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ecx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-ecx~0x436f5320}}\label{cpuid_8h_a69590add84a4349077775cf541c45c86}
+\hypertarget{cpuid_8h_a58542434d6a5acd4d522352e9f1eea6e}{\index{cpuid.\-h@{cpuid.\-h}!signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-edx@{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-edx}}
+\index{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-edx@{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-edx}!cpuid.h@{cpuid.\-h}}
+\subsubsection[{signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-edx}]{\setlength{\rightskip}{0pt plus 5cm}\#define signature\-\_\-\-V\-O\-R\-T\-E\-X\-\_\-edx~0x36387865}}\label{cpuid_8h_a58542434d6a5acd4d522352e9f1eea6e}

@@ -1,0 +1,162 @@
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.h File Reference}
+\label{MultiWii__2__4_2MultiWii_2Sensors_8h}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a1acc58cfa4a5bdf40f40620b9cfe8a16}{A\-C\-C\-\_\-1\-G}~256
+\item 
+\#define \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_aad6a866955cc32d16ed222e924b503c3}{A\-C\-C\-Z\-\_\-25deg}~(int16\-\_\-t)(\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8h_a1acc58cfa4a5bdf40f40620b9cfe8a16}{A\-C\-C\-\_\-1\-G} $\ast$ 0.\-90631)
+\item 
+\#define \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a66fc7a1c02676e8b83a57d3a112a2aef}{A\-C\-C\-\_\-\-Vel\-Scale}~(9.\-80665f / 10000.\-0f / A\-C\-C\-\_\-1\-G)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a3ba92dd2d51854e8b6b2c0d64942f142}{A\-C\-C\-\_\-get\-A\-D\-C} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a6791bd0397a389e1e106610c01385eb3}{Gyro\-\_\-get\-A\-D\-C} ()
+\item 
+uint8\-\_\-t \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a6aabf255585d37a9f4febbc651140536}{Mag\-\_\-get\-A\-D\-C} ()
+\item 
+uint8\-\_\-t \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a72b2a37c86145aca18cc85b3c22d9cd5}{Baro\-\_\-update} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a721a7333f278175c1da8cf5bd70ab04a}{Sonar\-\_\-update} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a223f4d2c33370aa8108c10626cd0bb8e}{init\-Sensors} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_ad67bc809682360001b93c959e29e8c25}{i2c\-\_\-rep\-\_\-start} (uint8\-\_\-t address)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a35c0629e0948504b2405959704cc41e3}{i2c\-\_\-write} (uint8\-\_\-t \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_ad35d4e4f52ca74b503d5e5e1e0a3f5f3}{i2c\-\_\-stop} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a7d7e9b69ad115f5f9245aa5567765db7}{i2c\-\_\-write\-Reg} (uint8\-\_\-t add, uint8\-\_\-t reg, uint8\-\_\-t \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+uint8\-\_\-t \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a1948ebb127d2ba2877a0c8edab909972}{i2c\-\_\-read\-Reg} (uint8\-\_\-t add, uint8\-\_\-t reg)
+\item 
+uint8\-\_\-t \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_adf627b1618c5f564f3afe85b87a9d351}{i2c\-\_\-read\-Ack} ()
+\item 
+uint8\-\_\-t \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_aff481c35c99f60036b704d6cd77c9de5}{i2c\-\_\-read\-Nak} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Sensors_8h_a3cd693a12006d23892525e5fc381af44}{i2c\-\_\-read\-\_\-reg\-\_\-to\-\_\-buf} (uint8\-\_\-t add, uint8\-\_\-t reg, uint8\-\_\-t $\ast$buf, uint8\-\_\-t size)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a1acc58cfa4a5bdf40f40620b9cfe8a16}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!A\-C\-C\-\_\-1\-G@{A\-C\-C\-\_\-1\-G}}
+\index{A\-C\-C\-\_\-1\-G@{A\-C\-C\-\_\-1\-G}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{A\-C\-C\-\_\-1\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-\_\-1\-G~256}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a1acc58cfa4a5bdf40f40620b9cfe8a16}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a66fc7a1c02676e8b83a57d3a112a2aef}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!A\-C\-C\-\_\-\-Vel\-Scale@{A\-C\-C\-\_\-\-Vel\-Scale}}
+\index{A\-C\-C\-\_\-\-Vel\-Scale@{A\-C\-C\-\_\-\-Vel\-Scale}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{A\-C\-C\-\_\-\-Vel\-Scale}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-\_\-\-Vel\-Scale~(9.\-80665f / 10000.\-0f / A\-C\-C\-\_\-1\-G)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a66fc7a1c02676e8b83a57d3a112a2aef}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_aad6a866955cc32d16ed222e924b503c3}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!A\-C\-C\-Z\-\_\-25deg@{A\-C\-C\-Z\-\_\-25deg}}
+\index{A\-C\-C\-Z\-\_\-25deg@{A\-C\-C\-Z\-\_\-25deg}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{A\-C\-C\-Z\-\_\-25deg}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-C\-C\-Z\-\_\-25deg~(int16\-\_\-t)({\bf A\-C\-C\-\_\-1\-G} $\ast$ 0.\-90631)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_aad6a866955cc32d16ed222e924b503c3}
+
+
+\subsection{Function Documentation}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a3ba92dd2d51854e8b6b2c0d64942f142}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!A\-C\-C\-\_\-get\-A\-D\-C@{A\-C\-C\-\_\-get\-A\-D\-C}}
+\index{A\-C\-C\-\_\-get\-A\-D\-C@{A\-C\-C\-\_\-get\-A\-D\-C}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{A\-C\-C\-\_\-get\-A\-D\-C}]{\setlength{\rightskip}{0pt plus 5cm}void A\-C\-C\-\_\-get\-A\-D\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a3ba92dd2d51854e8b6b2c0d64942f142}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a72b2a37c86145aca18cc85b3c22d9cd5}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!Baro\-\_\-update@{Baro\-\_\-update}}
+\index{Baro\-\_\-update@{Baro\-\_\-update}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{Baro\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t Baro\-\_\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a72b2a37c86145aca18cc85b3c22d9cd5}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a6791bd0397a389e1e106610c01385eb3}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!Gyro\-\_\-get\-A\-D\-C@{Gyro\-\_\-get\-A\-D\-C}}
+\index{Gyro\-\_\-get\-A\-D\-C@{Gyro\-\_\-get\-A\-D\-C}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{Gyro\-\_\-get\-A\-D\-C}]{\setlength{\rightskip}{0pt plus 5cm}void Gyro\-\_\-get\-A\-D\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a6791bd0397a389e1e106610c01385eb3}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a3cd693a12006d23892525e5fc381af44}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-read\-\_\-reg\-\_\-to\-\_\-buf@{i2c\-\_\-read\-\_\-reg\-\_\-to\-\_\-buf}}
+\index{i2c\-\_\-read\-\_\-reg\-\_\-to\-\_\-buf@{i2c\-\_\-read\-\_\-reg\-\_\-to\-\_\-buf}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-read\-\_\-reg\-\_\-to\-\_\-buf}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-\_\-read\-\_\-reg\-\_\-to\-\_\-buf (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{add, }
+\item[{uint8\-\_\-t}]{reg, }
+\item[{uint8\-\_\-t $\ast$}]{buf, }
+\item[{uint8\-\_\-t}]{size}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a3cd693a12006d23892525e5fc381af44}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_adf627b1618c5f564f3afe85b87a9d351}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-read\-Ack@{i2c\-\_\-read\-Ack}}
+\index{i2c\-\_\-read\-Ack@{i2c\-\_\-read\-Ack}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-read\-Ack}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t i2c\-\_\-read\-Ack (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_adf627b1618c5f564f3afe85b87a9d351}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_aff481c35c99f60036b704d6cd77c9de5}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-read\-Nak@{i2c\-\_\-read\-Nak}}
+\index{i2c\-\_\-read\-Nak@{i2c\-\_\-read\-Nak}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-read\-Nak}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t i2c\-\_\-read\-Nak (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_aff481c35c99f60036b704d6cd77c9de5}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a1948ebb127d2ba2877a0c8edab909972}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-read\-Reg@{i2c\-\_\-read\-Reg}}
+\index{i2c\-\_\-read\-Reg@{i2c\-\_\-read\-Reg}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-read\-Reg}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t i2c\-\_\-read\-Reg (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{add, }
+\item[{uint8\-\_\-t}]{reg}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a1948ebb127d2ba2877a0c8edab909972}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_ad67bc809682360001b93c959e29e8c25}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-rep\-\_\-start@{i2c\-\_\-rep\-\_\-start}}
+\index{i2c\-\_\-rep\-\_\-start@{i2c\-\_\-rep\-\_\-start}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-rep\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-\_\-rep\-\_\-start (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{address}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_ad67bc809682360001b93c959e29e8c25}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_ad35d4e4f52ca74b503d5e5e1e0a3f5f3}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-stop@{i2c\-\_\-stop}}
+\index{i2c\-\_\-stop@{i2c\-\_\-stop}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-\_\-stop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_ad35d4e4f52ca74b503d5e5e1e0a3f5f3}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a35c0629e0948504b2405959704cc41e3}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-write@{i2c\-\_\-write}}
+\index{i2c\-\_\-write@{i2c\-\_\-write}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a35c0629e0948504b2405959704cc41e3}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a7d7e9b69ad115f5f9245aa5567765db7}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!i2c\-\_\-write\-Reg@{i2c\-\_\-write\-Reg}}
+\index{i2c\-\_\-write\-Reg@{i2c\-\_\-write\-Reg}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{i2c\-\_\-write\-Reg}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-\_\-write\-Reg (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{add, }
+\item[{uint8\-\_\-t}]{reg, }
+\item[{uint8\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a7d7e9b69ad115f5f9245aa5567765db7}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a223f4d2c33370aa8108c10626cd0bb8e}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!init\-Sensors@{init\-Sensors}}
+\index{init\-Sensors@{init\-Sensors}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{init\-Sensors}]{\setlength{\rightskip}{0pt plus 5cm}void init\-Sensors (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a223f4d2c33370aa8108c10626cd0bb8e}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a6aabf255585d37a9f4febbc651140536}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!Mag\-\_\-get\-A\-D\-C@{Mag\-\_\-get\-A\-D\-C}}
+\index{Mag\-\_\-get\-A\-D\-C@{Mag\-\_\-get\-A\-D\-C}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{Mag\-\_\-get\-A\-D\-C}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t Mag\-\_\-get\-A\-D\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a6aabf255585d37a9f4febbc651140536}
+\hypertarget{MultiWii__2__4_2MultiWii_2Sensors_8h_a721a7333f278175c1da8cf5bd70ab04a}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}!Sonar\-\_\-update@{Sonar\-\_\-update}}
+\index{Sonar\-\_\-update@{Sonar\-\_\-update}!MultiWii_2_4/MultiWii/Sensors.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Sensors.\-h}}
+\subsubsection[{Sonar\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void Sonar\-\_\-update (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Sensors_8h_a721a7333f278175c1da8cf5bd70ab04a}

@@ -1,0 +1,56 @@
+This repository contains the Web\-R\-E\-P\-L client and related tools, for accessing a Micro\-Python R\-E\-P\-L (interactive prompt) over Web\-Sockets.
+
+To start Web\-R\-E\-P\-L terminal client, clone or download this repository (in full) and open webrepl.\-html in a browser. Recent versions of Firefox and Chrome (or Chromium) are supported.
+
+The latest version of the client is also hosted online at \href{http://micropython.org/webrepl}{\tt http\-://micropython.\-org/webrepl} (note\-: while it's hosted online, all interaction with your boards still happen locally in your own network).
+
+At this time, Web\-R\-E\-P\-L client cannot be accessed over H\-T\-T\-P\-S connections. This is due to not widely published policy that H\-T\-T\-P\-S pages may access only W\-S\-S (Web\-Socket Secure) protocol. This is somewhat similar to warnings issued when e.\-g. an H\-T\-T\-P\-S page loads an image over plain H\-T\-T\-P. However, in case of Web\-Sockets, some browsers don't even issue a user-\/visible warning, and others may word it confusingly, so it's hard to understand that it applies to Web\-Socket connections. As Web\-R\-E\-P\-L is intended to be used only within a user's local network, H\-T\-T\-P\-S isn't strictly required, and not accessing webrepl.\-html over H\-T\-T\-P\-S is a suggested workaround.
+
+\subsection*{Web\-R\-E\-P\-L file transfer }
+
+Web\-R\-E\-P\-L protocol includes experimental support for file transfer. This feature is currently in alpha and has known issues on systems which have it enabled (E\-S\-P8266).
+
+To use Web\-R\-E\-P\-L file transfer capabilities, a separate command line utility is provided, \hyperlink{webrepl__cli_8py}{webrepl\-\_\-cli.\-py} (file transfer is not supported via webrepl.\-html client). Run \begin{DoxyVerb}webrepl_cli.py --help
+\end{DoxyVerb}
+
+
+to see usage information. Note that there can be only one active Web\-R\-E\-P\-L connection, so while webrepl.\-html is connected to device, \hyperlink{webrepl__cli_8py}{webrepl\-\_\-cli.\-py} can't transfer files, and vice versa.
+
+\subsection*{Technical details }
+
+Web\-R\-E\-P\-L is the latest standard (in the sense of an Internet R\-F\-C) for communicating with and controlling a Micro\-Python-\/based board. Following were the requirements for the protocol design\-:
+
+
+\begin{DoxyEnumerate}
+\item Single connection/channel, multiplexing terminal access, filesystem access, and board control.
+\item Network ready and Web technologies ready (allowing access directly from a browser with an H\-T\-M\-L-\/based client).
+\end{DoxyEnumerate}
+
+Based on these requirements, Web\-R\-E\-P\-L uses a single connection over \href{https://en.wikipedia.org/wiki/WebSocket}{\tt Web\-Socket} as a transport protocol. Note that while Web\-R\-E\-P\-L is primarily intended for network (usually, wireless) connection, due to its single-\/connection, multiplexed nature, the same protocol can be used over a lower-\/level, wired connection like U\-A\-R\-T, S\-P\-I, I2\-C, etc.
+
+Few other traits of Web\-R\-E\-P\-L\-:
+
+
+\begin{DoxyEnumerate}
+\item It is intended (whenever possible) to work in background, i.\-e. while Web\-R\-E\-P\-L operations are executed (like a file transfer), normal R\-E\-P\-L/user application should continue to run and be responsive (though perhaps with higher latency, as Web\-R\-E\-P\-L operations may take its share of C\-P\-U time and other system resources). (Some systems may not allow such background operation, and then Web\-R\-E\-P\-L access/operations will be blocking).
+\item While it's intended to run in background, like a Unix daemon, it's not intended to support multiple, per-\/connection sessions. There's a single R\-E\-P\-L session, and this same session is accessible via different media, like U\-A\-R\-T or Web\-R\-E\-P\-L. This also means that there's usually no point in having more than one Web\-R\-E\-P\-L connection (multiple connections would access the same session), and a particular system may actually limit number of concurrent connections to ease implementation and save system resources.
+\end{DoxyEnumerate}
+
+Web\-R\-E\-P\-L protocol consists of 2 sub-\/protocols\-:
+
+
+\begin{DoxyItemize}
+\item Terminal protocol
+\end{DoxyItemize}
+
+This protocol is finalized and is very simple in its nature, akin to Telnet protocol. Web\-Socket \char`\"{}text\char`\"{}-\/flagged messages are used to communicate terminal input and output between a client and a Web\-R\-E\-P\-L-\/ enabled device (server). There's a guaranteed password prompt, which can be detected by the appearance of characters '\-:', ' ' (at this point, server expected a password ending with '\par
+' from client). If you're interested in developing a 3rd-\/party application to communicate using Web\-R\-E\-P\-L terminal protocol, the information above should be enough to implement it (or feel free to study implementation of the official clients in this repository).
+
+
+\begin{DoxyItemize}
+\item File transfer/board control protocol
+\end{DoxyItemize}
+
+This protocol uses Web\-Socket \char`\"{}binary\char`\"{}-\/flagged messages. At this point, this protocol is in early research/design/proof-\/of-\/concept phase. The only available specification of it is the reference code implementation, and the protocol is subject to frequent and incompatible changes. The {\ttfamily \hyperlink{webrepl__cli_8py}{webrepl\-\_\-cli.\-py}} module mentioned above intended to be both a command-\/line tool and a library for 3rd-\/party projects to use, though it may not be there yet. If you're interested in integrating Web\-R\-E\-P\-L transfer/control capabilities into your application, please submit a ticket to Git\-Hub with information about your project and how it is useful to Micro\-Python community, to help us prioritize this work.
+
+While the protocol is (eventually) intended to provide full-\/fledged filesystem access and means to control a board (all subject to resource constraints of a deeply embedded boards it's intended to run on), currently, only \char`\"{}get file\char`\"{} and \char`\"{}put file\char`\"{} operations are supported. As above, sharing information with us on features you miss and how they can be helpful to the general Micro\-Python community will help us prioritize our plans. If you're interested in reducing wait time for new features, you're also welcome to contribute to their implementation. Please start with discussing the design first, and with small changes and improvements. Please keep in mind that Web\-R\-E\-P\-L is just one of the many features on which Micro\-Python developers work, so having sustainable (vs revolutionary) development process is a must to have long-\/term success. 

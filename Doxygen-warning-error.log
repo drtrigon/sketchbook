@@ -1,0 +1,127 @@
+/home/travis/build/drtrigon/sketchbook/cli/owslave/moat_backend.c:48: warning: include file _def.h not found, perhaps you forgot to add its directory to INCLUDE_PATH?
+/home/travis/build/drtrigon/sketchbook/cli/owslave/moat_backend.c:54: warning: include file _nums.h not found, perhaps you forgot to add its directory to INCLUDE_PATH?
+/home/travis/build/drtrigon/sketchbook/cli/owslave/moat_backend.c:53: warning: documented symbol `const uint8_t moat_sizes' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/cli/owslave/moat_internal.h:107: warning: documented symbol `const uint8_t moat_sizes' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:108: warning: documented symbol `const char ATmegaBOOT_168_atmega328_pro_8MHz' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:109: warning: documented symbol `const char ATmegaBOOT_168_atmega1280' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:110: warning: documented symbol `const char ATmegaBOOT_168_diecimila' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:111: warning: documented symbol `const char ATmegaBOOT_168_ng' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:112: warning: documented symbol `const char ATmegaBOOT_168_pro_8MHz' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:113: warning: documented symbol `const char ATmegaBOOT' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:114: warning: documented symbol `const char ATmegaBOOT_168' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:115: warning: documented symbol `const char ATmegaBOOT_168_atmega328_bt' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:116: warning: documented symbol `const char LilyPadBOOT_168' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:117: warning: documented symbol `const char optiboot_atmega328_IDE_0022' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:118: warning: documented symbol `const char optiboot_atmega328_pro_8MHz' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:119: warning: documented symbol `const char optiboot_lilypad' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:120: warning: documented symbol `const char optiboot_luminet' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:121: warning: documented symbol `const char optiboot_pro_16MHz' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:122: warning: documented symbol `const char optiboot_pro_20mhz' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:123: warning: documented symbol `const char stk500boot_v2_mega2560' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:124: warning: documented symbol `const char DiskLoader_Leonardo' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:125: warning: documented symbol `const char optiboot_atmega8' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:126: warning: documented symbol `const char optiboot_atmega168' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:127: warning: documented symbol `const char optiboot_atmega328' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:128: warning: documented symbol `const char optiboot_atmega328_Mini' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:129: warning: documented symbol `const char ATmegaBOOT_324P' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:130: warning: documented symbol `const char ATmegaBOOT_644' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:131: warning: documented symbol `const char ATmegaBOOT_644P' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:132: warning: documented symbol `const char Mega2560_Original' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:133: warning: documented symbol `const char optiboot_atmega1284p' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:134: warning: documented symbol `const char Ruggeduino' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:135: warning: documented symbol `const char Leonardo_prod_firmware_2012_04_26' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:136: warning: documented symbol `const char Leonardo_prod_firmware_2012_12_10' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:137: warning: documented symbol `const char atmega2560_bootloader_wd_bug_fixed' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:138: warning: documented symbol `const char Caterina_Esplora' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:139: warning: documented symbol `const char Sanguino_ATmegaBOOT_644P' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:140: warning: documented symbol `const char Sanguino_ATmegaBOOT_168_atmega644p' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:141: warning: documented symbol `const char Sanguino_ATmegaBOOT_168_atmega1284p' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:142: warning: documented symbol `const char Sanguino_ATmegaBOOT_168_atmega1284p_8m' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:143: warning: documented symbol `const char Arduino_dfu_usbserial_atmega16u2_Uno_Rev3' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/tools/Atmega_Board_Detector/Atmega_Board_Detector.ino:146: warning: documented symbol `const deviceDatabaseType deviceDatabase' was not declared or defined.
+/home/travis/build/drtrigon/sketchbook/micpy/webrepl-master/FileSaver.js:14: warning: Found unknown command `\source'
+/home/travis/build/drtrigon/sketchbook/oclint-0.10.3/lib/clang/3.8.0/include/sanitizer/dfsan_interface.h:91: warning: Unsupported xml/html tag <label> found
+/home/travis/build/drtrigon/sketchbook/oclint-0.10.3/lib/clang/3.8.0/include/sanitizer/dfsan_interface.h:91: warning: Unsupported xml/html tag <label> found
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino:192: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/ThroughLoRa/DeviceGeneric/DeviceGeneric.ino:149: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/DeviceGeneric.ino:181: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/OWP_DG_1w-adaptor.ino:335: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_Dragino_Sensors/OWP_DG_Dragino_Sensors.ino:145: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/OWP_DG_LCD_Sensors.ino:291: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_MicroView/OWP_DG_MicroView.ino:207: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_SensorStation/OWP_DG_SensorStation.ino:471: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino:39: warning: explicit link request to 'define' could not be resolved
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino:76: warning: Found unknown command `\url'
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino:77: warning: Found unknown command `\url'
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino:78: warning: Found unknown command `\url'
+/home/travis/build/drtrigon/sketchbook/OWPJON/ARDUINO/Local/ThroughLoRa/OWP_DG_GPS_WeatherStation/OWP_DG_GPS_WeatherStation.ino:475: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/OWPJON/ATTINY/Local/SoftwareBitBang/OWP_DG_Si7021_thermo-hygrometer/OWP_DG_Si7021_thermo-hygrometer.ino:282: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino:304: warning: argument 'void' of command @param is not found in the argument list of blinking(void)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/Uno_Dragino_LoRa_GPS_Shield_TTN.ino:340: warning: argument 'void' of command @param is not found in the argument list of readTemp(void)
+/home/travis/build/drtrigon/sketchbook/Uno_ePaper_Test/ImageData.cpp:2: warning: Found unknown command `\filename'
+/home/travis/build/drtrigon/sketchbook/Uno_ePaper_Test/ImageData.h:2: warning: Found unknown command `\filename'
+/home/travis/build/drtrigon/sketchbook/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino:304: warning: argument 'void' of command @param is not found in the argument list of blinking(void)
+/home/travis/build/drtrigon/sketchbook/Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino:353: warning: argument 'void' of command @param is not found in the argument list of GetTemp(void)
+/home/travis/build/drtrigon/sketchbook/cli/n64dual_tiny45/README.md:47: warning: unable to resolve reference to `n64dual_schematic.png' for \ref command
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:3: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:33: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:41: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:43: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:89: warning: explicit link request to 'warning' could not be resolved
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:90: warning: explicit link request to 'warning' could not be resolved
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:109: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:233: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:293: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:301: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:303: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:349: warning: explicit link request to 'warning' could not be resolved
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:350: warning: explicit link request to 'warning' could not be resolved
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:365: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/_howto_build-burn_ds2423.md:490: warning: Found unknown command `\osboxes'
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/README.md:95: warning: explicit link request to 'PJON' could not be resolved
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/README.md:125: warning: explicit link request to 'ThroughSerial' could not be resolved
+/home/travis/build/drtrigon/sketchbook/OWPJON/PJON-cython/README.md:211: warning: explicit link request to 'They' could not be resolved
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:161: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:171: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:172: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:179: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:180: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:181: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:182: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:183: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:184: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:185: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:189: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:190: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:191: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:192: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:193: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:194: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:203: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:204: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:206: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/OWPJON/README.md:208: warning: Found unknown command `\raspberrypi'
+/home/travis/build/drtrigon/sketchbook/cli/owslave/uart.h:66: warning: argument 'xtalcpu' of command @param is not found in the argument list of UART_BAUD_SELECT(baudRate, xtalCpu)
+/home/travis/build/drtrigon/sketchbook/cli/owslave/uart.h:66: warning: argument 'baudrate' of command @param is not found in the argument list of UART_BAUD_SELECT(baudRate, xtalCpu)
+/home/travis/build/drtrigon/sketchbook/cli/owslave/uart.h:66: warning: The following parameters of UART_BAUD_SELECT(baudRate, xtalCpu) are not documented:
+  parameter 'baudRate'
+  parameter 'xtalCpu'
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!
+error: Problems running epstopdf. Check your TeX installation!

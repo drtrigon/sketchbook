@@ -1,0 +1,275 @@
+\hypertarget{gpio_8c}{\section{wiring\-Pi/gpio/gpio.c File Reference}
+\label{gpio_8c}\index{wiring\-Pi/gpio/gpio.\-c@{wiring\-Pi/gpio/gpio.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$wpi\-Extensions.\-h$>$}\\*
+{\ttfamily \#include $<$gertboard.\-h$>$}\\*
+{\ttfamily \#include $<$pi\-Face.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}../version.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{gpio_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{gpio_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(1==2)
+\item 
+\#define \hyperlink{gpio_8c_a9b0c9486ca26de03451d0009512e9c28}{P\-I\-\_\-\-U\-S\-B\-\_\-\-P\-O\-W\-E\-R\-\_\-\-C\-O\-N\-T\-R\-O\-L}~38
+\item 
+\#define \hyperlink{gpio_8c_aa74e93534d68bbcd871d89071098a0e4}{I2\-C\-D\-E\-T\-E\-C\-T}~\char`\"{}i2cdetect\char`\"{}
+\item 
+\#define \hyperlink{gpio_8c_afbf52fc67e119bfbdc0abe9eb9691cac}{M\-O\-D\-P\-R\-O\-B\-E}~\char`\"{}modprobe\char`\"{}
+\item 
+\#define \hyperlink{gpio_8c_ae8214d3cfff680b42c03af839962e704}{R\-M\-M\-O\-D}~\char`\"{}rmmod\char`\"{}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{gpio_8c_a66e2eb580377b1ae8d21baf4f7fd43c7}{do\-Readall} (void)
+\item 
+void \hyperlink{gpio_8c_aabcd3dcbda2434f95877ee9d74bf8dad}{do\-All\-Readall} (void)
+\item 
+void \hyperlink{gpio_8c_aa210b7ae5913d4cfcec07f15f4c04602}{do\-Qmode} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a5b3689e905c32968cc9f6a8660dc7cb7}{do\-Export} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a48d7070a6ae29f08ed7687b1ee9f3d5a}{do\-Wfi} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a8333f5e3c4ac6438fa2a53a56a6987ff}{do\-Edge} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a10835f337ff7824aa37ca8baa50efd41}{do\-Unexport} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a043d520f61e4f10d1db0e7c451aba00f}{do\-Unexportall} (char $\ast$prog\-Name)
+\item 
+void \hyperlink{gpio_8c_aeed636ee29f6927b0d6d4070f937713e}{do\-Mode} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_aecad7803fd07a142a950016d523aef5d}{do\-Read} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a9c94adeb06357828d490b75ba2deefd3}{do\-Aread} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a2fb3c5151f8773fb2ac35930d7211a55}{do\-Toggle} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_ae0b7a50081fa86b50138fb0050986a0c}{do\-Blink} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_ae6482cef671a6fd1be6eabef55533b59}{do\-Pwm\-Tone} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_a9ce101e002cdd6371b98ea320ac8da35}{do\-Clock} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+void \hyperlink{gpio_8c_afee0dc2777f8cde254fa4d461dc97cb8}{do\-Pwm} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\item 
+int \hyperlink{gpio_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{gpio_8c_a2a177f9985addee9f139bd65963f0e64}{wiring\-Pi\-Debug}
+\item 
+int \hyperlink{gpio_8c_a7238ed738631e01546f0a5dcb759a8ec}{wp\-Mode}
+\item 
+char $\ast$ \hyperlink{gpio_8c_aadebe2487a2c5240ab6cd02c83add0bf}{usage}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{gpio_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{gpio.\-c@{gpio.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!gpio.c@{gpio.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(1==2)}}\label{gpio_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{gpio_8c_aa74e93534d68bbcd871d89071098a0e4}{\index{gpio.\-c@{gpio.\-c}!I2\-C\-D\-E\-T\-E\-C\-T@{I2\-C\-D\-E\-T\-E\-C\-T}}
+\index{I2\-C\-D\-E\-T\-E\-C\-T@{I2\-C\-D\-E\-T\-E\-C\-T}!gpio.c@{gpio.\-c}}
+\subsubsection[{I2\-C\-D\-E\-T\-E\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-D\-E\-T\-E\-C\-T~\char`\"{}i2cdetect\char`\"{}}}\label{gpio_8c_aa74e93534d68bbcd871d89071098a0e4}
+\hypertarget{gpio_8c_afbf52fc67e119bfbdc0abe9eb9691cac}{\index{gpio.\-c@{gpio.\-c}!M\-O\-D\-P\-R\-O\-B\-E@{M\-O\-D\-P\-R\-O\-B\-E}}
+\index{M\-O\-D\-P\-R\-O\-B\-E@{M\-O\-D\-P\-R\-O\-B\-E}!gpio.c@{gpio.\-c}}
+\subsubsection[{M\-O\-D\-P\-R\-O\-B\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-O\-D\-P\-R\-O\-B\-E~\char`\"{}modprobe\char`\"{}}}\label{gpio_8c_afbf52fc67e119bfbdc0abe9eb9691cac}
+\hypertarget{gpio_8c_a9b0c9486ca26de03451d0009512e9c28}{\index{gpio.\-c@{gpio.\-c}!P\-I\-\_\-\-U\-S\-B\-\_\-\-P\-O\-W\-E\-R\-\_\-\-C\-O\-N\-T\-R\-O\-L@{P\-I\-\_\-\-U\-S\-B\-\_\-\-P\-O\-W\-E\-R\-\_\-\-C\-O\-N\-T\-R\-O\-L}}
+\index{P\-I\-\_\-\-U\-S\-B\-\_\-\-P\-O\-W\-E\-R\-\_\-\-C\-O\-N\-T\-R\-O\-L@{P\-I\-\_\-\-U\-S\-B\-\_\-\-P\-O\-W\-E\-R\-\_\-\-C\-O\-N\-T\-R\-O\-L}!gpio.c@{gpio.\-c}}
+\subsubsection[{P\-I\-\_\-\-U\-S\-B\-\_\-\-P\-O\-W\-E\-R\-\_\-\-C\-O\-N\-T\-R\-O\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-\_\-\-U\-S\-B\-\_\-\-P\-O\-W\-E\-R\-\_\-\-C\-O\-N\-T\-R\-O\-L~38}}\label{gpio_8c_a9b0c9486ca26de03451d0009512e9c28}
+\hypertarget{gpio_8c_ae8214d3cfff680b42c03af839962e704}{\index{gpio.\-c@{gpio.\-c}!R\-M\-M\-O\-D@{R\-M\-M\-O\-D}}
+\index{R\-M\-M\-O\-D@{R\-M\-M\-O\-D}!gpio.c@{gpio.\-c}}
+\subsubsection[{R\-M\-M\-O\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-M\-M\-O\-D~\char`\"{}rmmod\char`\"{}}}\label{gpio_8c_ae8214d3cfff680b42c03af839962e704}
+\hypertarget{gpio_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{gpio.\-c@{gpio.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!gpio.c@{gpio.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{gpio_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{gpio_8c_aabcd3dcbda2434f95877ee9d74bf8dad}{\index{gpio.\-c@{gpio.\-c}!do\-All\-Readall@{do\-All\-Readall}}
+\index{do\-All\-Readall@{do\-All\-Readall}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-All\-Readall}]{\setlength{\rightskip}{0pt plus 5cm}void do\-All\-Readall (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_aabcd3dcbda2434f95877ee9d74bf8dad}
+\hypertarget{gpio_8c_a9c94adeb06357828d490b75ba2deefd3}{\index{gpio.\-c@{gpio.\-c}!do\-Aread@{do\-Aread}}
+\index{do\-Aread@{do\-Aread}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Aread}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Aread (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a9c94adeb06357828d490b75ba2deefd3}
+\hypertarget{gpio_8c_ae0b7a50081fa86b50138fb0050986a0c}{\index{gpio.\-c@{gpio.\-c}!do\-Blink@{do\-Blink}}
+\index{do\-Blink@{do\-Blink}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Blink}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Blink (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_ae0b7a50081fa86b50138fb0050986a0c}
+\hypertarget{gpio_8c_a9ce101e002cdd6371b98ea320ac8da35}{\index{gpio.\-c@{gpio.\-c}!do\-Clock@{do\-Clock}}
+\index{do\-Clock@{do\-Clock}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Clock}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Clock (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a9ce101e002cdd6371b98ea320ac8da35}
+\hypertarget{gpio_8c_a8333f5e3c4ac6438fa2a53a56a6987ff}{\index{gpio.\-c@{gpio.\-c}!do\-Edge@{do\-Edge}}
+\index{do\-Edge@{do\-Edge}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Edge}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Edge (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a8333f5e3c4ac6438fa2a53a56a6987ff}
+\hypertarget{gpio_8c_a5b3689e905c32968cc9f6a8660dc7cb7}{\index{gpio.\-c@{gpio.\-c}!do\-Export@{do\-Export}}
+\index{do\-Export@{do\-Export}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Export}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Export (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a5b3689e905c32968cc9f6a8660dc7cb7}
+\hypertarget{gpio_8c_aeed636ee29f6927b0d6d4070f937713e}{\index{gpio.\-c@{gpio.\-c}!do\-Mode@{do\-Mode}}
+\index{do\-Mode@{do\-Mode}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Mode (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_aeed636ee29f6927b0d6d4070f937713e}
+\hypertarget{gpio_8c_afee0dc2777f8cde254fa4d461dc97cb8}{\index{gpio.\-c@{gpio.\-c}!do\-Pwm@{do\-Pwm}}
+\index{do\-Pwm@{do\-Pwm}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Pwm}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Pwm (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_afee0dc2777f8cde254fa4d461dc97cb8}
+\hypertarget{gpio_8c_ae6482cef671a6fd1be6eabef55533b59}{\index{gpio.\-c@{gpio.\-c}!do\-Pwm\-Tone@{do\-Pwm\-Tone}}
+\index{do\-Pwm\-Tone@{do\-Pwm\-Tone}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Pwm\-Tone}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Pwm\-Tone (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_ae6482cef671a6fd1be6eabef55533b59}
+\hypertarget{gpio_8c_aa210b7ae5913d4cfcec07f15f4c04602}{\index{gpio.\-c@{gpio.\-c}!do\-Qmode@{do\-Qmode}}
+\index{do\-Qmode@{do\-Qmode}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Qmode}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Qmode (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_aa210b7ae5913d4cfcec07f15f4c04602}
+\hypertarget{gpio_8c_aecad7803fd07a142a950016d523aef5d}{\index{gpio.\-c@{gpio.\-c}!do\-Read@{do\-Read}}
+\index{do\-Read@{do\-Read}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Read}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Read (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_aecad7803fd07a142a950016d523aef5d}
+\hypertarget{gpio_8c_a66e2eb580377b1ae8d21baf4f7fd43c7}{\index{gpio.\-c@{gpio.\-c}!do\-Readall@{do\-Readall}}
+\index{do\-Readall@{do\-Readall}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Readall}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Readall (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a66e2eb580377b1ae8d21baf4f7fd43c7}
+\hypertarget{gpio_8c_a2fb3c5151f8773fb2ac35930d7211a55}{\index{gpio.\-c@{gpio.\-c}!do\-Toggle@{do\-Toggle}}
+\index{do\-Toggle@{do\-Toggle}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Toggle}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Toggle (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a2fb3c5151f8773fb2ac35930d7211a55}
+\hypertarget{gpio_8c_a10835f337ff7824aa37ca8baa50efd41}{\index{gpio.\-c@{gpio.\-c}!do\-Unexport@{do\-Unexport}}
+\index{do\-Unexport@{do\-Unexport}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Unexport}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Unexport (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a10835f337ff7824aa37ca8baa50efd41}
+\hypertarget{gpio_8c_a043d520f61e4f10d1db0e7c451aba00f}{\index{gpio.\-c@{gpio.\-c}!do\-Unexportall@{do\-Unexportall}}
+\index{do\-Unexportall@{do\-Unexportall}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Unexportall}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Unexportall (
+\begin{DoxyParamCaption}
+\item[{char $\ast$}]{prog\-Name}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a043d520f61e4f10d1db0e7c451aba00f}
+\hypertarget{gpio_8c_a48d7070a6ae29f08ed7687b1ee9f3d5a}{\index{gpio.\-c@{gpio.\-c}!do\-Wfi@{do\-Wfi}}
+\index{do\-Wfi@{do\-Wfi}!gpio.c@{gpio.\-c}}
+\subsubsection[{do\-Wfi}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Wfi (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a48d7070a6ae29f08ed7687b1ee9f3d5a}
+\hypertarget{gpio_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{gpio.\-c@{gpio.\-c}!main@{main}}
+\index{main@{main}!gpio.c@{gpio.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{gpio_8c_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\subsection{Variable Documentation}
+\hypertarget{gpio_8c_aadebe2487a2c5240ab6cd02c83add0bf}{\index{gpio.\-c@{gpio.\-c}!usage@{usage}}
+\index{usage@{usage}!gpio.c@{gpio.\-c}}
+\subsubsection[{usage}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ usage}}\label{gpio_8c_aadebe2487a2c5240ab6cd02c83add0bf}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{stringliteral}{"Usage: gpio -v\(\backslash\)n"}
+              \textcolor{stringliteral}{"       gpio -h\(\backslash\)n"}
+              \textcolor{stringliteral}{"       gpio [-g|-1] ...\(\backslash\)n"}
+              \textcolor{stringliteral}{"       gpio [-d] ...\(\backslash\)n"}
+              \textcolor{stringliteral}{"       [-x extension:params] [[ -x ...]] ...\(\backslash\)n"}
+              \textcolor{stringliteral}{"       gpio [-p] <read/write/wb> ...\(\backslash\)n"}
+              \textcolor{stringliteral}{"       gpio <mode/read/write/aread/awritewb/pwm/pwmTone/clock> ...\(\backslash\)n"}
+              \textcolor{stringliteral}{"       gpio <toggle/blink> <pin>\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio readall\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio unexportall/exports\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio export/edge/unexport ...\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio wfi <pin> <mode>\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio drive <group> <value>\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio pwm-bal/pwm-ms \(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio pwmr <range> \(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio pwmc <divider> \(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio load spi/i2c\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio unload spi/i2c\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio i2cd/i2cdetect\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio rbx/rbd\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio wb <value>\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio usbp high/low\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio gbr <channel>\(\backslash\)n"}
+          \textcolor{stringliteral}{"       gpio gbw <channel> <value>"}
+\end{DoxyCode}
+\hypertarget{gpio_8c_a2a177f9985addee9f139bd65963f0e64}{\index{gpio.\-c@{gpio.\-c}!wiring\-Pi\-Debug@{wiring\-Pi\-Debug}}
+\index{wiring\-Pi\-Debug@{wiring\-Pi\-Debug}!gpio.c@{gpio.\-c}}
+\subsubsection[{wiring\-Pi\-Debug}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-Debug}}\label{gpio_8c_a2a177f9985addee9f139bd65963f0e64}
+\hypertarget{gpio_8c_a7238ed738631e01546f0a5dcb759a8ec}{\index{gpio.\-c@{gpio.\-c}!wp\-Mode@{wp\-Mode}}
+\index{wp\-Mode@{wp\-Mode}!gpio.c@{gpio.\-c}}
+\subsubsection[{wp\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}int wp\-Mode}}\label{gpio_8c_a7238ed738631e01546f0a5dcb759a8ec}

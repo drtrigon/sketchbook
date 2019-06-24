@@ -1,0 +1,126 @@
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino}{\section{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.ino File Reference}
+\label{ESP8266__SHT31__WiFi__REST_8ino}\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+}
+{\ttfamily \#include $<$E\-S\-P8266\-Wi\-Fi.\-h$>$}\\*
+{\ttfamily \#include $<$a\-R\-E\-S\-T.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Adafruit\-\_\-\-S\-H\-T31.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a4fba0963c20988d1f1a45afb1c636e44}{L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T}~80
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Wi\-Fi\-Server \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a8691743c886a0d380296839329c27751}{server} (\hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a4fba0963c20988d1f1a45afb1c636e44}{L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T})
+\item 
+int \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a01b1eb7723816a74c07b927728202237}{led\-Control} (String command)
+\item 
+void \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{setup} (void)
+\item 
+void \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+a\-R\-E\-S\-T \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a26fae33ed4ee26417d9384858ac417f7}{rest} = a\-R\-E\-S\-T()
+\item 
+const char $\ast$ \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a587ba0cb07f02913598610049a3bbb79}{ssid} = \char`\"{}Buffalo-\/\hyperlink{OWGeneric__SensorStation_8ino_a0b5841fe91d5a3db72753b6217923030}{G}-\/E69\-A\char`\"{}
+\item 
+const char $\ast$ \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_aa4a2ebcb494493f648ae1e6975672575}{password} = \char`\"{}14661655\char`\"{}
+\item 
+Adafruit\-\_\-\-S\-H\-T31 \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a4cc868f67bc519384a9e92cd96d408c9}{sht31} = Adafruit\-\_\-\-S\-H\-T31()
+\item 
+float \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_afc1d28cfbce795d6ea954ebe725241f5}{temperature}
+\item 
+float \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a6a87b2b0cff24d38b367ccd34843a206}{humidity}
+\item 
+String \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_ae8232eda1714a9bd2e5da8ded2b0c365}{s\-D\-E\-S\-C} = String(\char`\"{}S\-H\-T31 Sensor I2\-C Mini Module\char`\"{})
+\item 
+String \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_ab0eda3a14fb41a010beea28578b713ee}{s\-D\-A\-T\-E} = String(\-\_\-\-\_\-\-D\-A\-T\-E\-\_\-\-\_\-)
+\item 
+String \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_aae95a988bed97dcf06125d816b0378e6}{s\-T\-I\-M\-E} = String(\-\_\-\-\_\-\-T\-I\-M\-E\-\_\-\-\_\-)
+\item 
+String \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a237040e243e5e70e2ff9ff6c16c4364f}{s\-I\-D\-E} = String(A\-R\-D\-U\-I\-N\-O, \hyperlink{Print_8h_afe38ec6126e35e40049e27fdf4586ba5}{D\-E\-C})
+\item 
+String \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a4dc4702d8b6169db32029731da0ba8a0}{s\-V\-E\-R\-S\-I\-O\-N} = String(\-\_\-\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-\_\-)
+\item 
+String \hyperlink{ESP8266__SHT31__WiFi__REST_8ino_a904bb91a335ed78bb595b14dfed03182}{s\-F\-I\-L\-E} = String(\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a4fba0963c20988d1f1a45afb1c636e44}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T@{L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T}}
+\index{L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T@{L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T~80}}\label{ESP8266__SHT31__WiFi__REST_8ino_a4fba0963c20988d1f1a45afb1c636e44}
+
+
+\subsection{Function Documentation}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a01b1eb7723816a74c07b927728202237}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!led\-Control@{led\-Control}}
+\index{led\-Control@{led\-Control}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{led\-Control}]{\setlength{\rightskip}{0pt plus 5cm}int led\-Control (
+\begin{DoxyParamCaption}
+\item[{String}]{command}
+\end{DoxyParamCaption}
+)}}\label{ESP8266__SHT31__WiFi__REST_8ino_a01b1eb7723816a74c07b927728202237}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!loop@{loop}}
+\index{loop@{loop}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ESP8266__SHT31__WiFi__REST_8ino_afe461d27b9c48d5921c00d521181f12f}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a8691743c886a0d380296839329c27751}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!server@{server}}
+\index{server@{server}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{server}]{\setlength{\rightskip}{0pt plus 5cm}Wi\-Fi\-Server server (
+\begin{DoxyParamCaption}
+\item[{{\bf L\-I\-S\-T\-E\-N\-\_\-\-P\-O\-R\-T}}]{}
+\end{DoxyParamCaption}
+)}}\label{ESP8266__SHT31__WiFi__REST_8ino_a8691743c886a0d380296839329c27751}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!setup@{setup}}
+\index{setup@{setup}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ESP8266__SHT31__WiFi__REST_8ino_a7dfd9b79bc5a37d7df40207afbc5431f}
+
+
+\subsection{Variable Documentation}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a6a87b2b0cff24d38b367ccd34843a206}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!humidity@{humidity}}
+\index{humidity@{humidity}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{humidity}]{\setlength{\rightskip}{0pt plus 5cm}float humidity}}\label{ESP8266__SHT31__WiFi__REST_8ino_a6a87b2b0cff24d38b367ccd34843a206}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_aa4a2ebcb494493f648ae1e6975672575}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!password@{password}}
+\index{password@{password}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{password}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ password = \char`\"{}14661655\char`\"{}}}\label{ESP8266__SHT31__WiFi__REST_8ino_aa4a2ebcb494493f648ae1e6975672575}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a26fae33ed4ee26417d9384858ac417f7}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!rest@{rest}}
+\index{rest@{rest}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{rest}]{\setlength{\rightskip}{0pt plus 5cm}a\-R\-E\-S\-T rest = a\-R\-E\-S\-T()}}\label{ESP8266__SHT31__WiFi__REST_8ino_a26fae33ed4ee26417d9384858ac417f7}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_ab0eda3a14fb41a010beea28578b713ee}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-D\-A\-T\-E@{s\-D\-A\-T\-E}}
+\index{s\-D\-A\-T\-E@{s\-D\-A\-T\-E}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-D\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}String s\-D\-A\-T\-E = String(\-\_\-\-\_\-\-D\-A\-T\-E\-\_\-\-\_\-)}}\label{ESP8266__SHT31__WiFi__REST_8ino_ab0eda3a14fb41a010beea28578b713ee}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_ae8232eda1714a9bd2e5da8ded2b0c365}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-D\-E\-S\-C@{s\-D\-E\-S\-C}}
+\index{s\-D\-E\-S\-C@{s\-D\-E\-S\-C}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-D\-E\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}String s\-D\-E\-S\-C = String(\char`\"{}S\-H\-T31 Sensor I2\-C Mini Module\char`\"{})}}\label{ESP8266__SHT31__WiFi__REST_8ino_ae8232eda1714a9bd2e5da8ded2b0c365}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a904bb91a335ed78bb595b14dfed03182}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-F\-I\-L\-E@{s\-F\-I\-L\-E}}
+\index{s\-F\-I\-L\-E@{s\-F\-I\-L\-E}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-F\-I\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}String s\-F\-I\-L\-E = String(\-\_\-\-\_\-\-F\-I\-L\-E\-\_\-\-\_\-)}}\label{ESP8266__SHT31__WiFi__REST_8ino_a904bb91a335ed78bb595b14dfed03182}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a4cc868f67bc519384a9e92cd96d408c9}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!sht31@{sht31}}
+\index{sht31@{sht31}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{sht31}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-S\-H\-T31 sht31 = Adafruit\-\_\-\-S\-H\-T31()}}\label{ESP8266__SHT31__WiFi__REST_8ino_a4cc868f67bc519384a9e92cd96d408c9}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a237040e243e5e70e2ff9ff6c16c4364f}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-I\-D\-E@{s\-I\-D\-E}}
+\index{s\-I\-D\-E@{s\-I\-D\-E}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-I\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}String s\-I\-D\-E = String(A\-R\-D\-U\-I\-N\-O, {\bf D\-E\-C})}}\label{ESP8266__SHT31__WiFi__REST_8ino_a237040e243e5e70e2ff9ff6c16c4364f}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a587ba0cb07f02913598610049a3bbb79}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!ssid@{ssid}}
+\index{ssid@{ssid}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{ssid}]{\setlength{\rightskip}{0pt plus 5cm}const char$\ast$ ssid = \char`\"{}Buffalo-\/{\bf G}-\/E69\-A\char`\"{}}}\label{ESP8266__SHT31__WiFi__REST_8ino_a587ba0cb07f02913598610049a3bbb79}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_aae95a988bed97dcf06125d816b0378e6}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-T\-I\-M\-E@{s\-T\-I\-M\-E}}
+\index{s\-T\-I\-M\-E@{s\-T\-I\-M\-E}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}String s\-T\-I\-M\-E = String(\-\_\-\-\_\-\-T\-I\-M\-E\-\_\-\-\_\-)}}\label{ESP8266__SHT31__WiFi__REST_8ino_aae95a988bed97dcf06125d816b0378e6}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_a4dc4702d8b6169db32029731da0ba8a0}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!s\-V\-E\-R\-S\-I\-O\-N@{s\-V\-E\-R\-S\-I\-O\-N}}
+\index{s\-V\-E\-R\-S\-I\-O\-N@{s\-V\-E\-R\-S\-I\-O\-N}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{s\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}String s\-V\-E\-R\-S\-I\-O\-N = String(\-\_\-\-\_\-\-V\-E\-R\-S\-I\-O\-N\-\_\-\-\_\-)}}\label{ESP8266__SHT31__WiFi__REST_8ino_a4dc4702d8b6169db32029731da0ba8a0}
+\hypertarget{ESP8266__SHT31__WiFi__REST_8ino_afc1d28cfbce795d6ea954ebe725241f5}{\index{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}!temperature@{temperature}}
+\index{temperature@{temperature}!ESP8266_SHT31_WiFi_REST.ino@{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino}}
+\subsubsection[{temperature}]{\setlength{\rightskip}{0pt plus 5cm}float temperature}}\label{ESP8266__SHT31__WiFi__REST_8ino_afc1d28cfbce795d6ea954ebe725241f5}

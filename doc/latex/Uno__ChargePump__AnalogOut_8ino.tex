@@ -1,0 +1,114 @@
+\hypertarget{Uno__ChargePump__AnalogOut_8ino}{\section{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out/\-Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.ino File Reference}
+\label{Uno__ChargePump__AnalogOut_8ino}\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out/\-Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out/\-Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+}
+{\ttfamily \#include $<$Timer\-One.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Uno__ChargePump__AnalogOut_8ino_aeb7a7ba1ab7e0406f1b5ab36d579f585}{L\-E\-D}~13
+\item 
+\#define \hyperlink{Uno__ChargePump__AnalogOut_8ino_a6c2a9f7efd46f0160f3037869924d6ce}{P1}~0x04
+\item 
+\#define \hyperlink{Uno__ChargePump__AnalogOut_8ino_ae00a52dba55d31948c377fa85d385b87}{P2}~0x08
+\item 
+\#define \hyperlink{Uno__ChargePump__AnalogOut_8ino_a04651c526497822a859942b928e57f8e}{P\-W\-R}~0x10
+\item 
+\#define \hyperlink{Uno__ChargePump__AnalogOut_8ino_a29e413f6725b2ba32d165ffaa35b01e5}{O\-F\-F}~0x00
+\item 
+\#define \hyperlink{Uno__ChargePump__AnalogOut_8ino_ae70baf5399951da1e7ad45a0ed890832}{cbi}(sfr, bit)~(\-\_\-\-S\-F\-R\-\_\-\-B\-Y\-T\-E(sfr) \&= $\sim$\-\_\-\-B\-V(bit))
+\item 
+\#define \hyperlink{Uno__ChargePump__AnalogOut_8ino_ac4a5536d9bf092116f88b94797ddc882}{sbi}(sfr, bit)~(\-\_\-\-S\-F\-R\-\_\-\-B\-Y\-T\-E(sfr) $\vert$= \-\_\-\-B\-V(bit))
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Uno__ChargePump__AnalogOut_8ino_a6a015280c1363331ada8a329be6eb7c8}{ticker} ()
+\item 
+void \hyperlink{Uno__ChargePump__AnalogOut_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Uno__ChargePump__AnalogOut_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile unsigned long \hyperlink{Uno__ChargePump__AnalogOut_8ino_a9ccc6cb5947ae2706a6e5da6088aeff7}{R\-E\-F} = 0
+\item 
+char \hyperlink{Uno__ChargePump__AnalogOut_8ino_a2ee079546fcae6e5bbb7d9e2bee3a91c}{phase} = 0
+\item 
+char \hyperlink{Uno__ChargePump__AnalogOut_8ino_afb2c41071a79c0c95cf3de488624f2e5}{on\-Off} = 1
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_ae70baf5399951da1e7ad45a0ed890832}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!cbi@{cbi}}
+\index{cbi@{cbi}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{cbi}]{\setlength{\rightskip}{0pt plus 5cm}\#define cbi(
+\begin{DoxyParamCaption}
+\item[{}]{sfr, }
+\item[{}]{bit}
+\end{DoxyParamCaption}
+)~(\-\_\-\-S\-F\-R\-\_\-\-B\-Y\-T\-E(sfr) \&= $\sim$\-\_\-\-B\-V(bit))}}\label{Uno__ChargePump__AnalogOut_8ino_ae70baf5399951da1e7ad45a0ed890832}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_aeb7a7ba1ab7e0406f1b5ab36d579f585}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!L\-E\-D@{L\-E\-D}}
+\index{L\-E\-D@{L\-E\-D}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D~13}}\label{Uno__ChargePump__AnalogOut_8ino_aeb7a7ba1ab7e0406f1b5ab36d579f585}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_a29e413f6725b2ba32d165ffaa35b01e5}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!O\-F\-F@{O\-F\-F}}
+\index{O\-F\-F@{O\-F\-F}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-F\-F~0x00}}\label{Uno__ChargePump__AnalogOut_8ino_a29e413f6725b2ba32d165ffaa35b01e5}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_a6c2a9f7efd46f0160f3037869924d6ce}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!P1@{P1}}
+\index{P1@{P1}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{P1}]{\setlength{\rightskip}{0pt plus 5cm}\#define P1~0x04}}\label{Uno__ChargePump__AnalogOut_8ino_a6c2a9f7efd46f0160f3037869924d6ce}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_ae00a52dba55d31948c377fa85d385b87}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!P2@{P2}}
+\index{P2@{P2}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{P2}]{\setlength{\rightskip}{0pt plus 5cm}\#define P2~0x08}}\label{Uno__ChargePump__AnalogOut_8ino_ae00a52dba55d31948c377fa85d385b87}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_a04651c526497822a859942b928e57f8e}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!P\-W\-R@{P\-W\-R}}
+\index{P\-W\-R@{P\-W\-R}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{P\-W\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-R~0x10}}\label{Uno__ChargePump__AnalogOut_8ino_a04651c526497822a859942b928e57f8e}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_ac4a5536d9bf092116f88b94797ddc882}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!sbi@{sbi}}
+\index{sbi@{sbi}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{sbi}]{\setlength{\rightskip}{0pt plus 5cm}\#define sbi(
+\begin{DoxyParamCaption}
+\item[{}]{sfr, }
+\item[{}]{bit}
+\end{DoxyParamCaption}
+)~(\-\_\-\-S\-F\-R\-\_\-\-B\-Y\-T\-E(sfr) $\vert$= \-\_\-\-B\-V(bit))}}\label{Uno__ChargePump__AnalogOut_8ino_ac4a5536d9bf092116f88b94797ddc882}
+
+
+\subsection{Function Documentation}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!loop@{loop}}
+\index{loop@{loop}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__ChargePump__AnalogOut_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!setup@{setup}}
+\index{setup@{setup}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__ChargePump__AnalogOut_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{Uno__ChargePump__AnalogOut_8ino_a6a015280c1363331ada8a329be6eb7c8}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!ticker@{ticker}}
+\index{ticker@{ticker}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{ticker}]{\setlength{\rightskip}{0pt plus 5cm}void ticker (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Uno__ChargePump__AnalogOut_8ino_a6a015280c1363331ada8a329be6eb7c8}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_afb2c41071a79c0c95cf3de488624f2e5}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!on\-Off@{on\-Off}}
+\index{on\-Off@{on\-Off}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{on\-Off}]{\setlength{\rightskip}{0pt plus 5cm}char on\-Off = 1}}\label{Uno__ChargePump__AnalogOut_8ino_afb2c41071a79c0c95cf3de488624f2e5}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_a2ee079546fcae6e5bbb7d9e2bee3a91c}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!phase@{phase}}
+\index{phase@{phase}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{phase}]{\setlength{\rightskip}{0pt plus 5cm}char phase = 0}}\label{Uno__ChargePump__AnalogOut_8ino_a2ee079546fcae6e5bbb7d9e2bee3a91c}
+\hypertarget{Uno__ChargePump__AnalogOut_8ino_a9ccc6cb5947ae2706a6e5da6088aeff7}{\index{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}!R\-E\-F@{R\-E\-F}}
+\index{R\-E\-F@{R\-E\-F}!Uno_ChargePump_AnalogOut.ino@{Uno\-\_\-\-Charge\-Pump\-\_\-\-Analog\-Out.\-ino}}
+\subsubsection[{R\-E\-F}]{\setlength{\rightskip}{0pt plus 5cm}volatile unsigned long R\-E\-F = 0}}\label{Uno__ChargePump__AnalogOut_8ino_a9ccc6cb5947ae2706a6e5da6088aeff7}

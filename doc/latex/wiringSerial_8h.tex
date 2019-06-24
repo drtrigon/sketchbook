@@ -1,0 +1,86 @@
+\hypertarget{wiringSerial_8h}{\section{wiring\-Pi/wiring\-Pi/wiring\-Serial.h File Reference}
+\label{wiringSerial_8h}\index{wiring\-Pi/wiring\-Pi/wiring\-Serial.\-h@{wiring\-Pi/wiring\-Pi/wiring\-Serial.\-h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{wiringSerial_8h_aa3684585c3e3cf6b9fb8009afaa73d53}{serial\-Open} (const char $\ast$device, const int baud)
+\item 
+void \hyperlink{wiringSerial_8h_afb2daa6545b78bf84fce3fb69028ced9}{serial\-Close} (const int fd)
+\item 
+void \hyperlink{wiringSerial_8h_ac68e3bcdf6c52ab0f205235798ddf989}{serial\-Flush} (const int fd)
+\item 
+void \hyperlink{wiringSerial_8h_a3a3d2f639183a3056bdf3927fd1d8c0f}{serial\-Putchar} (const int fd, const unsigned char c)
+\item 
+void \hyperlink{wiringSerial_8h_aee2d318a883277551a75423950323491}{serial\-Puts} (const int fd, const char $\ast$s)
+\item 
+void \hyperlink{wiringSerial_8h_a0378dd5a0350a9bd4eebb9ef56b9b05a}{serial\-Printf} (const int fd, const char $\ast$message,...)
+\item 
+int \hyperlink{wiringSerial_8h_a3d1be76a59607490d64c869dc4b88918}{serial\-Data\-Avail} (const int fd)
+\item 
+int \hyperlink{wiringSerial_8h_a579fe98fd9f55353d490acfc32d60e93}{serial\-Getchar} (const int fd)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{wiringSerial_8h_afb2daa6545b78bf84fce3fb69028ced9}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Close@{serial\-Close}}
+\index{serial\-Close@{serial\-Close}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Close}]{\setlength{\rightskip}{0pt plus 5cm}void serial\-Close (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_afb2daa6545b78bf84fce3fb69028ced9}
+\hypertarget{wiringSerial_8h_a3d1be76a59607490d64c869dc4b88918}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Data\-Avail@{serial\-Data\-Avail}}
+\index{serial\-Data\-Avail@{serial\-Data\-Avail}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Data\-Avail}]{\setlength{\rightskip}{0pt plus 5cm}int serial\-Data\-Avail (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_a3d1be76a59607490d64c869dc4b88918}
+\hypertarget{wiringSerial_8h_ac68e3bcdf6c52ab0f205235798ddf989}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Flush@{serial\-Flush}}
+\index{serial\-Flush@{serial\-Flush}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Flush}]{\setlength{\rightskip}{0pt plus 5cm}void serial\-Flush (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_ac68e3bcdf6c52ab0f205235798ddf989}
+\hypertarget{wiringSerial_8h_a579fe98fd9f55353d490acfc32d60e93}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Getchar@{serial\-Getchar}}
+\index{serial\-Getchar@{serial\-Getchar}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Getchar}]{\setlength{\rightskip}{0pt plus 5cm}int serial\-Getchar (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_a579fe98fd9f55353d490acfc32d60e93}
+\hypertarget{wiringSerial_8h_aa3684585c3e3cf6b9fb8009afaa73d53}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Open@{serial\-Open}}
+\index{serial\-Open@{serial\-Open}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Open}]{\setlength{\rightskip}{0pt plus 5cm}int serial\-Open (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{device, }
+\item[{const int}]{baud}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_aa3684585c3e3cf6b9fb8009afaa73d53}
+\hypertarget{wiringSerial_8h_a0378dd5a0350a9bd4eebb9ef56b9b05a}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Printf@{serial\-Printf}}
+\index{serial\-Printf@{serial\-Printf}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Printf}]{\setlength{\rightskip}{0pt plus 5cm}void serial\-Printf (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{const char $\ast$}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_a0378dd5a0350a9bd4eebb9ef56b9b05a}
+\hypertarget{wiringSerial_8h_a3a3d2f639183a3056bdf3927fd1d8c0f}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Putchar@{serial\-Putchar}}
+\index{serial\-Putchar@{serial\-Putchar}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Putchar}]{\setlength{\rightskip}{0pt plus 5cm}void serial\-Putchar (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{const unsigned char}]{c}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_a3a3d2f639183a3056bdf3927fd1d8c0f}
+\hypertarget{wiringSerial_8h_aee2d318a883277551a75423950323491}{\index{wiring\-Serial.\-h@{wiring\-Serial.\-h}!serial\-Puts@{serial\-Puts}}
+\index{serial\-Puts@{serial\-Puts}!wiringSerial.h@{wiring\-Serial.\-h}}
+\subsubsection[{serial\-Puts}]{\setlength{\rightskip}{0pt plus 5cm}void serial\-Puts (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{const char $\ast$}]{s}
+\end{DoxyParamCaption}
+)}}\label{wiringSerial_8h_aee2d318a883277551a75423950323491}

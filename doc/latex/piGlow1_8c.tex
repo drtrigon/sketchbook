@@ -1,0 +1,54 @@
+\hypertarget{piGlow1_8c}{\section{wiring\-Pi/examples/\-Pi\-Glow/pi\-Glow1.c File Reference}
+\label{piGlow1_8c}\index{wiring\-Pi/examples/\-Pi\-Glow/pi\-Glow1.\-c@{wiring\-Pi/examples/\-Pi\-Glow/pi\-Glow1.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$poll.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$pi\-Glow.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{piGlow1_8c_a8d7e491add6085e3ff1179a8cb03e253}{P\-I\-G\-L\-O\-W\-\_\-\-B\-A\-S\-E}~533
+\item 
+\#define \hyperlink{piGlow1_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{piGlow1_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(!\hyperlink{network_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{piGlow1_8c_a451850bd767bb0c94583e0630ee88157}{L\-E\-G\-\_\-\-S\-T\-E\-P\-S}~3
+\item 
+\#define \hyperlink{piGlow1_8c_a40e3a8f948f6c945aad57a31b68fcca7}{R\-I\-N\-G\-\_\-\-S\-T\-E\-P\-S}~16
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{piGlow1_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{piGlow1_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{pi\-Glow1.\-c@{pi\-Glow1.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!piGlow1.c@{pi\-Glow1.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(!{\bf T\-R\-U\-E})}}\label{piGlow1_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{piGlow1_8c_a451850bd767bb0c94583e0630ee88157}{\index{pi\-Glow1.\-c@{pi\-Glow1.\-c}!L\-E\-G\-\_\-\-S\-T\-E\-P\-S@{L\-E\-G\-\_\-\-S\-T\-E\-P\-S}}
+\index{L\-E\-G\-\_\-\-S\-T\-E\-P\-S@{L\-E\-G\-\_\-\-S\-T\-E\-P\-S}!piGlow1.c@{pi\-Glow1.\-c}}
+\subsubsection[{L\-E\-G\-\_\-\-S\-T\-E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-G\-\_\-\-S\-T\-E\-P\-S~3}}\label{piGlow1_8c_a451850bd767bb0c94583e0630ee88157}
+\hypertarget{piGlow1_8c_a8d7e491add6085e3ff1179a8cb03e253}{\index{pi\-Glow1.\-c@{pi\-Glow1.\-c}!P\-I\-G\-L\-O\-W\-\_\-\-B\-A\-S\-E@{P\-I\-G\-L\-O\-W\-\_\-\-B\-A\-S\-E}}
+\index{P\-I\-G\-L\-O\-W\-\_\-\-B\-A\-S\-E@{P\-I\-G\-L\-O\-W\-\_\-\-B\-A\-S\-E}!piGlow1.c@{pi\-Glow1.\-c}}
+\subsubsection[{P\-I\-G\-L\-O\-W\-\_\-\-B\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-G\-L\-O\-W\-\_\-\-B\-A\-S\-E~533}}\label{piGlow1_8c_a8d7e491add6085e3ff1179a8cb03e253}
+\hypertarget{piGlow1_8c_a40e3a8f948f6c945aad57a31b68fcca7}{\index{pi\-Glow1.\-c@{pi\-Glow1.\-c}!R\-I\-N\-G\-\_\-\-S\-T\-E\-P\-S@{R\-I\-N\-G\-\_\-\-S\-T\-E\-P\-S}}
+\index{R\-I\-N\-G\-\_\-\-S\-T\-E\-P\-S@{R\-I\-N\-G\-\_\-\-S\-T\-E\-P\-S}!piGlow1.c@{pi\-Glow1.\-c}}
+\subsubsection[{R\-I\-N\-G\-\_\-\-S\-T\-E\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-I\-N\-G\-\_\-\-S\-T\-E\-P\-S~16}}\label{piGlow1_8c_a40e3a8f948f6c945aad57a31b68fcca7}
+\hypertarget{piGlow1_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{pi\-Glow1.\-c@{pi\-Glow1.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!piGlow1.c@{pi\-Glow1.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{piGlow1_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{piGlow1_8c_a840291bc02cba5474a4cb46a9b9566fe}{\index{pi\-Glow1.\-c@{pi\-Glow1.\-c}!main@{main}}
+\index{main@{main}!piGlow1.c@{pi\-Glow1.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{piGlow1_8c_a840291bc02cba5474a4cb46a9b9566fe}

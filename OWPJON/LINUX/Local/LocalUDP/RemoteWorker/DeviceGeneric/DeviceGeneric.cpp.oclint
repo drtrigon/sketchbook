@@ -1,0 +1,13 @@
+
+Compiler Errors:
+(please be aware that these errors will prevent OCLint from analyzing this source code)
+
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:77:10: 'PJON.h' file not found
+
+
+OCLint Report
+
+Summary: TotalFiles=0 FilesWithViolations=0 P1=0 P2=0 P3=0 
+
+
+[OCLint (http://oclint.org) v0.10.3]

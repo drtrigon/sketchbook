@@ -1,0 +1,156 @@
+\hypertarget{console_8h}{\section{cli/owslave/console.h File Reference}
+\label{console_8h}\index{cli/owslave/console.\-h@{cli/owslave/console.\-h}}
+}
+{\ttfamily \#include \char`\"{}pgm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}features.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{console_8h_a1bb183938acb879d5c2795cf007f8ffa}{P}(s)~(\{static const char c\mbox{[}$\,$\mbox{]} \hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((progmem)) = s;c;\})
+\item 
+\#define \hyperlink{console_8h_a2cda5c56365237ab3571ff49056dcfe0}{console\-\_\-init}()~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a1d4e83e257359b2a2801f7c454e1c8af}{console\-\_\-putc}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a001a2e5afe7446e70a404f517afc5089}{console\-\_\-puts}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a36feee5b1ab9ebfe6aefd3d68ce5379b}{console\-\_\-puts\-\_\-p}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_ae9e5269a168e9f52655267147a030759}{console\-\_\-puts\-\_\-\-P}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a32beee8006dba69a816972dfd58589e8}{console\-\_\-puti}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a3c3af39df57b0aa3310336c09bdcbf98}{console\-\_\-putl}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a486bc184ecf4c042492d22349923db4a}{console\-\_\-puthex\-\_\-nibble}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a5d21c69aac82236b7803f831579352d7}{console\-\_\-puthex\-\_\-byte}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_afe40dd21e21c1db08ae7bae7c3d009d8}{console\-\_\-puthex\-\_\-byte\-\_\-}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_a9b91e7148b1ec47c9cfd2f1259788c42}{console\-\_\-puthex\-\_\-word}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_ae2202f141b61bcf72d07281bb58f750e}{console\-\_\-buf\-\_\-len}()~0
+\item 
+\#define \hyperlink{console_8h_a5a7810add2d36fa0e595dde6f16dc098}{console\-\_\-buf\-\_\-read}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})~0
+\item 
+\#define \hyperlink{console_8h_a9a4095a2afe0a893dc7b5a58e4df03cc}{console\-\_\-buf\-\_\-done}(\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})~do\{\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{console_8h_ad555be14e8e676e6a65fa94fd8083975}{console\-\_\-alert}()~(!!\hyperlink{console_8h_ae2202f141b61bcf72d07281bb58f750e}{console\-\_\-buf\-\_\-len}())
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{console_8h_ad555be14e8e676e6a65fa94fd8083975}{\index{console.\-h@{console.\-h}!console\-\_\-alert@{console\-\_\-alert}}
+\index{console\-\_\-alert@{console\-\_\-alert}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-alert}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-alert(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~(!!{\bf console\-\_\-buf\-\_\-len}())}}\label{console_8h_ad555be14e8e676e6a65fa94fd8083975}
+\hypertarget{console_8h_a9a4095a2afe0a893dc7b5a58e4df03cc}{\index{console.\-h@{console.\-h}!console\-\_\-buf\-\_\-done@{console\-\_\-buf\-\_\-done}}
+\index{console\-\_\-buf\-\_\-done@{console\-\_\-buf\-\_\-done}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-buf\-\_\-done}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-buf\-\_\-done(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf y}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a9a4095a2afe0a893dc7b5a58e4df03cc}
+\hypertarget{console_8h_ae2202f141b61bcf72d07281bb58f750e}{\index{console.\-h@{console.\-h}!console\-\_\-buf\-\_\-len@{console\-\_\-buf\-\_\-len}}
+\index{console\-\_\-buf\-\_\-len@{console\-\_\-buf\-\_\-len}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-buf\-\_\-len}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-buf\-\_\-len(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~0}}\label{console_8h_ae2202f141b61bcf72d07281bb58f750e}
+\hypertarget{console_8h_a5a7810add2d36fa0e595dde6f16dc098}{\index{console.\-h@{console.\-h}!console\-\_\-buf\-\_\-read@{console\-\_\-buf\-\_\-read}}
+\index{console\-\_\-buf\-\_\-read@{console\-\_\-buf\-\_\-read}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-buf\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-buf\-\_\-read(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}}
+\end{DoxyParamCaption}
+)~0}}\label{console_8h_a5a7810add2d36fa0e595dde6f16dc098}
+\hypertarget{console_8h_a2cda5c56365237ab3571ff49056dcfe0}{\index{console.\-h@{console.\-h}!console\-\_\-init@{console\-\_\-init}}
+\index{console\-\_\-init@{console\-\_\-init}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-init(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a2cda5c56365237ab3571ff49056dcfe0}
+\hypertarget{console_8h_a1d4e83e257359b2a2801f7c454e1c8af}{\index{console.\-h@{console.\-h}!console\-\_\-putc@{console\-\_\-putc}}
+\index{console\-\_\-putc@{console\-\_\-putc}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-putc}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-putc(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a1d4e83e257359b2a2801f7c454e1c8af}
+\hypertarget{console_8h_a5d21c69aac82236b7803f831579352d7}{\index{console.\-h@{console.\-h}!console\-\_\-puthex\-\_\-byte@{console\-\_\-puthex\-\_\-byte}}
+\index{console\-\_\-puthex\-\_\-byte@{console\-\_\-puthex\-\_\-byte}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puthex\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puthex\-\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a5d21c69aac82236b7803f831579352d7}
+\hypertarget{console_8h_afe40dd21e21c1db08ae7bae7c3d009d8}{\index{console.\-h@{console.\-h}!console\-\_\-puthex\-\_\-byte\-\_\-@{console\-\_\-puthex\-\_\-byte\-\_\-}}
+\index{console\-\_\-puthex\-\_\-byte\-\_\-@{console\-\_\-puthex\-\_\-byte\-\_\-}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puthex\-\_\-byte\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puthex\-\_\-byte\-\_\-(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_afe40dd21e21c1db08ae7bae7c3d009d8}
+\hypertarget{console_8h_a486bc184ecf4c042492d22349923db4a}{\index{console.\-h@{console.\-h}!console\-\_\-puthex\-\_\-nibble@{console\-\_\-puthex\-\_\-nibble}}
+\index{console\-\_\-puthex\-\_\-nibble@{console\-\_\-puthex\-\_\-nibble}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puthex\-\_\-nibble}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puthex\-\_\-nibble(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a486bc184ecf4c042492d22349923db4a}
+\hypertarget{console_8h_a9b91e7148b1ec47c9cfd2f1259788c42}{\index{console.\-h@{console.\-h}!console\-\_\-puthex\-\_\-word@{console\-\_\-puthex\-\_\-word}}
+\index{console\-\_\-puthex\-\_\-word@{console\-\_\-puthex\-\_\-word}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puthex\-\_\-word}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puthex\-\_\-word(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a9b91e7148b1ec47c9cfd2f1259788c42}
+\hypertarget{console_8h_a32beee8006dba69a816972dfd58589e8}{\index{console.\-h@{console.\-h}!console\-\_\-puti@{console\-\_\-puti}}
+\index{console\-\_\-puti@{console\-\_\-puti}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puti}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puti(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a32beee8006dba69a816972dfd58589e8}
+\hypertarget{console_8h_a3c3af39df57b0aa3310336c09bdcbf98}{\index{console.\-h@{console.\-h}!console\-\_\-putl@{console\-\_\-putl}}
+\index{console\-\_\-putl@{console\-\_\-putl}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-putl}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-putl(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a3c3af39df57b0aa3310336c09bdcbf98}
+\hypertarget{console_8h_a001a2e5afe7446e70a404f517afc5089}{\index{console.\-h@{console.\-h}!console\-\_\-puts@{console\-\_\-puts}}
+\index{console\-\_\-puts@{console\-\_\-puts}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puts}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puts(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a001a2e5afe7446e70a404f517afc5089}
+\hypertarget{console_8h_a36feee5b1ab9ebfe6aefd3d68ce5379b}{\index{console.\-h@{console.\-h}!console\-\_\-puts\-\_\-p@{console\-\_\-puts\-\_\-p}}
+\index{console\-\_\-puts\-\_\-p@{console\-\_\-puts\-\_\-p}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puts\-\_\-p}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puts\-\_\-p(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_a36feee5b1ab9ebfe6aefd3d68ce5379b}
+\hypertarget{console_8h_ae9e5269a168e9f52655267147a030759}{\index{console.\-h@{console.\-h}!console\-\_\-puts\-\_\-\-P@{console\-\_\-puts\-\_\-\-P}}
+\index{console\-\_\-puts\-\_\-\-P@{console\-\_\-puts\-\_\-\-P}!console.h@{console.\-h}}
+\subsubsection[{console\-\_\-puts\-\_\-\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define console\-\_\-puts\-\_\-\-P(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~do\{\}{\bf while}(0)}}\label{console_8h_ae9e5269a168e9f52655267147a030759}
+\hypertarget{console_8h_a1bb183938acb879d5c2795cf007f8ffa}{\index{console.\-h@{console.\-h}!P@{P}}
+\index{P@{P}!console.h@{console.\-h}}
+\subsubsection[{P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P(
+\begin{DoxyParamCaption}
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~(\{static const char c\mbox{[}$\,$\mbox{]} {\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-} ((progmem)) = s;c;\})}}\label{console_8h_a1bb183938acb879d5c2795cf007f8ffa}

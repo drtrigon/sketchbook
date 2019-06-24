@@ -1,0 +1,186 @@
+\hypertarget{GPS_8h}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-G\-P\-S.h File Reference}
+\label{GPS_8h}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-G\-P\-S.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-G\-P\-S.\-h}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{GPS_8h_a3234befdf685c88c92f114c6c0cac3a7}{G\-P\-S\-\_\-new\-Frame} (uint8\-\_\-t c)
+\item 
+int32\-\_\-t \hyperlink{GPS_8h_afd65218569713788da39cf10771bea01}{wrap\-\_\-18000} (int32\-\_\-t ang)
+\item 
+void \hyperlink{GPS_8h_aaf23777f34733e883ad4462c957ce7e7}{G\-P\-S\-\_\-set\-\_\-pids} (void)
+\item 
+void \hyperlink{GPS_8h_a5cb702372fa52f3da131f74b22fc54ee}{G\-P\-S\-\_\-\-Serial\-Init} (void)
+\item 
+uint8\-\_\-t \hyperlink{GPS_8h_a83cd32fb99cf206fac5ba3bb2a6e4a2f}{G\-P\-S\-\_\-\-Compute} (void)
+\item 
+void \hyperlink{GPS_8h_a9b7e9a97e212ab245aa18ef625f149f5}{G\-P\-S\-\_\-reset\-\_\-home\-\_\-position} (void)
+\item 
+void \hyperlink{GPS_8h_ac2ca23cd0166ca74d46cb60f6dfc1eec}{G\-P\-S\-\_\-set\-\_\-next\-\_\-wp} (int32\-\_\-t $\ast$lat\-\_\-to, int32\-\_\-t $\ast$lon\-\_\-to, int32\-\_\-t $\ast$lat\-\_\-from, int32\-\_\-t $\ast$lon\-\_\-from)
+\item 
+void \hyperlink{GPS_8h_a12b90c57c5fc865d1967094dcbc2ea8c}{G\-P\-S\-\_\-reset\-\_\-nav} (void)
+\item 
+int32\-\_\-t \hyperlink{GPS_8h_ab5771b9fe47232c69822003c4b8ee077}{get\-\_\-altitude\-\_\-error} ()
+\item 
+void \hyperlink{GPS_8h_af4c3438edca4c633441459b4b0002ec7}{clear\-\_\-new\-\_\-altitude} ()
+\item 
+void \hyperlink{GPS_8h_ac1f3a9b2d4e063923ee6e564139ec2ed}{force\-\_\-new\-\_\-altitude} (int32\-\_\-t \-\_\-new\-\_\-alt)
+\item 
+void \hyperlink{GPS_8h_acba142095410d1a2a4fd12c3f7caa95d}{set\-\_\-new\-\_\-altitude} (int32\-\_\-t \-\_\-new\-\_\-alt)
+\item 
+int32\-\_\-t \hyperlink{GPS_8h_aa9ca1971e124770893efbe84801f03ce}{get\-\_\-new\-\_\-altitude} ()
+\item 
+void \hyperlink{GPS_8h_a144ad5ad7256f420d9dee3333e920e24}{abort\-\_\-mission} (unsigned char error\-\_\-code)
+\item 
+void \hyperlink{GPS_8h_afcaa1b841bfe29da865cefc38c85e93e}{G\-P\-S\-\_\-adjust\-\_\-heading} ()
+\item 
+void \hyperlink{GPS_8h_a121d06c80b0c86b24e0f0e8bbdcd4cef}{init\-\_\-\-R\-T\-H} (void)
+\item 
+void \hyperlink{GPS_8h_a61504bef3dabce2ca9c136ddf78ecc07}{check\-\_\-land} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{GPS_8h_a70bf1a649c4906dcde2c4823ecb62aac}{G\-P\-S\-\_\-\-Frame}
+\item 
+uint32\-\_\-t \hyperlink{GPS_8h_aa0da9292607434817ca929ddbfa78439}{wp\-\_\-distance}
+\item 
+int32\-\_\-t \hyperlink{GPS_8h_a4da6d0c0303345e2d39d2110da32b208}{target\-\_\-bearing}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{GPS_8h_a144ad5ad7256f420d9dee3333e920e24}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!abort\-\_\-mission@{abort\-\_\-mission}}
+\index{abort\-\_\-mission@{abort\-\_\-mission}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{abort\-\_\-mission}]{\setlength{\rightskip}{0pt plus 5cm}void abort\-\_\-mission (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{error\-\_\-code}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a144ad5ad7256f420d9dee3333e920e24}
+\hypertarget{GPS_8h_a61504bef3dabce2ca9c136ddf78ecc07}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!check\-\_\-land@{check\-\_\-land}}
+\index{check\-\_\-land@{check\-\_\-land}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{check\-\_\-land}]{\setlength{\rightskip}{0pt plus 5cm}void check\-\_\-land (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a61504bef3dabce2ca9c136ddf78ecc07}
+\hypertarget{GPS_8h_af4c3438edca4c633441459b4b0002ec7}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!clear\-\_\-new\-\_\-altitude@{clear\-\_\-new\-\_\-altitude}}
+\index{clear\-\_\-new\-\_\-altitude@{clear\-\_\-new\-\_\-altitude}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{clear\-\_\-new\-\_\-altitude}]{\setlength{\rightskip}{0pt plus 5cm}void clear\-\_\-new\-\_\-altitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_af4c3438edca4c633441459b4b0002ec7}
+\hypertarget{GPS_8h_ac1f3a9b2d4e063923ee6e564139ec2ed}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!force\-\_\-new\-\_\-altitude@{force\-\_\-new\-\_\-altitude}}
+\index{force\-\_\-new\-\_\-altitude@{force\-\_\-new\-\_\-altitude}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{force\-\_\-new\-\_\-altitude}]{\setlength{\rightskip}{0pt plus 5cm}void force\-\_\-new\-\_\-altitude (
+\begin{DoxyParamCaption}
+\item[{int32\-\_\-t}]{\-\_\-new\-\_\-alt}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_ac1f3a9b2d4e063923ee6e564139ec2ed}
+\hypertarget{GPS_8h_ab5771b9fe47232c69822003c4b8ee077}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!get\-\_\-altitude\-\_\-error@{get\-\_\-altitude\-\_\-error}}
+\index{get\-\_\-altitude\-\_\-error@{get\-\_\-altitude\-\_\-error}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{get\-\_\-altitude\-\_\-error}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t get\-\_\-altitude\-\_\-error (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_ab5771b9fe47232c69822003c4b8ee077}
+\hypertarget{GPS_8h_aa9ca1971e124770893efbe84801f03ce}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!get\-\_\-new\-\_\-altitude@{get\-\_\-new\-\_\-altitude}}
+\index{get\-\_\-new\-\_\-altitude@{get\-\_\-new\-\_\-altitude}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{get\-\_\-new\-\_\-altitude}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t get\-\_\-new\-\_\-altitude (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_aa9ca1971e124770893efbe84801f03ce}
+\hypertarget{GPS_8h_afcaa1b841bfe29da865cefc38c85e93e}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-adjust\-\_\-heading@{G\-P\-S\-\_\-adjust\-\_\-heading}}
+\index{G\-P\-S\-\_\-adjust\-\_\-heading@{G\-P\-S\-\_\-adjust\-\_\-heading}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-adjust\-\_\-heading}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-\_\-adjust\-\_\-heading (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_afcaa1b841bfe29da865cefc38c85e93e}
+\hypertarget{GPS_8h_a83cd32fb99cf206fac5ba3bb2a6e4a2f}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-\-Compute@{G\-P\-S\-\_\-\-Compute}}
+\index{G\-P\-S\-\_\-\-Compute@{G\-P\-S\-\_\-\-Compute}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-\-Compute}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t G\-P\-S\-\_\-\-Compute (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a83cd32fb99cf206fac5ba3bb2a6e4a2f}
+\hypertarget{GPS_8h_a3234befdf685c88c92f114c6c0cac3a7}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-new\-Frame@{G\-P\-S\-\_\-new\-Frame}}
+\index{G\-P\-S\-\_\-new\-Frame@{G\-P\-S\-\_\-new\-Frame}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-new\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} G\-P\-S\-\_\-new\-Frame (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{c}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a3234befdf685c88c92f114c6c0cac3a7}
+\hypertarget{GPS_8h_a9b7e9a97e212ab245aa18ef625f149f5}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-reset\-\_\-home\-\_\-position@{G\-P\-S\-\_\-reset\-\_\-home\-\_\-position}}
+\index{G\-P\-S\-\_\-reset\-\_\-home\-\_\-position@{G\-P\-S\-\_\-reset\-\_\-home\-\_\-position}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-reset\-\_\-home\-\_\-position}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-\_\-reset\-\_\-home\-\_\-position (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a9b7e9a97e212ab245aa18ef625f149f5}
+\hypertarget{GPS_8h_a12b90c57c5fc865d1967094dcbc2ea8c}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-reset\-\_\-nav@{G\-P\-S\-\_\-reset\-\_\-nav}}
+\index{G\-P\-S\-\_\-reset\-\_\-nav@{G\-P\-S\-\_\-reset\-\_\-nav}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-reset\-\_\-nav}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-\_\-reset\-\_\-nav (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a12b90c57c5fc865d1967094dcbc2ea8c}
+\hypertarget{GPS_8h_a5cb702372fa52f3da131f74b22fc54ee}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-\-Serial\-Init@{G\-P\-S\-\_\-\-Serial\-Init}}
+\index{G\-P\-S\-\_\-\-Serial\-Init@{G\-P\-S\-\_\-\-Serial\-Init}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-\-Serial\-Init}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-\_\-\-Serial\-Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a5cb702372fa52f3da131f74b22fc54ee}
+\hypertarget{GPS_8h_ac2ca23cd0166ca74d46cb60f6dfc1eec}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-set\-\_\-next\-\_\-wp@{G\-P\-S\-\_\-set\-\_\-next\-\_\-wp}}
+\index{G\-P\-S\-\_\-set\-\_\-next\-\_\-wp@{G\-P\-S\-\_\-set\-\_\-next\-\_\-wp}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-set\-\_\-next\-\_\-wp}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-\_\-set\-\_\-next\-\_\-wp (
+\begin{DoxyParamCaption}
+\item[{int32\-\_\-t $\ast$}]{lat\-\_\-to, }
+\item[{int32\-\_\-t $\ast$}]{lon\-\_\-to, }
+\item[{int32\-\_\-t $\ast$}]{lat\-\_\-from, }
+\item[{int32\-\_\-t $\ast$}]{lon\-\_\-from}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_ac2ca23cd0166ca74d46cb60f6dfc1eec}
+\hypertarget{GPS_8h_aaf23777f34733e883ad4462c957ce7e7}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-set\-\_\-pids@{G\-P\-S\-\_\-set\-\_\-pids}}
+\index{G\-P\-S\-\_\-set\-\_\-pids@{G\-P\-S\-\_\-set\-\_\-pids}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-set\-\_\-pids}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-\_\-set\-\_\-pids (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_aaf23777f34733e883ad4462c957ce7e7}
+\hypertarget{GPS_8h_a121d06c80b0c86b24e0f0e8bbdcd4cef}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!init\-\_\-\-R\-T\-H@{init\-\_\-\-R\-T\-H}}
+\index{init\-\_\-\-R\-T\-H@{init\-\_\-\-R\-T\-H}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{init\-\_\-\-R\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-\-R\-T\-H (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_a121d06c80b0c86b24e0f0e8bbdcd4cef}
+\hypertarget{GPS_8h_acba142095410d1a2a4fd12c3f7caa95d}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!set\-\_\-new\-\_\-altitude@{set\-\_\-new\-\_\-altitude}}
+\index{set\-\_\-new\-\_\-altitude@{set\-\_\-new\-\_\-altitude}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{set\-\_\-new\-\_\-altitude}]{\setlength{\rightskip}{0pt plus 5cm}void set\-\_\-new\-\_\-altitude (
+\begin{DoxyParamCaption}
+\item[{int32\-\_\-t}]{\-\_\-new\-\_\-alt}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_acba142095410d1a2a4fd12c3f7caa95d}
+\hypertarget{GPS_8h_afd65218569713788da39cf10771bea01}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!wrap\-\_\-18000@{wrap\-\_\-18000}}
+\index{wrap\-\_\-18000@{wrap\-\_\-18000}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{wrap\-\_\-18000}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t wrap\-\_\-18000 (
+\begin{DoxyParamCaption}
+\item[{int32\-\_\-t}]{ang}
+\end{DoxyParamCaption}
+)}}\label{GPS_8h_afd65218569713788da39cf10771bea01}
+
+
+\subsection{Variable Documentation}
+\hypertarget{GPS_8h_a70bf1a649c4906dcde2c4823ecb62aac}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!G\-P\-S\-\_\-\-Frame@{G\-P\-S\-\_\-\-Frame}}
+\index{G\-P\-S\-\_\-\-Frame@{G\-P\-S\-\_\-\-Frame}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{G\-P\-S\-\_\-\-Frame}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t G\-P\-S\-\_\-\-Frame}}\label{GPS_8h_a70bf1a649c4906dcde2c4823ecb62aac}
+\hypertarget{GPS_8h_a4da6d0c0303345e2d39d2110da32b208}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!target\-\_\-bearing@{target\-\_\-bearing}}
+\index{target\-\_\-bearing@{target\-\_\-bearing}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{target\-\_\-bearing}]{\setlength{\rightskip}{0pt plus 5cm}int32\-\_\-t target\-\_\-bearing}}\label{GPS_8h_a4da6d0c0303345e2d39d2110da32b208}
+\hypertarget{GPS_8h_aa0da9292607434817ca929ddbfa78439}{\index{G\-P\-S.\-h@{G\-P\-S.\-h}!wp\-\_\-distance@{wp\-\_\-distance}}
+\index{wp\-\_\-distance@{wp\-\_\-distance}!GPS.h@{G\-P\-S.\-h}}
+\subsubsection[{wp\-\_\-distance}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t wp\-\_\-distance}}\label{GPS_8h_aa0da9292607434817ca929ddbfa78439}

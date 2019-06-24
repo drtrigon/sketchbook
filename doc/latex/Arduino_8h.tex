@@ -1,0 +1,314 @@
+\hypertarget{Arduino_8h}{\section{hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/\-Arduino.h File Reference}
+\label{Arduino_8h}\index{hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/\-Arduino.\-h@{hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/\-Arduino.\-h}}
+}
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdbool.\-h$>$}\\*
+{\ttfamily \#include $<$cstddef$>$}\\*
+{\ttfamily \#include \char`\"{}pins\-\_\-arduino.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Arduino_8h_a46d111c7afe2e9133f64f0e61d008c88}{reg\-\_\-spictrl}~($\ast$(volatile uint32\-\_\-t$\ast$)0x02000000)
+\item 
+\#define \hyperlink{Arduino_8h_a684b0577da77ba4f37fa33d5ea439095}{reg\-\_\-uart\-\_\-clkdiv}~($\ast$(volatile uint32\-\_\-t$\ast$)0x02000004)
+\item 
+\#define \hyperlink{Arduino_8h_aae3c43982c7ca5bd464f2af96afe60da}{reg\-\_\-uart\-\_\-data}~($\ast$(volatile uint32\-\_\-t$\ast$)0x02000008)
+\item 
+\#define \hyperlink{Arduino_8h_a99dcc7019a66f852bd5a70bce8795efa}{reg\-\_\-outp}~($\ast$(volatile uint32\-\_\-t$\ast$)0x03000000)
+\item 
+\#define \hyperlink{Arduino_8h_a018efda7446dae39c1ff6265cceaf59a}{reg\-\_\-inp}~($\ast$(volatile uint32\-\_\-t$\ast$)0x05000000)
+\item 
+\#define \hyperlink{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U}~12000000
+\item 
+\#define \hyperlink{Arduino_8h_a8feb0f2dfd32ac7a6162120372534322}{clk\-\_\-div\-\_\-s}~(\hyperlink{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U})
+\item 
+\#define \hyperlink{Arduino_8h_af7a7e5be8b01c6a5b7bfd7b5f59befa9}{clk\-\_\-div\-\_\-ms}~(\hyperlink{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U}/1000)
+\item 
+\#define \hyperlink{Arduino_8h_af9b72d4b6da325663423dd125fed0c8d}{clk\-\_\-div\-\_\-us}~(\hyperlink{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U}/1000000)
+\item 
+\#define \hyperlink{Arduino_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{H\-I\-G\-H}~0x1
+\item 
+\#define \hyperlink{Arduino_8h_ab811d8c6ff3a505312d3276590444289}{L\-O\-W}~0x0
+\item 
+\#define \hyperlink{Arduino_8h_a1bb283bd7893b9855e2f23013891fc82}{I\-N\-P\-U\-T}~0x0
+\item 
+\#define \hyperlink{Arduino_8h_a61a3c9a18380aafb6e430e79bf596557}{O\-U\-T\-P\-U\-T}~0x1
+\item 
+\#define \hyperlink{Arduino_8h_a6295096662a20dd56186396e535fbe92}{I\-N\-P\-U\-T\-\_\-\-P\-U\-L\-L\-U\-P}~0x2
+\item 
+\#define \hyperlink{Arduino_8h_a598a3330b3c21701223ee0ca14316eca}{P\-I}~3.\-1415926535897932384626433832795
+\item 
+\#define \hyperlink{Arduino_8h_ae3ec3219e4eee3b0992bfd59c2e2bc42}{H\-A\-L\-F\-\_\-\-P\-I}~1.\-5707963267948966192313216916398
+\item 
+\#define \hyperlink{Arduino_8h_a3b947f4b635461030ff2d87833e5049e}{T\-W\-O\-\_\-\-P\-I}~6.\-283185307179586476925286766559
+\item 
+\#define \hyperlink{Arduino_8h_a212460e743fecb084d717bb2180c5a56}{D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D}~0.\-017453292519943295769236907684886
+\item 
+\#define \hyperlink{Arduino_8h_a89e47af0449640d4f15191aba5ca24c6}{R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G}~57.\-295779513082320876798154814105
+\item 
+\#define \hyperlink{Arduino_8h_a7f4ee7567f891560bb62dfbda5f93088}{E\-U\-L\-E\-R}~2.\-718281828459045235360287471352
+\item 
+\#define \hyperlink{Arduino_8h_ac6afabdc09a49a433ee19d8a9486056d}{min}(a, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})~((a)$<$(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})?(a)\-:(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}))
+\item 
+\#define \hyperlink{Arduino_8h_affe776513b24d84b39af8ab0930fef7f}{max}(a, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})~((a)$>$(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b})?(a)\-:(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}))
+\item 
+\#define \hyperlink{Arduino_8h_a3aa069ac3980707dae1e0530f50d59e4}{abs}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})$>$0?(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})\-:-\/(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}))
+\item 
+\#define \hyperlink{Arduino_8h_a7df4a1319e5665c9040aa1838eef987c}{constrain}(amt, low, high)~((amt)$<$(low)?(low)\-:((amt)$>$(high)?(high)\-:(amt)))
+\item 
+\#define \hyperlink{Arduino_8h_a6ea10f4260b54a61665ead26cb995ba3}{round}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})$>$=0?(long)((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})+0.\-5)\-:(long)((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})-\/0.\-5))
+\item 
+\#define \hyperlink{Arduino_8h_a7571dba2995b9cb57259345fe49d2f97}{radians}(deg)~((deg)$\ast$\hyperlink{Arduino_8h_a212460e743fecb084d717bb2180c5a56}{D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D})
+\item 
+\#define \hyperlink{Arduino_8h_afe93c2c14da376a1621194c15c1de496}{degrees}(rad)~((rad)$\ast$\hyperlink{Arduino_8h_a89e47af0449640d4f15191aba5ca24c6}{R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G})
+\item 
+\#define \hyperlink{Arduino_8h_ae7616788b30810a219d9cdee95904ba4}{sq}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})$\ast$(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}))
+\item 
+\#define \hyperlink{Arduino_8h_ae6741cdb6d1d3f17299b9874ddc2c12e}{clock\-Cycles\-Per\-Microsecond}()~( \hyperlink{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U} / 1000000\-L )
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint8\-\_\-t \hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Arduino_8h_aedf28437b0c388082e19f9f6e4f47cf0}{pin\-Mode} (uint8\-\_\-t, uint8\-\_\-t)
+\item 
+void \hyperlink{Arduino_8h_a9d505fa07341c65c11e2c236550b748f}{digital\-Write} (uint8\-\_\-t, uint8\-\_\-t)
+\item 
+int \hyperlink{Arduino_8h_a47ebd125381c211f80468fb47f717a35}{digital\-Read} (uint8\-\_\-t)
+\item 
+int \hyperlink{Arduino_8h_a13782c0f73097cea014616d749e7c52d}{analog\-Read} (uint8\-\_\-t)
+\item 
+void \hyperlink{Arduino_8h_a428477da35f3b1cf51bc2653125d9d9d}{analog\-Write} (uint8\-\_\-t, int)
+\item 
+unsigned long \hyperlink{Arduino_8h_a1871228c14c912ca1479cf826ddcb07f}{millis} (void)
+\item 
+unsigned long \hyperlink{Arduino_8h_a705e7f8e2a34e0e2447e933ebf56b4d4}{micros} (void)
+\item 
+void \hyperlink{Arduino_8h_ab074fe18b447a055b6dbcd5f9a484db5}{delay} (unsigned long)
+\item 
+void \hyperlink{Arduino_8h_a7dfd9b79bc5a37d7df40207afbc5431f}{setup} (void)
+\item 
+void \hyperlink{Arduino_8h_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Arduino_8h_a3aa069ac3980707dae1e0530f50d59e4}{\index{Arduino.\-h@{Arduino.\-h}!abs@{abs}}
+\index{abs@{abs}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{abs}]{\setlength{\rightskip}{0pt plus 5cm}\#define abs(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(({\bf x})$>$0?({\bf x})\-:-\/({\bf x}))}}\label{Arduino_8h_a3aa069ac3980707dae1e0530f50d59e4}
+\hypertarget{Arduino_8h_af7a7e5be8b01c6a5b7bfd7b5f59befa9}{\index{Arduino.\-h@{Arduino.\-h}!clk\-\_\-div\-\_\-ms@{clk\-\_\-div\-\_\-ms}}
+\index{clk\-\_\-div\-\_\-ms@{clk\-\_\-div\-\_\-ms}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{clk\-\_\-div\-\_\-ms}]{\setlength{\rightskip}{0pt plus 5cm}\#define clk\-\_\-div\-\_\-ms~({\bf F\-\_\-\-C\-P\-U}/1000)}}\label{Arduino_8h_af7a7e5be8b01c6a5b7bfd7b5f59befa9}
+\hypertarget{Arduino_8h_a8feb0f2dfd32ac7a6162120372534322}{\index{Arduino.\-h@{Arduino.\-h}!clk\-\_\-div\-\_\-s@{clk\-\_\-div\-\_\-s}}
+\index{clk\-\_\-div\-\_\-s@{clk\-\_\-div\-\_\-s}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{clk\-\_\-div\-\_\-s}]{\setlength{\rightskip}{0pt plus 5cm}\#define clk\-\_\-div\-\_\-s~({\bf F\-\_\-\-C\-P\-U})}}\label{Arduino_8h_a8feb0f2dfd32ac7a6162120372534322}
+\hypertarget{Arduino_8h_af9b72d4b6da325663423dd125fed0c8d}{\index{Arduino.\-h@{Arduino.\-h}!clk\-\_\-div\-\_\-us@{clk\-\_\-div\-\_\-us}}
+\index{clk\-\_\-div\-\_\-us@{clk\-\_\-div\-\_\-us}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{clk\-\_\-div\-\_\-us}]{\setlength{\rightskip}{0pt plus 5cm}\#define clk\-\_\-div\-\_\-us~({\bf F\-\_\-\-C\-P\-U}/1000000)}}\label{Arduino_8h_af9b72d4b6da325663423dd125fed0c8d}
+\hypertarget{Arduino_8h_ae6741cdb6d1d3f17299b9874ddc2c12e}{\index{Arduino.\-h@{Arduino.\-h}!clock\-Cycles\-Per\-Microsecond@{clock\-Cycles\-Per\-Microsecond}}
+\index{clock\-Cycles\-Per\-Microsecond@{clock\-Cycles\-Per\-Microsecond}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{clock\-Cycles\-Per\-Microsecond}]{\setlength{\rightskip}{0pt plus 5cm}\#define clock\-Cycles\-Per\-Microsecond(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~( {\bf F\-\_\-\-C\-P\-U} / 1000000\-L )}}\label{Arduino_8h_ae6741cdb6d1d3f17299b9874ddc2c12e}
+\hypertarget{Arduino_8h_a7df4a1319e5665c9040aa1838eef987c}{\index{Arduino.\-h@{Arduino.\-h}!constrain@{constrain}}
+\index{constrain@{constrain}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{constrain}]{\setlength{\rightskip}{0pt plus 5cm}\#define constrain(
+\begin{DoxyParamCaption}
+\item[{}]{amt, }
+\item[{}]{low, }
+\item[{}]{high}
+\end{DoxyParamCaption}
+)~((amt)$<$(low)?(low)\-:((amt)$>$(high)?(high)\-:(amt)))}}\label{Arduino_8h_a7df4a1319e5665c9040aa1838eef987c}
+\hypertarget{Arduino_8h_a212460e743fecb084d717bb2180c5a56}{\index{Arduino.\-h@{Arduino.\-h}!D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D@{D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D}}
+\index{D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D@{D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D~0.\-017453292519943295769236907684886}}\label{Arduino_8h_a212460e743fecb084d717bb2180c5a56}
+\hypertarget{Arduino_8h_afe93c2c14da376a1621194c15c1de496}{\index{Arduino.\-h@{Arduino.\-h}!degrees@{degrees}}
+\index{degrees@{degrees}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{degrees}]{\setlength{\rightskip}{0pt plus 5cm}\#define degrees(
+\begin{DoxyParamCaption}
+\item[{}]{rad}
+\end{DoxyParamCaption}
+)~((rad)$\ast${\bf R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G})}}\label{Arduino_8h_afe93c2c14da376a1621194c15c1de496}
+\hypertarget{Arduino_8h_a7f4ee7567f891560bb62dfbda5f93088}{\index{Arduino.\-h@{Arduino.\-h}!E\-U\-L\-E\-R@{E\-U\-L\-E\-R}}
+\index{E\-U\-L\-E\-R@{E\-U\-L\-E\-R}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{E\-U\-L\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-U\-L\-E\-R~2.\-718281828459045235360287471352}}\label{Arduino_8h_a7f4ee7567f891560bb62dfbda5f93088}
+\hypertarget{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{\index{Arduino.\-h@{Arduino.\-h}!F\-\_\-\-C\-P\-U@{F\-\_\-\-C\-P\-U}}
+\index{F\-\_\-\-C\-P\-U@{F\-\_\-\-C\-P\-U}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{F\-\_\-\-C\-P\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-\_\-\-C\-P\-U~12000000}}\label{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}
+\hypertarget{Arduino_8h_ae3ec3219e4eee3b0992bfd59c2e2bc42}{\index{Arduino.\-h@{Arduino.\-h}!H\-A\-L\-F\-\_\-\-P\-I@{H\-A\-L\-F\-\_\-\-P\-I}}
+\index{H\-A\-L\-F\-\_\-\-P\-I@{H\-A\-L\-F\-\_\-\-P\-I}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{H\-A\-L\-F\-\_\-\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-A\-L\-F\-\_\-\-P\-I~1.\-5707963267948966192313216916398}}\label{Arduino_8h_ae3ec3219e4eee3b0992bfd59c2e2bc42}
+\hypertarget{Arduino_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}{\index{Arduino.\-h@{Arduino.\-h}!H\-I\-G\-H@{H\-I\-G\-H}}
+\index{H\-I\-G\-H@{H\-I\-G\-H}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{H\-I\-G\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define H\-I\-G\-H~0x1}}\label{Arduino_8h_a5bb885982ff66a2e0a0a45a8ee9c35e2}
+\hypertarget{Arduino_8h_a1bb283bd7893b9855e2f23013891fc82}{\index{Arduino.\-h@{Arduino.\-h}!I\-N\-P\-U\-T@{I\-N\-P\-U\-T}}
+\index{I\-N\-P\-U\-T@{I\-N\-P\-U\-T}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{I\-N\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-P\-U\-T~0x0}}\label{Arduino_8h_a1bb283bd7893b9855e2f23013891fc82}
+\hypertarget{Arduino_8h_a6295096662a20dd56186396e535fbe92}{\index{Arduino.\-h@{Arduino.\-h}!I\-N\-P\-U\-T\-\_\-\-P\-U\-L\-L\-U\-P@{I\-N\-P\-U\-T\-\_\-\-P\-U\-L\-L\-U\-P}}
+\index{I\-N\-P\-U\-T\-\_\-\-P\-U\-L\-L\-U\-P@{I\-N\-P\-U\-T\-\_\-\-P\-U\-L\-L\-U\-P}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{I\-N\-P\-U\-T\-\_\-\-P\-U\-L\-L\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-P\-U\-T\-\_\-\-P\-U\-L\-L\-U\-P~0x2}}\label{Arduino_8h_a6295096662a20dd56186396e535fbe92}
+\hypertarget{Arduino_8h_ab811d8c6ff3a505312d3276590444289}{\index{Arduino.\-h@{Arduino.\-h}!L\-O\-W@{L\-O\-W}}
+\index{L\-O\-W@{L\-O\-W}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-O\-W~0x0}}\label{Arduino_8h_ab811d8c6ff3a505312d3276590444289}
+\hypertarget{Arduino_8h_affe776513b24d84b39af8ab0930fef7f}{\index{Arduino.\-h@{Arduino.\-h}!max@{max}}
+\index{max@{max}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{max}]{\setlength{\rightskip}{0pt plus 5cm}\#define max(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~((a)$>$({\bf b})?(a)\-:({\bf b}))}}\label{Arduino_8h_affe776513b24d84b39af8ab0930fef7f}
+\hypertarget{Arduino_8h_ac6afabdc09a49a433ee19d8a9486056d}{\index{Arduino.\-h@{Arduino.\-h}!min@{min}}
+\index{min@{min}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{min}]{\setlength{\rightskip}{0pt plus 5cm}\#define min(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{{\bf b}}
+\end{DoxyParamCaption}
+)~((a)$<$({\bf b})?(a)\-:({\bf b}))}}\label{Arduino_8h_ac6afabdc09a49a433ee19d8a9486056d}
+\hypertarget{Arduino_8h_a61a3c9a18380aafb6e430e79bf596557}{\index{Arduino.\-h@{Arduino.\-h}!O\-U\-T\-P\-U\-T@{O\-U\-T\-P\-U\-T}}
+\index{O\-U\-T\-P\-U\-T@{O\-U\-T\-P\-U\-T}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{O\-U\-T\-P\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-U\-T\-P\-U\-T~0x1}}\label{Arduino_8h_a61a3c9a18380aafb6e430e79bf596557}
+\hypertarget{Arduino_8h_a598a3330b3c21701223ee0ca14316eca}{\index{Arduino.\-h@{Arduino.\-h}!P\-I@{P\-I}}
+\index{P\-I@{P\-I}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I~3.\-1415926535897932384626433832795}}\label{Arduino_8h_a598a3330b3c21701223ee0ca14316eca}
+\hypertarget{Arduino_8h_a89e47af0449640d4f15191aba5ca24c6}{\index{Arduino.\-h@{Arduino.\-h}!R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G@{R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G}}
+\index{R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G@{R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-A\-D\-\_\-\-T\-O\-\_\-\-D\-E\-G~57.\-295779513082320876798154814105}}\label{Arduino_8h_a89e47af0449640d4f15191aba5ca24c6}
+\hypertarget{Arduino_8h_a7571dba2995b9cb57259345fe49d2f97}{\index{Arduino.\-h@{Arduino.\-h}!radians@{radians}}
+\index{radians@{radians}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{radians}]{\setlength{\rightskip}{0pt plus 5cm}\#define radians(
+\begin{DoxyParamCaption}
+\item[{}]{deg}
+\end{DoxyParamCaption}
+)~((deg)$\ast${\bf D\-E\-G\-\_\-\-T\-O\-\_\-\-R\-A\-D})}}\label{Arduino_8h_a7571dba2995b9cb57259345fe49d2f97}
+\hypertarget{Arduino_8h_a018efda7446dae39c1ff6265cceaf59a}{\index{Arduino.\-h@{Arduino.\-h}!reg\-\_\-inp@{reg\-\_\-inp}}
+\index{reg\-\_\-inp@{reg\-\_\-inp}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{reg\-\_\-inp}]{\setlength{\rightskip}{0pt plus 5cm}\#define reg\-\_\-inp~($\ast$(volatile uint32\-\_\-t$\ast$)0x05000000)}}\label{Arduino_8h_a018efda7446dae39c1ff6265cceaf59a}
+\hypertarget{Arduino_8h_a99dcc7019a66f852bd5a70bce8795efa}{\index{Arduino.\-h@{Arduino.\-h}!reg\-\_\-outp@{reg\-\_\-outp}}
+\index{reg\-\_\-outp@{reg\-\_\-outp}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{reg\-\_\-outp}]{\setlength{\rightskip}{0pt plus 5cm}\#define reg\-\_\-outp~($\ast$(volatile uint32\-\_\-t$\ast$)0x03000000)}}\label{Arduino_8h_a99dcc7019a66f852bd5a70bce8795efa}
+\hypertarget{Arduino_8h_a46d111c7afe2e9133f64f0e61d008c88}{\index{Arduino.\-h@{Arduino.\-h}!reg\-\_\-spictrl@{reg\-\_\-spictrl}}
+\index{reg\-\_\-spictrl@{reg\-\_\-spictrl}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{reg\-\_\-spictrl}]{\setlength{\rightskip}{0pt plus 5cm}\#define reg\-\_\-spictrl~($\ast$(volatile uint32\-\_\-t$\ast$)0x02000000)}}\label{Arduino_8h_a46d111c7afe2e9133f64f0e61d008c88}
+\hypertarget{Arduino_8h_a684b0577da77ba4f37fa33d5ea439095}{\index{Arduino.\-h@{Arduino.\-h}!reg\-\_\-uart\-\_\-clkdiv@{reg\-\_\-uart\-\_\-clkdiv}}
+\index{reg\-\_\-uart\-\_\-clkdiv@{reg\-\_\-uart\-\_\-clkdiv}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{reg\-\_\-uart\-\_\-clkdiv}]{\setlength{\rightskip}{0pt plus 5cm}\#define reg\-\_\-uart\-\_\-clkdiv~($\ast$(volatile uint32\-\_\-t$\ast$)0x02000004)}}\label{Arduino_8h_a684b0577da77ba4f37fa33d5ea439095}
+\hypertarget{Arduino_8h_aae3c43982c7ca5bd464f2af96afe60da}{\index{Arduino.\-h@{Arduino.\-h}!reg\-\_\-uart\-\_\-data@{reg\-\_\-uart\-\_\-data}}
+\index{reg\-\_\-uart\-\_\-data@{reg\-\_\-uart\-\_\-data}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{reg\-\_\-uart\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}\#define reg\-\_\-uart\-\_\-data~($\ast$(volatile uint32\-\_\-t$\ast$)0x02000008)}}\label{Arduino_8h_aae3c43982c7ca5bd464f2af96afe60da}
+\hypertarget{Arduino_8h_a6ea10f4260b54a61665ead26cb995ba3}{\index{Arduino.\-h@{Arduino.\-h}!round@{round}}
+\index{round@{round}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{round}]{\setlength{\rightskip}{0pt plus 5cm}\#define round(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(({\bf x})$>$=0?(long)(({\bf x})+0.\-5)\-:(long)(({\bf x})-\/0.\-5))}}\label{Arduino_8h_a6ea10f4260b54a61665ead26cb995ba3}
+\hypertarget{Arduino_8h_ae7616788b30810a219d9cdee95904ba4}{\index{Arduino.\-h@{Arduino.\-h}!sq@{sq}}
+\index{sq@{sq}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{sq}]{\setlength{\rightskip}{0pt plus 5cm}\#define sq(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(({\bf x})$\ast$({\bf x}))}}\label{Arduino_8h_ae7616788b30810a219d9cdee95904ba4}
+\hypertarget{Arduino_8h_a3b947f4b635461030ff2d87833e5049e}{\index{Arduino.\-h@{Arduino.\-h}!T\-W\-O\-\_\-\-P\-I@{T\-W\-O\-\_\-\-P\-I}}
+\index{T\-W\-O\-\_\-\-P\-I@{T\-W\-O\-\_\-\-P\-I}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{T\-W\-O\-\_\-\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-W\-O\-\_\-\-P\-I~6.\-283185307179586476925286766559}}\label{Arduino_8h_a3b947f4b635461030ff2d87833e5049e}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{\index{Arduino.\-h@{Arduino.\-h}!byte@{byte}}
+\index{byte@{byte}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{byte}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint8\-\_\-t {\bf byte}}}\label{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}
+
+
+\subsection{Function Documentation}
+\hypertarget{Arduino_8h_a13782c0f73097cea014616d749e7c52d}{\index{Arduino.\-h@{Arduino.\-h}!analog\-Read@{analog\-Read}}
+\index{analog\-Read@{analog\-Read}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{analog\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int analog\-Read (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a13782c0f73097cea014616d749e7c52d}
+\hypertarget{Arduino_8h_a428477da35f3b1cf51bc2653125d9d9d}{\index{Arduino.\-h@{Arduino.\-h}!analog\-Write@{analog\-Write}}
+\index{analog\-Write@{analog\-Write}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{analog\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void analog\-Write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a428477da35f3b1cf51bc2653125d9d9d}
+\hypertarget{Arduino_8h_ab074fe18b447a055b6dbcd5f9a484db5}{\index{Arduino.\-h@{Arduino.\-h}!delay@{delay}}
+\index{delay@{delay}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{delay}]{\setlength{\rightskip}{0pt plus 5cm}void delay (
+\begin{DoxyParamCaption}
+\item[{unsigned}]{long}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_ab074fe18b447a055b6dbcd5f9a484db5}
+\hypertarget{Arduino_8h_a47ebd125381c211f80468fb47f717a35}{\index{Arduino.\-h@{Arduino.\-h}!digital\-Read@{digital\-Read}}
+\index{digital\-Read@{digital\-Read}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{digital\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int digital\-Read (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a47ebd125381c211f80468fb47f717a35}
+\hypertarget{Arduino_8h_a9d505fa07341c65c11e2c236550b748f}{\index{Arduino.\-h@{Arduino.\-h}!digital\-Write@{digital\-Write}}
+\index{digital\-Write@{digital\-Write}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{digital\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void digital\-Write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{, }
+\item[{uint8\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a9d505fa07341c65c11e2c236550b748f}
+\hypertarget{Arduino_8h_a0b33edabd7f1c4e4a0bf32c67269be2f}{\index{Arduino.\-h@{Arduino.\-h}!loop@{loop}}
+\index{loop@{loop}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a0b33edabd7f1c4e4a0bf32c67269be2f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{Arduino_8h_a705e7f8e2a34e0e2447e933ebf56b4d4}{\index{Arduino.\-h@{Arduino.\-h}!micros@{micros}}
+\index{micros@{micros}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{micros}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long micros (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a705e7f8e2a34e0e2447e933ebf56b4d4}
+\hypertarget{Arduino_8h_a1871228c14c912ca1479cf826ddcb07f}{\index{Arduino.\-h@{Arduino.\-h}!millis@{millis}}
+\index{millis@{millis}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{millis}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long millis (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a1871228c14c912ca1479cf826ddcb07f}
+\hypertarget{Arduino_8h_aedf28437b0c388082e19f9f6e4f47cf0}{\index{Arduino.\-h@{Arduino.\-h}!pin\-Mode@{pin\-Mode}}
+\index{pin\-Mode@{pin\-Mode}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{pin\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void pin\-Mode (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{, }
+\item[{uint8\-\_\-t}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_aedf28437b0c388082e19f9f6e4f47cf0}
+\hypertarget{Arduino_8h_a7dfd9b79bc5a37d7df40207afbc5431f}{\index{Arduino.\-h@{Arduino.\-h}!setup@{setup}}
+\index{setup@{setup}!Arduino.h@{Arduino.\-h}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Arduino_8h_a7dfd9b79bc5a37d7df40207afbc5431f}
+Arduino I\-D\-E\-: put your setup code here, to run once. 

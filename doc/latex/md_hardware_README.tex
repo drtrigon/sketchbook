@@ -1,0 +1,161 @@
+This hardware and code was build and tested using icestudio (icestorm) and an Alhambra I\-I board. It should work out of the box or be fairly easy to adopt to other similar boards (e.\-g. Tiny\-F\-P\-G\-A, i\-C\-E\-Breaker, etc.).
+
+
+
+\subsubsection*{1.) unpack (clone) this archive (repo) to $\sim$/sketchbook/hardware/}
+
+\begin{DoxyVerb}$ cd ~/sketchbook/hardware/
+$ wget https://github.com/drtrigon/fpgarduino-icestorm/archive/master.zip
+$ unzip master.zip
+$ mv fpgarduino-icestorm-master/AlhambraII .
+$ rm -rf fpgarduino-icestorm-master
+\end{DoxyVerb}
+
+
+or clone \begin{DoxyVerb}$ cd ~/sketchbook/hardware/
+$ git clone https://github.com/drtrigon/fpgarduino-icestorm
+$ mv fpgarduino-icestorm/AlhambraII .
+$ rm -rf fpgarduino-icestorm
+\end{DoxyVerb}
+
+
+\subsubsection*{2.) follow \href{https://github.com/cliffordwolf/picorv32#building-a-pure-rv32i-toolchain}{\tt https\-://github.\-com/cliffordwolf/picorv32\#building-\/a-\/pure-\/rv32i-\/toolchain}}
+
+\begin{DoxyVerb}# Ubuntu packages needed:
+sudo apt-get install autoconf automake autotools-dev curl libmpc-dev \
+    libmpfr-dev libgmp-dev gawk build-essential bison flex texinfo \
+    gperf libtool patchutils bc zlib1g-dev git libexpat1-dev
+
+sudo mkdir ~/sketchbook/hardware/AlhambraII/picorv32/tools/riscv32i
+sudo chown $USER ~/sketchbook/hardware/AlhambraII/picorv32/tools/riscv32i
+
+git clone https://github.com/riscv/riscv-gnu-toolchain riscv-gnu-toolchain-rv32i
+cd riscv-gnu-toolchain-rv32i
+git checkout c3ad555
+git submodule update --init --recursive
+
+mkdir build; cd build
+../configure --with-arch=rv32i --prefix=$HOME/sketchbook/hardware/AlhambraII/picorv32/tools/riscv32i
+make -j$(nproc)
+\end{DoxyVerb}
+
+
+Now the Arduino I\-D\-E replaces the Makefile used before to compile and upload the firmware.
+
+This D\-O\-E\-S N\-O\-T use a bootloader, the compiled code is uploaded and executed directly. If you want to use a bootloader for uploading consider \mbox{[}9,10,5\mbox{]} (and \mbox{[}7\mbox{]} too).
+
+In other words\-: In the Arduino I\-D\-E this is like uploading a \char`\"{}bootloader\char`\"{} to Arduino/\-A\-V\-R (does not use a bootloader but I\-S\-P e.\-g.). Uploading a \char`\"{}sketch\char`\"{} as the Arduino I\-D\-E usualy does (via bootloader) is done within the projects referred before (F\-P\-G\-Arduino and \char`\"{}\-Programming the Tiny\-F\-P\-G\-A B\-X with Arduino\char`\"{}).
+
+In Arduino I\-D\-E \char`\"{}\-Tools\char`\"{} pulldown menu, select\-: \begin{DoxyVerb}Board: Alhambra II Generic picorv32
+Port: (of the 2 available it's typically the second one, e.g. /dev/ttyUSB1)
+Programmer: iceprog (Icestudio/Icestorm)
+\end{DoxyVerb}
+
+
+Note\-: The port needs to be set if using the Serial Montor only. For the programming it has no effect. Note\-: Forgetting to set the correct programmer results in a java error.
+
+\subsubsection*{3.) O\-P\-T\-I\-O\-N\-A\-L\-: use iceprog directly from installed icestudio and its toolchain\-:}
+
+\begin{DoxyVerb}cd ~/sketchbook/hardware/AlhambraII/picorv32/tools/iceprog/
+rm iceprog
+ln -s ~/.icestudio/apio/packages/toolchain-icestorm/bin/iceprog iceprog
+\end{DoxyVerb}
+
+
+or alternatively you can set the following line in platform.\-txt\-: \begin{DoxyVerb}tools.iceprog.path={runtime.platform.path}/../../../../.icestudio/apio/packages/toolchain-icestorm/bin
+\end{DoxyVerb}
+
+
+\subsubsection*{4.) I\-N\-F\-O\-R\-M\-A\-T\-I\-O\-N\-: The bitstream to use is stored in \$\-H\-O\-M\-E/sketchbook/hardware/\-Alhambra\-I\-I/picorv32/variants/\-Alhambra\-I\-I/}
+
+The bitstream can be programmed using\-: \$ iceprog hardware.\-bin
+
+This bitstream was derived from G\-P\-I\-O\-\_\-\-A\-D\-C-\/recent-\/picorv32.\-zip using icestudio 0.\-3.\-3 (linux64.\-App\-Image).
+
+What does work\-:
+\begin{DoxyItemize}
+\item Verify (building)
+\item Upload
+\item Serial Monitor using any baudrate, default is 115200 (needs setting the correct port)
+\item Arduino I\-D\-E examples\-:
+\begin{DoxyItemize}
+\item 01.\-Basics
+\begin{DoxyItemize}
+\item Bare\-Minimum\-: (compiles)
+\item Blink\-: pin\-Mode dummy for leds, digital\-Write on leds also using full 8-\/bit uint8\-\_\-t, delay
+\item Digital\-Read\-Serial\-: Serial.\-println, Serial.\-begin all baudrates, pin\-Mode (0-\/7), digital\-Read (0-\/15)
+\item Analog\-Read\-Serial\-: analog\-Read (A0, 4\-Hz, bits increased from 8 to 10 by multiplying with 4)
+\item Read\-Analog\-Voltage\-: (voltage calculation wrong 5.\-0-\/$>$3.\-3)
+\item Fade\-: analog\-Write (P\-W\-M0 shares pin through O\-R with L\-E\-D0, a digital\-Write(\-L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N, H\-I\-G\-H) \char`\"{}disables\char`\"{} the P\-W\-M0 -\/ check hardware -\/ currently pin is ignored as there is only one -\/ also fixed digital output pins are shared and thus disabled or debug when using P\-W\-M0)
+\end{DoxyItemize}
+\item 02.\-Digital
+\begin{DoxyItemize}
+\item Blink\-Without\-Delay\-: millis, micros, (delay refactored to use micros)
+\item Button\-: (works after changing led\-Pin 13-\/$>$L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N)
+\item Debounce\-: (works after changing led\-Pin 13-\/$>$L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N)
+\item State\-Change\-Detection\-: (works after changing led\-Pin 13-\/$>$L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N)
+\item (T\-O\-D\-O\-: Digital\-Input\-Pullup, tone...)
+\end{DoxyItemize}
+\item 03.\-Analog
+\begin{DoxyItemize}
+\item Analog\-Input\-: (works after changing led\-Pin 13-\/$>$L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N)
+\item Smoothing\-: (works)
+\item Analog\-In\-Out\-Serial\-: map
+\item Calibration\-: (works)
+\item Fading\-: (works)
+\item (Analog\-Write\-Mega could also be implemented)
+\end{DoxyItemize}
+\item 04.\-Communication
+\begin{DoxyItemize}
+\item A\-S\-C\-I\-I\-Table\-: (works)
+\item Graph\-: (works)
+\item Virtual\-Color\-Mixer\-: (works with A0 only, A1 and A2 always read 0)
+\item Dimmer\-: Serial.\-available, Serial.\-read, Serial.\-\_\-rx\-\_\-complete\-\_\-irq
+\item Physical\-Pixel\-: (works)
+\item Serial\-Call\-Response\-: (works but the function \char`\"{}establish\-Contact$\ast$ needs to be declared before \char`\"{}setup\char`\"{} and needs Serial.\-\_\-rx\-\_\-complete\-\_\-irq(); within the loop)
+    $\ast$ Serial\-Call\-Response\-A\-S\-C\-I\-I\-: (works but the function \char`\"{}establish\-Contact$\ast$ needs to be declared before \char`\"{}setup\char`\"{} and needs Serial.\-\_\-rx\-\_\-complete\-\_\-irq(); within the loop)
+\item (T\-O\-D\-O\-: Read\-A\-S\-C\-I\-I\-String -\/ parse\-Int from Stream class, Serial\-Event)
+\end{DoxyItemize}
+\item 05.\-Control
+\begin{DoxyItemize}
+\item If\-Statement\-Conditional\-: (works after changing led\-Pin 13-\/$>$L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N)
+\item switch\-Case\-: (works)
+\item While\-Statement\-Conditional\-: (works after changing indicator\-Led\-Pin 13-\/$>$L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N and button\-Pin 2-\/$>$14, also the function \char`\"{}calibrate\char`\"{} needs to be declared before \char`\"{}loop\char`\"{})
+\item Array\-: digital\-Write (for gpio and fixed pins)
+\item For\-Loop\-Iteration\-: (works)
+\item switch\-Case2\-: (works)
+\end{DoxyItemize}
+\item 11.\-Arduino\-I\-S\-P
+\begin{DoxyItemize}
+\item (T\-O\-D\-O\-: Bit\-Banged/software S\-P\-I, U\-S\-E\-\_\-\-O\-L\-D\-\_\-\-S\-T\-Y\-L\-E\-\_\-\-W\-I\-R\-I\-N\-G, R\-E\-S\-E\-T/\-P\-I\-N\-\_\-\-M\-O\-S\-I/\-P\-I\-N\-\_\-\-M\-I\-S\-O/\-P\-I\-N\-\_\-\-S\-C\-K/etc. to use gpio (0-\/7), needs delay\-Microseconds -\/ see comment below ...)
+\end{DoxyItemize}
+\item Other Libraries\-:
+\begin{DoxyItemize}
+\item S\-S\-D1306\-Ascii\-: Soft\-Spi128x64 (compiles, not tested -\/ size big; 157988 -\/ need hardware for testing)
+\item (T\-O\-D\-O\-: P\-J\-O\-N ???)
+\end{DoxyItemize}
+\end{DoxyItemize}
+\end{DoxyItemize}
+
+\subsubsection*{T\-O\-D\-O\-:}
+
+T\-O\-D\-O\-: spi with external hardware like oled, etc.
+
+(T\-O\-D\-O\-: add support for String class) (T\-O\-D\-O\-: serial input drops/misses chars when e.\-g. transmitting \char`\"{}abcde\char`\"{} -\/ not interrupt based) (T\-O\-D\-O\-: add travis integration in order to automatically check whether all examples compile and link properly -\/ functional check has to be done manually) (T\-O\-D\-O\-: virtual functions around \hyperlink{classPrint}{Print(\-::write)} do not work...) (T\-O\-D\-O\-: remove \char`\"{}picorv32\-: work-\/a-\/round\char`\"{} and adopt to arduino template where possible) (T\-O\-D\-O\-: gpio with switchable/dynamic pull-\/up only possible with S\-B\-\_\-\-I\-O\-\_\-\-I3\-C (rare on some pins only) or 2 pins \href{https://stackoverflow.com/questions/56517923/ice40-icestorm-fpga-switchable-pullup-on-bi-directional-io-pins/}{\tt https\-://stackoverflow.\-com/questions/56517923/ice40-\/icestorm-\/fpga-\/switchable-\/pullup-\/on-\/bi-\/directional-\/io-\/pins/} ) (T\-O\-D\-O\-: code loading and execution way to slow for delay\-Microseconds -\/ a single line of assembler code takes around 200 cycles or 16-\/21 us -\/ reason is slow spi flash as memory -\/ solution is faster memory, \char`\"{}\mbox{[}...\mbox{]} create a cache. Or you can just copy all performance-\/critical code to 
+          R\-A\-M, or execute from a R\-O\-M.\char`\"{} \href{https://github.com/cliffordwolf/picorv32/issues/126}{\tt https\-://github.\-com/cliffordwolf/picorv32/issues/126} ) (T\-O\-D\-O\-: bitbang I2\-C w/o using interrupts needs delay\-Microseconds -\/ solution add I2\-C hardware \href{https://github.com/felias-fogg/SlowSoftWire,}{\tt https\-://github.\-com/felias-\/fogg/\-Slow\-Soft\-Wire,} \href{https://github.com/felias-fogg/SlowSoftI2CMaster}{\tt https\-://github.\-com/felias-\/fogg/\-Slow\-Soft\-I2\-C\-Master} )
+
+\subsubsection*{Further info\-:}
+
+
+\begin{DoxyItemize}
+\item \mbox{[}1\mbox{]} \href{https://github.com/riscv/riscv-tools}{\tt https\-://github.\-com/riscv/riscv-\/tools}
+\item \mbox{[}2\mbox{]} \href{https://github.com/riscv/riscv-wiki/wiki/RISC-V-Software-Status}{\tt https\-://github.\-com/riscv/riscv-\/wiki/wiki/\-R\-I\-S\-C-\/\-V-\/\-Software-\/\-Status}
+\item \mbox{[}3\mbox{]} \href{https://github.com/FPGAwars/Alhambra-II-FPGA/tree/master/examples/picorv32/picosoc}{\tt https\-://github.\-com/\-F\-P\-G\-Awars/\-Alhambra-\/\-I\-I-\/\-F\-P\-G\-A/tree/master/examples/picorv32/picosoc} (old, including icestudio project)
+\item \mbox{[}4\mbox{]} \href{https://github.com/cliffordwolf/picorv32}{\tt https\-://github.\-com/cliffordwolf/picorv32} (recent)
+\item \mbox{[}5\mbox{]} \href{http://www.nxlab.fer.hr/fpgarduino/}{\tt http\-://www.\-nxlab.\-fer.\-hr/fpgarduino/}
+\item \mbox{[}6\mbox{]} \href{https://github.com/arduino/Arduino/wiki/Arduino-IDE-1.5-3rd-party-Hardware-specification}{\tt https\-://github.\-com/arduino/\-Arduino/wiki/\-Arduino-\/\-I\-D\-E-\/1.\-5-\/3rd-\/party-\/\-Hardware-\/specification}
+\item \mbox{[}7\mbox{]} \href{https://github.com/f32c/arduino/issues/32}{\tt https\-://github.\-com/f32c/arduino/issues/32}
+\item \mbox{[}8\mbox{]} \href{https://github.com/FPGAwars/icestudio/issues/321}{\tt https\-://github.\-com/\-F\-P\-G\-Awars/icestudio/issues/321}
+\item \mbox{[}9\mbox{]} \href{https://discourse.tinyfpga.com/t/programming-the-tinyfpga-bx-with-arduino/898}{\tt https\-://discourse.\-tinyfpga.\-com/t/programming-\/the-\/tinyfpga-\/bx-\/with-\/arduino/898}
+\item \mbox{[}10\mbox{]} \href{https://github.com/emard/prjtrellis-picorv32}{\tt https\-://github.\-com/emard/prjtrellis-\/picorv32} (mentioned in \mbox{[}7,9\mbox{]}) 
+\end{DoxyItemize}

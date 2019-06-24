@@ -1,0 +1,73 @@
+\hypertarget{cli_2owslave_2test_8c}{\section{cli/owslave/test.c File Reference}
+\label{cli_2owslave_2test_8c}\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}onewire.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}features.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debug.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{cli_2owslave_2test_8c_afe70374b69bd639778cb1fd507169c07}{T\-I\-M\-S\-K}~T\-I\-M\-S\-K0
+\item 
+\#define \hyperlink{cli_2owslave_2test_8c_a62a88f276045b4f7cc16a8c11bb6a34a}{T\-I\-F\-R}~T\-I\-F\-R0
+\item 
+\#define \hyperlink{cli_2owslave_2test_8c_a14fcc63c96abbbe66dc7a60f9c4d247a}{E\-I\-C\-R\-A}~M\-C\-U\-C\-R
+\item 
+\#define \hyperlink{cli_2owslave_2test_8c_ab2f59c31ecfea66c577bb47a73f44dac}{E\-N\-\_\-\-T\-I\-M\-E\-R}()~do \{\hyperlink{cli_2owslave_2test_8c_a62a88f276045b4f7cc16a8c11bb6a34a}{T\-I\-F\-R}$\vert$=(1$<$$<$T\-O\-V0); \hyperlink{cli_2owslave_2test_8c_afe70374b69bd639778cb1fd507169c07}{T\-I\-M\-S\-K}$\vert$=(1$<$$<$T\-O\-I\-E0);\}\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\item 
+\#define \hyperlink{cli_2owslave_2test_8c_a8b19e92d7390fc6c072bca056bfa5b7d}{D\-I\-S\-\_\-\-T\-I\-M\-E\-R}()~do \{\hyperlink{cli_2owslave_2test_8c_afe70374b69bd639778cb1fd507169c07}{T\-I\-M\-S\-K} \&= $\sim$(1$<$$<$T\-O\-I\-E0);\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{cli_2owslave_2test_8c_ab1e61373f6640f42224588e4bd4f3db6}{init\-\_\-state} (void)
+\item 
+void \hyperlink{cli_2owslave_2test_8c_a5fe2749decbc9e4b882aa0aabb649fa4}{mainloop} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{cli_2owslave_2test_8c_a8b19e92d7390fc6c072bca056bfa5b7d}{\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}!D\-I\-S\-\_\-\-T\-I\-M\-E\-R@{D\-I\-S\-\_\-\-T\-I\-M\-E\-R}}
+\index{D\-I\-S\-\_\-\-T\-I\-M\-E\-R@{D\-I\-S\-\_\-\-T\-I\-M\-E\-R}!cli/owslave/test.c@{cli/owslave/test.\-c}}
+\subsubsection[{D\-I\-S\-\_\-\-T\-I\-M\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-I\-S\-\_\-\-T\-I\-M\-E\-R(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~do \{{\bf T\-I\-M\-S\-K} \&= $\sim$(1$<$$<$T\-O\-I\-E0);\} {\bf while}(0)}}\label{cli_2owslave_2test_8c_a8b19e92d7390fc6c072bca056bfa5b7d}
+\hypertarget{cli_2owslave_2test_8c_a14fcc63c96abbbe66dc7a60f9c4d247a}{\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}!E\-I\-C\-R\-A@{E\-I\-C\-R\-A}}
+\index{E\-I\-C\-R\-A@{E\-I\-C\-R\-A}!cli/owslave/test.c@{cli/owslave/test.\-c}}
+\subsubsection[{E\-I\-C\-R\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-I\-C\-R\-A~M\-C\-U\-C\-R}}\label{cli_2owslave_2test_8c_a14fcc63c96abbbe66dc7a60f9c4d247a}
+\hypertarget{cli_2owslave_2test_8c_ab2f59c31ecfea66c577bb47a73f44dac}{\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}!E\-N\-\_\-\-T\-I\-M\-E\-R@{E\-N\-\_\-\-T\-I\-M\-E\-R}}
+\index{E\-N\-\_\-\-T\-I\-M\-E\-R@{E\-N\-\_\-\-T\-I\-M\-E\-R}!cli/owslave/test.c@{cli/owslave/test.\-c}}
+\subsubsection[{E\-N\-\_\-\-T\-I\-M\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-\_\-\-T\-I\-M\-E\-R(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~do \{{\bf T\-I\-F\-R}$\vert$=(1$<$$<$T\-O\-V0); {\bf T\-I\-M\-S\-K}$\vert$=(1$<$$<$T\-O\-I\-E0);\}{\bf while}(0)}}\label{cli_2owslave_2test_8c_ab2f59c31ecfea66c577bb47a73f44dac}
+\hypertarget{cli_2owslave_2test_8c_a62a88f276045b4f7cc16a8c11bb6a34a}{\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}!T\-I\-F\-R@{T\-I\-F\-R}}
+\index{T\-I\-F\-R@{T\-I\-F\-R}!cli/owslave/test.c@{cli/owslave/test.\-c}}
+\subsubsection[{T\-I\-F\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-I\-F\-R~T\-I\-F\-R0}}\label{cli_2owslave_2test_8c_a62a88f276045b4f7cc16a8c11bb6a34a}
+\hypertarget{cli_2owslave_2test_8c_afe70374b69bd639778cb1fd507169c07}{\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}!T\-I\-M\-S\-K@{T\-I\-M\-S\-K}}
+\index{T\-I\-M\-S\-K@{T\-I\-M\-S\-K}!cli/owslave/test.c@{cli/owslave/test.\-c}}
+\subsubsection[{T\-I\-M\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-I\-M\-S\-K~T\-I\-M\-S\-K0}}\label{cli_2owslave_2test_8c_afe70374b69bd639778cb1fd507169c07}
+
+
+\subsection{Function Documentation}
+\hypertarget{cli_2owslave_2test_8c_ab1e61373f6640f42224588e4bd4f3db6}{\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}!init\-\_\-state@{init\-\_\-state}}
+\index{init\-\_\-state@{init\-\_\-state}!cli/owslave/test.c@{cli/owslave/test.\-c}}
+\subsubsection[{init\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{cli_2owslave_2test_8c_ab1e61373f6640f42224588e4bd4f3db6}
+\hypertarget{cli_2owslave_2test_8c_a5fe2749decbc9e4b882aa0aabb649fa4}{\index{cli/owslave/test.\-c@{cli/owslave/test.\-c}!mainloop@{mainloop}}
+\index{mainloop@{mainloop}!cli/owslave/test.c@{cli/owslave/test.\-c}}
+\subsubsection[{mainloop}]{\setlength{\rightskip}{0pt plus 5cm}void mainloop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{cli_2owslave_2test_8c_a5fe2749decbc9e4b882aa0aabb649fa4}

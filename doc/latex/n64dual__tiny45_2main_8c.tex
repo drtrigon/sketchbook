@@ -1,0 +1,60 @@
+\hypertarget{n64dual__tiny45_2main_8c}{\section{cli/n64dual\-\_\-tiny45/main.c File Reference}
+\label{n64dual__tiny45_2main_8c}\index{cli/n64dual\-\_\-tiny45/main.\-c@{cli/n64dual\-\_\-tiny45/main.\-c}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include $<$avr/pgmspace.\-h$>$}\\*
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include $<$avr/sleep.\-h$>$}\\*
+{\ttfamily \#include $<$util/delay.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$usbdrv.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}gamepad.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}n64.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{n64dual__tiny45_2main_8c_aeb7a7ba1ab7e0406f1b5ab36d579f585}{L\-E\-D}~(1 $<$$<$ P\-B0)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{usbdrv_8h_a57df3bf9fc8ec8cd9b29ba8dfc361059}{usb\-Msg\-Len\-\_\-t} \hyperlink{n64dual__tiny45_2main_8c_a1e2335a17df1f36055cc056dd84dc948}{usb\-Function\-Setup} (\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}\mbox{[}8\mbox{]})
+\item 
+int \hyperlink{n64dual__tiny45_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+P\-R\-O\-G\-M\-E\-M const char \\*
+usb\-Hid\-Report\-Descriptor\mbox{[}94\mbox{]} \hyperlink{n64dual__tiny45_2main_8c_a8b66b95041c22fa8b8312af6e8e84b06}{P\-R\-O\-G\-M\-E\-M}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{n64dual__tiny45_2main_8c_aeb7a7ba1ab7e0406f1b5ab36d579f585}{\index{n64dual\-\_\-tiny45/main.\-c@{n64dual\-\_\-tiny45/main.\-c}!L\-E\-D@{L\-E\-D}}
+\index{L\-E\-D@{L\-E\-D}!n64dual_tiny45/main.c@{n64dual\-\_\-tiny45/main.\-c}}
+\subsubsection[{L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D~(1 $<$$<$ P\-B0)}}\label{n64dual__tiny45_2main_8c_aeb7a7ba1ab7e0406f1b5ab36d579f585}
+
+
+\subsection{Function Documentation}
+\hypertarget{n64dual__tiny45_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{\index{n64dual\-\_\-tiny45/main.\-c@{n64dual\-\_\-tiny45/main.\-c}!main@{main}}
+\index{main@{main}!n64dual_tiny45/main.c@{n64dual\-\_\-tiny45/main.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{n64dual__tiny45_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}
+\hypertarget{n64dual__tiny45_2main_8c_a1e2335a17df1f36055cc056dd84dc948}{\index{n64dual\-\_\-tiny45/main.\-c@{n64dual\-\_\-tiny45/main.\-c}!usb\-Function\-Setup@{usb\-Function\-Setup}}
+\index{usb\-Function\-Setup@{usb\-Function\-Setup}!n64dual_tiny45/main.c@{n64dual\-\_\-tiny45/main.\-c}}
+\subsubsection[{usb\-Function\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf usb\-Msg\-Len\-\_\-t} usb\-Function\-Setup (
+\begin{DoxyParamCaption}
+\item[{{\bf uchar}}]{data\mbox{[}8\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{n64dual__tiny45_2main_8c_a1e2335a17df1f36055cc056dd84dc948}
+
+
+\subsection{Variable Documentation}
+\hypertarget{n64dual__tiny45_2main_8c_a8b66b95041c22fa8b8312af6e8e84b06}{\index{n64dual\-\_\-tiny45/main.\-c@{n64dual\-\_\-tiny45/main.\-c}!P\-R\-O\-G\-M\-E\-M@{P\-R\-O\-G\-M\-E\-M}}
+\index{P\-R\-O\-G\-M\-E\-M@{P\-R\-O\-G\-M\-E\-M}!n64dual_tiny45/main.c@{n64dual\-\_\-tiny45/main.\-c}}
+\subsubsection[{P\-R\-O\-G\-M\-E\-M}]{\setlength{\rightskip}{0pt plus 5cm}P\-R\-O\-G\-M\-E\-M const char usb\-Hid\-Report\-Descriptor \mbox{[}94\mbox{]} P\-R\-O\-G\-M\-E\-M}}\label{n64dual__tiny45_2main_8c_a8b66b95041c22fa8b8312af6e8e84b06}

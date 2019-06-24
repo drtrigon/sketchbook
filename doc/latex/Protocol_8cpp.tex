@@ -1,0 +1,370 @@
+\hypertarget{Protocol_8cpp}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Protocol.cpp File Reference}
+\label{Protocol_8cpp}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Protocol.\-cpp@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Protocol.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Arduino.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}config.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}E\-E\-P\-R\-O\-M.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\-C\-D.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Output.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}G\-P\-S.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Multi\-Wii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Serial.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Protocol.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}R\-X.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Protocol_8cpp_a1c00b833e4fc6eec0bea47727cf3e911}{M\-S\-P\-\_\-\-V\-E\-R\-S\-I\-O\-N}~0
+\item 
+\#define \hyperlink{Protocol_8cpp_a8427a4d62eded2ebde27f0e7ebb3ae8d}{M\-S\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E}~1
+\item 
+\#define \hyperlink{Protocol_8cpp_a36252bf005980d6d8b27000764049b14}{M\-S\-P\-\_\-\-I\-D\-E\-N\-T}~100
+\item 
+\#define \hyperlink{Protocol_8cpp_a5492d330b58e70faa0236730a87ce98a}{M\-S\-P\-\_\-\-S\-T\-A\-T\-U\-S}~101
+\item 
+\#define \hyperlink{Protocol_8cpp_a35b29e470439a465e1a5cd4d5f01210e}{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-I\-M\-U}~102
+\item 
+\#define \hyperlink{Protocol_8cpp_a9fb9bc1876664f40d9ded9a4165a871f}{M\-S\-P\-\_\-\-S\-E\-R\-V\-O}~103
+\item 
+\#define \hyperlink{Protocol_8cpp_a0e532d687542ad8779242ba21de9b6a7}{M\-S\-P\-\_\-\-M\-O\-T\-O\-R}~104
+\item 
+\#define \hyperlink{Protocol_8cpp_a5ad8a9362cd2f8479c9571f644b21094}{M\-S\-P\-\_\-\-R\-C}~105
+\item 
+\#define \hyperlink{Protocol_8cpp_a84813dabf02b8eaef6867b0cff3ee93b}{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}~106
+\item 
+\#define \hyperlink{Protocol_8cpp_a2588fc811cf51d46467aa8818bf56e12}{M\-S\-P\-\_\-\-C\-O\-M\-P\-\_\-\-G\-P\-S}~107
+\item 
+\#define \hyperlink{Protocol_8cpp_aa731d52e166ba62bdb62813e94033d08}{M\-S\-P\-\_\-\-A\-T\-T\-I\-T\-U\-D\-E}~108
+\item 
+\#define \hyperlink{Protocol_8cpp_a8d81d150fe5d881b58ec8d47c2b98a9b}{M\-S\-P\-\_\-\-A\-L\-T\-I\-T\-U\-D\-E}~109
+\item 
+\#define \hyperlink{Protocol_8cpp_a0a50caf6b1582392d548454e339dae00}{M\-S\-P\-\_\-\-A\-N\-A\-L\-O\-G}~110
+\item 
+\#define \hyperlink{Protocol_8cpp_afb045aca0018bf301b98a27f4a115301}{M\-S\-P\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}~111
+\item 
+\#define \hyperlink{Protocol_8cpp_a7961a5b56725c0a901b93c7936e921ff}{M\-S\-P\-\_\-\-P\-I\-D}~112
+\item 
+\#define \hyperlink{Protocol_8cpp_a0b3875177f293db00f36dd2edb61934e}{M\-S\-P\-\_\-\-B\-O\-X}~113
+\item 
+\#define \hyperlink{Protocol_8cpp_a8bba43d447a13d11c4208887d6e317e2}{M\-S\-P\-\_\-\-M\-I\-S\-C}~114
+\item 
+\#define \hyperlink{Protocol_8cpp_a10c16ec0b01ae1e5f5910ec55162c4b1}{M\-S\-P\-\_\-\-M\-O\-T\-O\-R\-\_\-\-P\-I\-N\-S}~115
+\item 
+\#define \hyperlink{Protocol_8cpp_a3e68f4cddcb2bda1c4a90f160bb15b9f}{M\-S\-P\-\_\-\-B\-O\-X\-N\-A\-M\-E\-S}~116
+\item 
+\#define \hyperlink{Protocol_8cpp_ab103a1294030a876af61f5b1521ee6be}{M\-S\-P\-\_\-\-P\-I\-D\-N\-A\-M\-E\-S}~117
+\item 
+\#define \hyperlink{Protocol_8cpp_a7f94551eb8b50112486a9d4c785fa58a}{M\-S\-P\-\_\-\-W\-P}~118
+\item 
+\#define \hyperlink{Protocol_8cpp_aef8c58e88b08bb94cf256f170a04a1c6}{M\-S\-P\-\_\-\-B\-O\-X\-I\-D\-S}~119
+\item 
+\#define \hyperlink{Protocol_8cpp_a636fbefaa911028f373a2d88c3b79ccb}{M\-S\-P\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}~120
+\item 
+\#define \hyperlink{Protocol_8cpp_a169f4fe0d0720c8db7dea94a0f1f8447}{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-S\-T\-A\-T\-U\-S}~121
+\item 
+\#define \hyperlink{Protocol_8cpp_ac9e68bfeeb1f98bf9ffbfcce29fed697}{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}~122
+\item 
+\#define \hyperlink{Protocol_8cpp_a451d3b82a6c5269b27ad9d157cc5a93a}{M\-S\-P\-\_\-\-C\-E\-L\-L\-S}~130
+\item 
+\#define \hyperlink{Protocol_8cpp_a9ac06217b1f71561e5e88cff98f48752}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-R\-C}~200
+\item 
+\#define \hyperlink{Protocol_8cpp_ab001d5f2280fe6af3a015f381be96fa6}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}~201
+\item 
+\#define \hyperlink{Protocol_8cpp_a5f1bb9dd829d7474b58855fb35318d39}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-P\-I\-D}~202
+\item 
+\#define \hyperlink{Protocol_8cpp_a53bcdf37da0f3cb8079b8c1485cfc104}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-B\-O\-X}~203
+\item 
+\#define \hyperlink{Protocol_8cpp_a74fce1766bf3b7b42f7575ba387f785b}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}~204
+\item 
+\#define \hyperlink{Protocol_8cpp_aa27fb53c8ac3f21992b31db46fc31353}{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}~205
+\item 
+\#define \hyperlink{Protocol_8cpp_a30e9ceddfe73ccd8c211cc87379f654b}{M\-S\-P\-\_\-\-M\-A\-G\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}~206
+\item 
+\#define \hyperlink{Protocol_8cpp_a53ad3e236b8f2f97e8907ce8338b4cc3}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-I\-S\-C}~207
+\item 
+\#define \hyperlink{Protocol_8cpp_a8a2c31f6310c27dfbad3605e82f042da}{M\-S\-P\-\_\-\-R\-E\-S\-E\-T\-\_\-\-C\-O\-N\-F}~208
+\item 
+\#define \hyperlink{Protocol_8cpp_a3924d29d240417b7fe8410c65f0effd1}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-W\-P}~209
+\item 
+\#define \hyperlink{Protocol_8cpp_a276177fdb6e7c4686e628cc17ad3a318}{M\-S\-P\-\_\-\-S\-E\-L\-E\-C\-T\-\_\-\-S\-E\-T\-T\-I\-N\-G}~210
+\item 
+\#define \hyperlink{Protocol_8cpp_acc9a4c44da314923bd50a73d911d64b9}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-H\-E\-A\-D}~211
+\item 
+\#define \hyperlink{Protocol_8cpp_a9136a7a5184b823fc71bc83738f8eac8}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}~212
+\item 
+\#define \hyperlink{Protocol_8cpp_a2b9d504cf362322e7d9bc2464cfa1895}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-O\-T\-O\-R}~214
+\item 
+\#define \hyperlink{Protocol_8cpp_ad115d690fa5a81f75debbb22a83c69a2}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}~215
+\item 
+\#define \hyperlink{Protocol_8cpp_af8682837acda0d90a4d1953f9b46ed9f}{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}~239
+\item 
+\#define \hyperlink{Protocol_8cpp_acd0e3c00af055d2f3275794a2a7321a4}{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}~240
+\item 
+\#define \hyperlink{Protocol_8cpp_a72b9586deea7d9edb7d0ddf45ffbe89c}{M\-S\-P\-\_\-\-B\-I\-N\-D}~241
+\item 
+\#define \hyperlink{Protocol_8cpp_aa2692bb157a11fd08f8f7b8d820d159f}{M\-S\-P\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-W\-R\-I\-T\-E}~250
+\item 
+\#define \hyperlink{Protocol_8cpp_aea7f6e702c2642b845acb19f609675a9}{M\-S\-P\-\_\-\-D\-E\-B\-U\-G\-M\-S\-G}~253
+\item 
+\#define \hyperlink{Protocol_8cpp_ac62ac532a14bdf124cb58563e19e99fe}{M\-S\-P\-\_\-\-D\-E\-B\-U\-G}~254
+\item 
+\#define \hyperlink{Protocol_8cpp_a6378f14810330164b7fb66f3334b2a27}{I\-N\-B\-U\-F\-\_\-\-S\-I\-Z\-E}~64
+\item 
+\#define \hyperlink{Protocol_8cpp_a384e6ba39977e18d064077af37b94210}{R\-X\-\_\-\-C\-O\-N\-D}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89}{M\-S\-P\-\_\-protocol\-\_\-bytes} \{ \\*
+\hyperlink{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89afd6a0e4343048b10646dd2976cc5ad18}{I\-D\-L\-E}, 
+\hyperlink{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89ac864dd1851855c42f3d3b16a32eb48f2}{H\-E\-A\-D\-E\-R\-\_\-\-S\-T\-A\-R\-T}, 
+\hyperlink{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89a6c086c29f3aada21f5d588b507a59621}{H\-E\-A\-D\-E\-R\-\_\-\-M}, 
+\hyperlink{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89af39a0c8bc1d95d68fec80e6fc145272b}{H\-E\-A\-D\-E\-R\-\_\-\-A\-R\-R\-O\-W}, 
+\\*
+\hyperlink{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89a0e5a2b2c92f35834c13642d503c39726}{H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}, 
+\hyperlink{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89aff98cf230cab5e31ac3ca59bd6401a2a}{H\-E\-A\-D\-E\-R\-\_\-\-C\-M\-D}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Protocol_8cpp_a4d960020d7cb3c7134e6de181b15175b}{evaluate\-Other\-Data} (uint8\-\_\-t sr)
+\item 
+void \hyperlink{Protocol_8cpp_a776322efec6d169d5f61ce4599ab1105}{evaluate\-Command} (uint8\-\_\-t c)
+\item 
+void \hyperlink{Protocol_8cpp_a8fd47c5fe81a42050605eb478ecfc7c4}{serial\-Com} ()
+\item 
+void \hyperlink{Protocol_8cpp_a1019f9cf96a17de7cd1801efda0da492}{Serial\-Write16} (uint8\-\_\-t port, int16\-\_\-t \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+void \hyperlink{Protocol_8cpp_a2ae25a04a58527eb326fb867ed6ffe4b}{debugmsg\-\_\-append\-\_\-str} (const char $\ast$\hyperlink{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}{str})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static void uint8\-\_\-t \hyperlink{Protocol_8cpp_a19ff0fdcdbaea8d6c430aa09d1527fb8}{siz}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Protocol_8cpp_a6378f14810330164b7fb66f3334b2a27}{\index{Protocol.\-cpp@{Protocol.\-cpp}!I\-N\-B\-U\-F\-\_\-\-S\-I\-Z\-E@{I\-N\-B\-U\-F\-\_\-\-S\-I\-Z\-E}}
+\index{I\-N\-B\-U\-F\-\_\-\-S\-I\-Z\-E@{I\-N\-B\-U\-F\-\_\-\-S\-I\-Z\-E}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{I\-N\-B\-U\-F\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-N\-B\-U\-F\-\_\-\-S\-I\-Z\-E~64}}\label{Protocol_8cpp_a6378f14810330164b7fb66f3334b2a27}
+\hypertarget{Protocol_8cpp_aa27fb53c8ac3f21992b31db46fc31353}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N@{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}}
+\index{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N@{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N~205}}\label{Protocol_8cpp_aa27fb53c8ac3f21992b31db46fc31353}
+\hypertarget{Protocol_8cpp_acd0e3c00af055d2f3275794a2a7321a4}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M@{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}}
+\index{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M@{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M~240}}\label{Protocol_8cpp_acd0e3c00af055d2f3275794a2a7321a4}
+\hypertarget{Protocol_8cpp_a8d81d150fe5d881b58ec8d47c2b98a9b}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-A\-L\-T\-I\-T\-U\-D\-E@{M\-S\-P\-\_\-\-A\-L\-T\-I\-T\-U\-D\-E}}
+\index{M\-S\-P\-\_\-\-A\-L\-T\-I\-T\-U\-D\-E@{M\-S\-P\-\_\-\-A\-L\-T\-I\-T\-U\-D\-E}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-A\-L\-T\-I\-T\-U\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-A\-L\-T\-I\-T\-U\-D\-E~109}}\label{Protocol_8cpp_a8d81d150fe5d881b58ec8d47c2b98a9b}
+\hypertarget{Protocol_8cpp_a0a50caf6b1582392d548454e339dae00}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-A\-N\-A\-L\-O\-G@{M\-S\-P\-\_\-\-A\-N\-A\-L\-O\-G}}
+\index{M\-S\-P\-\_\-\-A\-N\-A\-L\-O\-G@{M\-S\-P\-\_\-\-A\-N\-A\-L\-O\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-A\-N\-A\-L\-O\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-A\-N\-A\-L\-O\-G~110}}\label{Protocol_8cpp_a0a50caf6b1582392d548454e339dae00}
+\hypertarget{Protocol_8cpp_aa731d52e166ba62bdb62813e94033d08}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-A\-T\-T\-I\-T\-U\-D\-E@{M\-S\-P\-\_\-\-A\-T\-T\-I\-T\-U\-D\-E}}
+\index{M\-S\-P\-\_\-\-A\-T\-T\-I\-T\-U\-D\-E@{M\-S\-P\-\_\-\-A\-T\-T\-I\-T\-U\-D\-E}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-A\-T\-T\-I\-T\-U\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-A\-T\-T\-I\-T\-U\-D\-E~108}}\label{Protocol_8cpp_aa731d52e166ba62bdb62813e94033d08}
+\hypertarget{Protocol_8cpp_a72b9586deea7d9edb7d0ddf45ffbe89c}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-B\-I\-N\-D@{M\-S\-P\-\_\-\-B\-I\-N\-D}}
+\index{M\-S\-P\-\_\-\-B\-I\-N\-D@{M\-S\-P\-\_\-\-B\-I\-N\-D}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-B\-I\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-B\-I\-N\-D~241}}\label{Protocol_8cpp_a72b9586deea7d9edb7d0ddf45ffbe89c}
+\hypertarget{Protocol_8cpp_a0b3875177f293db00f36dd2edb61934e}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-B\-O\-X@{M\-S\-P\-\_\-\-B\-O\-X}}
+\index{M\-S\-P\-\_\-\-B\-O\-X@{M\-S\-P\-\_\-\-B\-O\-X}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-B\-O\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-B\-O\-X~113}}\label{Protocol_8cpp_a0b3875177f293db00f36dd2edb61934e}
+\hypertarget{Protocol_8cpp_aef8c58e88b08bb94cf256f170a04a1c6}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-B\-O\-X\-I\-D\-S@{M\-S\-P\-\_\-\-B\-O\-X\-I\-D\-S}}
+\index{M\-S\-P\-\_\-\-B\-O\-X\-I\-D\-S@{M\-S\-P\-\_\-\-B\-O\-X\-I\-D\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-B\-O\-X\-I\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-B\-O\-X\-I\-D\-S~119}}\label{Protocol_8cpp_aef8c58e88b08bb94cf256f170a04a1c6}
+\hypertarget{Protocol_8cpp_a3e68f4cddcb2bda1c4a90f160bb15b9f}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-B\-O\-X\-N\-A\-M\-E\-S@{M\-S\-P\-\_\-\-B\-O\-X\-N\-A\-M\-E\-S}}
+\index{M\-S\-P\-\_\-\-B\-O\-X\-N\-A\-M\-E\-S@{M\-S\-P\-\_\-\-B\-O\-X\-N\-A\-M\-E\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-B\-O\-X\-N\-A\-M\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-B\-O\-X\-N\-A\-M\-E\-S~116}}\label{Protocol_8cpp_a3e68f4cddcb2bda1c4a90f160bb15b9f}
+\hypertarget{Protocol_8cpp_a451d3b82a6c5269b27ad9d157cc5a93a}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-C\-E\-L\-L\-S@{M\-S\-P\-\_\-\-C\-E\-L\-L\-S}}
+\index{M\-S\-P\-\_\-\-C\-E\-L\-L\-S@{M\-S\-P\-\_\-\-C\-E\-L\-L\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-C\-E\-L\-L\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-C\-E\-L\-L\-S~130}}\label{Protocol_8cpp_a451d3b82a6c5269b27ad9d157cc5a93a}
+\hypertarget{Protocol_8cpp_a2588fc811cf51d46467aa8818bf56e12}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-C\-O\-M\-P\-\_\-\-G\-P\-S@{M\-S\-P\-\_\-\-C\-O\-M\-P\-\_\-\-G\-P\-S}}
+\index{M\-S\-P\-\_\-\-C\-O\-M\-P\-\_\-\-G\-P\-S@{M\-S\-P\-\_\-\-C\-O\-M\-P\-\_\-\-G\-P\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-C\-O\-M\-P\-\_\-\-G\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-C\-O\-M\-P\-\_\-\-G\-P\-S~107}}\label{Protocol_8cpp_a2588fc811cf51d46467aa8818bf56e12}
+\hypertarget{Protocol_8cpp_ac62ac532a14bdf124cb58563e19e99fe}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-D\-E\-B\-U\-G@{M\-S\-P\-\_\-\-D\-E\-B\-U\-G}}
+\index{M\-S\-P\-\_\-\-D\-E\-B\-U\-G@{M\-S\-P\-\_\-\-D\-E\-B\-U\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-D\-E\-B\-U\-G~254}}\label{Protocol_8cpp_ac62ac532a14bdf124cb58563e19e99fe}
+\hypertarget{Protocol_8cpp_aea7f6e702c2642b845acb19f609675a9}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-D\-E\-B\-U\-G\-M\-S\-G@{M\-S\-P\-\_\-\-D\-E\-B\-U\-G\-M\-S\-G}}
+\index{M\-S\-P\-\_\-\-D\-E\-B\-U\-G\-M\-S\-G@{M\-S\-P\-\_\-\-D\-E\-B\-U\-G\-M\-S\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-D\-E\-B\-U\-G\-M\-S\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-D\-E\-B\-U\-G\-M\-S\-G~253}}\label{Protocol_8cpp_aea7f6e702c2642b845acb19f609675a9}
+\hypertarget{Protocol_8cpp_aa2692bb157a11fd08f8f7b8d820d159f}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-W\-R\-I\-T\-E@{M\-S\-P\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-W\-R\-I\-T\-E}}
+\index{M\-S\-P\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-W\-R\-I\-T\-E@{M\-S\-P\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-W\-R\-I\-T\-E}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-W\-R\-I\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-E\-E\-P\-R\-O\-M\-\_\-\-W\-R\-I\-T\-E~250}}\label{Protocol_8cpp_aa2692bb157a11fd08f8f7b8d820d159f}
+\hypertarget{Protocol_8cpp_a36252bf005980d6d8b27000764049b14}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-I\-D\-E\-N\-T@{M\-S\-P\-\_\-\-I\-D\-E\-N\-T}}
+\index{M\-S\-P\-\_\-\-I\-D\-E\-N\-T@{M\-S\-P\-\_\-\-I\-D\-E\-N\-T}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-I\-D\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-I\-D\-E\-N\-T~100}}\label{Protocol_8cpp_a36252bf005980d6d8b27000764049b14}
+\hypertarget{Protocol_8cpp_a30e9ceddfe73ccd8c211cc87379f654b}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-M\-A\-G\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N@{M\-S\-P\-\_\-\-M\-A\-G\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}}
+\index{M\-S\-P\-\_\-\-M\-A\-G\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N@{M\-S\-P\-\_\-\-M\-A\-G\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-M\-A\-G\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-M\-A\-G\-\_\-\-C\-A\-L\-I\-B\-R\-A\-T\-I\-O\-N~206}}\label{Protocol_8cpp_a30e9ceddfe73ccd8c211cc87379f654b}
+\hypertarget{Protocol_8cpp_a8bba43d447a13d11c4208887d6e317e2}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-M\-I\-S\-C@{M\-S\-P\-\_\-\-M\-I\-S\-C}}
+\index{M\-S\-P\-\_\-\-M\-I\-S\-C@{M\-S\-P\-\_\-\-M\-I\-S\-C}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-M\-I\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-M\-I\-S\-C~114}}\label{Protocol_8cpp_a8bba43d447a13d11c4208887d6e317e2}
+\hypertarget{Protocol_8cpp_a0e532d687542ad8779242ba21de9b6a7}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-M\-O\-T\-O\-R@{M\-S\-P\-\_\-\-M\-O\-T\-O\-R}}
+\index{M\-S\-P\-\_\-\-M\-O\-T\-O\-R@{M\-S\-P\-\_\-\-M\-O\-T\-O\-R}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-M\-O\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-M\-O\-T\-O\-R~104}}\label{Protocol_8cpp_a0e532d687542ad8779242ba21de9b6a7}
+\hypertarget{Protocol_8cpp_a10c16ec0b01ae1e5f5910ec55162c4b1}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-M\-O\-T\-O\-R\-\_\-\-P\-I\-N\-S@{M\-S\-P\-\_\-\-M\-O\-T\-O\-R\-\_\-\-P\-I\-N\-S}}
+\index{M\-S\-P\-\_\-\-M\-O\-T\-O\-R\-\_\-\-P\-I\-N\-S@{M\-S\-P\-\_\-\-M\-O\-T\-O\-R\-\_\-\-P\-I\-N\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-M\-O\-T\-O\-R\-\_\-\-P\-I\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-M\-O\-T\-O\-R\-\_\-\-P\-I\-N\-S~115}}\label{Protocol_8cpp_a10c16ec0b01ae1e5f5910ec55162c4b1}
+\hypertarget{Protocol_8cpp_ac9e68bfeeb1f98bf9ffbfcce29fed697}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G@{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}}
+\index{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G@{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G~122}}\label{Protocol_8cpp_ac9e68bfeeb1f98bf9ffbfcce29fed697}
+\hypertarget{Protocol_8cpp_a169f4fe0d0720c8db7dea94a0f1f8447}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-S\-T\-A\-T\-U\-S@{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-S\-T\-A\-T\-U\-S}}
+\index{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-S\-T\-A\-T\-U\-S@{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-S\-T\-A\-T\-U\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-S\-T\-A\-T\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-N\-A\-V\-\_\-\-S\-T\-A\-T\-U\-S~121}}\label{Protocol_8cpp_a169f4fe0d0720c8db7dea94a0f1f8447}
+\hypertarget{Protocol_8cpp_a7961a5b56725c0a901b93c7936e921ff}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-P\-I\-D@{M\-S\-P\-\_\-\-P\-I\-D}}
+\index{M\-S\-P\-\_\-\-P\-I\-D@{M\-S\-P\-\_\-\-P\-I\-D}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-P\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-P\-I\-D~112}}\label{Protocol_8cpp_a7961a5b56725c0a901b93c7936e921ff}
+\hypertarget{Protocol_8cpp_ab103a1294030a876af61f5b1521ee6be}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-P\-I\-D\-N\-A\-M\-E\-S@{M\-S\-P\-\_\-\-P\-I\-D\-N\-A\-M\-E\-S}}
+\index{M\-S\-P\-\_\-\-P\-I\-D\-N\-A\-M\-E\-S@{M\-S\-P\-\_\-\-P\-I\-D\-N\-A\-M\-E\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-P\-I\-D\-N\-A\-M\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-P\-I\-D\-N\-A\-M\-E\-S~117}}\label{Protocol_8cpp_ab103a1294030a876af61f5b1521ee6be}
+\hypertarget{Protocol_8cpp_a8427a4d62eded2ebde27f0e7ebb3ae8d}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E@{M\-S\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E}}
+\index{M\-S\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E@{M\-S\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-P\-R\-I\-V\-A\-T\-E~1}}\label{Protocol_8cpp_a8427a4d62eded2ebde27f0e7ebb3ae8d}
+\hypertarget{Protocol_8cpp_a84813dabf02b8eaef6867b0cff3ee93b}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S@{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}}
+\index{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S@{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S~106}}\label{Protocol_8cpp_a84813dabf02b8eaef6867b0cff3ee93b}
+\hypertarget{Protocol_8cpp_a35b29e470439a465e1a5cd4d5f01210e}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-I\-M\-U@{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-I\-M\-U}}
+\index{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-I\-M\-U@{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-I\-M\-U}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-I\-M\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-R\-A\-W\-\_\-\-I\-M\-U~102}}\label{Protocol_8cpp_a35b29e470439a465e1a5cd4d5f01210e}
+\hypertarget{Protocol_8cpp_a5ad8a9362cd2f8479c9571f644b21094}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-R\-C@{M\-S\-P\-\_\-\-R\-C}}
+\index{M\-S\-P\-\_\-\-R\-C@{M\-S\-P\-\_\-\-R\-C}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-R\-C~105}}\label{Protocol_8cpp_a5ad8a9362cd2f8479c9571f644b21094}
+\hypertarget{Protocol_8cpp_afb045aca0018bf301b98a27f4a115301}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G@{M\-S\-P\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}}
+\index{M\-S\-P\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G@{M\-S\-P\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G~111}}\label{Protocol_8cpp_afb045aca0018bf301b98a27f4a115301}
+\hypertarget{Protocol_8cpp_a8a2c31f6310c27dfbad3605e82f042da}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-R\-E\-S\-E\-T\-\_\-\-C\-O\-N\-F@{M\-S\-P\-\_\-\-R\-E\-S\-E\-T\-\_\-\-C\-O\-N\-F}}
+\index{M\-S\-P\-\_\-\-R\-E\-S\-E\-T\-\_\-\-C\-O\-N\-F@{M\-S\-P\-\_\-\-R\-E\-S\-E\-T\-\_\-\-C\-O\-N\-F}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-R\-E\-S\-E\-T\-\_\-\-C\-O\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-R\-E\-S\-E\-T\-\_\-\-C\-O\-N\-F~208}}\label{Protocol_8cpp_a8a2c31f6310c27dfbad3605e82f042da}
+\hypertarget{Protocol_8cpp_a276177fdb6e7c4686e628cc17ad3a318}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-L\-E\-C\-T\-\_\-\-S\-E\-T\-T\-I\-N\-G@{M\-S\-P\-\_\-\-S\-E\-L\-E\-C\-T\-\_\-\-S\-E\-T\-T\-I\-N\-G}}
+\index{M\-S\-P\-\_\-\-S\-E\-L\-E\-C\-T\-\_\-\-S\-E\-T\-T\-I\-N\-G@{M\-S\-P\-\_\-\-S\-E\-L\-E\-C\-T\-\_\-\-S\-E\-T\-T\-I\-N\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-L\-E\-C\-T\-\_\-\-S\-E\-T\-T\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-L\-E\-C\-T\-\_\-\-S\-E\-T\-T\-I\-N\-G~210}}\label{Protocol_8cpp_a276177fdb6e7c4686e628cc17ad3a318}
+\hypertarget{Protocol_8cpp_a9fb9bc1876664f40d9ded9a4165a871f}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-R\-V\-O@{M\-S\-P\-\_\-\-S\-E\-R\-V\-O}}
+\index{M\-S\-P\-\_\-\-S\-E\-R\-V\-O@{M\-S\-P\-\_\-\-S\-E\-R\-V\-O}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-R\-V\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-R\-V\-O~103}}\label{Protocol_8cpp_a9fb9bc1876664f40d9ded9a4165a871f}
+\hypertarget{Protocol_8cpp_a636fbefaa911028f373a2d88c3b79ccb}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F@{M\-S\-P\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}}
+\index{M\-S\-P\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F@{M\-S\-P\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F~120}}\label{Protocol_8cpp_a636fbefaa911028f373a2d88c3b79ccb}
+\hypertarget{Protocol_8cpp_af8682837acda0d90a4d1953f9b46ed9f}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-A\-C\-C\-\_\-\-T\-R\-I\-M~239}}\label{Protocol_8cpp_af8682837acda0d90a4d1953f9b46ed9f}
+\hypertarget{Protocol_8cpp_a53bcdf37da0f3cb8079b8c1485cfc104}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-B\-O\-X@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-B\-O\-X}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-B\-O\-X@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-B\-O\-X}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-B\-O\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-B\-O\-X~203}}\label{Protocol_8cpp_a53bcdf37da0f3cb8079b8c1485cfc104}
+\hypertarget{Protocol_8cpp_acc9a4c44da314923bd50a73d911d64b9}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-H\-E\-A\-D@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-H\-E\-A\-D}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-H\-E\-A\-D@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-H\-E\-A\-D}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-H\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-H\-E\-A\-D~211}}\label{Protocol_8cpp_acc9a4c44da314923bd50a73d911d64b9}
+\hypertarget{Protocol_8cpp_a53ad3e236b8f2f97e8907ce8338b4cc3}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-I\-S\-C@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-I\-S\-C}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-I\-S\-C@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-I\-S\-C}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-I\-S\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-I\-S\-C~207}}\label{Protocol_8cpp_a53ad3e236b8f2f97e8907ce8338b4cc3}
+\hypertarget{Protocol_8cpp_a2b9d504cf362322e7d9bc2464cfa1895}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-O\-T\-O\-R@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-O\-T\-O\-R}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-O\-T\-O\-R@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-O\-T\-O\-R}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-O\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-M\-O\-T\-O\-R~214}}\label{Protocol_8cpp_a2b9d504cf362322e7d9bc2464cfa1895}
+\hypertarget{Protocol_8cpp_ad115d690fa5a81f75debbb22a83c69a2}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-N\-A\-V\-\_\-\-C\-O\-N\-F\-I\-G~215}}\label{Protocol_8cpp_ad115d690fa5a81f75debbb22a83c69a2}
+\hypertarget{Protocol_8cpp_a5f1bb9dd829d7474b58855fb35318d39}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-P\-I\-D@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-P\-I\-D}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-P\-I\-D@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-P\-I\-D}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-P\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-P\-I\-D~202}}\label{Protocol_8cpp_a5f1bb9dd829d7474b58855fb35318d39}
+\hypertarget{Protocol_8cpp_ab001d5f2280fe6af3a015f381be96fa6}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-G\-P\-S~201}}\label{Protocol_8cpp_ab001d5f2280fe6af3a015f381be96fa6}
+\hypertarget{Protocol_8cpp_a9ac06217b1f71561e5e88cff98f48752}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-R\-C@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-R\-C}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-R\-C@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-R\-C}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-A\-W\-\_\-\-R\-C~200}}\label{Protocol_8cpp_a9ac06217b1f71561e5e88cff98f48752}
+\hypertarget{Protocol_8cpp_a74fce1766bf3b7b42f7575ba387f785b}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-R\-C\-\_\-\-T\-U\-N\-I\-N\-G~204}}\label{Protocol_8cpp_a74fce1766bf3b7b42f7575ba387f785b}
+\hypertarget{Protocol_8cpp_a9136a7a5184b823fc71bc83738f8eac8}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-S\-E\-R\-V\-O\-\_\-\-C\-O\-N\-F~212}}\label{Protocol_8cpp_a9136a7a5184b823fc71bc83738f8eac8}
+\hypertarget{Protocol_8cpp_a3924d29d240417b7fe8410c65f0effd1}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-W\-P@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-W\-P}}
+\index{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-W\-P@{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-W\-P}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-W\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-E\-T\-\_\-\-W\-P~209}}\label{Protocol_8cpp_a3924d29d240417b7fe8410c65f0effd1}
+\hypertarget{Protocol_8cpp_a5492d330b58e70faa0236730a87ce98a}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-S\-T\-A\-T\-U\-S@{M\-S\-P\-\_\-\-S\-T\-A\-T\-U\-S}}
+\index{M\-S\-P\-\_\-\-S\-T\-A\-T\-U\-S@{M\-S\-P\-\_\-\-S\-T\-A\-T\-U\-S}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-S\-T\-A\-T\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-S\-T\-A\-T\-U\-S~101}}\label{Protocol_8cpp_a5492d330b58e70faa0236730a87ce98a}
+\hypertarget{Protocol_8cpp_a1c00b833e4fc6eec0bea47727cf3e911}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-V\-E\-R\-S\-I\-O\-N@{M\-S\-P\-\_\-\-V\-E\-R\-S\-I\-O\-N}}
+\index{M\-S\-P\-\_\-\-V\-E\-R\-S\-I\-O\-N@{M\-S\-P\-\_\-\-V\-E\-R\-S\-I\-O\-N}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-V\-E\-R\-S\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-V\-E\-R\-S\-I\-O\-N~0}}\label{Protocol_8cpp_a1c00b833e4fc6eec0bea47727cf3e911}
+\hypertarget{Protocol_8cpp_a7f94551eb8b50112486a9d4c785fa58a}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-\-W\-P@{M\-S\-P\-\_\-\-W\-P}}
+\index{M\-S\-P\-\_\-\-W\-P@{M\-S\-P\-\_\-\-W\-P}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-\-W\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-S\-P\-\_\-\-W\-P~118}}\label{Protocol_8cpp_a7f94551eb8b50112486a9d4c785fa58a}
+\hypertarget{Protocol_8cpp_a384e6ba39977e18d064077af37b94210}{\index{Protocol.\-cpp@{Protocol.\-cpp}!R\-X\-\_\-\-C\-O\-N\-D@{R\-X\-\_\-\-C\-O\-N\-D}}
+\index{R\-X\-\_\-\-C\-O\-N\-D@{R\-X\-\_\-\-C\-O\-N\-D}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{R\-X\-\_\-\-C\-O\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-X\-\_\-\-C\-O\-N\-D}}\label{Protocol_8cpp_a384e6ba39977e18d064077af37b94210}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89}{\index{Protocol.\-cpp@{Protocol.\-cpp}!M\-S\-P\-\_\-protocol\-\_\-bytes@{M\-S\-P\-\_\-protocol\-\_\-bytes}}
+\index{M\-S\-P\-\_\-protocol\-\_\-bytes@{M\-S\-P\-\_\-protocol\-\_\-bytes}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{M\-S\-P\-\_\-protocol\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf M\-S\-P\-\_\-protocol\-\_\-bytes}}}\label{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{I\-D\-L\-E@{I\-D\-L\-E}!Protocol.\-cpp@{Protocol.\-cpp}}\index{Protocol.\-cpp@{Protocol.\-cpp}!I\-D\-L\-E@{I\-D\-L\-E}}\item[{\em 
+\hypertarget{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89afd6a0e4343048b10646dd2976cc5ad18}{I\-D\-L\-E}\label{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89afd6a0e4343048b10646dd2976cc5ad18}
+}]\index{H\-E\-A\-D\-E\-R\-\_\-\-S\-T\-A\-R\-T@{H\-E\-A\-D\-E\-R\-\_\-\-S\-T\-A\-R\-T}!Protocol.\-cpp@{Protocol.\-cpp}}\index{Protocol.\-cpp@{Protocol.\-cpp}!H\-E\-A\-D\-E\-R\-\_\-\-S\-T\-A\-R\-T@{H\-E\-A\-D\-E\-R\-\_\-\-S\-T\-A\-R\-T}}\item[{\em 
+\hypertarget{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89ac864dd1851855c42f3d3b16a32eb48f2}{H\-E\-A\-D\-E\-R\-\_\-\-S\-T\-A\-R\-T}\label{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89ac864dd1851855c42f3d3b16a32eb48f2}
+}]\index{H\-E\-A\-D\-E\-R\-\_\-\-M@{H\-E\-A\-D\-E\-R\-\_\-\-M}!Protocol.\-cpp@{Protocol.\-cpp}}\index{Protocol.\-cpp@{Protocol.\-cpp}!H\-E\-A\-D\-E\-R\-\_\-\-M@{H\-E\-A\-D\-E\-R\-\_\-\-M}}\item[{\em 
+\hypertarget{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89a6c086c29f3aada21f5d588b507a59621}{H\-E\-A\-D\-E\-R\-\_\-\-M}\label{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89a6c086c29f3aada21f5d588b507a59621}
+}]\index{H\-E\-A\-D\-E\-R\-\_\-\-A\-R\-R\-O\-W@{H\-E\-A\-D\-E\-R\-\_\-\-A\-R\-R\-O\-W}!Protocol.\-cpp@{Protocol.\-cpp}}\index{Protocol.\-cpp@{Protocol.\-cpp}!H\-E\-A\-D\-E\-R\-\_\-\-A\-R\-R\-O\-W@{H\-E\-A\-D\-E\-R\-\_\-\-A\-R\-R\-O\-W}}\item[{\em 
+\hypertarget{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89af39a0c8bc1d95d68fec80e6fc145272b}{H\-E\-A\-D\-E\-R\-\_\-\-A\-R\-R\-O\-W}\label{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89af39a0c8bc1d95d68fec80e6fc145272b}
+}]\index{H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E@{H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}!Protocol.\-cpp@{Protocol.\-cpp}}\index{Protocol.\-cpp@{Protocol.\-cpp}!H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E@{H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}}\item[{\em 
+\hypertarget{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89a0e5a2b2c92f35834c13642d503c39726}{H\-E\-A\-D\-E\-R\-\_\-\-S\-I\-Z\-E}\label{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89a0e5a2b2c92f35834c13642d503c39726}
+}]\index{H\-E\-A\-D\-E\-R\-\_\-\-C\-M\-D@{H\-E\-A\-D\-E\-R\-\_\-\-C\-M\-D}!Protocol.\-cpp@{Protocol.\-cpp}}\index{Protocol.\-cpp@{Protocol.\-cpp}!H\-E\-A\-D\-E\-R\-\_\-\-C\-M\-D@{H\-E\-A\-D\-E\-R\-\_\-\-C\-M\-D}}\item[{\em 
+\hypertarget{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89aff98cf230cab5e31ac3ca59bd6401a2a}{H\-E\-A\-D\-E\-R\-\_\-\-C\-M\-D}\label{Protocol_8cpp_a0b25271163a2530992de4144c1f43a89aff98cf230cab5e31ac3ca59bd6401a2a}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{Protocol_8cpp_a2ae25a04a58527eb326fb867ed6ffe4b}{\index{Protocol.\-cpp@{Protocol.\-cpp}!debugmsg\-\_\-append\-\_\-str@{debugmsg\-\_\-append\-\_\-str}}
+\index{debugmsg\-\_\-append\-\_\-str@{debugmsg\-\_\-append\-\_\-str}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{debugmsg\-\_\-append\-\_\-str}]{\setlength{\rightskip}{0pt plus 5cm}void debugmsg\-\_\-append\-\_\-str (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{Protocol_8cpp_a2ae25a04a58527eb326fb867ed6ffe4b}
+\hypertarget{Protocol_8cpp_a776322efec6d169d5f61ce4599ab1105}{\index{Protocol.\-cpp@{Protocol.\-cpp}!evaluate\-Command@{evaluate\-Command}}
+\index{evaluate\-Command@{evaluate\-Command}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{evaluate\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void evaluate\-Command (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{c}
+\end{DoxyParamCaption}
+)}}\label{Protocol_8cpp_a776322efec6d169d5f61ce4599ab1105}
+\hypertarget{Protocol_8cpp_a4d960020d7cb3c7134e6de181b15175b}{\index{Protocol.\-cpp@{Protocol.\-cpp}!evaluate\-Other\-Data@{evaluate\-Other\-Data}}
+\index{evaluate\-Other\-Data@{evaluate\-Other\-Data}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{evaluate\-Other\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void evaluate\-Other\-Data (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{sr}
+\end{DoxyParamCaption}
+)}}\label{Protocol_8cpp_a4d960020d7cb3c7134e6de181b15175b}
+\hypertarget{Protocol_8cpp_a8fd47c5fe81a42050605eb478ecfc7c4}{\index{Protocol.\-cpp@{Protocol.\-cpp}!serial\-Com@{serial\-Com}}
+\index{serial\-Com@{serial\-Com}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{serial\-Com}]{\setlength{\rightskip}{0pt plus 5cm}void serial\-Com (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Protocol_8cpp_a8fd47c5fe81a42050605eb478ecfc7c4}
+\hypertarget{Protocol_8cpp_a1019f9cf96a17de7cd1801efda0da492}{\index{Protocol.\-cpp@{Protocol.\-cpp}!Serial\-Write16@{Serial\-Write16}}
+\index{Serial\-Write16@{Serial\-Write16}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{Serial\-Write16}]{\setlength{\rightskip}{0pt plus 5cm}void Serial\-Write16 (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port, }
+\item[{int16\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}}\label{Protocol_8cpp_a1019f9cf96a17de7cd1801efda0da492}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Protocol_8cpp_a19ff0fdcdbaea8d6c430aa09d1527fb8}{\index{Protocol.\-cpp@{Protocol.\-cpp}!siz@{siz}}
+\index{siz@{siz}!Protocol.cpp@{Protocol.\-cpp}}
+\subsubsection[{siz}]{\setlength{\rightskip}{0pt plus 5cm}void uint8\-\_\-t siz}}\label{Protocol_8cpp_a19ff0fdcdbaea8d6c430aa09d1527fb8}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+  \textcolor{keywordflow}{while}(\hyperlink{Protocol_8cpp_a19ff0fdcdbaea8d6c430aa09d1527fb8}{siz}--) *cb++ = read8()
+\end{DoxyCode}

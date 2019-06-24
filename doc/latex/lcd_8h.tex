@@ -1,0 +1,152 @@
+\hypertarget{lcd_8h}{\section{wiring\-Pi/dev\-Lib/lcd.h File Reference}
+\label{lcd_8h}\index{wiring\-Pi/dev\-Lib/lcd.\-h@{wiring\-Pi/dev\-Lib/lcd.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{lcd_8h_a6bfe3f4a880b075a72d2a8318bd10f8e}{M\-A\-X\-\_\-\-L\-C\-D\-S}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{lcd_8h_a688913764edb3a241c26da5e51d70ac2}{lcd\-Home} (const int fd)
+\item 
+void \hyperlink{lcd_8h_ae1b4dfd9571742b5ca0aba92882b57a6}{lcd\-Clear} (const int fd)
+\item 
+void \hyperlink{lcd_8h_af08385cd21eea125d63d6919ecfbea4a}{lcd\-Display} (const int fd, int \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_a0b57aa10271a66f3dc936bba1d2f3830}{state})
+\item 
+void \hyperlink{lcd_8h_a8aa13c894973d52eeed51d10bf869df2}{lcd\-Cursor} (const int fd, int \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_a0b57aa10271a66f3dc936bba1d2f3830}{state})
+\item 
+void \hyperlink{lcd_8h_af39d67df7e36291184f69691bb97285b}{lcd\-Cursor\-Blink} (const int fd, int \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_a0b57aa10271a66f3dc936bba1d2f3830}{state})
+\item 
+void \hyperlink{lcd_8h_abb6341df42d0e652db66e51fbf0ba486}{lcd\-Send\-Command} (const int fd, unsigned char command)
+\item 
+void \hyperlink{lcd_8h_a5d09137f6373e95a692c4b3403729254}{lcd\-Position} (const int fd, int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})
+\item 
+void \hyperlink{lcd_8h_a74d902393394e4d3cebdcf0d81bbaeeb}{lcd\-Char\-Def} (const int fd, int index, unsigned char \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}\mbox{[}8\mbox{]})
+\item 
+void \hyperlink{lcd_8h_a21c60441ee22710add0c9bda1310ed66}{lcd\-Putchar} (const int fd, unsigned char \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+void \hyperlink{lcd_8h_a805efc4a96cca29544672151a9594c20}{lcd\-Puts} (const int fd, const char $\ast$string)
+\item 
+void \hyperlink{lcd_8h_a49c322ad29410ea292f8d976baf6deb9}{lcd\-Printf} (const int fd, const char $\ast$message,...)
+\item 
+int \hyperlink{lcd_8h_accf4d0112435155cf109a4c387cdb425}{lcd\-Init} (const int rows, const int cols, const int bits, const int rs, const int strb, const int d0, const int d1, const int d2, const int d3, const int d4, const int d5, const int d6, const int d7)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{lcd_8h_a6bfe3f4a880b075a72d2a8318bd10f8e}{\index{lcd.\-h@{lcd.\-h}!M\-A\-X\-\_\-\-L\-C\-D\-S@{M\-A\-X\-\_\-\-L\-C\-D\-S}}
+\index{M\-A\-X\-\_\-\-L\-C\-D\-S@{M\-A\-X\-\_\-\-L\-C\-D\-S}!lcd.h@{lcd.\-h}}
+\subsubsection[{M\-A\-X\-\_\-\-L\-C\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-L\-C\-D\-S~8}}\label{lcd_8h_a6bfe3f4a880b075a72d2a8318bd10f8e}
+
+
+\subsection{Function Documentation}
+\hypertarget{lcd_8h_a74d902393394e4d3cebdcf0d81bbaeeb}{\index{lcd.\-h@{lcd.\-h}!lcd\-Char\-Def@{lcd\-Char\-Def}}
+\index{lcd\-Char\-Def@{lcd\-Char\-Def}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Char\-Def}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Char\-Def (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{index, }
+\item[{unsigned char}]{data\mbox{[}8\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_a74d902393394e4d3cebdcf0d81bbaeeb}
+\hypertarget{lcd_8h_ae1b4dfd9571742b5ca0aba92882b57a6}{\index{lcd.\-h@{lcd.\-h}!lcd\-Clear@{lcd\-Clear}}
+\index{lcd\-Clear@{lcd\-Clear}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Clear (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_ae1b4dfd9571742b5ca0aba92882b57a6}
+\hypertarget{lcd_8h_a8aa13c894973d52eeed51d10bf869df2}{\index{lcd.\-h@{lcd.\-h}!lcd\-Cursor@{lcd\-Cursor}}
+\index{lcd\-Cursor@{lcd\-Cursor}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Cursor (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_a8aa13c894973d52eeed51d10bf869df2}
+\hypertarget{lcd_8h_af39d67df7e36291184f69691bb97285b}{\index{lcd.\-h@{lcd.\-h}!lcd\-Cursor\-Blink@{lcd\-Cursor\-Blink}}
+\index{lcd\-Cursor\-Blink@{lcd\-Cursor\-Blink}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Cursor\-Blink}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Cursor\-Blink (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_af39d67df7e36291184f69691bb97285b}
+\hypertarget{lcd_8h_af08385cd21eea125d63d6919ecfbea4a}{\index{lcd.\-h@{lcd.\-h}!lcd\-Display@{lcd\-Display}}
+\index{lcd\-Display@{lcd\-Display}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Display}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Display (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_af08385cd21eea125d63d6919ecfbea4a}
+\hypertarget{lcd_8h_a688913764edb3a241c26da5e51d70ac2}{\index{lcd.\-h@{lcd.\-h}!lcd\-Home@{lcd\-Home}}
+\index{lcd\-Home@{lcd\-Home}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Home}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Home (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_a688913764edb3a241c26da5e51d70ac2}
+\hypertarget{lcd_8h_accf4d0112435155cf109a4c387cdb425}{\index{lcd.\-h@{lcd.\-h}!lcd\-Init@{lcd\-Init}}
+\index{lcd\-Init@{lcd\-Init}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Init}]{\setlength{\rightskip}{0pt plus 5cm}int lcd\-Init (
+\begin{DoxyParamCaption}
+\item[{const int}]{rows, }
+\item[{const int}]{cols, }
+\item[{const int}]{bits, }
+\item[{const int}]{rs, }
+\item[{const int}]{strb, }
+\item[{const int}]{d0, }
+\item[{const int}]{d1, }
+\item[{const int}]{d2, }
+\item[{const int}]{d3, }
+\item[{const int}]{d4, }
+\item[{const int}]{d5, }
+\item[{const int}]{d6, }
+\item[{const int}]{d7}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_accf4d0112435155cf109a4c387cdb425}
+\hypertarget{lcd_8h_a5d09137f6373e95a692c4b3403729254}{\index{lcd.\-h@{lcd.\-h}!lcd\-Position@{lcd\-Position}}
+\index{lcd\-Position@{lcd\-Position}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Position (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_a5d09137f6373e95a692c4b3403729254}
+\hypertarget{lcd_8h_a49c322ad29410ea292f8d976baf6deb9}{\index{lcd.\-h@{lcd.\-h}!lcd\-Printf@{lcd\-Printf}}
+\index{lcd\-Printf@{lcd\-Printf}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Printf}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Printf (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{const char $\ast$}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_a49c322ad29410ea292f8d976baf6deb9}
+\hypertarget{lcd_8h_a21c60441ee22710add0c9bda1310ed66}{\index{lcd.\-h@{lcd.\-h}!lcd\-Putchar@{lcd\-Putchar}}
+\index{lcd\-Putchar@{lcd\-Putchar}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Putchar}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Putchar (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{unsigned char}]{data}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_a21c60441ee22710add0c9bda1310ed66}
+\hypertarget{lcd_8h_a805efc4a96cca29544672151a9594c20}{\index{lcd.\-h@{lcd.\-h}!lcd\-Puts@{lcd\-Puts}}
+\index{lcd\-Puts@{lcd\-Puts}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Puts}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Puts (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_a805efc4a96cca29544672151a9594c20}
+\hypertarget{lcd_8h_abb6341df42d0e652db66e51fbf0ba486}{\index{lcd.\-h@{lcd.\-h}!lcd\-Send\-Command@{lcd\-Send\-Command}}
+\index{lcd\-Send\-Command@{lcd\-Send\-Command}!lcd.h@{lcd.\-h}}
+\subsubsection[{lcd\-Send\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Send\-Command (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{unsigned char}]{command}
+\end{DoxyParamCaption}
+)}}\label{lcd_8h_abb6341df42d0e652db66e51fbf0ba486}

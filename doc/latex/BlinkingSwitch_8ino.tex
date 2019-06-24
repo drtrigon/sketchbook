@@ -1,0 +1,139 @@
+\hypertarget{BlinkingSwitch_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch/\-Blinking\-Switch.ino File Reference}
+\label{BlinkingSwitch_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch/\-Blinking\-Switch.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch/\-Blinking\-Switch.\-ino}}
+}
+
+
+Switch/\-Tunnel for Local\-U\-D\-P-\/\-Software\-Bit\-Bang.  
+
+
+{\ttfamily \#include $<$P\-J\-O\-N\-Interactive\-Router.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{BlinkingSwitch_8ino_af093da5eac99580be6ba61b4dc79f2c1}{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N\-Interactive\-Router\\*
+$<$ P\-J\-O\-N\-Virtual\-Bus\-Router\\*
+$<$ P\-J\-O\-N\-Switch $>$ $>$ \hyperlink{BlinkingSwitch_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{router} (2,(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\})
+\item 
+void \hyperlink{BlinkingSwitch_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{BlinkingSwitch_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{BlinkingSwitch_8ino_af488e931618139cd40b126dabfe9b6bb}{sendnotification\-\_\-function} (const uint8\-\_\-t $\ast$const \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, const uint16\-\_\-t length, const uint8\-\_\-t receiver\-\_\-bus, const uint8\-\_\-t sender\-\_\-bus, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{BlinkingSwitch_8ino_aea3f7775fecafb66a619eb2dcb0357bd}{mac} \mbox{[}$\,$\mbox{]} = \{0x\-D\-E, 0x34, 0x4\-E, 0x\-E\-F, 0x\-F\-E, 0x\-E1\}
+\item 
+Strategy\-Link$<$ Software\-Bit\-Bang $>$ \hyperlink{BlinkingSwitch_8ino_a23282b44f676e7ce4d3df2e799b6a78c}{link1}
+\item 
+Strategy\-Link$<$ Local\-U\-D\-P $>$ \hyperlink{BlinkingSwitch_8ino_a3738aed90e382efb2532449d7e152c7b}{link2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Switch/\-Tunnel for Local\-U\-D\-P-\/\-Software\-Bit\-Bang. \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/08 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-1 \begin{DoxyItemize}
+\item added missing default to switch cases \end{DoxyItemize}
+
+
+1.\-0 \begin{DoxyItemize}
+\item first version derived from P\-J\-O\-N 11.\-0 examples examples/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-R\-G\-B\-Switch/\-Blinking\-R\-G\-B\-Switch.\-ino\end{DoxyItemize}
+Tunnel packets through another medium using one switch on each end. For example, two Software\-Bit\-Bang buses that are far from each other can be joined transparently through a L\-A\-N using the Local\-U\-D\-P strategy, or through a W\-A\-N or Internet using the Ethernet\-T\-C\-P strategy. Features additionally a blinking led indicating packets forwarded with on and off for each direction respectively.
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See Also}
+\href{https://github.com/gioblu/PJON/blob/master/examples/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingRGBSwitch/BlinkingRGBSwitch.ino}{\tt https\-://github.\-com/gioblu/\-P\-J\-O\-N/blob/master/examples/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-R\-G\-B\-Switch/\-Blinking\-R\-G\-B\-Switch.\-ino}
+\end{DoxySeeAlso}
+\begin{DoxyVerb}* OneWire PJON Generic "OWPG" scheme:
+*   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*
+* Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+*
+* Pinout:
+*   1wire PJON data bus (OWPJON SWBB):
+*        1WIRE DATA    -> Arduino Pin D7
+*        GND black     -> Arduino GND
+*   ETH Shield W5100 based
+*   1wire Sniffer/Master/Client Shield
+*
+* Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
+* following files:
+*   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*
+* Thanks to:
+* gioblu - PJON 11.0 and support
+*          @see https://www.pjon.org/
+*          @see https://github.com/gioblu/PJON
+* fredilarsen - support
+* \end{DoxyVerb}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{BlinkingSwitch_8ino_af093da5eac99580be6ba61b4dc79f2c1}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}}
+\index{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S~3}}\label{BlinkingSwitch_8ino_af093da5eac99580be6ba61b4dc79f2c1}
+
+
+\subsection{Function Documentation}
+\hypertarget{BlinkingSwitch_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!loop@{loop}}
+\index{loop@{loop}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{BlinkingSwitch_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!router@{router}}
+\index{router@{router}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{router}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Interactive\-Router$<$P\-J\-O\-N\-Virtual\-Bus\-Router$<$P\-J\-O\-N\-Switch$>$ $>$ router (
+\begin{DoxyParamCaption}
+\item[{2}]{, }
+\item[{(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\}}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}
+\hypertarget{BlinkingSwitch_8ino_af488e931618139cd40b126dabfe9b6bb}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!sendnotification\-\_\-function@{sendnotification\-\_\-function}}
+\index{sendnotification\-\_\-function@{sendnotification\-\_\-function}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{sendnotification\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void sendnotification\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{const uint8\-\_\-t $\ast$const}]{payload, }
+\item[{const uint16\-\_\-t}]{length, }
+\item[{const uint8\-\_\-t}]{receiver\-\_\-bus, }
+\item[{const uint8\-\_\-t}]{sender\-\_\-bus, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch_8ino_af488e931618139cd40b126dabfe9b6bb}
+\hypertarget{BlinkingSwitch_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!setup@{setup}}
+\index{setup@{setup}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{BlinkingSwitch_8ino_a23282b44f676e7ce4d3df2e799b6a78c}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!link1@{link1}}
+\index{link1@{link1}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{link1}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus1 \& link1}}\label{BlinkingSwitch_8ino_a23282b44f676e7ce4d3df2e799b6a78c}
+\hypertarget{BlinkingSwitch_8ino_a3738aed90e382efb2532449d7e152c7b}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!link2@{link2}}
+\index{link2@{link2}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{link2}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus2 \& link2}}\label{BlinkingSwitch_8ino_a3738aed90e382efb2532449d7e152c7b}
+\hypertarget{BlinkingSwitch_8ino_aea3f7775fecafb66a619eb2dcb0357bd}{\index{Blinking\-Switch.\-ino@{Blinking\-Switch.\-ino}!mac@{mac}}
+\index{mac@{mac}!BlinkingSwitch.ino@{Blinking\-Switch.\-ino}}
+\subsubsection[{mac}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} mac\mbox{[}$\,$\mbox{]} = \{0x\-D\-E, 0x34, 0x4\-E, 0x\-E\-F, 0x\-F\-E, 0x\-E1\}}}\label{BlinkingSwitch_8ino_aea3f7775fecafb66a619eb2dcb0357bd}

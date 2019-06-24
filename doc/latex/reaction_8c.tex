@@ -1,0 +1,82 @@
+\hypertarget{reaction_8c}{\section{wiring\-Pi/examples/\-Pi\-Face/reaction.c File Reference}
+\label{reaction_8c}\index{wiring\-Pi/examples/\-Pi\-Face/reaction.\-c@{wiring\-Pi/examples/\-Pi\-Face/reaction.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$pi\-Face.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{reaction_8c_ab26abfd9589c7579aac303f43276950d}{P\-I\-F\-A\-C\-E}~200
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{reaction_8c_a7796daa653978c313c1b050ae53269ff}{light} (int \hyperlink{Uno__Bidirectional__LED__Interface_8ino_a8c935df72ad1a7236c9879fb14aa0d43}{led}, int value)
+\item 
+void \hyperlink{reaction_8c_ac26b18eb138ab63a8367c12670aa1e65}{light\-All} (int onoff)
+\item 
+void \hyperlink{reaction_8c_aecce578413e604b2a403ed3e1ccaacff}{wait\-For\-No\-Buttons} (void)
+\item 
+void \hyperlink{reaction_8c_a6ae44746e46a8f938fa71c4e06cc5f74}{scan\-Button} (int \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a0a7e6169ae96e651da0b37fae3034554}{button})
+\item 
+int \hyperlink{reaction_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{reaction_8c_a75a9e4be7917b2817a5448e0aab1c54d}{outputs} \mbox{[}4\mbox{]} = \{ 0,0,0,0 \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{reaction_8c_ab26abfd9589c7579aac303f43276950d}{\index{reaction.\-c@{reaction.\-c}!P\-I\-F\-A\-C\-E@{P\-I\-F\-A\-C\-E}}
+\index{P\-I\-F\-A\-C\-E@{P\-I\-F\-A\-C\-E}!reaction.c@{reaction.\-c}}
+\subsubsection[{P\-I\-F\-A\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-F\-A\-C\-E~200}}\label{reaction_8c_ab26abfd9589c7579aac303f43276950d}
+
+
+\subsection{Function Documentation}
+\hypertarget{reaction_8c_a7796daa653978c313c1b050ae53269ff}{\index{reaction.\-c@{reaction.\-c}!light@{light}}
+\index{light@{light}!reaction.c@{reaction.\-c}}
+\subsubsection[{light}]{\setlength{\rightskip}{0pt plus 5cm}void light (
+\begin{DoxyParamCaption}
+\item[{int}]{led, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{reaction_8c_a7796daa653978c313c1b050ae53269ff}
+\hypertarget{reaction_8c_ac26b18eb138ab63a8367c12670aa1e65}{\index{reaction.\-c@{reaction.\-c}!light\-All@{light\-All}}
+\index{light\-All@{light\-All}!reaction.c@{reaction.\-c}}
+\subsubsection[{light\-All}]{\setlength{\rightskip}{0pt plus 5cm}void light\-All (
+\begin{DoxyParamCaption}
+\item[{int}]{onoff}
+\end{DoxyParamCaption}
+)}}\label{reaction_8c_ac26b18eb138ab63a8367c12670aa1e65}
+\hypertarget{reaction_8c_a840291bc02cba5474a4cb46a9b9566fe}{\index{reaction.\-c@{reaction.\-c}!main@{main}}
+\index{main@{main}!reaction.c@{reaction.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{reaction_8c_a840291bc02cba5474a4cb46a9b9566fe}
+\hypertarget{reaction_8c_a6ae44746e46a8f938fa71c4e06cc5f74}{\index{reaction.\-c@{reaction.\-c}!scan\-Button@{scan\-Button}}
+\index{scan\-Button@{scan\-Button}!reaction.c@{reaction.\-c}}
+\subsubsection[{scan\-Button}]{\setlength{\rightskip}{0pt plus 5cm}void scan\-Button (
+\begin{DoxyParamCaption}
+\item[{int}]{button}
+\end{DoxyParamCaption}
+)}}\label{reaction_8c_a6ae44746e46a8f938fa71c4e06cc5f74}
+\hypertarget{reaction_8c_aecce578413e604b2a403ed3e1ccaacff}{\index{reaction.\-c@{reaction.\-c}!wait\-For\-No\-Buttons@{wait\-For\-No\-Buttons}}
+\index{wait\-For\-No\-Buttons@{wait\-For\-No\-Buttons}!reaction.c@{reaction.\-c}}
+\subsubsection[{wait\-For\-No\-Buttons}]{\setlength{\rightskip}{0pt plus 5cm}void wait\-For\-No\-Buttons (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{reaction_8c_aecce578413e604b2a403ed3e1ccaacff}
+
+
+\subsection{Variable Documentation}
+\hypertarget{reaction_8c_a75a9e4be7917b2817a5448e0aab1c54d}{\index{reaction.\-c@{reaction.\-c}!outputs@{outputs}}
+\index{outputs@{outputs}!reaction.c@{reaction.\-c}}
+\subsubsection[{outputs}]{\setlength{\rightskip}{0pt plus 5cm}int outputs\mbox{[}4\mbox{]} = \{ 0,0,0,0 \}}}\label{reaction_8c_a75a9e4be7917b2817a5448e0aab1c54d}

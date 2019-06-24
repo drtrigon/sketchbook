@@ -1,0 +1,310 @@
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino}{\section{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader/\-Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.ino File Reference}
+\label{Uno__N64__Controller__Pak__Reader_8ino}\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader/\-Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader/\-Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+}
+
+
+Nintendo 64 Controller Pak Reader for Arduino (Uno+\-S\-D Card)  
+
+
+{\ttfamily \#include $<$Sd\-Fat.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_aad3906e035d4d15e93d608f44643a226}{E\-N\-A\-B\-L\-E\-\_\-\-S\-D}
+\item 
+\#define \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_aec9878d07ac90b1d1298c09c9a0ddea3}{E\-E\-P\-R\-O\-M\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-M\-U\-L\-A\-T\-E\-D}~8
+\item 
+\#define \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_ad5634c2f36664cefb9172580579743a0}{chip\-Select\-Pin}~10
+\item 
+\#define \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a3283890a957c4bb5f76e7ccbcab83a0c}{N64\-\_\-\-P\-I\-N}~2
+\item 
+\#define \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_aa28f593e3f94fbdc4cf2c3577a712b3f}{N64\-\_\-\-H\-I\-G\-H}~D\-D\-R\-D \&= $\sim$0x04
+\item 
+\#define \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a7c8723faf29cf8c164b672efcb620cbf}{N64\-\_\-\-L\-O\-W}~D\-D\-R\-D $\vert$= 0x04
+\item 
+\#define \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a4884a3ffe7033958f8ba619acb6a8366}{N64\-\_\-\-Q\-U\-E\-R\-Y}~(P\-I\-N\-D \& 0x04)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+{\footnotesize template$<$class T $>$ }\\int \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a396fbd5a2d6b5b3f3dac10fec0bdd780}{E\-E\-P\-R\-O\-M\-\_\-write\-Anything} (int ee, const \hyperlink{Yun__Log__BatteryDisCharging_8ino_a1e59dd36aafb310776e617456b9415b5}{T} \&value)
+\begin{DoxyCompactList}\small\item\em Emulate E\-E\-P\-R\-O\-M write function with help of storage on S\-D. \end{DoxyCompactList}\item 
+{\footnotesize template$<$class T $>$ }\\int \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a15fc5dc360b561e03651fd94aa72800f}{E\-E\-P\-R\-O\-M\-\_\-read\-Anything} (int ee, \hyperlink{Yun__Log__BatteryDisCharging_8ino_a1e59dd36aafb310776e617456b9415b5}{T} \&value)
+\begin{DoxyCompactList}\small\item\em Emulate E\-E\-P\-R\-O\-M read function with help of storage on S\-D. \end{DoxyCompactList}\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a00da8f9213ddf7c940aa5c53a4a058ad}{N64\-\_\-send} (unsigned char $\ast$\hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}{buffer}, char length)
+\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a73e605f956703e46287c23a71085e3eb}{N64\-\_\-stop} ()
+\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_ae45220068299673854b81d849fa7d05a}{N64\-\_\-get} (word bitcount)
+\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a0f6d3c63311a1be3a7230f4c15531f03}{get\-\_\-button} ()
+\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a19e305a522fff21d3e2409e765ab5671}{read\-Block} (word my\-Address)
+\begin{DoxyCompactList}\small\item\em read 32bytes from controller pak \end{DoxyCompactList}\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a1a493711903f7ede98cd0f5a81ba0c24}{read\-M\-P\-K} ()
+\begin{DoxyCompactList}\small\item\em reads the M\-P\-K file to the sd card \end{DoxyCompactList}\item 
+void \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Sd\-Fat \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a15e6b7e1f0fb2d1e0fe1654721bb5302}{sd}
+\item 
+Sd\-File \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a16f52ba77735956c329c6df0a52aba8b}{my\-File}
+\item 
+char \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_ae8803a7ccd85598955cfa9d4f3561ac9}{N64\-\_\-raw\-\_\-dump} \mbox{[}257\mbox{]}
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a8b202f44f04f63fc925047860625793d}{my\-Block} \mbox{[}33\mbox{]}
+\item 
+int \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a682c3bf7777c52fec7975e785aaa5eb7}{foldern}
+\item 
+char \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_ad5627db776ac243c3c2acb1bf6928138}{file\-Name} \mbox{[}26\mbox{]}
+\item 
+unsigned long \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_ab5b51e6cb78664c28c70281cf73e6c92}{write\-Errors}
+\item 
+int \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_ae563354a0218546aca0b276f84a85755}{incoming\-Byte}
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_ae7ec651b340ef0dc409255ab3d008396}{sd\-Buffer} \mbox{[}32\mbox{]}
+\item 
+String \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a2c9dda16ae6e126e47f234ee77a306c9}{raw\-Str} = \char`\"{}\char`\"{}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>char \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a462c4d416ae2f845eedf11622b33f5ce}{stick\_x}\\
+\>char \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a1ba71f2f35d51bda37947b2cc56f2804}{stick\_y}\\
+\} \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a04933689c38920a7de42b5d501f2147f}{N64\_status}\\
+
+\end{tabbing}\item 
+String \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a0a7e6169ae96e651da0b37fae3034554}{button} = \char`\"{}N/A\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Nintendo 64 Controller Pak Reader for Arduino (Uno+\-S\-D Card) \begin{DoxyAuthor}{Author}
+sanni, drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/04-\/24 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+V1\-C
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See Also}
+\href{https://github.com/sanni/cartreader/issues/16}{\tt https\-://github.\-com/sanni/cartreader/issues/16} 
+
+\href{https://github.com/sanni/cartreader/blob/master/Cart_Reader/N64.ino}{\tt https\-://github.\-com/sanni/cartreader/blob/master/\-Cart\-\_\-\-Reader/\-N64.\-ino} 
+
+\href{http://www.instructables.com/id/Use-an-Arduino-with-an-N64-controller/}{\tt http\-://www.\-instructables.\-com/id/\-Use-\/an-\/\-Arduino-\/with-\/an-\/\-N64-\/controller/}
+\end{DoxySeeAlso}
+\begin{DoxyVerb}* SD lib:
+*   https://github.com/greiman/SdFat
+* Needs EEPROMAnything.h copied into sketch folder:
+*   https://github.com/sanni/cartreader/blob/master/Cart_Reader/EEPROMAnything.h
+* DIY SD Card interface/adapter:
+*   http://www.instructables.com/id/Cheap-DIY-SD-card-breadboard-socket/
+*   http://www.bot-thoughts.com/2010/02/logging-data-to-sd-cards.html
+*   https://www.arduino.cc/en/Reference/SDCardNotes
+* Inspect (check/test) MPK data read:
+*   https://github.com/bryc/mempak
+*   https://rawgit.com/bryc/mempak/master/index.html
+*
+* Pinout:
+*   https://github.com/sanni/cartreader/issues/16#issuecomment-383758731
+*   N64 - view on controller connector:
+*     _____
+*    /     \    1: GND        -> Arduino GND
+*   | 1 2 3 |   2: DATA       -> Arduino Pin 2
+*   |_______|   3: VCC (3.3V) -> Arduino 3.3V
+*   (contacts start after about 5mm inside the hole)
+*   SD Card:    1: CS         -> Arduino Pin 10
+*               2: DI/MOSI    -> Arduino Pin 11
+*               3: VSS/GND    -> Arduino GND
+*               4: VDD/+3.3V  -> Arduino 3.3V
+*               5: SCK/CLK    -> Arduino Pin 13
+*               7: DO/MISO    -> Arduino Pin 12
+*     Format: use https://github.com/greiman/SdFat/blob/master/examples/SdFormatter/SdFormatter.ino
+*
+* Can also be used for reading WITHOUT SD Card:
+*   1. uncomment "#define ENABLE_SD" below, then compile/upload the code to an Arduino Uno
+*   2. $ sudo miniterm.py /dev/ttyACM0 | tee n64-controllerpak-01.log
+*        in the menu chose '0' to dump to console
+*   3. open .log in text-editor (e.g. kate) and remove all lines except
+*        the ones containing the hex dump and store as it .hex - needs to be 1024 lines
+*   4. $ xxd -r -p n64-controllerpak-01.hex n64-controllerpak-01.mpk
+*   5. $ ls -la n64-controllerpak-01.mpk
+*        check size needs to be 32768 and compare the .hex with .mpk using e.g. mc
+*        finally inspect it on: https://rawgit.com/bryc/mempak/master/index.html
+*
+* Thanks to:
+* Andrew Brown/Peter Den Hartog - N64 send/get functions
+* Shaun Taylor - address/data CRC functions
+* \end{DoxyVerb}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_ad5634c2f36664cefb9172580579743a0}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!chip\-Select\-Pin@{chip\-Select\-Pin}}
+\index{chip\-Select\-Pin@{chip\-Select\-Pin}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{chip\-Select\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define chip\-Select\-Pin~10}}\label{Uno__N64__Controller__Pak__Reader_8ino_ad5634c2f36664cefb9172580579743a0}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_aec9878d07ac90b1d1298c09c9a0ddea3}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!E\-E\-P\-R\-O\-M\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-M\-U\-L\-A\-T\-E\-D@{E\-E\-P\-R\-O\-M\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-M\-U\-L\-A\-T\-E\-D}}
+\index{E\-E\-P\-R\-O\-M\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-M\-U\-L\-A\-T\-E\-D@{E\-E\-P\-R\-O\-M\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-M\-U\-L\-A\-T\-E\-D}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-M\-U\-L\-A\-T\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-E\-P\-R\-O\-M\-\_\-\-S\-I\-Z\-E\-\_\-\-E\-M\-U\-L\-A\-T\-E\-D~8}}\label{Uno__N64__Controller__Pak__Reader_8ino_aec9878d07ac90b1d1298c09c9a0ddea3}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_aad3906e035d4d15e93d608f44643a226}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!E\-N\-A\-B\-L\-E\-\_\-\-S\-D@{E\-N\-A\-B\-L\-E\-\_\-\-S\-D}}
+\index{E\-N\-A\-B\-L\-E\-\_\-\-S\-D@{E\-N\-A\-B\-L\-E\-\_\-\-S\-D}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{E\-N\-A\-B\-L\-E\-\_\-\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-A\-B\-L\-E\-\_\-\-S\-D}}\label{Uno__N64__Controller__Pak__Reader_8ino_aad3906e035d4d15e93d608f44643a226}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_aa28f593e3f94fbdc4cf2c3577a712b3f}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-\-H\-I\-G\-H@{N64\-\_\-\-H\-I\-G\-H}}
+\index{N64\-\_\-\-H\-I\-G\-H@{N64\-\_\-\-H\-I\-G\-H}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-\-H\-I\-G\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-H\-I\-G\-H~D\-D\-R\-D \&= $\sim$0x04}}\label{Uno__N64__Controller__Pak__Reader_8ino_aa28f593e3f94fbdc4cf2c3577a712b3f}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a7c8723faf29cf8c164b672efcb620cbf}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-\-L\-O\-W@{N64\-\_\-\-L\-O\-W}}
+\index{N64\-\_\-\-L\-O\-W@{N64\-\_\-\-L\-O\-W}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-\-L\-O\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-L\-O\-W~D\-D\-R\-D $\vert$= 0x04}}\label{Uno__N64__Controller__Pak__Reader_8ino_a7c8723faf29cf8c164b672efcb620cbf}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a3283890a957c4bb5f76e7ccbcab83a0c}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-\-P\-I\-N@{N64\-\_\-\-P\-I\-N}}
+\index{N64\-\_\-\-P\-I\-N@{N64\-\_\-\-P\-I\-N}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-P\-I\-N~2}}\label{Uno__N64__Controller__Pak__Reader_8ino_a3283890a957c4bb5f76e7ccbcab83a0c}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a4884a3ffe7033958f8ba619acb6a8366}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-\-Q\-U\-E\-R\-Y@{N64\-\_\-\-Q\-U\-E\-R\-Y}}
+\index{N64\-\_\-\-Q\-U\-E\-R\-Y@{N64\-\_\-\-Q\-U\-E\-R\-Y}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-\-Q\-U\-E\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-Q\-U\-E\-R\-Y~(P\-I\-N\-D \& 0x04)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a4884a3ffe7033958f8ba619acb6a8366}
+
+
+\subsection{Function Documentation}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a15fc5dc360b561e03651fd94aa72800f}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!E\-E\-P\-R\-O\-M\-\_\-read\-Anything@{E\-E\-P\-R\-O\-M\-\_\-read\-Anything}}
+\index{E\-E\-P\-R\-O\-M\-\_\-read\-Anything@{E\-E\-P\-R\-O\-M\-\_\-read\-Anything}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-read\-Anything}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int E\-E\-P\-R\-O\-M\-\_\-read\-Anything (
+\begin{DoxyParamCaption}
+\item[{int}]{ee, }
+\item[{{\bf T} \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a15fc5dc360b561e03651fd94aa72800f}
+
+
+Emulate E\-E\-P\-R\-O\-M read function with help of storage on S\-D. 
+
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a396fbd5a2d6b5b3f3dac10fec0bdd780}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!E\-E\-P\-R\-O\-M\-\_\-write\-Anything@{E\-E\-P\-R\-O\-M\-\_\-write\-Anything}}
+\index{E\-E\-P\-R\-O\-M\-\_\-write\-Anything@{E\-E\-P\-R\-O\-M\-\_\-write\-Anything}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-write\-Anything}]{\setlength{\rightskip}{0pt plus 5cm}template$<$class T $>$ int E\-E\-P\-R\-O\-M\-\_\-write\-Anything (
+\begin{DoxyParamCaption}
+\item[{int}]{ee, }
+\item[{const {\bf T} \&}]{value}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a396fbd5a2d6b5b3f3dac10fec0bdd780}
+
+
+Emulate E\-E\-P\-R\-O\-M write function with help of storage on S\-D. 
+
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a0f6d3c63311a1be3a7230f4c15531f03}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!get\-\_\-button@{get\-\_\-button}}
+\index{get\-\_\-button@{get\-\_\-button}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{get\-\_\-button}]{\setlength{\rightskip}{0pt plus 5cm}void get\-\_\-button (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a0f6d3c63311a1be3a7230f4c15531f03}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!loop@{loop}}
+\index{loop@{loop}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_ae45220068299673854b81d849fa7d05a}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-get@{N64\-\_\-get}}
+\index{N64\-\_\-get@{N64\-\_\-get}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-get}]{\setlength{\rightskip}{0pt plus 5cm}void N64\-\_\-get (
+\begin{DoxyParamCaption}
+\item[{word}]{bitcount}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_ae45220068299673854b81d849fa7d05a}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a00da8f9213ddf7c940aa5c53a4a058ad}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-send@{N64\-\_\-send}}
+\index{N64\-\_\-send@{N64\-\_\-send}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}void N64\-\_\-send (
+\begin{DoxyParamCaption}
+\item[{unsigned char $\ast$}]{buffer, }
+\item[{char}]{length}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a00da8f9213ddf7c940aa5c53a4a058ad}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a73e605f956703e46287c23a71085e3eb}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-stop@{N64\-\_\-stop}}
+\index{N64\-\_\-stop@{N64\-\_\-stop}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-stop}]{\setlength{\rightskip}{0pt plus 5cm}void N64\-\_\-stop (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a73e605f956703e46287c23a71085e3eb}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a19e305a522fff21d3e2409e765ab5671}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!read\-Block@{read\-Block}}
+\index{read\-Block@{read\-Block}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{read\-Block}]{\setlength{\rightskip}{0pt plus 5cm}void read\-Block (
+\begin{DoxyParamCaption}
+\item[{word}]{my\-Address}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a19e305a522fff21d3e2409e765ab5671}
+
+
+read 32bytes from controller pak 
+
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a1a493711903f7ede98cd0f5a81ba0c24}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!read\-M\-P\-K@{read\-M\-P\-K}}
+\index{read\-M\-P\-K@{read\-M\-P\-K}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{read\-M\-P\-K}]{\setlength{\rightskip}{0pt plus 5cm}void read\-M\-P\-K (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a1a493711903f7ede98cd0f5a81ba0c24}
+
+
+reads the M\-P\-K file to the sd card 
+
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!setup@{setup}}
+\index{setup@{setup}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__N64__Controller__Pak__Reader_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a0a7e6169ae96e651da0b37fae3034554}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!button@{button}}
+\index{button@{button}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{button}]{\setlength{\rightskip}{0pt plus 5cm}String button = \char`\"{}N/A\char`\"{}}}\label{Uno__N64__Controller__Pak__Reader_8ino_a0a7e6169ae96e651da0b37fae3034554}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_ad5627db776ac243c3c2acb1bf6928138}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!file\-Name@{file\-Name}}
+\index{file\-Name@{file\-Name}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{file\-Name}]{\setlength{\rightskip}{0pt plus 5cm}char file\-Name\mbox{[}26\mbox{]}}}\label{Uno__N64__Controller__Pak__Reader_8ino_ad5627db776ac243c3c2acb1bf6928138}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a682c3bf7777c52fec7975e785aaa5eb7}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!foldern@{foldern}}
+\index{foldern@{foldern}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{foldern}]{\setlength{\rightskip}{0pt plus 5cm}int foldern}}\label{Uno__N64__Controller__Pak__Reader_8ino_a682c3bf7777c52fec7975e785aaa5eb7}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_ae563354a0218546aca0b276f84a85755}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!incoming\-Byte@{incoming\-Byte}}
+\index{incoming\-Byte@{incoming\-Byte}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{incoming\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}int incoming\-Byte}}\label{Uno__N64__Controller__Pak__Reader_8ino_ae563354a0218546aca0b276f84a85755}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a8b202f44f04f63fc925047860625793d}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!my\-Block@{my\-Block}}
+\index{my\-Block@{my\-Block}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{my\-Block}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} my\-Block\mbox{[}33\mbox{]}}}\label{Uno__N64__Controller__Pak__Reader_8ino_a8b202f44f04f63fc925047860625793d}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a16f52ba77735956c329c6df0a52aba8b}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!my\-File@{my\-File}}
+\index{my\-File@{my\-File}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{my\-File}]{\setlength{\rightskip}{0pt plus 5cm}Sd\-File my\-File}}\label{Uno__N64__Controller__Pak__Reader_8ino_a16f52ba77735956c329c6df0a52aba8b}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_ae8803a7ccd85598955cfa9d4f3561ac9}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-raw\-\_\-dump@{N64\-\_\-raw\-\_\-dump}}
+\index{N64\-\_\-raw\-\_\-dump@{N64\-\_\-raw\-\_\-dump}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-raw\-\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}char N64\-\_\-raw\-\_\-dump\mbox{[}257\mbox{]}}}\label{Uno__N64__Controller__Pak__Reader_8ino_ae8803a7ccd85598955cfa9d4f3561ac9}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a04933689c38920a7de42b5d501f2147f}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!N64\-\_\-status@{N64\-\_\-status}}
+\index{N64\-\_\-status@{N64\-\_\-status}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{N64\-\_\-status}]{\setlength{\rightskip}{0pt plus 5cm}struct \{ ... \}   N64\-\_\-status}}\label{Uno__N64__Controller__Pak__Reader_8ino_a04933689c38920a7de42b5d501f2147f}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a2c9dda16ae6e126e47f234ee77a306c9}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!raw\-Str@{raw\-Str}}
+\index{raw\-Str@{raw\-Str}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{raw\-Str}]{\setlength{\rightskip}{0pt plus 5cm}String raw\-Str = \char`\"{}\char`\"{}}}\label{Uno__N64__Controller__Pak__Reader_8ino_a2c9dda16ae6e126e47f234ee77a306c9}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a15e6b7e1f0fb2d1e0fe1654721bb5302}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!sd@{sd}}
+\index{sd@{sd}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{sd}]{\setlength{\rightskip}{0pt plus 5cm}Sd\-Fat sd}}\label{Uno__N64__Controller__Pak__Reader_8ino_a15e6b7e1f0fb2d1e0fe1654721bb5302}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_ae7ec651b340ef0dc409255ab3d008396}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!sd\-Buffer@{sd\-Buffer}}
+\index{sd\-Buffer@{sd\-Buffer}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{sd\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} sd\-Buffer\mbox{[}32\mbox{]}}}\label{Uno__N64__Controller__Pak__Reader_8ino_ae7ec651b340ef0dc409255ab3d008396}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a462c4d416ae2f845eedf11622b33f5ce}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!stick\-\_\-x@{stick\-\_\-x}}
+\index{stick\-\_\-x@{stick\-\_\-x}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{stick\-\_\-x}]{\setlength{\rightskip}{0pt plus 5cm}char stick\-\_\-x}}\label{Uno__N64__Controller__Pak__Reader_8ino_a462c4d416ae2f845eedf11622b33f5ce}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_a1ba71f2f35d51bda37947b2cc56f2804}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!stick\-\_\-y@{stick\-\_\-y}}
+\index{stick\-\_\-y@{stick\-\_\-y}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{stick\-\_\-y}]{\setlength{\rightskip}{0pt plus 5cm}char stick\-\_\-y}}\label{Uno__N64__Controller__Pak__Reader_8ino_a1ba71f2f35d51bda37947b2cc56f2804}
+\hypertarget{Uno__N64__Controller__Pak__Reader_8ino_ab5b51e6cb78664c28c70281cf73e6c92}{\index{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}!write\-Errors@{write\-Errors}}
+\index{write\-Errors@{write\-Errors}!Uno_N64_Controller_Pak_Reader.ino@{Uno\-\_\-\-N64\-\_\-\-Controller\-\_\-\-Pak\-\_\-\-Reader.\-ino}}
+\subsubsection[{write\-Errors}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long write\-Errors}}\label{Uno__N64__Controller__Pak__Reader_8ino_ab5b51e6cb78664c28c70281cf73e6c92}

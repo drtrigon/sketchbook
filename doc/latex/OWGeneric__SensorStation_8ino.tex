@@ -1,0 +1,387 @@
+\hypertarget{OWGeneric__SensorStation_8ino}{\section{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic\-\_\-\-Sensor\-Station/\-O\-W\-Generic\-\_\-\-Sensor\-Station.ino File Reference}
+\label{OWGeneric__SensorStation_8ino}\index{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic\-\_\-\-Sensor\-Station/\-O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-Generic\-\_\-\-Sensor\-Station/\-O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+}
+{\ttfamily \#include $<$One\-Wire\-Slave.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-Sensor.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-U.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-L\-S\-M9\-D\-S0.\-h$>$}\\*
+{\ttfamily \#include $<$S\-P\-I.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-B\-M\-P183.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}{Software\-Ver}~1.\-0
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}{Sensor\-Count}~27
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_abd966e26c1237652c6c1dc46a8f14203}{L\-E\-D\-Pin}~13
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin}~2
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a46bfd454f3dcedfc61d37a8dd954fa74}{Meas\-Pin}~A7
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a48db864f229e45ff129d71723d9f633e}{M\-U\-X\-\_\-\-S0}~6
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a4cd476538a9883cf5346d61ea5951c7b}{M\-U\-X\-\_\-\-S1}~5
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a19bf2fd37ec8cfdd994f6fe79302de36}{M\-U\-X\-\_\-\-S2}~4
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a7ba15d428477b37f67a965bd059208cf}{M\-U\-X\-\_\-\-S3}~3
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a04301d855ba0d6c7f01c03a071a735ca}{T\-C\-S\-\_\-\-S0\-S1}~A1
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_af43d62169125e63d4338df237fbef7f3}{T\-C\-S\-\_\-\-S2}~8
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a56c62c8cc00d42e68c789467d666f7ea}{T\-C\-S\-\_\-\-S3}~9
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a519f4135221f6f2579429e0b05e2a12c}{T\-C\-S\-\_\-\-O\-U\-T}~7
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_ad3c04d082154f2d617d706d13200782f}{D\-U\-S\-T\-\_\-\-L\-E\-D}~A3
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a65321e8415f3d7eaec3b1889ae61842f}{B\-M\-P183\-\_\-\-C\-L\-K}~A2
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a125fbe56052c13ea3123006b461575bc}{B\-M\-P183\-\_\-\-S\-D\-O}~12
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a1bf5748a363336a822dfec5c86a39a05}{B\-M\-P183\-\_\-\-S\-D\-I}~11
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a66fd4cc54157850a2297eb5d47456bd1}{B\-M\-P183\-\_\-\-C\-S}~10
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_ac71a92c90affb3d6a66641ac05f1545c}{flash\-Pause}~100
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{flash\-Length}~50
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_ae6c5811c029a6ee1565195f9e17ddec2}{timeout}~10000
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_ad2949cd38aaf35ebd08e14a1eae8bf9a}{dust\-D\-Pre\-M}~280
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a8119e07207b489bdc1396bbd433cd1f2}{dust\-D\-Post\-M}~40
+\item 
+\#define \hyperlink{OWGeneric__SensorStation_8ino_a731c28403cdc3bc7943ac52a2a1e840c}{dust\-D\-Off}~9680
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+One\-Wire\-Slave \hyperlink{OWGeneric__SensorStation_8ino_a29dc68449cb5938be210109740e26ce3}{ds} (\hyperlink{OWRain1_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{O\-W\-Pin})
+\item 
+void \hyperlink{OWGeneric__SensorStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWGeneric__SensorStation_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{loop} (void)
+\item 
+void \hyperlink{OWGeneric__SensorStation_8ino_a2e9c5136d19b1a95fc427e0852deab5c}{process} ()
+\item 
+void \hyperlink{OWGeneric__SensorStation_8ino_a097292225769f56d224f441fee48cbdb}{pack} (float \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+void \hyperlink{OWGeneric__SensorStation_8ino_ad85ccbb9e4d8bf300045efeaaec603ef}{select\-M\-U\-Xch} (char ch)
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_a56124f4e2476972604bcc35d8c6418b7}{meas\-Freq} (void)
+\item 
+unsigned long \hyperlink{OWGeneric__SensorStation_8ino_a70fb4c0d491079e66161692c9f3b3437}{meas\-Dust} (void)
+\item 
+void \hyperlink{OWGeneric__SensorStation_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}{Flash\-L\-E\-D\-\_\-blocking} (void)
+\item 
+void \hyperlink{OWGeneric__SensorStation_8ino_aea2efd3e27dd82d17fd923d99287f981}{debug\-Print} (int time)
+\item 
+long \hyperlink{OWGeneric__SensorStation_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{read\-Vcc} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned char \hyperlink{OWGeneric__SensorStation_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{rom} \mbox{[}8\mbox{]} = \{D\-S2415, 0x\-E2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00\}
+\item 
+char \hyperlink{OWGeneric__SensorStation_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}{rtccountr\-\_\-in} \mbox{[}5\mbox{]} = \{ 0x00, 0x00, 0x00, 0x00, 0x00\}
+\item 
+char \hyperlink{OWGeneric__SensorStation_8ino_ac150db4005f4bac8510f9e697f1c291a}{rtccountr\-\_\-out} \mbox{[}5\mbox{]} = \{B11110000, 0x01, 0x23, 0x\-C\-D, 0x\-E\-F\}
+\item 
+Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified \hyperlink{OWGeneric__SensorStation_8ino_a34dc1ffbb166b7afbf402f717b871f77}{tsl} = Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified(T\-S\-L2561\-\_\-\-A\-D\-D\-R\-\_\-\-F\-L\-O\-A\-T, 12345)
+\item 
+Adafruit\-\_\-\-L\-S\-M9\-D\-S0 \hyperlink{OWGeneric__SensorStation_8ino_a71a3604f36c6158d823f6ff290ae9f33}{lsm} = Adafruit\-\_\-\-L\-S\-M9\-D\-S0(1000)
+\item 
+Adafruit\-\_\-\-B\-M\-P183 \hyperlink{OWGeneric__SensorStation_8ino_a6336d5c8f5738cddca3c87581145067b}{bmp} = Adafruit\-\_\-\-B\-M\-P183(\hyperlink{OWGeneric__SensorStation_8ino_a65321e8415f3d7eaec3b1889ae61842f}{B\-M\-P183\-\_\-\-C\-L\-K}, \hyperlink{OWGeneric__SensorStation_8ino_a125fbe56052c13ea3123006b461575bc}{B\-M\-P183\-\_\-\-S\-D\-O}, \hyperlink{OWGeneric__SensorStation_8ino_a1bf5748a363336a822dfec5c86a39a05}{B\-M\-P183\-\_\-\-S\-D\-I}, \hyperlink{OWGeneric__SensorStation_8ino_a66fd4cc54157850a2297eb5d47456bd1}{B\-M\-P183\-\_\-\-C\-S})
+\item 
+unsigned int \hyperlink{OWGeneric__SensorStation_8ino_a46d2773d075382821ba5cc9724036ef6}{mmin}
+\item 
+unsigned int \hyperlink{OWGeneric__SensorStation_8ino_ac3c625f389082ca7f017934b3508462d}{mmax}
+\item 
+unsigned int \hyperlink{OWGeneric__SensorStation_8ino_a9163138d612480a614fa98c44e4318c4}{val}
+\item 
+unsigned int \hyperlink{OWGeneric__SensorStation_8ino_ad54903c3e759902a4089ee088aedb4a6}{mavg}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{R}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{B}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_a0b5841fe91d5a3db72753b6217923030}{G}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{X}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_aa65967cca170d24dcd0d555df0d5ee4f}{Z}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}
+\item 
+float \hyperlink{OWGeneric__SensorStation_8ino_ae47c4a915979914e81579186cbb714c4}{C\-C\-T}
+\item 
+uint16\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_aaa5c7d0bf3e3db372c321ee38a514a57}{broadband}
+\item 
+uint16\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_a5677d0b4405dd192091db97a8941dbc8}{infrared}
+\item 
+sensors\-\_\-event\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_a40ecda65c4ebce49fa139666f210bef0}{event}
+\item 
+sensors\-\_\-event\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_a7bad5edab600e06ff4af63e3cc226f20}{accel}
+\item 
+sensors\-\_\-event\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_aa44c60813137fabeac14008894d837fb}{mag}
+\item 
+sensors\-\_\-event\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_ad9c3e0362e691a8226f8962f3e828f5f}{gyro}
+\item 
+sensors\-\_\-event\-\_\-t \hyperlink{OWGeneric__SensorStation_8ino_a448f1824fe784c77a16c0696d5f59966}{temp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWGeneric__SensorStation_8ino_a65321e8415f3d7eaec3b1889ae61842f}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!B\-M\-P183\-\_\-\-C\-L\-K@{B\-M\-P183\-\_\-\-C\-L\-K}}
+\index{B\-M\-P183\-\_\-\-C\-L\-K@{B\-M\-P183\-\_\-\-C\-L\-K}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{B\-M\-P183\-\_\-\-C\-L\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-M\-P183\-\_\-\-C\-L\-K~A2}}\label{OWGeneric__SensorStation_8ino_a65321e8415f3d7eaec3b1889ae61842f}
+\hypertarget{OWGeneric__SensorStation_8ino_a66fd4cc54157850a2297eb5d47456bd1}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!B\-M\-P183\-\_\-\-C\-S@{B\-M\-P183\-\_\-\-C\-S}}
+\index{B\-M\-P183\-\_\-\-C\-S@{B\-M\-P183\-\_\-\-C\-S}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{B\-M\-P183\-\_\-\-C\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-M\-P183\-\_\-\-C\-S~10}}\label{OWGeneric__SensorStation_8ino_a66fd4cc54157850a2297eb5d47456bd1}
+\hypertarget{OWGeneric__SensorStation_8ino_a1bf5748a363336a822dfec5c86a39a05}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!B\-M\-P183\-\_\-\-S\-D\-I@{B\-M\-P183\-\_\-\-S\-D\-I}}
+\index{B\-M\-P183\-\_\-\-S\-D\-I@{B\-M\-P183\-\_\-\-S\-D\-I}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{B\-M\-P183\-\_\-\-S\-D\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-M\-P183\-\_\-\-S\-D\-I~11}}\label{OWGeneric__SensorStation_8ino_a1bf5748a363336a822dfec5c86a39a05}
+\hypertarget{OWGeneric__SensorStation_8ino_a125fbe56052c13ea3123006b461575bc}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!B\-M\-P183\-\_\-\-S\-D\-O@{B\-M\-P183\-\_\-\-S\-D\-O}}
+\index{B\-M\-P183\-\_\-\-S\-D\-O@{B\-M\-P183\-\_\-\-S\-D\-O}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{B\-M\-P183\-\_\-\-S\-D\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-M\-P183\-\_\-\-S\-D\-O~12}}\label{OWGeneric__SensorStation_8ino_a125fbe56052c13ea3123006b461575bc}
+\hypertarget{OWGeneric__SensorStation_8ino_ad3c04d082154f2d617d706d13200782f}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!D\-U\-S\-T\-\_\-\-L\-E\-D@{D\-U\-S\-T\-\_\-\-L\-E\-D}}
+\index{D\-U\-S\-T\-\_\-\-L\-E\-D@{D\-U\-S\-T\-\_\-\-L\-E\-D}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{D\-U\-S\-T\-\_\-\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-U\-S\-T\-\_\-\-L\-E\-D~A3}}\label{OWGeneric__SensorStation_8ino_ad3c04d082154f2d617d706d13200782f}
+\hypertarget{OWGeneric__SensorStation_8ino_a731c28403cdc3bc7943ac52a2a1e840c}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!dust\-D\-Off@{dust\-D\-Off}}
+\index{dust\-D\-Off@{dust\-D\-Off}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{dust\-D\-Off}]{\setlength{\rightskip}{0pt plus 5cm}\#define dust\-D\-Off~9680}}\label{OWGeneric__SensorStation_8ino_a731c28403cdc3bc7943ac52a2a1e840c}
+\hypertarget{OWGeneric__SensorStation_8ino_a8119e07207b489bdc1396bbd433cd1f2}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!dust\-D\-Post\-M@{dust\-D\-Post\-M}}
+\index{dust\-D\-Post\-M@{dust\-D\-Post\-M}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{dust\-D\-Post\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define dust\-D\-Post\-M~40}}\label{OWGeneric__SensorStation_8ino_a8119e07207b489bdc1396bbd433cd1f2}
+\hypertarget{OWGeneric__SensorStation_8ino_ad2949cd38aaf35ebd08e14a1eae8bf9a}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!dust\-D\-Pre\-M@{dust\-D\-Pre\-M}}
+\index{dust\-D\-Pre\-M@{dust\-D\-Pre\-M}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{dust\-D\-Pre\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define dust\-D\-Pre\-M~280}}\label{OWGeneric__SensorStation_8ino_ad2949cd38aaf35ebd08e14a1eae8bf9a}
+\hypertarget{OWGeneric__SensorStation_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!flash\-Length@{flash\-Length}}
+\index{flash\-Length@{flash\-Length}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{flash\-Length}]{\setlength{\rightskip}{0pt plus 5cm}\#define flash\-Length~50}}\label{OWGeneric__SensorStation_8ino_a65b6f41e12d2d8bdbd3416c8db11770e}
+\hypertarget{OWGeneric__SensorStation_8ino_ac71a92c90affb3d6a66641ac05f1545c}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!flash\-Pause@{flash\-Pause}}
+\index{flash\-Pause@{flash\-Pause}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{flash\-Pause}]{\setlength{\rightskip}{0pt plus 5cm}\#define flash\-Pause~100}}\label{OWGeneric__SensorStation_8ino_ac71a92c90affb3d6a66641ac05f1545c}
+\hypertarget{OWGeneric__SensorStation_8ino_abd966e26c1237652c6c1dc46a8f14203}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!L\-E\-D\-Pin@{L\-E\-D\-Pin}}
+\index{L\-E\-D\-Pin@{L\-E\-D\-Pin}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{L\-E\-D\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D\-Pin~13}}\label{OWGeneric__SensorStation_8ino_abd966e26c1237652c6c1dc46a8f14203}
+\hypertarget{OWGeneric__SensorStation_8ino_a46bfd454f3dcedfc61d37a8dd954fa74}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!Meas\-Pin@{Meas\-Pin}}
+\index{Meas\-Pin@{Meas\-Pin}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{Meas\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define Meas\-Pin~A7}}\label{OWGeneric__SensorStation_8ino_a46bfd454f3dcedfc61d37a8dd954fa74}
+\hypertarget{OWGeneric__SensorStation_8ino_a48db864f229e45ff129d71723d9f633e}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!M\-U\-X\-\_\-\-S0@{M\-U\-X\-\_\-\-S0}}
+\index{M\-U\-X\-\_\-\-S0@{M\-U\-X\-\_\-\-S0}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{M\-U\-X\-\_\-\-S0}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-U\-X\-\_\-\-S0~6}}\label{OWGeneric__SensorStation_8ino_a48db864f229e45ff129d71723d9f633e}
+\hypertarget{OWGeneric__SensorStation_8ino_a4cd476538a9883cf5346d61ea5951c7b}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!M\-U\-X\-\_\-\-S1@{M\-U\-X\-\_\-\-S1}}
+\index{M\-U\-X\-\_\-\-S1@{M\-U\-X\-\_\-\-S1}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{M\-U\-X\-\_\-\-S1}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-U\-X\-\_\-\-S1~5}}\label{OWGeneric__SensorStation_8ino_a4cd476538a9883cf5346d61ea5951c7b}
+\hypertarget{OWGeneric__SensorStation_8ino_a19bf2fd37ec8cfdd994f6fe79302de36}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!M\-U\-X\-\_\-\-S2@{M\-U\-X\-\_\-\-S2}}
+\index{M\-U\-X\-\_\-\-S2@{M\-U\-X\-\_\-\-S2}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{M\-U\-X\-\_\-\-S2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-U\-X\-\_\-\-S2~4}}\label{OWGeneric__SensorStation_8ino_a19bf2fd37ec8cfdd994f6fe79302de36}
+\hypertarget{OWGeneric__SensorStation_8ino_a7ba15d428477b37f67a965bd059208cf}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!M\-U\-X\-\_\-\-S3@{M\-U\-X\-\_\-\-S3}}
+\index{M\-U\-X\-\_\-\-S3@{M\-U\-X\-\_\-\-S3}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{M\-U\-X\-\_\-\-S3}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-U\-X\-\_\-\-S3~3}}\label{OWGeneric__SensorStation_8ino_a7ba15d428477b37f67a965bd059208cf}
+\hypertarget{OWGeneric__SensorStation_8ino_a7f5aa1ac0711ae18877a165a9bf24625}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!O\-W\-Pin@{O\-W\-Pin}}
+\index{O\-W\-Pin@{O\-W\-Pin}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{O\-W\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-Pin~2}}\label{OWGeneric__SensorStation_8ino_a7f5aa1ac0711ae18877a165a9bf24625}
+\hypertarget{OWGeneric__SensorStation_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!Sensor\-Count@{Sensor\-Count}}
+\index{Sensor\-Count@{Sensor\-Count}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{Sensor\-Count}]{\setlength{\rightskip}{0pt plus 5cm}\#define Sensor\-Count~27}}\label{OWGeneric__SensorStation_8ino_ab8efc8d6fc0797bbfe99a0797dd59029}
+\hypertarget{OWGeneric__SensorStation_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!Software\-Ver@{Software\-Ver}}
+\index{Software\-Ver@{Software\-Ver}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{Software\-Ver}]{\setlength{\rightskip}{0pt plus 5cm}\#define Software\-Ver~1.\-0}}\label{OWGeneric__SensorStation_8ino_a53a52b67d1aadf20dbeb5907cf7e86c7}
+\hypertarget{OWGeneric__SensorStation_8ino_a519f4135221f6f2579429e0b05e2a12c}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!T\-C\-S\-\_\-\-O\-U\-T@{T\-C\-S\-\_\-\-O\-U\-T}}
+\index{T\-C\-S\-\_\-\-O\-U\-T@{T\-C\-S\-\_\-\-O\-U\-T}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{T\-C\-S\-\_\-\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-C\-S\-\_\-\-O\-U\-T~7}}\label{OWGeneric__SensorStation_8ino_a519f4135221f6f2579429e0b05e2a12c}
+\hypertarget{OWGeneric__SensorStation_8ino_a04301d855ba0d6c7f01c03a071a735ca}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!T\-C\-S\-\_\-\-S0\-S1@{T\-C\-S\-\_\-\-S0\-S1}}
+\index{T\-C\-S\-\_\-\-S0\-S1@{T\-C\-S\-\_\-\-S0\-S1}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{T\-C\-S\-\_\-\-S0\-S1}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-C\-S\-\_\-\-S0\-S1~A1}}\label{OWGeneric__SensorStation_8ino_a04301d855ba0d6c7f01c03a071a735ca}
+\hypertarget{OWGeneric__SensorStation_8ino_af43d62169125e63d4338df237fbef7f3}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!T\-C\-S\-\_\-\-S2@{T\-C\-S\-\_\-\-S2}}
+\index{T\-C\-S\-\_\-\-S2@{T\-C\-S\-\_\-\-S2}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{T\-C\-S\-\_\-\-S2}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-C\-S\-\_\-\-S2~8}}\label{OWGeneric__SensorStation_8ino_af43d62169125e63d4338df237fbef7f3}
+\hypertarget{OWGeneric__SensorStation_8ino_a56c62c8cc00d42e68c789467d666f7ea}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!T\-C\-S\-\_\-\-S3@{T\-C\-S\-\_\-\-S3}}
+\index{T\-C\-S\-\_\-\-S3@{T\-C\-S\-\_\-\-S3}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{T\-C\-S\-\_\-\-S3}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-C\-S\-\_\-\-S3~9}}\label{OWGeneric__SensorStation_8ino_a56c62c8cc00d42e68c789467d666f7ea}
+\hypertarget{OWGeneric__SensorStation_8ino_ae6c5811c029a6ee1565195f9e17ddec2}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!timeout@{timeout}}
+\index{timeout@{timeout}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{timeout}]{\setlength{\rightskip}{0pt plus 5cm}\#define timeout~10000}}\label{OWGeneric__SensorStation_8ino_ae6c5811c029a6ee1565195f9e17ddec2}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWGeneric__SensorStation_8ino_aea2efd3e27dd82d17fd923d99287f981}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!debug\-Print@{debug\-Print}}
+\index{debug\-Print@{debug\-Print}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{debug\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void debug\-Print (
+\begin{DoxyParamCaption}
+\item[{int}]{time}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_aea2efd3e27dd82d17fd923d99287f981}
+\hypertarget{OWGeneric__SensorStation_8ino_a29dc68449cb5938be210109740e26ce3}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!ds@{ds}}
+\index{ds@{ds}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds}]{\setlength{\rightskip}{0pt plus 5cm}One\-Wire\-Slave ds (
+\begin{DoxyParamCaption}
+\item[{{\bf O\-W\-Pin}}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a29dc68449cb5938be210109740e26ce3}
+\hypertarget{OWGeneric__SensorStation_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!Flash\-L\-E\-D\-\_\-blocking@{Flash\-L\-E\-D\-\_\-blocking}}
+\index{Flash\-L\-E\-D\-\_\-blocking@{Flash\-L\-E\-D\-\_\-blocking}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{Flash\-L\-E\-D\-\_\-blocking}]{\setlength{\rightskip}{0pt plus 5cm}void Flash\-L\-E\-D\-\_\-blocking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a4833df7e1a798440cec59dfdf6d1eaf9}
+\hypertarget{OWGeneric__SensorStation_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a0b33edabd7f1c4e4a0bf32c67269be2f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{OWGeneric__SensorStation_8ino_a70fb4c0d491079e66161692c9f3b3437}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!meas\-Dust@{meas\-Dust}}
+\index{meas\-Dust@{meas\-Dust}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{meas\-Dust}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long meas\-Dust (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a70fb4c0d491079e66161692c9f3b3437}
+\hypertarget{OWGeneric__SensorStation_8ino_a56124f4e2476972604bcc35d8c6418b7}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!meas\-Freq@{meas\-Freq}}
+\index{meas\-Freq@{meas\-Freq}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{meas\-Freq}]{\setlength{\rightskip}{0pt plus 5cm}float meas\-Freq (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a56124f4e2476972604bcc35d8c6418b7}
+\hypertarget{OWGeneric__SensorStation_8ino_a097292225769f56d224f441fee48cbdb}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!pack@{pack}}
+\index{pack@{pack}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{pack}]{\setlength{\rightskip}{0pt plus 5cm}void pack (
+\begin{DoxyParamCaption}
+\item[{float}]{val}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a097292225769f56d224f441fee48cbdb}
+\hypertarget{OWGeneric__SensorStation_8ino_a2e9c5136d19b1a95fc427e0852deab5c}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!process@{process}}
+\index{process@{process}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{process}]{\setlength{\rightskip}{0pt plus 5cm}void process (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a2e9c5136d19b1a95fc427e0852deab5c}
+\hypertarget{OWGeneric__SensorStation_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}long read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a8e23c9421f6663303ea22e4969e2f6c1}
+\hypertarget{OWGeneric__SensorStation_8ino_ad85ccbb9e4d8bf300045efeaaec603ef}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!select\-M\-U\-Xch@{select\-M\-U\-Xch}}
+\index{select\-M\-U\-Xch@{select\-M\-U\-Xch}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{select\-M\-U\-Xch}]{\setlength{\rightskip}{0pt plus 5cm}void select\-M\-U\-Xch (
+\begin{DoxyParamCaption}
+\item[{char}]{ch}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_ad85ccbb9e4d8bf300045efeaaec603ef}
+\hypertarget{OWGeneric__SensorStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWGeneric__SensorStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWGeneric__SensorStation_8ino_a7bad5edab600e06ff4af63e3cc226f20}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!accel@{accel}}
+\index{accel@{accel}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{accel}]{\setlength{\rightskip}{0pt plus 5cm}sensors\-\_\-event\-\_\-t accel}}\label{OWGeneric__SensorStation_8ino_a7bad5edab600e06ff4af63e3cc226f20}
+\hypertarget{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!B@{B}}
+\index{B@{B}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{B}]{\setlength{\rightskip}{0pt plus 5cm}float B}}\label{OWGeneric__SensorStation_8ino_a8188fea1f6709096fe21a3ee084d00d0}
+\hypertarget{OWGeneric__SensorStation_8ino_a6336d5c8f5738cddca3c87581145067b}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!bmp@{bmp}}
+\index{bmp@{bmp}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{bmp}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-B\-M\-P183 bmp = Adafruit\-\_\-\-B\-M\-P183({\bf B\-M\-P183\-\_\-\-C\-L\-K}, {\bf B\-M\-P183\-\_\-\-S\-D\-O}, {\bf B\-M\-P183\-\_\-\-S\-D\-I}, {\bf B\-M\-P183\-\_\-\-C\-S})}}\label{OWGeneric__SensorStation_8ino_a6336d5c8f5738cddca3c87581145067b}
+\hypertarget{OWGeneric__SensorStation_8ino_aaa5c7d0bf3e3db372c321ee38a514a57}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!broadband@{broadband}}
+\index{broadband@{broadband}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{broadband}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t broadband}}\label{OWGeneric__SensorStation_8ino_aaa5c7d0bf3e3db372c321ee38a514a57}
+\hypertarget{OWGeneric__SensorStation_8ino_ae47c4a915979914e81579186cbb714c4}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!C\-C\-T@{C\-C\-T}}
+\index{C\-C\-T@{C\-C\-T}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{C\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}float C\-C\-T}}\label{OWGeneric__SensorStation_8ino_ae47c4a915979914e81579186cbb714c4}
+\hypertarget{OWGeneric__SensorStation_8ino_a40ecda65c4ebce49fa139666f210bef0}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!event@{event}}
+\index{event@{event}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{event}]{\setlength{\rightskip}{0pt plus 5cm}sensors\-\_\-event\-\_\-t event}}\label{OWGeneric__SensorStation_8ino_a40ecda65c4ebce49fa139666f210bef0}
+\hypertarget{OWGeneric__SensorStation_8ino_a0b5841fe91d5a3db72753b6217923030}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!G@{G}}
+\index{G@{G}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{G}]{\setlength{\rightskip}{0pt plus 5cm}float G}}\label{OWGeneric__SensorStation_8ino_a0b5841fe91d5a3db72753b6217923030}
+\hypertarget{OWGeneric__SensorStation_8ino_ad9c3e0362e691a8226f8962f3e828f5f}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!gyro@{gyro}}
+\index{gyro@{gyro}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{gyro}]{\setlength{\rightskip}{0pt plus 5cm}sensors\-\_\-event\-\_\-t gyro}}\label{OWGeneric__SensorStation_8ino_ad9c3e0362e691a8226f8962f3e828f5f}
+\hypertarget{OWGeneric__SensorStation_8ino_a5677d0b4405dd192091db97a8941dbc8}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!infrared@{infrared}}
+\index{infrared@{infrared}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{infrared}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t infrared}}\label{OWGeneric__SensorStation_8ino_a5677d0b4405dd192091db97a8941dbc8}
+\hypertarget{OWGeneric__SensorStation_8ino_a71a3604f36c6158d823f6ff290ae9f33}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!lsm@{lsm}}
+\index{lsm@{lsm}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{lsm}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-L\-S\-M9\-D\-S0 lsm = Adafruit\-\_\-\-L\-S\-M9\-D\-S0(1000)}}\label{OWGeneric__SensorStation_8ino_a71a3604f36c6158d823f6ff290ae9f33}
+\hypertarget{OWGeneric__SensorStation_8ino_aa44c60813137fabeac14008894d837fb}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!mag@{mag}}
+\index{mag@{mag}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{mag}]{\setlength{\rightskip}{0pt plus 5cm}sensors\-\_\-event\-\_\-t mag}}\label{OWGeneric__SensorStation_8ino_aa44c60813137fabeac14008894d837fb}
+\hypertarget{OWGeneric__SensorStation_8ino_ad54903c3e759902a4089ee088aedb4a6}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!mavg@{mavg}}
+\index{mavg@{mavg}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{mavg}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int mavg}}\label{OWGeneric__SensorStation_8ino_ad54903c3e759902a4089ee088aedb4a6}
+\hypertarget{OWGeneric__SensorStation_8ino_ac3c625f389082ca7f017934b3508462d}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!mmax@{mmax}}
+\index{mmax@{mmax}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{mmax}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int mmax}}\label{OWGeneric__SensorStation_8ino_ac3c625f389082ca7f017934b3508462d}
+\hypertarget{OWGeneric__SensorStation_8ino_a46d2773d075382821ba5cc9724036ef6}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!mmin@{mmin}}
+\index{mmin@{mmin}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{mmin}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int mmin}}\label{OWGeneric__SensorStation_8ino_a46d2773d075382821ba5cc9724036ef6}
+\hypertarget{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!n@{n}}
+\index{n@{n}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{n}]{\setlength{\rightskip}{0pt plus 5cm}float n}}\label{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}
+\hypertarget{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!R@{R}}
+\index{R@{R}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{R}]{\setlength{\rightskip}{0pt plus 5cm}float R}}\label{OWGeneric__SensorStation_8ino_a4c4b08e61e92b3da1ed512f4e006f34a}
+\hypertarget{OWGeneric__SensorStation_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!rom@{rom}}
+\index{rom@{rom}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{rom}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char rom\mbox{[}8\mbox{]} = \{D\-S2415, 0x\-E2, 0x00, 0x00, 0x00, 0x00, 0x02, 0x00\}}}\label{OWGeneric__SensorStation_8ino_a8beb78e2b3f2cb6e34f34861a875ca0b}
+\hypertarget{OWGeneric__SensorStation_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!rtccountr\-\_\-in@{rtccountr\-\_\-in}}
+\index{rtccountr\-\_\-in@{rtccountr\-\_\-in}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{rtccountr\-\_\-in}]{\setlength{\rightskip}{0pt plus 5cm}char rtccountr\-\_\-in\mbox{[}5\mbox{]} = \{ 0x00, 0x00, 0x00, 0x00, 0x00\}}}\label{OWGeneric__SensorStation_8ino_a81a94fdcf5fd0721c26e50dd4cd32b1e}
+\hypertarget{OWGeneric__SensorStation_8ino_ac150db4005f4bac8510f9e697f1c291a}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!rtccountr\-\_\-out@{rtccountr\-\_\-out}}
+\index{rtccountr\-\_\-out@{rtccountr\-\_\-out}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{rtccountr\-\_\-out}]{\setlength{\rightskip}{0pt plus 5cm}char rtccountr\-\_\-out\mbox{[}5\mbox{]} = \{B11110000, 0x01, 0x23, 0x\-C\-D, 0x\-E\-F\}}}\label{OWGeneric__SensorStation_8ino_ac150db4005f4bac8510f9e697f1c291a}
+\hypertarget{OWGeneric__SensorStation_8ino_a448f1824fe784c77a16c0696d5f59966}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!temp@{temp}}
+\index{temp@{temp}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{temp}]{\setlength{\rightskip}{0pt plus 5cm}sensors\-\_\-event\-\_\-t temp}}\label{OWGeneric__SensorStation_8ino_a448f1824fe784c77a16c0696d5f59966}
+\hypertarget{OWGeneric__SensorStation_8ino_a34dc1ffbb166b7afbf402f717b871f77}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!tsl@{tsl}}
+\index{tsl@{tsl}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{tsl}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified tsl = Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified(T\-S\-L2561\-\_\-\-A\-D\-D\-R\-\_\-\-F\-L\-O\-A\-T, 12345)}}\label{OWGeneric__SensorStation_8ino_a34dc1ffbb166b7afbf402f717b871f77}
+\hypertarget{OWGeneric__SensorStation_8ino_a9163138d612480a614fa98c44e4318c4}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!val@{val}}
+\index{val@{val}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int val}}\label{OWGeneric__SensorStation_8ino_a9163138d612480a614fa98c44e4318c4}
+\hypertarget{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!x@{x}}
+\index{x@{x}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{x}]{\setlength{\rightskip}{0pt plus 5cm}float x}}\label{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}
+\hypertarget{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!X@{X}}
+\index{X@{X}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{X}]{\setlength{\rightskip}{0pt plus 5cm}float X}}\label{OWGeneric__SensorStation_8ino_ab3c4b737dfc5c78a6aba50dda616f7c3}
+\hypertarget{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!Y@{Y}}
+\index{Y@{Y}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{Y}]{\setlength{\rightskip}{0pt plus 5cm}float Y}}\label{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}
+\hypertarget{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!y@{y}}
+\index{y@{y}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}float y}}\label{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}
+\hypertarget{OWGeneric__SensorStation_8ino_aa65967cca170d24dcd0d555df0d5ee4f}{\index{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}!Z@{Z}}
+\index{Z@{Z}!OWGeneric_SensorStation.ino@{O\-W\-Generic\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{Z}]{\setlength{\rightskip}{0pt plus 5cm}float Z}}\label{OWGeneric__SensorStation_8ino_aa65967cca170d24dcd0d555df0d5ee4f}

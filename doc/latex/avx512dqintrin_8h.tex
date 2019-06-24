@@ -1,0 +1,1068 @@
+\hypertarget{avx512dqintrin_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/avx512dqintrin.h File Reference}
+\label{avx512dqintrin_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/avx512dqintrin.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/avx512dqintrin.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}avx512dq\char`\"{})))
+\item 
+\#define \hyperlink{avx512dqintrin_8h_acf5d9a5f12a6c83758e03523f3538d36}{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epi64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ad76227d076be6d499324ea4b5fe0aaed}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epi64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a3e991624cec78f033f58921f6c0267b4}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epi64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a4d05ee3034e7cbe5e90f2bec09cc46a7}{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epu64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_af30da529078c6846eee19ec797792849}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epu64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a3033a0cbaf1b5b6f78ea84277d6a7084}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epu64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a584c21912e95f8257693157452aa533d}{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epi64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a2a43fd68761f92154a1e910d39649d95}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epi64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_aaa89edb31950d2c9b4fb06c4157377b2}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epi64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a2fa7fa1ebcdeec0b439c906872f69743}{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epu64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a197d3d2ed36beb3120cec4332f69129a}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epu64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a64398277e1beff3dea41615fe17ba24d}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epu64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a906f2b3034975ffbaa662ee7d8cddcd1}{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-pd}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a8d8dfe6b201de2dce110267210c7a1c9}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-pd}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_aac7c145ee2920dcb31528ac4b83c8329}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-pd}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a981a9f78d3eff15dc5ed403162652455}{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-ps}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a4c0e4046e54761923b38c5176ae1190d}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-ps}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a35aed532b747650f758cc2f5d2a21221}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-ps}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ac9e7d8e8d585a5bb2534fa9c6b6f4ed9}{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a084f6c7ee23889e96f47945e9d1bbd73}{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ad50a9f65c4567787b6ae4f015ccd58a7}{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a7cdb7dec2d61dbf69bd27a7276f09994}{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ab48aed6945a715e6302c8d92839e16f6}{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ae34e525eb753ef152071035c14bb4556}{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a0a51d23d2d02e91fc501e5070d2725f4}{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epi64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a8190f6447631fa127abb11dbf6b94eb8}{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epi64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a722b27813273ad619da95d63fd738db8}{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epi64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a4ac06eaf7076cb3b31d851b4851da8cc}{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epu64}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a3aea1cd1838a7fae942a8c79ba84f946}{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epu64}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a5e98f9fcd0c86f7a905c0c5a2a22aec2}{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epu64}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a70bd8ceb410d643a1087249dc228b939}{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-pd}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_aac7b8f30b6ef9f935404d86512beb50f}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-pd}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ae5677d66076dd009e97a3e6b30634bf3}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-pd}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a7e073be988e71b0eb3a602d0fd825186}{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-ps}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_aaf9690e7842b154d5191e752514f5ec2}{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-ps}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a6973b27c76537404954689105fe5e418}{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-ps}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a522e351e8ea7568204bc6a39545c18bf}{\-\_\-mm512\-\_\-range\-\_\-pd}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_abbbb9b841ce0500e42dc6e4dea95a76f}{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-pd}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a51b2cca81434f1db307730113a5504b1}{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-pd}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a7b0600e28915039717a2fdadd68dbb56}{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-pd}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a38c63a915f11efab031ba981ed633267}{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-pd}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ace00182f5963fa897c0183941675ba1b}{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-pd}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a678c0e42f271bbd870ed14bdecfc2ef5}{\-\_\-mm512\-\_\-range\-\_\-ps}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a2060be4ab56d5434e78f9b625bb4e66c}{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-ps}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_aa3cc5705a56df55fbc7654a7f8723cea}{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-ps}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_ae893ed3e304f88d1099c9af33526008a}{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-ps}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a84bcc6e5e374632a9618c224554c1fff}{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-ps}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a74e980d2a6f6e78ef1730aca54f1b399}{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-ps}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-C, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a52b307a812fff72a10ac03f90c689bb8}{\-\_\-mm512\-\_\-reduce\-\_\-pd}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a2bb2111f7c54a36b4b2afccab1fa4d7e}{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-pd}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a0a370270ff8f3728c15d80e0ed68d0c4}{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-pd}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a95870476be7b087d53b8db668d01f9f2}{\-\_\-mm512\-\_\-reduce\-\_\-ps}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_acc8abce94169967ea9426bcf155e19cf}{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-ps}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a8e4c5aed1ab44e8309470f108acacc01}{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-ps}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a58521ac32eb3f424d7526d8b674b1185}{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-pd}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a5b5633685c83029bcd2239052e930588}{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-pd}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a9dd66cbb9afe7e12ce0b67a1c68d1f78}{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-pd}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a125e500d4a52cbb87a608b9b356e64bb}{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-ps}(\-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a989fe78a3e2ea87eba72dbb39acc8bfa}{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-ps}(\-\_\-\-\_\-\-W, \-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-R)
+\item 
+\#define \hyperlink{avx512dqintrin_8h_a7b2f9936e43aabfae0612741d7a9f8cc}{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-ps}(\-\_\-\-\_\-\-U, \-\_\-\-\_\-\-A, \-\_\-\-\_\-\-B, \-\_\-\-\_\-\-R)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{avx512dqintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}}
+\index{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}avx512dq\char`\"{})))}}\label{avx512dqintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}
+\hypertarget{avx512dqintrin_8h_a906f2b3034975ffbaa662ee7d8cddcd1}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-pd@{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-pd@{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a906f2b3034975ffbaa662ee7d8cddcd1}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{          \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_cvtqq2pd512\_mask ((\_\_v8di) \_\_A,           \(\backslash\)
+                (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a981a9f78d3eff15dc5ed403162652455}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-ps@{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-ps@{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundepi64\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a981a9f78d3eff15dc5ed403162652455}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{        \(\backslash\)
+  (\_\_m256) \_\_builtin\_ia32\_cvtqq2ps512\_mask ((\_\_v8di) \_\_A,          \(\backslash\)
+               (\_\_v8sf) \_mm256\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a70bd8ceb410d643a1087249dc228b939}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-pd@{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-pd@{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a70bd8ceb410d643a1087249dc228b939}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{          \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_cvtuqq2pd512\_mask ((\_\_v8di) \_\_A,          \(\backslash\)
+                 (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a7e073be988e71b0eb3a602d0fd825186}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-ps@{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-ps@{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundepu64\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a7e073be988e71b0eb3a602d0fd825186}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{         \(\backslash\)
+  (\_\_m256) \_\_builtin\_ia32\_cvtuqq2ps512\_mask ((\_\_v8di) \_\_A,          \(\backslash\)
+                (\_\_v8sf) \_mm256\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_acf5d9a5f12a6c83758e03523f3538d36}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_acf5d9a5f12a6c83758e03523f3538d36}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{              \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtpd2qq512\_mask ((\_\_v8df) \_\_A,               \(\backslash\)
+                (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a4d05ee3034e7cbe5e90f2bec09cc46a7}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundpd\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a4d05ee3034e7cbe5e90f2bec09cc46a7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{               \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtpd2uqq512\_mask ((\_\_v8df) \_\_A,               \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a584c21912e95f8257693157452aa533d}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a584c21912e95f8257693157452aa533d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{             \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtps2qq512\_mask ((\_\_v8sf) \_\_A,              \(\backslash\)
+                (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a2fa7fa1ebcdeec0b439c906872f69743}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvt\-\_\-roundps\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a2fa7fa1ebcdeec0b439c906872f69743}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{              \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtps2uqq512\_mask ((\_\_v8sf) \_\_A,              \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ac9e7d8e8d585a5bb2534fa9c6b6f4ed9}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ac9e7d8e8d585a5bb2534fa9c6b6f4ed9}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{             \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttpd2qq512\_mask ((\_\_v8df) \_\_A,              \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a7cdb7dec2d61dbf69bd27a7276f09994}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvtt\-\_\-roundpd\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a7cdb7dec2d61dbf69bd27a7276f09994}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{              \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttpd2uqq512\_mask ((\_\_v8df) \_\_A,              \(\backslash\)
+                  (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a0a51d23d2d02e91fc501e5070d2725f4}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a0a51d23d2d02e91fc501e5070d2725f4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{            \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttps2qq512\_mask ((\_\_v8sf) \_\_A,             \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a4ac06eaf7076cb3b31d851b4851da8cc}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-cvtt\-\_\-roundps\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a4ac06eaf7076cb3b31d851b4851da8cc}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{            \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttps2uqq512\_mask ((\_\_v8sf) \_\_A,            \(\backslash\)
+                  (\_\_v8di) \_mm512\_setzero\_si512(),(\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a8d8dfe6b201de2dce110267210c7a1c9}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a8d8dfe6b201de2dce110267210c7a1c9}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_cvtqq2pd512\_mask ((\_\_v8di) \_\_A,                 \(\backslash\)
+                (\_\_v8df) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a4c0e4046e54761923b38c5176ae1190d}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepi64\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a4c0e4046e54761923b38c5176ae1190d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m256) \_\_builtin\_ia32\_cvtqq2ps512\_mask ((\_\_v8di) \_\_A,                  \(\backslash\)
+               (\_\_v8sf) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_aac7b8f30b6ef9f935404d86512beb50f}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_aac7b8f30b6ef9f935404d86512beb50f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_cvtuqq2pd512\_mask ((\_\_v8di) \_\_A,                \(\backslash\)
+                 (\_\_v8df) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_aaf9690e7842b154d5191e752514f5ec2}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundepu64\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_aaf9690e7842b154d5191e752514f5ec2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m256) \_\_builtin\_ia32\_cvtuqq2ps512\_mask ((\_\_v8di) \_\_A,                 \(\backslash\)
+                (\_\_v8sf) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ad76227d076be6d499324ea4b5fe0aaed}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ad76227d076be6d499324ea4b5fe0aaed}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtpd2qq512\_mask ((\_\_v8df) \_\_A,                 \(\backslash\)
+                (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_af30da529078c6846eee19ec797792849}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundpd\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_af30da529078c6846eee19ec797792849}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtpd2uqq512\_mask ((\_\_v8df) \_\_A,                \(\backslash\)
+                 (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a2a43fd68761f92154a1e910d39649d95}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a2a43fd68761f92154a1e910d39649d95}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtps2qq512\_mask ((\_\_v8sf) \_\_A,                 \(\backslash\)
+                (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a197d3d2ed36beb3120cec4332f69129a}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvt\-\_\-roundps\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a197d3d2ed36beb3120cec4332f69129a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtps2uqq512\_mask ((\_\_v8sf) \_\_A,                \(\backslash\)
+                 (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a084f6c7ee23889e96f47945e9d1bbd73}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a084f6c7ee23889e96f47945e9d1bbd73}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttpd2qq512\_mask ((\_\_v8df) \_\_A,                 \(\backslash\)
+                 (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ab48aed6945a715e6302c8d92839e16f6}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundpd\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ab48aed6945a715e6302c8d92839e16f6}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttpd2uqq512\_mask ((\_\_v8df) \_\_A,                \(\backslash\)
+                  (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a8190f6447631fa127abb11dbf6b94eb8}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a8190f6447631fa127abb11dbf6b94eb8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttps2qq512\_mask ((\_\_v8sf) \_\_A,                 \(\backslash\)
+                 (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a3aea1cd1838a7fae942a8c79ba84f946}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-cvtt\-\_\-roundps\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a3aea1cd1838a7fae942a8c79ba84f946}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttps2uqq512\_mask ((\_\_v8sf) \_\_A,                \(\backslash\)
+                  (\_\_v8di) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_abbbb9b841ce0500e42dc6e4dea95a76f}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-range\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_abbbb9b841ce0500e42dc6e4dea95a76f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{      \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_rangepd512\_mask ((\_\_v8df) \_\_A, (\_\_v8df) \_\_B, \_\_C,\(\backslash\)
+               (\_\_v8df) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a2060be4ab56d5434e78f9b625bb4e66c}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-range\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a2060be4ab56d5434e78f9b625bb4e66c}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{         \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_rangeps512\_mask ((\_\_v16sf) \_\_A, (\_\_v16sf) \_\_B,       \(\backslash\)
+               \_\_C, (\_\_v16sf) \_\_W, (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U, 
+      \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a38c63a915f11efab031ba981ed633267}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a38c63a915f11efab031ba981ed633267}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_rangepd512\_mask ((\_\_v8df) \_\_A, (\_\_v8df) \_\_B, \_\_C,      \(\backslash\)
+               (\_\_v8df) \_\_W, (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a84bcc6e5e374632a9618c224554c1fff}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-range\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a84bcc6e5e374632a9618c224554c1fff}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_rangeps512\_mask ((\_\_v16sf) \_\_A, (\_\_v16sf) \_\_B,          \(\backslash\)
+                \_\_C, (\_\_v16sf) \_\_W, (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a2bb2111f7c54a36b4b2afccab1fa4d7e}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a2bb2111f7c54a36b4b2afccab1fa4d7e}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_reducepd512\_mask ((\_\_v8df) \_\_A, \_\_B,    \(\backslash\)
+                (\_\_v8df) \_\_W,(\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_acc8abce94169967ea9426bcf155e19cf}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_acc8abce94169967ea9426bcf155e19cf}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{   \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_reduceps512\_mask ((\_\_v16sf) \_\_A, \_\_B,      \(\backslash\)
+               (\_\_v16sf) \_\_W, (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U, \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\}
+      )
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a5b5633685c83029bcd2239052e930588}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a5b5633685c83029bcd2239052e930588}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{\(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_reducepd512\_mask ((\_\_v8df) \_\_A, \_\_B,    \(\backslash\)
+                (\_\_v8df) \_\_W,(\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a989fe78a3e2ea87eba72dbb39acc8bfa}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-mask\-\_\-reduce\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-W, }
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a989fe78a3e2ea87eba72dbb39acc8bfa}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{\(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_reduceps512\_mask ((\_\_v16sf) \_\_A, \_\_B,      \(\backslash\)
+               (\_\_v16sf) \_\_W, (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_aac7c145ee2920dcb31528ac4b83c8329}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_aac7c145ee2920dcb31528ac4b83c8329}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_cvtqq2pd512\_mask ((\_\_v8di) \_\_A,             \(\backslash\)
+                (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a35aed532b747650f758cc2f5d2a21221}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepi64\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a35aed532b747650f758cc2f5d2a21221}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m256) \_\_builtin\_ia32\_cvtqq2ps512\_mask ((\_\_v8di) \_\_A,              \(\backslash\)
+               (\_\_v8sf) \_mm256\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ae5677d66076dd009e97a3e6b30634bf3}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ae5677d66076dd009e97a3e6b30634bf3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_cvtuqq2pd512\_mask ((\_\_v8di) \_\_A,            \(\backslash\)
+                 (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a6973b27c76537404954689105fe5e418}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundepu64\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a6973b27c76537404954689105fe5e418}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m256) \_\_builtin\_ia32\_cvtuqq2ps512\_mask ((\_\_v8di) \_\_A,             \(\backslash\)
+                (\_\_v8sf) \_mm256\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a3e991624cec78f033f58921f6c0267b4}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a3e991624cec78f033f58921f6c0267b4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{   \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtpd2qq512\_mask ((\_\_v8df) \_\_A,        \(\backslash\)
+                (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R); \})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a3033a0cbaf1b5b6f78ea84277d6a7084}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundpd\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a3033a0cbaf1b5b6f78ea84277d6a7084}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{     \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtpd2uqq512\_mask ((\_\_v8df) \_\_A,                \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_aaa89edb31950d2c9b4fb06c4157377b2}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_aaa89edb31950d2c9b4fb06c4157377b2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{   \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtps2qq512\_mask ((\_\_v8sf) \_\_A,               \(\backslash\)
+                (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a64398277e1beff3dea41615fe17ba24d}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvt\-\_\-roundps\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a64398277e1beff3dea41615fe17ba24d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{   \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvtps2uqq512\_mask ((\_\_v8sf) \_\_A,              \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ad50a9f65c4567787b6ae4f015ccd58a7}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ad50a9f65c4567787b6ae4f015ccd58a7}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttpd2qq512\_mask ((\_\_v8df) \_\_A,             \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ae34e525eb753ef152071035c14bb4556}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundpd\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ae34e525eb753ef152071035c14bb4556}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{   \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttpd2uqq512\_mask ((\_\_v8df) \_\_A,              \(\backslash\)
+                  (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a722b27813273ad619da95d63fd738db8}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epi64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epi64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epi64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epi64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epi64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a722b27813273ad619da95d63fd738db8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{  \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttps2qq512\_mask ((\_\_v8sf) \_\_A,              \(\backslash\)
+                 (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a5e98f9fcd0c86f7a905c0c5a2a22aec2}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epu64}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epu64@{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epu64}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epu64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-cvtt\-\_\-roundps\-\_\-epu64(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a5e98f9fcd0c86f7a905c0c5a2a22aec2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{  \(\backslash\)
+  (\_\_m512i) \_\_builtin\_ia32\_cvttps2uqq512\_mask ((\_\_v8sf) \_\_A,             \(\backslash\)
+                  (\_\_v8di) \_mm512\_setzero\_si512(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a51b2cca81434f1db307730113a5504b1}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a51b2cca81434f1db307730113a5504b1}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{           \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_rangepd512\_mask ((\_\_v8df) \_\_A, (\_\_v8df) \_\_B, \_\_C, \(\backslash\)
+               (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U,                 \(\backslash\)
+               \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_aa3cc5705a56df55fbc7654a7f8723cea}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_aa3cc5705a56df55fbc7654a7f8723cea}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{      \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_rangeps512\_mask ((\_\_v16sf) \_\_A,(\_\_v16sf) \_\_B, \(\backslash\)
+              \_\_C, (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U,      \(\backslash\)
+              \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ace00182f5963fa897c0183941675ba1b}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ace00182f5963fa897c0183941675ba1b}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_rangepd512\_mask ((\_\_v8df) \_\_A, (\_\_v8df) \_\_B, \_\_C,   \(\backslash\)
+               (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a74e980d2a6f6e78ef1730aca54f1b399}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-range\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a74e980d2a6f6e78ef1730aca54f1b399}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_rangeps512\_mask ((\_\_v16sf) \_\_A, (\_\_v16sf) \_\_B,      \(\backslash\)
+                \_\_C, (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a0a370270ff8f3728c15d80e0ed68d0c4}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a0a370270ff8f3728c15d80e0ed68d0c4}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{  \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_reducepd512\_mask ((\_\_v8df) \_\_A, \_\_B, \(\backslash\)
+                (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, 
+      \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a8e4c5aed1ab44e8309470f108acacc01}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a8e4c5aed1ab44e8309470f108acacc01}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{       \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_reduceps512\_mask ((\_\_v16sf) \_\_A, \_\_B,      \(\backslash\)
+               (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U, 
+      \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a9dd66cbb9afe7e12ce0b67a1c68d1f78}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a9dd66cbb9afe7e12ce0b67a1c68d1f78}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{\(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_reducepd512\_mask ((\_\_v8df) \_\_A, \_\_B, \(\backslash\)
+                (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a7b2f9936e43aabfae0612741d7a9f8cc}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-maskz\-\_\-reduce\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-U, }
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a7b2f9936e43aabfae0612741d7a9f8cc}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{\(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_reduceps512\_mask ((\_\_v16sf) \_\_A, \_\_B,      \(\backslash\)
+               (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) \_\_U, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a522e351e8ea7568204bc6a39545c18bf}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-range\-\_\-pd@{\-\_\-mm512\-\_\-range\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-range\-\_\-pd@{\-\_\-mm512\-\_\-range\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-range\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-range\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a522e351e8ea7568204bc6a39545c18bf}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{                     \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_rangepd512\_mask ((\_\_v8df) \_\_A, (\_\_v8df) \_\_B, \_\_C,\(\backslash\)
+               (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1,                 \(\backslash\)
+               \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a678c0e42f271bbd870ed14bdecfc2ef5}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-range\-\_\-ps@{\-\_\-mm512\-\_\-range\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-range\-\_\-ps@{\-\_\-mm512\-\_\-range\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-range\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-range\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a678c0e42f271bbd870ed14bdecfc2ef5}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{                       \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_rangeps512\_mask ((\_\_v16sf) \_\_A, (\_\_v16sf) \_\_B, \_\_C, \(\backslash\)
+               (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) -1,                 \(\backslash\)
+               \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a7b0600e28915039717a2fdadd68dbb56}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-range\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-range\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a7b0600e28915039717a2fdadd68dbb56}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{           \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_rangepd512\_mask ((\_\_v8df) \_\_A, (\_\_v8df) \_\_B, \_\_C, \(\backslash\)
+               (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_ae893ed3e304f88d1099c9af33526008a}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-range\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-range\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-range\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-C, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_ae893ed3e304f88d1099c9af33526008a}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{         \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_rangeps512\_mask ((\_\_v16sf) \_\_A, (\_\_v16sf) \_\_B,   \(\backslash\)
+                \_\_C, (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a52b307a812fff72a10ac03f90c689bb8}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-reduce\-\_\-pd@{\-\_\-mm512\-\_\-reduce\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-reduce\-\_\-pd@{\-\_\-mm512\-\_\-reduce\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-reduce\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-reduce\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a52b307a812fff72a10ac03f90c689bb8}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{             \(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_reducepd512\_mask ((\_\_v8df) \_\_A, \_\_B, \(\backslash\)
+                (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, 
+      \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a95870476be7b087d53b8db668d01f9f2}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-reduce\-\_\-ps@{\-\_\-mm512\-\_\-reduce\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-reduce\-\_\-ps@{\-\_\-mm512\-\_\-reduce\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-reduce\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-reduce\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a95870476be7b087d53b8db668d01f9f2}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{              \(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_reduceps512\_mask ((\_\_v16sf) \_\_A, \_\_B,  \(\backslash\)
+               (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) -1, 
+      \hyperlink{avx512fintrin_8h_ae3db935ef2bbfd3c92598f69114d83d0}{\_MM\_FROUND\_CUR\_DIRECTION});\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a58521ac32eb3f424d7526d8b674b1185}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-pd}}
+\index{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-pd@{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-pd}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a58521ac32eb3f424d7526d8b674b1185}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{\(\backslash\)
+  (\_\_m512d) \_\_builtin\_ia32\_reducepd512\_mask ((\_\_v8df) \_\_A, \_\_B, \(\backslash\)
+                (\_\_v8df) \_mm512\_setzero\_pd(), (\hyperlink{avx512fintrin_8h_a9351fcffd2210999639f467660e32673}{\_\_mmask8}) -1, \_\_R);\})
+\end{DoxyCode}
+\hypertarget{avx512dqintrin_8h_a125e500d4a52cbb87a608b9b356e64bb}{\index{avx512dqintrin.\-h@{avx512dqintrin.\-h}!\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-ps}}
+\index{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-ps@{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-ps}!avx512dqintrin.h@{avx512dqintrin.\-h}}
+\subsubsection[{\-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-ps}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm512\-\_\-reduce\-\_\-round\-\_\-ps(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-\-\_\-\-A, }
+\item[{}]{\-\_\-\-\_\-\-B, }
+\item[{}]{\-\_\-\-\_\-\-R}
+\end{DoxyParamCaption}
+)}}\label{avx512dqintrin_8h_a125e500d4a52cbb87a608b9b356e64bb}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{\(\backslash\)
+  (\_\_m512) \_\_builtin\_ia32\_reduceps512\_mask ((\_\_v16sf) \_\_A, \_\_B,  \(\backslash\)
+               (\_\_v16sf) \_mm512\_setzero\_ps(), (\hyperlink{avx512fintrin_8h_adc52f2d501b71ebd5df08fa2e0573636}{\_\_mmask16}) -1, \_\_R);\})
+\end{DoxyCode}

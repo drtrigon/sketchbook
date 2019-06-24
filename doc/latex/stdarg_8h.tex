@@ -1,0 +1,84 @@
+\hypertarget{stdarg_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/stdarg.h File Reference}
+\label{stdarg_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/stdarg.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/stdarg.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{stdarg_8h_a8988b1f4b3f4ffef267962f5811f6031}{\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}
+\item 
+\#define \hyperlink{stdarg_8h_acb8ed71baba567b5548b6a0a64d6ea85}{va\-\_\-start}(ap, param)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-start(ap, param)
+\item 
+\#define \hyperlink{stdarg_8h_acd9b3b9085ec072324c5fdac2b40304e}{va\-\_\-end}(ap)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-end(ap)
+\item 
+\#define \hyperlink{stdarg_8h_a81ebe6ea6253b0c6618e29de70fe10eb}{va\-\_\-arg}(ap, type)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-arg(ap, type)
+\item 
+\#define \hyperlink{stdarg_8h_a976ad7c714ea97222be72c9c710915a0}{\-\_\-\-\_\-va\-\_\-copy}(\hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d}, s)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-copy(\hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d},s)
+\item 
+\#define \hyperlink{stdarg_8h_a19fd5658c088617859d4a89c657ec5cc}{va\-\_\-copy}(dest, src)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-copy(dest, src)
+\item 
+\#define \hyperlink{stdarg_8h_a738c42093fee248588075769434481f1}{\-\_\-\-\_\-\-G\-N\-U\-C\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}~1
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef \-\_\-\-\_\-builtin\-\_\-va\-\_\-list \hyperlink{stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{va\-\_\-list}
+\item 
+typedef \-\_\-\-\_\-builtin\-\_\-va\-\_\-list \hyperlink{stdarg_8h_ab2a2078340888ab219073daba0853b5a}{\-\_\-\-\_\-gnuc\-\_\-va\-\_\-list}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{stdarg_8h_a738c42093fee248588075769434481f1}{\index{stdarg.\-h@{stdarg.\-h}!\-\_\-\-\_\-\-G\-N\-U\-C\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T@{\-\_\-\-\_\-\-G\-N\-U\-C\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}}
+\index{\-\_\-\-\_\-\-G\-N\-U\-C\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T@{\-\_\-\-\_\-\-G\-N\-U\-C\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-G\-N\-U\-C\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-G\-N\-U\-C\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T~1}}\label{stdarg_8h_a738c42093fee248588075769434481f1}
+\hypertarget{stdarg_8h_a976ad7c714ea97222be72c9c710915a0}{\index{stdarg.\-h@{stdarg.\-h}!\-\_\-\-\_\-va\-\_\-copy@{\-\_\-\-\_\-va\-\_\-copy}}
+\index{\-\_\-\-\_\-va\-\_\-copy@{\-\_\-\-\_\-va\-\_\-copy}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{\-\_\-\-\_\-va\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-va\-\_\-copy(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf d}, }
+\item[{}]{s}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-copy({\bf d},s)}}\label{stdarg_8h_a976ad7c714ea97222be72c9c710915a0}
+\hypertarget{stdarg_8h_a8988b1f4b3f4ffef267962f5811f6031}{\index{stdarg.\-h@{stdarg.\-h}!\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T@{\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}}
+\index{\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T@{\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{\-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-V\-A\-\_\-\-L\-I\-S\-T}}\label{stdarg_8h_a8988b1f4b3f4ffef267962f5811f6031}
+\hypertarget{stdarg_8h_a81ebe6ea6253b0c6618e29de70fe10eb}{\index{stdarg.\-h@{stdarg.\-h}!va\-\_\-arg@{va\-\_\-arg}}
+\index{va\-\_\-arg@{va\-\_\-arg}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{va\-\_\-arg}]{\setlength{\rightskip}{0pt plus 5cm}\#define va\-\_\-arg(
+\begin{DoxyParamCaption}
+\item[{}]{ap, }
+\item[{}]{type}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-arg(ap, type)}}\label{stdarg_8h_a81ebe6ea6253b0c6618e29de70fe10eb}
+\hypertarget{stdarg_8h_a19fd5658c088617859d4a89c657ec5cc}{\index{stdarg.\-h@{stdarg.\-h}!va\-\_\-copy@{va\-\_\-copy}}
+\index{va\-\_\-copy@{va\-\_\-copy}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{va\-\_\-copy}]{\setlength{\rightskip}{0pt plus 5cm}\#define va\-\_\-copy(
+\begin{DoxyParamCaption}
+\item[{}]{dest, }
+\item[{}]{src}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-copy(dest, src)}}\label{stdarg_8h_a19fd5658c088617859d4a89c657ec5cc}
+\hypertarget{stdarg_8h_acd9b3b9085ec072324c5fdac2b40304e}{\index{stdarg.\-h@{stdarg.\-h}!va\-\_\-end@{va\-\_\-end}}
+\index{va\-\_\-end@{va\-\_\-end}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{va\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}\#define va\-\_\-end(
+\begin{DoxyParamCaption}
+\item[{}]{ap}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-end(ap)}}\label{stdarg_8h_acd9b3b9085ec072324c5fdac2b40304e}
+\hypertarget{stdarg_8h_acb8ed71baba567b5548b6a0a64d6ea85}{\index{stdarg.\-h@{stdarg.\-h}!va\-\_\-start@{va\-\_\-start}}
+\index{va\-\_\-start@{va\-\_\-start}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{va\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}\#define va\-\_\-start(
+\begin{DoxyParamCaption}
+\item[{}]{ap, }
+\item[{}]{param}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-va\-\_\-start(ap, param)}}\label{stdarg_8h_acb8ed71baba567b5548b6a0a64d6ea85}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{stdarg_8h_ab2a2078340888ab219073daba0853b5a}{\index{stdarg.\-h@{stdarg.\-h}!\-\_\-\-\_\-gnuc\-\_\-va\-\_\-list@{\-\_\-\-\_\-gnuc\-\_\-va\-\_\-list}}
+\index{\-\_\-\-\_\-gnuc\-\_\-va\-\_\-list@{\-\_\-\-\_\-gnuc\-\_\-va\-\_\-list}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{\-\_\-\-\_\-gnuc\-\_\-va\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}typedef \-\_\-\-\_\-builtin\-\_\-va\-\_\-list {\bf \-\_\-\-\_\-gnuc\-\_\-va\-\_\-list}}}\label{stdarg_8h_ab2a2078340888ab219073daba0853b5a}
+\hypertarget{stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}{\index{stdarg.\-h@{stdarg.\-h}!va\-\_\-list@{va\-\_\-list}}
+\index{va\-\_\-list@{va\-\_\-list}!stdarg.h@{stdarg.\-h}}
+\subsubsection[{va\-\_\-list}]{\setlength{\rightskip}{0pt plus 5cm}typedef \-\_\-\-\_\-builtin\-\_\-va\-\_\-list {\bf va\-\_\-list}}}\label{stdarg_8h_af53f622e3b6c080daeb167c1955d7ec1}

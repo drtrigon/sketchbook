@@ -1,0 +1,16 @@
+rm -f *.hex *.lst *.obj *.cof *.list *.map *.eep.hex *.elf *.o usbdrv/*.o *.s usbdrv/*.s
+avr-gcc -Wall -Os -DF_CPU=16500000	 -Iusbdrv -I. -DDEBUG_LEVEL=03 -mmcu=attiny85 -o main.hex -o main.bin -Wl,-Map=main.map -c usbdrv/usbdrv.c -o usbdrv/usbdrv.o
+avr-gcc -Wall -Os -DF_CPU=16500000	 -Iusbdrv -I. -DDEBUG_LEVEL=03 -mmcu=attiny85 -o main.hex -o main.bin -Wl,-Map=main.map -x assembler-with-cpp -c usbdrv/usbdrvasm.S -o usbdrv/usbdrvasm.o
+avr-gcc -Wall -Os -DF_CPU=16500000	 -Iusbdrv -I. -DDEBUG_LEVEL=03 -mmcu=attiny85 -o main.hex -o main.bin -Wl,-Map=main.map -c usbdrv/oddebug.c -o usbdrv/oddebug.o
+avr-gcc -Wall -Os -DF_CPU=16500000	 -Iusbdrv -I. -DDEBUG_LEVEL=03 -mmcu=attiny85 -o main.hex -o main.bin -Wl,-Map=main.map -c usbdrv/osccal.c -o usbdrv/osccal.o
+avr-gcc -Wall -Os -DF_CPU=16500000	 -Iusbdrv -I. -DDEBUG_LEVEL=03 -mmcu=attiny85 -o main.hex -o main.bin -Wl,-Map=main.map -c main.c -o main.o
+avr-gcc -Wall -Os -DF_CPU=16500000	 -Iusbdrv -I. -DDEBUG_LEVEL=03 -mmcu=attiny85 -o main.hex -o main.bin -Wl,-Map=main.map -c n64.c -o n64.o
+avr-gcc -Wall -Os -DF_CPU=16500000	 -Iusbdrv -I. -DDEBUG_LEVEL=03 -mmcu=attiny85 -o main.hex -o main.bin -Wl,-Map=main.map -o main.bin usbdrv/usbdrv.o usbdrv/usbdrvasm.o usbdrv/oddebug.o usbdrv/osccal.o main.o n64.o
+./checksize main.bin
+ROM: 3732 bytes (data=16)
+RAM: 102 bytes
+rm -f main.hex main.eep.hex
+avr-objcopy -j .text -j .data -O ihex main.bin main.hex
+avr-size main.hex
+   text	   data	    bss	    dec	    hex	filename
+      0	   3732	      0	   3732	    e94	main.hex

@@ -1,0 +1,133 @@
+\hypertarget{Serial_8h}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Serial.h File Reference}
+\label{Serial_8h}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Serial.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Serial.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Serial_8h_a3087ca9a4778e59afbefb055d003950d}{U\-A\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}~1
+\item 
+\#define \hyperlink{Serial_8h_a739a2a1a0047c98ac1b18ecd25dac092}{R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~256
+\item 
+\#define \hyperlink{Serial_8h_a9ab33647617098646990fe263600b650}{T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}~128
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Serial_8h_a22cdd3ab1ea567f59e34c9f04498e56b}{Serial\-Open} (uint8\-\_\-t port, uint32\-\_\-t baud)
+\item 
+uint8\-\_\-t \hyperlink{Serial_8h_a2880504660960a9956bd6f6c8f145079}{Serial\-Read} (uint8\-\_\-t port)
+\item 
+void \hyperlink{Serial_8h_a1e6c67ebf7d0a1e7adfeea9da8112342}{Serial\-Write} (uint8\-\_\-t port, uint8\-\_\-t c)
+\item 
+uint8\-\_\-t \hyperlink{Serial_8h_ada72accae8bc1b2f6305ccd82af4a563}{Serial\-Available} (uint8\-\_\-t port)
+\item 
+void \hyperlink{Serial_8h_af3b82e3035dbb13f442b1ec8f28ecb30}{Serial\-End} (uint8\-\_\-t port)
+\item 
+uint8\-\_\-t \hyperlink{Serial_8h_aa13ff48ab2b5606d1b258408e9c0805d}{Serial\-Peek} (uint8\-\_\-t port)
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{Serial_8h_a074f9897fc9a7f6f7efcbac2fe5b052f}{Serial\-T\-Xfree} (uint8\-\_\-t port)
+\item 
+uint8\-\_\-t \hyperlink{Serial_8h_a93f0c243755e9ff7ceec5c53f621c5e8}{Serial\-Used\-T\-X\-Buff} (uint8\-\_\-t port)
+\item 
+void \hyperlink{Serial_8h_af7c862bb9970285f0db7728f61ea1c56}{Serial\-Serialize} (uint8\-\_\-t port, uint8\-\_\-t a)
+\item 
+void \hyperlink{Serial_8h_a33acc12df23241d6b8e28cc4b9e1c5b7}{Uart\-Send\-Data} (uint8\-\_\-t port)
+\item 
+void \hyperlink{Serial_8h_a1019f9cf96a17de7cd1801efda0da492}{Serial\-Write16} (uint8\-\_\-t port, int16\-\_\-t \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Serial_8h_a739a2a1a0047c98ac1b18ecd25dac092}{\index{Serial.\-h@{Serial.\-h}!R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!Serial.h@{Serial.\-h}}
+\subsubsection[{R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E~256}}\label{Serial_8h_a739a2a1a0047c98ac1b18ecd25dac092}
+\hypertarget{Serial_8h_a9ab33647617098646990fe263600b650}{\index{Serial.\-h@{Serial.\-h}!T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}}
+\index{T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E@{T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}!Serial.h@{Serial.\-h}}
+\subsubsection[{T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E~128}}\label{Serial_8h_a9ab33647617098646990fe263600b650}
+\hypertarget{Serial_8h_a3087ca9a4778e59afbefb055d003950d}{\index{Serial.\-h@{Serial.\-h}!U\-A\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R@{U\-A\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}}
+\index{U\-A\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R@{U\-A\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}!Serial.h@{Serial.\-h}}
+\subsubsection[{U\-A\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-A\-R\-T\-\_\-\-N\-U\-M\-B\-E\-R~1}}\label{Serial_8h_a3087ca9a4778e59afbefb055d003950d}
+
+
+\subsection{Function Documentation}
+\hypertarget{Serial_8h_ada72accae8bc1b2f6305ccd82af4a563}{\index{Serial.\-h@{Serial.\-h}!Serial\-Available@{Serial\-Available}}
+\index{Serial\-Available@{Serial\-Available}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Available}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t Serial\-Available (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_ada72accae8bc1b2f6305ccd82af4a563}
+\hypertarget{Serial_8h_af3b82e3035dbb13f442b1ec8f28ecb30}{\index{Serial.\-h@{Serial.\-h}!Serial\-End@{Serial\-End}}
+\index{Serial\-End@{Serial\-End}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-End}]{\setlength{\rightskip}{0pt plus 5cm}void Serial\-End (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_af3b82e3035dbb13f442b1ec8f28ecb30}
+\hypertarget{Serial_8h_a22cdd3ab1ea567f59e34c9f04498e56b}{\index{Serial.\-h@{Serial.\-h}!Serial\-Open@{Serial\-Open}}
+\index{Serial\-Open@{Serial\-Open}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Open}]{\setlength{\rightskip}{0pt plus 5cm}void Serial\-Open (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port, }
+\item[{uint32\-\_\-t}]{baud}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_a22cdd3ab1ea567f59e34c9f04498e56b}
+\hypertarget{Serial_8h_aa13ff48ab2b5606d1b258408e9c0805d}{\index{Serial.\-h@{Serial.\-h}!Serial\-Peek@{Serial\-Peek}}
+\index{Serial\-Peek@{Serial\-Peek}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Peek}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t Serial\-Peek (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_aa13ff48ab2b5606d1b258408e9c0805d}
+\hypertarget{Serial_8h_a2880504660960a9956bd6f6c8f145079}{\index{Serial.\-h@{Serial.\-h}!Serial\-Read@{Serial\-Read}}
+\index{Serial\-Read@{Serial\-Read}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Read}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t Serial\-Read (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_a2880504660960a9956bd6f6c8f145079}
+\hypertarget{Serial_8h_af7c862bb9970285f0db7728f61ea1c56}{\index{Serial.\-h@{Serial.\-h}!Serial\-Serialize@{Serial\-Serialize}}
+\index{Serial\-Serialize@{Serial\-Serialize}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Serialize}]{\setlength{\rightskip}{0pt plus 5cm}void Serial\-Serialize (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port, }
+\item[{uint8\-\_\-t}]{a}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_af7c862bb9970285f0db7728f61ea1c56}
+\hypertarget{Serial_8h_a074f9897fc9a7f6f7efcbac2fe5b052f}{\index{Serial.\-h@{Serial.\-h}!Serial\-T\-Xfree@{Serial\-T\-Xfree}}
+\index{Serial\-T\-Xfree@{Serial\-T\-Xfree}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-T\-Xfree}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Serial\-T\-Xfree (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_a074f9897fc9a7f6f7efcbac2fe5b052f}
+\hypertarget{Serial_8h_a93f0c243755e9ff7ceec5c53f621c5e8}{\index{Serial.\-h@{Serial.\-h}!Serial\-Used\-T\-X\-Buff@{Serial\-Used\-T\-X\-Buff}}
+\index{Serial\-Used\-T\-X\-Buff@{Serial\-Used\-T\-X\-Buff}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Used\-T\-X\-Buff}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t Serial\-Used\-T\-X\-Buff (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_a93f0c243755e9ff7ceec5c53f621c5e8}
+\hypertarget{Serial_8h_a1e6c67ebf7d0a1e7adfeea9da8112342}{\index{Serial.\-h@{Serial.\-h}!Serial\-Write@{Serial\-Write}}
+\index{Serial\-Write@{Serial\-Write}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void Serial\-Write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port, }
+\item[{uint8\-\_\-t}]{c}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_a1e6c67ebf7d0a1e7adfeea9da8112342}
+\hypertarget{Serial_8h_a1019f9cf96a17de7cd1801efda0da492}{\index{Serial.\-h@{Serial.\-h}!Serial\-Write16@{Serial\-Write16}}
+\index{Serial\-Write16@{Serial\-Write16}!Serial.h@{Serial.\-h}}
+\subsubsection[{Serial\-Write16}]{\setlength{\rightskip}{0pt plus 5cm}void Serial\-Write16 (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port, }
+\item[{int16\-\_\-t}]{val}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_a1019f9cf96a17de7cd1801efda0da492}
+\hypertarget{Serial_8h_a33acc12df23241d6b8e28cc4b9e1c5b7}{\index{Serial.\-h@{Serial.\-h}!Uart\-Send\-Data@{Uart\-Send\-Data}}
+\index{Uart\-Send\-Data@{Uart\-Send\-Data}!Serial.h@{Serial.\-h}}
+\subsubsection[{Uart\-Send\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void Uart\-Send\-Data (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{port}
+\end{DoxyParamCaption}
+)}}\label{Serial_8h_a33acc12df23241d6b8e28cc4b9e1c5b7}

@@ -1,0 +1,48 @@
+\hypertarget{namespacerf-id-control}{\section{rf-\/id-\/control Namespace Reference}
+\label{namespacerf-id-control}\index{rf-\/id-\/control@{rf-\/id-\/control}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \hyperlink{namespacerf-id-control_a44ce566fe9439db91445bbacc055dfba}{actions}
+\item 
+tuple \hyperlink{namespacerf-id-control_ad75e60402f9b3cb86ddbce12f4c99256}{ser}
+\item 
+string \hyperlink{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{out} = ''
+\item 
+list \hyperlink{namespacerf-id-control_a10a094d39156477476efd89f406dae97}{tag} = \hyperlink{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{out}\mbox{[}1\-:-\/3\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespacerf-id-control_a44ce566fe9439db91445bbacc055dfba}{\index{rf-\/id-\/control@{rf-\/id-\/control}!actions@{actions}}
+\index{actions@{actions}!rf-id-control@{rf-\/id-\/control}}
+\subsubsection[{actions}]{\setlength{\rightskip}{0pt plus 5cm}dictionary rf-\/id-\/control.\-actions}}\label{namespacerf-id-control_a44ce566fe9439db91445bbacc055dfba}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+1 = \{
+2     \textcolor{stringliteral}{"7C00568674D8"}: (\textcolor{stringliteral}{'shutdown'}, \textcolor{stringliteral}{"echo -shutdown-"}),
+3     \textcolor{comment}{#"7C00568674D8": ('shutdown', "sudo shutdown -h now"),}
+4     \textcolor{stringliteral}{"7C00564A7212"}: (\textcolor{stringliteral}{'restart'}, \textcolor{stringliteral}{"echo -restart-"}),
+5     \textcolor{comment}{#"7C00564A7212": ('restart', "sudo shutdown -r now"),}
+6 \}
+\end{DoxyCode}
+\hypertarget{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{\index{rf-\/id-\/control@{rf-\/id-\/control}!out@{out}}
+\index{out@{out}!rf-id-control@{rf-\/id-\/control}}
+\subsubsection[{out}]{\setlength{\rightskip}{0pt plus 5cm}string rf-\/id-\/control.\-out = ''}}\label{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}
+\hypertarget{namespacerf-id-control_ad75e60402f9b3cb86ddbce12f4c99256}{\index{rf-\/id-\/control@{rf-\/id-\/control}!ser@{ser}}
+\index{ser@{ser}!rf-id-control@{rf-\/id-\/control}}
+\subsubsection[{ser}]{\setlength{\rightskip}{0pt plus 5cm}tuple rf-\/id-\/control.\-ser}}\label{namespacerf-id-control_ad75e60402f9b3cb86ddbce12f4c99256}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+1 = serial.Serial(
+2     port=\textcolor{stringliteral}{'/dev/ttyUSB0'},
+3     baudrate=9600,
+4     parity=serial.PARITY\_ODD,
+5     stopbits=serial.STOPBITS\_TWO,
+6     bytesize=serial.SEVENBITS
+7 )
+\end{DoxyCode}
+\hypertarget{namespacerf-id-control_a10a094d39156477476efd89f406dae97}{\index{rf-\/id-\/control@{rf-\/id-\/control}!tag@{tag}}
+\index{tag@{tag}!rf-id-control@{rf-\/id-\/control}}
+\subsubsection[{tag}]{\setlength{\rightskip}{0pt plus 5cm}list rf-\/id-\/control.\-tag = {\bf out}\mbox{[}1\-:-\/3\mbox{]}}}\label{namespacerf-id-control_a10a094d39156477476efd89f406dae97}

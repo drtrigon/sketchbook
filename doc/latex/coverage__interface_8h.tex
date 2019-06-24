@@ -1,0 +1,100 @@
+\hypertarget{coverage__interface_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/sanitizer/coverage\-\_\-interface.h File Reference}
+\label{coverage__interface_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/coverage\-\_\-interface.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/coverage\-\_\-interface.\-h}}
+}
+{\ttfamily \#include $<$sanitizer/common\-\_\-interface\-\_\-defs.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{coverage__interface_8h_a26d500fe1e4415476e8d5bc2f2e01093}{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-init} ()
+\item 
+void \hyperlink{coverage__interface_8h_ae56a3cd24de2a88082c0a473a83fa856}{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-dump} ()
+\item 
+intptr\-\_\-t \hyperlink{coverage__interface_8h_a1a7bf4c7d2d46f618404e5e198e657ed}{\-\_\-\-\_\-sanitizer\-\_\-maybe\-\_\-open\-\_\-cov\-\_\-file} (const char $\ast$name)
+\item 
+uintptr\-\_\-t \hyperlink{coverage__interface_8h_aaa24f9e596f59a97c2c8d4451355a2c2}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-coverage} ()
+\item 
+uintptr\-\_\-t \hyperlink{coverage__interface_8h_a33a6b440c1ce11b90fc0999de3a3c767}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-caller\-\_\-callee\-\_\-pairs} ()
+\item 
+void \hyperlink{coverage__interface_8h_aba79fe84102bd1e805a6add079e4212c}{\-\_\-\-\_\-sanitizer\-\_\-reset\-\_\-coverage} ()
+\item 
+uintptr\-\_\-t \hyperlink{coverage__interface_8h_aa436db8a14e0e9b75d4fad6828ce911a}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-guards} (uintptr\-\_\-t $\ast$$\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+uintptr\-\_\-t \hyperlink{coverage__interface_8h_aa0dcf979e8fc9a791e1dfb4b4e3f3510}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-pc\-\_\-buffer} (uintptr\-\_\-t $\ast$$\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+uintptr\-\_\-t \hyperlink{coverage__interface_8h_a26b62b9dc44c0d62ac7563901ba8fe3a}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-number\-\_\-of\-\_\-counters} ()
+\item 
+uintptr\-\_\-t \hyperlink{coverage__interface_8h_a88de0865aae3fa8f1ed7fef9c58bf4d3}{\-\_\-\-\_\-sanitizer\-\_\-update\-\_\-counter\-\_\-bitset\-\_\-and\-\_\-clear\-\_\-counters} (uint8\-\_\-t $\ast$bitset)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{coverage__interface_8h_ae56a3cd24de2a88082c0a473a83fa856}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-dump@{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-dump}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-dump@{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-dump}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-dump}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-dump (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_ae56a3cd24de2a88082c0a473a83fa856}
+\hypertarget{coverage__interface_8h_a26d500fe1e4415476e8d5bc2f2e01093}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-init@{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-init}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-init@{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-init}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-sanitizer\-\_\-cov\-\_\-init (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_a26d500fe1e4415476e8d5bc2f2e01093}
+\hypertarget{coverage__interface_8h_aa436db8a14e0e9b75d4fad6828ce911a}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-guards@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-guards}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-guards@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-guards}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-guards}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-guards (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t $\ast$$\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_aa436db8a14e0e9b75d4fad6828ce911a}
+\hypertarget{coverage__interface_8h_aa0dcf979e8fc9a791e1dfb4b4e3f3510}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-pc\-\_\-buffer@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-pc\-\_\-buffer}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-pc\-\_\-buffer@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-pc\-\_\-buffer}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-pc\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-coverage\-\_\-pc\-\_\-buffer (
+\begin{DoxyParamCaption}
+\item[{uintptr\-\_\-t $\ast$$\ast$}]{data}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_aa0dcf979e8fc9a791e1dfb4b4e3f3510}
+\hypertarget{coverage__interface_8h_a26b62b9dc44c0d62ac7563901ba8fe3a}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-number\-\_\-of\-\_\-counters@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-number\-\_\-of\-\_\-counters}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-number\-\_\-of\-\_\-counters@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-number\-\_\-of\-\_\-counters}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-number\-\_\-of\-\_\-counters}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-number\-\_\-of\-\_\-counters (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_a26b62b9dc44c0d62ac7563901ba8fe3a}
+\hypertarget{coverage__interface_8h_a33a6b440c1ce11b90fc0999de3a3c767}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-caller\-\_\-callee\-\_\-pairs@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-caller\-\_\-callee\-\_\-pairs}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-caller\-\_\-callee\-\_\-pairs@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-caller\-\_\-callee\-\_\-pairs}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-caller\-\_\-callee\-\_\-pairs}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-caller\-\_\-callee\-\_\-pairs (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_a33a6b440c1ce11b90fc0999de3a3c767}
+\hypertarget{coverage__interface_8h_aaa24f9e596f59a97c2c8d4451355a2c2}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-coverage@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-coverage}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-coverage@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-coverage}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-coverage}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-total\-\_\-unique\-\_\-coverage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_aaa24f9e596f59a97c2c8d4451355a2c2}
+\hypertarget{coverage__interface_8h_a1a7bf4c7d2d46f618404e5e198e657ed}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-maybe\-\_\-open\-\_\-cov\-\_\-file@{\-\_\-\-\_\-sanitizer\-\_\-maybe\-\_\-open\-\_\-cov\-\_\-file}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-maybe\-\_\-open\-\_\-cov\-\_\-file@{\-\_\-\-\_\-sanitizer\-\_\-maybe\-\_\-open\-\_\-cov\-\_\-file}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-maybe\-\_\-open\-\_\-cov\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}intptr\-\_\-t \-\_\-\-\_\-sanitizer\-\_\-maybe\-\_\-open\-\_\-cov\-\_\-file (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{name}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_a1a7bf4c7d2d46f618404e5e198e657ed}
+\hypertarget{coverage__interface_8h_aba79fe84102bd1e805a6add079e4212c}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-reset\-\_\-coverage@{\-\_\-\-\_\-sanitizer\-\_\-reset\-\_\-coverage}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-reset\-\_\-coverage@{\-\_\-\-\_\-sanitizer\-\_\-reset\-\_\-coverage}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-reset\-\_\-coverage}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-sanitizer\-\_\-reset\-\_\-coverage (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_aba79fe84102bd1e805a6add079e4212c}
+\hypertarget{coverage__interface_8h_a88de0865aae3fa8f1ed7fef9c58bf4d3}{\index{coverage\-\_\-interface.\-h@{coverage\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-update\-\_\-counter\-\_\-bitset\-\_\-and\-\_\-clear\-\_\-counters@{\-\_\-\-\_\-sanitizer\-\_\-update\-\_\-counter\-\_\-bitset\-\_\-and\-\_\-clear\-\_\-counters}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-update\-\_\-counter\-\_\-bitset\-\_\-and\-\_\-clear\-\_\-counters@{\-\_\-\-\_\-sanitizer\-\_\-update\-\_\-counter\-\_\-bitset\-\_\-and\-\_\-clear\-\_\-counters}!coverage_interface.h@{coverage\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-update\-\_\-counter\-\_\-bitset\-\_\-and\-\_\-clear\-\_\-counters}]{\setlength{\rightskip}{0pt plus 5cm}uintptr\-\_\-t \-\_\-\-\_\-sanitizer\-\_\-update\-\_\-counter\-\_\-bitset\-\_\-and\-\_\-clear\-\_\-counters (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{bitset}
+\end{DoxyParamCaption}
+)}}\label{coverage__interface_8h_a88de0865aae3fa8f1ed7fef9c58bf4d3}

@@ -1,0 +1,114 @@
+\hypertarget{network_8c}{\section{wiring\-Pi/wiring\-Pi\-D/network.c File Reference}
+\label{network_8c}\index{wiring\-Pi/wiring\-Pi\-D/network.\-c@{wiring\-Pi/wiring\-Pi\-D/network.\-c}}
+}
+{\ttfamily \#include $<$sys/socket.\-h$>$}\\*
+{\ttfamily \#include $<$netinet/in.\-h$>$}\\*
+{\ttfamily \#include $<$arpa/inet.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$malloc.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$crypt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}network.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{network_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{network_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(!\hyperlink{network_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E})
+\item 
+\#define \hyperlink{network_8c_a531df3ddc06621690d3ea6e7e05a4e62}{S\-A\-L\-T\-\_\-\-L\-E\-N}~16
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char $\ast$ \hyperlink{network_8c_a7650ca35358e2f4bc681cf0a349d7539}{get\-Client\-I\-P} (void)
+\item 
+int \hyperlink{network_8c_a6c62310e8f379057ebd64a8d46241693}{send\-Greeting} (int client\-Fd)
+\item 
+int \hyperlink{network_8c_a2ef997dc841ba18943187ec4023bccfd}{send\-Challenge} (int client\-Fd)
+\item 
+int \hyperlink{network_8c_a80eede8b9947521e3ec23cfb0b7151c6}{get\-Response} (int client\-Fd)
+\item 
+int \hyperlink{network_8c_a3d2dedb9b7f7037fa1f66437a2148d52}{password\-Match} (const char $\ast$\hyperlink{SHT31_8ino_aa4a2ebcb494493f648ae1e6975672575}{password})
+\item 
+int \hyperlink{network_8c_ace71c0c4d1c2b189adbc62a9aa8aef2e}{setup\-Server} (int server\-Port)
+\item 
+void \hyperlink{network_8c_a6e5137860db6f5cfed3177a549330a39}{close\-Server} (int client\-Fd)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{network_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{network.\-c@{network.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!network.c@{network.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(!{\bf T\-R\-U\-E})}}\label{network_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{network_8c_a531df3ddc06621690d3ea6e7e05a4e62}{\index{network.\-c@{network.\-c}!S\-A\-L\-T\-\_\-\-L\-E\-N@{S\-A\-L\-T\-\_\-\-L\-E\-N}}
+\index{S\-A\-L\-T\-\_\-\-L\-E\-N@{S\-A\-L\-T\-\_\-\-L\-E\-N}!network.c@{network.\-c}}
+\subsubsection[{S\-A\-L\-T\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-A\-L\-T\-\_\-\-L\-E\-N~16}}\label{network_8c_a531df3ddc06621690d3ea6e7e05a4e62}
+\hypertarget{network_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{network.\-c@{network.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!network.c@{network.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{network_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{network_8c_a6e5137860db6f5cfed3177a549330a39}{\index{network.\-c@{network.\-c}!close\-Server@{close\-Server}}
+\index{close\-Server@{close\-Server}!network.c@{network.\-c}}
+\subsubsection[{close\-Server}]{\setlength{\rightskip}{0pt plus 5cm}void close\-Server (
+\begin{DoxyParamCaption}
+\item[{int}]{client\-Fd}
+\end{DoxyParamCaption}
+)}}\label{network_8c_a6e5137860db6f5cfed3177a549330a39}
+\hypertarget{network_8c_a7650ca35358e2f4bc681cf0a349d7539}{\index{network.\-c@{network.\-c}!get\-Client\-I\-P@{get\-Client\-I\-P}}
+\index{get\-Client\-I\-P@{get\-Client\-I\-P}!network.c@{network.\-c}}
+\subsubsection[{get\-Client\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}char$\ast$ get\-Client\-I\-P (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{network_8c_a7650ca35358e2f4bc681cf0a349d7539}
+\hypertarget{network_8c_a80eede8b9947521e3ec23cfb0b7151c6}{\index{network.\-c@{network.\-c}!get\-Response@{get\-Response}}
+\index{get\-Response@{get\-Response}!network.c@{network.\-c}}
+\subsubsection[{get\-Response}]{\setlength{\rightskip}{0pt plus 5cm}int get\-Response (
+\begin{DoxyParamCaption}
+\item[{int}]{client\-Fd}
+\end{DoxyParamCaption}
+)}}\label{network_8c_a80eede8b9947521e3ec23cfb0b7151c6}
+\hypertarget{network_8c_a3d2dedb9b7f7037fa1f66437a2148d52}{\index{network.\-c@{network.\-c}!password\-Match@{password\-Match}}
+\index{password\-Match@{password\-Match}!network.c@{network.\-c}}
+\subsubsection[{password\-Match}]{\setlength{\rightskip}{0pt plus 5cm}int password\-Match (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{password}
+\end{DoxyParamCaption}
+)}}\label{network_8c_a3d2dedb9b7f7037fa1f66437a2148d52}
+\hypertarget{network_8c_a2ef997dc841ba18943187ec4023bccfd}{\index{network.\-c@{network.\-c}!send\-Challenge@{send\-Challenge}}
+\index{send\-Challenge@{send\-Challenge}!network.c@{network.\-c}}
+\subsubsection[{send\-Challenge}]{\setlength{\rightskip}{0pt plus 5cm}int send\-Challenge (
+\begin{DoxyParamCaption}
+\item[{int}]{client\-Fd}
+\end{DoxyParamCaption}
+)}}\label{network_8c_a2ef997dc841ba18943187ec4023bccfd}
+\hypertarget{network_8c_a6c62310e8f379057ebd64a8d46241693}{\index{network.\-c@{network.\-c}!send\-Greeting@{send\-Greeting}}
+\index{send\-Greeting@{send\-Greeting}!network.c@{network.\-c}}
+\subsubsection[{send\-Greeting}]{\setlength{\rightskip}{0pt plus 5cm}int send\-Greeting (
+\begin{DoxyParamCaption}
+\item[{int}]{client\-Fd}
+\end{DoxyParamCaption}
+)}}\label{network_8c_a6c62310e8f379057ebd64a8d46241693}
+\hypertarget{network_8c_ace71c0c4d1c2b189adbc62a9aa8aef2e}{\index{network.\-c@{network.\-c}!setup\-Server@{setup\-Server}}
+\index{setup\-Server@{setup\-Server}!network.c@{network.\-c}}
+\subsubsection[{setup\-Server}]{\setlength{\rightskip}{0pt plus 5cm}int setup\-Server (
+\begin{DoxyParamCaption}
+\item[{int}]{server\-Port}
+\end{DoxyParamCaption}
+)}}\label{network_8c_ace71c0c4d1c2b189adbc62a9aa8aef2e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{network_8c_ac7cbd331d33fcd5a6f81a257975e4cd5}{\index{network.\-c@{network.\-c}!sin@{sin}}
+\index{sin@{sin}!network.c@{network.\-c}}
+\subsubsection[{sin}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\-\_\-in sin}}\label{network_8c_ac7cbd331d33fcd5a6f81a257975e4cd5}
+\hypertarget{network_8c_a0d44c041ae4a6b97d0e582f9028cf8c0}{\index{network.\-c@{network.\-c}!sin6@{sin6}}
+\index{sin6@{sin6}!network.c@{network.\-c}}
+\subsubsection[{sin6}]{\setlength{\rightskip}{0pt plus 5cm}struct sockaddr\-\_\-in6 sin6}}\label{network_8c_a0d44c041ae4a6b97d0e582f9028cf8c0}

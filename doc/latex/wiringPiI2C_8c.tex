@@ -1,0 +1,187 @@
+\hypertarget{wiringPiI2C_8c}{\section{wiring\-Pi/wiring\-Pi/wiring\-Pi\-I2\-C.c File Reference}
+\label{wiringPiI2C_8c}\index{wiring\-Pi/wiring\-Pi/wiring\-Pi\-I2\-C.\-c@{wiring\-Pi/wiring\-Pi/wiring\-Pi\-I2\-C.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\-h$>$}\\*
+{\ttfamily \#include $<$asm/ioctl.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi\-I2\-C.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \hyperlink{unioni2c__smbus__data}{i2c\-\_\-smbus\-\_\-data}
+\item 
+struct \hyperlink{structi2c__smbus__ioctl__data}{i2c\-\_\-smbus\-\_\-ioctl\-\_\-data}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{wiringPiI2C_8c_ab15137f7c592d05573de99f078516157}{I2\-C\-\_\-\-S\-L\-A\-V\-E}~0x0703
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a4e9d483fb9eb1074646726ce518b1d4d}{I2\-C\-\_\-\-S\-M\-B\-U\-S}~0x0720	/$\ast$ S\-M\-Bus-\/level access $\ast$/
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a8f5482668eb7741ef21dd9c211d876c9}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-R\-E\-A\-D}~1
+\item 
+\#define \hyperlink{wiringPiI2C_8c_ac4d2a9af170b85b33c640c811f240c76}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-R\-I\-T\-E}~0
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a94760c9e3bb58f5535578eb52a0ffc0c}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-Q\-U\-I\-C\-K}~0
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a8006fa66a9d9224959fb8337a365a12a}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E}~1
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a3d7320d4d3f8b109344ee08feab0e533}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E\-\_\-\-D\-A\-T\-A}~2
+\item 
+\#define \hyperlink{wiringPiI2C_8c_abd0ad56a944b1a95435d51cc54db36c4}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-O\-R\-D\-\_\-\-D\-A\-T\-A}~3
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a140bc92b58f10de5eb796ad71e8f0da2}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}~4
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a0253f81d1f2732492c1a05dc41094d12}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}~5
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a36bcbcb9294695fddb8606a32cbedc9b}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-R\-O\-K\-E\-N}~6
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a187e1de23e9935885cdb94ee429a2eed}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}~7		/$\ast$ S\-M\-Bus 2.\-0 $\ast$/
+\item 
+\#define \hyperlink{wiringPiI2C_8c_aa5ecbb0ceaddcb905d68d366edfb026c}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}~8
+\item 
+\#define \hyperlink{wiringPiI2C_8c_ac2dd8b77e329bba4a3ca9cd275f9bf50}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}~32	/$\ast$ As specified in S\-M\-Bus standard $\ast$/
+\item 
+\#define \hyperlink{wiringPiI2C_8c_a13045bd7a62d8d55acbcf174b7149cbf}{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}~32	/$\ast$ Not specified but we use same structure $\ast$/
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{wiringPiI2C_8c_ade7c44b123f8862c139ca3acdd622ec8}{wiring\-Pi\-I2\-C\-Read} (int fd)
+\item 
+int \hyperlink{wiringPiI2C_8c_a65327484899f453c27afa62b2101708d}{wiring\-Pi\-I2\-C\-Read\-Reg8} (int fd, int reg)
+\item 
+int \hyperlink{wiringPiI2C_8c_a16ff86a33838471cc4aa77722f766604}{wiring\-Pi\-I2\-C\-Read\-Reg16} (int fd, int reg)
+\item 
+int \hyperlink{wiringPiI2C_8c_aec5a95d8cfd65bca6989419accf8f42e}{wiring\-Pi\-I2\-C\-Write} (int fd, int \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+int \hyperlink{wiringPiI2C_8c_a21ae5199b24247bda31db5e9ec0155bf}{wiring\-Pi\-I2\-C\-Write\-Reg8} (int fd, int reg, int value)
+\item 
+int \hyperlink{wiringPiI2C_8c_a788d4e0213f1f4399785ac2309e9e163}{wiring\-Pi\-I2\-C\-Write\-Reg16} (int fd, int reg, int value)
+\item 
+int \hyperlink{wiringPiI2C_8c_a679607fdc800fae52da732dcea937063}{wiring\-Pi\-I2\-C\-Setup\-Interface} (const char $\ast$device, int dev\-Id)
+\item 
+int \hyperlink{wiringPiI2C_8c_a834bef3b6d6ed8f8953d1818d5a3acb5}{wiring\-Pi\-I2\-C\-Setup} (const int dev\-Id)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{wiringPiI2C_8c_ab15137f7c592d05573de99f078516157}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-L\-A\-V\-E@{I2\-C\-\_\-\-S\-L\-A\-V\-E}}
+\index{I2\-C\-\_\-\-S\-L\-A\-V\-E@{I2\-C\-\_\-\-S\-L\-A\-V\-E}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-L\-A\-V\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-L\-A\-V\-E~0x0703}}\label{wiringPiI2C_8c_ab15137f7c592d05573de99f078516157}
+\hypertarget{wiringPiI2C_8c_a4e9d483fb9eb1074646726ce518b1d4d}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S@{I2\-C\-\_\-\-S\-M\-B\-U\-S}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S@{I2\-C\-\_\-\-S\-M\-B\-U\-S}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S~0x0720	/$\ast$ S\-M\-Bus-\/level access $\ast$/}}\label{wiringPiI2C_8c_a4e9d483fb9eb1074646726ce518b1d4d}
+\hypertarget{wiringPiI2C_8c_a0253f81d1f2732492c1a05dc41094d12}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A~5}}\label{wiringPiI2C_8c_a0253f81d1f2732492c1a05dc41094d12}
+\hypertarget{wiringPiI2C_8c_ac2dd8b77e329bba4a3ca9cd275f9bf50}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X~32	/$\ast$ As specified in S\-M\-Bus standard $\ast$/}}\label{wiringPiI2C_8c_ac2dd8b77e329bba4a3ca9cd275f9bf50}
+\hypertarget{wiringPiI2C_8c_a187e1de23e9935885cdb94ee429a2eed}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-L\-O\-C\-K\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L~7		/$\ast$ S\-M\-Bus 2.\-0 $\ast$/}}\label{wiringPiI2C_8c_a187e1de23e9935885cdb94ee429a2eed}
+\hypertarget{wiringPiI2C_8c_a8006fa66a9d9224959fb8337a365a12a}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E~1}}\label{wiringPiI2C_8c_a8006fa66a9d9224959fb8337a365a12a}
+\hypertarget{wiringPiI2C_8c_a3d7320d4d3f8b109344ee08feab0e533}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E\-\_\-\-D\-A\-T\-A}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E\-\_\-\-D\-A\-T\-A}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-B\-Y\-T\-E\-\_\-\-D\-A\-T\-A~2}}\label{wiringPiI2C_8c_a3d7320d4d3f8b109344ee08feab0e533}
+\hypertarget{wiringPiI2C_8c_a36bcbcb9294695fddb8606a32cbedc9b}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-R\-O\-K\-E\-N@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-R\-O\-K\-E\-N}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-R\-O\-K\-E\-N@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-R\-O\-K\-E\-N}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-R\-O\-K\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-B\-R\-O\-K\-E\-N~6}}\label{wiringPiI2C_8c_a36bcbcb9294695fddb8606a32cbedc9b}
+\hypertarget{wiringPiI2C_8c_aa5ecbb0ceaddcb905d68d366edfb026c}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-D\-A\-T\-A~8}}\label{wiringPiI2C_8c_aa5ecbb0ceaddcb905d68d366edfb026c}
+\hypertarget{wiringPiI2C_8c_a13045bd7a62d8d55acbcf174b7149cbf}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-I2\-C\-\_\-\-B\-L\-O\-C\-K\-\_\-\-M\-A\-X~32	/$\ast$ Not specified but we use same structure $\ast$/}}\label{wiringPiI2C_8c_a13045bd7a62d8d55acbcf174b7149cbf}
+\hypertarget{wiringPiI2C_8c_a140bc92b58f10de5eb796ad71e8f0da2}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-P\-R\-O\-C\-\_\-\-C\-A\-L\-L~4}}\label{wiringPiI2C_8c_a140bc92b58f10de5eb796ad71e8f0da2}
+\hypertarget{wiringPiI2C_8c_a94760c9e3bb58f5535578eb52a0ffc0c}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-Q\-U\-I\-C\-K@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-Q\-U\-I\-C\-K}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-Q\-U\-I\-C\-K@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-Q\-U\-I\-C\-K}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-Q\-U\-I\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-Q\-U\-I\-C\-K~0}}\label{wiringPiI2C_8c_a94760c9e3bb58f5535578eb52a0ffc0c}
+\hypertarget{wiringPiI2C_8c_a8f5482668eb7741ef21dd9c211d876c9}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-R\-E\-A\-D@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-R\-E\-A\-D}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-R\-E\-A\-D@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-R\-E\-A\-D}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-R\-E\-A\-D~1}}\label{wiringPiI2C_8c_a8f5482668eb7741ef21dd9c211d876c9}
+\hypertarget{wiringPiI2C_8c_abd0ad56a944b1a95435d51cc54db36c4}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-O\-R\-D\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-O\-R\-D\-\_\-\-D\-A\-T\-A}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-O\-R\-D\-\_\-\-D\-A\-T\-A@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-O\-R\-D\-\_\-\-D\-A\-T\-A}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-O\-R\-D\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-O\-R\-D\-\_\-\-D\-A\-T\-A~3}}\label{wiringPiI2C_8c_abd0ad56a944b1a95435d51cc54db36c4}
+\hypertarget{wiringPiI2C_8c_ac4d2a9af170b85b33c640c811f240c76}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-R\-I\-T\-E@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-R\-I\-T\-E}}
+\index{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-R\-I\-T\-E@{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-R\-I\-T\-E}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-R\-I\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-S\-M\-B\-U\-S\-\_\-\-W\-R\-I\-T\-E~0}}\label{wiringPiI2C_8c_ac4d2a9af170b85b33c640c811f240c76}
+
+
+\subsection{Function Documentation}
+\hypertarget{wiringPiI2C_8c_ade7c44b123f8862c139ca3acdd622ec8}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Read@{wiring\-Pi\-I2\-C\-Read}}
+\index{wiring\-Pi\-I2\-C\-Read@{wiring\-Pi\-I2\-C\-Read}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Read (
+\begin{DoxyParamCaption}
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_ade7c44b123f8862c139ca3acdd622ec8}
+\hypertarget{wiringPiI2C_8c_a16ff86a33838471cc4aa77722f766604}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Read\-Reg16@{wiring\-Pi\-I2\-C\-Read\-Reg16}}
+\index{wiring\-Pi\-I2\-C\-Read\-Reg16@{wiring\-Pi\-I2\-C\-Read\-Reg16}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Read\-Reg16}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Read\-Reg16 (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{reg}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_a16ff86a33838471cc4aa77722f766604}
+\hypertarget{wiringPiI2C_8c_a65327484899f453c27afa62b2101708d}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Read\-Reg8@{wiring\-Pi\-I2\-C\-Read\-Reg8}}
+\index{wiring\-Pi\-I2\-C\-Read\-Reg8@{wiring\-Pi\-I2\-C\-Read\-Reg8}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Read\-Reg8}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Read\-Reg8 (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{reg}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_a65327484899f453c27afa62b2101708d}
+\hypertarget{wiringPiI2C_8c_a834bef3b6d6ed8f8953d1818d5a3acb5}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Setup@{wiring\-Pi\-I2\-C\-Setup}}
+\index{wiring\-Pi\-I2\-C\-Setup@{wiring\-Pi\-I2\-C\-Setup}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Setup (
+\begin{DoxyParamCaption}
+\item[{const int}]{dev\-Id}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_a834bef3b6d6ed8f8953d1818d5a3acb5}
+\hypertarget{wiringPiI2C_8c_a679607fdc800fae52da732dcea937063}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Setup\-Interface@{wiring\-Pi\-I2\-C\-Setup\-Interface}}
+\index{wiring\-Pi\-I2\-C\-Setup\-Interface@{wiring\-Pi\-I2\-C\-Setup\-Interface}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Setup\-Interface}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Setup\-Interface (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{device, }
+\item[{int}]{dev\-Id}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_a679607fdc800fae52da732dcea937063}
+\hypertarget{wiringPiI2C_8c_aec5a95d8cfd65bca6989419accf8f42e}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Write@{wiring\-Pi\-I2\-C\-Write}}
+\index{wiring\-Pi\-I2\-C\-Write@{wiring\-Pi\-I2\-C\-Write}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Write}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{data}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_aec5a95d8cfd65bca6989419accf8f42e}
+\hypertarget{wiringPiI2C_8c_a788d4e0213f1f4399785ac2309e9e163}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Write\-Reg16@{wiring\-Pi\-I2\-C\-Write\-Reg16}}
+\index{wiring\-Pi\-I2\-C\-Write\-Reg16@{wiring\-Pi\-I2\-C\-Write\-Reg16}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Write\-Reg16}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Write\-Reg16 (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{reg, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_a788d4e0213f1f4399785ac2309e9e163}
+\hypertarget{wiringPiI2C_8c_a21ae5199b24247bda31db5e9ec0155bf}{\index{wiring\-Pi\-I2\-C.\-c@{wiring\-Pi\-I2\-C.\-c}!wiring\-Pi\-I2\-C\-Write\-Reg8@{wiring\-Pi\-I2\-C\-Write\-Reg8}}
+\index{wiring\-Pi\-I2\-C\-Write\-Reg8@{wiring\-Pi\-I2\-C\-Write\-Reg8}!wiringPiI2C.c@{wiring\-Pi\-I2\-C.\-c}}
+\subsubsection[{wiring\-Pi\-I2\-C\-Write\-Reg8}]{\setlength{\rightskip}{0pt plus 5cm}int wiring\-Pi\-I2\-C\-Write\-Reg8 (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{reg, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{wiringPiI2C_8c_a21ae5199b24247bda31db5e9ec0155bf}

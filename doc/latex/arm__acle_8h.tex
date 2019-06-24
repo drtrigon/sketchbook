@@ -1,0 +1,200 @@
+\hypertarget{arm__acle_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/arm\-\_\-acle.h File Reference}
+\label{arm__acle_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/arm\-\_\-acle.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/arm\-\_\-acle.\-h}}
+}
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{arm__acle_8h_a2a600113edf3cc822c84dacbe3949ea4}{\-\_\-\-\_\-dmb}(i)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-dmb(i)
+\item 
+\#define \hyperlink{arm__acle_8h_ae8447a824f2e8f7cf7f3741e080ec361}{\-\_\-\-\_\-dsb}(i)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-dsb(i)
+\item 
+\#define \hyperlink{arm__acle_8h_a0e479e18c50cec368493d8c4900f6bba}{\-\_\-\-\_\-isb}(i)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-isb(i)
+\item 
+\#define \hyperlink{arm__acle_8h_a1a39765f79292850b640995403927b57}{\-\_\-\-\_\-pld}(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})~\hyperlink{arm__acle_8h_aa8d61ad51ca98dafeb1edc7973e084b6}{\-\_\-\-\_\-pldx}(0, 0, 0, \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+\#define \hyperlink{arm__acle_8h_aa8d61ad51ca98dafeb1edc7973e084b6}{\-\_\-\-\_\-pldx}(access\-\_\-kind, cache\-\_\-level, retention\-\_\-policy, \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-prefetch(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, access\-\_\-kind, cache\-\_\-level, retention\-\_\-policy, 1)
+\item 
+\#define \hyperlink{arm__acle_8h_aa773db33ddec5b7d515f22db8c877f3f}{\-\_\-\-\_\-pli}(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})~\hyperlink{arm__acle_8h_ad164e203681458e9c4fc185b2c67e93a}{\-\_\-\-\_\-plix}(0, 0, \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+\#define \hyperlink{arm__acle_8h_ad164e203681458e9c4fc185b2c67e93a}{\-\_\-\-\_\-plix}(cache\-\_\-level, retention\-\_\-policy, \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-prefetch(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, 0, cache\-\_\-level, retention\-\_\-policy, 0)
+\item 
+\#define \hyperlink{arm__acle_8h_a65a234192984d3a3ad4103d37075d18f}{\-\_\-\-\_\-arm\-\_\-rsr}(sysreg)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-rsr(sysreg)
+\item 
+\#define \hyperlink{arm__acle_8h_a3a586ce3214e6ff99fc7a31e85fd1621}{\-\_\-\-\_\-arm\-\_\-rsr64}(sysreg)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-rsr64(sysreg)
+\item 
+\#define \hyperlink{arm__acle_8h_a37c99118ab8d9b9567a4b5c76e1315db}{\-\_\-\-\_\-arm\-\_\-rsrp}(sysreg)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-rsrp(sysreg)
+\item 
+\#define \hyperlink{arm__acle_8h_a1c991999791ad5ec1f4948a334d973ed}{\-\_\-\-\_\-arm\-\_\-wsr}(sysreg, \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v})~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-wsr(sysreg, \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v})
+\item 
+\#define \hyperlink{arm__acle_8h_aa39d4bd59f9641289ad818a83a8e0149}{\-\_\-\-\_\-arm\-\_\-wsr64}(sysreg, \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v})~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-wsr64(sysreg, \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v})
+\item 
+\#define \hyperlink{arm__acle_8h_a6080079720ddd7ebd1d88ee98074848e}{\-\_\-\-\_\-arm\-\_\-wsrp}(sysreg, \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v})~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-wsrp(sysreg, \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v})
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while} (\-\_\-\-\_\-builtin\-\_\-arm\-\_\-strex(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p}))
+\item 
+\hyperlink{arm__acle_8h_a6957e07af8d4be27b50093b83d5dff4a}{if} (\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}==0) \hyperlink{arm__acle_8h_aa39c843d7f57d177d9f927f0142d8e0c}{return} \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}
+\item 
+\hyperlink{arm__acle_8h_aa39c843d7f57d177d9f927f0142d8e0c}{return} (\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x} $>$$>$ \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})$\vert$(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}$<$$<$ (32-\/\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}))
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \-\_\-\-\_\-inline\-\_\-\-\_\- uint32\-\_\-t \\*
+volatile uint32\-\_\-t $\ast$ \hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p}
+\item 
+do \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v} = \-\_\-\-\_\-builtin\-\_\-arm\-\_\-ldrex(\hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p})
+\item 
+static \-\_\-\-\_\-inline\-\_\-\-\_\- uint32\-\_\-t uint32\-\_\-t \hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{arm__acle_8h_a65a234192984d3a3ad4103d37075d18f}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-arm\-\_\-rsr@{\-\_\-\-\_\-arm\-\_\-rsr}}
+\index{\-\_\-\-\_\-arm\-\_\-rsr@{\-\_\-\-\_\-arm\-\_\-rsr}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-arm\-\_\-rsr}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-arm\-\_\-rsr(
+\begin{DoxyParamCaption}
+\item[{}]{sysreg}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-rsr(sysreg)}}\label{arm__acle_8h_a65a234192984d3a3ad4103d37075d18f}
+\hypertarget{arm__acle_8h_a3a586ce3214e6ff99fc7a31e85fd1621}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-arm\-\_\-rsr64@{\-\_\-\-\_\-arm\-\_\-rsr64}}
+\index{\-\_\-\-\_\-arm\-\_\-rsr64@{\-\_\-\-\_\-arm\-\_\-rsr64}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-arm\-\_\-rsr64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-arm\-\_\-rsr64(
+\begin{DoxyParamCaption}
+\item[{}]{sysreg}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-rsr64(sysreg)}}\label{arm__acle_8h_a3a586ce3214e6ff99fc7a31e85fd1621}
+\hypertarget{arm__acle_8h_a37c99118ab8d9b9567a4b5c76e1315db}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-arm\-\_\-rsrp@{\-\_\-\-\_\-arm\-\_\-rsrp}}
+\index{\-\_\-\-\_\-arm\-\_\-rsrp@{\-\_\-\-\_\-arm\-\_\-rsrp}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-arm\-\_\-rsrp}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-arm\-\_\-rsrp(
+\begin{DoxyParamCaption}
+\item[{}]{sysreg}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-rsrp(sysreg)}}\label{arm__acle_8h_a37c99118ab8d9b9567a4b5c76e1315db}
+\hypertarget{arm__acle_8h_a1c991999791ad5ec1f4948a334d973ed}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-arm\-\_\-wsr@{\-\_\-\-\_\-arm\-\_\-wsr}}
+\index{\-\_\-\-\_\-arm\-\_\-wsr@{\-\_\-\-\_\-arm\-\_\-wsr}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-arm\-\_\-wsr}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-arm\-\_\-wsr(
+\begin{DoxyParamCaption}
+\item[{}]{sysreg, }
+\item[{}]{{\bf v}}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-wsr(sysreg, {\bf v})}}\label{arm__acle_8h_a1c991999791ad5ec1f4948a334d973ed}
+\hypertarget{arm__acle_8h_aa39d4bd59f9641289ad818a83a8e0149}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-arm\-\_\-wsr64@{\-\_\-\-\_\-arm\-\_\-wsr64}}
+\index{\-\_\-\-\_\-arm\-\_\-wsr64@{\-\_\-\-\_\-arm\-\_\-wsr64}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-arm\-\_\-wsr64}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-arm\-\_\-wsr64(
+\begin{DoxyParamCaption}
+\item[{}]{sysreg, }
+\item[{}]{{\bf v}}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-wsr64(sysreg, {\bf v})}}\label{arm__acle_8h_aa39d4bd59f9641289ad818a83a8e0149}
+\hypertarget{arm__acle_8h_a6080079720ddd7ebd1d88ee98074848e}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-arm\-\_\-wsrp@{\-\_\-\-\_\-arm\-\_\-wsrp}}
+\index{\-\_\-\-\_\-arm\-\_\-wsrp@{\-\_\-\-\_\-arm\-\_\-wsrp}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-arm\-\_\-wsrp}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-arm\-\_\-wsrp(
+\begin{DoxyParamCaption}
+\item[{}]{sysreg, }
+\item[{}]{{\bf v}}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-wsrp(sysreg, {\bf v})}}\label{arm__acle_8h_a6080079720ddd7ebd1d88ee98074848e}
+\hypertarget{arm__acle_8h_a2a600113edf3cc822c84dacbe3949ea4}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-dmb@{\-\_\-\-\_\-dmb}}
+\index{\-\_\-\-\_\-dmb@{\-\_\-\-\_\-dmb}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-dmb}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-dmb(
+\begin{DoxyParamCaption}
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-dmb(i)}}\label{arm__acle_8h_a2a600113edf3cc822c84dacbe3949ea4}
+\hypertarget{arm__acle_8h_ae8447a824f2e8f7cf7f3741e080ec361}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-dsb@{\-\_\-\-\_\-dsb}}
+\index{\-\_\-\-\_\-dsb@{\-\_\-\-\_\-dsb}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-dsb}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-dsb(
+\begin{DoxyParamCaption}
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-dsb(i)}}\label{arm__acle_8h_ae8447a824f2e8f7cf7f3741e080ec361}
+\hypertarget{arm__acle_8h_a0e479e18c50cec368493d8c4900f6bba}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-isb@{\-\_\-\-\_\-isb}}
+\index{\-\_\-\-\_\-isb@{\-\_\-\-\_\-isb}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-isb}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-isb(
+\begin{DoxyParamCaption}
+\item[{}]{i}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-isb(i)}}\label{arm__acle_8h_a0e479e18c50cec368493d8c4900f6bba}
+\hypertarget{arm__acle_8h_a1a39765f79292850b640995403927b57}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-pld@{\-\_\-\-\_\-pld}}
+\index{\-\_\-\-\_\-pld@{\-\_\-\-\_\-pld}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-pld}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-pld(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf addr}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-\-\_\-pldx}(0, 0, 0, {\bf addr})}}\label{arm__acle_8h_a1a39765f79292850b640995403927b57}
+\hypertarget{arm__acle_8h_aa8d61ad51ca98dafeb1edc7973e084b6}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-pldx@{\-\_\-\-\_\-pldx}}
+\index{\-\_\-\-\_\-pldx@{\-\_\-\-\_\-pldx}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-pldx}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-pldx(
+\begin{DoxyParamCaption}
+\item[{}]{access\-\_\-kind, }
+\item[{}]{cache\-\_\-level, }
+\item[{}]{retention\-\_\-policy, }
+\item[{}]{{\bf addr}}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-prefetch({\bf addr}, access\-\_\-kind, cache\-\_\-level, retention\-\_\-policy, 1)}}\label{arm__acle_8h_aa8d61ad51ca98dafeb1edc7973e084b6}
+\hypertarget{arm__acle_8h_aa773db33ddec5b7d515f22db8c877f3f}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-pli@{\-\_\-\-\_\-pli}}
+\index{\-\_\-\-\_\-pli@{\-\_\-\-\_\-pli}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-pli}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-pli(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf addr}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-\-\_\-plix}(0, 0, {\bf addr})}}\label{arm__acle_8h_aa773db33ddec5b7d515f22db8c877f3f}
+\hypertarget{arm__acle_8h_ad164e203681458e9c4fc185b2c67e93a}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!\-\_\-\-\_\-plix@{\-\_\-\-\_\-plix}}
+\index{\-\_\-\-\_\-plix@{\-\_\-\-\_\-plix}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{\-\_\-\-\_\-plix}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-plix(
+\begin{DoxyParamCaption}
+\item[{}]{cache\-\_\-level, }
+\item[{}]{retention\-\_\-policy, }
+\item[{}]{{\bf addr}}
+\end{DoxyParamCaption}
+)~\-\_\-\-\_\-builtin\-\_\-arm\-\_\-prefetch({\bf addr}, 0, cache\-\_\-level, retention\-\_\-policy, 0)}}\label{arm__acle_8h_ad164e203681458e9c4fc185b2c67e93a}
+
+
+\subsection{Function Documentation}
+\hypertarget{arm__acle_8h_a6957e07af8d4be27b50093b83d5dff4a}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!if@{if}}
+\index{if@{if}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{{\bf y}}]{ = {\ttfamily =0}}
+\end{DoxyParamCaption}
+)}}\label{arm__acle_8h_a6957e07af8d4be27b50093b83d5dff4a}
+\hypertarget{arm__acle_8h_aa39c843d7f57d177d9f927f0142d8e0c}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!return@{return}}
+\index{return@{return}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{return}]{\setlength{\rightskip}{0pt plus 5cm}return (
+\begin{DoxyParamCaption}
+\item[{{\bf x} $>$$>$}]{y}
+\end{DoxyParamCaption}
+)}}\label{arm__acle_8h_aa39c843d7f57d177d9f927f0142d8e0c}
+\hypertarget{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!while@{while}}
+\index{while@{while}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{while}]{\setlength{\rightskip}{0pt plus 5cm}while (
+\begin{DoxyParamCaption}
+\item[{\-\_\-\-\_\-builtin\-\_\-arm\-\_\-strex({\bf x}, {\bf p})}]{}
+\end{DoxyParamCaption}
+)}}\label{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}
+
+
+\subsection{Variable Documentation}
+\hypertarget{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!p@{p}}
+\index{p@{p}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-inline\-\_\-\-\_\- uint32\-\_\-t volatile uint32\-\_\-t$\ast$ p}}\label{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+  uint32\_t \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}
+\end{DoxyCode}
+\hypertarget{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!v@{v}}
+\index{v@{v}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{v}]{\setlength{\rightskip}{0pt plus 5cm}{\bf return} v = \-\_\-\-\_\-builtin\-\_\-arm\-\_\-ldrex({\bf p})}}\label{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}
+\hypertarget{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{\index{arm\-\_\-acle.\-h@{arm\-\_\-acle.\-h}!y@{y}}
+\index{y@{y}!arm_acle.h@{arm\-\_\-acle.\-h}}
+\subsubsection[{y}]{\setlength{\rightskip}{0pt plus 5cm}static \-\_\-\-\_\-inline\-\_\-\-\_\- unsigned long uint32\-\_\-t y}}\label{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+  \hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y} %= 32
+\end{DoxyCode}

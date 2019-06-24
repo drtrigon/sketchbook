@@ -1,0 +1,218 @@
+\hypertarget{LCD_8cpp}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-L\-C\-D.cpp File Reference}
+\label{LCD_8cpp}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-L\-C\-D.\-cpp@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-L\-C\-D.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Arduino.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}config.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Multi\-Wii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Alarms.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}E\-E\-P\-R\-O\-M.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Output.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}R\-X.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Serial.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Sensors.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}L\-C\-D.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{LCD_8cpp_a6fb49f23553a2f6be171dfc802fed31d}{\-\_\-\-\_\-u8\-Inc} (void $\ast$var, int16\-\_\-t inc)
+\item 
+void \hyperlink{LCD_8cpp_a563bb01ca9f6aab0059ea4af7cac7145}{\-\_\-\-\_\-s8\-Inc} (void $\ast$var, int16\-\_\-t inc)
+\item 
+void \hyperlink{LCD_8cpp_a5e22059c1222e4a601d64de934d8e2dd}{\-\_\-\-\_\-u16\-Inc} (void $\ast$var, int16\-\_\-t inc)
+\item 
+void \hyperlink{LCD_8cpp_ab1d787e06a767e622bc420a2158418a8}{\-\_\-\-\_\-s16\-Inc} (void $\ast$var, int16\-\_\-t inc)
+\item 
+void \hyperlink{LCD_8cpp_afe053244ecc29da3fa685967578fd46e}{\-\_\-\-\_\-null\-Inc} (void $\ast$var, int16\-\_\-t inc)
+\item 
+void \hyperlink{LCD_8cpp_ade5e94709ee3c04026517529e3b6e54c}{\-\_\-\-\_\-u8\-Fmt} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_ab48f9f3720c1bbf59b321815aff300ad}{\-\_\-\-\_\-u16\-Fmt} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_acf5b45e9b68da4d799360f53190a94d5}{\-\_\-\-\_\-s8\-Bits\-Fmt} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_a26d565d839c5ce961b5a19b6b01e4b1a}{\-\_\-\-\_\-s16\-Fmt} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_afef519501940a9d09f996f4b13da3499}{\-\_\-\-\_\-u\-Aux\-Fmt} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec, uint8\-\_\-t aux)
+\item 
+void \hyperlink{LCD_8cpp_a3543560356fe4532ada93227bf541370}{\-\_\-\-\_\-u\-Aux\-Fmt1} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_a422c6601b9fff674b65cc0437b02e808}{\-\_\-\-\_\-u\-Aux\-Fmt2} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_a27fc9114fa16aaebad06326548ea60c5}{\-\_\-\-\_\-u\-Aux\-Fmt3} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_a90695c004574db013f4db7779209e8bf}{\-\_\-\-\_\-u\-Aux\-Fmt4} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_a661c82f153ccb1fcf8a328a5228b720d}{\-\_\-\-\_\-up\-M\-Fmt} (void $\ast$var, uint8\-\_\-t \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2IMU_8h_a274bd46a93dc4faa27433394febf201c}{mul}, uint8\-\_\-t dec)
+\item 
+void \hyperlink{LCD_8cpp_a5dcefbf0cc0a602762bd68067deee06e}{service\-Check\-P\-Log} (void)
+\item 
+void \hyperlink{LCD_8cpp_a66039f8fb52271702d05960339e46fc3}{i2c\-\_\-clear\-\_\-\-O\-L\-E\-D} (void)
+\item 
+void \hyperlink{LCD_8cpp_ac3843e73afa6d8d3b73d3cdba9559edd}{L\-C\-Dnextline} (void)
+\item 
+void \hyperlink{LCD_8cpp_a6f034f36d0f21401f49d275fc675f16c}{i2c\-\_\-\-O\-L\-E\-D\-\_\-\-D\-I\-G\-O\-L\-E\-\_\-send\-\_\-string} (const char $\ast$string)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{LCD_8cpp_afe053244ecc29da3fa685967578fd46e}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-null\-Inc@{\-\_\-\-\_\-null\-Inc}}
+\index{\-\_\-\-\_\-null\-Inc@{\-\_\-\-\_\-null\-Inc}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-null\-Inc}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-null\-Inc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{int16\-\_\-t}]{inc}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_afe053244ecc29da3fa685967578fd46e}
+\hypertarget{LCD_8cpp_a26d565d839c5ce961b5a19b6b01e4b1a}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-s16\-Fmt@{\-\_\-\-\_\-s16\-Fmt}}
+\index{\-\_\-\-\_\-s16\-Fmt@{\-\_\-\-\_\-s16\-Fmt}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-s16\-Fmt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-s16\-Fmt (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a26d565d839c5ce961b5a19b6b01e4b1a}
+\hypertarget{LCD_8cpp_ab1d787e06a767e622bc420a2158418a8}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-s16\-Inc@{\-\_\-\-\_\-s16\-Inc}}
+\index{\-\_\-\-\_\-s16\-Inc@{\-\_\-\-\_\-s16\-Inc}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-s16\-Inc}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-s16\-Inc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{int16\-\_\-t}]{inc}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_ab1d787e06a767e622bc420a2158418a8}
+\hypertarget{LCD_8cpp_acf5b45e9b68da4d799360f53190a94d5}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-s8\-Bits\-Fmt@{\-\_\-\-\_\-s8\-Bits\-Fmt}}
+\index{\-\_\-\-\_\-s8\-Bits\-Fmt@{\-\_\-\-\_\-s8\-Bits\-Fmt}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-s8\-Bits\-Fmt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-s8\-Bits\-Fmt (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_acf5b45e9b68da4d799360f53190a94d5}
+\hypertarget{LCD_8cpp_a563bb01ca9f6aab0059ea4af7cac7145}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-s8\-Inc@{\-\_\-\-\_\-s8\-Inc}}
+\index{\-\_\-\-\_\-s8\-Inc@{\-\_\-\-\_\-s8\-Inc}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-s8\-Inc}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-s8\-Inc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{int16\-\_\-t}]{inc}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a563bb01ca9f6aab0059ea4af7cac7145}
+\hypertarget{LCD_8cpp_ab48f9f3720c1bbf59b321815aff300ad}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u16\-Fmt@{\-\_\-\-\_\-u16\-Fmt}}
+\index{\-\_\-\-\_\-u16\-Fmt@{\-\_\-\-\_\-u16\-Fmt}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u16\-Fmt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u16\-Fmt (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_ab48f9f3720c1bbf59b321815aff300ad}
+\hypertarget{LCD_8cpp_a5e22059c1222e4a601d64de934d8e2dd}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u16\-Inc@{\-\_\-\-\_\-u16\-Inc}}
+\index{\-\_\-\-\_\-u16\-Inc@{\-\_\-\-\_\-u16\-Inc}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u16\-Inc}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u16\-Inc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{int16\-\_\-t}]{inc}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a5e22059c1222e4a601d64de934d8e2dd}
+\hypertarget{LCD_8cpp_ade5e94709ee3c04026517529e3b6e54c}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u8\-Fmt@{\-\_\-\-\_\-u8\-Fmt}}
+\index{\-\_\-\-\_\-u8\-Fmt@{\-\_\-\-\_\-u8\-Fmt}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u8\-Fmt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u8\-Fmt (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_ade5e94709ee3c04026517529e3b6e54c}
+\hypertarget{LCD_8cpp_a6fb49f23553a2f6be171dfc802fed31d}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u8\-Inc@{\-\_\-\-\_\-u8\-Inc}}
+\index{\-\_\-\-\_\-u8\-Inc@{\-\_\-\-\_\-u8\-Inc}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u8\-Inc}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u8\-Inc (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{int16\-\_\-t}]{inc}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a6fb49f23553a2f6be171dfc802fed31d}
+\hypertarget{LCD_8cpp_afef519501940a9d09f996f4b13da3499}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u\-Aux\-Fmt@{\-\_\-\-\_\-u\-Aux\-Fmt}}
+\index{\-\_\-\-\_\-u\-Aux\-Fmt@{\-\_\-\-\_\-u\-Aux\-Fmt}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u\-Aux\-Fmt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u\-Aux\-Fmt (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec, }
+\item[{uint8\-\_\-t}]{aux}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_afef519501940a9d09f996f4b13da3499}
+\hypertarget{LCD_8cpp_a3543560356fe4532ada93227bf541370}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u\-Aux\-Fmt1@{\-\_\-\-\_\-u\-Aux\-Fmt1}}
+\index{\-\_\-\-\_\-u\-Aux\-Fmt1@{\-\_\-\-\_\-u\-Aux\-Fmt1}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u\-Aux\-Fmt1}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u\-Aux\-Fmt1 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a3543560356fe4532ada93227bf541370}
+\hypertarget{LCD_8cpp_a422c6601b9fff674b65cc0437b02e808}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u\-Aux\-Fmt2@{\-\_\-\-\_\-u\-Aux\-Fmt2}}
+\index{\-\_\-\-\_\-u\-Aux\-Fmt2@{\-\_\-\-\_\-u\-Aux\-Fmt2}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u\-Aux\-Fmt2}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u\-Aux\-Fmt2 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a422c6601b9fff674b65cc0437b02e808}
+\hypertarget{LCD_8cpp_a27fc9114fa16aaebad06326548ea60c5}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u\-Aux\-Fmt3@{\-\_\-\-\_\-u\-Aux\-Fmt3}}
+\index{\-\_\-\-\_\-u\-Aux\-Fmt3@{\-\_\-\-\_\-u\-Aux\-Fmt3}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u\-Aux\-Fmt3}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u\-Aux\-Fmt3 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a27fc9114fa16aaebad06326548ea60c5}
+\hypertarget{LCD_8cpp_a90695c004574db013f4db7779209e8bf}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-u\-Aux\-Fmt4@{\-\_\-\-\_\-u\-Aux\-Fmt4}}
+\index{\-\_\-\-\_\-u\-Aux\-Fmt4@{\-\_\-\-\_\-u\-Aux\-Fmt4}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-u\-Aux\-Fmt4}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-u\-Aux\-Fmt4 (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a90695c004574db013f4db7779209e8bf}
+\hypertarget{LCD_8cpp_a661c82f153ccb1fcf8a328a5228b720d}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!\-\_\-\-\_\-up\-M\-Fmt@{\-\_\-\-\_\-up\-M\-Fmt}}
+\index{\-\_\-\-\_\-up\-M\-Fmt@{\-\_\-\-\_\-up\-M\-Fmt}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{\-\_\-\-\_\-up\-M\-Fmt}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-up\-M\-Fmt (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{var, }
+\item[{uint8\-\_\-t}]{mul, }
+\item[{uint8\-\_\-t}]{dec}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a661c82f153ccb1fcf8a328a5228b720d}
+\hypertarget{LCD_8cpp_a66039f8fb52271702d05960339e46fc3}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!i2c\-\_\-clear\-\_\-\-O\-L\-E\-D@{i2c\-\_\-clear\-\_\-\-O\-L\-E\-D}}
+\index{i2c\-\_\-clear\-\_\-\-O\-L\-E\-D@{i2c\-\_\-clear\-\_\-\-O\-L\-E\-D}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{i2c\-\_\-clear\-\_\-\-O\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-\_\-clear\-\_\-\-O\-L\-E\-D (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a66039f8fb52271702d05960339e46fc3}
+\hypertarget{LCD_8cpp_a6f034f36d0f21401f49d275fc675f16c}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!i2c\-\_\-\-O\-L\-E\-D\-\_\-\-D\-I\-G\-O\-L\-E\-\_\-send\-\_\-string@{i2c\-\_\-\-O\-L\-E\-D\-\_\-\-D\-I\-G\-O\-L\-E\-\_\-send\-\_\-string}}
+\index{i2c\-\_\-\-O\-L\-E\-D\-\_\-\-D\-I\-G\-O\-L\-E\-\_\-send\-\_\-string@{i2c\-\_\-\-O\-L\-E\-D\-\_\-\-D\-I\-G\-O\-L\-E\-\_\-send\-\_\-string}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{i2c\-\_\-\-O\-L\-E\-D\-\_\-\-D\-I\-G\-O\-L\-E\-\_\-send\-\_\-string}]{\setlength{\rightskip}{0pt plus 5cm}void i2c\-\_\-\-O\-L\-E\-D\-\_\-\-D\-I\-G\-O\-L\-E\-\_\-send\-\_\-string (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a6f034f36d0f21401f49d275fc675f16c}
+\hypertarget{LCD_8cpp_ac3843e73afa6d8d3b73d3cdba9559edd}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!L\-C\-Dnextline@{L\-C\-Dnextline}}
+\index{L\-C\-Dnextline@{L\-C\-Dnextline}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{L\-C\-Dnextline}]{\setlength{\rightskip}{0pt plus 5cm}void L\-C\-Dnextline (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_ac3843e73afa6d8d3b73d3cdba9559edd}
+\hypertarget{LCD_8cpp_a5dcefbf0cc0a602762bd68067deee06e}{\index{L\-C\-D.\-cpp@{L\-C\-D.\-cpp}!service\-Check\-P\-Log@{service\-Check\-P\-Log}}
+\index{service\-Check\-P\-Log@{service\-Check\-P\-Log}!LCD.cpp@{L\-C\-D.\-cpp}}
+\subsubsection[{service\-Check\-P\-Log}]{\setlength{\rightskip}{0pt plus 5cm}void service\-Check\-P\-Log (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{LCD_8cpp_a5dcefbf0cc0a602762bd68067deee06e}

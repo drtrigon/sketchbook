@@ -1,0 +1,237 @@
+\subsection*{Quick intro}
+
+First, look at {\ttfamily world.\-cfg}. This is a Y\-A\-M\-L-\/formatted file. Its structure is reasonably obvious. Hopefully.
+
+Now copy {\ttfamily sample.\-cfg}. We'll use {\ttfamily project.\-cfg} subsequently; you should probably use the actual name of your project.
+
+Edit the {\ttfamily env} section to tell it which programmer you use.
+
+Then, add your slaves to the {\ttfamily devices} section.
+
+Let's say you want to use three ports of an A\-Tmega88\-: a P\-W\-M output on pin B0, a counter input on B1, and an alarm input on B2. Let's call your slave \char`\"{}try1\char`\"{}. So you'd do this\-: \begin{DoxyVerb}devices:
+  try1:
+    _doc: my first test slave
+    _ref: defaults.target.m88
+    defs:
+      is_onewire: moat
+    types:
+      port: 3
+      pwm: 1
+      count: 1
+    port:
+      1: B0_
+      2: B1~
+      3: B2~*
+    pwm:
+      1: 1
+    count:
+      1: 2
+\end{DoxyVerb}
+
+
+Now {\ttfamily make C\-F\-G=project.\-cfg try1}. Your slave will get a random 1wire I\-D assigned, which will be auto-\/added to {\ttfamily project.\-cfg}.
+
+Now use {\ttfamily make C\-F\-G=project.\-cfg burn\-\_\-try1} to flash your device. There's no need for {\ttfamily sudo} here, as the Makefile already contains that.
+
+\subsection*{Definitions}
+
+The {\ttfamily Moa\-T} code is pretty modular because basic features should fit in 4k\-Bytes of Flash storage. Therefore you can turn various features on. Or not.
+
+\subsubsection*{{\ttfamily have\-\_\-uart}}
+
+This adds basic code to use the serial port.
+
+\subsubsection*{{\ttfamily have\-\_\-uart\-\_\-irq}}
+
+Use this to have the U\-A\-R\-T be interrupt-\/based. If this is off, the code will use polling. Note that U\-A\-R\-T interrupts may disrupt 1wire communication.
+
+\subsubsection*{{\ttfamily have\-\_\-uart\-\_\-sync}}
+
+If this is on, the U\-A\-R\-T will use neither interrupts nor polling; instead it'll simply wait until the A\-Tmega's send buffer is empty.
+
+Use this for hard-\/to-\/find crashes; however, any serial output will disrupt 1wire communication.
+
+\subsubsection*{{\ttfamily have\-\_\-timer}}
+
+Set this if your code uses the timer interrupt, i.\-e. functions from {\ttfamily \hyperlink{timer_8h}{timer.\-h}}.
+
+\subsubsection*{{\ttfamily have\-\_\-watchdog}}
+
+Turns on the watchdog timer at the start of the program. Uses the longest-\/possible timeout.
+
+If you're using Moa\-T, this means that you have to poll the bus, using C\-O\-N\-D\-I\-T\-I\-O\-N\-A\-L S\-E\-A\-R\-C\-H, every eight seconds; to be safe, you should poll at least every five seconds). This should be sufficient to restart a polling server.
+
+\subsubsection*{{\ttfamily debug\-\_\-uart}}
+
+If you need to debug the low-\/level U\-A\-R\-T code itself, set this. Should not be necessary.
+
+\subsubsection*{{\ttfamily debug\-\_\-onewire}}
+
+If you need to debug the low-\/level 1wire code itself, set this. Should not be necessary.
+
+\subsubsection*{{\ttfamily uart\-\_\-debug}}
+
+The debugger macros from {\ttfamily \hyperlink{debug_8h}{debug.\-h}} will send their data to the U\-A\-R\-T. Only do this if you connect a serial terminal to your A\-Tmega. Do not use this when debugging U\-A\-R\-T itself.
+
+\subsubsection*{{\ttfamily console\-\_\-debug}}
+
+The debugger macros from {\ttfamily \hyperlink{debug_8h}{debug.\-h}} will send their data to the 1wire console buffer. Do not use this when debugging 1wire itself.
+
+\subsubsection*{{\ttfamily console\-\_\-write}}
+
+You can write to the console via 1wire. This is not yet useful, except for echo testing.
+
+\subsubsection*{{\ttfamily console\-\_\-ping}}
+
+Write a '!' every N tenths-\/of-\/a-\/second, as a keepalive test. Needs the timer.
+
+\subsubsection*{{\ttfamily have\-\_\-dbg\-\_\-port}}
+
+Use a port for diagnostic code output. Which port to use is defined in {\ttfamily \hyperlink{features_8h}{features.\-h}}. The \hyperlink{debug_8h_a32adf79142f0a426b5e782fb7cd4cad3}{D\-B\-G(x)} macro will then take the binary value of X and display it on the port in question. Useful for low-\/level timing analysis using a 'scope with digital inputs, or to discover where your slave code crashes.
+
+\subsubsection*{{\ttfamily have\-\_\-dbg\-\_\-pin}}
+
+Use a pin for diagnostic signalling. Which pin to use is defined in {\ttfamily \hyperlink{features_8h}{features.\-h}}. The {\ttfamily \hyperlink{onewire_8c_a93e505e4e4e1119ed32afcb615b385f6}{D\-B\-G\-\_\-\-O\-N()}}/{\ttfamily \hyperlink{onewire_8c_ac037b21720571ebb0110174b826ccaac}{D\-B\-G\-\_\-\-O\-F\-F()}} macros will turn this pin on or off. Useful for low-\/level timing analysis using a 'scope with a trigger input.
+
+\subsubsection*{{\ttfamily is\-\_\-onewire}}
+
+The 1wire device type (moat, ds2408, ds2423). {\ttfamily moat} is tested, everything else has not been, lately.
+
+\subsubsection*{{\ttfamily need\-\_\-bits}}
+
+Include code required to send or receive single bits on 1wire.
+
+\subsubsection*{{\ttfamily use\-\_\-eeprom}}
+
+Store configuration data in E\-E\-P\-R\-O\-M. This may or may not make config data actually writeable.
+
+\subsubsection*{{\ttfamily conditional\-\_\-search}}
+
+Make your 1wire slave discoverable conditionally. You can configure which conditions may cause an alarm.
+
+\subsubsection*{{\ttfamily single\-\_\-device}}
+
+Add 1wire code for {\ttfamily S\-K\-I\-P\-\_\-\-R\-O\-M} and {\ttfamily R\-E\-A\-D\-\_\-\-R\-O\-M}. You probably do not need this.
+
+\subsubsection*{{\ttfamily onewire\-\_\-io}}
+
+Choose which pin to connect your 1wire bus to. For now, only pins with dedicated interrupts (I\-N\-Tx) can be used. On an A\-Tmega168, these are pins D2 and D3.
+
+The default is I\-N\-T0.
+
+\subsection*{Features}
+
+The Moa\-T slave code can do a lot of things. You can use the device's {\ttfamily types} section to control what gets included (and, for some features, how many).
+
+\subsubsection*{port}
+
+Your basic digital input/output pin. Your A\-Tmega device's data sheet names them \char`\"{}\-B0\char`\"{} or \char`\"{}\-D7\char`\"{} or whatever. On the 1wire side, pins are numbered 1 to N. Use the {\ttfamily port} section to tell Moa\-T which pin numbers correspond to which hardware output.
+
+Pins can have one of four states\-:
+
+
+\begin{DoxyItemize}
+\item {\ttfamily $^\wedge$}\-: One or High, i.\-e. tied to +5\-V (or whatever voltage you use).
+\item {\ttfamily \-\_\-}\-: Zero or Low, i.\-e. tied to ground.
+\item {\ttfamily +}\-: Pull-\/\-Up, i.\-e. tied to +5\-V (or whatever) via an internal resistor, so that an external input can still ground it (\char`\"{}wired-\/\-A\-N\-D\char`\"{}).
+\item {\ttfamily $\sim$}\-: High impedance, i.\-e. sensing whether the input is 1 or 0 passively.
+\end{DoxyItemize}
+
+Reading the pin will return whatever signal is physically present. Writing to the pin may or may not change its state. Typically, an output will switch between 0 and 1. If you write to an input, you can turn the pull-\/up resistor on and off.
+
+This is not always what you want\-: if you have a wired-\/\-A\-N\-D pin, you'd want to switch between \char`\"{}pull-\/up is on\char`\"{} and \char`\"{}pull-\/down to zero\char`\"{}. You can do that by adding a {\ttfamily /} to the port description. Alternately, if you have an external pull-\/up resistor, you can add {\ttfamily !}, which switches between \char`\"{}high
+impedance\char`\"{} and \char`\"{}pull-\/down to zero\char`\"{}, instead. These modifiers also apply to the other two states (i.\-e. a port marked with {\ttfamily +!} will switch between Pull-\/\-Up and One), but that's usually not useful.
+
+Please do not bother this author with Arduino-\/based port numbers.
+
+Thus, if you want to write B0 (initially low) and read/write B1 (with pull-\/up)\-: \begin{DoxyVerb}types:
+  port: 2
+port:
+  1: B0_
+  2: B1+/
+\end{DoxyVerb}
+
+
+\subsubsection*{pwm}
+
+You can tell Moa\-T to switch a port on and off periodically. Let's say you want to toggle B1 every second, you'd extend the above example thus\-: \begin{DoxyVerb}types:
+  port: 2
+  pwm: 1
+port:
+  1: B0_
+  2: B1+/
+pwm:
+  1: 2
+\end{DoxyVerb}
+
+
+and then \char`\"{}owwrite /\-F0.\-123456789\-A\-B\-C.\-D\-E/pwm.\-1 10,10\char`\"{}
+
+This is (almost) as accurate as the clock of your A\-Tmega, and a lot more efficient than sending a command every second.
+
+\subsubsection*{count}
+
+If you're more interested in how often an input pin changes state than in its actual state, you should use a counter.
+
+Let's add the counted input pin D5 to our example\-: \begin{DoxyVerb}types:
+  port: 2
+  pwm: 1
+  count: 1
+port:
+  1: B0_
+  2: B1+/
+  3: D5~
+count:
+  1: 3
+\end{DoxyVerb}
+
+
+You can now {\ttfamily owread /\-F0.123456789\-A\-B\-C.\-D\-E/count.1}.
+
+You can choose which transition to count (low/high, high/low, or both) and whether to raise an alarm when the counter increases.
+
+\subsubsection*{temp}
+
+Read a thermometer (or two). The only driver that's implemented right now is a test driver that returns slowly-\/varying dummy values. \begin{DoxyVerb}types:
+  temp: 1
+temp:
+  - dummy=1
+\end{DoxyVerb}
+
+
+T\-O\-D\-O\-: read \char`\"{}real\char`\"{} temperature
+
+\subsubsection*{adc}
+
+You can read voltages from the A/\-D converters. In addition to the A\-Tmega's external A\-D\-C ports, yo can read the bandgap voltage (roughly 1.\-1\-V) and the temperature sensor (which is not very accurate).
+
+All voltages are returned as an integer\-: 65535 times the fraction of the supply voltage. You can use the bandgap voltage if you add a {\ttfamily -\/} to the config statement.
+
+As an example, with this statement \begin{DoxyVerb}types:
+  adc: 5
+adc:
+  - 0
+  - 2-
+  - R
+  - T
+  - G
+\end{DoxyVerb}
+
+
+{\ttfamily owread /\-F0.123456789\-A\-B\-C.\-D\-E/adc.1} will measure A\-D\-C0 as a fraction of +5\-V (or whatever). Reading {\ttfamily adc.\-2} will measure A\-D\-C2 as a fraction of 1.\-1\-V, thus being somewhat more accurate if you need to read small voltages. {\ttfamily adc.\-3} will return something close to 14419, i.\-e. 65535$\ast$(Vdd/\-Vbg), assuming your supply voltage is +5\-V. {\ttfamily adc.\-4} will read the voltage of the A\-Tmega's temperature sensor. {\ttfamily adc.\-5}, finally, returns the voltage of the ground pin, which should obviously be zero; usually it's offset by one or two bits, which gives you a rough estimate of the accuracy of the A\-D\-C converter.
+
+Note that accurate A\-D\-C readings depend on (a) the quality of the A\-D\-C's power supply, (b) on the A\-Tmega doing as little as possible during conversion. (a) is your responsibility; check the data sheet. (b) is more of a problem.
+
+Note that Moa\-T continuously polls all configured A\-D\-C ports. Reading 1wire does not actually start the A\-D\-C, it just returns the latest value. I decided against adding an explicit \char`\"{}start conversion\char`\"{} command because the most common usage is not to poll the Moa\-T slave. Instead, you'd read once and then write trigger values which cause an alert when crossed. Thus, the Moa\-T slave needs to poll the A\-D\-C anyway.
+
+\subsubsection*{serial}
+
+T\-O\-D\-O\-: connect one of the console channels to the serial port.
+
+\subsubsection*{fire}
+
+T\-O\-D\-O\-: implement the Gira Dual smoke detector's serial protocol on the slave.
+
+\subsubsection*{Loader}
+
+T\-O\-D\-O\-: firmware update over 1wire. 

@@ -1,0 +1,177 @@
+\hypertarget{namespaceowgeneric__arduino}{\section{owgeneric\-\_\-arduino Namespace Reference}
+\label{namespaceowgeneric__arduino}\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_ae497352a3cdb1c9f1ea7d074f91dcc4d}{debug}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a458d0d97eb930f83d4c268f8fcbebfe3}{init}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a260f6453ccb4f90de58cb589490b5a0d}{write}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_ac4a169bf70be7476d95bea5e5cb11683}{read}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a90db891c446b758d69e5a951a20e1701}{pack\-\_\-val}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a15035620861d072da5015dcf7c9da4f8}{unpack\-\_\-val}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_aa3922858daba4732938e40797f08f5f3}{receive\-\_\-data}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a45bddba7d6de252bb4870acc38eea491}{read\-\_\-slave\-\_\-sensors}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a5d4c78f6f1b5ce9b61e660001a91a033}{get\-\_\-slaves}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespaceowgeneric__arduino_acf1b83c6bfca7dce8e079086078b19b9}{ow\-\_\-root} = \char`\"{}/mnt/1wire/\char`\"{}
+\item 
+string \hyperlink{namespaceowgeneric__arduino_a55174673236c57dac9b691a2f5b49b69}{owgeneric\-\_\-root} = \char`\"{}/mnt/1wire-\/generic/\char`\"{}
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a30145d36e9de440b44c360e2c295e4aa}{offset} = int(time.\-mktime(time.\-strptime(\char`\"{}Thu Jan 1 00\-:00\-:00 1970\char`\"{}, \char`\"{}\%a \%\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b} \%\hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d} \%H\-:\%M\-:\%\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S} \%\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}\char`\"{})))
+\item 
+\hyperlink{namespaceowgeneric__arduino_abdc14696f564f9b8ed10fa1816940639}{\-\_\-\-\_\-debug} = False
+\item 
+list \hyperlink{namespaceowgeneric__arduino_a2c230abaed3d21deb7b84292cf219ed6}{slaves} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a8185d7d521265a9dfca0cc8a8b75c718}{slaves\-\_\-old} = os.\-listdir(\hyperlink{namespaceowgeneric__arduino_a55174673236c57dac9b691a2f5b49b69}{owgeneric\-\_\-root})
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_ae35375aa69efe1f0333b7a86c6d4e8dd}{min\-\_\-mtime} = time.\-time()
+\item 
+list \hyperlink{namespaceowgeneric__arduino_a88e87453974fbe548a91bf0884be4ad3}{process\-\_\-slaves} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a49246b75ead314904c32e0e686bb8248}{dev} = os.\-path.\-join(\hyperlink{namespaceowgeneric__arduino_a55174673236c57dac9b691a2f5b49b69}{owgeneric\-\_\-root}, slave)
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a46bffb5615da79637d8d6cbebd45dcdc}{fn} = os.\-path.\-join(\hyperlink{namespaceowgeneric__arduino_a49246b75ead314904c32e0e686bb8248}{dev}, \char`\"{}all\char`\"{})
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a56ab65883376573ac79e173c4be17f36}{f} = \hyperlink{term_8js_a1a542444e56cda6325863b2dde2a2f6e}{open}(\hyperlink{namespaceowgeneric__arduino_a46bffb5615da79637d8d6cbebd45dcdc}{fn}, \char`\"{}w\char`\"{})
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_af9fe4677ae3d881c6a2589ce662d5782}{tic} = time.\-time()
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_abf22560e7555e8c37b96712dc2037fbc}{toc} = time.\-time()
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_ac7b4cb90fd0abd72b048343f5e4aa6cb}{err\-\_\-count} = int(f.\-read())
+\item 
+list \hyperlink{namespaceowgeneric__arduino_a2c02ae899bda249e2d982cd8d8ea14b7}{data} = \mbox{[} (\hyperlink{namespaceowgeneric__arduino_ac7b4cb90fd0abd72b048343f5e4aa6cb}{err\-\_\-count}+1,) \mbox{]}
+\item 
+string \hyperlink{namespaceowgeneric__arduino_afba0c0cd23f6949ce08a1f14d529f245}{fn\-\_\-temp} = \hyperlink{namespaceowgeneric__arduino_a46bffb5615da79637d8d6cbebd45dcdc}{fn}+\char`\"{}-\/\char`\"{}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceowgeneric__arduino_ae497352a3cdb1c9f1ea7d074f91dcc4d}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!debug@{debug}}
+\index{debug@{debug}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{debug}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-debug (
+\begin{DoxyParamCaption}
+\item[{}]{switch}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_ae497352a3cdb1c9f1ea7d074f91dcc4d}
+\hypertarget{namespaceowgeneric__arduino_a5d4c78f6f1b5ce9b61e660001a91a033}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!get\-\_\-slaves@{get\-\_\-slaves}}
+\index{get\-\_\-slaves@{get\-\_\-slaves}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{get\-\_\-slaves}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-get\-\_\-slaves (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_a5d4c78f6f1b5ce9b61e660001a91a033}
+\hypertarget{namespaceowgeneric__arduino_a458d0d97eb930f83d4c268f8fcbebfe3}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!init@{init}}
+\index{init@{init}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-init (
+\begin{DoxyParamCaption}
+\item[{}]{slave}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_a458d0d97eb930f83d4c268f8fcbebfe3}
+\hypertarget{namespaceowgeneric__arduino_a90db891c446b758d69e5a951a20e1701}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!pack\-\_\-val@{pack\-\_\-val}}
+\index{pack\-\_\-val@{pack\-\_\-val}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{pack\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-pack\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_a90db891c446b758d69e5a951a20e1701}
+\hypertarget{namespaceowgeneric__arduino_ac4a169bf70be7476d95bea5e5cb11683}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!read@{read}}
+\index{read@{read}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-read (
+\begin{DoxyParamCaption}
+\item[{}]{slave}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_ac4a169bf70be7476d95bea5e5cb11683}
+\hypertarget{namespaceowgeneric__arduino_a45bddba7d6de252bb4870acc38eea491}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!read\-\_\-slave\-\_\-sensors@{read\-\_\-slave\-\_\-sensors}}
+\index{read\-\_\-slave\-\_\-sensors@{read\-\_\-slave\-\_\-sensors}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{read\-\_\-slave\-\_\-sensors}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-read\-\_\-slave\-\_\-sensors (
+\begin{DoxyParamCaption}
+\item[{}]{slave}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_a45bddba7d6de252bb4870acc38eea491}
+\hypertarget{namespaceowgeneric__arduino_aa3922858daba4732938e40797f08f5f3}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!receive\-\_\-data@{receive\-\_\-data}}
+\index{receive\-\_\-data@{receive\-\_\-data}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{receive\-\_\-data}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-receive\-\_\-data (
+\begin{DoxyParamCaption}
+\item[{}]{address}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_aa3922858daba4732938e40797f08f5f3}
+\hypertarget{namespaceowgeneric__arduino_a15035620861d072da5015dcf7c9da4f8}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!unpack\-\_\-val@{unpack\-\_\-val}}
+\index{unpack\-\_\-val@{unpack\-\_\-val}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{unpack\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-unpack\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{}]{val}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_a15035620861d072da5015dcf7c9da4f8}
+\hypertarget{namespaceowgeneric__arduino_a260f6453ccb4f90de58cb589490b5a0d}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!write@{write}}
+\index{write@{write}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}def owgeneric\-\_\-arduino.\-write (
+\begin{DoxyParamCaption}
+\item[{}]{slave, }
+\item[{}]{val}
+\end{DoxyParamCaption}
+)}}\label{namespaceowgeneric__arduino_a260f6453ccb4f90de58cb589490b5a0d}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceowgeneric__arduino_abdc14696f564f9b8ed10fa1816940639}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!\-\_\-\-\_\-debug@{\-\_\-\-\_\-debug}}
+\index{\-\_\-\-\_\-debug@{\-\_\-\-\_\-debug}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{\-\_\-\-\_\-debug}]{\setlength{\rightskip}{0pt plus 5cm}owgeneric\-\_\-arduino.\-\_\-\-\_\-debug = False}}\label{namespaceowgeneric__arduino_abdc14696f564f9b8ed10fa1816940639}
+\hypertarget{namespaceowgeneric__arduino_a2c02ae899bda249e2d982cd8d8ea14b7}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!data@{data}}
+\index{data@{data}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}list owgeneric\-\_\-arduino.\-data = \mbox{[} ({\bf err\-\_\-count}+1,) \mbox{]}}}\label{namespaceowgeneric__arduino_a2c02ae899bda249e2d982cd8d8ea14b7}
+\hypertarget{namespaceowgeneric__arduino_a49246b75ead314904c32e0e686bb8248}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!dev@{dev}}
+\index{dev@{dev}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{dev}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-dev = os.\-path.\-join({\bf owgeneric\-\_\-root}, slave)}}\label{namespaceowgeneric__arduino_a49246b75ead314904c32e0e686bb8248}
+\hypertarget{namespaceowgeneric__arduino_ac7b4cb90fd0abd72b048343f5e4aa6cb}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!err\-\_\-count@{err\-\_\-count}}
+\index{err\-\_\-count@{err\-\_\-count}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{err\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-err\-\_\-count = int(f.\-read())}}\label{namespaceowgeneric__arduino_ac7b4cb90fd0abd72b048343f5e4aa6cb}
+\hypertarget{namespaceowgeneric__arduino_a56ab65883376573ac79e173c4be17f36}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!f@{f}}
+\index{f@{f}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{f}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-f = {\bf open}({\bf fn}, \char`\"{}w\char`\"{})}}\label{namespaceowgeneric__arduino_a56ab65883376573ac79e173c4be17f36}
+\hypertarget{namespaceowgeneric__arduino_a46bffb5615da79637d8d6cbebd45dcdc}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!fn@{fn}}
+\index{fn@{fn}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{fn}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-fn = os.\-path.\-join({\bf dev}, \char`\"{}all\char`\"{})}}\label{namespaceowgeneric__arduino_a46bffb5615da79637d8d6cbebd45dcdc}
+\hypertarget{namespaceowgeneric__arduino_afba0c0cd23f6949ce08a1f14d529f245}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!fn\-\_\-temp@{fn\-\_\-temp}}
+\index{fn\-\_\-temp@{fn\-\_\-temp}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{fn\-\_\-temp}]{\setlength{\rightskip}{0pt plus 5cm}string owgeneric\-\_\-arduino.\-fn\-\_\-temp = {\bf fn}+\char`\"{}-\/\char`\"{}}}\label{namespaceowgeneric__arduino_afba0c0cd23f6949ce08a1f14d529f245}
+\hypertarget{namespaceowgeneric__arduino_ae35375aa69efe1f0333b7a86c6d4e8dd}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!min\-\_\-mtime@{min\-\_\-mtime}}
+\index{min\-\_\-mtime@{min\-\_\-mtime}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{min\-\_\-mtime}]{\setlength{\rightskip}{0pt plus 5cm}owgeneric\-\_\-arduino.\-min\-\_\-mtime = time.\-time()}}\label{namespaceowgeneric__arduino_ae35375aa69efe1f0333b7a86c6d4e8dd}
+\hypertarget{namespaceowgeneric__arduino_a30145d36e9de440b44c360e2c295e4aa}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!offset@{offset}}
+\index{offset@{offset}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{offset}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-offset = int(time.\-mktime(time.\-strptime(\char`\"{}Thu Jan 1 00\-:00\-:00 1970\char`\"{}, \char`\"{}\%a \%{\bf b} \%{\bf d} \%H\-:\%M\-:\%{\bf S} \%{\bf Y}\char`\"{})))}}\label{namespaceowgeneric__arduino_a30145d36e9de440b44c360e2c295e4aa}
+\hypertarget{namespaceowgeneric__arduino_acf1b83c6bfca7dce8e079086078b19b9}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!ow\-\_\-root@{ow\-\_\-root}}
+\index{ow\-\_\-root@{ow\-\_\-root}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{ow\-\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}string owgeneric\-\_\-arduino.\-ow\-\_\-root = \char`\"{}/mnt/1wire/\char`\"{}}}\label{namespaceowgeneric__arduino_acf1b83c6bfca7dce8e079086078b19b9}
+\hypertarget{namespaceowgeneric__arduino_a55174673236c57dac9b691a2f5b49b69}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!owgeneric\-\_\-root@{owgeneric\-\_\-root}}
+\index{owgeneric\-\_\-root@{owgeneric\-\_\-root}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{owgeneric\-\_\-root}]{\setlength{\rightskip}{0pt plus 5cm}string owgeneric\-\_\-arduino.\-owgeneric\-\_\-root = \char`\"{}/mnt/1wire-\/generic/\char`\"{}}}\label{namespaceowgeneric__arduino_a55174673236c57dac9b691a2f5b49b69}
+\hypertarget{namespaceowgeneric__arduino_a88e87453974fbe548a91bf0884be4ad3}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!process\-\_\-slaves@{process\-\_\-slaves}}
+\index{process\-\_\-slaves@{process\-\_\-slaves}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{process\-\_\-slaves}]{\setlength{\rightskip}{0pt plus 5cm}list owgeneric\-\_\-arduino.\-process\-\_\-slaves = \mbox{[}$\,$\mbox{]}}}\label{namespaceowgeneric__arduino_a88e87453974fbe548a91bf0884be4ad3}
+\hypertarget{namespaceowgeneric__arduino_a2c230abaed3d21deb7b84292cf219ed6}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!slaves@{slaves}}
+\index{slaves@{slaves}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{slaves}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-slaves = \mbox{[}$\,$\mbox{]}}}\label{namespaceowgeneric__arduino_a2c230abaed3d21deb7b84292cf219ed6}
+\hypertarget{namespaceowgeneric__arduino_a8185d7d521265a9dfca0cc8a8b75c718}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!slaves\-\_\-old@{slaves\-\_\-old}}
+\index{slaves\-\_\-old@{slaves\-\_\-old}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{slaves\-\_\-old}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-slaves\-\_\-old = os.\-listdir({\bf owgeneric\-\_\-root})}}\label{namespaceowgeneric__arduino_a8185d7d521265a9dfca0cc8a8b75c718}
+\hypertarget{namespaceowgeneric__arduino_af9fe4677ae3d881c6a2589ce662d5782}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!tic@{tic}}
+\index{tic@{tic}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{tic}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-tic = time.\-time()}}\label{namespaceowgeneric__arduino_af9fe4677ae3d881c6a2589ce662d5782}
+\hypertarget{namespaceowgeneric__arduino_abf22560e7555e8c37b96712dc2037fbc}{\index{owgeneric\-\_\-arduino@{owgeneric\-\_\-arduino}!toc@{toc}}
+\index{toc@{toc}!owgeneric_arduino@{owgeneric\-\_\-arduino}}
+\subsubsection[{toc}]{\setlength{\rightskip}{0pt plus 5cm}tuple owgeneric\-\_\-arduino.\-toc = time.\-time()}}\label{namespaceowgeneric__arduino_abf22560e7555e8c37b96712dc2037fbc}

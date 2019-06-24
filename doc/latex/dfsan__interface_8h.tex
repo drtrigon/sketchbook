@@ -1,0 +1,212 @@
+\hypertarget{dfsan__interface_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/sanitizer/dfsan\-\_\-interface.h File Reference}
+\label{dfsan__interface_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/dfsan\-\_\-interface.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/dfsan\-\_\-interface.\-h}}
+}
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$sanitizer/common\-\_\-interface\-\_\-defs.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structdfsan__label__info}{dfsan\-\_\-label\-\_\-info}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint16\-\_\-t \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label}
+\item 
+typedef void($\ast$ \hyperlink{dfsan__interface_8h_aebea3bc73e07400b3c705d215aacd933}{dfsan\-\_\-write\-\_\-callback\-\_\-t} )(int fd, const void $\ast$buf, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a16ff2d8e15ade4948398b0aeb80124a8}{count})
+\begin{DoxyCompactList}\small\item\em Signature of the callback argument to \hyperlink{dfsan__interface_8h_a779a40cd8b1ef9c6266ebd6f92dd402f}{dfsan\-\_\-set\-\_\-write\-\_\-callback()}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} \hyperlink{dfsan__interface_8h_a449b00466c216667ebaea07d7e92d48f}{dfsan\-\_\-union} (\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} l1, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} l2)
+\item 
+\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} \hyperlink{dfsan__interface_8h_a4124e85511550fed1fd1ac225752bba6}{dfsan\-\_\-create\-\_\-label} (const char $\ast$desc, void $\ast$userdata)
+\begin{DoxyCompactList}\small\item\em Creates and returns a base label with the given description and user data. \end{DoxyCompactList}\item 
+void \hyperlink{dfsan__interface_8h_a50002eb64d161ee4f858def62b356881}{dfsan\-\_\-set\-\_\-label} (\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} label, void $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\begin{DoxyCompactList}\small\item\em Sets the label for each address in \mbox{[}addr,addr+size) to {\ttfamily label}. \end{DoxyCompactList}\item 
+void \hyperlink{dfsan__interface_8h_ab71fafb902e3d5e33ac1c7beead8a8c5}{dfsan\-\_\-add\-\_\-label} (\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} label, void $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} \hyperlink{dfsan__interface_8h_ad558822d25da0e7a98282bbb5dc73304}{dfsan\-\_\-get\-\_\-label} (long \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} \hyperlink{dfsan__interface_8h_aa69bce35196567b8e40d23381657b70f}{dfsan\-\_\-read\-\_\-label} (const void $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\begin{DoxyCompactList}\small\item\em Retrieves the label associated with the data at the given address. \end{DoxyCompactList}\item 
+const struct \hyperlink{structdfsan__label__info}{dfsan\-\_\-label\-\_\-info} $\ast$ \hyperlink{dfsan__interface_8h_aceeb95e8ab911e867c435c09db659fbe}{dfsan\-\_\-get\-\_\-label\-\_\-info} (\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} label)
+\begin{DoxyCompactList}\small\item\em Retrieves a pointer to the \hyperlink{structdfsan__label__info}{dfsan\-\_\-label\-\_\-info} struct for the given label. \end{DoxyCompactList}\item 
+int \hyperlink{dfsan__interface_8h_a5e9b2a78a3283014cb9944b6b9a71858}{dfsan\-\_\-has\-\_\-label} (\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} label, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} elem)
+\begin{DoxyCompactList}\small\item\em Returns whether the given label label contains the label elem. \end{DoxyCompactList}\item 
+\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} \hyperlink{dfsan__interface_8h_ae722dff1a442e7537870489f3d623cc2}{dfsan\-\_\-has\-\_\-label\-\_\-with\-\_\-desc} (\hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} label, const char $\ast$desc)
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{dfsan__interface_8h_a250439298114f346ff7c112bb487f711}{dfsan\-\_\-get\-\_\-label\-\_\-count} (void)
+\begin{DoxyCompactList}\small\item\em Returns the number of labels allocated. \end{DoxyCompactList}\item 
+void \hyperlink{dfsan__interface_8h_a779a40cd8b1ef9c6266ebd6f92dd402f}{dfsan\-\_\-set\-\_\-write\-\_\-callback} (\hyperlink{dfsan__interface_8h_aebea3bc73e07400b3c705d215aacd933}{dfsan\-\_\-write\-\_\-callback\-\_\-t} labeled\-\_\-write\-\_\-callback)
+\item 
+void \hyperlink{dfsan__interface_8h_ade7188d40cad2fe3c8bfbe3acdbfdc39}{dfsan\-\_\-dump\-\_\-labels} (int fd)
+\item 
+void \hyperlink{dfsan__interface_8h_aa1ba43d3d8e0ae274c1005225eb171c5}{dfsan\-\_\-weak\-\_\-hook\-\_\-memcmp} (void $\ast$caller\-\_\-pc, const void $\ast$s1, const void $\ast$s2, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} s1\-\_\-label, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} s2\-\_\-label, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} n\-\_\-label)
+\item 
+void \hyperlink{dfsan__interface_8h_a6e26150da495aed51e71b99e2ae0b8a5}{dfsan\-\_\-weak\-\_\-hook\-\_\-strncmp} (void $\ast$caller\-\_\-pc, const char $\ast$s1, const char $\ast$s2, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} s1\-\_\-label, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} s2\-\_\-label, \hyperlink{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{dfsan\-\_\-label} n\-\_\-label)
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-label@{dfsan\-\_\-label}}
+\index{dfsan\-\_\-label@{dfsan\-\_\-label}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint16\-\_\-t {\bf dfsan\-\_\-label}}}\label{dfsan__interface_8h_a687a0bc144baaef2e10771b604c1ac75}
+\hypertarget{dfsan__interface_8h_aebea3bc73e07400b3c705d215aacd933}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-write\-\_\-callback\-\_\-t@{dfsan\-\_\-write\-\_\-callback\-\_\-t}}
+\index{dfsan\-\_\-write\-\_\-callback\-\_\-t@{dfsan\-\_\-write\-\_\-callback\-\_\-t}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-write\-\_\-callback\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ dfsan\-\_\-write\-\_\-callback\-\_\-t)(int fd, const void $\ast$buf, {\bf size\-\_\-t} {\bf count})}}\label{dfsan__interface_8h_aebea3bc73e07400b3c705d215aacd933}
+
+
+Signature of the callback argument to \hyperlink{dfsan__interface_8h_a779a40cd8b1ef9c6266ebd6f92dd402f}{dfsan\-\_\-set\-\_\-write\-\_\-callback()}. 
+
+
+
+\subsection{Function Documentation}
+\hypertarget{dfsan__interface_8h_ab71fafb902e3d5e33ac1c7beead8a8c5}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-add\-\_\-label@{dfsan\-\_\-add\-\_\-label}}
+\index{dfsan\-\_\-add\-\_\-label@{dfsan\-\_\-add\-\_\-label}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-add\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}void dfsan\-\_\-add\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{{\bf dfsan\-\_\-label}}]{label, }
+\item[{void $\ast$}]{addr, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_ab71fafb902e3d5e33ac1c7beead8a8c5}
+Sets the label for each address in \mbox{[}addr,addr+size) to the union of the current label for that address and {\ttfamily label}. \hypertarget{dfsan__interface_8h_a4124e85511550fed1fd1ac225752bba6}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-create\-\_\-label@{dfsan\-\_\-create\-\_\-label}}
+\index{dfsan\-\_\-create\-\_\-label@{dfsan\-\_\-create\-\_\-label}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-create\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dfsan\-\_\-label} dfsan\-\_\-create\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{desc, }
+\item[{void $\ast$}]{userdata}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_a4124e85511550fed1fd1ac225752bba6}
+
+
+Creates and returns a base label with the given description and user data. 
+
+\hypertarget{dfsan__interface_8h_ade7188d40cad2fe3c8bfbe3acdbfdc39}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-dump\-\_\-labels@{dfsan\-\_\-dump\-\_\-labels}}
+\index{dfsan\-\_\-dump\-\_\-labels@{dfsan\-\_\-dump\-\_\-labels}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-dump\-\_\-labels}]{\setlength{\rightskip}{0pt plus 5cm}void dfsan\-\_\-dump\-\_\-labels (
+\begin{DoxyParamCaption}
+\item[{int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_ade7188d40cad2fe3c8bfbe3acdbfdc39}
+Writes the labels currently used by the program to the given file descriptor. The lines of the output have the following format\-:
+
+$<$label$>$ $<$parent label 1$>$ $<$parent label 2$>$ $<$label description=\char`\"{}\char`\"{} if=\char`\"{}\char`\"{} any$>$=\char`\"{}\char`\"{}$>$ \hypertarget{dfsan__interface_8h_ad558822d25da0e7a98282bbb5dc73304}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-get\-\_\-label@{dfsan\-\_\-get\-\_\-label}}
+\index{dfsan\-\_\-get\-\_\-label@{dfsan\-\_\-get\-\_\-label}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-get\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dfsan\-\_\-label} dfsan\-\_\-get\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{long}]{data}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_ad558822d25da0e7a98282bbb5dc73304}
+Retrieves the label associated with the given data.
+
+The type of 'data' is arbitrary. The function accepts a value of any type, which can be truncated or extended (implicitly or explicitly) as necessary. The truncation/extension operations will preserve the label of the original value. \hypertarget{dfsan__interface_8h_a250439298114f346ff7c112bb487f711}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-get\-\_\-label\-\_\-count@{dfsan\-\_\-get\-\_\-label\-\_\-count}}
+\index{dfsan\-\_\-get\-\_\-label\-\_\-count@{dfsan\-\_\-get\-\_\-label\-\_\-count}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-get\-\_\-label\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} dfsan\-\_\-get\-\_\-label\-\_\-count (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_a250439298114f346ff7c112bb487f711}
+
+
+Returns the number of labels allocated. 
+
+\hypertarget{dfsan__interface_8h_aceeb95e8ab911e867c435c09db659fbe}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-get\-\_\-label\-\_\-info@{dfsan\-\_\-get\-\_\-label\-\_\-info}}
+\index{dfsan\-\_\-get\-\_\-label\-\_\-info@{dfsan\-\_\-get\-\_\-label\-\_\-info}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-get\-\_\-label\-\_\-info}]{\setlength{\rightskip}{0pt plus 5cm}const struct {\bf dfsan\-\_\-label\-\_\-info}$\ast$ dfsan\-\_\-get\-\_\-label\-\_\-info (
+\begin{DoxyParamCaption}
+\item[{{\bf dfsan\-\_\-label}}]{label}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_aceeb95e8ab911e867c435c09db659fbe}
+
+
+Retrieves a pointer to the \hyperlink{structdfsan__label__info}{dfsan\-\_\-label\-\_\-info} struct for the given label. 
+
+\hypertarget{dfsan__interface_8h_a5e9b2a78a3283014cb9944b6b9a71858}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-has\-\_\-label@{dfsan\-\_\-has\-\_\-label}}
+\index{dfsan\-\_\-has\-\_\-label@{dfsan\-\_\-has\-\_\-label}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-has\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}int dfsan\-\_\-has\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{{\bf dfsan\-\_\-label}}]{label, }
+\item[{{\bf dfsan\-\_\-label}}]{elem}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_a5e9b2a78a3283014cb9944b6b9a71858}
+
+
+Returns whether the given label label contains the label elem. 
+
+\hypertarget{dfsan__interface_8h_ae722dff1a442e7537870489f3d623cc2}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-has\-\_\-label\-\_\-with\-\_\-desc@{dfsan\-\_\-has\-\_\-label\-\_\-with\-\_\-desc}}
+\index{dfsan\-\_\-has\-\_\-label\-\_\-with\-\_\-desc@{dfsan\-\_\-has\-\_\-label\-\_\-with\-\_\-desc}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-has\-\_\-label\-\_\-with\-\_\-desc}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dfsan\-\_\-label} dfsan\-\_\-has\-\_\-label\-\_\-with\-\_\-desc (
+\begin{DoxyParamCaption}
+\item[{{\bf dfsan\-\_\-label}}]{label, }
+\item[{const char $\ast$}]{desc}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_ae722dff1a442e7537870489f3d623cc2}
+If the given label label contains a label with the description desc, returns that label, else returns 0. \hypertarget{dfsan__interface_8h_aa69bce35196567b8e40d23381657b70f}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-read\-\_\-label@{dfsan\-\_\-read\-\_\-label}}
+\index{dfsan\-\_\-read\-\_\-label@{dfsan\-\_\-read\-\_\-label}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-read\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dfsan\-\_\-label} dfsan\-\_\-read\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{const void $\ast$}]{addr, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_aa69bce35196567b8e40d23381657b70f}
+
+
+Retrieves the label associated with the data at the given address. 
+
+\hypertarget{dfsan__interface_8h_a50002eb64d161ee4f858def62b356881}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-set\-\_\-label@{dfsan\-\_\-set\-\_\-label}}
+\index{dfsan\-\_\-set\-\_\-label@{dfsan\-\_\-set\-\_\-label}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-set\-\_\-label}]{\setlength{\rightskip}{0pt plus 5cm}void dfsan\-\_\-set\-\_\-label (
+\begin{DoxyParamCaption}
+\item[{{\bf dfsan\-\_\-label}}]{label, }
+\item[{void $\ast$}]{addr, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_a50002eb64d161ee4f858def62b356881}
+
+
+Sets the label for each address in \mbox{[}addr,addr+size) to {\ttfamily label}. 
+
+\hypertarget{dfsan__interface_8h_a779a40cd8b1ef9c6266ebd6f92dd402f}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-set\-\_\-write\-\_\-callback@{dfsan\-\_\-set\-\_\-write\-\_\-callback}}
+\index{dfsan\-\_\-set\-\_\-write\-\_\-callback@{dfsan\-\_\-set\-\_\-write\-\_\-callback}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-set\-\_\-write\-\_\-callback}]{\setlength{\rightskip}{0pt plus 5cm}void dfsan\-\_\-set\-\_\-write\-\_\-callback (
+\begin{DoxyParamCaption}
+\item[{{\bf dfsan\-\_\-write\-\_\-callback\-\_\-t}}]{labeled\-\_\-write\-\_\-callback}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_a779a40cd8b1ef9c6266ebd6f92dd402f}
+Sets a callback to be invoked on calls to \hyperlink{namespaceow-slave-test_a6208e9fac4a2985c7004148f0c6f3a0b}{write()}. The callback is invoked before the write is done. The write is not guaranteed to succeed when the callback executes. Pass in N\-U\-L\-L to remove any callback. \hypertarget{dfsan__interface_8h_a449b00466c216667ebaea07d7e92d48f}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-union@{dfsan\-\_\-union}}
+\index{dfsan\-\_\-union@{dfsan\-\_\-union}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-union}]{\setlength{\rightskip}{0pt plus 5cm}{\bf dfsan\-\_\-label} dfsan\-\_\-union (
+\begin{DoxyParamCaption}
+\item[{{\bf dfsan\-\_\-label}}]{l1, }
+\item[{{\bf dfsan\-\_\-label}}]{l2}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_a449b00466c216667ebaea07d7e92d48f}
+Computes the union of {\ttfamily l1} and {\ttfamily l2}, possibly creating a union label in the process. \hypertarget{dfsan__interface_8h_aa1ba43d3d8e0ae274c1005225eb171c5}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-weak\-\_\-hook\-\_\-memcmp@{dfsan\-\_\-weak\-\_\-hook\-\_\-memcmp}}
+\index{dfsan\-\_\-weak\-\_\-hook\-\_\-memcmp@{dfsan\-\_\-weak\-\_\-hook\-\_\-memcmp}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-weak\-\_\-hook\-\_\-memcmp}]{\setlength{\rightskip}{0pt plus 5cm}void dfsan\-\_\-weak\-\_\-hook\-\_\-memcmp (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{caller\-\_\-pc, }
+\item[{const void $\ast$}]{s1, }
+\item[{const void $\ast$}]{s2, }
+\item[{{\bf size\-\_\-t}}]{n, }
+\item[{{\bf dfsan\-\_\-label}}]{s1\-\_\-label, }
+\item[{{\bf dfsan\-\_\-label}}]{s2\-\_\-label, }
+\item[{{\bf dfsan\-\_\-label}}]{n\-\_\-label}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_aa1ba43d3d8e0ae274c1005225eb171c5}
+Interceptor hooks. Whenever a dfsan's custom function is called the corresponding hook is called it non-\/zero. The hooks should be defined by the user. The primary use case is taint-\/guided fuzzing, where the fuzzer needs to see the parameters of the function and the labels. F\-I\-X\-M\-E\-: implement more hooks. \hypertarget{dfsan__interface_8h_a6e26150da495aed51e71b99e2ae0b8a5}{\index{dfsan\-\_\-interface.\-h@{dfsan\-\_\-interface.\-h}!dfsan\-\_\-weak\-\_\-hook\-\_\-strncmp@{dfsan\-\_\-weak\-\_\-hook\-\_\-strncmp}}
+\index{dfsan\-\_\-weak\-\_\-hook\-\_\-strncmp@{dfsan\-\_\-weak\-\_\-hook\-\_\-strncmp}!dfsan_interface.h@{dfsan\-\_\-interface.\-h}}
+\subsubsection[{dfsan\-\_\-weak\-\_\-hook\-\_\-strncmp}]{\setlength{\rightskip}{0pt plus 5cm}void dfsan\-\_\-weak\-\_\-hook\-\_\-strncmp (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{caller\-\_\-pc, }
+\item[{const char $\ast$}]{s1, }
+\item[{const char $\ast$}]{s2, }
+\item[{{\bf size\-\_\-t}}]{n, }
+\item[{{\bf dfsan\-\_\-label}}]{s1\-\_\-label, }
+\item[{{\bf dfsan\-\_\-label}}]{s2\-\_\-label, }
+\item[{{\bf dfsan\-\_\-label}}]{n\-\_\-label}
+\end{DoxyParamCaption}
+)}}\label{dfsan__interface_8h_a6e26150da495aed51e71b99e2ae0b8a5}

@@ -1,0 +1,354 @@
+\hypertarget{logic__analyzer_8ino}{\section{tools/logic\-\_\-analyzer/logic\-\_\-analyzer.ino File Reference}
+\label{logic__analyzer_8ino}\index{tools/logic\-\_\-analyzer/logic\-\_\-analyzer.\-ino@{tools/logic\-\_\-analyzer/logic\-\_\-analyzer.\-ino}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a28da84b93467b5e147457f6966a937d2}{C\-H\-A\-N\-P\-I\-N}~P\-I\-N\-B
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a7701a5ed2cabd7662018fca8a32a1860}{C\-H\-A\-N0}~8
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a6eb3bf1fa3bc8d0709305951d297ac0b}{C\-H\-A\-N1}~9
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a0eb944265047f642ca0bae08e0b08e97}{C\-H\-A\-N2}~10
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a4d97ed6a80ea7e3624b6730fc32a49e8}{C\-H\-A\-N3}~11
+\item 
+\#define \hyperlink{logic__analyzer_8ino_aea2b38cf4326607bde7b99bd91a7cec0}{C\-H\-A\-N4}~12
+\item 
+\#define \hyperlink{logic__analyzer_8ino_aa6517cf729cb97867b1448ece56f0bc5}{C\-H\-A\-N5}~13
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a49ba715e713d99d1a5c20429dacaf073}{led\-Pin}~13
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a1e1050eb144e2e56cb85daa640c53e34}{S\-U\-M\-P\-\_\-\-R\-E\-S\-E\-T}~0x00
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a1173a24bbfa5834edeb8df0eaaa0ee9e}{S\-U\-M\-P\-\_\-\-A\-R\-M}~0x01
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a2096a8b8f3a8356efdb66b8d5e09c451}{S\-U\-M\-P\-\_\-\-Q\-U\-E\-R\-Y}~0x02
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a323ad695fb6ded1678874de665cf105e}{S\-U\-M\-P\-\_\-\-X\-O\-N}~0x11
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a3c7313cddd98001c55d0ab7a2218a4b7}{S\-U\-M\-P\-\_\-\-X\-O\-F\-F}~0x13
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a523d086cb4b909898dd1f7aabc71a836}{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-M\-A\-S\-K}~0x\-C0
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a50b766258caa228c7af1aa6cdfda02bb}{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-V\-A\-L\-U\-E\-S}~0x\-C1
+\item 
+\#define \hyperlink{logic__analyzer_8ino_acbc9f97580617610a957323e91e54a51}{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-C\-O\-N\-F\-I\-G}~0x\-C2
+\item 
+\#define \hyperlink{logic__analyzer_8ino_ae614f1af0becbc173afcd0185d44db9d}{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-D\-I\-V\-I\-D\-E\-R}~0x80
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a4ff39e8391460471f79c706719214208}{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-E\-A\-D\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-C\-O\-U\-N\-T}~0x81
+\item 
+\#define \hyperlink{logic__analyzer_8ino_af8f32d4a870cddb2ea4f6288aafee5f9}{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-F\-L\-A\-G\-S}~0x82
+\item 
+\#define \hyperlink{logic__analyzer_8ino_aba2ea2e26e8a124b9f70a588af50db9f}{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-L\-E}~0x0100
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a35bb9f380cc507c96a51dfc66c523862}{S\-U\-M\-P\-\_\-\-S\-E\-L\-F\-\_\-\-T\-E\-S\-T}~0x03
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a050fdc557a56366251873b1d4fc02463}{S\-U\-M\-P\-\_\-\-G\-E\-T\-\_\-\-M\-E\-T\-A\-D\-A\-T\-A}~0x04
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a802972ed06c1b471eadf0f7f354730a7}{D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}~532
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a43bdfbb41785365ed1f79b6f6ce56c8e}{C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}~532
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a92f1452fef4b184124fa2334beb53a60}{D\-E\-B\-U\-G\-\_\-\-E\-N\-A\-B\-L\-E}~D\-D\-R\-D = D\-D\-R\-D $\vert$ B10000000
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a911d91f7898a9a0c4e35bb71e01d39a0}{D\-E\-B\-U\-G\-\_\-\-O\-N}~P\-O\-R\-T\-D = B10000000
+\item 
+\#define \hyperlink{logic__analyzer_8ino_afff2c6be67c226eb2b1359a3cd2042b2}{D\-E\-B\-U\-G\-\_\-\-O\-F\-F}~P\-O\-R\-T\-D = B00000000
+\item 
+\#define \hyperlink{logic__analyzer_8ino_ad72dbcf6d0153db1b8d8a58001feed83}{D\-E\-B\-U\-G}
+\item 
+\#define \hyperlink{logic__analyzer_8ino_a9fc5489cac12001b6bd8f4327f19d8d3}{M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}~\hyperlink{logic__analyzer_8ino_a802972ed06c1b471eadf0f7f354730a7}{D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{logic__analyzer_8ino_a82a3ded09d06397be48af31ec6610f6d}{trigger\-Micro} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_ab7cc96544e6c48ee905460501ceba639}{capture\-Micro} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_a58ca90e949b84cf8f2ec0c32ef617663}{capture\-Milli} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_a7a7c7f1690c2d8fca30ce97777cfb923}{get\-Cmd} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_ac475c02d08944ced22be44c29396f37d}{setup\-Delay} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_aeb0f8e9c281b659b5b7fde75590ea28d}{blinkled} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_a90d67429d139ee677f1f9921090df6c3}{get\-\_\-metadata} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_a16e966cfeb510046fb0af78ba0f1f822}{debugprint} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_ab01679d87135b0e7cd6092519442a2e3}{debugdump} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_afb231797b48f7b822159311cba64d114}{prettydump} (void)
+\item 
+void \hyperlink{logic__analyzer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{logic__analyzer_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{logic__analyzer_8ino_a12614e45101c87be446e3215f9828ea7}{cmd\-Byte} = 0
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{logic__analyzer_8ino_a1c084ba1cb81467fe3909061a10bcc3c}{cmd\-Bytes} \mbox{[}5\mbox{]}
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{logic__analyzer_8ino_a244e6b00c44167b679f20c536bbfd847}{savebytes} \mbox{[}128\mbox{]}
+\item 
+int \hyperlink{logic__analyzer_8ino_a6082b63b4ed702f0c1c36683dfeedffd}{savecount} = 0
+\item 
+\hyperlink{Arduino_8h_ab8ef12fab634c171394422d0ee8baf94}{byte} \hyperlink{logic__analyzer_8ino_acf1380cc8a402895cf2cbab1a4892637}{logicdata} \mbox{[}\hyperlink{logic__analyzer_8ino_a9fc5489cac12001b6bd8f4327f19d8d3}{M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_a3ebca88c99ad4e7a44e7c1a15f70d7b9}{logic\-Index} = 0
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_a5c00415a1614fd9a8ec4d81709ab7a7c}{trigger\-Index} = 0
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_ad309c26233a404465e486cc0b1708c8e}{read\-Count} = \hyperlink{logic__analyzer_8ino_a9fc5489cac12001b6bd8f4327f19d8d3}{M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_a2d69e43680dd22a35c730441112093a9}{delay\-Count} = 0
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_a820e779c394d2a64ab63e7e22420a616}{trigger} = 0
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_a494f85c7857b64451b04ff698085f6bf}{trigger\-\_\-values} = 0
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_a30066e7c1bf76953fc46a9c9bc1923ab}{use\-Micro} = 0
+\item 
+unsigned int \hyperlink{logic__analyzer_8ino_a7348932029d885adc020c5d1ddc29274}{delay\-Time} = 0
+\item 
+unsigned long \hyperlink{logic__analyzer_8ino_ae9918e26621a8ce8e42f3dc43a92c6c9}{divider} = 0
+\item 
+boolean \hyperlink{logic__analyzer_8ino_ad62ab2989a5832746d168d644991f20a}{rle\-Enabled} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{logic__analyzer_8ino_a43bdfbb41785365ed1f79b6f6ce56c8e}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E@{C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}}
+\index{C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E@{C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E~532}}\label{logic__analyzer_8ino_a43bdfbb41785365ed1f79b6f6ce56c8e}
+\hypertarget{logic__analyzer_8ino_a7701a5ed2cabd7662018fca8a32a1860}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-H\-A\-N0@{C\-H\-A\-N0}}
+\index{C\-H\-A\-N0@{C\-H\-A\-N0}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-H\-A\-N0}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N0~8}}\label{logic__analyzer_8ino_a7701a5ed2cabd7662018fca8a32a1860}
+\hypertarget{logic__analyzer_8ino_a6eb3bf1fa3bc8d0709305951d297ac0b}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-H\-A\-N1@{C\-H\-A\-N1}}
+\index{C\-H\-A\-N1@{C\-H\-A\-N1}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-H\-A\-N1}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N1~9}}\label{logic__analyzer_8ino_a6eb3bf1fa3bc8d0709305951d297ac0b}
+\hypertarget{logic__analyzer_8ino_a0eb944265047f642ca0bae08e0b08e97}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-H\-A\-N2@{C\-H\-A\-N2}}
+\index{C\-H\-A\-N2@{C\-H\-A\-N2}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-H\-A\-N2}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N2~10}}\label{logic__analyzer_8ino_a0eb944265047f642ca0bae08e0b08e97}
+\hypertarget{logic__analyzer_8ino_a4d97ed6a80ea7e3624b6730fc32a49e8}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-H\-A\-N3@{C\-H\-A\-N3}}
+\index{C\-H\-A\-N3@{C\-H\-A\-N3}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-H\-A\-N3}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N3~11}}\label{logic__analyzer_8ino_a4d97ed6a80ea7e3624b6730fc32a49e8}
+\hypertarget{logic__analyzer_8ino_aea2b38cf4326607bde7b99bd91a7cec0}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-H\-A\-N4@{C\-H\-A\-N4}}
+\index{C\-H\-A\-N4@{C\-H\-A\-N4}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-H\-A\-N4}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N4~12}}\label{logic__analyzer_8ino_aea2b38cf4326607bde7b99bd91a7cec0}
+\hypertarget{logic__analyzer_8ino_aa6517cf729cb97867b1448ece56f0bc5}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-H\-A\-N5@{C\-H\-A\-N5}}
+\index{C\-H\-A\-N5@{C\-H\-A\-N5}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-H\-A\-N5}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N5~13}}\label{logic__analyzer_8ino_aa6517cf729cb97867b1448ece56f0bc5}
+\hypertarget{logic__analyzer_8ino_a28da84b93467b5e147457f6966a937d2}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!C\-H\-A\-N\-P\-I\-N@{C\-H\-A\-N\-P\-I\-N}}
+\index{C\-H\-A\-N\-P\-I\-N@{C\-H\-A\-N\-P\-I\-N}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{C\-H\-A\-N\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-H\-A\-N\-P\-I\-N~P\-I\-N\-B}}\label{logic__analyzer_8ino_a28da84b93467b5e147457f6966a937d2}
+\hypertarget{logic__analyzer_8ino_ad72dbcf6d0153db1b8d8a58001feed83}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!D\-E\-B\-U\-G@{D\-E\-B\-U\-G}}
+\index{D\-E\-B\-U\-G@{D\-E\-B\-U\-G}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G}}\label{logic__analyzer_8ino_ad72dbcf6d0153db1b8d8a58001feed83}
+\hypertarget{logic__analyzer_8ino_a802972ed06c1b471eadf0f7f354730a7}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E@{D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}}
+\index{D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E@{D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E~532}}\label{logic__analyzer_8ino_a802972ed06c1b471eadf0f7f354730a7}
+\hypertarget{logic__analyzer_8ino_a92f1452fef4b184124fa2334beb53a60}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!D\-E\-B\-U\-G\-\_\-\-E\-N\-A\-B\-L\-E@{D\-E\-B\-U\-G\-\_\-\-E\-N\-A\-B\-L\-E}}
+\index{D\-E\-B\-U\-G\-\_\-\-E\-N\-A\-B\-L\-E@{D\-E\-B\-U\-G\-\_\-\-E\-N\-A\-B\-L\-E}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{D\-E\-B\-U\-G\-\_\-\-E\-N\-A\-B\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-\_\-\-E\-N\-A\-B\-L\-E~D\-D\-R\-D = D\-D\-R\-D $\vert$ B10000000}}\label{logic__analyzer_8ino_a92f1452fef4b184124fa2334beb53a60}
+\hypertarget{logic__analyzer_8ino_afff2c6be67c226eb2b1359a3cd2042b2}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!D\-E\-B\-U\-G\-\_\-\-O\-F\-F@{D\-E\-B\-U\-G\-\_\-\-O\-F\-F}}
+\index{D\-E\-B\-U\-G\-\_\-\-O\-F\-F@{D\-E\-B\-U\-G\-\_\-\-O\-F\-F}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{D\-E\-B\-U\-G\-\_\-\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-\_\-\-O\-F\-F~P\-O\-R\-T\-D = B00000000}}\label{logic__analyzer_8ino_afff2c6be67c226eb2b1359a3cd2042b2}
+\hypertarget{logic__analyzer_8ino_a911d91f7898a9a0c4e35bb71e01d39a0}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!D\-E\-B\-U\-G\-\_\-\-O\-N@{D\-E\-B\-U\-G\-\_\-\-O\-N}}
+\index{D\-E\-B\-U\-G\-\_\-\-O\-N@{D\-E\-B\-U\-G\-\_\-\-O\-N}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{D\-E\-B\-U\-G\-\_\-\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define D\-E\-B\-U\-G\-\_\-\-O\-N~P\-O\-R\-T\-D = B10000000}}\label{logic__analyzer_8ino_a911d91f7898a9a0c4e35bb71e01d39a0}
+\hypertarget{logic__analyzer_8ino_a49ba715e713d99d1a5c20429dacaf073}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!led\-Pin@{led\-Pin}}
+\index{led\-Pin@{led\-Pin}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{led\-Pin}]{\setlength{\rightskip}{0pt plus 5cm}\#define led\-Pin~13}}\label{logic__analyzer_8ino_a49ba715e713d99d1a5c20429dacaf073}
+\hypertarget{logic__analyzer_8ino_a9fc5489cac12001b6bd8f4327f19d8d3}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}}
+\index{M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E@{M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E~{\bf D\-E\-B\-U\-G\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}}}\label{logic__analyzer_8ino_a9fc5489cac12001b6bd8f4327f19d8d3}
+\hypertarget{logic__analyzer_8ino_a1173a24bbfa5834edeb8df0eaaa0ee9e}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-A\-R\-M@{S\-U\-M\-P\-\_\-\-A\-R\-M}}
+\index{S\-U\-M\-P\-\_\-\-A\-R\-M@{S\-U\-M\-P\-\_\-\-A\-R\-M}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-A\-R\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-A\-R\-M~0x01}}\label{logic__analyzer_8ino_a1173a24bbfa5834edeb8df0eaaa0ee9e}
+\hypertarget{logic__analyzer_8ino_a050fdc557a56366251873b1d4fc02463}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-G\-E\-T\-\_\-\-M\-E\-T\-A\-D\-A\-T\-A@{S\-U\-M\-P\-\_\-\-G\-E\-T\-\_\-\-M\-E\-T\-A\-D\-A\-T\-A}}
+\index{S\-U\-M\-P\-\_\-\-G\-E\-T\-\_\-\-M\-E\-T\-A\-D\-A\-T\-A@{S\-U\-M\-P\-\_\-\-G\-E\-T\-\_\-\-M\-E\-T\-A\-D\-A\-T\-A}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-G\-E\-T\-\_\-\-M\-E\-T\-A\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-G\-E\-T\-\_\-\-M\-E\-T\-A\-D\-A\-T\-A~0x04}}\label{logic__analyzer_8ino_a050fdc557a56366251873b1d4fc02463}
+\hypertarget{logic__analyzer_8ino_a2096a8b8f3a8356efdb66b8d5e09c451}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-Q\-U\-E\-R\-Y@{S\-U\-M\-P\-\_\-\-Q\-U\-E\-R\-Y}}
+\index{S\-U\-M\-P\-\_\-\-Q\-U\-E\-R\-Y@{S\-U\-M\-P\-\_\-\-Q\-U\-E\-R\-Y}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-Q\-U\-E\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-Q\-U\-E\-R\-Y~0x02}}\label{logic__analyzer_8ino_a2096a8b8f3a8356efdb66b8d5e09c451}
+\hypertarget{logic__analyzer_8ino_a1e1050eb144e2e56cb85daa640c53e34}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-R\-E\-S\-E\-T@{S\-U\-M\-P\-\_\-\-R\-E\-S\-E\-T}}
+\index{S\-U\-M\-P\-\_\-\-R\-E\-S\-E\-T@{S\-U\-M\-P\-\_\-\-R\-E\-S\-E\-T}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-R\-E\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-R\-E\-S\-E\-T~0x00}}\label{logic__analyzer_8ino_a1e1050eb144e2e56cb85daa640c53e34}
+\hypertarget{logic__analyzer_8ino_a35bb9f380cc507c96a51dfc66c523862}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-S\-E\-L\-F\-\_\-\-T\-E\-S\-T@{S\-U\-M\-P\-\_\-\-S\-E\-L\-F\-\_\-\-T\-E\-S\-T}}
+\index{S\-U\-M\-P\-\_\-\-S\-E\-L\-F\-\_\-\-T\-E\-S\-T@{S\-U\-M\-P\-\_\-\-S\-E\-L\-F\-\_\-\-T\-E\-S\-T}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-S\-E\-L\-F\-\_\-\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-S\-E\-L\-F\-\_\-\-T\-E\-S\-T~0x03}}\label{logic__analyzer_8ino_a35bb9f380cc507c96a51dfc66c523862}
+\hypertarget{logic__analyzer_8ino_ae614f1af0becbc173afcd0185d44db9d}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-D\-I\-V\-I\-D\-E\-R@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-D\-I\-V\-I\-D\-E\-R}}
+\index{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-D\-I\-V\-I\-D\-E\-R@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-D\-I\-V\-I\-D\-E\-R}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-D\-I\-V\-I\-D\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-D\-I\-V\-I\-D\-E\-R~0x80}}\label{logic__analyzer_8ino_ae614f1af0becbc173afcd0185d44db9d}
+\hypertarget{logic__analyzer_8ino_af8f32d4a870cddb2ea4f6288aafee5f9}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-F\-L\-A\-G\-S@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-F\-L\-A\-G\-S}}
+\index{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-F\-L\-A\-G\-S@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-F\-L\-A\-G\-S}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-F\-L\-A\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-F\-L\-A\-G\-S~0x82}}\label{logic__analyzer_8ino_af8f32d4a870cddb2ea4f6288aafee5f9}
+\hypertarget{logic__analyzer_8ino_a4ff39e8391460471f79c706719214208}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-E\-A\-D\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-C\-O\-U\-N\-T@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-E\-A\-D\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-C\-O\-U\-N\-T}}
+\index{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-E\-A\-D\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-C\-O\-U\-N\-T@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-E\-A\-D\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-C\-O\-U\-N\-T}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-E\-A\-D\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-E\-A\-D\-\_\-\-D\-E\-L\-A\-Y\-\_\-\-C\-O\-U\-N\-T~0x81}}\label{logic__analyzer_8ino_a4ff39e8391460471f79c706719214208}
+\hypertarget{logic__analyzer_8ino_aba2ea2e26e8a124b9f70a588af50db9f}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-L\-E@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-L\-E}}
+\index{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-L\-E@{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-L\-E}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-L\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-S\-E\-T\-\_\-\-R\-L\-E~0x0100}}\label{logic__analyzer_8ino_aba2ea2e26e8a124b9f70a588af50db9f}
+\hypertarget{logic__analyzer_8ino_acbc9f97580617610a957323e91e54a51}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-C\-O\-N\-F\-I\-G@{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-C\-O\-N\-F\-I\-G}}
+\index{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-C\-O\-N\-F\-I\-G@{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-C\-O\-N\-F\-I\-G}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-C\-O\-N\-F\-I\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-C\-O\-N\-F\-I\-G~0x\-C2}}\label{logic__analyzer_8ino_acbc9f97580617610a957323e91e54a51}
+\hypertarget{logic__analyzer_8ino_a523d086cb4b909898dd1f7aabc71a836}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-M\-A\-S\-K@{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-M\-A\-S\-K}}
+\index{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-M\-A\-S\-K@{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-M\-A\-S\-K}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-M\-A\-S\-K~0x\-C0}}\label{logic__analyzer_8ino_a523d086cb4b909898dd1f7aabc71a836}
+\hypertarget{logic__analyzer_8ino_a50b766258caa228c7af1aa6cdfda02bb}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-V\-A\-L\-U\-E\-S@{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-V\-A\-L\-U\-E\-S}}
+\index{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-V\-A\-L\-U\-E\-S@{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-V\-A\-L\-U\-E\-S}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-V\-A\-L\-U\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-T\-R\-I\-G\-G\-E\-R\-\_\-\-V\-A\-L\-U\-E\-S~0x\-C1}}\label{logic__analyzer_8ino_a50b766258caa228c7af1aa6cdfda02bb}
+\hypertarget{logic__analyzer_8ino_a3c7313cddd98001c55d0ab7a2218a4b7}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-X\-O\-F\-F@{S\-U\-M\-P\-\_\-\-X\-O\-F\-F}}
+\index{S\-U\-M\-P\-\_\-\-X\-O\-F\-F@{S\-U\-M\-P\-\_\-\-X\-O\-F\-F}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-X\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-X\-O\-F\-F~0x13}}\label{logic__analyzer_8ino_a3c7313cddd98001c55d0ab7a2218a4b7}
+\hypertarget{logic__analyzer_8ino_a323ad695fb6ded1678874de665cf105e}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!S\-U\-M\-P\-\_\-\-X\-O\-N@{S\-U\-M\-P\-\_\-\-X\-O\-N}}
+\index{S\-U\-M\-P\-\_\-\-X\-O\-N@{S\-U\-M\-P\-\_\-\-X\-O\-N}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{S\-U\-M\-P\-\_\-\-X\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-U\-M\-P\-\_\-\-X\-O\-N~0x11}}\label{logic__analyzer_8ino_a323ad695fb6ded1678874de665cf105e}
+
+
+\subsection{Function Documentation}
+\hypertarget{logic__analyzer_8ino_aeb0f8e9c281b659b5b7fde75590ea28d}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!blinkled@{blinkled}}
+\index{blinkled@{blinkled}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{blinkled}]{\setlength{\rightskip}{0pt plus 5cm}void blinkled (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_aeb0f8e9c281b659b5b7fde75590ea28d}
+\hypertarget{logic__analyzer_8ino_ab7cc96544e6c48ee905460501ceba639}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!capture\-Micro@{capture\-Micro}}
+\index{capture\-Micro@{capture\-Micro}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{capture\-Micro}]{\setlength{\rightskip}{0pt plus 5cm}void capture\-Micro (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_ab7cc96544e6c48ee905460501ceba639}
+\hypertarget{logic__analyzer_8ino_a58ca90e949b84cf8f2ec0c32ef617663}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!capture\-Milli@{capture\-Milli}}
+\index{capture\-Milli@{capture\-Milli}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{capture\-Milli}]{\setlength{\rightskip}{0pt plus 5cm}void capture\-Milli (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_a58ca90e949b84cf8f2ec0c32ef617663}
+\hypertarget{logic__analyzer_8ino_ab01679d87135b0e7cd6092519442a2e3}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!debugdump@{debugdump}}
+\index{debugdump@{debugdump}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{debugdump}]{\setlength{\rightskip}{0pt plus 5cm}void debugdump (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_ab01679d87135b0e7cd6092519442a2e3}
+\hypertarget{logic__analyzer_8ino_a16e966cfeb510046fb0af78ba0f1f822}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!debugprint@{debugprint}}
+\index{debugprint@{debugprint}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{debugprint}]{\setlength{\rightskip}{0pt plus 5cm}void debugprint (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_a16e966cfeb510046fb0af78ba0f1f822}
+\hypertarget{logic__analyzer_8ino_a90d67429d139ee677f1f9921090df6c3}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!get\-\_\-metadata@{get\-\_\-metadata}}
+\index{get\-\_\-metadata@{get\-\_\-metadata}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{get\-\_\-metadata}]{\setlength{\rightskip}{0pt plus 5cm}void get\-\_\-metadata (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_a90d67429d139ee677f1f9921090df6c3}
+\hypertarget{logic__analyzer_8ino_a7a7c7f1690c2d8fca30ce97777cfb923}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!get\-Cmd@{get\-Cmd}}
+\index{get\-Cmd@{get\-Cmd}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{get\-Cmd}]{\setlength{\rightskip}{0pt plus 5cm}void get\-Cmd (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_a7a7c7f1690c2d8fca30ce97777cfb923}
+\hypertarget{logic__analyzer_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!loop@{loop}}
+\index{loop@{loop}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{logic__analyzer_8ino_afb231797b48f7b822159311cba64d114}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!prettydump@{prettydump}}
+\index{prettydump@{prettydump}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{prettydump}]{\setlength{\rightskip}{0pt plus 5cm}void prettydump (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_afb231797b48f7b822159311cba64d114}
+\hypertarget{logic__analyzer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!setup@{setup}}
+\index{setup@{setup}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{logic__analyzer_8ino_ac475c02d08944ced22be44c29396f37d}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!setup\-Delay@{setup\-Delay}}
+\index{setup\-Delay@{setup\-Delay}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{setup\-Delay}]{\setlength{\rightskip}{0pt plus 5cm}void setup\-Delay (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_ac475c02d08944ced22be44c29396f37d}
+\hypertarget{logic__analyzer_8ino_a82a3ded09d06397be48af31ec6610f6d}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!trigger\-Micro@{trigger\-Micro}}
+\index{trigger\-Micro@{trigger\-Micro}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{trigger\-Micro}]{\setlength{\rightskip}{0pt plus 5cm}void trigger\-Micro (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{logic__analyzer_8ino_a82a3ded09d06397be48af31ec6610f6d}
+
+
+\subsection{Variable Documentation}
+\hypertarget{logic__analyzer_8ino_a12614e45101c87be446e3215f9828ea7}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!cmd\-Byte@{cmd\-Byte}}
+\index{cmd\-Byte@{cmd\-Byte}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{cmd\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}int cmd\-Byte = 0}}\label{logic__analyzer_8ino_a12614e45101c87be446e3215f9828ea7}
+\hypertarget{logic__analyzer_8ino_a1c084ba1cb81467fe3909061a10bcc3c}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!cmd\-Bytes@{cmd\-Bytes}}
+\index{cmd\-Bytes@{cmd\-Bytes}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{cmd\-Bytes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} cmd\-Bytes\mbox{[}5\mbox{]}}}\label{logic__analyzer_8ino_a1c084ba1cb81467fe3909061a10bcc3c}
+\hypertarget{logic__analyzer_8ino_a2d69e43680dd22a35c730441112093a9}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!delay\-Count@{delay\-Count}}
+\index{delay\-Count@{delay\-Count}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{delay\-Count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int delay\-Count = 0}}\label{logic__analyzer_8ino_a2d69e43680dd22a35c730441112093a9}
+\hypertarget{logic__analyzer_8ino_a7348932029d885adc020c5d1ddc29274}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!delay\-Time@{delay\-Time}}
+\index{delay\-Time@{delay\-Time}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{delay\-Time}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int delay\-Time = 0}}\label{logic__analyzer_8ino_a7348932029d885adc020c5d1ddc29274}
+\hypertarget{logic__analyzer_8ino_ae9918e26621a8ce8e42f3dc43a92c6c9}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!divider@{divider}}
+\index{divider@{divider}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{divider}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long divider = 0}}\label{logic__analyzer_8ino_ae9918e26621a8ce8e42f3dc43a92c6c9}
+\hypertarget{logic__analyzer_8ino_acf1380cc8a402895cf2cbab1a4892637}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!logicdata@{logicdata}}
+\index{logicdata@{logicdata}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{logicdata}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} logicdata\mbox{[}{\bf M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{logic__analyzer_8ino_acf1380cc8a402895cf2cbab1a4892637}
+\hypertarget{logic__analyzer_8ino_a3ebca88c99ad4e7a44e7c1a15f70d7b9}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!logic\-Index@{logic\-Index}}
+\index{logic\-Index@{logic\-Index}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{logic\-Index}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int logic\-Index = 0}}\label{logic__analyzer_8ino_a3ebca88c99ad4e7a44e7c1a15f70d7b9}
+\hypertarget{logic__analyzer_8ino_ad309c26233a404465e486cc0b1708c8e}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!read\-Count@{read\-Count}}
+\index{read\-Count@{read\-Count}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{read\-Count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int read\-Count = {\bf M\-A\-X\-\_\-\-C\-A\-P\-T\-U\-R\-E\-\_\-\-S\-I\-Z\-E}}}\label{logic__analyzer_8ino_ad309c26233a404465e486cc0b1708c8e}
+\hypertarget{logic__analyzer_8ino_ad62ab2989a5832746d168d644991f20a}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!rle\-Enabled@{rle\-Enabled}}
+\index{rle\-Enabled@{rle\-Enabled}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{rle\-Enabled}]{\setlength{\rightskip}{0pt plus 5cm}boolean rle\-Enabled = 0}}\label{logic__analyzer_8ino_ad62ab2989a5832746d168d644991f20a}
+\hypertarget{logic__analyzer_8ino_a244e6b00c44167b679f20c536bbfd847}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!savebytes@{savebytes}}
+\index{savebytes@{savebytes}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{savebytes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf byte} savebytes\mbox{[}128\mbox{]}}}\label{logic__analyzer_8ino_a244e6b00c44167b679f20c536bbfd847}
+\hypertarget{logic__analyzer_8ino_a6082b63b4ed702f0c1c36683dfeedffd}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!savecount@{savecount}}
+\index{savecount@{savecount}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{savecount}]{\setlength{\rightskip}{0pt plus 5cm}int savecount = 0}}\label{logic__analyzer_8ino_a6082b63b4ed702f0c1c36683dfeedffd}
+\hypertarget{logic__analyzer_8ino_a820e779c394d2a64ab63e7e22420a616}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!trigger@{trigger}}
+\index{trigger@{trigger}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{trigger}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int trigger = 0}}\label{logic__analyzer_8ino_a820e779c394d2a64ab63e7e22420a616}
+\hypertarget{logic__analyzer_8ino_a494f85c7857b64451b04ff698085f6bf}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!trigger\-\_\-values@{trigger\-\_\-values}}
+\index{trigger\-\_\-values@{trigger\-\_\-values}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{trigger\-\_\-values}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int trigger\-\_\-values = 0}}\label{logic__analyzer_8ino_a494f85c7857b64451b04ff698085f6bf}
+\hypertarget{logic__analyzer_8ino_a5c00415a1614fd9a8ec4d81709ab7a7c}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!trigger\-Index@{trigger\-Index}}
+\index{trigger\-Index@{trigger\-Index}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{trigger\-Index}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int trigger\-Index = 0}}\label{logic__analyzer_8ino_a5c00415a1614fd9a8ec4d81709ab7a7c}
+\hypertarget{logic__analyzer_8ino_a30066e7c1bf76953fc46a9c9bc1923ab}{\index{logic\-\_\-analyzer.\-ino@{logic\-\_\-analyzer.\-ino}!use\-Micro@{use\-Micro}}
+\index{use\-Micro@{use\-Micro}!logic_analyzer.ino@{logic\-\_\-analyzer.\-ino}}
+\subsubsection[{use\-Micro}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int use\-Micro = 0}}\label{logic__analyzer_8ino_a30066e7c1bf76953fc46a9c9bc1923ab}

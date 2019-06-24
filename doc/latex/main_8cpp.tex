@@ -1,0 +1,145 @@
+\hypertarget{main_8cpp}{\section{hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/main.cpp File Reference}
+\label{main_8cpp}\index{hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/main.\-cpp@{hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/main.\-cpp}}
+}
+{\ttfamily \#include $<$Arduino.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}Hardware\-Serial\-\_\-private.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{main_8cpp_a921bc1f5b0e415d0c3892d40b1903bd1}{flashio} (uint8\-\_\-t $\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, int len, uint8\-\_\-t wrencmd)
+\item 
+void \hyperlink{main_8cpp_a948b7a0779c308ac5502c57e282e6933}{putchar} (char c)
+\item 
+void \hyperlink{main_8cpp_a2d0091e019fc1a50c3cc9f4c86dd73c2}{print} (const char $\ast$\hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p})
+\item 
+unsigned long \hyperlink{main_8cpp_a6ff7f2532a22366f0013bc41397129fd}{millis} ()
+\item 
+unsigned long \hyperlink{main_8cpp_a8b24cbb7c3486e1bfa05c86db83ecb01}{micros} ()
+\item 
+void \hyperlink{main_8cpp_a6bc5f943544a887f8b23cadfb26a5e30}{delay} (unsigned long ms)
+\item 
+void \hyperlink{main_8cpp_abf453c1659ee9fafa5af689523ac71e7}{pin\-Mode} (uint8\-\_\-t pin, uint8\-\_\-t \hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode})
+\item 
+void \hyperlink{main_8cpp_ae2d36ef66ff3d8970304e7aaf716712d}{digital\-Write} (uint8\-\_\-t pin, uint8\-\_\-t value)
+\item 
+int \hyperlink{main_8cpp_ab3e9bc73864eb6276f87aa94078224b6}{digital\-Read} (uint8\-\_\-t pin)
+\item 
+int \hyperlink{main_8cpp_a2eda513a6bb35bf13675a24711d4e864}{analog\-Read} (uint8\-\_\-t pin)
+\item 
+void \hyperlink{main_8cpp_a62a628c40d93ea1823a1cdb8cae9e7be}{analog\-Write} (uint8\-\_\-t pin, int \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+void \hyperlink{main_8cpp_acdef7a1fd863a6d3770c1268cb06add3}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{main_8cpp_a5fbc7da75b5b81b55ab1a7c29d7ddcd8}{sram}
+\item 
+uint32\-\_\-t \hyperlink{main_8cpp_a2eee0290ab7e495bce8195a9aa621b20}{flashio\-\_\-worker\-\_\-begin}
+\item 
+uint32\-\_\-t \hyperlink{main_8cpp_af22734837bae57b82efa79b33697903e}{flashio\-\_\-worker\-\_\-end}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{main_8cpp_a2eda513a6bb35bf13675a24711d4e864}{\index{main.\-cpp@{main.\-cpp}!analog\-Read@{analog\-Read}}
+\index{analog\-Read@{analog\-Read}!main.cpp@{main.\-cpp}}
+\subsubsection[{analog\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int analog\-Read (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{pin}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a2eda513a6bb35bf13675a24711d4e864}
+\hypertarget{main_8cpp_a62a628c40d93ea1823a1cdb8cae9e7be}{\index{main.\-cpp@{main.\-cpp}!analog\-Write@{analog\-Write}}
+\index{analog\-Write@{analog\-Write}!main.cpp@{main.\-cpp}}
+\subsubsection[{analog\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void analog\-Write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{pin, }
+\item[{int}]{val}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a62a628c40d93ea1823a1cdb8cae9e7be}
+\hypertarget{main_8cpp_a6bc5f943544a887f8b23cadfb26a5e30}{\index{main.\-cpp@{main.\-cpp}!delay@{delay}}
+\index{delay@{delay}!main.cpp@{main.\-cpp}}
+\subsubsection[{delay}]{\setlength{\rightskip}{0pt plus 5cm}void delay (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{ms}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a6bc5f943544a887f8b23cadfb26a5e30}
+\hypertarget{main_8cpp_ab3e9bc73864eb6276f87aa94078224b6}{\index{main.\-cpp@{main.\-cpp}!digital\-Read@{digital\-Read}}
+\index{digital\-Read@{digital\-Read}!main.cpp@{main.\-cpp}}
+\subsubsection[{digital\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int digital\-Read (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{pin}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_ab3e9bc73864eb6276f87aa94078224b6}
+\hypertarget{main_8cpp_ae2d36ef66ff3d8970304e7aaf716712d}{\index{main.\-cpp@{main.\-cpp}!digital\-Write@{digital\-Write}}
+\index{digital\-Write@{digital\-Write}!main.cpp@{main.\-cpp}}
+\subsubsection[{digital\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void digital\-Write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{pin, }
+\item[{uint8\-\_\-t}]{value}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_ae2d36ef66ff3d8970304e7aaf716712d}
+\hypertarget{main_8cpp_a921bc1f5b0e415d0c3892d40b1903bd1}{\index{main.\-cpp@{main.\-cpp}!flashio@{flashio}}
+\index{flashio@{flashio}!main.cpp@{main.\-cpp}}
+\subsubsection[{flashio}]{\setlength{\rightskip}{0pt plus 5cm}void flashio (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{data, }
+\item[{int}]{len, }
+\item[{uint8\-\_\-t}]{wrencmd}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a921bc1f5b0e415d0c3892d40b1903bd1}
+\hypertarget{main_8cpp_acdef7a1fd863a6d3770c1268cb06add3}{\index{main.\-cpp@{main.\-cpp}!main@{main}}
+\index{main@{main}!main.cpp@{main.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}void main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_acdef7a1fd863a6d3770c1268cb06add3}
+\hypertarget{main_8cpp_a8b24cbb7c3486e1bfa05c86db83ecb01}{\index{main.\-cpp@{main.\-cpp}!micros@{micros}}
+\index{micros@{micros}!main.cpp@{main.\-cpp}}
+\subsubsection[{micros}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long micros (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a8b24cbb7c3486e1bfa05c86db83ecb01}
+\hypertarget{main_8cpp_a6ff7f2532a22366f0013bc41397129fd}{\index{main.\-cpp@{main.\-cpp}!millis@{millis}}
+\index{millis@{millis}!main.cpp@{main.\-cpp}}
+\subsubsection[{millis}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long millis (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a6ff7f2532a22366f0013bc41397129fd}
+\hypertarget{main_8cpp_abf453c1659ee9fafa5af689523ac71e7}{\index{main.\-cpp@{main.\-cpp}!pin\-Mode@{pin\-Mode}}
+\index{pin\-Mode@{pin\-Mode}!main.cpp@{main.\-cpp}}
+\subsubsection[{pin\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}void pin\-Mode (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{pin, }
+\item[{uint8\-\_\-t}]{mode}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_abf453c1659ee9fafa5af689523ac71e7}
+\hypertarget{main_8cpp_a2d0091e019fc1a50c3cc9f4c86dd73c2}{\index{main.\-cpp@{main.\-cpp}!print@{print}}
+\index{print@{print}!main.cpp@{main.\-cpp}}
+\subsubsection[{print}]{\setlength{\rightskip}{0pt plus 5cm}void print (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a2d0091e019fc1a50c3cc9f4c86dd73c2}
+\hypertarget{main_8cpp_a948b7a0779c308ac5502c57e282e6933}{\index{main.\-cpp@{main.\-cpp}!putchar@{putchar}}
+\index{putchar@{putchar}!main.cpp@{main.\-cpp}}
+\subsubsection[{putchar}]{\setlength{\rightskip}{0pt plus 5cm}void putchar (
+\begin{DoxyParamCaption}
+\item[{char}]{c}
+\end{DoxyParamCaption}
+)}}\label{main_8cpp_a948b7a0779c308ac5502c57e282e6933}
+
+
+\subsection{Variable Documentation}
+\hypertarget{main_8cpp_a2eee0290ab7e495bce8195a9aa621b20}{\index{main.\-cpp@{main.\-cpp}!flashio\-\_\-worker\-\_\-begin@{flashio\-\_\-worker\-\_\-begin}}
+\index{flashio\-\_\-worker\-\_\-begin@{flashio\-\_\-worker\-\_\-begin}!main.cpp@{main.\-cpp}}
+\subsubsection[{flashio\-\_\-worker\-\_\-begin}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t flashio\-\_\-worker\-\_\-begin}}\label{main_8cpp_a2eee0290ab7e495bce8195a9aa621b20}
+\hypertarget{main_8cpp_af22734837bae57b82efa79b33697903e}{\index{main.\-cpp@{main.\-cpp}!flashio\-\_\-worker\-\_\-end@{flashio\-\_\-worker\-\_\-end}}
+\index{flashio\-\_\-worker\-\_\-end@{flashio\-\_\-worker\-\_\-end}!main.cpp@{main.\-cpp}}
+\subsubsection[{flashio\-\_\-worker\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t flashio\-\_\-worker\-\_\-end}}\label{main_8cpp_af22734837bae57b82efa79b33697903e}
+\hypertarget{main_8cpp_a5fbc7da75b5b81b55ab1a7c29d7ddcd8}{\index{main.\-cpp@{main.\-cpp}!sram@{sram}}
+\index{sram@{sram}!main.cpp@{main.\-cpp}}
+\subsubsection[{sram}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t sram}}\label{main_8cpp_a5fbc7da75b5b81b55ab1a7c29d7ddcd8}

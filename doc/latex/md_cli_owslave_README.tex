@@ -1,0 +1,123 @@
+or \char`\"{}\-Master of all Things\char`\"{} is a project to control various interesting little things using 1wire, via a common interface.
+
+The master copy of this code is located at \href{https://github.com/M-o-a-T/owslave}{\tt https\-://github.\-com/\-M-\/o-\/a-\/\-T/owslave} -- please come and contribute! (Bug reports welcome.)
+
+\subsection*{Goals}
+
+1wire is a nice protocol for wire-\/based home automation. It's reasonably fast, stock hardware like basic I/\-O or temperature sensors are dirt cheap, and you can attach tiny A\-V\-R controllers (think Arduino) without any additional hardware.
+
+It also has drawbacks. There's only one master, so you need to poll. The available I/\-O solutions are limited. Most slaves can't be parameterized in any meaningful way, can't work autonomously if the bus is wedged, and don't use C\-O\-N\-D\-I\-T\-I\-O\-N\-A\-L S\-E\-A\-R\-C\-H (required for any non-\/trivial network).
+
+Moa\-T slaves are different. A common configuration file lists the features for each device you program. The parameters are added to the flash code (or, in the hopefully-\/not-\/too-\/far future, to the device's E\-E\-P\-R\-O\-M) and can be interrogated via 1wire. O\-W\-F\-S then exports exactly those featurs which your device actually uses.
+
+\subsection*{License}
+
+This is 1wire slave code for A\-V\-R microcontrollers. Copyright (C) 2010-\/2015 Matthias Urlichs \href{mailto:matthias@urlichs.de}{\tt matthias@urlichs.\-de}.
+
+\begin{DoxyVerb}This program is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+This program is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with this program.  If not, see <http://www.gnu.org/licenses/>.
+\end{DoxyVerb}
+
+
+\subsection*{Implementation}
+
+The core code implements the basic 1wire discovery methods, including single-\/device mode and conditional discovery. Basic Code for e.\-g. the D\-S2423 fits in 2k on an A\-Ttiny. Barely, but it fits. ;-\/)
+
+Overdrive speed is not implemented, and probably never will be, because the timing constraints are too tight.
+
+You can enable a debug pin which is a great help if you have timing problems; just add a 2-\/channel oscilloscope.
+
+The 64-\/bit I\-D is optionally read from E\-E\-P\-R\-O\-M. A tool to generate the 8-\/bit C\-R\-C is included.
+
+The 1wire bus must be connected to the I\-N\-T0 pin. See {\ttfamily \hyperlink{features_8h}{features.\-h}} or your microcontroller's data sheet which hardware pin that is. For example, on an A\-Tmega168 it's P\-D2 (pin 4 if your A\-Tmega lives in a 28-\/pin P\-D\-I\-P package). Add a power supply (leeching parasite power from the bus is not a good idea) and a capacitor, and your 1wire slave is ready to go (of course, you do need to program it).
+
+\subsubsection*{History}
+
+Originally, this project consisted of an effort to convert convoluted code from the net, history unknown but apparently licensed G\-P\-L2, to something equally convoluted but more generic. And large. The work then languished for a couple of years.
+
+At the beginning of 2015, Matthias Urlichs used code from Tobias Mueller \href{mailto:mail@tobynet.de}{\tt mail@tobynet.\-de} to shrink down and rewrite the whole thing.
+
+The Makefile was trimmed, build and device configuration was moved to a separate config file, and the project goal became a whole lot more ambitious.
+
+\subsubsection*{1wire slaves}
+
+It appears that Dallas Semiconductor doesn't like people who implement 1wire slaves in software.
+
+On the other hand, they do discontinue I\-Cs like the D\-S2423 counter for which no known substitute exists.
+
+Therefore, code to emulate specific 1wire slave I\-Cs will only be added to this project's repository if the I\-Cs are no longer available or \char`\"{}not
+recommended for new design\char`\"{}.
+
+Of course, code that does things which doesn't have a silicon equivalent is always welcome.
+
+\subsubsection*{O\-W\-F\-S}
+
+A nice and shiny 1wire client does not help if there's no server. Therefore, if you add your own code, please also submit appropriate changes to the owfs project so that other people can actually talk to your stuff.
+
+The O\-W\-F\-S code for Moa\-T devices is located at \href{mailto:git@github.com}{\tt git@github.\-com}\-:M-\/o-\/a-\/\-T/owfs.\-git .
+
+N\-B\-: O\-W\-F\-S supports conditional search even if the \char`\"{}alarm\char`\"{} directory is missing. You can still access it.
+
+\subsection*{H\-O\-W\-T\-O}
+
+For build instructions, see \hyperlink{HOWTO_8md}{H\-O\-W\-T\-O.\-md}
+
+\subsubsection*{Rationale}
+
+This project uses its own build system, based on a configuration file and {\ttfamily make}.
+
+The reason is simple enough\-: suppose you want to prepare or update 100 devices for installation in a new house.
+
+You do {\itshape not} want to click your way through a G\-U\-I to do this.
+
+The first time through, you want to issue one command and then plug each device into the programmer. Wait, unplug, repeat.
+
+After it's all installed, you want to run \char`\"{}make update-\/all\char`\"{} and have the build system handle everything. Yes, this includes firmware uploads via 1wire.
+
+Moa\-T doesn't yet support online firmware updates. But it will.
+
+\subsection*{T\-O\-D\-O}
+
+\subsubsection*{bugs}
+
+
+\begin{DoxyItemize}
+\item make sure that an idle 1wire never results in a hung device
+\end{DoxyItemize}
+
+\subsubsection*{optimizations}
+
+
+\begin{DoxyItemize}
+\item interrupt-\/based port monitoring
+\item hardware-\/based P\-W\-M
+\end{DoxyItemize}
+
+\subsubsection*{implementations}
+
+
+\begin{DoxyItemize}
+\item secondary 1wire bus?
+\item I²\-C bus?
+\item R\-F12/\-R\-F69?
+\item more over-\/the-\/wire config changes
+\item over-\/the-\/wire firmware update
+\item some (esp. 1wire) statistics
+\item P\-I\-D
+\item S\-M\-O\-K\-E
+\item I2\-C interface
+\item T\-H\-E\-R\-M\-O via I2\-C
+\item H\-Y\-G\-R\-O via I2\-C
+\item serial bridge
+\item named ports 
+\end{DoxyItemize}

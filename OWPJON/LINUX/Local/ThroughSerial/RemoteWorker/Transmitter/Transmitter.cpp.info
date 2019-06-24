@@ -1,0 +1,554 @@
+ELF Header:
+  Magic:   7f 45 4c 46 02 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF64
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Advanced Micro Devices X86-64
+  Version:                           0x1
+  Entry point address:               0x400e10
+  Start of program headers:          64 (bytes into file)
+  Start of section headers:          25136 (bytes into file)
+  Flags:                             0x0
+  Size of this header:               64 (bytes)
+  Size of program headers:           56 (bytes)
+  Number of program headers:         9
+  Size of section headers:           64 (bytes)
+  Number of section headers:         30
+  Section header string table index: 27
+
+Section Headers:
+  [Nr] Name              Type             Address           Offset
+       Size              EntSize          Flags  Link  Info  Align
+  [ 0]                   NULL             0000000000000000  00000000
+       0000000000000000  0000000000000000           0     0     0
+  [ 1] .interp           PROGBITS         0000000000400238  00000238
+       000000000000001c  0000000000000000   A       0     0     1
+  [ 2] .note.ABI-tag     NOTE             0000000000400254  00000254
+       0000000000000020  0000000000000000   A       0     0     4
+  [ 3] .note.gnu.build-i NOTE             0000000000400274  00000274
+       0000000000000024  0000000000000000   A       0     0     4
+  [ 4] .gnu.hash         GNU_HASH         0000000000400298  00000298
+       000000000000004c  0000000000000000   A       5     0     8
+  [ 5] .dynsym           DYNSYM           00000000004002e8  000002e8
+       00000000000003c0  0000000000000018   A       6     1     8
+  [ 6] .dynstr           STRTAB           00000000004006a8  000006a8
+       000000000000023e  0000000000000000   A       0     0     1
+  [ 7] .gnu.version      VERSYM           00000000004008e6  000008e6
+       0000000000000050  0000000000000002   A       5     0     2
+  [ 8] .gnu.version_r    VERNEED          0000000000400938  00000938
+       0000000000000080  0000000000000000   A       6     3     8
+  [ 9] .rela.dyn         RELA             00000000004009b8  000009b8
+       0000000000000018  0000000000000018   A       5     0     8
+  [10] .rela.plt         RELA             00000000004009d0  000009d0
+       0000000000000270  0000000000000018   A       5    12     8
+  [11] .init             PROGBITS         0000000000400c40  00000c40
+       000000000000001a  0000000000000000  AX       0     0     4
+  [12] .plt              PROGBITS         0000000000400c60  00000c60
+       00000000000001b0  0000000000000010  AX       0     0     16
+  [13] .text             PROGBITS         0000000000400e10  00000e10
+       0000000000003292  0000000000000000  AX       0     0     16
+  [14] .fini             PROGBITS         00000000004040a4  000040a4
+       0000000000000009  0000000000000000  AX       0     0     4
+  [15] .rodata           PROGBITS         00000000004040b0  000040b0
+       00000000000000e0  0000000000000000   A       0     0     8
+  [16] .eh_frame_hdr     PROGBITS         0000000000404190  00004190
+       000000000000030c  0000000000000000   A       0     0     4
+  [17] .eh_frame         PROGBITS         00000000004044a0  000044a0
+       0000000000000c94  0000000000000000   A       0     0     8
+  [18] .init_array       INIT_ARRAY       0000000000605db8  00005db8
+       0000000000000010  0000000000000000  WA       0     0     8
+  [19] .fini_array       FINI_ARRAY       0000000000605dc8  00005dc8
+       0000000000000008  0000000000000000  WA       0     0     8
+  [20] .jcr              PROGBITS         0000000000605dd0  00005dd0
+       0000000000000008  0000000000000000  WA       0     0     8
+  [21] .dynamic          DYNAMIC          0000000000605dd8  00005dd8
+       0000000000000220  0000000000000010  WA       6     0     8
+  [22] .got              PROGBITS         0000000000605ff8  00005ff8
+       0000000000000008  0000000000000008  WA       0     0     8
+  [23] .got.plt          PROGBITS         0000000000606000  00006000
+       00000000000000e8  0000000000000008  WA       0     0     8
+  [24] .data             PROGBITS         00000000006060e8  000060e8
+       0000000000000010  0000000000000000  WA       0     0     8
+  [25] .bss              NOBITS           0000000000606100  000060f8
+       0000000000000230  0000000000000000  WA       0     0     32
+  [26] .comment          PROGBITS         0000000000000000  000060f8
+       000000000000002b  0000000000000001  MS       0     0     1
+  [27] .shstrtab         STRTAB           0000000000000000  00006123
+       0000000000000108  0000000000000000           0     0     1
+  [28] .symtab           SYMTAB           0000000000000000  000069b0
+       0000000000001248  0000000000000018          29    54     8
+  [29] .strtab           STRTAB           0000000000000000  00007bf8
+       0000000000001ecb  0000000000000000           0     0     1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings), l (large)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset             VirtAddr           PhysAddr
+                 FileSiz            MemSiz              Flags  Align
+  PHDR           0x0000000000000040 0x0000000000400040 0x0000000000400040
+                 0x00000000000001f8 0x00000000000001f8  R E    8
+  INTERP         0x0000000000000238 0x0000000000400238 0x0000000000400238
+                 0x000000000000001c 0x000000000000001c  R      1
+      [Requesting program interpreter: /lib64/ld-linux-x86-64.so.2]
+  LOAD           0x0000000000000000 0x0000000000400000 0x0000000000400000
+                 0x0000000000005134 0x0000000000005134  R E    200000
+  LOAD           0x0000000000005db8 0x0000000000605db8 0x0000000000605db8
+                 0x0000000000000340 0x0000000000000578  RW     200000
+  DYNAMIC        0x0000000000005dd8 0x0000000000605dd8 0x0000000000605dd8
+                 0x0000000000000220 0x0000000000000220  RW     8
+  NOTE           0x0000000000000254 0x0000000000400254 0x0000000000400254
+                 0x0000000000000044 0x0000000000000044  R      4
+  GNU_EH_FRAME   0x0000000000004190 0x0000000000404190 0x0000000000404190
+                 0x000000000000030c 0x000000000000030c  R      4
+  GNU_STACK      0x0000000000000000 0x0000000000000000 0x0000000000000000
+                 0x0000000000000000 0x0000000000000000  RW     10
+  GNU_RELRO      0x0000000000005db8 0x0000000000605db8 0x0000000000605db8
+                 0x0000000000000248 0x0000000000000248  R      1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     
+   01     .interp 
+   02     .interp .note.ABI-tag .note.gnu.build-id .gnu.hash .dynsym .dynstr .gnu.version .gnu.version_r .rela.dyn .rela.plt .init .plt .text .fini .rodata .eh_frame_hdr .eh_frame 
+   03     .init_array .fini_array .jcr .dynamic .got .got.plt .data .bss 
+   04     .dynamic 
+   05     .note.ABI-tag .note.gnu.build-id 
+   06     .eh_frame_hdr 
+   07     
+   08     .init_array .fini_array .jcr .dynamic .got 
+
+Dynamic section at offset 0x5dd8 contains 29 entries:
+  Tag        Type                         Name/Value
+ 0x0000000000000001 (NEEDED)             Shared library: [libwiringPi.so]
+ 0x0000000000000001 (NEEDED)             Shared library: [libpthread.so.0]
+ 0x0000000000000001 (NEEDED)             Shared library: [libcrypt.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [librt.so.1]
+ 0x0000000000000001 (NEEDED)             Shared library: [libstdc++.so.6]
+ 0x0000000000000001 (NEEDED)             Shared library: [libc.so.6]
+ 0x000000000000000c (INIT)               0x400c40
+ 0x000000000000000d (FINI)               0x4040a4
+ 0x0000000000000019 (INIT_ARRAY)         0x605db8
+ 0x000000000000001b (INIT_ARRAYSZ)       16 (bytes)
+ 0x000000000000001a (FINI_ARRAY)         0x605dc8
+ 0x000000000000001c (FINI_ARRAYSZ)       8 (bytes)
+ 0x000000006ffffef5 (GNU_HASH)           0x400298
+ 0x0000000000000005 (STRTAB)             0x4006a8
+ 0x0000000000000006 (SYMTAB)             0x4002e8
+ 0x000000000000000a (STRSZ)              574 (bytes)
+ 0x000000000000000b (SYMENT)             24 (bytes)
+ 0x0000000000000015 (DEBUG)              0x0
+ 0x0000000000000003 (PLTGOT)             0x606000
+ 0x0000000000000002 (PLTRELSZ)           624 (bytes)
+ 0x0000000000000014 (PLTREL)             RELA
+ 0x0000000000000017 (JMPREL)             0x4009d0
+ 0x0000000000000007 (RELA)               0x4009b8
+ 0x0000000000000008 (RELASZ)             24 (bytes)
+ 0x0000000000000009 (RELAENT)            24 (bytes)
+ 0x000000006ffffffe (VERNEED)            0x400938
+ 0x000000006fffffff (VERNEEDNUM)         3
+ 0x000000006ffffff0 (VERSYM)             0x4008e6
+ 0x0000000000000000 (NULL)               0x0
+
+Relocation section '.rela.dyn' at offset 0x9b8 contains 1 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+000000605ff8  000500000006 R_X86_64_GLOB_DAT 0000000000000000 __gmon_start__ + 0
+
+Relocation section '.rela.plt' at offset 0x9d0 contains 26 entries:
+  Offset          Info           Type           Sym. Value    Sym. Name + Addend
+000000606018  000100000007 R_X86_64_JUMP_SLO 0000000000000000 tcsetattr + 0
+000000606020  000200000007 R_X86_64_JUMP_SLO 0000000000000000 memset + 0
+000000606028  000300000007 R_X86_64_JUMP_SLO 0000000000000000 digitalWrite + 0
+000000606030  000400000007 R_X86_64_JUMP_SLO 0000000000000000 ioctl + 0
+000000606038  000500000007 R_X86_64_JUMP_SLO 0000000000000000 __gmon_start__ + 0
+000000606040  000700000007 R_X86_64_JUMP_SLO 0000000000000000 puts + 0
+000000606048  000800000007 R_X86_64_JUMP_SLO 0000000000000000 serialPutchar + 0
+000000606050  000900000007 R_X86_64_JUMP_SLO 0000000000000000 serialGetchar + 0
+000000606058  000a00000007 R_X86_64_JUMP_SLO 0000000000000000 read + 0
+000000606060  000b00000007 R_X86_64_JUMP_SLO 0000000000000000 __libc_start_main + 0
+000000606068  000c00000007 R_X86_64_JUMP_SLO 0000000000000000 _ZNSt6chrono3_V212syst + 0
+000000606070  000f00000007 R_X86_64_JUMP_SLO 0000000000000000 serialFlush + 0
+000000606078  001000000007 R_X86_64_JUMP_SLO 0000000000000000 cfsetospeed + 0
+000000606080  001100000007 R_X86_64_JUMP_SLO 0000000000000000 usleep + 0
+000000606088  001200000007 R_X86_64_JUMP_SLO 0000000000000000 cfmakeraw + 0
+000000606090  001300000007 R_X86_64_JUMP_SLO 0000000000000000 serialDataAvail + 0
+000000606098  001400000007 R_X86_64_JUMP_SLO 0000000000000000 analogRead + 0
+0000006060a0  001500000007 R_X86_64_JUMP_SLO 0000000000000000 tcgetattr + 0
+0000006060a8  001600000007 R_X86_64_JUMP_SLO 0000000000000000 __stack_chk_fail + 0
+0000006060b0  001700000007 R_X86_64_JUMP_SLO 0000000000000000 cfsetispeed + 0
+0000006060b8  001800000007 R_X86_64_JUMP_SLO 0000000000000000 nanosleep + 0
+0000006060c0  001900000007 R_X86_64_JUMP_SLO 0000000000000000 srand + 0
+0000006060c8  001a00000007 R_X86_64_JUMP_SLO 0000000000000000 rand + 0
+0000006060d0  001b00000007 R_X86_64_JUMP_SLO 0000000000000000 memcpy + 0
+0000006060d8  001c00000007 R_X86_64_JUMP_SLO 0000000000000000 fcntl + 0
+0000006060e0  001d00000007 R_X86_64_JUMP_SLO 0000000000000000 open + 0
+
+The decoding of unwind sections for machine type Advanced Micro Devices X86-64 is not currently supported.
+
+Symbol table '.dynsym' contains 40 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND tcsetattr@GLIBC_2.2.5 (2)
+     2: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memset@GLIBC_2.2.5 (2)
+     3: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND digitalWrite
+     4: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ioctl@GLIBC_2.2.5 (2)
+     5: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+     6: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+     7: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@GLIBC_2.2.5 (2)
+     8: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialPutchar
+     9: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialGetchar
+    10: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND read@GLIBC_2.2.5 (3)
+    11: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@GLIBC_2.2.5 (2)
+    12: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND _ZNSt6chrono3_V212system_@GLIBCXX_3.4.19 (4)
+    13: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTab
+    14: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+    15: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialFlush
+    16: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND cfsetospeed@GLIBC_2.2.5 (2)
+    17: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND usleep@GLIBC_2.2.5 (2)
+    18: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND cfmakeraw@GLIBC_2.2.5 (2)
+    19: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialDataAvail
+    20: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND analogRead
+    21: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND tcgetattr@GLIBC_2.2.5 (2)
+    22: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@GLIBC_2.4 (5)
+    23: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND cfsetispeed@GLIBC_2.2.5 (2)
+    24: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND nanosleep@GLIBC_2.2.5 (3)
+    25: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND srand@GLIBC_2.2.5 (2)
+    26: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND rand@GLIBC_2.2.5 (2)
+    27: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@GLIBC_2.14 (6)
+    28: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fcntl@GLIBC_2.2.5 (3)
+    29: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND open@GLIBC_2.2.5 (3)
+    30: 0000000000401034    44 FUNC    GLOBAL DEFAULT   13 delay
+    31: 0000000000606330     0 NOTYPE  GLOBAL DEFAULT   25 _end
+    32: 00000000006060f8     0 NOTYPE  GLOBAL DEFAULT   24 _edata
+    33: 00000000006060f8     0 NOTYPE  GLOBAL DEFAULT   25 __bss_start
+    34: 0000000000400c40     0 FUNC    GLOBAL DEFAULT   11 _init
+    35: 00000000004040a4     0 FUNC    GLOBAL DEFAULT   14 _fini
+    36: 0000000000400efd   106 FUNC    GLOBAL DEFAULT   13 micros
+    37: 0000000000400fab   137 FUNC    GLOBAL DEFAULT   13 delayMicroseconds
+    38: 0000000000401060   971 FUNC    GLOBAL DEFAULT   13 serialOpen
+    39: 0000000000400f67    68 FUNC    GLOBAL DEFAULT   13 millis
+
+Symbol table '.symtab' contains 195 entries:
+   Num:    Value          Size Type    Bind   Vis      Ndx Name
+     0: 0000000000000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 0000000000400238     0 SECTION LOCAL  DEFAULT    1 
+     2: 0000000000400254     0 SECTION LOCAL  DEFAULT    2 
+     3: 0000000000400274     0 SECTION LOCAL  DEFAULT    3 
+     4: 0000000000400298     0 SECTION LOCAL  DEFAULT    4 
+     5: 00000000004002e8     0 SECTION LOCAL  DEFAULT    5 
+     6: 00000000004006a8     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000004008e6     0 SECTION LOCAL  DEFAULT    7 
+     8: 0000000000400938     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000004009b8     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000004009d0     0 SECTION LOCAL  DEFAULT   10 
+    11: 0000000000400c40     0 SECTION LOCAL  DEFAULT   11 
+    12: 0000000000400c60     0 SECTION LOCAL  DEFAULT   12 
+    13: 0000000000400e10     0 SECTION LOCAL  DEFAULT   13 
+    14: 00000000004040a4     0 SECTION LOCAL  DEFAULT   14 
+    15: 00000000004040b0     0 SECTION LOCAL  DEFAULT   15 
+    16: 0000000000404190     0 SECTION LOCAL  DEFAULT   16 
+    17: 00000000004044a0     0 SECTION LOCAL  DEFAULT   17 
+    18: 0000000000605db8     0 SECTION LOCAL  DEFAULT   18 
+    19: 0000000000605dc8     0 SECTION LOCAL  DEFAULT   19 
+    20: 0000000000605dd0     0 SECTION LOCAL  DEFAULT   20 
+    21: 0000000000605dd8     0 SECTION LOCAL  DEFAULT   21 
+    22: 0000000000605ff8     0 SECTION LOCAL  DEFAULT   22 
+    23: 0000000000606000     0 SECTION LOCAL  DEFAULT   23 
+    24: 00000000006060e8     0 SECTION LOCAL  DEFAULT   24 
+    25: 0000000000606100     0 SECTION LOCAL  DEFAULT   25 
+    26: 0000000000000000     0 SECTION LOCAL  DEFAULT   26 
+    27: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    28: 0000000000605dd0     0 OBJECT  LOCAL  DEFAULT   20 __JCR_LIST__
+    29: 0000000000400e40     0 FUNC    LOCAL  DEFAULT   13 deregister_tm_clones
+    30: 0000000000400e70     0 FUNC    LOCAL  DEFAULT   13 register_tm_clones
+    31: 0000000000400eb0     0 FUNC    LOCAL  DEFAULT   13 __do_global_dtors_aux
+    32: 0000000000606100     1 OBJECT  LOCAL  DEFAULT   25 completed.6973
+    33: 0000000000605dc8     0 OBJECT  LOCAL  DEFAULT   19 __do_global_dtors_aux_fin
+    34: 0000000000400ed0     0 FUNC    LOCAL  DEFAULT   13 frame_dummy
+    35: 0000000000605db8     0 OBJECT  LOCAL  DEFAULT   18 __frame_dummy_init_array_
+    36: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS Transmitter.cpp
+    37: 00000000004040b8     1 OBJECT  LOCAL  DEFAULT   15 _ZStL19piecewise_construc
+    38: 00000000004040b9     1 OBJECT  LOCAL  DEFAULT   15 _ZStL13allocator_arg
+    39: 00000000004040ba     1 OBJECT  LOCAL  DEFAULT   15 _ZStL6ignore
+    40: 000000000040148f    20 FUNC    LOCAL  DEFAULT   13 _ZL27PJON_dummy_receiver_
+    41: 00000000004014a3    21 FUNC    LOCAL  DEFAULT   13 _ZL24PJON_dummy_error_han
+    42: 00000000004014b8    34 FUNC    LOCAL  DEFAULT   13 _ZL17receiver_functionPht
+    43: 00000000004015e0    70 FUNC    LOCAL  DEFAULT   13 _Z41__static_initializati
+    44: 0000000000404174     4 OBJECT  LOCAL  DEFAULT   15 _ZN9__gnu_cxxL21__default
+    45: 0000000000401626    21 FUNC    LOCAL  DEFAULT   13 _GLOBAL__sub_I_start_ts
+    46: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS crtstuff.c
+    47: 0000000000405130     0 OBJECT  LOCAL  DEFAULT   17 __FRAME_END__
+    48: 0000000000605dd0     0 OBJECT  LOCAL  DEFAULT   20 __JCR_END__
+    49: 0000000000000000     0 FILE    LOCAL  DEFAULT  ABS 
+    50: 0000000000606000     0 OBJECT  LOCAL  DEFAULT   23 _GLOBAL_OFFSET_TABLE_
+    51: 0000000000605dc8     0 NOTYPE  LOCAL  DEFAULT   18 __init_array_end
+    52: 0000000000605db8     0 NOTYPE  LOCAL  DEFAULT   18 __init_array_start
+    53: 0000000000605dd8     0 OBJECT  LOCAL  DEFAULT   21 _DYNAMIC
+    54: 0000000000401658    17 FUNC    WEAK   DEFAULT   13 _ZNKSt6chrono8durationIlS
+    55: 00000000006060e8     0 NOTYPE  WEAK   DEFAULT   24 data_start
+    56: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND tcsetattr@@GLIBC_2.2.5
+    57: 0000000000402780   242 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+    58: 000000000040270e    47 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerialC2Ev
+    59: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memset@@GLIBC_2.2.5
+    60: 00000000004040a0     2 FUNC    GLOBAL DEFAULT   13 __libc_csu_fini
+    61: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND digitalWrite
+    62: 0000000000400e10     0 FUNC    GLOBAL DEFAULT   13 _start
+    63: 00000000004032a0   179 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+    64: 000000000040186f    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+    65: 000000000040245b   118 FUNC    WEAK   DEFAULT   13 _ZNSt11this_thread9sleep_
+    66: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND ioctl@@GLIBC_2.2.5
+    67: 0000000000401a72    42 FUNC    WEAK   DEFAULT   13 _ZN9PJONTools11copy_bus_i
+    68: 00000000004017e8    17 FUNC    WEAK   DEFAULT   13 _ZNKSt6chrono8durationIlS
+    69: 0000000000403354  1430 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+    70: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND __gmon_start__
+    71: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _Jv_RegisterClasses
+    72: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND puts@@GLIBC_2.2.5
+    73: 0000000000401713    69 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiINS_3_V212s
+    74: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialPutchar
+    75: 0000000000401713    69 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiINS_3_V212s
+    76: 0000000000402f1a    86 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+    77: 0000000000606140   496 OBJECT  GLOBAL DEFAULT   25 bus
+    78: 0000000000402344    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+    79: 0000000000401698    17 FUNC    WEAK   DEFAULT   13 _ZNKSt6chrono8durationIlS
+    80: 00000000004040a4     0 FUNC    GLOBAL DEFAULT   14 _fini
+    81: 0000000000402295    89 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+    82: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialGetchar
+    83: 0000000000402544    60 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+    84: 0000000000402e80    81 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+    85: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND read@@GLIBC_2.2.5
+    86: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __libc_start_main@@GLIBC_
+    87: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND _ZNSt6chrono3_V212system_
+    88: 0000000000402393   114 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiIlSt5ratioI
+    89: 000000000040235e    53 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+    90: 000000000040163c    28 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+    91: 000000000040221e    96 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial6end_tx
+    92: 00000000004016a9   106 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiIlSt5ratioI
+    93: 0000000000401a9c    80 FUNC    WEAK   DEFAULT   13 _ZN9PJONTools15bus_id_equ
+    94: 0000000000401a10    98 FUNC    WEAK   DEFAULT   13 _ZN10PJON_crc327compareEj
+    95: 00000000004017cd    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+    96: 0000000000401034    44 FUNC    GLOBAL DEFAULT   13 delay
+    97: 00000000004025cf   114 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiIlSt5ratioI
+    98: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_deregisterTMCloneTab
+    99: 000000000040235e    53 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   100: 000000000040217a    27 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial10set_s
+   101: 00000000004040b0     4 OBJECT  GLOBAL DEFAULT   15 _IO_stdin_used
+   102: 0000000000401e4a    31 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial16recei
+   103: 000000000040273e    65 FUNC    WEAK   DEFAULT   13 _ZN16PJON_Packet_InfoC2Ev
+   104: 000000000040167c    28 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   105: 000000000040259a    53 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   106: 0000000000000000     0 NOTYPE  WEAK   DEFAULT  UND _ITM_registerTMCloneTable
+   107: 00000000006060e8     0 NOTYPE  GLOBAL DEFAULT   24 __data_start
+   108: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialFlush
+   109: 0000000000402441    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+   110: 0000000000402872  1549 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   111: 000000000040142b    40 FUNC    GLOBAL DEFAULT   13 _Z19serialDataAvailablei
+   112: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND cfsetospeed@@GLIBC_2.2.5
+   113: 000000000040166a    17 FUNC    WEAK   DEFAULT   13 _ZNKSt6chrono10time_point
+   114: 0000000000400efd   106 FUNC    GLOBAL DEFAULT   13 micros
+   115: 00000000004018d7    86 FUNC    WEAK   DEFAULT   13 _ZN9PJON_crc84rollEhh
+   116: 0000000000402780   242 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   117: 0000000000402196    40 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial21wait_
+   118: 0000000000403b34    42 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   119: 0000000000401453    60 FUNC    GLOBAL DEFAULT   13 _Z18serialGetCharacteri
+   120: 00000000004031cc   212 FUNC    WEAK   DEFAULT   13 _ZNK4PJONI13ThroughSerial
+   121: 0000000000401fae   100 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial13send_
+   122: 00000000004024d1    89 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+   123: 00000000006060f8     0 OBJECT  GLOBAL HIDDEN    24 __TMC_END__
+   124: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND usleep@@GLIBC_2.2.5
+   125: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND cfmakeraw@@GLIBC_2.2.5
+   126: 00000000006060f0     0 OBJECT  GLOBAL HIDDEN    24 __dso_handle
+   127: 0000000000400fab   137 FUNC    GLOBAL DEFAULT   13 delayMicroseconds
+   128: 0000000000402f70   132 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   129: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND serialDataAvail
+   130: 0000000000401e6a   284 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial14recei
+   131: 00000000004017fa    28 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   132: 0000000000404030   101 FUNC    GLOBAL DEFAULT   13 __libc_csu_init
+   133: 00000000004025cf   114 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiIlSt5ratioI
+   134: 0000000000402ed2    29 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   135: 00000000004016a9   106 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiIlSt5ratioI
+   136: 000000000040270e    47 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerialC1Ev
+   137: 0000000000402393   114 FUNC    WEAK   DEFAULT   13 _ZNSt6chronomiIlSt5ratioI
+   138: 0000000000403bb8  1144 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   139: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND analogRead
+   140: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND tcgetattr@@GLIBC_2.2.5
+   141: 0000000000401cfc   127 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial9can_st
+   142: 0000000000401d86    58 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial16handl
+   143: 00000000004038ea    73 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   144: 0000000000401c98   100 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial5beginE
+   145: 0000000000401f86    40 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial9send_b
+   146: 0000000000401d7b    11 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial16get_m
+   147: 0000000000401aec   368 FUNC    WEAK   DEFAULT   13 _ZN9PJONTools12parse_head
+   148: 0000000000402697   118 FUNC    WEAK   DEFAULT   13 _ZNSt11this_thread9sleep_
+   149: 0000000000401774    89 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+   150: 00000000006060f8     0 NOTYPE  GLOBAL DEFAULT   25 __bss_start
+   151: 00000000004014da    31 FUNC    GLOBAL DEFAULT   13 _Z4loopv
+   152: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND __stack_chk_fail@@GLIBC_2
+   153: 0000000000402580    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+   154: 0000000000606120     8 OBJECT  GLOBAL DEFAULT   25 start_ts
+   155: 0000000000401758    28 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   156: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND cfsetispeed@@GLIBC_2.2.5
+   157: 0000000000606128     8 OBJECT  GLOBAL DEFAULT   25 start_ts_ms
+   158: 000000000040188a    17 FUNC    WEAK   DEFAULT   13 _ZNKSt6chrono8durationIlS
+   159: 0000000000402405    60 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+   160: 0000000000403b7c    60 FUNC    WEAK   DEFAULT   13 _ZNK4PJONI13ThroughSerial
+   161: 0000000000403b5e    29 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   162: 0000000000401987   137 FUNC    WEAK   DEFAULT   13 _ZN10PJON_crc327computeEP
+   163: 00000000004030f0   219 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   164: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND nanosleep@@GLIBC_2.2.5
+   165: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND srand@@GLIBC_2.2.5
+   166: 0000000000402308    60 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+   167: 0000000000401060   971 FUNC    GLOBAL DEFAULT   13 serialOpen
+   168: 000000000040273e    65 FUNC    WEAK   DEFAULT   13 _ZN16PJON_Packet_InfoC1Ev
+   169: 0000000000402ef0    42 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   170: 000000000040267d    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+   171: 0000000000606330     0 NOTYPE  GLOBAL DEFAULT   25 _end
+   172: 000000000040192d    90 FUNC    WEAK   DEFAULT   13 _ZN9PJON_crc87computeEPKh
+   173: 0000000000400f67    68 FUNC    GLOBAL DEFAULT   13 millis
+   174: 00000000004018ba    29 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   175: 0000000000401c5c    60 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial8back_o
+   176: 000000000040227e    23 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial13set_b
+   177: 00000000004021be    96 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial8start_
+   178: 0000000000402641    60 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+   179: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND rand@@GLIBC_2.2.5
+   180: 00000000006060f8     0 NOTYPE  GLOBAL DEFAULT   24 _edata
+   181: 000000000040189c    30 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   182: 00000000004022ee    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+   183: 0000000000403934   511 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+   184: 000000000040252a    26 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono13duration_ca
+   185: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND memcpy@@GLIBC_2.14
+   186: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND fcntl@@GLIBC_2.2.5
+   187: 0000000000000000     0 FUNC    GLOBAL DEFAULT  UND open@@GLIBC_2.2.5
+   188: 0000000000402012   360 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial11send_
+   189: 0000000000401816    89 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono20__duration_
+   190: 00000000004014f9   231 FUNC    GLOBAL DEFAULT   13 main
+   191: 0000000000400c40     0 FUNC    GLOBAL DEFAULT   11 _init
+   192: 0000000000401dc0   138 FUNC    WEAK   DEFAULT   13 _ZN13ThroughSerial12recei
+   193: 000000000040259a    53 FUNC    WEAK   DEFAULT   13 _ZNSt6chrono8durationIlSt
+   194: 0000000000402ff4   252 FUNC    WEAK   DEFAULT   13 _ZN4PJONI13ThroughSerialE
+
+Histogram for `.gnu.hash' bucket list length (total of 3 buckets):
+ Length  Number     % of total  Coverage
+      0  0          (  0.0%)
+      1  0          (  0.0%)      0.0%
+      2  1          ( 33.3%)     20.0%
+      3  1          ( 33.3%)     50.0%
+      4  0          (  0.0%)     50.0%
+      5  1          ( 33.3%)    100.0%
+
+Version symbols section '.gnu.version' contains 40 entries:
+ Addr: 00000000004008e6  Offset: 0x0008e6  Link: 5 (.dynsym)
+  000:   0 (*local*)       2 (GLIBC_2.2.5)   2 (GLIBC_2.2.5)   0 (*local*)    
+  004:   2 (GLIBC_2.2.5)   0 (*local*)       0 (*local*)       2 (GLIBC_2.2.5)
+  008:   0 (*local*)       0 (*local*)       3 (GLIBC_2.2.5)   2 (GLIBC_2.2.5)
+  00c:   4 (GLIBCXX_3.4.19)    0 (*local*)       0 (*local*)       0 (*local*)    
+  010:   2 (GLIBC_2.2.5)   2 (GLIBC_2.2.5)   2 (GLIBC_2.2.5)   0 (*local*)    
+  014:   0 (*local*)       2 (GLIBC_2.2.5)   5 (GLIBC_2.4)     2 (GLIBC_2.2.5)
+  018:   3 (GLIBC_2.2.5)   2 (GLIBC_2.2.5)   2 (GLIBC_2.2.5)   6 (GLIBC_2.14) 
+  01c:   3 (GLIBC_2.2.5)   3 (GLIBC_2.2.5)   1 (*global*)      1 (*global*)   
+  020:   1 (*global*)      1 (*global*)      1 (*global*)      1 (*global*)   
+  024:   1 (*global*)      1 (*global*)      1 (*global*)      1 (*global*)   
+
+Version needs section '.gnu.version_r' contains 3 entries:
+ Addr: 0x0000000000400938  Offset: 0x000938  Link: 6 (.dynstr)
+  000000: Version: 1  File: libstdc++.so.6  Cnt: 1
+  0x0010:   Name: GLIBCXX_3.4.19  Flags: none  Version: 4
+  0x0020: Version: 1  File: libpthread.so.0  Cnt: 1
+  0x0030:   Name: GLIBC_2.2.5  Flags: none  Version: 3
+  0x0040: Version: 1  File: libc.so.6  Cnt: 3
+  0x0050:   Name: GLIBC_2.14  Flags: none  Version: 6
+  0x0060:   Name: GLIBC_2.4  Flags: none  Version: 5
+  0x0070:   Name: GLIBC_2.2.5  Flags: none  Version: 2
+
+Displaying notes found at file offset 0x00000254 with length 0x00000020:
+  Owner                 Data size	Description
+  GNU                  0x00000010	NT_GNU_ABI_TAG (ABI version tag)
+    OS: Linux, ABI: 2.6.24
+
+Displaying notes found at file offset 0x00000274 with length 0x00000024:
+  Owner                 Data size	Description
+  GNU                  0x00000014	NT_GNU_BUILD_ID (unique build ID bitstring)
+    Build ID: f233b026cdc33ceb6c85f0b04e007cdbbfe1fe13
+/lib64/ld-linux-x86-64.so.2
+libwiringPi.so
+_ITM_deregisterTMCloneTable
+__gmon_start__
+_Jv_RegisterClasses
+_ITM_registerTMCloneTable
+micros
+delay
+analogRead
+serialDataAvail
+_fini
+_init
+serialOpen
+serialGetchar
+serialFlush
+digitalWrite
+serialPutchar
+delayMicroseconds
+millis
+libpthread.so.0
+read
+fcntl
+open
+nanosleep
+libcrypt.so.1
+librt.so.1
+libstdc++.so.6
+_ZNSt6chrono3_V212system_clock3nowEv
+libc.so.6
+srand
+cfmakeraw
+puts
+__stack_chk_fail
+cfsetispeed
+memset
+tcsetattr
+memcpy
+ioctl
+usleep
+tcgetattr
+cfsetospeed
+__libc_start_main
+_edata
+__bss_start
+_end
+GLIBCXX_3.4.19
+GLIBC_2.2.5
+GLIBC_2.14
+GLIBC_2.4
+%zS 
+%rS 
+%jS 
+%bS 
+%ZS 
+%RS 
+%JS 
+%BS 
+%:S 
+%2S 
+%*S 
+%"S 
+=IR 
+2u=H
+ATSH
+ [A\]
+@ff9
+1v-H
+[]A\A]A^A_
+BLINK
+Welcome to RemoteWorker 1 (Transmitter).
+Opening serial... 
+/dev/ttyACM0
+Serial open fail!
+Setting serial... 
+Success, initiating BlinkTest repeated transmission... 
+;*3$"
+   text	   data	    bss	    dec	    hex	filename
+  20199	    832	    560	  21591	   5457	/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter

@@ -1,0 +1,55 @@
+\hypertarget{examples_2softPwm_8c}{\section{wiring\-Pi/examples/soft\-Pwm.c File Reference}
+\label{examples_2softPwm_8c}\index{wiring\-Pi/examples/soft\-Pwm.\-c@{wiring\-Pi/examples/soft\-Pwm.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$soft\-Pwm.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{examples_2softPwm_8c_ac04dd0afaf7ea3eb2ade2544d2d5f907}{R\-A\-N\-G\-E}~100
+\item 
+\#define \hyperlink{examples_2softPwm_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}{N\-U\-M\-\_\-\-L\-E\-D\-S}~8
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{examples_2softPwm_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{examples_2softPwm_8c_afdc3bfacce73061176f1cc3753093974}{led\-Map} \mbox{[}\hyperlink{examples_2softPwm_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}{N\-U\-M\-\_\-\-L\-E\-D\-S}\mbox{]} = \{ 0, 1, 2, 3, 4, 5, 6, 7 \}
+\item 
+int \hyperlink{examples_2softPwm_8c_af4b921d2552bc693db21c939e891cfcf}{values} \mbox{[}\hyperlink{examples_2softPwm_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}{N\-U\-M\-\_\-\-L\-E\-D\-S}\mbox{]} = \{ 0, 25, 50, 75, 100, 75, 50, 25 \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{examples_2softPwm_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}{\index{examples/soft\-Pwm.\-c@{examples/soft\-Pwm.\-c}!N\-U\-M\-\_\-\-L\-E\-D\-S@{N\-U\-M\-\_\-\-L\-E\-D\-S}}
+\index{N\-U\-M\-\_\-\-L\-E\-D\-S@{N\-U\-M\-\_\-\-L\-E\-D\-S}!examples/softPwm.c@{examples/soft\-Pwm.\-c}}
+\subsubsection[{N\-U\-M\-\_\-\-L\-E\-D\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-U\-M\-\_\-\-L\-E\-D\-S~8}}\label{examples_2softPwm_8c_a4c4ae9a4146ce8d6a5debc90300d9abd}
+\hypertarget{examples_2softPwm_8c_ac04dd0afaf7ea3eb2ade2544d2d5f907}{\index{examples/soft\-Pwm.\-c@{examples/soft\-Pwm.\-c}!R\-A\-N\-G\-E@{R\-A\-N\-G\-E}}
+\index{R\-A\-N\-G\-E@{R\-A\-N\-G\-E}!examples/softPwm.c@{examples/soft\-Pwm.\-c}}
+\subsubsection[{R\-A\-N\-G\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-A\-N\-G\-E~100}}\label{examples_2softPwm_8c_ac04dd0afaf7ea3eb2ade2544d2d5f907}
+
+
+\subsection{Function Documentation}
+\hypertarget{examples_2softPwm_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{examples/soft\-Pwm.\-c@{examples/soft\-Pwm.\-c}!main@{main}}
+\index{main@{main}!examples/softPwm.c@{examples/soft\-Pwm.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{examples_2softPwm_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}
+
+
+\subsection{Variable Documentation}
+\hypertarget{examples_2softPwm_8c_afdc3bfacce73061176f1cc3753093974}{\index{examples/soft\-Pwm.\-c@{examples/soft\-Pwm.\-c}!led\-Map@{led\-Map}}
+\index{led\-Map@{led\-Map}!examples/softPwm.c@{examples/soft\-Pwm.\-c}}
+\subsubsection[{led\-Map}]{\setlength{\rightskip}{0pt plus 5cm}int led\-Map\mbox{[}{\bf N\-U\-M\-\_\-\-L\-E\-D\-S}\mbox{]} = \{ 0, 1, 2, 3, 4, 5, 6, 7 \}}}\label{examples_2softPwm_8c_afdc3bfacce73061176f1cc3753093974}
+\hypertarget{examples_2softPwm_8c_af4b921d2552bc693db21c939e891cfcf}{\index{examples/soft\-Pwm.\-c@{examples/soft\-Pwm.\-c}!values@{values}}
+\index{values@{values}!examples/softPwm.c@{examples/soft\-Pwm.\-c}}
+\subsubsection[{values}]{\setlength{\rightskip}{0pt plus 5cm}int values\mbox{[}{\bf N\-U\-M\-\_\-\-L\-E\-D\-S}\mbox{]} = \{ 0, 25, 50, 75, 100, 75, 50, 25 \}}}\label{examples_2softPwm_8c_af4b921d2552bc693db21c939e891cfcf}

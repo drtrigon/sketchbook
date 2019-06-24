@@ -1,0 +1,213 @@
+\hypertarget{classHardwareSerial}{\section{Hardware\-Serial Class Reference}
+\label{classHardwareSerial}\index{Hardware\-Serial@{Hardware\-Serial}}
+}
+
+
+{\ttfamily \#include $<$Hardware\-Serial.\-h$>$}
+
+Inheritance diagram for Hardware\-Serial\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classHardwareSerial}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classHardwareSerial_a89894dd01eb368e1a9f16319c2a149ca}{Hardware\-Serial} (volatile uint8\-\_\-t $\ast$ubrrh, volatile uint8\-\_\-t $\ast$ubrrl, volatile uint8\-\_\-t $\ast$ucsra, volatile uint8\-\_\-t $\ast$ucsrb, volatile uint8\-\_\-t $\ast$ucsrc, volatile uint8\-\_\-t $\ast$udr)
+\item 
+void \hyperlink{classHardwareSerial_a288e8a54617bc6c3ebbcaa4ef8dc9efa}{begin} (unsigned long baud)
+\item 
+void \hyperlink{classHardwareSerial_aad4db7a746742b1023a6157419d9b63c}{begin} (unsigned long, uint8\-\_\-t)
+\item 
+void \hyperlink{classHardwareSerial_a0f86c41f580e04bdf30ea00e9014eacd}{end} ()
+\item 
+virtual int \hyperlink{classHardwareSerial_a7c25d36b6e41f217bed05a45158fabc2}{available} (void)
+\item 
+virtual int \hyperlink{classHardwareSerial_a9e7c5f787de18c5b33d00c2f1cb3dd8d}{peek} (void)
+\item 
+virtual int \hyperlink{classHardwareSerial_a618696608a5fddcf3cb48ad6f044e756}{read} (void)
+\item 
+virtual int \hyperlink{classHardwareSerial_a3cca52f62bbf985aec2fc18ecfb6099b}{available\-For\-Write} (void)
+\item 
+virtual void \hyperlink{classHardwareSerial_a1eeb094d8da77e0292f95f4498a5396f}{flush} (void)
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{classHardwareSerial_aaac7141b435adbea3bf960acc0c40267}{write} (uint8\-\_\-t)
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{classHardwareSerial_a16f45867c871788b2440696531f79839}{write} (unsigned long \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{classHardwareSerial_ade858bfb5ab807abc646fec974c00435}{write} (long \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{classHardwareSerial_aefe3473ecb98923c9d7e9f9d18604727}{write} (unsigned int \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{classHardwareSerial_a4d67d5698c572032d98ad445d3b4f897}{write} (int \hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})
+\item 
+\hyperlink{classHardwareSerial_a3038bc051efae1dac1ad3eb39f18f7ea}{operator bool} ()
+\item 
+void \hyperlink{classHardwareSerial_a7c5fd965cba330e7b3cd0f547251c520}{\-\_\-rx\-\_\-complete\-\_\-irq} (void)
+\end{DoxyCompactItemize}
+\subsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{classHardwareSerial_af8b285e1c8ce2e9a0b83c59c5cfd574b}{\-\_\-written}
+\item 
+volatile \hyperlink{HardwareSerial_8h_a335e37d0726278844b068d565a4e66b7}{rx\-\_\-buffer\-\_\-index\-\_\-t} \hyperlink{classHardwareSerial_ac6fe1f875521caeb248fa9b477338ff3}{\-\_\-rx\-\_\-buffer\-\_\-head}
+\item 
+volatile \hyperlink{HardwareSerial_8h_a335e37d0726278844b068d565a4e66b7}{rx\-\_\-buffer\-\_\-index\-\_\-t} \hyperlink{classHardwareSerial_a891eab42df821ab76c2a273e0a78195e}{\-\_\-rx\-\_\-buffer\-\_\-tail}
+\item 
+unsigned char \hyperlink{classHardwareSerial_a3e915f174853e1acdfbacaea53f14d09}{\-\_\-rx\-\_\-buffer} \mbox{[}\hyperlink{HardwareSerial_8h_aba0ceec384cf3acb51e0d6f45f31379c}{S\-E\-R\-I\-A\-L\-\_\-\-R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\end{DoxyCompactItemize}
+\subsection*{Additional Inherited Members}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classHardwareSerial_a89894dd01eb368e1a9f16319c2a149ca}{\index{Hardware\-Serial@{Hardware\-Serial}!Hardware\-Serial@{Hardware\-Serial}}
+\index{Hardware\-Serial@{Hardware\-Serial}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{Hardware\-Serial}]{\setlength{\rightskip}{0pt plus 5cm}Hardware\-Serial\-::\-Hardware\-Serial (
+\begin{DoxyParamCaption}
+\item[{volatile uint8\-\_\-t $\ast$}]{ubrrh, }
+\item[{volatile uint8\-\_\-t $\ast$}]{ubrrl, }
+\item[{volatile uint8\-\_\-t $\ast$}]{ucsra, }
+\item[{volatile uint8\-\_\-t $\ast$}]{ucsrb, }
+\item[{volatile uint8\-\_\-t $\ast$}]{ucsrc, }
+\item[{volatile uint8\-\_\-t $\ast$}]{udr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_a89894dd01eb368e1a9f16319c2a149ca}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classHardwareSerial_a7c5fd965cba330e7b3cd0f547251c520}{\index{Hardware\-Serial@{Hardware\-Serial}!\-\_\-rx\-\_\-complete\-\_\-irq@{\-\_\-rx\-\_\-complete\-\_\-irq}}
+\index{\-\_\-rx\-\_\-complete\-\_\-irq@{\-\_\-rx\-\_\-complete\-\_\-irq}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{\-\_\-rx\-\_\-complete\-\_\-irq}]{\setlength{\rightskip}{0pt plus 5cm}void Hardware\-Serial\-::\-\_\-rx\-\_\-complete\-\_\-irq (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_a7c5fd965cba330e7b3cd0f547251c520}
+\hypertarget{classHardwareSerial_a7c25d36b6e41f217bed05a45158fabc2}{\index{Hardware\-Serial@{Hardware\-Serial}!available@{available}}
+\index{available@{available}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{available}]{\setlength{\rightskip}{0pt plus 5cm}int Hardware\-Serial\-::available (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classHardwareSerial_a7c25d36b6e41f217bed05a45158fabc2}
+\hypertarget{classHardwareSerial_a3cca52f62bbf985aec2fc18ecfb6099b}{\index{Hardware\-Serial@{Hardware\-Serial}!available\-For\-Write@{available\-For\-Write}}
+\index{available\-For\-Write@{available\-For\-Write}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{available\-For\-Write}]{\setlength{\rightskip}{0pt plus 5cm}int Hardware\-Serial\-::available\-For\-Write (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classHardwareSerial_a3cca52f62bbf985aec2fc18ecfb6099b}
+
+
+Reimplemented from \hyperlink{classPrint_ae278602698f895c25820f18da4e765be}{Print}.
+
+\hypertarget{classHardwareSerial_a288e8a54617bc6c3ebbcaa4ef8dc9efa}{\index{Hardware\-Serial@{Hardware\-Serial}!begin@{begin}}
+\index{begin@{begin}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}void Hardware\-Serial\-::begin (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{baud}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_a288e8a54617bc6c3ebbcaa4ef8dc9efa}
+\hypertarget{classHardwareSerial_aad4db7a746742b1023a6157419d9b63c}{\index{Hardware\-Serial@{Hardware\-Serial}!begin@{begin}}
+\index{begin@{begin}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{begin}]{\setlength{\rightskip}{0pt plus 5cm}void Hardware\-Serial\-::begin (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{baud, }
+\item[{uint8\-\_\-t}]{config}
+\end{DoxyParamCaption}
+)}}\label{classHardwareSerial_aad4db7a746742b1023a6157419d9b63c}
+\hypertarget{classHardwareSerial_a0f86c41f580e04bdf30ea00e9014eacd}{\index{Hardware\-Serial@{Hardware\-Serial}!end@{end}}
+\index{end@{end}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{end}]{\setlength{\rightskip}{0pt plus 5cm}void Hardware\-Serial\-::end (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classHardwareSerial_a0f86c41f580e04bdf30ea00e9014eacd}
+\hypertarget{classHardwareSerial_a1eeb094d8da77e0292f95f4498a5396f}{\index{Hardware\-Serial@{Hardware\-Serial}!flush@{flush}}
+\index{flush@{flush}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{flush}]{\setlength{\rightskip}{0pt plus 5cm}void Hardware\-Serial\-::flush (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classHardwareSerial_a1eeb094d8da77e0292f95f4498a5396f}
+
+
+Reimplemented from \hyperlink{classPrint_add7f8450dfdc7f94eeec685f220573f7}{Print}.
+
+\hypertarget{classHardwareSerial_a3038bc051efae1dac1ad3eb39f18f7ea}{\index{Hardware\-Serial@{Hardware\-Serial}!operator bool@{operator bool}}
+\index{operator bool@{operator bool}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{operator bool}]{\setlength{\rightskip}{0pt plus 5cm}Hardware\-Serial\-::operator {\bf bool} (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_a3038bc051efae1dac1ad3eb39f18f7ea}
+\hypertarget{classHardwareSerial_a9e7c5f787de18c5b33d00c2f1cb3dd8d}{\index{Hardware\-Serial@{Hardware\-Serial}!peek@{peek}}
+\index{peek@{peek}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{peek}]{\setlength{\rightskip}{0pt plus 5cm}int Hardware\-Serial\-::peek (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classHardwareSerial_a9e7c5f787de18c5b33d00c2f1cb3dd8d}
+\hypertarget{classHardwareSerial_a618696608a5fddcf3cb48ad6f044e756}{\index{Hardware\-Serial@{Hardware\-Serial}!read@{read}}
+\index{read@{read}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{read}]{\setlength{\rightskip}{0pt plus 5cm}int Hardware\-Serial\-::read (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [virtual]}}}\label{classHardwareSerial_a618696608a5fddcf3cb48ad6f044e756}
+\hypertarget{classHardwareSerial_aaac7141b435adbea3bf960acc0c40267}{\index{Hardware\-Serial@{Hardware\-Serial}!write@{write}}
+\index{write@{write}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} Hardware\-Serial\-::write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{c}
+\end{DoxyParamCaption}
+)}}\label{classHardwareSerial_aaac7141b435adbea3bf960acc0c40267}
+\hypertarget{classHardwareSerial_a16f45867c871788b2440696531f79839}{\index{Hardware\-Serial@{Hardware\-Serial}!write@{write}}
+\index{write@{write}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} Hardware\-Serial\-::write (
+\begin{DoxyParamCaption}
+\item[{unsigned long}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_a16f45867c871788b2440696531f79839}
+\hypertarget{classHardwareSerial_ade858bfb5ab807abc646fec974c00435}{\index{Hardware\-Serial@{Hardware\-Serial}!write@{write}}
+\index{write@{write}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} Hardware\-Serial\-::write (
+\begin{DoxyParamCaption}
+\item[{long}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_ade858bfb5ab807abc646fec974c00435}
+\hypertarget{classHardwareSerial_aefe3473ecb98923c9d7e9f9d18604727}{\index{Hardware\-Serial@{Hardware\-Serial}!write@{write}}
+\index{write@{write}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} Hardware\-Serial\-::write (
+\begin{DoxyParamCaption}
+\item[{unsigned int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_aefe3473ecb98923c9d7e9f9d18604727}
+\hypertarget{classHardwareSerial_a4d67d5698c572032d98ad445d3b4f897}{\index{Hardware\-Serial@{Hardware\-Serial}!write@{write}}
+\index{write@{write}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{write}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} Hardware\-Serial\-::write (
+\begin{DoxyParamCaption}
+\item[{int}]{n}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{classHardwareSerial_a4d67d5698c572032d98ad445d3b4f897}
+
+
+\subsection{Member Data Documentation}
+\hypertarget{classHardwareSerial_a3e915f174853e1acdfbacaea53f14d09}{\index{Hardware\-Serial@{Hardware\-Serial}!\-\_\-rx\-\_\-buffer@{\-\_\-rx\-\_\-buffer}}
+\index{\-\_\-rx\-\_\-buffer@{\-\_\-rx\-\_\-buffer}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{\-\_\-rx\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}unsigned char Hardware\-Serial\-::\-\_\-rx\-\_\-buffer\mbox{[}{\bf S\-E\-R\-I\-A\-L\-\_\-\-R\-X\-\_\-\-B\-U\-F\-F\-E\-R\-\_\-\-S\-I\-Z\-E}\mbox{]}\hspace{0.3cm}{\ttfamily [protected]}}}\label{classHardwareSerial_a3e915f174853e1acdfbacaea53f14d09}
+\hypertarget{classHardwareSerial_ac6fe1f875521caeb248fa9b477338ff3}{\index{Hardware\-Serial@{Hardware\-Serial}!\-\_\-rx\-\_\-buffer\-\_\-head@{\-\_\-rx\-\_\-buffer\-\_\-head}}
+\index{\-\_\-rx\-\_\-buffer\-\_\-head@{\-\_\-rx\-\_\-buffer\-\_\-head}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{\-\_\-rx\-\_\-buffer\-\_\-head}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf rx\-\_\-buffer\-\_\-index\-\_\-t} Hardware\-Serial\-::\-\_\-rx\-\_\-buffer\-\_\-head\hspace{0.3cm}{\ttfamily [protected]}}}\label{classHardwareSerial_ac6fe1f875521caeb248fa9b477338ff3}
+\hypertarget{classHardwareSerial_a891eab42df821ab76c2a273e0a78195e}{\index{Hardware\-Serial@{Hardware\-Serial}!\-\_\-rx\-\_\-buffer\-\_\-tail@{\-\_\-rx\-\_\-buffer\-\_\-tail}}
+\index{\-\_\-rx\-\_\-buffer\-\_\-tail@{\-\_\-rx\-\_\-buffer\-\_\-tail}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{\-\_\-rx\-\_\-buffer\-\_\-tail}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf rx\-\_\-buffer\-\_\-index\-\_\-t} Hardware\-Serial\-::\-\_\-rx\-\_\-buffer\-\_\-tail\hspace{0.3cm}{\ttfamily [protected]}}}\label{classHardwareSerial_a891eab42df821ab76c2a273e0a78195e}
+\hypertarget{classHardwareSerial_af8b285e1c8ce2e9a0b83c59c5cfd574b}{\index{Hardware\-Serial@{Hardware\-Serial}!\-\_\-written@{\-\_\-written}}
+\index{\-\_\-written@{\-\_\-written}!HardwareSerial@{Hardware\-Serial}}
+\subsubsection[{\-\_\-written}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} Hardware\-Serial\-::\-\_\-written\hspace{0.3cm}{\ttfamily [protected]}}}\label{classHardwareSerial_af8b285e1c8ce2e9a0b83c59c5cfd574b}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/\hyperlink{HardwareSerial_8h}{Hardware\-Serial.\-h}\item 
+hardware/\-Alhambra\-I\-I/picorv32/cores/picorv32/\hyperlink{HardwareSerial_8cpp}{Hardware\-Serial.\-cpp}\end{DoxyCompactItemize}

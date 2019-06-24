@@ -1,0 +1,146 @@
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp}{\section{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.cpp File Reference}
+\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp}\index{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+}
+
+
+Example-\/\-Code for a generic Server (e.\-g. Sensor, Display)  
+
+
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a954b61d0bed4bfa938d89c7590c45fb4}{R\-P\-I}~\hyperlink{stdbool_8h_a41f9c5fb8b08eb5dc3edce4dcb37fee7}{true}
+\item 
+\#define \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad4e245de39d6323d95c21e858fc5ffbc}{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}~35000
+\item 
+\#define \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a252c3ebaec86ef492070ff22ad0f527e}{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}~\hyperlink{stdbool_8h_a41f9c5fb8b08eb5dc3edce4dcb37fee7}{true}
+\item 
+\#define \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad51ded0bbd705f02f73fc60c0b721ced}{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}~256
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N$<$ Through\-Serial $>$ \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a513d5ce96f1667268a5eccc67ed8714d}{bus} (45)
+\item 
+void \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+int \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}{buffer} \mbox{[}\hyperlink{wiringPi_8c_ad51ded0bbd705f02f73fc60c0b721ced}{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Example-\/\-Code for a generic Server (e.\-g. Sensor, Display) \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/07-\/06 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0 \begin{DoxyItemize}
+\item first version derived from P\-J\-O\-N 11.\-0 examples examples/\-L\-I\-N\-U\-X/\-Local/\-Ethernet\-T\-C\-P/\-Remote\-Worker/\-Transmitter/\-Transmitter.\-cpp\end{DoxyItemize}
+T\-O\-D\-O\-: T\-H\-I\-S C\-O\-D\-E N\-E\-E\-D\-S A\-N U\-P\-D\-A\-T\-E -\/ A\-D\-O\-P\-T I\-T T\-O T\-H\-E L\-A\-T\-E\-S\-T L\-U\-D\-P C\-O\-D\-E (L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/...) Also considering L\-U\-D\-P\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T versus T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T.
+\end{DoxyVersion}
+It sends R\-E\-Q\-U\-E\-S\-T\-S to device id 44 which is on a S\-W\-B\-B bus connected to the Tunnel, and receives replies back. Device 44 is the example\-: O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Device\-Generic/
+
+This demonstrates the concept with a process on a P\-C or a R\-P\-I transparently being part of a S\-W\-B\-B bus via a Tunnel. The Tunnel/\-Surrogate will \char`\"{}phone home\char`\"{} to the Remote\-Worker to create a permanent link.
+
+\begin{DoxySeeAlso}{See Also}
+\href{https://github.com/gioblu/PJON/blob/master/examples/LINUX/Local/EthernetTCP/RemoteWorker/Transmitter/Transmitter.cpp}{\tt https\-://github.\-com/gioblu/\-P\-J\-O\-N/blob/master/examples/\-L\-I\-N\-U\-X/\-Local/\-Ethernet\-T\-C\-P/\-Remote\-Worker/\-Transmitter/\-Transmitter.\-cpp}
+\end{DoxySeeAlso}
+\begin{DoxyVerb}* OneWire PJON Generic "OWPG" scheme:
+*   Server e.g. linux machine or raspi
+*      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+*      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/ (this sketch)
+*   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
+*      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+*   Devices e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+*      ...
+*
+* Compatible with: ubuntu 14.04, raspi
+*
+* Compile wiringPi using:
+* $ git clone git://git.drogon.net/wiringPi
+* $ cd wiringPi
+* $ ./build
+*
+* Example sending READ_INFO 0x01 to device id 44:
+* $ printf "\x01" | sudo ./owpshell /dev/ttyACM0 9600 44
+* owp:dg:v1
+* $ printf "\x11" | sudo ./owpshell /dev/ttyACM0 9600 44 | unpack.py f
+* 4.771999835968018,
+* $ printf "\x12" | sudo ./owpshell /dev/ttyACM0 9600 44 | unpack.py f
+* 28.02459144592285,
+* More info can be found in @ref OWPJON/README.md.
+*
+* Thanks to:
+* gioblu - PJON 11.0 and support
+*          @see https://www.pjon.org/
+*          @see https://github.com/gioblu/PJON
+* fredilarsen - support
+* \end{DoxyVerb}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad51ded0bbd705f02f73fc60c0b721ced}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}}
+\index{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E~256}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad51ded0bbd705f02f73fc60c0b721ced}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a252c3ebaec86ef492070ff22ad0f527e}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}}
+\index{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S~{\bf true}}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a252c3ebaec86ef492070ff22ad0f527e}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a954b61d0bed4bfa938d89c7590c45fb4}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!R\-P\-I@{R\-P\-I}}
+\index{R\-P\-I@{R\-P\-I}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{R\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-P\-I~{\bf true}}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a954b61d0bed4bfa938d89c7590c45fb4}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad4e245de39d6323d95c21e858fc5ffbc}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T@{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}}
+\index{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T@{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T~35000}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad4e245de39d6323d95c21e858fc5ffbc}
+
+
+\subsection{Function Documentation}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a513d5ce96f1667268a5eccc67ed8714d}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!bus@{bus}}
+\index{bus@{bus}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Through\-Serial$>$ bus (
+\begin{DoxyParamCaption}
+\item[{45}]{}
+\end{DoxyParamCaption}
+)}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a513d5ce96f1667268a5eccc67ed8714d}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_afe461d27b9c48d5921c00d521181f12f}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!loop@{loop}}
+\index{loop@{loop}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!main@{main}}
+\index{main@{main}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+
+
+\subsection{Variable Documentation}
+\hypertarget{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}{\index{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!buffer@{buffer}}
+\index{buffer@{buffer}!ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}char buffer\mbox{[}{\bf B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}

@@ -1,0 +1,255 @@
+\hypertarget{usbdrv_8c}{\section{cli/n64dual\-\_\-tiny45/usbdrv/usbdrv.c File Reference}
+\label{usbdrv_8c}\index{cli/n64dual\-\_\-tiny45/usbdrv/usbdrv.\-c@{cli/n64dual\-\_\-tiny45/usbdrv/usbdrv.\-c}}
+}
+{\ttfamily \#include \char`\"{}usbdrv.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}oddebug.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{usbdrv_8c_a06db19dbad17d54fc6f3742ab0afba69}{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-M\-S\-G\-P\-T\-R\-\_\-\-I\-S\-\_\-\-R\-O\-M}~(1$<$$<$6)
+\item 
+\#define \hyperlink{usbdrv_8c_ad2fe7ee90d3349e1399f61eda81d48e9}{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-U\-S\-E\-\_\-\-U\-S\-E\-R\-\_\-\-R\-W}~(1$<$$<$7)
+\item 
+\#define \hyperlink{usbdrv_8c_a9c0556a4c6c5a1ab8f6598aee8e5bf6a}{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-0}~sizeof(\hyperlink{usbdrv_8h_a367afe22c903b4b58805cc451c22cb99}{usb\-Descriptor\-String0})
+\item 
+\#define \hyperlink{usbdrv_8c_aa916bf33f6f8f481a219d0a81b5b225e}{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-D\-E\-V\-I\-C\-E}~sizeof(\hyperlink{usbdrv_8h_a1b8593e30029ecfd59a89335a12db631}{usb\-Descriptor\-Device})
+\item 
+\#define \hyperlink{usbdrv_8c_a8aae9f682ca9f91faae0453e4351a50b}{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N}~sizeof(\hyperlink{usbdrv_8h_a9a566690103d3a34df4893e7c0d3bf10}{usb\-Descriptor\-Configuration})
+\item 
+\#define \hyperlink{usbdrv_8c_ac56b9d981e3fec2bbfb3f15788f6bdb2}{S\-W\-I\-T\-C\-H\-\_\-\-S\-T\-A\-R\-T}(cmd)~\{\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \-\_\-cmd = cmd; \hyperlink{mm__malloc_8h_a682140772a1d7d2744289e6abb2ad2ff}{if}(0)\{
+\item 
+\#define \hyperlink{usbdrv_8c_aae1cadf9c1da7851d3bf26f6044c5963}{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E}(value)~\}else \hyperlink{mm__malloc_8h_a682140772a1d7d2744289e6abb2ad2ff}{if}(\-\_\-cmd == (value))\{
+\item 
+\#define \hyperlink{usbdrv_8c_aae356661dff6a8095d01d3e75dc3d733}{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E2}(v1, v2)~\}else \hyperlink{mm__malloc_8h_a682140772a1d7d2744289e6abb2ad2ff}{if}(\-\_\-cmd == (v1) $\vert$$\vert$ \-\_\-cmd == (v2))\{
+\item 
+\#define \hyperlink{usbdrv_8c_a4b5329c382b93afc16758e5d08589574}{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E3}(v1, v2, v3)~\}else \hyperlink{mm__malloc_8h_a682140772a1d7d2744289e6abb2ad2ff}{if}(\-\_\-cmd == (v1) $\vert$$\vert$ \-\_\-cmd == (v2) $\vert$$\vert$ (\-\_\-cmd == v3))\{
+\item 
+\#define \hyperlink{usbdrv_8c_a35f0e4ce76d1d63aeebacb74425798b8}{S\-W\-I\-T\-C\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T}~\}else\{
+\item 
+\#define \hyperlink{usbdrv_8c_a886e28203c262455d99122704a9f0be9}{S\-W\-I\-T\-C\-H\-\_\-\-E\-N\-D}~\}\}
+\item 
+\#define \hyperlink{usbdrv_8c_a95ad02eb72be3e769e4acf0e98ae40bb}{U\-S\-B\-\_\-\-R\-X\-\_\-\-U\-S\-E\-R\-\_\-\-H\-O\-O\-K}(\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, len)
+\item 
+\#define \hyperlink{usbdrv_8c_a6a78a51b114a555f4fcc13e78af243b0}{U\-S\-B\-\_\-\-S\-E\-T\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-H\-O\-O\-K}()
+\item 
+\#define \hyperlink{usbdrv_8c_a4f20ce9fae0dc2160ae0e8c3d8934f15}{G\-E\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-O\-R}(cfg\-Prop, static\-Name)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{usbdrv_8h_a5f6aa87267678dc37dd5d97a7b3df7c3}{U\-S\-B\-\_\-\-P\-U\-B\-L\-I\-C} void \hyperlink{usbdrv_8c_a188162c29eb62ffbd2d33763d20e12b4}{usb\-Poll} (void)
+\item 
+\hyperlink{usbdrv_8h_a5f6aa87267678dc37dd5d97a7b3df7c3}{U\-S\-B\-\_\-\-P\-U\-B\-L\-I\-C} void \hyperlink{usbdrv_8c_a5672a0c07f0f8e93bde4579d278e6307}{usb\-Init} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_a50d7f851abf281804143e797d0bfbf04}{usb\-Rx\-Buf} \mbox{[}2 $\ast$\hyperlink{usbdrv_8h_a1c541dbab181ea7bd3da61b892430988}{U\-S\-B\-\_\-\-B\-U\-F\-S\-I\-Z\-E}\mbox{]}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_a6b0f7b83997deee705eb56462e3f1fce}{usb\-Input\-Buf\-Offset}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_a3f91a04b325ad5232d270839891e5856}{usb\-Device\-Addr}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_ab9c08d1850db1e4d9feea687bc129425}{usb\-New\-Device\-Addr}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_aa43502fd98afab29fcd5115c1f2c4067}{usb\-Configuration}
+\item 
+volatile \hyperlink{usbdrv_8h_af2cbb84f982ea77dfbb738af3a027591}{schar} \hyperlink{usbdrv_8c_a3d8dd46333d7cf2258067c00428efc47}{usb\-Rx\-Len}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_ae302a61abfeb0784f42a903dd44aad1e}{usb\-Current\-Tok}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_ae2a9422baba7da8914129e0784ab2c05}{usb\-Rx\-Token}
+\item 
+volatile \hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_a6d1c6f67a95541d4f45d26dd80e07693}{usb\-Tx\-Len} = \hyperlink{usbdrv_8h_a481d1276a9efab04a3ab871b87771aac}{U\-S\-B\-P\-I\-D\-\_\-\-N\-A\-K}
+\item 
+\hyperlink{usbdrv_8h_aa8ddf20cdd716b652e76e23e5e700893}{uchar} \hyperlink{usbdrv_8c_a2e8d07fcad8aa462b6a1f51e7968f3cb}{usb\-Tx\-Buf} \mbox{[}\hyperlink{usbdrv_8h_a1c541dbab181ea7bd3da61b892430988}{U\-S\-B\-\_\-\-B\-U\-F\-S\-I\-Z\-E}\mbox{]}
+\item 
+\hyperlink{usbdrv_8h_a3cf7590f40ccf343c258d7b1d1b3ebab}{usb\-Msg\-Ptr\-\_\-t} \hyperlink{usbdrv_8c_a686e74feb967792ff657eafaf700f68a}{usb\-Msg\-Ptr}
+\item 
+\hyperlink{ImageData_8cpp_a23edd521ab3e349838b61e24df70d12c}{P\-R\-O\-G\-M\-E\-M} const char \hyperlink{usbdrv_8c_a367afe22c903b4b58805cc451c22cb99}{usb\-Descriptor\-String0} \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{ImageData_8cpp_a23edd521ab3e349838b61e24df70d12c}{P\-R\-O\-G\-M\-E\-M} const char \hyperlink{usbdrv_8c_a1b8593e30029ecfd59a89335a12db631}{usb\-Descriptor\-Device} \mbox{[}$\,$\mbox{]}
+\item 
+\hyperlink{ImageData_8cpp_a23edd521ab3e349838b61e24df70d12c}{P\-R\-O\-G\-M\-E\-M} const char \hyperlink{usbdrv_8c_a9a566690103d3a34df4893e7c0d3bf10}{usb\-Descriptor\-Configuration} \mbox{[}$\,$\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{usbdrv_8c_a4f20ce9fae0dc2160ae0e8c3d8934f15}{\index{usbdrv.\-c@{usbdrv.\-c}!G\-E\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-O\-R@{G\-E\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-O\-R}}
+\index{G\-E\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-O\-R@{G\-E\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-O\-R}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{G\-E\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-E\-T\-\_\-\-D\-E\-S\-C\-R\-I\-P\-T\-O\-R(
+\begin{DoxyParamCaption}
+\item[{}]{cfg\-Prop, }
+\item[{}]{static\-Name}
+\end{DoxyParamCaption}
+)}}\label{usbdrv_8c_a4f20ce9fae0dc2160ae0e8c3d8934f15}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if}(cfgProp)\{                                    \hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{\(\backslash\)}
+\hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{        if}((cfgProp) & \hyperlink{usbdrv_8h_a316a7fbfdf2ffb5155980cb14f93d53d}{USB\_PROP\_IS\_RAM})             \(\backslash\)
+            flags = 0;                              \hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{\(\backslash\)}
+\hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{        if}((cfgProp) & \hyperlink{usbdrv_8h_a25fffb901b71f003f9d90c411f998b36}{USB\_PROP\_IS\_DYNAMIC})\{        \(\backslash\)
+            len = \hyperlink{usbdrv_8h_a36e4115eff7bf97a7132f6308f923b2b}{usbFunctionDescriptor}(rq);        \(\backslash\)
+        \}\textcolor{keywordflow}{else}\{                                      \(\backslash\)
+            len = \hyperlink{usbdrv_8h_a2e2eca50d63fd44256a2d701f579f700}{USB\_PROP\_LENGTH}(cfgProp);         \hyperlink{usbdrv_8c_a686e74feb967792ff657eafaf700f68a}{\(\backslash\)}
+\hyperlink{usbdrv_8c_a686e74feb967792ff657eafaf700f68a}{            usbMsgPtr} = (\hyperlink{usbconfig-prototype_8h_a3cf7590f40ccf343c258d7b1d1b3ebab}{usbMsgPtr\_t})(staticName);  \(\backslash\)
+        \}                                           \(\backslash\)
+    \}
+\end{DoxyCode}
+\hypertarget{usbdrv_8c_aae1cadf9c1da7851d3bf26f6044c5963}{\index{usbdrv.\-c@{usbdrv.\-c}!S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E@{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E}}
+\index{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E@{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E(
+\begin{DoxyParamCaption}
+\item[{}]{value}
+\end{DoxyParamCaption}
+)~\}else {\bf if}(\-\_\-cmd == (value))\{}}\label{usbdrv_8c_aae1cadf9c1da7851d3bf26f6044c5963}
+\hypertarget{usbdrv_8c_aae356661dff6a8095d01d3e75dc3d733}{\index{usbdrv.\-c@{usbdrv.\-c}!S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E2@{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E2}}
+\index{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E2@{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E2}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E2(
+\begin{DoxyParamCaption}
+\item[{}]{v1, }
+\item[{}]{v2}
+\end{DoxyParamCaption}
+)~\}else {\bf if}(\-\_\-cmd == (v1) $\vert$$\vert$ \-\_\-cmd == (v2))\{}}\label{usbdrv_8c_aae356661dff6a8095d01d3e75dc3d733}
+\hypertarget{usbdrv_8c_a4b5329c382b93afc16758e5d08589574}{\index{usbdrv.\-c@{usbdrv.\-c}!S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E3@{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E3}}
+\index{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E3@{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E3}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E3}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-I\-T\-C\-H\-\_\-\-C\-A\-S\-E3(
+\begin{DoxyParamCaption}
+\item[{}]{v1, }
+\item[{}]{v2, }
+\item[{}]{v3}
+\end{DoxyParamCaption}
+)~\}else {\bf if}(\-\_\-cmd == (v1) $\vert$$\vert$ \-\_\-cmd == (v2) $\vert$$\vert$ (\-\_\-cmd == v3))\{}}\label{usbdrv_8c_a4b5329c382b93afc16758e5d08589574}
+\hypertarget{usbdrv_8c_a35f0e4ce76d1d63aeebacb74425798b8}{\index{usbdrv.\-c@{usbdrv.\-c}!S\-W\-I\-T\-C\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T@{S\-W\-I\-T\-C\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T}}
+\index{S\-W\-I\-T\-C\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T@{S\-W\-I\-T\-C\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{S\-W\-I\-T\-C\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-I\-T\-C\-H\-\_\-\-D\-E\-F\-A\-U\-L\-T~\}else\{}}\label{usbdrv_8c_a35f0e4ce76d1d63aeebacb74425798b8}
+\hypertarget{usbdrv_8c_a886e28203c262455d99122704a9f0be9}{\index{usbdrv.\-c@{usbdrv.\-c}!S\-W\-I\-T\-C\-H\-\_\-\-E\-N\-D@{S\-W\-I\-T\-C\-H\-\_\-\-E\-N\-D}}
+\index{S\-W\-I\-T\-C\-H\-\_\-\-E\-N\-D@{S\-W\-I\-T\-C\-H\-\_\-\-E\-N\-D}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{S\-W\-I\-T\-C\-H\-\_\-\-E\-N\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-I\-T\-C\-H\-\_\-\-E\-N\-D~\}\}}}\label{usbdrv_8c_a886e28203c262455d99122704a9f0be9}
+\hypertarget{usbdrv_8c_ac56b9d981e3fec2bbfb3f15788f6bdb2}{\index{usbdrv.\-c@{usbdrv.\-c}!S\-W\-I\-T\-C\-H\-\_\-\-S\-T\-A\-R\-T@{S\-W\-I\-T\-C\-H\-\_\-\-S\-T\-A\-R\-T}}
+\index{S\-W\-I\-T\-C\-H\-\_\-\-S\-T\-A\-R\-T@{S\-W\-I\-T\-C\-H\-\_\-\-S\-T\-A\-R\-T}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{S\-W\-I\-T\-C\-H\-\_\-\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-W\-I\-T\-C\-H\-\_\-\-S\-T\-A\-R\-T(
+\begin{DoxyParamCaption}
+\item[{}]{cmd}
+\end{DoxyParamCaption}
+)~\{{\bf uchar} \-\_\-cmd = cmd; {\bf if}(0)\{}}\label{usbdrv_8c_ac56b9d981e3fec2bbfb3f15788f6bdb2}
+\hypertarget{usbdrv_8c_a8aae9f682ca9f91faae0453e4351a50b}{\index{usbdrv.\-c@{usbdrv.\-c}!U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N@{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N}}
+\index{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N@{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-C\-O\-N\-F\-I\-G\-U\-R\-A\-T\-I\-O\-N~sizeof({\bf usb\-Descriptor\-Configuration})}}\label{usbdrv_8c_a8aae9f682ca9f91faae0453e4351a50b}
+\hypertarget{usbdrv_8c_aa916bf33f6f8f481a219d0a81b5b225e}{\index{usbdrv.\-c@{usbdrv.\-c}!U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-D\-E\-V\-I\-C\-E@{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-D\-E\-V\-I\-C\-E}}
+\index{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-D\-E\-V\-I\-C\-E@{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-D\-E\-V\-I\-C\-E}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-D\-E\-V\-I\-C\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-D\-E\-V\-I\-C\-E~sizeof({\bf usb\-Descriptor\-Device})}}\label{usbdrv_8c_aa916bf33f6f8f481a219d0a81b5b225e}
+\hypertarget{usbdrv_8c_a9c0556a4c6c5a1ab8f6598aee8e5bf6a}{\index{usbdrv.\-c@{usbdrv.\-c}!U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-0@{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-0}}
+\index{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-0@{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-0}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-0}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-C\-F\-G\-\_\-\-D\-E\-S\-C\-R\-\_\-\-P\-R\-O\-P\-S\-\_\-\-S\-T\-R\-I\-N\-G\-\_\-0~sizeof({\bf usb\-Descriptor\-String0})}}\label{usbdrv_8c_a9c0556a4c6c5a1ab8f6598aee8e5bf6a}
+\hypertarget{usbdrv_8c_a06db19dbad17d54fc6f3742ab0afba69}{\index{usbdrv.\-c@{usbdrv.\-c}!U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-M\-S\-G\-P\-T\-R\-\_\-\-I\-S\-\_\-\-R\-O\-M@{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-M\-S\-G\-P\-T\-R\-\_\-\-I\-S\-\_\-\-R\-O\-M}}
+\index{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-M\-S\-G\-P\-T\-R\-\_\-\-I\-S\-\_\-\-R\-O\-M@{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-M\-S\-G\-P\-T\-R\-\_\-\-I\-S\-\_\-\-R\-O\-M}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-M\-S\-G\-P\-T\-R\-\_\-\-I\-S\-\_\-\-R\-O\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-M\-S\-G\-P\-T\-R\-\_\-\-I\-S\-\_\-\-R\-O\-M~(1$<$$<$6)}}\label{usbdrv_8c_a06db19dbad17d54fc6f3742ab0afba69}
+\hypertarget{usbdrv_8c_ad2fe7ee90d3349e1399f61eda81d48e9}{\index{usbdrv.\-c@{usbdrv.\-c}!U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-U\-S\-E\-\_\-\-U\-S\-E\-R\-\_\-\-R\-W@{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-U\-S\-E\-\_\-\-U\-S\-E\-R\-\_\-\-R\-W}}
+\index{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-U\-S\-E\-\_\-\-U\-S\-E\-R\-\_\-\-R\-W@{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-U\-S\-E\-\_\-\-U\-S\-E\-R\-\_\-\-R\-W}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-U\-S\-E\-\_\-\-U\-S\-E\-R\-\_\-\-R\-W}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-F\-L\-G\-\_\-\-U\-S\-E\-\_\-\-U\-S\-E\-R\-\_\-\-R\-W~(1$<$$<$7)}}\label{usbdrv_8c_ad2fe7ee90d3349e1399f61eda81d48e9}
+\hypertarget{usbdrv_8c_a95ad02eb72be3e769e4acf0e98ae40bb}{\index{usbdrv.\-c@{usbdrv.\-c}!U\-S\-B\-\_\-\-R\-X\-\_\-\-U\-S\-E\-R\-\_\-\-H\-O\-O\-K@{U\-S\-B\-\_\-\-R\-X\-\_\-\-U\-S\-E\-R\-\_\-\-H\-O\-O\-K}}
+\index{U\-S\-B\-\_\-\-R\-X\-\_\-\-U\-S\-E\-R\-\_\-\-H\-O\-O\-K@{U\-S\-B\-\_\-\-R\-X\-\_\-\-U\-S\-E\-R\-\_\-\-H\-O\-O\-K}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{U\-S\-B\-\_\-\-R\-X\-\_\-\-U\-S\-E\-R\-\_\-\-H\-O\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-R\-X\-\_\-\-U\-S\-E\-R\-\_\-\-H\-O\-O\-K(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf data}, }
+\item[{}]{len}
+\end{DoxyParamCaption}
+)}}\label{usbdrv_8c_a95ad02eb72be3e769e4acf0e98ae40bb}
+\hypertarget{usbdrv_8c_a6a78a51b114a555f4fcc13e78af243b0}{\index{usbdrv.\-c@{usbdrv.\-c}!U\-S\-B\-\_\-\-S\-E\-T\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-H\-O\-O\-K@{U\-S\-B\-\_\-\-S\-E\-T\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-H\-O\-O\-K}}
+\index{U\-S\-B\-\_\-\-S\-E\-T\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-H\-O\-O\-K@{U\-S\-B\-\_\-\-S\-E\-T\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-H\-O\-O\-K}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{U\-S\-B\-\_\-\-S\-E\-T\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-H\-O\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-S\-E\-T\-\_\-\-A\-D\-D\-R\-E\-S\-S\-\_\-\-H\-O\-O\-K(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{usbdrv_8c_a6a78a51b114a555f4fcc13e78af243b0}
+
+
+\subsection{Function Documentation}
+\hypertarget{usbdrv_8c_a5672a0c07f0f8e93bde4579d278e6307}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Init@{usb\-Init}}
+\index{usb\-Init@{usb\-Init}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Init}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-S\-B\-\_\-\-P\-U\-B\-L\-I\-C} void usb\-Init (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{usbdrv_8c_a5672a0c07f0f8e93bde4579d278e6307}
+\hypertarget{usbdrv_8c_a188162c29eb62ffbd2d33763d20e12b4}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Poll@{usb\-Poll}}
+\index{usb\-Poll@{usb\-Poll}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Poll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf U\-S\-B\-\_\-\-P\-U\-B\-L\-I\-C} void usb\-Poll (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{usbdrv_8c_a188162c29eb62ffbd2d33763d20e12b4}
+
+
+\subsection{Variable Documentation}
+\hypertarget{usbdrv_8c_aa43502fd98afab29fcd5115c1f2c4067}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Configuration@{usb\-Configuration}}
+\index{usb\-Configuration@{usb\-Configuration}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Configuration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-Configuration}}\label{usbdrv_8c_aa43502fd98afab29fcd5115c1f2c4067}
+\hypertarget{usbdrv_8c_ae302a61abfeb0784f42a903dd44aad1e}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Current\-Tok@{usb\-Current\-Tok}}
+\index{usb\-Current\-Tok@{usb\-Current\-Tok}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Current\-Tok}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-Current\-Tok}}\label{usbdrv_8c_ae302a61abfeb0784f42a903dd44aad1e}
+\hypertarget{usbdrv_8c_a9a566690103d3a34df4893e7c0d3bf10}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Descriptor\-Configuration@{usb\-Descriptor\-Configuration}}
+\index{usb\-Descriptor\-Configuration@{usb\-Descriptor\-Configuration}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Descriptor\-Configuration}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-G\-M\-E\-M} const char usb\-Descriptor\-Configuration\mbox{[}$\,$\mbox{]}}}\label{usbdrv_8c_a9a566690103d3a34df4893e7c0d3bf10}
+\hypertarget{usbdrv_8c_a1b8593e30029ecfd59a89335a12db631}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Descriptor\-Device@{usb\-Descriptor\-Device}}
+\index{usb\-Descriptor\-Device@{usb\-Descriptor\-Device}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Descriptor\-Device}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-G\-M\-E\-M} const char usb\-Descriptor\-Device\mbox{[}$\,$\mbox{]}}}\label{usbdrv_8c_a1b8593e30029ecfd59a89335a12db631}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{    
+    18,         
+    \hyperlink{usbdrv_8h_a5b76593f7b6295a4a599aba4476ec258}{USBDESCR\_DEVICE},        
+    0x10, 0x01,             
+    \hyperlink{usbconfig_8h_a9ce4f96ad98b3db8205691e8bc723e55}{USB\_CFG\_DEVICE\_CLASS},
+    \hyperlink{usbconfig_8h_a89e5ad66f8b835866e7d836c73bfd30d}{USB\_CFG\_DEVICE\_SUBCLASS},
+    0,                      
+    8,                      
+    
+    (char)\hyperlink{usbconfig_8h_a9326b8ec9f809ce66d54349691646930}{USB\_CFG\_VENDOR\_ID},
+    (\textcolor{keywordtype}{char})\hyperlink{usbconfig_8h_abc740455309399430b0f49bf7931d1d7}{USB\_CFG\_DEVICE\_ID},
+    \hyperlink{usbconfig_8h_aba3c7c0cd4055ba3bbf5df38e57b6d27}{USB\_CFG\_DEVICE\_VERSION}, 
+    \hyperlink{usbconfig_8h_a55edf2117128387162339d98ba2af0f4}{USB\_CFG\_DESCR\_PROPS\_STRING\_VENDOR} != 0 ? 1 : 0,         
+    \hyperlink{usbconfig_8h_aa08084f9755a643e02d469b66b129ef6}{USB\_CFG\_DESCR\_PROPS\_STRING\_PRODUCT} != 0 ? 2 : 0,        
+    \hyperlink{usbconfig_8h_a82224c07d3a1f9fcccbff70b71c8ea51}{USB\_CFG\_DESCR\_PROPS\_STRING\_SERIAL\_NUMBER} != 0 ? 3 : 0,  
+    1,          
+\}
+\end{DoxyCode}
+\hypertarget{usbdrv_8c_a367afe22c903b4b58805cc451c22cb99}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Descriptor\-String0@{usb\-Descriptor\-String0}}
+\index{usb\-Descriptor\-String0@{usb\-Descriptor\-String0}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Descriptor\-String0}]{\setlength{\rightskip}{0pt plus 5cm}{\bf P\-R\-O\-G\-M\-E\-M} const char usb\-Descriptor\-String0\mbox{[}$\,$\mbox{]}}}\label{usbdrv_8c_a367afe22c903b4b58805cc451c22cb99}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{ 
+    4,          
+    3,          
+    0x09, 0x04, 
+\}
+\end{DoxyCode}
+\hypertarget{usbdrv_8c_a3f91a04b325ad5232d270839891e5856}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Device\-Addr@{usb\-Device\-Addr}}
+\index{usb\-Device\-Addr@{usb\-Device\-Addr}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Device\-Addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-Device\-Addr}}\label{usbdrv_8c_a3f91a04b325ad5232d270839891e5856}
+\hypertarget{usbdrv_8c_a6b0f7b83997deee705eb56462e3f1fce}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Input\-Buf\-Offset@{usb\-Input\-Buf\-Offset}}
+\index{usb\-Input\-Buf\-Offset@{usb\-Input\-Buf\-Offset}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Input\-Buf\-Offset}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-Input\-Buf\-Offset}}\label{usbdrv_8c_a6b0f7b83997deee705eb56462e3f1fce}
+\hypertarget{usbdrv_8c_a686e74feb967792ff657eafaf700f68a}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Msg\-Ptr@{usb\-Msg\-Ptr}}
+\index{usb\-Msg\-Ptr@{usb\-Msg\-Ptr}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Msg\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf usb\-Msg\-Ptr\-\_\-t} usb\-Msg\-Ptr}}\label{usbdrv_8c_a686e74feb967792ff657eafaf700f68a}
+\hypertarget{usbdrv_8c_ab9c08d1850db1e4d9feea687bc129425}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-New\-Device\-Addr@{usb\-New\-Device\-Addr}}
+\index{usb\-New\-Device\-Addr@{usb\-New\-Device\-Addr}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-New\-Device\-Addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-New\-Device\-Addr}}\label{usbdrv_8c_ab9c08d1850db1e4d9feea687bc129425}
+\hypertarget{usbdrv_8c_a50d7f851abf281804143e797d0bfbf04}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Rx\-Buf@{usb\-Rx\-Buf}}
+\index{usb\-Rx\-Buf@{usb\-Rx\-Buf}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Rx\-Buf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-Rx\-Buf\mbox{[}2 $\ast${\bf U\-S\-B\-\_\-\-B\-U\-F\-S\-I\-Z\-E}\mbox{]}}}\label{usbdrv_8c_a50d7f851abf281804143e797d0bfbf04}
+\hypertarget{usbdrv_8c_a3d8dd46333d7cf2258067c00428efc47}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Rx\-Len@{usb\-Rx\-Len}}
+\index{usb\-Rx\-Len@{usb\-Rx\-Len}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Rx\-Len}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf schar} usb\-Rx\-Len}}\label{usbdrv_8c_a3d8dd46333d7cf2258067c00428efc47}
+\hypertarget{usbdrv_8c_ae2a9422baba7da8914129e0784ab2c05}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Rx\-Token@{usb\-Rx\-Token}}
+\index{usb\-Rx\-Token@{usb\-Rx\-Token}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Rx\-Token}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-Rx\-Token}}\label{usbdrv_8c_ae2a9422baba7da8914129e0784ab2c05}
+\hypertarget{usbdrv_8c_a2e8d07fcad8aa462b6a1f51e7968f3cb}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Tx\-Buf@{usb\-Tx\-Buf}}
+\index{usb\-Tx\-Buf@{usb\-Tx\-Buf}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Tx\-Buf}]{\setlength{\rightskip}{0pt plus 5cm}{\bf uchar} usb\-Tx\-Buf\mbox{[}{\bf U\-S\-B\-\_\-\-B\-U\-F\-S\-I\-Z\-E}\mbox{]}}}\label{usbdrv_8c_a2e8d07fcad8aa462b6a1f51e7968f3cb}
+\hypertarget{usbdrv_8c_a6d1c6f67a95541d4f45d26dd80e07693}{\index{usbdrv.\-c@{usbdrv.\-c}!usb\-Tx\-Len@{usb\-Tx\-Len}}
+\index{usb\-Tx\-Len@{usb\-Tx\-Len}!usbdrv.c@{usbdrv.\-c}}
+\subsubsection[{usb\-Tx\-Len}]{\setlength{\rightskip}{0pt plus 5cm}volatile {\bf uchar} usb\-Tx\-Len = {\bf U\-S\-B\-P\-I\-D\-\_\-\-N\-A\-K}}}\label{usbdrv_8c_a6d1c6f67a95541d4f45d26dd80e07693}

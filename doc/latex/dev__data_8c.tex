@@ -1,0 +1,122 @@
+\hypertarget{dev__data_8c}{\section{cli/owslave/dev\-\_\-data.c File Reference}
+\label{dev__data_8c}\index{cli/owslave/dev\-\_\-data.\-c@{cli/owslave/dev\-\_\-data.\-c}}
+}
+{\ttfamily \#include $<$avr/eeprom.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pgm.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$util/crc16.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}dev\-\_\-data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debug.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dev__data_8c_a424f1b989129c5519f4df8f61ad6dcaf}{N\-O\-\_\-\-D\-E\-B\-U\-G}
+\item 
+\#define \hyperlink{dev__data_8c_a198900a34a046b5db97a952570af34c9}{E\-E\-P\-R\-O\-M\-\_\-\-V\-A\-L\-I\-D}~1
+\item 
+\#define \hyperlink{dev__data_8c_a7abde96ea6add78bb00f3e0577609c9f}{read\-\_\-byte}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~\hyperlink{dev__data_8h_aed5b84cf3c000c1546d8dcc7b9485c91}{cfg\-\_\-byte}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})
+\item 
+\#define \hyperlink{dev__data_8c_a18a38d0f01d311c8bbc853b11c30bbf0}{read\-\_\-crc\-\_\-byte}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})~\hyperlink{dev__data_8c_a7abde96ea6add78bb00f3e0577609c9f}{read\-\_\-byte}(\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})
+\item 
+\#define \hyperlink{dev__data_8c_aaa93fa7d3999b240652d7dc1ae0f2f62}{\-\_\-do\-\_\-crc}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8c_aed5b84cf3c000c1546d8dcc7b9485c91}{cfg\-\_\-byte} (\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+char \hyperlink{dev__data_8c_a719ade9ff1dbf50da0ec40af6f177b1f}{\-\_\-cfg\-\_\-read} (void $\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, uint8\-\_\-t size, Config\-I\-D id)
+\item 
+\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} \hyperlink{dev__data_8c_a75724efe80006447f420fa1f32ba405c}{cfg\-\_\-addr} (uint8\-\_\-t $\ast$size, Config\-I\-D id)
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8c_afeb80fbadb97c578bcc8f55776b58a6c}{cfg\-\_\-count} (\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8c_a746f4f97b4739e40a224988162a3ac03}{cfg\-\_\-type} (\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8c_ac796e0af6d214cda8f2a7a86c053fb0a}{\-\_\-config\-\_\-start}
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8c_a74a8196bc871f9fa1012a0aca52b421b}{\-\_\-config\-\_\-end}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dev__data_8c_aaa93fa7d3999b240652d7dc1ae0f2f62}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!\-\_\-do\-\_\-crc@{\-\_\-do\-\_\-crc}}
+\index{\-\_\-do\-\_\-crc@{\-\_\-do\-\_\-crc}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{\-\_\-do\-\_\-crc}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-do\-\_\-crc(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~1}}\label{dev__data_8c_aaa93fa7d3999b240652d7dc1ae0f2f62}
+\hypertarget{dev__data_8c_a198900a34a046b5db97a952570af34c9}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!E\-E\-P\-R\-O\-M\-\_\-\-V\-A\-L\-I\-D@{E\-E\-P\-R\-O\-M\-\_\-\-V\-A\-L\-I\-D}}
+\index{E\-E\-P\-R\-O\-M\-\_\-\-V\-A\-L\-I\-D@{E\-E\-P\-R\-O\-M\-\_\-\-V\-A\-L\-I\-D}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-\-V\-A\-L\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-E\-P\-R\-O\-M\-\_\-\-V\-A\-L\-I\-D~1}}\label{dev__data_8c_a198900a34a046b5db97a952570af34c9}
+\hypertarget{dev__data_8c_a424f1b989129c5519f4df8f61ad6dcaf}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!N\-O\-\_\-\-D\-E\-B\-U\-G@{N\-O\-\_\-\-D\-E\-B\-U\-G}}
+\index{N\-O\-\_\-\-D\-E\-B\-U\-G@{N\-O\-\_\-\-D\-E\-B\-U\-G}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{N\-O\-\_\-\-D\-E\-B\-U\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-O\-\_\-\-D\-E\-B\-U\-G}}\label{dev__data_8c_a424f1b989129c5519f4df8f61ad6dcaf}
+\hypertarget{dev__data_8c_a7abde96ea6add78bb00f3e0577609c9f}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!read\-\_\-byte@{read\-\_\-byte}}
+\index{read\-\_\-byte@{read\-\_\-byte}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{read\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define read\-\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~{\bf cfg\-\_\-byte}({\bf x})}}\label{dev__data_8c_a7abde96ea6add78bb00f3e0577609c9f}
+\hypertarget{dev__data_8c_a18a38d0f01d311c8bbc853b11c30bbf0}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!read\-\_\-crc\-\_\-byte@{read\-\_\-crc\-\_\-byte}}
+\index{read\-\_\-crc\-\_\-byte@{read\-\_\-crc\-\_\-byte}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{read\-\_\-crc\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}\#define read\-\_\-crc\-\_\-byte(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}}
+\end{DoxyParamCaption}
+)~{\bf read\-\_\-byte}({\bf y})}}\label{dev__data_8c_a18a38d0f01d311c8bbc853b11c30bbf0}
+
+
+\subsection{Function Documentation}
+\hypertarget{dev__data_8c_a719ade9ff1dbf50da0ec40af6f177b1f}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!\-\_\-cfg\-\_\-read@{\-\_\-cfg\-\_\-read}}
+\index{\-\_\-cfg\-\_\-read@{\-\_\-cfg\-\_\-read}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{\-\_\-cfg\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}char \-\_\-cfg\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data, }
+\item[{uint8\-\_\-t}]{size, }
+\item[{Config\-I\-D}]{id}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8c_a719ade9ff1dbf50da0ec40af6f177b1f}
+\hypertarget{dev__data_8c_a75724efe80006447f420fa1f32ba405c}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!cfg\-\_\-addr@{cfg\-\_\-addr}}
+\index{cfg\-\_\-addr@{cfg\-\_\-addr}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{cfg\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cfg\-\_\-addr\-\_\-t} cfg\-\_\-addr (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{size, }
+\item[{Config\-I\-D}]{id}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8c_a75724efe80006447f420fa1f32ba405c}
+\hypertarget{dev__data_8c_aed5b84cf3c000c1546d8dcc7b9485c91}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!cfg\-\_\-byte@{cfg\-\_\-byte}}
+\index{cfg\-\_\-byte@{cfg\-\_\-byte}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{cfg\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t cfg\-\_\-byte (
+\begin{DoxyParamCaption}
+\item[{{\bf cfg\-\_\-addr\-\_\-t}}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{dev__data_8c_aed5b84cf3c000c1546d8dcc7b9485c91}
+\hypertarget{dev__data_8c_afeb80fbadb97c578bcc8f55776b58a6c}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!cfg\-\_\-count@{cfg\-\_\-count}}
+\index{cfg\-\_\-count@{cfg\-\_\-count}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{cfg\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t cfg\-\_\-count (
+\begin{DoxyParamCaption}
+\item[{{\bf cfg\-\_\-addr\-\_\-t} $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8c_afeb80fbadb97c578bcc8f55776b58a6c}
+enumerate config entries. Zero == no more. Usage\-: len = cfg\-\_\-count(\&adr); while (len--) typ = cfg\-\_\-type(\&adr); \hypertarget{dev__data_8c_a746f4f97b4739e40a224988162a3ac03}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!cfg\-\_\-type@{cfg\-\_\-type}}
+\index{cfg\-\_\-type@{cfg\-\_\-type}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{cfg\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t cfg\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{{\bf cfg\-\_\-addr\-\_\-t} $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8c_a746f4f97b4739e40a224988162a3ac03}
+
+
+\subsection{Variable Documentation}
+\hypertarget{dev__data_8c_a74a8196bc871f9fa1012a0aca52b421b}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!\-\_\-config\-\_\-end@{\-\_\-config\-\_\-end}}
+\index{\-\_\-config\-\_\-end@{\-\_\-config\-\_\-end}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{\-\_\-config\-\_\-end}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t \-\_\-config\-\_\-end}}\label{dev__data_8c_a74a8196bc871f9fa1012a0aca52b421b}
+\hypertarget{dev__data_8c_ac796e0af6d214cda8f2a7a86c053fb0a}{\index{dev\-\_\-data.\-c@{dev\-\_\-data.\-c}!\-\_\-config\-\_\-start@{\-\_\-config\-\_\-start}}
+\index{\-\_\-config\-\_\-start@{\-\_\-config\-\_\-start}!dev_data.c@{dev\-\_\-data.\-c}}
+\subsubsection[{\-\_\-config\-\_\-start}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t \-\_\-config\-\_\-start}}\label{dev__data_8c_ac796e0af6d214cda8f2a7a86c053fb0a}

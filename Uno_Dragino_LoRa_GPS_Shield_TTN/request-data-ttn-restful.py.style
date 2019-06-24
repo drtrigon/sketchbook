@@ -1,0 +1,31 @@
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:7:80: E501 line too long (89 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:10:80: E501 line too long (89 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:11:80: E501 line too long (89 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:12:80: E501 line too long (111 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:13:80: E501 line too long (96 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:14:80: E501 line too long (128 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:15:80: E501 line too long (123 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:24:80: E501 line too long (80 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:28:1: E402 module level import not at top of file
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:29:1: E402 module level import not at top of file
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:30:1: E402 module level import not at top of file
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:35:1: D103 Missing docstring in public function
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:41:80: E501 line too long (95 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:42:1: S501 Requests call with verify=False disabling SSL certificate checks, security issue.
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:61:1: E266 too many leading '#' for block comment
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:67:80: E501 line too long (101 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/Uno_Dragino_LoRa_GPS_Shield_TTN/request-data-ttn-restful.py:68:80: E501 line too long (107 > 79 characters)
+1     D103 Missing docstring in public function
+1     E266 too many leading '#' for block comment
+3     E402 module level import not at top of file
+11    E501 line too long (89 > 79 characters)
+1     S501 Requests call with verify=False disabling SSL certificate checks, security issue.
+0.393      seconds elapsed
+50         total logical lines processed
+127        logical lines processed per second
+82         total physical lines processed
+208        physical lines processed per second
+291        total tokens processed
+741        tokens processed per second
+1          total files processed
+2          files processed per second

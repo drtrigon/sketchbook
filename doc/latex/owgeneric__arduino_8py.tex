@@ -1,0 +1,64 @@
+\hypertarget{owgeneric__arduino_8py}{\section{Uno\-\_\-\-O\-W\-Slave/owgeneric\-\_\-arduino.py File Reference}
+\label{owgeneric__arduino_8py}\index{Uno\-\_\-\-O\-W\-Slave/owgeneric\-\_\-arduino.\-py@{Uno\-\_\-\-O\-W\-Slave/owgeneric\-\_\-arduino.\-py}}
+}
+\subsection*{Namespaces}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{namespaceowgeneric__arduino}{owgeneric\-\_\-arduino}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_ae497352a3cdb1c9f1ea7d074f91dcc4d}{owgeneric\-\_\-arduino.\-debug}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a458d0d97eb930f83d4c268f8fcbebfe3}{owgeneric\-\_\-arduino.\-init}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a260f6453ccb4f90de58cb589490b5a0d}{owgeneric\-\_\-arduino.\-write}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_ac4a169bf70be7476d95bea5e5cb11683}{owgeneric\-\_\-arduino.\-read}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a90db891c446b758d69e5a951a20e1701}{owgeneric\-\_\-arduino.\-pack\-\_\-val}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a15035620861d072da5015dcf7c9da4f8}{owgeneric\-\_\-arduino.\-unpack\-\_\-val}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_aa3922858daba4732938e40797f08f5f3}{owgeneric\-\_\-arduino.\-receive\-\_\-data}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a45bddba7d6de252bb4870acc38eea491}{owgeneric\-\_\-arduino.\-read\-\_\-slave\-\_\-sensors}
+\item 
+def \hyperlink{namespaceowgeneric__arduino_a5d4c78f6f1b5ce9b61e660001a91a033}{owgeneric\-\_\-arduino.\-get\-\_\-slaves}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespaceowgeneric__arduino_acf1b83c6bfca7dce8e079086078b19b9}{owgeneric\-\_\-arduino.\-ow\-\_\-root} = \char`\"{}/mnt/1wire/\char`\"{}
+\item 
+string \hyperlink{namespaceowgeneric__arduino_a55174673236c57dac9b691a2f5b49b69}{owgeneric\-\_\-arduino.\-owgeneric\-\_\-root} = \char`\"{}/mnt/1wire-\/generic/\char`\"{}
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a30145d36e9de440b44c360e2c295e4aa}{owgeneric\-\_\-arduino.\-offset} = int(time.\-mktime(time.\-strptime(\char`\"{}Thu Jan 1 00\-:00\-:00 1970\char`\"{}, \char`\"{}\%a \%\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b} \%\hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d} \%H\-:\%M\-:\%\hyperlink{md5_8c_a5a9675d71aad8449f8e4112ce611fd93}{S} \%\hyperlink{OWGeneric__SensorStation_8ino_ac915220fb659eb2c5958a1ccd81b80d4}{Y}\char`\"{})))
+\item 
+\hyperlink{namespaceowgeneric__arduino_abdc14696f564f9b8ed10fa1816940639}{owgeneric\-\_\-arduino.\-\_\-\-\_\-debug} = False
+\item 
+list \hyperlink{namespaceowgeneric__arduino_a2c230abaed3d21deb7b84292cf219ed6}{owgeneric\-\_\-arduino.\-slaves} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a8185d7d521265a9dfca0cc8a8b75c718}{owgeneric\-\_\-arduino.\-slaves\-\_\-old} = os.\-listdir(owgeneric\-\_\-root)
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_ae35375aa69efe1f0333b7a86c6d4e8dd}{owgeneric\-\_\-arduino.\-min\-\_\-mtime} = time.\-time()
+\item 
+list \hyperlink{namespaceowgeneric__arduino_a88e87453974fbe548a91bf0884be4ad3}{owgeneric\-\_\-arduino.\-process\-\_\-slaves} = \mbox{[}$\,$\mbox{]}
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a49246b75ead314904c32e0e686bb8248}{owgeneric\-\_\-arduino.\-dev} = os.\-path.\-join(owgeneric\-\_\-root, slave)
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a46bffb5615da79637d8d6cbebd45dcdc}{owgeneric\-\_\-arduino.\-fn} = os.\-path.\-join(dev, \char`\"{}all\char`\"{})
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_a56ab65883376573ac79e173c4be17f36}{owgeneric\-\_\-arduino.\-f} = \hyperlink{term_8js_a1a542444e56cda6325863b2dde2a2f6e}{open}(fn, \char`\"{}w\char`\"{})
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_af9fe4677ae3d881c6a2589ce662d5782}{owgeneric\-\_\-arduino.\-tic} = time.\-time()
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_abf22560e7555e8c37b96712dc2037fbc}{owgeneric\-\_\-arduino.\-toc} = time.\-time()
+\item 
+tuple \hyperlink{namespaceowgeneric__arduino_ac7b4cb90fd0abd72b048343f5e4aa6cb}{owgeneric\-\_\-arduino.\-err\-\_\-count} = int(f.\-read())
+\item 
+list \hyperlink{namespaceowgeneric__arduino_a2c02ae899bda249e2d982cd8d8ea14b7}{owgeneric\-\_\-arduino.\-data} = \mbox{[} (err\-\_\-count+1,) \mbox{]}
+\item 
+string \hyperlink{namespaceowgeneric__arduino_afba0c0cd23f6949ce08a1f14d529f245}{owgeneric\-\_\-arduino.\-fn\-\_\-temp} = fn+\char`\"{}-\/\char`\"{}
+\end{DoxyCompactItemize}

@@ -1,0 +1,70 @@
+\hypertarget{moat__backend_8c}{\section{cli/owslave/moat\-\_\-backend.c File Reference}
+\label{moat__backend_8c}\index{cli/owslave/moat\-\_\-backend.\-c@{cli/owslave/moat\-\_\-backend.\-c}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pgm.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}onewire.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}features.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}moat.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dev\-\_\-data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debug.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}moat\-\_\-internal.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}port.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}pwm.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}count.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}console.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}moat\-\_\-dummy.\-c\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}\-\_\-def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}\-\_\-nums.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{moat__backend_8c_af3db91a3619c18a531a2ff3653368809}{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}~0x\-F2
+\item 
+\#define \hyperlink{moat__backend_8c_a84c0a1cd28cac5b72515fdd8fb9ef020}{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}~0x\-F4
+\item 
+\#define \hyperlink{moat__backend_8c_a3e8bdbd3edbf037c310c029695399e38}{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}(\-\_\-s)~\hyperlink{moat__internal_8h_a530eef78351dd3d2004fe1733fbc78d7}{A\-L\-I\-A\-S\-D\-E\-F\-S}(\-\_\-s)
+\item 
+\#define \hyperlink{moat__backend_8c_a3e8bdbd3edbf037c310c029695399e38}{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}(\-\_\-s)~\hyperlink{moat__internal_8h_ab22c24fed08e289132d936652944bca3}{F\-U\-N\-C\-P\-T\-R\-S}(\-\_\-s),
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+const \hyperlink{structmoat__call__t}{moat\-\_\-call\-\_\-t} moat\-\_\-calls\mbox{[}T\-C\-\_\-\-M\-A\-X\mbox{]} \hyperlink{moat__backend_8c_a4fa43428570b39389116fbba256dd710}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((progmem))
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{moat__backend_8c_af3db91a3619c18a531a2ff3653368809}{\index{moat\-\_\-backend.\-c@{moat\-\_\-backend.\-c}!\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}}
+\index{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}!moat_backend.c@{moat\-\_\-backend.\-c}}
+\subsubsection[{\-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-1\-W\-\_\-\-R\-E\-A\-D\-\_\-\-G\-E\-N\-E\-R\-I\-C~0x\-F2}}\label{moat__backend_8c_af3db91a3619c18a531a2ff3653368809}
+\hypertarget{moat__backend_8c_a84c0a1cd28cac5b72515fdd8fb9ef020}{\index{moat\-\_\-backend.\-c@{moat\-\_\-backend.\-c}!\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}}
+\index{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C@{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}!moat_backend.c@{moat\-\_\-backend.\-c}}
+\subsubsection[{\-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-1\-W\-\_\-\-W\-R\-I\-T\-E\-\_\-\-G\-E\-N\-E\-R\-I\-C~0x\-F4}}\label{moat__backend_8c_a84c0a1cd28cac5b72515fdd8fb9ef020}
+\hypertarget{moat__backend_8c_a3e8bdbd3edbf037c310c029695399e38}{\index{moat\-\_\-backend.\-c@{moat\-\_\-backend.\-c}!T\-C\-\_\-\-D\-E\-F\-I\-N\-E@{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}}
+\index{T\-C\-\_\-\-D\-E\-F\-I\-N\-E@{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}!moat_backend.c@{moat\-\_\-backend.\-c}}
+\subsubsection[{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-C\-\_\-\-D\-E\-F\-I\-N\-E(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-s}
+\end{DoxyParamCaption}
+)~{\bf A\-L\-I\-A\-S\-D\-E\-F\-S}(\-\_\-s)}}\label{moat__backend_8c_a3e8bdbd3edbf037c310c029695399e38}
+\hypertarget{moat__backend_8c_a3e8bdbd3edbf037c310c029695399e38}{\index{moat\-\_\-backend.\-c@{moat\-\_\-backend.\-c}!T\-C\-\_\-\-D\-E\-F\-I\-N\-E@{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}}
+\index{T\-C\-\_\-\-D\-E\-F\-I\-N\-E@{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}!moat_backend.c@{moat\-\_\-backend.\-c}}
+\subsubsection[{T\-C\-\_\-\-D\-E\-F\-I\-N\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-C\-\_\-\-D\-E\-F\-I\-N\-E(
+\begin{DoxyParamCaption}
+\item[{}]{\-\_\-s}
+\end{DoxyParamCaption}
+)~{\bf F\-U\-N\-C\-P\-T\-R\-S}(\-\_\-s),}}\label{moat__backend_8c_a3e8bdbd3edbf037c310c029695399e38}
+
+
+\subsection{Function Documentation}
+\hypertarget{moat__backend_8c_a4fa43428570b39389116fbba256dd710}{\index{moat\-\_\-backend.\-c@{moat\-\_\-backend.\-c}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!moat_backend.c@{moat\-\_\-backend.\-c}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}const {\bf moat\-\_\-call\-\_\-t} moat\-\_\-calls \mbox{[}T\-C\-\_\-\-M\-A\-X\mbox{]} \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(progmem)}]{}
+\end{DoxyParamCaption}
+)}}\label{moat__backend_8c_a4fa43428570b39389116fbba256dd710}

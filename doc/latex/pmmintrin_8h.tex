@@ -1,0 +1,57 @@
+\hypertarget{pmmintrin_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/pmmintrin.h File Reference}
+\label{pmmintrin_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/pmmintrin.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/pmmintrin.\-h}}
+}
+{\ttfamily \#include $<$emmintrin.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{pmmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse3\char`\"{})))
+\item 
+\#define \hyperlink{pmmintrin_8h_a66e979f07e31521d2971827ecf70bd5c}{\-\_\-mm\-\_\-loaddup\-\_\-pd}(dp)~\-\_\-mm\-\_\-load1\-\_\-pd(dp)
+\item 
+\#define \hyperlink{pmmintrin_8h_a5d16bacd654fa152bc169454f065d4ba}{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-N}~(0x0040)
+\item 
+\#define \hyperlink{pmmintrin_8h_a3fe511b122f7320f24e1817e8924af9c}{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-F\-F}~(0x0000)
+\item 
+\#define \hyperlink{pmmintrin_8h_ae14d8bd09ddd9b380262a070b108e8da}{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K}~(0x0040)
+\item 
+\#define \hyperlink{pmmintrin_8h_a7105e5c05d9d1c6c5d02919708f1c7af}{\-\_\-\-M\-M\-\_\-\-G\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}()~(\-\_\-mm\-\_\-getcsr() \& \hyperlink{pmmintrin_8h_ae14d8bd09ddd9b380262a070b108e8da}{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K})
+\item 
+\#define \hyperlink{pmmintrin_8h_a56537d01c6ceea23eda986ee3ea50a60}{\-\_\-\-M\-M\-\_\-\-S\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~(\-\_\-mm\-\_\-setcsr((\-\_\-mm\-\_\-getcsr() \& $\sim$\hyperlink{pmmintrin_8h_ae14d8bd09ddd9b380262a070b108e8da}{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K}) $\vert$ (\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})))
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{pmmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\index{pmmintrin.\-h@{pmmintrin.\-h}!\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}}
+\index{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}!pmmintrin.h@{pmmintrin.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse3\char`\"{})))}}\label{pmmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}
+\hypertarget{pmmintrin_8h_ae14d8bd09ddd9b380262a070b108e8da}{\index{pmmintrin.\-h@{pmmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K@{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K}}
+\index{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K@{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K}!pmmintrin.h@{pmmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K~(0x0040)}}\label{pmmintrin_8h_ae14d8bd09ddd9b380262a070b108e8da}
+\hypertarget{pmmintrin_8h_a3fe511b122f7320f24e1817e8924af9c}{\index{pmmintrin.\-h@{pmmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-F\-F@{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-F\-F}}
+\index{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-F\-F@{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-F\-F}!pmmintrin.h@{pmmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-F\-F~(0x0000)}}\label{pmmintrin_8h_a3fe511b122f7320f24e1817e8924af9c}
+\hypertarget{pmmintrin_8h_a5d16bacd654fa152bc169454f065d4ba}{\index{pmmintrin.\-h@{pmmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-N@{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-N}}
+\index{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-N@{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-N}!pmmintrin.h@{pmmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-O\-N~(0x0040)}}\label{pmmintrin_8h_a5d16bacd654fa152bc169454f065d4ba}
+\hypertarget{pmmintrin_8h_a7105e5c05d9d1c6c5d02919708f1c7af}{\index{pmmintrin.\-h@{pmmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-G\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E@{\-\_\-\-M\-M\-\_\-\-G\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}}
+\index{\-\_\-\-M\-M\-\_\-\-G\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E@{\-\_\-\-M\-M\-\_\-\-G\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}!pmmintrin.h@{pmmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-G\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-G\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~(\-\_\-mm\-\_\-getcsr() \& {\bf \-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K})}}\label{pmmintrin_8h_a7105e5c05d9d1c6c5d02919708f1c7af}
+\hypertarget{pmmintrin_8h_a66e979f07e31521d2971827ecf70bd5c}{\index{pmmintrin.\-h@{pmmintrin.\-h}!\-\_\-mm\-\_\-loaddup\-\_\-pd@{\-\_\-mm\-\_\-loaddup\-\_\-pd}}
+\index{\-\_\-mm\-\_\-loaddup\-\_\-pd@{\-\_\-mm\-\_\-loaddup\-\_\-pd}!pmmintrin.h@{pmmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-loaddup\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-loaddup\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{dp}
+\end{DoxyParamCaption}
+)~\-\_\-mm\-\_\-load1\-\_\-pd(dp)}}\label{pmmintrin_8h_a66e979f07e31521d2971827ecf70bd5c}
+\hypertarget{pmmintrin_8h_a56537d01c6ceea23eda986ee3ea50a60}{\index{pmmintrin.\-h@{pmmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-S\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E@{\-\_\-\-M\-M\-\_\-\-S\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}}
+\index{\-\_\-\-M\-M\-\_\-\-S\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E@{\-\_\-\-M\-M\-\_\-\-S\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}!pmmintrin.h@{pmmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-S\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-S\-E\-T\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-O\-D\-E(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~(\-\_\-mm\-\_\-setcsr((\-\_\-mm\-\_\-getcsr() \& $\sim${\bf \-\_\-\-M\-M\-\_\-\-D\-E\-N\-O\-R\-M\-A\-L\-S\-\_\-\-Z\-E\-R\-O\-\_\-\-M\-A\-S\-K}) $\vert$ ({\bf x})))}}\label{pmmintrin_8h_a56537d01c6ceea23eda986ee3ea50a60}

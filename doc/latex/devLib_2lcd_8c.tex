@@ -1,0 +1,263 @@
+\hypertarget{devLib_2lcd_8c}{\section{wiring\-Pi/dev\-Lib/lcd.c File Reference}
+\label{devLib_2lcd_8c}\index{wiring\-Pi/dev\-Lib/lcd.\-c@{wiring\-Pi/dev\-Lib/lcd.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}lcd.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlcdDataStruct}{lcd\-Data\-Struct}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{devLib_2lcd_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{devLib_2lcd_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(1==2)
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a6aa8aa2057294b7d06088e834299b369}{L\-C\-D\-\_\-\-C\-L\-E\-A\-R}~0x01
+\item 
+\#define \hyperlink{devLib_2lcd_8c_ae0e309ccad89222eb3457f2da9f2bb8d}{L\-C\-D\-\_\-\-H\-O\-M\-E}~0x02
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a28d2c8d621da114a0fe438db2e58507a}{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y}~0x04
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a8e945df7ca614325cafa08258e82a63c}{L\-C\-D\-\_\-\-C\-T\-R\-L}~0x08
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a93e4bb4b824f5b8f5d572d9b4a943ad2}{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T}~0x10
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a387bfe42ea7284ba0f154f00df579cad}{L\-C\-D\-\_\-\-F\-U\-N\-C}~0x20
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a3b38de74c362be1781fef1136aa9684c}{L\-C\-D\-\_\-\-C\-G\-R\-A\-M}~0x40
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a9f40873eaf6a8f0a93971b3e0ab3fd12}{L\-C\-D\-\_\-\-D\-G\-R\-A\-M}~0x80
+\item 
+\#define \hyperlink{devLib_2lcd_8c_aff5b4fcb87ea2eef9bb3af0234b14f53}{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-S\-H}~0x01
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a58e84458e964afcac51877bd13e7703f}{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-I\-D}~0x02
+\item 
+\#define \hyperlink{devLib_2lcd_8c_aa52bab70fab9c117f20d71442de77452}{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-C\-T\-R\-L}~0x01
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a3da48db16c1e7844567542273a5578c7}{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-C\-T\-R\-L}~0x02
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a1a166a796cbaf4cdd6a3af584ec067d5}{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-L}~0x04
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a5ea7976aa137e8d043d3dfab474cf0b4}{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-F}~0x04
+\item 
+\#define \hyperlink{devLib_2lcd_8c_a0741cad05d62ff28d92a05ea11aa6fdc}{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-N}~0x08
+\item 
+\#define \hyperlink{devLib_2lcd_8c_ae4b9a3bcb0dc315afc03412237c5a3ea}{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-D\-L}~0x10
+\item 
+\#define \hyperlink{devLib_2lcd_8c_afb0c5015365d7e200edec8967d32195c}{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T\-\_\-\-R\-L}~0x04
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{devLib_2lcd_8c_a688913764edb3a241c26da5e51d70ac2}{lcd\-Home} (const int fd)
+\item 
+void \hyperlink{devLib_2lcd_8c_ae1b4dfd9571742b5ca0aba92882b57a6}{lcd\-Clear} (const int fd)
+\item 
+void \hyperlink{devLib_2lcd_8c_af08385cd21eea125d63d6919ecfbea4a}{lcd\-Display} (const int fd, int \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_a0b57aa10271a66f3dc936bba1d2f3830}{state})
+\item 
+void \hyperlink{devLib_2lcd_8c_a8aa13c894973d52eeed51d10bf869df2}{lcd\-Cursor} (const int fd, int \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_a0b57aa10271a66f3dc936bba1d2f3830}{state})
+\item 
+void \hyperlink{devLib_2lcd_8c_af39d67df7e36291184f69691bb97285b}{lcd\-Cursor\-Blink} (const int fd, int \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_a0b57aa10271a66f3dc936bba1d2f3830}{state})
+\item 
+void \hyperlink{devLib_2lcd_8c_abb6341df42d0e652db66e51fbf0ba486}{lcd\-Send\-Command} (const int fd, unsigned char command)
+\item 
+void \hyperlink{devLib_2lcd_8c_a5d09137f6373e95a692c4b3403729254}{lcd\-Position} (const int fd, int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})
+\item 
+void \hyperlink{devLib_2lcd_8c_a74d902393394e4d3cebdcf0d81bbaeeb}{lcd\-Char\-Def} (const int fd, int index, unsigned char \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}\mbox{[}8\mbox{]})
+\item 
+void \hyperlink{devLib_2lcd_8c_a21c60441ee22710add0c9bda1310ed66}{lcd\-Putchar} (const int fd, unsigned char \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+void \hyperlink{devLib_2lcd_8c_a805efc4a96cca29544672151a9594c20}{lcd\-Puts} (const int fd, const char $\ast$string)
+\item 
+void \hyperlink{devLib_2lcd_8c_a49c322ad29410ea292f8d976baf6deb9}{lcd\-Printf} (const int fd, const char $\ast$message,...)
+\item 
+int \hyperlink{devLib_2lcd_8c_accf4d0112435155cf109a4c387cdb425}{lcd\-Init} (const int rows, const int cols, const int bits, const int rs, const int strb, const int d0, const int d1, const int d2, const int d3, const int d4, const int d5, const int d6, const int d7)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structlcdDataStruct}{lcd\-Data\-Struct} $\ast$ \hyperlink{devLib_2lcd_8c_a6e3994c5175d8609dee2cc8d3bcd66e9}{lcds} \mbox{[}\hyperlink{lcd_8h_a6bfe3f4a880b075a72d2a8318bd10f8e}{M\-A\-X\-\_\-\-L\-C\-D\-S}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{devLib_2lcd_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(1==2)}}\label{devLib_2lcd_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{devLib_2lcd_8c_aa52bab70fab9c117f20d71442de77452}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-C\-T\-R\-L}}
+\index{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-C\-T\-R\-L}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-C\-T\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-B\-L\-I\-N\-K\-\_\-\-C\-T\-R\-L~0x01}}\label{devLib_2lcd_8c_aa52bab70fab9c117f20d71442de77452}
+\hypertarget{devLib_2lcd_8c_a93e4bb4b824f5b8f5d572d9b4a943ad2}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T}}
+\index{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T@{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T~0x10}}\label{devLib_2lcd_8c_a93e4bb4b824f5b8f5d572d9b4a943ad2}
+\hypertarget{devLib_2lcd_8c_afb0c5015365d7e200edec8967d32195c}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T\-\_\-\-R\-L@{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T\-\_\-\-R\-L}}
+\index{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T\-\_\-\-R\-L@{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T\-\_\-\-R\-L}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T\-\_\-\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-D\-S\-H\-I\-F\-T\-\_\-\-R\-L~0x04}}\label{devLib_2lcd_8c_afb0c5015365d7e200edec8967d32195c}
+\hypertarget{devLib_2lcd_8c_a3b38de74c362be1781fef1136aa9684c}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-C\-G\-R\-A\-M@{L\-C\-D\-\_\-\-C\-G\-R\-A\-M}}
+\index{L\-C\-D\-\_\-\-C\-G\-R\-A\-M@{L\-C\-D\-\_\-\-C\-G\-R\-A\-M}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-C\-G\-R\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-G\-R\-A\-M~0x40}}\label{devLib_2lcd_8c_a3b38de74c362be1781fef1136aa9684c}
+\hypertarget{devLib_2lcd_8c_a6aa8aa2057294b7d06088e834299b369}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-C\-L\-E\-A\-R@{L\-C\-D\-\_\-\-C\-L\-E\-A\-R}}
+\index{L\-C\-D\-\_\-\-C\-L\-E\-A\-R@{L\-C\-D\-\_\-\-C\-L\-E\-A\-R}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-C\-L\-E\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-L\-E\-A\-R~0x01}}\label{devLib_2lcd_8c_a6aa8aa2057294b7d06088e834299b369}
+\hypertarget{devLib_2lcd_8c_a8e945df7ca614325cafa08258e82a63c}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-C\-T\-R\-L}}
+\index{L\-C\-D\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-C\-T\-R\-L}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-C\-T\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-T\-R\-L~0x08}}\label{devLib_2lcd_8c_a8e945df7ca614325cafa08258e82a63c}
+\hypertarget{devLib_2lcd_8c_a3da48db16c1e7844567542273a5578c7}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-C\-T\-R\-L}}
+\index{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-C\-T\-R\-L}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-C\-T\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-C\-U\-R\-S\-O\-R\-\_\-\-C\-T\-R\-L~0x02}}\label{devLib_2lcd_8c_a3da48db16c1e7844567542273a5578c7}
+\hypertarget{devLib_2lcd_8c_a9f40873eaf6a8f0a93971b3e0ab3fd12}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-D\-G\-R\-A\-M@{L\-C\-D\-\_\-\-D\-G\-R\-A\-M}}
+\index{L\-C\-D\-\_\-\-D\-G\-R\-A\-M@{L\-C\-D\-\_\-\-D\-G\-R\-A\-M}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-D\-G\-R\-A\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-D\-G\-R\-A\-M~0x80}}\label{devLib_2lcd_8c_a9f40873eaf6a8f0a93971b3e0ab3fd12}
+\hypertarget{devLib_2lcd_8c_a1a166a796cbaf4cdd6a3af584ec067d5}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-L}}
+\index{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-L@{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-L}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-D\-I\-S\-P\-L\-A\-Y\-\_\-\-C\-T\-R\-L~0x04}}\label{devLib_2lcd_8c_a1a166a796cbaf4cdd6a3af584ec067d5}
+\hypertarget{devLib_2lcd_8c_a28d2c8d621da114a0fe438db2e58507a}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-E\-N\-T\-R\-Y@{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y}}
+\index{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y@{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-E\-N\-T\-R\-Y~0x04}}\label{devLib_2lcd_8c_a28d2c8d621da114a0fe438db2e58507a}
+\hypertarget{devLib_2lcd_8c_a58e84458e964afcac51877bd13e7703f}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-I\-D@{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-I\-D}}
+\index{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-I\-D@{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-I\-D}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-I\-D~0x02}}\label{devLib_2lcd_8c_a58e84458e964afcac51877bd13e7703f}
+\hypertarget{devLib_2lcd_8c_aff5b4fcb87ea2eef9bb3af0234b14f53}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-S\-H@{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-S\-H}}
+\index{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-S\-H@{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-S\-H}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-S\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-E\-N\-T\-R\-Y\-\_\-\-S\-H~0x01}}\label{devLib_2lcd_8c_aff5b4fcb87ea2eef9bb3af0234b14f53}
+\hypertarget{devLib_2lcd_8c_a387bfe42ea7284ba0f154f00df579cad}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-F\-U\-N\-C@{L\-C\-D\-\_\-\-F\-U\-N\-C}}
+\index{L\-C\-D\-\_\-\-F\-U\-N\-C@{L\-C\-D\-\_\-\-F\-U\-N\-C}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-F\-U\-N\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-F\-U\-N\-C~0x20}}\label{devLib_2lcd_8c_a387bfe42ea7284ba0f154f00df579cad}
+\hypertarget{devLib_2lcd_8c_ae4b9a3bcb0dc315afc03412237c5a3ea}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-D\-L@{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-D\-L}}
+\index{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-D\-L@{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-D\-L}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-D\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-D\-L~0x10}}\label{devLib_2lcd_8c_ae4b9a3bcb0dc315afc03412237c5a3ea}
+\hypertarget{devLib_2lcd_8c_a5ea7976aa137e8d043d3dfab474cf0b4}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-F@{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-F}}
+\index{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-F@{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-F}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-F~0x04}}\label{devLib_2lcd_8c_a5ea7976aa137e8d043d3dfab474cf0b4}
+\hypertarget{devLib_2lcd_8c_a0741cad05d62ff28d92a05ea11aa6fdc}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-N@{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-N}}
+\index{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-N@{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-N}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-F\-U\-N\-C\-\_\-\-N~0x08}}\label{devLib_2lcd_8c_a0741cad05d62ff28d92a05ea11aa6fdc}
+\hypertarget{devLib_2lcd_8c_ae0e309ccad89222eb3457f2da9f2bb8d}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!L\-C\-D\-\_\-\-H\-O\-M\-E@{L\-C\-D\-\_\-\-H\-O\-M\-E}}
+\index{L\-C\-D\-\_\-\-H\-O\-M\-E@{L\-C\-D\-\_\-\-H\-O\-M\-E}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{L\-C\-D\-\_\-\-H\-O\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-C\-D\-\_\-\-H\-O\-M\-E~0x02}}\label{devLib_2lcd_8c_ae0e309ccad89222eb3457f2da9f2bb8d}
+\hypertarget{devLib_2lcd_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{devLib_2lcd_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{devLib_2lcd_8c_a74d902393394e4d3cebdcf0d81bbaeeb}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Char\-Def@{lcd\-Char\-Def}}
+\index{lcd\-Char\-Def@{lcd\-Char\-Def}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Char\-Def}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Char\-Def (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{index, }
+\item[{unsigned char}]{data\mbox{[}8\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_a74d902393394e4d3cebdcf0d81bbaeeb}
+\hypertarget{devLib_2lcd_8c_ae1b4dfd9571742b5ca0aba92882b57a6}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Clear@{lcd\-Clear}}
+\index{lcd\-Clear@{lcd\-Clear}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Clear (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_ae1b4dfd9571742b5ca0aba92882b57a6}
+\hypertarget{devLib_2lcd_8c_a8aa13c894973d52eeed51d10bf869df2}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Cursor@{lcd\-Cursor}}
+\index{lcd\-Cursor@{lcd\-Cursor}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Cursor}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Cursor (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_a8aa13c894973d52eeed51d10bf869df2}
+\hypertarget{devLib_2lcd_8c_af39d67df7e36291184f69691bb97285b}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Cursor\-Blink@{lcd\-Cursor\-Blink}}
+\index{lcd\-Cursor\-Blink@{lcd\-Cursor\-Blink}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Cursor\-Blink}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Cursor\-Blink (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_af39d67df7e36291184f69691bb97285b}
+\hypertarget{devLib_2lcd_8c_af08385cd21eea125d63d6919ecfbea4a}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Display@{lcd\-Display}}
+\index{lcd\-Display@{lcd\-Display}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Display}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Display (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{state}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_af08385cd21eea125d63d6919ecfbea4a}
+\hypertarget{devLib_2lcd_8c_a688913764edb3a241c26da5e51d70ac2}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Home@{lcd\-Home}}
+\index{lcd\-Home@{lcd\-Home}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Home}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Home (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_a688913764edb3a241c26da5e51d70ac2}
+\hypertarget{devLib_2lcd_8c_accf4d0112435155cf109a4c387cdb425}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Init@{lcd\-Init}}
+\index{lcd\-Init@{lcd\-Init}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Init}]{\setlength{\rightskip}{0pt plus 5cm}int lcd\-Init (
+\begin{DoxyParamCaption}
+\item[{const int}]{rows, }
+\item[{const int}]{cols, }
+\item[{const int}]{bits, }
+\item[{const int}]{rs, }
+\item[{const int}]{strb, }
+\item[{const int}]{d0, }
+\item[{const int}]{d1, }
+\item[{const int}]{d2, }
+\item[{const int}]{d3, }
+\item[{const int}]{d4, }
+\item[{const int}]{d5, }
+\item[{const int}]{d6, }
+\item[{const int}]{d7}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_accf4d0112435155cf109a4c387cdb425}
+\hypertarget{devLib_2lcd_8c_a5d09137f6373e95a692c4b3403729254}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Position@{lcd\-Position}}
+\index{lcd\-Position@{lcd\-Position}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Position}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Position (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{int}]{x, }
+\item[{int}]{y}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_a5d09137f6373e95a692c4b3403729254}
+\hypertarget{devLib_2lcd_8c_a49c322ad29410ea292f8d976baf6deb9}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Printf@{lcd\-Printf}}
+\index{lcd\-Printf@{lcd\-Printf}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Printf}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Printf (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{const char $\ast$}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_a49c322ad29410ea292f8d976baf6deb9}
+\hypertarget{devLib_2lcd_8c_a21c60441ee22710add0c9bda1310ed66}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Putchar@{lcd\-Putchar}}
+\index{lcd\-Putchar@{lcd\-Putchar}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Putchar}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Putchar (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{unsigned char}]{data}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_a21c60441ee22710add0c9bda1310ed66}
+\hypertarget{devLib_2lcd_8c_a805efc4a96cca29544672151a9594c20}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Puts@{lcd\-Puts}}
+\index{lcd\-Puts@{lcd\-Puts}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Puts}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Puts (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{const char $\ast$}]{string}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_a805efc4a96cca29544672151a9594c20}
+\hypertarget{devLib_2lcd_8c_abb6341df42d0e652db66e51fbf0ba486}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcd\-Send\-Command@{lcd\-Send\-Command}}
+\index{lcd\-Send\-Command@{lcd\-Send\-Command}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcd\-Send\-Command}]{\setlength{\rightskip}{0pt plus 5cm}void lcd\-Send\-Command (
+\begin{DoxyParamCaption}
+\item[{const int}]{fd, }
+\item[{unsigned char}]{command}
+\end{DoxyParamCaption}
+)}}\label{devLib_2lcd_8c_abb6341df42d0e652db66e51fbf0ba486}
+
+
+\subsection{Variable Documentation}
+\hypertarget{devLib_2lcd_8c_a6e3994c5175d8609dee2cc8d3bcd66e9}{\index{dev\-Lib/lcd.\-c@{dev\-Lib/lcd.\-c}!lcds@{lcds}}
+\index{lcds@{lcds}!devLib/lcd.c@{dev\-Lib/lcd.\-c}}
+\subsubsection[{lcds}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf lcd\-Data\-Struct}$\ast$ lcds\mbox{[}{\bf M\-A\-X\-\_\-\-L\-C\-D\-S}\mbox{]}}}\label{devLib_2lcd_8c_a6e3994c5175d8609dee2cc8d3bcd66e9}

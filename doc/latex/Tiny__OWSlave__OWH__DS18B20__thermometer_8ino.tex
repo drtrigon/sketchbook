@@ -1,0 +1,120 @@
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino}{\section{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer/backup/\-Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.ino File Reference}
+\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino}\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer/backup/\-Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermo-\/hygrometer/backup/\-Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+}
+{\ttfamily \#include \char`\"{}One\-Wire\-Hub.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\-S18\-B20.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a6766eee584b84ead350781efbabe36d7}{blinking} (void)
+\item 
+void \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_af457592e93b296e5ea12f1cc16ec7795}{get\-Temp} (void)
+\item 
+float \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_acd16ee68f07b74cf5f62870589bf3d70}{get\-Vcc} (void)
+\item 
+float \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a5b76ffb3e5fc286906bbbaf521534288}{chip\-Temp} (float \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Sensors_8cpp_a2ac761123eb9aa3dacd85dc88d857939}{raw})
+\item 
+int \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a8d577da9db3345495d3bf210b0520b39}{get\-A\-D\-C} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a10e1cfbd99adf655995798f1db9bfbed}{enable\-\_\-debug} = 0
+\item 
+constexpr uint8\-\_\-t \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_add5a7eb759d22b21f8875663ed2c1528}{pin\-\_\-led} \{ 0 \}
+\item 
+constexpr uint8\-\_\-t \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire} \{ 2 \}
+\item 
+auto \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{hub} = One\-Wire\-Hub(\hyperlink{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire})
+\item 
+auto \hyperlink{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_ae38016b79711fa4f32a36debda7ae0f2}{ds18b20} = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x00, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a6766eee584b84ead350781efbabe36d7}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!blinking@{blinking}}
+\index{blinking@{blinking}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{blinking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} blinking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a6766eee584b84ead350781efbabe36d7}
+One\-Wire\-Hub One\-Wire slave status update function.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+Integer indicating whether status updated with 1 
+\end{DoxyReturn}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a5b76ffb3e5fc286906bbbaf521534288}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!chip\-Temp@{chip\-Temp}}
+\index{chip\-Temp@{chip\-Temp}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{chip\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float chip\-Temp (
+\begin{DoxyParamCaption}
+\item[{float}]{raw}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a5b76ffb3e5fc286906bbbaf521534288}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a8d577da9db3345495d3bf210b0520b39}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!get\-A\-D\-C@{get\-A\-D\-C}}
+\index{get\-A\-D\-C@{get\-A\-D\-C}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{get\-A\-D\-C}]{\setlength{\rightskip}{0pt plus 5cm}int get\-A\-D\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a8d577da9db3345495d3bf210b0520b39}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_af457592e93b296e5ea12f1cc16ec7795}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!get\-Temp@{get\-Temp}}
+\index{get\-Temp@{get\-Temp}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{get\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float get\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_af457592e93b296e5ea12f1cc16ec7795}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_acd16ee68f07b74cf5f62870589bf3d70}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!get\-Vcc@{get\-Vcc}}
+\index{get\-Vcc@{get\-Vcc}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{get\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}float get\-Vcc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_acd16ee68f07b74cf5f62870589bf3d70}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!loop@{loop}}
+\index{loop@{loop}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!setup@{setup}}
+\index{setup@{setup}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_ae38016b79711fa4f32a36debda7ae0f2}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!ds18b20@{ds18b20}}
+\index{ds18b20@{ds18b20}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{ds18b20}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b20 = D\-S18\-B20(D\-S18\-B20\-::family\-\_\-code, 0x00, 0x00, 0x\-B2, 0x18, 0x\-D\-A, 0x00)}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_ae38016b79711fa4f32a36debda7ae0f2}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a10e1cfbd99adf655995798f1db9bfbed}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!enable\-\_\-debug@{enable\-\_\-debug}}
+\index{enable\-\_\-debug@{enable\-\_\-debug}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{enable\-\_\-debug}]{\setlength{\rightskip}{0pt plus 5cm}constexpr {\bf bool} enable\-\_\-debug = 0}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a10e1cfbd99adf655995798f1db9bfbed}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!hub@{hub}}
+\index{hub@{hub}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{hub}]{\setlength{\rightskip}{0pt plus 5cm}auto hub = One\-Wire\-Hub({\bf pin\-\_\-onewire})}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_a3beb275f1ae5db0a79499403dd2fbff8}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_add5a7eb759d22b21f8875663ed2c1528}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!pin\-\_\-led@{pin\-\_\-led}}
+\index{pin\-\_\-led@{pin\-\_\-led}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{pin\-\_\-led}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-led \{ 0 \}}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_add5a7eb759d22b21f8875663ed2c1528}
+\hypertarget{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_ad4f51a015485d98cc3a8a79f41a81027}{\index{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}!pin\-\_\-onewire@{pin\-\_\-onewire}}
+\index{pin\-\_\-onewire@{pin\-\_\-onewire}!Tiny_OWSlave_OWH_DS18B20_thermometer.ino@{Tiny\-\_\-\-O\-W\-Slave\-\_\-\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-thermometer.\-ino}}
+\subsubsection[{pin\-\_\-onewire}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-onewire \{ 2 \}}}\label{Tiny__OWSlave__OWH__DS18B20__thermometer_8ino_ad4f51a015485d98cc3a8a79f41a81027}

@@ -1,0 +1,56 @@
+\hypertarget{mm__malloc_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/mm\-\_\-malloc.h File Reference}
+\label{mm__malloc_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/mm\-\_\-malloc.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/mm\-\_\-malloc.\-h}}
+}
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{mm__malloc_8h_a120e64e22bc82d4930f98147eee3e85f}{posix\-\_\-memalign} (void $\ast$$\ast$\-\_\-\-\_\-memptr, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \-\_\-\-\_\-alignment, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \-\_\-\-\_\-size)
+\item 
+\hyperlink{mm__malloc_8h_a682140772a1d7d2744289e6abb2ad2ff}{if} (\hyperlink{mm__malloc_8h_a120e64e22bc82d4930f98147eee3e85f}{posix\-\_\-memalign}(\&\hyperlink{mm__malloc_8h_a9fbdf1ba57664554258e74ba72ffb3dc}{\-\_\-\-\_\-malloced\-Memory}, \hyperlink{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\-\_\-\-\_\-align}, \-\_\-\-\_\-size)) \hyperlink{arm__acle_8h_aa39c843d7f57d177d9f927f0142d8e0c}{return} 0
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+static \-\_\-\-\_\-inline\-\_\-\-\_\- void \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\-\_\-\-\_\-align}
+\item 
+void $\ast$ \hyperlink{mm__malloc_8h_a9fbdf1ba57664554258e74ba72ffb3dc}{\-\_\-\-\_\-malloced\-Memory}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{mm__malloc_8h_a682140772a1d7d2744289e6abb2ad2ff}{\index{mm\-\_\-malloc.\-h@{mm\-\_\-malloc.\-h}!if@{if}}
+\index{if@{if}!mm_malloc.h@{mm\-\_\-malloc.\-h}}
+\subsubsection[{if}]{\setlength{\rightskip}{0pt plus 5cm}if (
+\begin{DoxyParamCaption}
+\item[{{\bf posix\-\_\-memalign} \&,,}]{\-\_\-\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{mm__malloc_8h_a682140772a1d7d2744289e6abb2ad2ff}
+\hypertarget{mm__malloc_8h_a120e64e22bc82d4930f98147eee3e85f}{\index{mm\-\_\-malloc.\-h@{mm\-\_\-malloc.\-h}!posix\-\_\-memalign@{posix\-\_\-memalign}}
+\index{posix\-\_\-memalign@{posix\-\_\-memalign}!mm_malloc.h@{mm\-\_\-malloc.\-h}}
+\subsubsection[{posix\-\_\-memalign}]{\setlength{\rightskip}{0pt plus 5cm}int posix\-\_\-memalign (
+\begin{DoxyParamCaption}
+\item[{void $\ast$$\ast$}]{\-\_\-\-\_\-memptr, }
+\item[{{\bf size\-\_\-t}}]{\-\_\-\-\_\-alignment, }
+\item[{{\bf size\-\_\-t}}]{\-\_\-\-\_\-size}
+\end{DoxyParamCaption}
+)}}\label{mm__malloc_8h_a120e64e22bc82d4930f98147eee3e85f}
+
+
+\subsection{Variable Documentation}
+\hypertarget{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\index{mm\-\_\-malloc.\-h@{mm\-\_\-malloc.\-h}!\-\_\-\-\_\-align@{\-\_\-\-\_\-align}}
+\index{\-\_\-\-\_\-align@{\-\_\-\-\_\-align}!mm_malloc.h@{mm\-\_\-malloc.\-h}}
+\subsubsection[{\-\_\-\-\_\-align}]{\setlength{\rightskip}{0pt plus 5cm}\-\_\-\-\_\-inline\-\_\-\-\_\- void {\bf size\-\_\-t} \-\_\-\-\_\-align}}\label{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+\{
+  \textcolor{keywordflow}{if} (\hyperlink{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\_\_align} == 1) \{
+    \textcolor{keywordflow}{return} malloc(\_\_size);
+  \}
+
+  \textcolor{keywordflow}{if} (!(\hyperlink{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\_\_align} & (\hyperlink{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\_\_align} - 1)) && \hyperlink{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\_\_align} < \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{void} *))
+    \hyperlink{mm__malloc_8h_ab430eadf03760049db288391ab5e2ee1}{\_\_align} = \textcolor{keyword}{sizeof}(\textcolor{keywordtype}{void} *)
+\end{DoxyCode}
+\hypertarget{mm__malloc_8h_a9fbdf1ba57664554258e74ba72ffb3dc}{\index{mm\-\_\-malloc.\-h@{mm\-\_\-malloc.\-h}!\-\_\-\-\_\-malloced\-Memory@{\-\_\-\-\_\-malloced\-Memory}}
+\index{\-\_\-\-\_\-malloced\-Memory@{\-\_\-\-\_\-malloced\-Memory}!mm_malloc.h@{mm\-\_\-malloc.\-h}}
+\subsubsection[{\-\_\-\-\_\-malloced\-Memory}]{\setlength{\rightskip}{0pt plus 5cm}{\bf return} \-\_\-\-\_\-malloced\-Memory}}\label{mm__malloc_8h_a9fbdf1ba57664554258e74ba72ffb3dc}

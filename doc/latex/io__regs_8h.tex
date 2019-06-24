@@ -1,0 +1,25 @@
+\hypertarget{io__regs_8h}{\section{cli/owslave/io\-\_\-regs.h File Reference}
+\label{io__regs_8h}\index{cli/owslave/io\-\_\-regs.\-h@{cli/owslave/io\-\_\-regs.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{io__regs_8h_a09391fde08cd7e7731c26c8f031e2e62}{\-\_\-\-P\-\_\-\-R\-E\-G\-S}(\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{io__regs_8h_a09391fde08cd7e7731c26c8f031e2e62}{\index{io\-\_\-regs.\-h@{io\-\_\-regs.\-h}!\-\_\-\-P\-\_\-\-R\-E\-G\-S@{\-\_\-\-P\-\_\-\-R\-E\-G\-S}}
+\index{\-\_\-\-P\-\_\-\-R\-E\-G\-S@{\-\_\-\-P\-\_\-\-R\-E\-G\-S}!io_regs.h@{io\-\_\-regs.\-h}}
+\subsubsection[{\-\_\-\-P\-\_\-\-R\-E\-G\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-P\-\_\-\-R\-E\-G\-S(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf addr}}
+\end{DoxyParamCaption}
+)}}\label{io__regs_8h_a09391fde08cd7e7731c26c8f031e2e62}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+uint8\_t \_i=3*(adr>>3); \(\backslash\)
+    uint8\_t *pin \hyperlink{avx512bwintrin_8h_a41ce95b45dd1a40ec3184c3bbdc9f54d}{\_\_attribute\_\_}((unused)) = (uint8\_t *)(0x20+\_i); \(\backslash\)
+    uint8\_t *ddr \hyperlink{avx512bwintrin_8h_a41ce95b45dd1a40ec3184c3bbdc9f54d}{\_\_attribute\_\_}((unused)) = (uint8\_t *)(0x20+\_i+1); \(\backslash\)
+    uint8\_t *port \hyperlink{avx512bwintrin_8h_a41ce95b45dd1a40ec3184c3bbdc9f54d}{\_\_attribute\_\_}((unused)) = (uint8\_t *)(0x20+\_i+2);
+\end{DoxyCode}

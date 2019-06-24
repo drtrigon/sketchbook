@@ -1,0 +1,264 @@
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino}{\section{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station/\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.ino File Reference}
+\label{OWH__DS18B20__asInterface__SensorStation_8ino}\index{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station/\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{Uno\-\_\-\-O\-W\-Slave/\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station/\-O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+}
+{\ttfamily \#include \char`\"{}One\-Wire\-Hub.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}D\-S18\-B20.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-Sensor.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-U.\-h$>$}\\*
+{\ttfamily \#include $<$Adafruit\-\_\-\-B\-M\-E280.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a3fd1be5675628ccdd1cd809ee995b2e7}{S\-E\-A\-L\-E\-V\-E\-L\-P\-R\-E\-S\-S\-U\-R\-E\-\_\-\-H\-P\-A}~(1013.\-25)
+\item 
+\#define \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a9ee443dafbcc30c5cc792d954d097adf}{M\-Q135}~A0
+\item 
+\#define \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a90ad8312f4fa156f6bea53837390fb86}{M\-Q2}~A1
+\item 
+\#define \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_aefa70dbae098252447aae93b45b4ea2c}{S\-E\-N02281\-P}~A3
+\item 
+\#define \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a3a0bfe3da093e16e22254f7fe75b080e}{G\-U\-V\-A\-S12\-S\-D}~A7
+\item 
+\#define \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a6636551bd86d7647ce3e09781b4d5e4e}{M\-I\-C}~A6
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a6766eee584b84ead350781efbabe36d7}{blinking} (void)
+\item 
+void \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_ac39170074503d24a7f72365c7c65b5bf}{update\-Sensor} (uint8\-\_\-t \hyperlink{Yun__Log__BatteryDisCharging_8ino_a2f2962579c73a294710a4407f4d01452}{process})
+\item 
+void \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a247ef9f9d326cc0fc3bf2cc59e9b9cfb}{pack} (D\-S18\-B20 \&ds18b, float \hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\item 
+long \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{read\-Vcc} ()
+\item 
+double \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a0a60fd2316c16170dc7aa6aa0f5f485d}{Get\-Temp} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+constexpr \hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a10e1cfbd99adf655995798f1db9bfbed}{enable\-\_\-debug} = 0
+\item 
+constexpr uint8\-\_\-t \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_add5a7eb759d22b21f8875663ed2c1528}{pin\-\_\-led}
+\item 
+constexpr uint8\-\_\-t \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire} \{ 8 \}
+\item 
+Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a34dc1ffbb166b7afbf402f717b871f77}{tsl} = Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified(T\-S\-L2561\-\_\-\-A\-D\-D\-R\-\_\-\-F\-L\-O\-A\-T, 12345)
+\item 
+Adafruit\-\_\-\-B\-M\-E280 \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a2871708605796e3f6cfa9cd9328daff3}{bme}
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{hub} = One\-Wire\-Hub(\hyperlink{OWH__DS2438__battMon__Test_8ino_ad4f51a015485d98cc3a8a79f41a81027}{pin\-\_\-onewire})
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a32a543547840c79cf235685d5cef861b}{ds18b00} = D\-S18\-B20(0x28, 0x00, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a211d281f65b23c68014c5ade33ad8046}{ds18b01} = D\-S18\-B20(0x28, 0x01, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a65c9858825a2360040b6c3d8e99a6984}{ds18b02} = D\-S18\-B20(0x28, 0x02, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a20efe680cbc012b4e01ddb1e350cb99b}{ds18b03} = D\-S18\-B20(0x28, 0x03, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_ac75e3c928eeb0a635880c9751a6b0791}{ds18b04} = D\-S18\-B20(0x28, 0x04, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a44eb0a39bccb1bb14d914abc4506d1a4}{ds18b05} = D\-S18\-B20(0x28, 0x05, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_adb13165d97b4ac8b92f6e3e3b378a978}{ds18b06} = D\-S18\-B20(0x28, 0x06, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a5183668bddd46e2134664d247363bc7f}{ds18b07} = D\-S18\-B20(0x28, 0x07, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_acf7bab2936aad16c635e88c442ad69a5}{ds18b08} = D\-S18\-B20(0x28, 0x08, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_aa80e6e3970b59c46fd137aa82d649db8}{ds18b09} = D\-S18\-B20(0x28, 0x09, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a59751c07640446f3a0a31507023ef32a}{ds18b10} = D\-S18\-B20(0x28, 0x0\-A, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_afe1f79b15300673319f9295c3ef94f47}{ds18b11} = D\-S18\-B20(0x28, 0x0\-B, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_aafe9ba7a96bf47afc486d09b9897fe60}{ds18b12} = D\-S18\-B20(0x28, 0x0\-C, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+auto \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a6eda42d9db98a8b5e5d09256d75039d9}{ds18b13} = D\-S18\-B20(0x28, 0x0\-D, 0x55, 0x44, 0x33, 0x22, 0x11)
+\item 
+unsigned int \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a46d2773d075382821ba5cc9724036ef6}{mmin}
+\item 
+unsigned int \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_ac3c625f389082ca7f017934b3508462d}{mmax}
+\item 
+unsigned int \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a9163138d612480a614fa98c44e4318c4}{val}
+\item 
+unsigned int \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_ad54903c3e759902a4089ee088aedb4a6}{mavg}
+\item 
+uint16\-\_\-t \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_aaa5c7d0bf3e3db372c321ee38a514a57}{broadband}
+\item 
+uint16\-\_\-t \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a5677d0b4405dd192091db97a8941dbc8}{infrared}
+\item 
+sensors\-\_\-event\-\_\-t \hyperlink{OWH__DS18B20__asInterface__SensorStation_8ino_a40ecda65c4ebce49fa139666f210bef0}{event}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a3a0bfe3da093e16e22254f7fe75b080e}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!G\-U\-V\-A\-S12\-S\-D@{G\-U\-V\-A\-S12\-S\-D}}
+\index{G\-U\-V\-A\-S12\-S\-D@{G\-U\-V\-A\-S12\-S\-D}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{G\-U\-V\-A\-S12\-S\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-U\-V\-A\-S12\-S\-D~A7}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a3a0bfe3da093e16e22254f7fe75b080e}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a6636551bd86d7647ce3e09781b4d5e4e}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!M\-I\-C@{M\-I\-C}}
+\index{M\-I\-C@{M\-I\-C}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{M\-I\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-I\-C~A6}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a6636551bd86d7647ce3e09781b4d5e4e}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a9ee443dafbcc30c5cc792d954d097adf}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!M\-Q135@{M\-Q135}}
+\index{M\-Q135@{M\-Q135}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{M\-Q135}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-Q135~A0}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a9ee443dafbcc30c5cc792d954d097adf}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a90ad8312f4fa156f6bea53837390fb86}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!M\-Q2@{M\-Q2}}
+\index{M\-Q2@{M\-Q2}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{M\-Q2}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-Q2~A1}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a90ad8312f4fa156f6bea53837390fb86}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a3fd1be5675628ccdd1cd809ee995b2e7}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!S\-E\-A\-L\-E\-V\-E\-L\-P\-R\-E\-S\-S\-U\-R\-E\-\_\-\-H\-P\-A@{S\-E\-A\-L\-E\-V\-E\-L\-P\-R\-E\-S\-S\-U\-R\-E\-\_\-\-H\-P\-A}}
+\index{S\-E\-A\-L\-E\-V\-E\-L\-P\-R\-E\-S\-S\-U\-R\-E\-\_\-\-H\-P\-A@{S\-E\-A\-L\-E\-V\-E\-L\-P\-R\-E\-S\-S\-U\-R\-E\-\_\-\-H\-P\-A}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{S\-E\-A\-L\-E\-V\-E\-L\-P\-R\-E\-S\-S\-U\-R\-E\-\_\-\-H\-P\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-A\-L\-E\-V\-E\-L\-P\-R\-E\-S\-S\-U\-R\-E\-\_\-\-H\-P\-A~(1013.\-25)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a3fd1be5675628ccdd1cd809ee995b2e7}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_aefa70dbae098252447aae93b45b4ea2c}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!S\-E\-N02281\-P@{S\-E\-N02281\-P}}
+\index{S\-E\-N02281\-P@{S\-E\-N02281\-P}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{S\-E\-N02281\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-N02281\-P~A3}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_aefa70dbae098252447aae93b45b4ea2c}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a6766eee584b84ead350781efbabe36d7}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!blinking@{blinking}}
+\index{blinking@{blinking}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{blinking}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} blinking (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a6766eee584b84ead350781efbabe36d7}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a0a60fd2316c16170dc7aa6aa0f5f485d}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!Get\-Temp@{Get\-Temp}}
+\index{Get\-Temp@{Get\-Temp}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{Get\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}double Get\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a0a60fd2316c16170dc7aa6aa0f5f485d}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a247ef9f9d326cc0fc3bf2cc59e9b9cfb}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!pack@{pack}}
+\index{pack@{pack}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{pack}]{\setlength{\rightskip}{0pt plus 5cm}void pack (
+\begin{DoxyParamCaption}
+\item[{D\-S18\-B20 \&}]{ds18b, }
+\item[{float}]{val}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a247ef9f9d326cc0fc3bf2cc59e9b9cfb}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a8e23c9421f6663303ea22e4969e2f6c1}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}long read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a8e23c9421f6663303ea22e4969e2f6c1}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_ac39170074503d24a7f72365c7c65b5bf}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!update\-Sensor@{update\-Sensor}}
+\index{update\-Sensor@{update\-Sensor}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{update\-Sensor}]{\setlength{\rightskip}{0pt plus 5cm}void update\-Sensor (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{process}
+\end{DoxyParamCaption}
+)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_ac39170074503d24a7f72365c7c65b5bf}
+
+\begin{DoxyItemize}
+\item Display atmospheric pressue in Hecto-\/\-Pascals \mbox{[}mbar\mbox{]} $\ast$/ 
+\end{DoxyItemize}
+
+\subsection{Variable Documentation}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a2871708605796e3f6cfa9cd9328daff3}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!bme@{bme}}
+\index{bme@{bme}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{bme}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-B\-M\-E280 bme}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a2871708605796e3f6cfa9cd9328daff3}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_aaa5c7d0bf3e3db372c321ee38a514a57}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!broadband@{broadband}}
+\index{broadband@{broadband}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{broadband}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t broadband}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_aaa5c7d0bf3e3db372c321ee38a514a57}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a32a543547840c79cf235685d5cef861b}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b00@{ds18b00}}
+\index{ds18b00@{ds18b00}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b00}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b00 = D\-S18\-B20(0x28, 0x00, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a32a543547840c79cf235685d5cef861b}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a211d281f65b23c68014c5ade33ad8046}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b01@{ds18b01}}
+\index{ds18b01@{ds18b01}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b01}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b01 = D\-S18\-B20(0x28, 0x01, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a211d281f65b23c68014c5ade33ad8046}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a65c9858825a2360040b6c3d8e99a6984}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b02@{ds18b02}}
+\index{ds18b02@{ds18b02}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b02}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b02 = D\-S18\-B20(0x28, 0x02, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a65c9858825a2360040b6c3d8e99a6984}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a20efe680cbc012b4e01ddb1e350cb99b}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b03@{ds18b03}}
+\index{ds18b03@{ds18b03}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b03}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b03 = D\-S18\-B20(0x28, 0x03, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a20efe680cbc012b4e01ddb1e350cb99b}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_ac75e3c928eeb0a635880c9751a6b0791}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b04@{ds18b04}}
+\index{ds18b04@{ds18b04}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b04}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b04 = D\-S18\-B20(0x28, 0x04, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_ac75e3c928eeb0a635880c9751a6b0791}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a44eb0a39bccb1bb14d914abc4506d1a4}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b05@{ds18b05}}
+\index{ds18b05@{ds18b05}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b05}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b05 = D\-S18\-B20(0x28, 0x05, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a44eb0a39bccb1bb14d914abc4506d1a4}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_adb13165d97b4ac8b92f6e3e3b378a978}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b06@{ds18b06}}
+\index{ds18b06@{ds18b06}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b06}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b06 = D\-S18\-B20(0x28, 0x06, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_adb13165d97b4ac8b92f6e3e3b378a978}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a5183668bddd46e2134664d247363bc7f}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b07@{ds18b07}}
+\index{ds18b07@{ds18b07}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b07}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b07 = D\-S18\-B20(0x28, 0x07, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a5183668bddd46e2134664d247363bc7f}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_acf7bab2936aad16c635e88c442ad69a5}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b08@{ds18b08}}
+\index{ds18b08@{ds18b08}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b08}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b08 = D\-S18\-B20(0x28, 0x08, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_acf7bab2936aad16c635e88c442ad69a5}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_aa80e6e3970b59c46fd137aa82d649db8}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b09@{ds18b09}}
+\index{ds18b09@{ds18b09}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b09}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b09 = D\-S18\-B20(0x28, 0x09, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_aa80e6e3970b59c46fd137aa82d649db8}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a59751c07640446f3a0a31507023ef32a}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b10@{ds18b10}}
+\index{ds18b10@{ds18b10}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b10}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b10 = D\-S18\-B20(0x28, 0x0\-A, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a59751c07640446f3a0a31507023ef32a}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_afe1f79b15300673319f9295c3ef94f47}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b11@{ds18b11}}
+\index{ds18b11@{ds18b11}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b11}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b11 = D\-S18\-B20(0x28, 0x0\-B, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_afe1f79b15300673319f9295c3ef94f47}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_aafe9ba7a96bf47afc486d09b9897fe60}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b12@{ds18b12}}
+\index{ds18b12@{ds18b12}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b12}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b12 = D\-S18\-B20(0x28, 0x0\-C, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_aafe9ba7a96bf47afc486d09b9897fe60}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a6eda42d9db98a8b5e5d09256d75039d9}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!ds18b13@{ds18b13}}
+\index{ds18b13@{ds18b13}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{ds18b13}]{\setlength{\rightskip}{0pt plus 5cm}auto ds18b13 = D\-S18\-B20(0x28, 0x0\-D, 0x55, 0x44, 0x33, 0x22, 0x11)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a6eda42d9db98a8b5e5d09256d75039d9}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a10e1cfbd99adf655995798f1db9bfbed}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!enable\-\_\-debug@{enable\-\_\-debug}}
+\index{enable\-\_\-debug@{enable\-\_\-debug}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{enable\-\_\-debug}]{\setlength{\rightskip}{0pt plus 5cm}constexpr {\bf bool} enable\-\_\-debug = 0}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a10e1cfbd99adf655995798f1db9bfbed}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a40ecda65c4ebce49fa139666f210bef0}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!event@{event}}
+\index{event@{event}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{event}]{\setlength{\rightskip}{0pt plus 5cm}sensors\-\_\-event\-\_\-t event}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a40ecda65c4ebce49fa139666f210bef0}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a3beb275f1ae5db0a79499403dd2fbff8}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!hub@{hub}}
+\index{hub@{hub}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{hub}]{\setlength{\rightskip}{0pt plus 5cm}auto hub = One\-Wire\-Hub({\bf pin\-\_\-onewire})}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a3beb275f1ae5db0a79499403dd2fbff8}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a5677d0b4405dd192091db97a8941dbc8}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!infrared@{infrared}}
+\index{infrared@{infrared}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{infrared}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t infrared}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a5677d0b4405dd192091db97a8941dbc8}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_ad54903c3e759902a4089ee088aedb4a6}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!mavg@{mavg}}
+\index{mavg@{mavg}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{mavg}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int mavg}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_ad54903c3e759902a4089ee088aedb4a6}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_ac3c625f389082ca7f017934b3508462d}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!mmax@{mmax}}
+\index{mmax@{mmax}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{mmax}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int mmax}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_ac3c625f389082ca7f017934b3508462d}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a46d2773d075382821ba5cc9724036ef6}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!mmin@{mmin}}
+\index{mmin@{mmin}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{mmin}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int mmin}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a46d2773d075382821ba5cc9724036ef6}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_add5a7eb759d22b21f8875663ed2c1528}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!pin\-\_\-led@{pin\-\_\-led}}
+\index{pin\-\_\-led@{pin\-\_\-led}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{pin\-\_\-led}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-led}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_add5a7eb759d22b21f8875663ed2c1528}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_ad4f51a015485d98cc3a8a79f41a81027}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!pin\-\_\-onewire@{pin\-\_\-onewire}}
+\index{pin\-\_\-onewire@{pin\-\_\-onewire}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{pin\-\_\-onewire}]{\setlength{\rightskip}{0pt plus 5cm}constexpr uint8\-\_\-t pin\-\_\-onewire \{ 8 \}}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_ad4f51a015485d98cc3a8a79f41a81027}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a34dc1ffbb166b7afbf402f717b871f77}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!tsl@{tsl}}
+\index{tsl@{tsl}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{tsl}]{\setlength{\rightskip}{0pt plus 5cm}Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified tsl = Adafruit\-\_\-\-T\-S\-L2561\-\_\-\-Unified(T\-S\-L2561\-\_\-\-A\-D\-D\-R\-\_\-\-F\-L\-O\-A\-T, 12345)}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a34dc1ffbb166b7afbf402f717b871f77}
+\hypertarget{OWH__DS18B20__asInterface__SensorStation_8ino_a9163138d612480a614fa98c44e4318c4}{\index{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}!val@{val}}
+\index{val@{val}!OWH_DS18B20_asInterface_SensorStation.ino@{O\-W\-H\-\_\-\-D\-S18\-B20\-\_\-as\-Interface\-\_\-\-Sensor\-Station.\-ino}}
+\subsubsection[{val}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int val}}\label{OWH__DS18B20__asInterface__SensorStation_8ino_a9163138d612480a614fa98c44e4318c4}

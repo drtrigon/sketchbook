@@ -1,0 +1,85 @@
+\hypertarget{readall_8c}{\section{wiring\-Pi/gpio/readall.c File Reference}
+\label{readall_8c}\index{wiring\-Pi/gpio/readall.\-c@{wiring\-Pi/gpio/readall.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$ctype.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/types.\-h$>$}\\*
+{\ttfamily \#include $<$sys/stat.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{readall_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{readall_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(1==2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{readall_8c_a80238b4ce7d6dd927a43db1c1f8e62c8}{ab\-Readall} (int model, int rev)
+\item 
+void \hyperlink{readall_8c_a66e2eb580377b1ae8d21baf4f7fd43c7}{do\-Readall} (void)
+\item 
+void \hyperlink{readall_8c_aabcd3dcbda2434f95877ee9d74bf8dad}{do\-All\-Readall} (void)
+\item 
+void \hyperlink{readall_8c_aa210b7ae5913d4cfcec07f15f4c04602}{do\-Qmode} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{readall_8c_a7238ed738631e01546f0a5dcb759a8ec}{wp\-Mode}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{readall_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{readall.\-c@{readall.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!readall.c@{readall.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(1==2)}}\label{readall_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{readall_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{readall.\-c@{readall.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!readall.c@{readall.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{readall_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{readall_8c_a80238b4ce7d6dd927a43db1c1f8e62c8}{\index{readall.\-c@{readall.\-c}!ab\-Readall@{ab\-Readall}}
+\index{ab\-Readall@{ab\-Readall}!readall.c@{readall.\-c}}
+\subsubsection[{ab\-Readall}]{\setlength{\rightskip}{0pt plus 5cm}void ab\-Readall (
+\begin{DoxyParamCaption}
+\item[{int}]{model, }
+\item[{int}]{rev}
+\end{DoxyParamCaption}
+)}}\label{readall_8c_a80238b4ce7d6dd927a43db1c1f8e62c8}
+\hypertarget{readall_8c_aabcd3dcbda2434f95877ee9d74bf8dad}{\index{readall.\-c@{readall.\-c}!do\-All\-Readall@{do\-All\-Readall}}
+\index{do\-All\-Readall@{do\-All\-Readall}!readall.c@{readall.\-c}}
+\subsubsection[{do\-All\-Readall}]{\setlength{\rightskip}{0pt plus 5cm}void do\-All\-Readall (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{readall_8c_aabcd3dcbda2434f95877ee9d74bf8dad}
+\hypertarget{readall_8c_aa210b7ae5913d4cfcec07f15f4c04602}{\index{readall.\-c@{readall.\-c}!do\-Qmode@{do\-Qmode}}
+\index{do\-Qmode@{do\-Qmode}!readall.c@{readall.\-c}}
+\subsubsection[{do\-Qmode}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Qmode (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{readall_8c_aa210b7ae5913d4cfcec07f15f4c04602}
+\hypertarget{readall_8c_a66e2eb580377b1ae8d21baf4f7fd43c7}{\index{readall.\-c@{readall.\-c}!do\-Readall@{do\-Readall}}
+\index{do\-Readall@{do\-Readall}!readall.c@{readall.\-c}}
+\subsubsection[{do\-Readall}]{\setlength{\rightskip}{0pt plus 5cm}void do\-Readall (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{readall_8c_a66e2eb580377b1ae8d21baf4f7fd43c7}
+
+
+\subsection{Variable Documentation}
+\hypertarget{readall_8c_a7238ed738631e01546f0a5dcb759a8ec}{\index{readall.\-c@{readall.\-c}!wp\-Mode@{wp\-Mode}}
+\index{wp\-Mode@{wp\-Mode}!readall.c@{readall.\-c}}
+\subsubsection[{wp\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}int wp\-Mode}}\label{readall_8c_a7238ed738631e01546f0a5dcb759a8ec}

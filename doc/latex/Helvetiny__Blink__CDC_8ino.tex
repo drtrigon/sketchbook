@@ -1,0 +1,67 @@
+\hypertarget{Helvetiny__Blink__CDC_8ino}{\section{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C/\-Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.ino File Reference}
+\label{Helvetiny__Blink__CDC_8ino}\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C/\-Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C/\-Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+}
+{\ttfamily \#include $<$Digi\-C\-D\-C.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Helvetiny__Blink__CDC_8ino_a450a7c16ead7b3c7b882536b08f30a00}{L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}~1
+\item 
+\#define \hyperlink{Helvetiny__Blink__CDC_8ino_a3cb24f09004f92185b77e9e7bac6ea61}{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}~-\/255
+\item 
+\#define \hyperlink{Helvetiny__Blink__CDC_8ino_ab667d793bed5c1fb5503624b0ab7504a}{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}~1.\-0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Helvetiny__Blink__CDC_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Helvetiny__Blink__CDC_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{Helvetiny__Blink__CDC_8ino_a2c828cd063b3ce07f93328c3b02aa70b}{get\-Vcc} ()
+\item 
+float \hyperlink{Helvetiny__Blink__CDC_8ino_a6459ed0635e25efb428ae3dfe1cab682}{get\-Temp} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Helvetiny__Blink__CDC_8ino_a450a7c16ead7b3c7b882536b08f30a00}{\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}!L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N@{L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}}
+\index{L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N@{L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}!Helvetiny_Blink_CDC.ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+\subsubsection[{L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N~1}}\label{Helvetiny__Blink__CDC_8ino_a450a7c16ead7b3c7b882536b08f30a00}
+\hypertarget{Helvetiny__Blink__CDC_8ino_ab667d793bed5c1fb5503624b0ab7504a}{\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}!T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F@{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}}
+\index{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F@{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}!Helvetiny_Blink_CDC.ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+\subsubsection[{T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-M\-P\-\_\-\-C\-O\-E\-F\-F~1.\-0}}\label{Helvetiny__Blink__CDC_8ino_ab667d793bed5c1fb5503624b0ab7504a}
+\hypertarget{Helvetiny__Blink__CDC_8ino_a3cb24f09004f92185b77e9e7bac6ea61}{\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}!T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T@{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}}
+\index{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T@{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}!Helvetiny_Blink_CDC.ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+\subsubsection[{T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-E\-M\-P\-\_\-\-O\-F\-F\-S\-E\-T~-\/255}}\label{Helvetiny__Blink__CDC_8ino_a3cb24f09004f92185b77e9e7bac6ea61}
+
+
+\subsection{Function Documentation}
+\hypertarget{Helvetiny__Blink__CDC_8ino_a6459ed0635e25efb428ae3dfe1cab682}{\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}!get\-Temp@{get\-Temp}}
+\index{get\-Temp@{get\-Temp}!Helvetiny_Blink_CDC.ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+\subsubsection[{get\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float get\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Helvetiny__Blink__CDC_8ino_a6459ed0635e25efb428ae3dfe1cab682}
+\hypertarget{Helvetiny__Blink__CDC_8ino_a2c828cd063b3ce07f93328c3b02aa70b}{\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}!get\-Vcc@{get\-Vcc}}
+\index{get\-Vcc@{get\-Vcc}!Helvetiny_Blink_CDC.ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+\subsubsection[{get\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}float get\-Vcc (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Helvetiny__Blink__CDC_8ino_a2c828cd063b3ce07f93328c3b02aa70b}
+\hypertarget{Helvetiny__Blink__CDC_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}!loop@{loop}}
+\index{loop@{loop}!Helvetiny_Blink_CDC.ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Helvetiny__Blink__CDC_8ino_afe461d27b9c48d5921c00d521181f12f}
+\hypertarget{Helvetiny__Blink__CDC_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}!setup@{setup}}
+\index{setup@{setup}!Helvetiny_Blink_CDC.ino@{Helvetiny\-\_\-\-Blink\-\_\-\-C\-D\-C.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Helvetiny__Blink__CDC_8ino_a4fc01d736fe50cf5b977f755b675f11d}

@@ -1,0 +1,68 @@
+\hypertarget{Transmitter_8cpp}{\section{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Transmitter/\-Transmitter.cpp File Reference}
+\label{Transmitter_8cpp}\index{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Transmitter/\-Transmitter.\-cpp@{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Transmitter/\-Transmitter.\-cpp}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$inttypes.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Transmitter_8cpp_a954b61d0bed4bfa938d89c7590c45fb4}{R\-P\-I}~\hyperlink{stdbool_8h_a41f9c5fb8b08eb5dc3edce4dcb37fee7}{true}
+\item 
+\#define \hyperlink{Transmitter_8cpp_ad4e245de39d6323d95c21e858fc5ffbc}{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}~35000
+\item 
+\#define \hyperlink{Transmitter_8cpp_a252c3ebaec86ef492070ff22ad0f527e}{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}~\hyperlink{stdbool_8h_a41f9c5fb8b08eb5dc3edce4dcb37fee7}{true}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N$<$ Through\-Serial $>$ \hyperlink{Transmitter_8cpp_a513d5ce96f1667268a5eccc67ed8714d}{bus} (45)
+\item 
+void \hyperlink{Transmitter_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+int \hyperlink{Transmitter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Transmitter_8cpp_a252c3ebaec86ef492070ff22ad0f527e}{\index{Transmitter.\-cpp@{Transmitter.\-cpp}!P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}}
+\index{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}!Transmitter.cpp@{Transmitter.\-cpp}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-S~{\bf true}}}\label{Transmitter_8cpp_a252c3ebaec86ef492070ff22ad0f527e}
+\hypertarget{Transmitter_8cpp_a954b61d0bed4bfa938d89c7590c45fb4}{\index{Transmitter.\-cpp@{Transmitter.\-cpp}!R\-P\-I@{R\-P\-I}}
+\index{R\-P\-I@{R\-P\-I}!Transmitter.cpp@{Transmitter.\-cpp}}
+\subsubsection[{R\-P\-I}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-P\-I~{\bf true}}}\label{Transmitter_8cpp_a954b61d0bed4bfa938d89c7590c45fb4}
+\hypertarget{Transmitter_8cpp_ad4e245de39d6323d95c21e858fc5ffbc}{\index{Transmitter.\-cpp@{Transmitter.\-cpp}!T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T@{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}}
+\index{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T@{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}!Transmitter.cpp@{Transmitter.\-cpp}}
+\subsubsection[{T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-S\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-\_\-\-O\-U\-T~35000}}\label{Transmitter_8cpp_ad4e245de39d6323d95c21e858fc5ffbc}
+
+
+\subsection{Function Documentation}
+\hypertarget{Transmitter_8cpp_a513d5ce96f1667268a5eccc67ed8714d}{\index{Transmitter.\-cpp@{Transmitter.\-cpp}!bus@{bus}}
+\index{bus@{bus}!Transmitter.cpp@{Transmitter.\-cpp}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Through\-Serial$>$ bus (
+\begin{DoxyParamCaption}
+\item[{45}]{}
+\end{DoxyParamCaption}
+)}}\label{Transmitter_8cpp_a513d5ce96f1667268a5eccc67ed8714d}
+\hypertarget{Transmitter_8cpp_afe461d27b9c48d5921c00d521181f12f}{\index{Transmitter.\-cpp@{Transmitter.\-cpp}!loop@{loop}}
+\index{loop@{loop}!Transmitter.cpp@{Transmitter.\-cpp}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Transmitter_8cpp_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Transmitter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}{\index{Transmitter.\-cpp@{Transmitter.\-cpp}!main@{main}}
+\index{main@{main}!Transmitter.cpp@{Transmitter.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Transmitter_8cpp_ae66f6b31b5ad750f1fe042a706a4e3d4}

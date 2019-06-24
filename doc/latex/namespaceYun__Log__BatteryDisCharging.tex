@@ -1,0 +1,107 @@
+\hypertarget{namespaceYun__Log__BatteryDisCharging}{\section{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging Namespace Reference}
+\label{namespaceYun__Log__BatteryDisCharging}\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceYun__Log__BatteryDisCharging_aabec52f6afb110e9030c41c37b5936a3}{read\-\_\-adc\-\_\-value}
+\item 
+def \hyperlink{namespaceYun__Log__BatteryDisCharging_a3a6547d581b469aa63fade6254839685}{read\-\_\-mon\-\_\-values}
+\item 
+def \hyperlink{namespaceYun__Log__BatteryDisCharging_a59735a004f2f37075365175ecf03ef5c}{read\-\_\-mon\-\_\-log}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+string \hyperlink{namespaceYun__Log__BatteryDisCharging_ae9fb446099ac1137500398f8012e4c78}{log\-\_\-file} = \char`\"{}Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-log\char`\"{}
+\item 
+string \hyperlink{namespaceYun__Log__BatteryDisCharging_a9494efc17bebd5108d694922d40b4a31}{fmt\-\_\-print} = \char`\"{}\%s, \%14.\-3f, \%9.\-3f s, \%9.\-3f s, \%9.\-3f V, \%9.\-3f A, \%9.\-3f Ohm, \%9.\-3f W, \%9.\-3f m\-Ah, \%9.\-3f J\char`\"{}
+\item 
+string \hyperlink{namespaceYun__Log__BatteryDisCharging_a19bfe285d1481a648dd2a31df1ab7db6}{fmt\-\_\-write} = \char`\"{}\%s, \%14.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f\char`\"{}
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_a1fc7e423503335a66f4fd41bbde26dad}{spamreader} = csv.\-reader(csvfile, quotechar='$\vert$')
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_a93560f3e3069eb2b837c46f1472b67d2}{delay} = time.\-time()
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_a1c9d6cfdb58049e1f92a6211fbbdee35}{getlog} = (\hyperlink{namespaceYun__Log__BatteryDisCharging_a93560f3e3069eb2b837c46f1472b67d2}{delay} $>$ 300.)
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_af49a254e15f4c7271a3b0e9fc5abb852}{W} = \hyperlink{namespaceYun__Log__BatteryDisCharging_a3a6547d581b469aa63fade6254839685}{read\-\_\-mon\-\_\-values}()
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_afe66ed561e996e3621e1c0bccd34db56}{l\-W} = float(row\mbox{[}2\mbox{]})
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_a7b85c87d0afd81ec33b920d0365b20a0}{ts} = (time.\-asctime(), time.\-time())
+\item 
+int \hyperlink{namespaceYun__Log__BatteryDisCharging_a654150a60ddad75d24477880074dc41b}{i} = 0
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_a8b945e1cfc118372730aa3ab025d90c5}{output} = \hyperlink{namespaceYun__Log__BatteryDisCharging_a9494efc17bebd5108d694922d40b4a31}{fmt\-\_\-print}\%(\hyperlink{namespaceYun__Log__BatteryDisCharging_a7b85c87d0afd81ec33b920d0365b20a0}{ts} + tuple(item))
+\item 
+tuple \hyperlink{namespaceYun__Log__BatteryDisCharging_a19af7a3497f83959d28f31bb4432606b}{resistance} = np.\-float64(\hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a003bbb537dac1547ff44bac4bf180a73}{voltage})
+\item 
+\hyperlink{namespaceYun__Log__BatteryDisCharging_a7c9819144fe5b77a4121c5c2b6b72db9}{power} = \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a003bbb537dac1547ff44bac4bf180a73}{voltage}$\ast$current
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_aabec52f6afb110e9030c41c37b5936a3}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!read\-\_\-adc\-\_\-value@{read\-\_\-adc\-\_\-value}}
+\index{read\-\_\-adc\-\_\-value@{read\-\_\-adc\-\_\-value}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{read\-\_\-adc\-\_\-value}]{\setlength{\rightskip}{0pt plus 5cm}def Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-read\-\_\-adc\-\_\-value (
+\begin{DoxyParamCaption}
+\item[{}]{adc}
+\end{DoxyParamCaption}
+)}}\label{namespaceYun__Log__BatteryDisCharging_aabec52f6afb110e9030c41c37b5936a3}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a59735a004f2f37075365175ecf03ef5c}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!read\-\_\-mon\-\_\-log@{read\-\_\-mon\-\_\-log}}
+\index{read\-\_\-mon\-\_\-log@{read\-\_\-mon\-\_\-log}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{read\-\_\-mon\-\_\-log}]{\setlength{\rightskip}{0pt plus 5cm}def Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-read\-\_\-mon\-\_\-log (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceYun__Log__BatteryDisCharging_a59735a004f2f37075365175ecf03ef5c}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a3a6547d581b469aa63fade6254839685}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!read\-\_\-mon\-\_\-values@{read\-\_\-mon\-\_\-values}}
+\index{read\-\_\-mon\-\_\-values@{read\-\_\-mon\-\_\-values}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{read\-\_\-mon\-\_\-values}]{\setlength{\rightskip}{0pt plus 5cm}def Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-read\-\_\-mon\-\_\-values (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceYun__Log__BatteryDisCharging_a3a6547d581b469aa63fade6254839685}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a93560f3e3069eb2b837c46f1472b67d2}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!delay@{delay}}
+\index{delay@{delay}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{delay}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-delay = time.\-time()}}\label{namespaceYun__Log__BatteryDisCharging_a93560f3e3069eb2b837c46f1472b67d2}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a9494efc17bebd5108d694922d40b4a31}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!fmt\-\_\-print@{fmt\-\_\-print}}
+\index{fmt\-\_\-print@{fmt\-\_\-print}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{fmt\-\_\-print}]{\setlength{\rightskip}{0pt plus 5cm}string Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-fmt\-\_\-print = \char`\"{}\%s, \%14.\-3f, \%9.\-3f s, \%9.\-3f s, \%9.\-3f V, \%9.\-3f A, \%9.\-3f Ohm, \%9.\-3f W, \%9.\-3f m\-Ah, \%9.\-3f J\char`\"{}}}\label{namespaceYun__Log__BatteryDisCharging_a9494efc17bebd5108d694922d40b4a31}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a19bfe285d1481a648dd2a31df1ab7db6}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!fmt\-\_\-write@{fmt\-\_\-write}}
+\index{fmt\-\_\-write@{fmt\-\_\-write}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{fmt\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}string Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-fmt\-\_\-write = \char`\"{}\%s, \%14.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f, \%9.\-3f\char`\"{}}}\label{namespaceYun__Log__BatteryDisCharging_a19bfe285d1481a648dd2a31df1ab7db6}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a1c9d6cfdb58049e1f92a6211fbbdee35}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!getlog@{getlog}}
+\index{getlog@{getlog}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{getlog}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-getlog = ({\bf delay} $>$ 300.)}}\label{namespaceYun__Log__BatteryDisCharging_a1c9d6cfdb58049e1f92a6211fbbdee35}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a654150a60ddad75d24477880074dc41b}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!i@{i}}
+\index{i@{i}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{i}]{\setlength{\rightskip}{0pt plus 5cm}int Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-i = 0}}\label{namespaceYun__Log__BatteryDisCharging_a654150a60ddad75d24477880074dc41b}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_ae9fb446099ac1137500398f8012e4c78}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!log\-\_\-file@{log\-\_\-file}}
+\index{log\-\_\-file@{log\-\_\-file}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{log\-\_\-file}]{\setlength{\rightskip}{0pt plus 5cm}string Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-log\-\_\-file = \char`\"{}Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-log\char`\"{}}}\label{namespaceYun__Log__BatteryDisCharging_ae9fb446099ac1137500398f8012e4c78}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_afe66ed561e996e3621e1c0bccd34db56}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!l\-W@{l\-W}}
+\index{l\-W@{l\-W}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{l\-W}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-l\-W = float(row\mbox{[}2\mbox{]})}}\label{namespaceYun__Log__BatteryDisCharging_afe66ed561e996e3621e1c0bccd34db56}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a8b945e1cfc118372730aa3ab025d90c5}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!output@{output}}
+\index{output@{output}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-output = {\bf fmt\-\_\-print}\%({\bf ts} + tuple(item))}}\label{namespaceYun__Log__BatteryDisCharging_a8b945e1cfc118372730aa3ab025d90c5}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a7c9819144fe5b77a4121c5c2b6b72db9}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!power@{power}}
+\index{power@{power}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{power}]{\setlength{\rightskip}{0pt plus 5cm}Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-power = {\bf voltage}$\ast$current}}\label{namespaceYun__Log__BatteryDisCharging_a7c9819144fe5b77a4121c5c2b6b72db9}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a19af7a3497f83959d28f31bb4432606b}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!resistance@{resistance}}
+\index{resistance@{resistance}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{resistance}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-resistance = np.\-float64({\bf voltage})}}\label{namespaceYun__Log__BatteryDisCharging_a19af7a3497f83959d28f31bb4432606b}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a1fc7e423503335a66f4fd41bbde26dad}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!spamreader@{spamreader}}
+\index{spamreader@{spamreader}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{spamreader}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-spamreader = csv.\-reader(csvfile, quotechar='$\vert$')}}\label{namespaceYun__Log__BatteryDisCharging_a1fc7e423503335a66f4fd41bbde26dad}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_a7b85c87d0afd81ec33b920d0365b20a0}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!ts@{ts}}
+\index{ts@{ts}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{ts}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-ts = (time.\-asctime(), time.\-time())}}\label{namespaceYun__Log__BatteryDisCharging_a7b85c87d0afd81ec33b920d0365b20a0}
+\hypertarget{namespaceYun__Log__BatteryDisCharging_af49a254e15f4c7271a3b0e9fc5abb852}{\index{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}!W@{W}}
+\index{W@{W}!Yun_Log_BatteryDisCharging@{Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging}}
+\subsubsection[{W}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-Log\-\_\-\-Battery\-Dis\-Charging.\-W = {\bf read\-\_\-mon\-\_\-values}()}}\label{namespaceYun__Log__BatteryDisCharging_af49a254e15f4c7271a3b0e9fc5abb852}

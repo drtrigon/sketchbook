@@ -1,0 +1,67 @@
+\hypertarget{bmp180_8c}{\section{wiring\-Pi/wiring\-Pi/bmp180.c File Reference}
+\label{bmp180_8c}\index{wiring\-Pi/wiring\-Pi/bmp180.\-c@{wiring\-Pi/wiring\-Pi/bmp180.\-c}}
+}
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi\-I2\-C.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}bmp180.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{bmp180_8c_a770f0c15acd838afca500d56b792c6b5}{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}~0x77
+\item 
+\#define \hyperlink{bmp180_8c_a0b8ffa9cd76fa9a3bf11035c1734c5ec}{B\-M\-P180\-\_\-\-O\-S\-S}~0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint16\-\_\-t \hyperlink{bmp180_8c_a3ef305900a4191280813609fc37142e8}{read16} (int fd, int reg)
+\item 
+int \hyperlink{bmp180_8c_adacf2b54e635e780c8351f55ab902734}{bmp180\-Setup} (const int pin\-Base)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint32\-\_\-t \hyperlink{bmp180_8c_a552fa4c3bca5ac92bf31107f72f3b545}{c\-Press}
+\item 
+uint32\-\_\-t \hyperlink{bmp180_8c_a0b2ec1e891e5a1e8b24e73704d2f2920}{c\-Temp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{bmp180_8c_a0b8ffa9cd76fa9a3bf11035c1734c5ec}{\index{bmp180.\-c@{bmp180.\-c}!B\-M\-P180\-\_\-\-O\-S\-S@{B\-M\-P180\-\_\-\-O\-S\-S}}
+\index{B\-M\-P180\-\_\-\-O\-S\-S@{B\-M\-P180\-\_\-\-O\-S\-S}!bmp180.c@{bmp180.\-c}}
+\subsubsection[{B\-M\-P180\-\_\-\-O\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-M\-P180\-\_\-\-O\-S\-S~0}}\label{bmp180_8c_a0b8ffa9cd76fa9a3bf11035c1734c5ec}
+\hypertarget{bmp180_8c_a770f0c15acd838afca500d56b792c6b5}{\index{bmp180.\-c@{bmp180.\-c}!I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S@{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}}
+\index{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S@{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}!bmp180.c@{bmp180.\-c}}
+\subsubsection[{I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define I2\-C\-\_\-\-A\-D\-D\-R\-E\-S\-S~0x77}}\label{bmp180_8c_a770f0c15acd838afca500d56b792c6b5}
+
+
+\subsection{Function Documentation}
+\hypertarget{bmp180_8c_adacf2b54e635e780c8351f55ab902734}{\index{bmp180.\-c@{bmp180.\-c}!bmp180\-Setup@{bmp180\-Setup}}
+\index{bmp180\-Setup@{bmp180\-Setup}!bmp180.c@{bmp180.\-c}}
+\subsubsection[{bmp180\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int bmp180\-Setup (
+\begin{DoxyParamCaption}
+\item[{const int}]{pin\-Base}
+\end{DoxyParamCaption}
+)}}\label{bmp180_8c_adacf2b54e635e780c8351f55ab902734}
+\hypertarget{bmp180_8c_a3ef305900a4191280813609fc37142e8}{\index{bmp180.\-c@{bmp180.\-c}!read16@{read16}}
+\index{read16@{read16}!bmp180.c@{bmp180.\-c}}
+\subsubsection[{read16}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t read16 (
+\begin{DoxyParamCaption}
+\item[{int}]{fd, }
+\item[{int}]{reg}
+\end{DoxyParamCaption}
+)}}\label{bmp180_8c_a3ef305900a4191280813609fc37142e8}
+
+
+\subsection{Variable Documentation}
+\hypertarget{bmp180_8c_a552fa4c3bca5ac92bf31107f72f3b545}{\index{bmp180.\-c@{bmp180.\-c}!c\-Press@{c\-Press}}
+\index{c\-Press@{c\-Press}!bmp180.c@{bmp180.\-c}}
+\subsubsection[{c\-Press}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t c\-Press}}\label{bmp180_8c_a552fa4c3bca5ac92bf31107f72f3b545}
+\hypertarget{bmp180_8c_a0b2ec1e891e5a1e8b24e73704d2f2920}{\index{bmp180.\-c@{bmp180.\-c}!c\-Temp@{c\-Temp}}
+\index{c\-Temp@{c\-Temp}!bmp180.c@{bmp180.\-c}}
+\subsubsection[{c\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t c\-Temp}}\label{bmp180_8c_a0b2ec1e891e5a1e8b24e73704d2f2920}

@@ -1,0 +1,57 @@
+\hypertarget{wiringPi_2softTone_8c}{\section{wiring\-Pi/wiring\-Pi/soft\-Tone.c File Reference}
+\label{wiringPi_2softTone_8c}\index{wiring\-Pi/wiring\-Pi/soft\-Tone.\-c@{wiring\-Pi/wiring\-Pi/soft\-Tone.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$pthread.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}wiring\-Pi.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}soft\-Tone.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{wiringPi_2softTone_8c_ab3b88b57fbf8396ce4d9b39815ecdff8}{M\-A\-X\-\_\-\-P\-I\-N\-S}~64
+\item 
+\#define \hyperlink{wiringPi_2softTone_8c_ac877c243f61b4d41a089602b62703bef}{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}~100
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{wiringPi_2softTone_8c_aef14a32ca324a7bfe6429a2fc3578d6a}{soft\-Tone\-Write} (int pin, int \hyperlink{Due__AS7265X__Spectrometer_8ino_abbc4085ba884ad35981bb755f611e65c}{freq})
+\item 
+int \hyperlink{wiringPi_2softTone_8c_a9946111c838c984de5734386ae97fa7d}{soft\-Tone\-Create} (int pin)
+\item 
+void \hyperlink{wiringPi_2softTone_8c_a464db278d7585db1877519cea408b3f3}{soft\-Tone\-Stop} (int pin)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{wiringPi_2softTone_8c_ab3b88b57fbf8396ce4d9b39815ecdff8}{\index{wiring\-Pi/soft\-Tone.\-c@{wiring\-Pi/soft\-Tone.\-c}!M\-A\-X\-\_\-\-P\-I\-N\-S@{M\-A\-X\-\_\-\-P\-I\-N\-S}}
+\index{M\-A\-X\-\_\-\-P\-I\-N\-S@{M\-A\-X\-\_\-\-P\-I\-N\-S}!wiringPi/softTone.c@{wiring\-Pi/soft\-Tone.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-P\-I\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-P\-I\-N\-S~64}}\label{wiringPi_2softTone_8c_ab3b88b57fbf8396ce4d9b39815ecdff8}
+\hypertarget{wiringPi_2softTone_8c_ac877c243f61b4d41a089602b62703bef}{\index{wiring\-Pi/soft\-Tone.\-c@{wiring\-Pi/soft\-Tone.\-c}!P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E@{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}}
+\index{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E@{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}!wiringPi/softTone.c@{wiring\-Pi/soft\-Tone.\-c}}
+\subsubsection[{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E~100}}\label{wiringPi_2softTone_8c_ac877c243f61b4d41a089602b62703bef}
+
+
+\subsection{Function Documentation}
+\hypertarget{wiringPi_2softTone_8c_a9946111c838c984de5734386ae97fa7d}{\index{wiring\-Pi/soft\-Tone.\-c@{wiring\-Pi/soft\-Tone.\-c}!soft\-Tone\-Create@{soft\-Tone\-Create}}
+\index{soft\-Tone\-Create@{soft\-Tone\-Create}!wiringPi/softTone.c@{wiring\-Pi/soft\-Tone.\-c}}
+\subsubsection[{soft\-Tone\-Create}]{\setlength{\rightskip}{0pt plus 5cm}int soft\-Tone\-Create (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_2softTone_8c_a9946111c838c984de5734386ae97fa7d}
+\hypertarget{wiringPi_2softTone_8c_a464db278d7585db1877519cea408b3f3}{\index{wiring\-Pi/soft\-Tone.\-c@{wiring\-Pi/soft\-Tone.\-c}!soft\-Tone\-Stop@{soft\-Tone\-Stop}}
+\index{soft\-Tone\-Stop@{soft\-Tone\-Stop}!wiringPi/softTone.c@{wiring\-Pi/soft\-Tone.\-c}}
+\subsubsection[{soft\-Tone\-Stop}]{\setlength{\rightskip}{0pt plus 5cm}void soft\-Tone\-Stop (
+\begin{DoxyParamCaption}
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_2softTone_8c_a464db278d7585db1877519cea408b3f3}
+\hypertarget{wiringPi_2softTone_8c_aef14a32ca324a7bfe6429a2fc3578d6a}{\index{wiring\-Pi/soft\-Tone.\-c@{wiring\-Pi/soft\-Tone.\-c}!soft\-Tone\-Write@{soft\-Tone\-Write}}
+\index{soft\-Tone\-Write@{soft\-Tone\-Write}!wiringPi/softTone.c@{wiring\-Pi/soft\-Tone.\-c}}
+\subsubsection[{soft\-Tone\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void soft\-Tone\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{pin, }
+\item[{int}]{freq}
+\end{DoxyParamCaption}
+)}}\label{wiringPi_2softTone_8c_aef14a32ca324a7bfe6429a2fc3578d6a}

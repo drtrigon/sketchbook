@@ -1,0 +1,205 @@
+\hypertarget{emmintrin_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/emmintrin.h File Reference}
+\label{emmintrin_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/emmintrin.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/emmintrin.\-h}}
+}
+{\ttfamily \#include $<$xmmintrin.\-h$>$}\\*
+{\ttfamily \#include $<$f16cintrin.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{emmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}~\hyperlink{OWH__DS2433__EEPROM__LCD__Sensors_8ino_a96573b623ef42a0a72e78b7cc249169a}{\-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse2\char`\"{})))
+\item 
+\#define \hyperlink{emmintrin_8h_a7cb6c8ed9f8902681f1abf82427c3a4a}{\-\_\-mm\-\_\-load\-\_\-pd1}(dp)~\-\_\-mm\-\_\-load1\-\_\-pd(dp)
+\item 
+\#define \hyperlink{emmintrin_8h_a360ca1a99b419655112dcb4a6d399231}{\-\_\-mm\-\_\-slli\-\_\-si128}(a, imm)
+\item 
+\#define \hyperlink{emmintrin_8h_aef23a79759deb0a6f0aad294ef483d44}{\-\_\-mm\-\_\-bslli\-\_\-si128}(a, imm)~\hyperlink{emmintrin_8h_a360ca1a99b419655112dcb4a6d399231}{\-\_\-mm\-\_\-slli\-\_\-si128}((a), (imm))
+\item 
+\#define \hyperlink{emmintrin_8h_aef7b30e5ea9868fba5bd3cbfc666314f}{\-\_\-mm\-\_\-srli\-\_\-si128}(a, imm)
+\item 
+\#define \hyperlink{emmintrin_8h_aa33e2ef648632a336dc7473152f95976}{\-\_\-mm\-\_\-bsrli\-\_\-si128}(a, imm)~\hyperlink{emmintrin_8h_aef7b30e5ea9868fba5bd3cbfc666314f}{\-\_\-mm\-\_\-srli\-\_\-si128}((a), (imm))
+\item 
+\#define \hyperlink{emmintrin_8h_af039e20b9ea5343741e571ef6eb9f990}{\-\_\-mm\-\_\-shuffle\-\_\-epi32}(a, imm)
+\item 
+\#define \hyperlink{emmintrin_8h_a93ce4846bee0c9941c0020b119778a68}{\-\_\-mm\-\_\-shufflelo\-\_\-epi16}(a, imm)
+\item 
+\#define \hyperlink{emmintrin_8h_ad24c099afa78f21eeb5e838e20467bf3}{\-\_\-mm\-\_\-shufflehi\-\_\-epi16}(a, imm)
+\item 
+\#define \hyperlink{emmintrin_8h_a5f826c41980da8e3ad9d4a393878b512}{\-\_\-mm\-\_\-shuffle\-\_\-pd}(a, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}, i)
+\item 
+\#define \hyperlink{emmintrin_8h_a3aeb3a59d7de7f9ca49c1153baa9da58}{\-\_\-\-M\-M\-\_\-\-S\-H\-U\-F\-F\-L\-E2}(\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y})~(((\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}) $<$$<$ 1) $\vert$ (\hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}))
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef double \-\_\-\-\_\-m128d \hyperlink{emmintrin_8h_a18b960f4937fb7340c54b59c234f60e7}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((\-\_\-\-\_\-vector\-\_\-size\-\_\-\-\_\-(16)))
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{emmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}}
+\index{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S@{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-D\-E\-F\-A\-U\-L\-T\-\_\-\-F\-N\-\_\-\-A\-T\-T\-R\-S~{\bf \-\_\-\-\_\-attribute\-\_\-\-\_\-}((\-\_\-\-\_\-always\-\_\-inline\-\_\-\-\_\-, \-\_\-\-\_\-nodebug\-\_\-\-\_\-, \-\_\-\-\_\-target\-\_\-\-\_\-(\char`\"{}sse2\char`\"{})))}}\label{emmintrin_8h_a53848d7ec0e9cc474ad2725ce0eea824}
+\hypertarget{emmintrin_8h_aef23a79759deb0a6f0aad294ef483d44}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-bslli\-\_\-si128@{\-\_\-mm\-\_\-bslli\-\_\-si128}}
+\index{\-\_\-mm\-\_\-bslli\-\_\-si128@{\-\_\-mm\-\_\-bslli\-\_\-si128}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-bslli\-\_\-si128}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-bslli\-\_\-si128(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-slli\-\_\-si128}((a), (imm))}}\label{emmintrin_8h_aef23a79759deb0a6f0aad294ef483d44}
+\hypertarget{emmintrin_8h_aa33e2ef648632a336dc7473152f95976}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-bsrli\-\_\-si128@{\-\_\-mm\-\_\-bsrli\-\_\-si128}}
+\index{\-\_\-mm\-\_\-bsrli\-\_\-si128@{\-\_\-mm\-\_\-bsrli\-\_\-si128}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-bsrli\-\_\-si128}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-bsrli\-\_\-si128(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-mm\-\_\-srli\-\_\-si128}((a), (imm))}}\label{emmintrin_8h_aa33e2ef648632a336dc7473152f95976}
+\hypertarget{emmintrin_8h_a7cb6c8ed9f8902681f1abf82427c3a4a}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-load\-\_\-pd1@{\-\_\-mm\-\_\-load\-\_\-pd1}}
+\index{\-\_\-mm\-\_\-load\-\_\-pd1@{\-\_\-mm\-\_\-load\-\_\-pd1}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-load\-\_\-pd1}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-load\-\_\-pd1(
+\begin{DoxyParamCaption}
+\item[{}]{dp}
+\end{DoxyParamCaption}
+)~\-\_\-mm\-\_\-load1\-\_\-pd(dp)}}\label{emmintrin_8h_a7cb6c8ed9f8902681f1abf82427c3a4a}
+\hypertarget{emmintrin_8h_a3aeb3a59d7de7f9ca49c1153baa9da58}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-\-M\-M\-\_\-\-S\-H\-U\-F\-F\-L\-E2@{\-\_\-\-M\-M\-\_\-\-S\-H\-U\-F\-F\-L\-E2}}
+\index{\-\_\-\-M\-M\-\_\-\-S\-H\-U\-F\-F\-L\-E2@{\-\_\-\-M\-M\-\_\-\-S\-H\-U\-F\-F\-L\-E2}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-\-M\-M\-\_\-\-S\-H\-U\-F\-F\-L\-E2}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-M\-M\-\_\-\-S\-H\-U\-F\-F\-L\-E2(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf x}, }
+\item[{}]{{\bf y}}
+\end{DoxyParamCaption}
+)~((({\bf x}) $<$$<$ 1) $\vert$ ({\bf y}))}}\label{emmintrin_8h_a3aeb3a59d7de7f9ca49c1153baa9da58}
+\hypertarget{emmintrin_8h_af039e20b9ea5343741e571ef6eb9f990}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-shuffle\-\_\-epi32@{\-\_\-mm\-\_\-shuffle\-\_\-epi32}}
+\index{\-\_\-mm\-\_\-shuffle\-\_\-epi32@{\-\_\-mm\-\_\-shuffle\-\_\-epi32}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-shuffle\-\_\-epi32}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-shuffle\-\_\-epi32(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)}}\label{emmintrin_8h_af039e20b9ea5343741e571ef6eb9f990}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128i)\_\_builtin\_shufflevector((\_\_v4si)(\_\_m128i)(a), \(\backslash\)
+                                   (\_\_v4si)\_mm\_setzero\_si128(), \(\backslash\)
+                                   (imm) & 0x3, ((imm) & 0xc) >> 2, \(\backslash\)
+                                   ((imm) & 0x30) >> 4, ((imm) & 0xc0) >> 6); \})
+\end{DoxyCode}
+\hypertarget{emmintrin_8h_a5f826c41980da8e3ad9d4a393878b512}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-shuffle\-\_\-pd@{\-\_\-mm\-\_\-shuffle\-\_\-pd}}
+\index{\-\_\-mm\-\_\-shuffle\-\_\-pd@{\-\_\-mm\-\_\-shuffle\-\_\-pd}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-shuffle\-\_\-pd}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-shuffle\-\_\-pd(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{{\bf b}, }
+\item[{}]{i}
+\end{DoxyParamCaption}
+)}}\label{emmintrin_8h_a5f826c41980da8e3ad9d4a393878b512}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128d)\_\_builtin\_shufflevector((\_\_v2df)(\_\_m128d)(a), (\_\_v2df)(\_\_m128d)(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}), \(\backslash\)
+                                   (\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) & 1, (((\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}) & 2) >> 1) + 2); \})
+\end{DoxyCode}
+\hypertarget{emmintrin_8h_ad24c099afa78f21eeb5e838e20467bf3}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-shufflehi\-\_\-epi16@{\-\_\-mm\-\_\-shufflehi\-\_\-epi16}}
+\index{\-\_\-mm\-\_\-shufflehi\-\_\-epi16@{\-\_\-mm\-\_\-shufflehi\-\_\-epi16}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-shufflehi\-\_\-epi16}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-shufflehi\-\_\-epi16(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)}}\label{emmintrin_8h_ad24c099afa78f21eeb5e838e20467bf3}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128i)\_\_builtin\_shufflevector((\_\_v8hi)(\_\_m128i)(a), \(\backslash\)
+                                   (\_\_v8hi)\_mm\_setzero\_si128(), \(\backslash\)
+                                   0, 1, 2, 3, \(\backslash\)
+                                   4 + (((imm) & 0x03) >> 0), \(\backslash\)
+                                   4 + (((imm) & 0x0c) >> 2), \(\backslash\)
+                                   4 + (((imm) & 0x30) >> 4), \(\backslash\)
+                                   4 + (((imm) & 0xc0) >> 6)); \})
+\end{DoxyCode}
+\hypertarget{emmintrin_8h_a93ce4846bee0c9941c0020b119778a68}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-shufflelo\-\_\-epi16@{\-\_\-mm\-\_\-shufflelo\-\_\-epi16}}
+\index{\-\_\-mm\-\_\-shufflelo\-\_\-epi16@{\-\_\-mm\-\_\-shufflelo\-\_\-epi16}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-shufflelo\-\_\-epi16}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-shufflelo\-\_\-epi16(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)}}\label{emmintrin_8h_a93ce4846bee0c9941c0020b119778a68}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{ \(\backslash\)
+  (\_\_m128i)\_\_builtin\_shufflevector((\_\_v8hi)(\_\_m128i)(a), \(\backslash\)
+                                   (\_\_v8hi)\_mm\_setzero\_si128(), \(\backslash\)
+                                   (imm) & 0x3, ((imm) & 0xc) >> 2, \(\backslash\)
+                                   ((imm) & 0x30) >> 4, ((imm) & 0xc0) >> 6, \(\backslash\)
+                                   4, 5, 6, 7); \})
+\end{DoxyCode}
+\hypertarget{emmintrin_8h_a360ca1a99b419655112dcb4a6d399231}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-slli\-\_\-si128@{\-\_\-mm\-\_\-slli\-\_\-si128}}
+\index{\-\_\-mm\-\_\-slli\-\_\-si128@{\-\_\-mm\-\_\-slli\-\_\-si128}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-slli\-\_\-si128}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-slli\-\_\-si128(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)}}\label{emmintrin_8h_a360ca1a99b419655112dcb4a6d399231}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{                         \(\backslash\)
+  (\_\_m128i)\_\_builtin\_shufflevector((\_\_v16qi)\_mm\_setzero\_si128(),        \(\backslash\)
+                                   (\_\_v16qi)(\_\_m128i)(a),               \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 16 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 17 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 18 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 19 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 20 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 21 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 22 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 23 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 24 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 25 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 26 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 27 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 28 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 29 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 30 - ((imm)&0xF), \(\backslash\)
+                                   ((imm)&0xF0) ? 0 : 31 - ((imm)&0xF)); \})
+\end{DoxyCode}
+\hypertarget{emmintrin_8h_aef7b30e5ea9868fba5bd3cbfc666314f}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-mm\-\_\-srli\-\_\-si128@{\-\_\-mm\-\_\-srli\-\_\-si128}}
+\index{\-\_\-mm\-\_\-srli\-\_\-si128@{\-\_\-mm\-\_\-srli\-\_\-si128}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-mm\-\_\-srli\-\_\-si128}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-mm\-\_\-srli\-\_\-si128(
+\begin{DoxyParamCaption}
+\item[{}]{a, }
+\item[{}]{imm}
+\end{DoxyParamCaption}
+)}}\label{emmintrin_8h_aef7b30e5ea9868fba5bd3cbfc666314f}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\_\_extension\_\_ (\{                          \(\backslash\)
+  (\_\_m128i)\_\_builtin\_shufflevector((\_\_v16qi)(\_\_m128i)(a),                \(\backslash\)
+                                   (\_\_v16qi)\_mm\_setzero\_si128(),         \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 0,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 1,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 2,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 3,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 4,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 5,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 6,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 7,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 8,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 9,  \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 10, \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 11, \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 12, \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 13, \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 14, \(\backslash\)
+                                   ((imm)&0xF0) ? 16 : ((imm)&0xF) + 15); \})
+\end{DoxyCode}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{emmintrin_8h_a18b960f4937fb7340c54b59c234f60e7}{\index{emmintrin.\-h@{emmintrin.\-h}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!emmintrin.h@{emmintrin.\-h}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}typedef signed char \-\_\-\-\_\-v16qs \-\_\-\-\_\-attribute\-\_\-\-\_\-((\-\_\-\-\_\-vector\-\_\-size\-\_\-\-\_\-(16)))}}\label{emmintrin_8h_a18b960f4937fb7340c54b59c234f60e7}

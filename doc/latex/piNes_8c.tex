@@ -1,0 +1,92 @@
+\hypertarget{piNes_8c}{\section{wiring\-Pi/dev\-Lib/pi\-Nes.c File Reference}
+\label{piNes_8c}\index{wiring\-Pi/dev\-Lib/pi\-Nes.\-c@{wiring\-Pi/dev\-Lib/pi\-Nes.\-c}}
+}
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pi\-Nes.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structnesPinsStruct}{nes\-Pins\-Struct}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{piNes_8c_a048bab0fd507a4eba7a24dc65e0cfa4a}{M\-A\-X\-\_\-\-N\-E\-S\-\_\-\-J\-O\-Y\-S\-T\-I\-C\-K\-S}~8
+\item 
+\#define \hyperlink{piNes_8c_a01863d5e44e07f24a1ae7a4c173d2dfa}{N\-E\-S\-\_\-\-R\-I\-G\-H\-T}~0x01
+\item 
+\#define \hyperlink{piNes_8c_a09c1c786d5a0945cc937bf15b4607d68}{N\-E\-S\-\_\-\-L\-E\-F\-T}~0x02
+\item 
+\#define \hyperlink{piNes_8c_a1d5b2f09449a0cf5efa55f7ede1b5190}{N\-E\-S\-\_\-\-D\-O\-W\-N}~0x04
+\item 
+\#define \hyperlink{piNes_8c_a4c91868af5b99e441c9b47d01496cee4}{N\-E\-S\-\_\-\-U\-P}~0x08
+\item 
+\#define \hyperlink{piNes_8c_a58461bb0059a47c5afb0f38629c77724}{N\-E\-S\-\_\-\-S\-T\-A\-R\-T}~0x10
+\item 
+\#define \hyperlink{piNes_8c_a8ad96c5599f0bc6a8217ae8936472229}{N\-E\-S\-\_\-\-S\-E\-L\-E\-C\-T}~0x20
+\item 
+\#define \hyperlink{piNes_8c_a82ae14b366c647f4f1f253de64bad81e}{N\-E\-S\-\_\-\-B}~0x40
+\item 
+\#define \hyperlink{piNes_8c_a43a9fe7e52ec5ee04e9ef38af491f34f}{N\-E\-S\-\_\-\-A}~0x80
+\item 
+\#define \hyperlink{piNes_8c_ac877c243f61b4d41a089602b62703bef}{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}~25
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{piNes_8c_a9d5bf3d1d563309f63d58dbb83badbc6}{setup\-Nes\-Joystick} (int d\-Pin, int c\-Pin, int l\-Pin)
+\item 
+unsigned int \hyperlink{piNes_8c_a3edc7ec1f0cef138f2697cef025416d9}{read\-Nes\-Joystick} (int joystick)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{piNes_8c_a048bab0fd507a4eba7a24dc65e0cfa4a}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!M\-A\-X\-\_\-\-N\-E\-S\-\_\-\-J\-O\-Y\-S\-T\-I\-C\-K\-S@{M\-A\-X\-\_\-\-N\-E\-S\-\_\-\-J\-O\-Y\-S\-T\-I\-C\-K\-S}}
+\index{M\-A\-X\-\_\-\-N\-E\-S\-\_\-\-J\-O\-Y\-S\-T\-I\-C\-K\-S@{M\-A\-X\-\_\-\-N\-E\-S\-\_\-\-J\-O\-Y\-S\-T\-I\-C\-K\-S}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{M\-A\-X\-\_\-\-N\-E\-S\-\_\-\-J\-O\-Y\-S\-T\-I\-C\-K\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-X\-\_\-\-N\-E\-S\-\_\-\-J\-O\-Y\-S\-T\-I\-C\-K\-S~8}}\label{piNes_8c_a048bab0fd507a4eba7a24dc65e0cfa4a}
+\hypertarget{piNes_8c_a43a9fe7e52ec5ee04e9ef38af491f34f}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-A@{N\-E\-S\-\_\-\-A}}
+\index{N\-E\-S\-\_\-\-A@{N\-E\-S\-\_\-\-A}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-A~0x80}}\label{piNes_8c_a43a9fe7e52ec5ee04e9ef38af491f34f}
+\hypertarget{piNes_8c_a82ae14b366c647f4f1f253de64bad81e}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-B@{N\-E\-S\-\_\-\-B}}
+\index{N\-E\-S\-\_\-\-B@{N\-E\-S\-\_\-\-B}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-B~0x40}}\label{piNes_8c_a82ae14b366c647f4f1f253de64bad81e}
+\hypertarget{piNes_8c_a1d5b2f09449a0cf5efa55f7ede1b5190}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-D\-O\-W\-N@{N\-E\-S\-\_\-\-D\-O\-W\-N}}
+\index{N\-E\-S\-\_\-\-D\-O\-W\-N@{N\-E\-S\-\_\-\-D\-O\-W\-N}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-D\-O\-W\-N~0x04}}\label{piNes_8c_a1d5b2f09449a0cf5efa55f7ede1b5190}
+\hypertarget{piNes_8c_a09c1c786d5a0945cc937bf15b4607d68}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-L\-E\-F\-T@{N\-E\-S\-\_\-\-L\-E\-F\-T}}
+\index{N\-E\-S\-\_\-\-L\-E\-F\-T@{N\-E\-S\-\_\-\-L\-E\-F\-T}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-L\-E\-F\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-L\-E\-F\-T~0x02}}\label{piNes_8c_a09c1c786d5a0945cc937bf15b4607d68}
+\hypertarget{piNes_8c_a01863d5e44e07f24a1ae7a4c173d2dfa}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-R\-I\-G\-H\-T@{N\-E\-S\-\_\-\-R\-I\-G\-H\-T}}
+\index{N\-E\-S\-\_\-\-R\-I\-G\-H\-T@{N\-E\-S\-\_\-\-R\-I\-G\-H\-T}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-R\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-R\-I\-G\-H\-T~0x01}}\label{piNes_8c_a01863d5e44e07f24a1ae7a4c173d2dfa}
+\hypertarget{piNes_8c_a8ad96c5599f0bc6a8217ae8936472229}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-S\-E\-L\-E\-C\-T@{N\-E\-S\-\_\-\-S\-E\-L\-E\-C\-T}}
+\index{N\-E\-S\-\_\-\-S\-E\-L\-E\-C\-T@{N\-E\-S\-\_\-\-S\-E\-L\-E\-C\-T}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-S\-E\-L\-E\-C\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-S\-E\-L\-E\-C\-T~0x20}}\label{piNes_8c_a8ad96c5599f0bc6a8217ae8936472229}
+\hypertarget{piNes_8c_a58461bb0059a47c5afb0f38629c77724}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-S\-T\-A\-R\-T@{N\-E\-S\-\_\-\-S\-T\-A\-R\-T}}
+\index{N\-E\-S\-\_\-\-S\-T\-A\-R\-T@{N\-E\-S\-\_\-\-S\-T\-A\-R\-T}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-S\-T\-A\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-S\-T\-A\-R\-T~0x10}}\label{piNes_8c_a58461bb0059a47c5afb0f38629c77724}
+\hypertarget{piNes_8c_a4c91868af5b99e441c9b47d01496cee4}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!N\-E\-S\-\_\-\-U\-P@{N\-E\-S\-\_\-\-U\-P}}
+\index{N\-E\-S\-\_\-\-U\-P@{N\-E\-S\-\_\-\-U\-P}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{N\-E\-S\-\_\-\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define N\-E\-S\-\_\-\-U\-P~0x08}}\label{piNes_8c_a4c91868af5b99e441c9b47d01496cee4}
+\hypertarget{piNes_8c_ac877c243f61b4d41a089602b62703bef}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E@{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}}
+\index{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E@{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-U\-L\-S\-E\-\_\-\-T\-I\-M\-E~25}}\label{piNes_8c_ac877c243f61b4d41a089602b62703bef}
+
+
+\subsection{Function Documentation}
+\hypertarget{piNes_8c_a3edc7ec1f0cef138f2697cef025416d9}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!read\-Nes\-Joystick@{read\-Nes\-Joystick}}
+\index{read\-Nes\-Joystick@{read\-Nes\-Joystick}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{read\-Nes\-Joystick}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int read\-Nes\-Joystick (
+\begin{DoxyParamCaption}
+\item[{int}]{joystick}
+\end{DoxyParamCaption}
+)}}\label{piNes_8c_a3edc7ec1f0cef138f2697cef025416d9}
+\hypertarget{piNes_8c_a9d5bf3d1d563309f63d58dbb83badbc6}{\index{pi\-Nes.\-c@{pi\-Nes.\-c}!setup\-Nes\-Joystick@{setup\-Nes\-Joystick}}
+\index{setup\-Nes\-Joystick@{setup\-Nes\-Joystick}!piNes.c@{pi\-Nes.\-c}}
+\subsubsection[{setup\-Nes\-Joystick}]{\setlength{\rightskip}{0pt plus 5cm}int setup\-Nes\-Joystick (
+\begin{DoxyParamCaption}
+\item[{int}]{d\-Pin, }
+\item[{int}]{c\-Pin, }
+\item[{int}]{l\-Pin}
+\end{DoxyParamCaption}
+)}}\label{piNes_8c_a9d5bf3d1d563309f63d58dbb83badbc6}

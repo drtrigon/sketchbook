@@ -1,0 +1,59 @@
+\hypertarget{classsht31_1_1SHT31}{\section{sht31.\-S\-H\-T31 Class Reference}
+\label{classsht31_1_1SHT31}\index{sht31.\-S\-H\-T31@{sht31.\-S\-H\-T31}}
+}
+Inheritance diagram for sht31.\-S\-H\-T31\-:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{classsht31_1_1SHT31}
+\end{center}
+\end{figure}
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{classsht31_1_1SHT31_aacdcc1b25d1d7eb5a9ccf25749097504}{\-\_\-\-\_\-init\-\_\-\-\_\-}
+\item 
+def \hyperlink{classsht31_1_1SHT31_a9b19106b467aacd82d68451db4f01d9b}{get\-\_\-temp\-\_\-humi}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+\begin{DoxyVerb}This class implements an interface to the SHT31 temprature and humidity
+sensor from Sensirion.
+\end{DoxyVerb}
+ 
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classsht31_1_1SHT31_aacdcc1b25d1d7eb5a9ccf25749097504}{\index{sht31\-::\-S\-H\-T31@{sht31\-::\-S\-H\-T31}!\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-init\-\_\-\-\_\-@{\-\_\-\-\_\-init\-\_\-\-\_\-}!sht31::SHT31@{sht31\-::\-S\-H\-T31}}
+\subsubsection[{\-\_\-\-\_\-init\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}def sht31.\-S\-H\-T31.\-\_\-\-\_\-init\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{i2c, }
+\item[{}]{addr = {\ttfamily 0x44}}
+\end{DoxyParamCaption}
+)}}\label{classsht31_1_1SHT31_aacdcc1b25d1d7eb5a9ccf25749097504}
+\begin{DoxyVerb}Initialize a sensor object on the given I2C bus and accessed by the
+given address.
+\end{DoxyVerb}
+ 
+
+\subsection{Member Function Documentation}
+\hypertarget{classsht31_1_1SHT31_a9b19106b467aacd82d68451db4f01d9b}{\index{sht31\-::\-S\-H\-T31@{sht31\-::\-S\-H\-T31}!get\-\_\-temp\-\_\-humi@{get\-\_\-temp\-\_\-humi}}
+\index{get\-\_\-temp\-\_\-humi@{get\-\_\-temp\-\_\-humi}!sht31::SHT31@{sht31\-::\-S\-H\-T31}}
+\subsubsection[{get\-\_\-temp\-\_\-humi}]{\setlength{\rightskip}{0pt plus 5cm}def sht31.\-S\-H\-T31.\-get\-\_\-temp\-\_\-humi (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{resolution = {\ttfamily {\bf R\-\_\-\-H\-I\-G\-H}}, }
+\item[{}]{clock\-\_\-stretch = {\ttfamily True}, }
+\item[{}]{celsius = {\ttfamily True}}
+\end{DoxyParamCaption}
+)}}\label{classsht31_1_1SHT31_a9b19106b467aacd82d68451db4f01d9b}
+\begin{DoxyVerb}Read the temperature in degree celsius or fahrenheit and relative
+humidity. Resolution and clock stretching can be specified.
+Returns a tuple for both values in that order.
+\end{DoxyVerb}
+ 
+
+The documentation for this class was generated from the following file\-:\begin{DoxyCompactItemize}
+\item 
+micpy/\-E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-pseudo\-R\-E\-S\-T/\hyperlink{sht31_8py}{sht31.\-py}\end{DoxyCompactItemize}

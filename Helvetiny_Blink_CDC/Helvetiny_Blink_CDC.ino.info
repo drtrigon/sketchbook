@@ -1,0 +1,426 @@
+ELF Header:
+  Magic:   7f 45 4c 46 01 01 01 00 00 00 00 00 00 00 00 00 
+  Class:                             ELF32
+  Data:                              2's complement, little endian
+  Version:                           1 (current)
+  OS/ABI:                            UNIX - System V
+  ABI Version:                       0
+  Type:                              EXEC (Executable file)
+  Machine:                           Atmel AVR 8-bit microcontroller
+  Version:                           0x1
+  Entry point address:               0x0
+  Start of program headers:          52 (bytes into file)
+  Start of section headers:          90788 (bytes into file)
+  Flags:                             0x99
+  Size of this header:               52 (bytes)
+  Size of program headers:           32 (bytes)
+  Number of program headers:         3
+  Size of section headers:           40 (bytes)
+  Number of section headers:         16
+  Section header string table index: 13
+
+Section Headers:
+  [Nr] Name              Type            Addr     Off    Size   ES Flg Lk Inf Al
+  [ 0]                   NULL            00000000 000000 000000 00      0   0  0
+  [ 1] .text             PROGBITS        00000000 000094 00170a 00  AX  0   0  2
+  [ 2] .data             PROGBITS        00800060 00179e 000026 00  WA  0   0  1
+  [ 3] .bss              NOBITS          00800086 0017c4 0000b2 00  WA  0   0  1
+  [ 4] .comment          PROGBITS        00000000 0017c4 000011 01  MS  0   0  1
+  [ 5] .debug_aranges    PROGBITS        00000000 0017d8 000528 00      0   0  8
+  [ 6] .debug_info       PROGBITS        00000000 001d00 007bc0 00      0   0  1
+  [ 7] .debug_abbrev     PROGBITS        00000000 0098c0 001b03 00      0   0  1
+  [ 8] .debug_line       PROGBITS        00000000 00b3c3 001ef7 00      0   0  1
+  [ 9] .debug_frame      PROGBITS        00000000 00d2bc 000e80 00      0   0  4
+  [10] .debug_str        PROGBITS        00000000 00e13c 002363 01  MS  0   0  1
+  [11] .debug_loc        PROGBITS        00000000 01049f 00586a 00      0   0  1
+  [12] .debug_ranges     PROGBITS        00000000 015d09 000500 00      0   0  1
+  [13] .shstrtab         STRTAB          00000000 016209 00009b 00      0   0  1
+  [14] .symtab           SYMTAB          00000000 016524 0014a0 10     15 184  4
+  [15] .strtab           STRTAB          00000000 0179c4 000e2f 00      0   0  1
+Key to Flags:
+  W (write), A (alloc), X (execute), M (merge), S (strings)
+  I (info), L (link order), G (group), T (TLS), E (exclude), x (unknown)
+  O (extra OS processing required) o (OS specific), p (processor specific)
+
+There are no section groups in this file.
+
+Program Headers:
+  Type           Offset   VirtAddr   PhysAddr   FileSiz MemSiz  Flg Align
+  LOAD           0x000094 0x00000000 0x00000000 0x0170a 0x0170a R E 0x2
+  LOAD           0x00179e 0x00800060 0x0000170a 0x00026 0x00026 RW  0x1
+  LOAD           0x0017c4 0x00800086 0x00800086 0x00000 0x000b2 RW  0x1
+
+ Section to Segment mapping:
+  Segment Sections...
+   00     .text 
+   01     .data 
+   02     .bss 
+
+There is no dynamic section in this file.
+
+There are no relocations in this file.
+
+The decoding of unwind sections for machine type Atmel AVR 8-bit microcontroller is not currently supported.
+
+Symbol table '.symtab' contains 330 entries:
+   Num:    Value  Size Type    Bind   Vis      Ndx Name
+     0: 00000000     0 NOTYPE  LOCAL  DEFAULT  UND 
+     1: 00000000     0 SECTION LOCAL  DEFAULT    1 
+     2: 00800060     0 SECTION LOCAL  DEFAULT    2 
+     3: 00800086     0 SECTION LOCAL  DEFAULT    3 
+     4: 00000000     0 SECTION LOCAL  DEFAULT    4 
+     5: 00000000     0 SECTION LOCAL  DEFAULT    5 
+     6: 00000000     0 SECTION LOCAL  DEFAULT    6 
+     7: 00000000     0 SECTION LOCAL  DEFAULT    7 
+     8: 00000000     0 SECTION LOCAL  DEFAULT    8 
+     9: 00000000     0 SECTION LOCAL  DEFAULT    9 
+    10: 00000000     0 SECTION LOCAL  DEFAULT   10 
+    11: 00000000     0 SECTION LOCAL  DEFAULT   11 
+    12: 00000000     0 SECTION LOCAL  DEFAULT   12 
+    13: 00000000     0 FILE    LOCAL  DEFAULT  ABS Helvetiny_Blink_CDC.ino.c
+    14: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    15: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    16: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    17: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    18: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    19: 0000001e     6 OBJECT  LOCAL  DEFAULT    1 _ZZ4loopE3__c
+    20: 00000000     0 FILE    LOCAL  DEFAULT  ABS usbdrv.c
+    21: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    22: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    23: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    24: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    25: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    26: 000005a0    72 FUNC    LOCAL  DEFAULT    1 usbGenericSetInterrupt
+    27: 00800087     1 OBJECT  LOCAL  DEFAULT    3 usbMsgFlags
+    28: 00800066     1 OBJECT  LOCAL  DEFAULT    2 usbMsgLen
+    29: 00800086     1 OBJECT  LOCAL  DEFAULT    3 wasReset.1803
+    30: 00000000     0 FILE    LOCAL  DEFAULT  ABS DigiCDC.cpp
+    31: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    32: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    33: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    34: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    35: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    36: 0000086e    54 FUNC    LOCAL  DEFAULT    1 _ZL17RingBuffer_InsertP12
+    37: 000008a4    50 FUNC    LOCAL  DEFAULT    1 _ZL17RingBuffer_RemoveP12
+    38: 008000b8    32 OBJECT  LOCAL  DEFAULT    3 _ZL10rxBuf_Data
+    39: 008000d8    12 OBJECT  LOCAL  DEFAULT    3 _ZL5rxBuf
+    40: 00000918    14 FUNC    LOCAL  DEFAULT    1 _ZL19RingBuffer_GetCountP
+    41: 0080008c    32 OBJECT  LOCAL  DEFAULT    3 _ZL10txBuf_Data
+    42: 008000ac    12 OBJECT  LOCAL  DEFAULT    3 _ZL5txBuf
+    43: 0080008a     1 OBJECT  LOCAL  DEFAULT    3 _ZL11intr3Status
+    44: 008000e4     1 OBJECT  LOCAL  DEFAULT    3 _ZL5index
+    45: 008000e5     8 OBJECT  LOCAL  DEFAULT    3 _ZL3tmp
+    46: 00800068    10 OBJECT  LOCAL  DEFAULT    2 _ZZN13DigiCDCDevice14usbP
+    47: 00000078    67 OBJECT  LOCAL  DEFAULT    1 _ZL14configDescrCDC
+    48: 00000c5e    14 FUNC    LOCAL  DEFAULT    1 _GLOBAL__sub_I_sendEmptyF
+    49: 00000000     0 FILE    LOCAL  DEFAULT  ABS pins_arduino.c
+    50: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+    51: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+    52: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+    53: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+    54: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+    55: 00000000     0 FILE    LOCAL  DEFAULT  ABS _clear_bss.o
+    56: 000000fa     0 NOTYPE  LOCAL  DEFAULT    1 .do_clear_bss_start
+    57: 000000f8     0 NOTYPE  LOCAL  DEFAULT    1 .do_clear_bss_loop
+    58: 00000000     0 FILE    LOCAL  DEFAULT  ABS /tmp/arduino_build_187493
+    59: 0000013e     0 NOTYPE  LOCAL  DEFAULT    1 usbCrcLoopEntry
+    60: 0000012c     0 NOTYPE  LOCAL  DEFAULT    1 usbCrcByteLoop
+    61: 00000130     0 NOTYPE  LOCAL  DEFAULT    1 usbCrcBitLoop
+    62: 0000013a     0 NOTYPE  LOCAL  DEFAULT    1 usbCrcNoXor
+    63: 00000142     0 NOTYPE  LOCAL  DEFAULT    1 usbCrcReady
+    64: 00000152     0 NOTYPE  LOCAL  DEFAULT    1 usbMFTime16
+    65: 00000170     0 NOTYPE  LOCAL  DEFAULT    1 usbMFTimeout
+    66: 00000156     0 NOTYPE  LOCAL  DEFAULT    1 usbMFWaitStrobe
+    67: 0000015e     0 NOTYPE  LOCAL  DEFAULT    1 usbMFWaitIdle
+    68: 00000166     0 NOTYPE  LOCAL  DEFAULT    1 usbMFWaitLoop
+    69: 00000178     0 NOTYPE  LOCAL  DEFAULT    1 waitForJ
+    70: 0000017e     0 NOTYPE  LOCAL  DEFAULT    1 waitForK
+    71: 00000198     0 NOTYPE  LOCAL  DEFAULT    1 foundK
+    72: 00000348     0 NOTYPE  LOCAL  DEFAULT    1 sofError
+    73: 000001b2     0 NOTYPE  LOCAL  DEFAULT    1 haveTwoBitsK
+    74: 00000298     0 NOTYPE  LOCAL  DEFAULT    1 rxbit1
+    75: 000001ce     0 NOTYPE  LOCAL  DEFAULT    1 continueWithBit5
+    76: 00000212     0 NOTYPE  LOCAL  DEFAULT    1 unstuff5
+    77: 000001ee     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff6
+    78: 00000230     0 NOTYPE  LOCAL  DEFAULT    1 unstuff6
+    79: 000001f4     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff5
+    80: 000001fe     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff7
+    81: 00000282     0 NOTYPE  LOCAL  DEFAULT    1 rxLoop
+    82: 00000208     0 NOTYPE  LOCAL  DEFAULT    1 unstuff7
+    83: 0000023a     0 NOTYPE  LOCAL  DEFAULT    1 unstuff0
+    84: 0000029e     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff0
+    85: 0000024e     0 NOTYPE  LOCAL  DEFAULT    1 unstuff1
+    86: 000002ae     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff1
+    87: 0000025c     0 NOTYPE  LOCAL  DEFAULT    1 unstuff2
+    88: 000002c4     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff2
+    89: 0000026a     0 NOTYPE  LOCAL  DEFAULT    1 unstuff3
+    90: 000002d6     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff3
+    91: 0000027a     0 NOTYPE  LOCAL  DEFAULT    1 unstuff4
+    92: 000002e2     0 NOTYPE  LOCAL  DEFAULT    1 didUnstuff4
+    93: 000002f6     0 NOTYPE  LOCAL  DEFAULT    1 se0
+    94: 000002ee     0 NOTYPE  LOCAL  DEFAULT    1 overflow
+    95: 000002f2     0 NOTYPE  LOCAL  DEFAULT    1 ignorePacket
+    96: 0000032e     0 NOTYPE  LOCAL  DEFAULT    1 storeTokenAndReturn
+    97: 00000350     0 NOTYPE  LOCAL  DEFAULT    1 handleData
+    98: 0000037a     0 NOTYPE  LOCAL  DEFAULT    1 handleIn
+    99: 00000328     0 NOTYPE  LOCAL  DEFAULT    1 handleSetupOrOut
+   100: 00000332     0 NOTYPE  LOCAL  DEFAULT    1 doReturn
+   101: 000003d4     0 NOTYPE  LOCAL  DEFAULT    1 sendNakAndReti
+   102: 000003d8     0 NOTYPE  LOCAL  DEFAULT    1 sendAckAndReti
+   103: 0000039a     0 NOTYPE  LOCAL  DEFAULT    1 handleIn1
+   104: 000003da     0 NOTYPE  LOCAL  DEFAULT    1 sendCntAndReti
+   105: 000003e2     0 NOTYPE  LOCAL  DEFAULT    1 usbSendAndReti
+   106: 000003b0     0 NOTYPE  LOCAL  DEFAULT    1 handleIn3
+   107: 000003c2     0 NOTYPE  LOCAL  DEFAULT    1 bitstuff7
+   108: 0000040c     0 NOTYPE  LOCAL  DEFAULT    1 didStuff7
+   109: 000003ca     0 NOTYPE  LOCAL  DEFAULT    1 bitstuffN
+   110: 000003fc     0 NOTYPE  LOCAL  DEFAULT    1 didStuffN
+   111: 000003f2     0 NOTYPE  LOCAL  DEFAULT    1 byteloop
+   112: 000003f2     0 NOTYPE  LOCAL  DEFAULT    1 bitloop
+   113: 0000042e     0 NOTYPE  LOCAL  DEFAULT    1 skipAddrAssign
+   114: 0000043e     0 NOTYPE  LOCAL  DEFAULT    1 se0Delay
+   115: 00000000     0 FILE    LOCAL  DEFAULT  ABS osccal.c
+   116: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   117: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   118: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   119: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   120: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   121: 00000000     0 FILE    LOCAL  DEFAULT  ABS wiring.c
+   122: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   123: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   124: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   125: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   126: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   127: 00000c6c    30 FUNC    LOCAL  DEFAULT    1 initToneTimerInternal
+   128: 008000ed     1 OBJECT  LOCAL  DEFAULT    3 millis_timer_fract
+   129: 00000000     0 FILE    LOCAL  DEFAULT  ABS wiring_digital.c
+   130: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   131: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   132: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   133: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   134: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   135: 00000000     0 FILE    LOCAL  DEFAULT  ABS Print.cpp
+   136: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   137: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   138: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   139: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   140: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   141: 00000f2c    16 FUNC    LOCAL  DEFAULT    1 _ZN5Print5printEli.part.2
+   142: 00000000     0 FILE    LOCAL  DEFAULT  ABS main.cpp
+   143: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   144: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   145: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   146: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   147: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   148: 00000000     0 FILE    LOCAL  DEFAULT  ABS _udivmodsi4.o
+   149: 000016dc     0 NOTYPE  LOCAL  DEFAULT    1 __udivmodsi4_ep
+   150: 000016c2     0 NOTYPE  LOCAL  DEFAULT    1 __udivmodsi4_loop
+   151: 00000000     0 FILE    LOCAL  DEFAULT  ABS _exit.o
+   152: 00001708     0 NOTYPE  LOCAL  DEFAULT    1 __stop_program
+   153: 00000000     0 FILE    LOCAL  DEFAULT  ABS oddebug.c
+   154: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   155: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   156: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   157: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   158: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   159: 00000000     0 FILE    LOCAL  DEFAULT  ABS WString.cpp
+   160: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   161: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   162: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   163: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   164: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   165: 00000000     0 FILE    LOCAL  DEFAULT  ABS new.cpp
+   166: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   167: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   168: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   169: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   170: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   171: 00000000     0 FILE    LOCAL  DEFAULT  ABS malloc.c
+   172: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   173: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   174: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   175: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   176: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   177: 00000000     0 FILE    LOCAL  DEFAULT  ABS realloc.c
+   178: 0000003e     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_H__
+   179: 0000003d     0 NOTYPE  LOCAL  DEFAULT  ABS __SP_L__
+   180: 0000003f     0 NOTYPE  LOCAL  DEFAULT  ABS __SREG__
+   181: 00000000     0 NOTYPE  LOCAL  DEFAULT  ABS __tmp_reg__
+   182: 00000001     0 NOTYPE  LOCAL  DEFAULT  ABS __zero_reg__
+   183: 00000000     0 FILE    LOCAL  DEFAULT  ABS 
+   184: 00000024    18 OBJECT  GLOBAL DEFAULT    1 usbDescriptorDevice
+   185: 000000c9     2 OBJECT  GLOBAL DEFAULT    1 port_to_mode_PGM
+   186: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_1
+   187: 008000f6    11 OBJECT  GLOBAL DEFAULT    3 usbTxBuf
+   188: 00001116    38 FUNC    GLOBAL DEFAULT    1 _ZN5Print7printlnEv
+   189: 00000c0e    80 FUNC    GLOBAL DEFAULT    1 usbFunctionWriteOut
+   190: 000016fe     8 NOTYPE  GLOBAL HIDDEN     1 __tablejump__
+   191: 0000134a     4 FUNC    GLOBAL DEFAULT    1 __divsf3
+   192: 00000b6c     8 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice9availa
+   193: 0000156c    34 FUNC    GLOBAL DEFAULT    1 __fp_round
+   194: 00000524   124 FUNC    GLOBAL DEFAULT    1 calibrateOscillator
+   195: 0000141a    10 FUNC    GLOBAL DEFAULT    1 __fixsfsi
+   196: 00000ba0    42 FUNC    GLOBAL DEFAULT    1 usbFunctionDescriptor
+   197: 0000158e    68 FUNC    GLOBAL DEFAULT    1 __fp_split3
+   198: 00000f90   290 FUNC    GLOBAL DEFAULT    1 _ZN5Print11printNumberEmh
+   199: 00000eee    62 FUNC    GLOBAL DEFAULT    1 _ZN5Print5writeEPKhj
+   200: 0000001e     0 NOTYPE  GLOBAL DEFAULT    1 __trampolines_start
+   201: 000009e4   158 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice14usbPo
+   202: 000014f6    72 FUNC    GLOBAL DEFAULT    1 __fp_cmp
+   203: 0000170a     0 NOTYPE  GLOBAL DEFAULT    1 _etext
+   204: 00000074     4 OBJECT  GLOBAL DEFAULT    1 usbDescriptorString0
+   205: 00001278    10 FUNC    GLOBAL DEFAULT    1 __subsf3
+   206: 000004c6    94 FUNC    GLOBAL DEFAULT    1 loop
+   207: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_12
+   208: 00000118     0 NOTYPE  GLOBAL DEFAULT    1 __bad_interrupt
+   209: 00001730     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_end
+   210: 00800101    12 OBJECT  GLOBAL DEFAULT    3 usbTxStatus1
+   211: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_6
+   212: 0080008b     1 OBJECT  GLOBAL DEFAULT    3 sendEmptyFrame
+   213: 0000011a     0 NOTYPE  GLOBAL DEFAULT    1 usbCrc16
+   214: 00001342     0 NOTYPE  GLOBAL DEFAULT    1 __lesf2
+   215: 00800062     2 OBJECT  GLOBAL DEFAULT    2 __malloc_heap_start
+   216: 0000001e     0 NOTYPE  GLOBAL DEFAULT    1 __trampolines_end
+   217: 00000bca    60 FUNC    GLOBAL DEFAULT    1 usbFunctionSetup
+   218: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_3
+   219: 000015d2    14 FUNC    GLOBAL DEFAULT    1 __fp_zero
+   220: 00000e60    94 FUNC    GLOBAL DEFAULT    1 digitalWrite
+   221: 00000ebe    48 FUNC    GLOBAL DEFAULT    1 _ZN5Print5writeEPKc
+   222: 00000b00    24 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice5beginE
+   223: 00000df2   110 FUNC    GLOBAL DEFAULT    1 pinMode
+   224: 0000115c   260 FUNC    GLOBAL DEFAULT    1 _ZN5Print10printFloatEdh
+   225: 00001342     0 NOTYPE  GLOBAL DEFAULT    1 __nesf2
+   226: 000000c1     6 OBJECT  GLOBAL DEFAULT    1 digital_pin_to_port_PGM
+   227: 0000170a     0 NOTYPE  GLOBAL DEFAULT  ABS __data_load_start
+   228: 000000ce     0 NOTYPE  GLOBAL DEFAULT    1 __dtors_end
+   229: 00800138     0 NOTYPE  GLOBAL DEFAULT    3 __bss_end
+   230: 000005f4   604 FUNC    GLOBAL DEFAULT    1 usbPoll
+   231: 00001364   204 FUNC    GLOBAL DEFAULT    1 __divsf3x
+   232: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_11
+   233: 000000ce     0 NOTYPE  WEAK   DEFAULT    1 __init
+   234: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_13
+   235: 00000144     0 NOTYPE  GLOBAL DEFAULT    1 usbCrc16Append
+   236: 000015fa     0 NOTYPE  GLOBAL DEFAULT    1 __mulsf3_pse
+   237: 0000154a     6 FUNC    GLOBAL DEFAULT    1 __fp_nan
+   238: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_7
+   239: 008000ee     4 OBJECT  GLOBAL DEFAULT    3 millis_timer_millis
+   240: 0000153e    12 FUNC    GLOBAL DEFAULT    1 __fp_inf
+   241: 000000f0    16 NOTYPE  GLOBAL HIDDEN     1 __do_clear_bss
+   242: 00000f4a    70 FUNC    GLOBAL DEFAULT    1 _ZN5Print5printEP6fstr_t
+   243: 0080010d     1 OBJECT  GLOBAL DEFAULT    3 usbDeviceAddr
+   244: 00810000     0 NOTYPE  GLOBAL DEFAULT    4 __eeprom_end
+   245: 000000bb     6 OBJECT  GLOBAL DEFAULT    1 digital_pin_to_bit_mask_P
+   246: 000015f6   210 FUNC    GLOBAL DEFAULT    1 __mulsf3x
+   247: 00800060     2 OBJECT  GLOBAL DEFAULT    2 __malloc_heap_end
+   248: 0080010e     1 OBJECT  GLOBAL DEFAULT    3 usbRxToken
+   249: 00001480     0 NOTYPE  GLOBAL DEFAULT    1 __floatsisf
+   250: 00000000     0 NOTYPE  GLOBAL DEFAULT    1 __vectors
+   251: 00800086     0 NOTYPE  GLOBAL DEFAULT    2 __data_end
+   252: 00000058    28 OBJECT  GLOBAL DEFAULT    1 usbDescriptorStringVendor
+   253: 000005ee     6 FUNC    GLOBAL DEFAULT    1 usbSetInterrupt3
+   254: 0080010f     1 OBJECT  GLOBAL DEFAULT    3 usbInputBufOffset
+   255: 00001342     0 NOTYPE  GLOBAL DEFAULT    1 __eqsf2
+   256: 00000000     0 NOTYPE  WEAK   DEFAULT    1 __vector_default
+   257: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_5
+   258: 000016fa     4 NOTYPE  GLOBAL HIDDEN     1 __tablejump2__
+   259: 00000dc0    50 FUNC    GLOBAL DEFAULT    1 init
+   260: 000000cc     0 NOTYPE  GLOBAL DEFAULT    1 __ctors_start
+   261: 000000da    22 NOTYPE  GLOBAL HIDDEN     1 __do_copy_data
+   262: 00001342     8 FUNC    GLOBAL DEFAULT    1 __cmpsf2
+   263: 0000155e    14 FUNC    GLOBAL DEFAULT    1 __fp_pscB
+   264: 0000159e     0 NOTYPE  GLOBAL DEFAULT    1 __fp_splitA
+   265: 00800086     0 NOTYPE  GLOBAL DEFAULT    3 __bss_start
+   266: 00001270     8 FUNC    GLOBAL DEFAULT    1 main
+   267: 00001342     0 NOTYPE  GLOBAL DEFAULT    1 __ltsf2
+   268: 00000c8a   142 FUNC    GLOBAL DEFAULT    1 __vector_4
+   269: 00000f3c    14 FUNC    GLOBAL DEFAULT    1 _ZN5Print5printEPKc
+   270: 00000d30    72 FUNC    GLOBAL DEFAULT    1 micros
+   271: 00800067     1 OBJECT  GLOBAL DEFAULT    2 usbTxLen
+   272: 000015e0     4 FUNC    GLOBAL DEFAULT    1 __mulsf3
+   273: 00000000     0 NOTYPE  WEAK   DEFAULT  ABS __heap_end
+   274: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_9
+   275: 00000d78    72 FUNC    GLOBAL DEFAULT    1 delay
+   276: 00000172     0 FUNC    GLOBAL DEFAULT    1 __vector_2
+   277: 0000129c   192 FUNC    GLOBAL DEFAULT    1 __addsf3x
+   278: 00000944   160 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice8usbBeg
+   279: 00000456    56 FUNC    GLOBAL DEFAULT    1 _Z6getVccv
+   280: 00800110     2 OBJECT  GLOBAL DEFAULT    3 usbMsgPtr
+   281: 00800072    18 OBJECT  WEAK   DEFAULT    2 _ZTV13DigiCDCDevice
+   282: 000000c7     2 OBJECT  GLOBAL DEFAULT    1 port_to_output_PGM
+   283: 00001550    14 FUNC    GLOBAL DEFAULT    1 __fp_pscA
+   284: 0000044a    12 FUNC    GLOBAL DEFAULT    1 setup
+   285: 00800138     0 NOTYPE  GLOBAL DEFAULT    4 __heap_start
+   286: 00800112     1 OBJECT  GLOBAL DEFAULT    3 usbRxLen
+   287: 000000ce     0 NOTYPE  GLOBAL DEFAULT    1 __dtors_start
+   288: 000000ce     0 NOTYPE  GLOBAL DEFAULT    1 __ctors_end
+   289: 000005e8     6 FUNC    GLOBAL DEFAULT    1 usbSetInterrupt
+   290: 0000025f     0 NOTYPE  WEAK   DEFAULT  ABS __stack
+   291: 00800113     1 OBJECT  GLOBAL DEFAULT    3 usbNewDeviceAddr
+   292: 00000926    30 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice4peekEv
+   293: 00800086     0 NOTYPE  GLOBAL DEFAULT    2 _edata
+   294: 00800138     0 NOTYPE  GLOBAL DEFAULT    4 _end
+   295: 00800088     2 OBJECT  GLOBAL DEFAULT    3 SerialUSB
+   296: 0000048e    56 FUNC    GLOBAL DEFAULT    1 _Z7getTempv
+   297: 00000a82    14 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice7refres
+   298: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_8
+   299: 00001368     0 NOTYPE  GLOBAL DEFAULT    1 __divsf3_pse
+   300: 00001260    16 FUNC    GLOBAL DEFAULT    1 _ZN5Print7printlnEdi
+   301: 000008d6    66 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice5flushE
+   302: 008000f2     4 OBJECT  GLOBAL DEFAULT    3 millis_timer_overflow_cou
+   303: 00001706     0 NOTYPE  WEAK   HIDDEN     1 exit
+   304: 00800114     1 OBJECT  GLOBAL DEFAULT    3 usbCurrentTok
+   305: 00000b18    84 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice5writeE
+   306: 000010b2   100 FUNC    GLOBAL DEFAULT    1 _ZN5Print5printEli
+   307: 0000113c    32 FUNC    GLOBAL DEFAULT    1 _ZN5Print7printlnEP6fstr_
+   308: 0000147c   122 FUNC    GLOBAL DEFAULT    1 __floatunsisf
+   309: 00000850    30 FUNC    GLOBAL DEFAULT    1 usbInit
+   310: 000016b6    68 NOTYPE  GLOBAL HIDDEN     1 __udivmodsi4
+   311: 00000036    34 OBJECT  GLOBAL DEFAULT    1 usbDescriptorStringDevice
+   312: 00001424    88 FUNC    GLOBAL DEFAULT    1 __fixunssfsi
+   313: 00000b74    44 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice4readEv
+   314: 00001706     0 NOTYPE  GLOBAL HIDDEN     1 _exit
+   315: 00800115     1 OBJECT  GLOBAL DEFAULT    3 usbConfiguration
+   316: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_14
+   317: 00000a90   112 FUNC    GLOBAL DEFAULT    1 _ZN13DigiCDCDevice5delayE
+   318: 00000118     0 NOTYPE  WEAK   DEFAULT    1 __vector_10
+   319: 00800116    22 OBJECT  GLOBAL DEFAULT    3 usbRxBuf
+   320: 00800060     0 NOTYPE  GLOBAL DEFAULT    2 __data_start
+   321: 00000c06     4 FUNC    GLOBAL DEFAULT    1 usbFunctionRead
+   322: 0000014c     0 NOTYPE  GLOBAL DEFAULT    1 usbMeasureFrameLength
+   323: 00800064     2 OBJECT  GLOBAL DEFAULT    2 __malloc_margin
+   324: 00000d18    24 FUNC    GLOBAL DEFAULT    1 millis
+   325: 0000127a     0 NOTYPE  GLOBAL DEFAULT    1 __addsf3
+   326: 0080012c    12 OBJECT  GLOBAL DEFAULT    3 usbTxStatus3
+   327: 00000c0a     4 FUNC    GLOBAL DEFAULT    1 usbFunctionWrite
+   328: 000015d4     0 NOTYPE  GLOBAL DEFAULT    1 __fp_szero
+   329: 00000100    20 NOTYPE  GLOBAL HIDDEN     1 __do_global_ctors
+
+No version information found in this file.
+TEST!
+&P)S
+Ow h
+P'O} b
+&P)M
+&P)K
+&P)G
+&P)1P
+~@/G~T
+._?O
+/_?O$
+!P1	3
+2/0v02
+f'x/
+h>s@
+-d/	
+B.Q,a,q,
+e/u/
+{,w 	
+/#/4/D'X_
+__O"
+X_O*
+g/x/
+#+$+%+!
+'f'w'
+/q-`-
+   text	   data	    bss	    dec	    hex	filename
+   5898	     38	    178	   6114	   17e2	/tmp/arduino_build_187493/Helvetiny_Blink_CDC.ino.elf

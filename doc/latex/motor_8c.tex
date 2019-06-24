@@ -1,0 +1,70 @@
+\hypertarget{motor_8c}{\section{wiring\-Pi/examples/\-Pi\-Face/motor.c File Reference}
+\label{motor_8c}\index{wiring\-Pi/examples/\-Pi\-Face/motor.\-c@{wiring\-Pi/examples/\-Pi\-Face/motor.\-c}}
+}
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$pi\-Face.\-h$>$}\\*
+{\ttfamily \#include $<$soft\-Pwm.\-h$>$}\\*
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{motor_8c_ac2ba1276e29ef6d06bb33d2c2ddb2d07}{P\-I\-F\-A\-C\-E\-\_\-\-B\-A\-S\-E}~200
+\item 
+\#define \hyperlink{motor_8c_a1f5845723ff33fbdad298ebab782dc10}{P\-W\-M\-\_\-\-O\-U\-T\-\_\-\-P\-I\-N}~204
+\item 
+\#define \hyperlink{motor_8c_ac58588f059760584595306d53fffc0c2}{P\-W\-M\-\_\-\-U\-P}~202
+\item 
+\#define \hyperlink{motor_8c_aa7e13cc9291296a9a42988cca32a80e2}{P\-W\-M\-\_\-\-D\-O\-W\-N}~203
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{motor_8c_a6ae44746e46a8f938fa71c4e06cc5f74}{scan\-Button} (int \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a0a7e6169ae96e651da0b37fae3034554}{button})
+\item 
+int \hyperlink{motor_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{motor_8c_abb97a1f0411c6d84de3d37130964d7fb}{outputs} \mbox{[}2\mbox{]} = \{ 0,0 \}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{motor_8c_ac2ba1276e29ef6d06bb33d2c2ddb2d07}{\index{motor.\-c@{motor.\-c}!P\-I\-F\-A\-C\-E\-\_\-\-B\-A\-S\-E@{P\-I\-F\-A\-C\-E\-\_\-\-B\-A\-S\-E}}
+\index{P\-I\-F\-A\-C\-E\-\_\-\-B\-A\-S\-E@{P\-I\-F\-A\-C\-E\-\_\-\-B\-A\-S\-E}!motor.c@{motor.\-c}}
+\subsubsection[{P\-I\-F\-A\-C\-E\-\_\-\-B\-A\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-I\-F\-A\-C\-E\-\_\-\-B\-A\-S\-E~200}}\label{motor_8c_ac2ba1276e29ef6d06bb33d2c2ddb2d07}
+\hypertarget{motor_8c_aa7e13cc9291296a9a42988cca32a80e2}{\index{motor.\-c@{motor.\-c}!P\-W\-M\-\_\-\-D\-O\-W\-N@{P\-W\-M\-\_\-\-D\-O\-W\-N}}
+\index{P\-W\-M\-\_\-\-D\-O\-W\-N@{P\-W\-M\-\_\-\-D\-O\-W\-N}!motor.c@{motor.\-c}}
+\subsubsection[{P\-W\-M\-\_\-\-D\-O\-W\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-M\-\_\-\-D\-O\-W\-N~203}}\label{motor_8c_aa7e13cc9291296a9a42988cca32a80e2}
+\hypertarget{motor_8c_a1f5845723ff33fbdad298ebab782dc10}{\index{motor.\-c@{motor.\-c}!P\-W\-M\-\_\-\-O\-U\-T\-\_\-\-P\-I\-N@{P\-W\-M\-\_\-\-O\-U\-T\-\_\-\-P\-I\-N}}
+\index{P\-W\-M\-\_\-\-O\-U\-T\-\_\-\-P\-I\-N@{P\-W\-M\-\_\-\-O\-U\-T\-\_\-\-P\-I\-N}!motor.c@{motor.\-c}}
+\subsubsection[{P\-W\-M\-\_\-\-O\-U\-T\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-M\-\_\-\-O\-U\-T\-\_\-\-P\-I\-N~204}}\label{motor_8c_a1f5845723ff33fbdad298ebab782dc10}
+\hypertarget{motor_8c_ac58588f059760584595306d53fffc0c2}{\index{motor.\-c@{motor.\-c}!P\-W\-M\-\_\-\-U\-P@{P\-W\-M\-\_\-\-U\-P}}
+\index{P\-W\-M\-\_\-\-U\-P@{P\-W\-M\-\_\-\-U\-P}!motor.c@{motor.\-c}}
+\subsubsection[{P\-W\-M\-\_\-\-U\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-W\-M\-\_\-\-U\-P~202}}\label{motor_8c_ac58588f059760584595306d53fffc0c2}
+
+
+\subsection{Function Documentation}
+\hypertarget{motor_8c_a840291bc02cba5474a4cb46a9b9566fe}{\index{motor.\-c@{motor.\-c}!main@{main}}
+\index{main@{main}!motor.c@{motor.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{motor_8c_a840291bc02cba5474a4cb46a9b9566fe}
+\hypertarget{motor_8c_a6ae44746e46a8f938fa71c4e06cc5f74}{\index{motor.\-c@{motor.\-c}!scan\-Button@{scan\-Button}}
+\index{scan\-Button@{scan\-Button}!motor.c@{motor.\-c}}
+\subsubsection[{scan\-Button}]{\setlength{\rightskip}{0pt plus 5cm}void scan\-Button (
+\begin{DoxyParamCaption}
+\item[{int}]{button}
+\end{DoxyParamCaption}
+)}}\label{motor_8c_a6ae44746e46a8f938fa71c4e06cc5f74}
+
+
+\subsection{Variable Documentation}
+\hypertarget{motor_8c_abb97a1f0411c6d84de3d37130964d7fb}{\index{motor.\-c@{motor.\-c}!outputs@{outputs}}
+\index{outputs@{outputs}!motor.c@{motor.\-c}}
+\subsubsection[{outputs}]{\setlength{\rightskip}{0pt plus 5cm}int outputs\mbox{[}2\mbox{]} = \{ 0,0 \}}}\label{motor_8c_abb97a1f0411c6d84de3d37130964d7fb}

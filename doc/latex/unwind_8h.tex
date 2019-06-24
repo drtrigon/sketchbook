@@ -1,0 +1,421 @@
+\hypertarget{unwind_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/unwind.h File Reference}
+\label{unwind_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/unwind.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/unwind.\-h}}
+}
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception}
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uintptr\-\_\-t \hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word}
+\item 
+typedef intptr\-\_\-t \hyperlink{unwind_8h_ab74e3c0cafee8f2bcde6375655f7a903}{\-\_\-\-Unwind\-\_\-\-Sword}
+\item 
+typedef uintptr\-\_\-t \hyperlink{unwind_8h_ab566a2905df286d9520b814e80f2c23f}{\-\_\-\-Unwind\-\_\-\-Ptr}
+\item 
+typedef uintptr\-\_\-t \hyperlink{unwind_8h_a5ae5880809f5ad58a1b9dfe96aa46778}{\-\_\-\-Unwind\-\_\-\-Internal\-\_\-\-Ptr}
+\item 
+typedef uint64\-\_\-t \hyperlink{unwind_8h_a27224c155dddee626baa8193e2443bcc}{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}
+\item 
+typedef intptr\-\_\-t \hyperlink{unwind_8h_a6160894742067ef31c8c3c42d7443c09}{\-\_\-sleb128\-\_\-t}
+\item 
+typedef uintptr\-\_\-t \hyperlink{unwind_8h_a01baea92b09b8e7f1b73878ebf6bc337}{\-\_\-uleb128\-\_\-t}
+\item 
+typedef void($\ast$ \hyperlink{unwind_8h_a780c72fc3c6627bedde5dd528e8f2813}{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn} )(\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}, struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+typedef \hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}($\ast$ \hyperlink{unwind_8h_a87cebf894a3002ee41685893fa87a2a1}{\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn} )(int, \hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7e}{\-\_\-\-Unwind\-\_\-\-Action}, \hyperlink{unwind_8h_a27224c155dddee626baa8193e2443bcc}{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}, struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$, struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, void $\ast$)
+\item 
+typedef \hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}($\ast$ \hyperlink{unwind_8h_a561c009e7d230c8cb52cc7f786d633a3}{\-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn} )(int, \hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7e}{\-\_\-\-Unwind\-\_\-\-Action}, \hyperlink{unwind_8h_a27224c155dddee626baa8193e2443bcc}{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}, struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$, struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\item 
+typedef \hyperlink{unwind_8h_a561c009e7d230c8cb52cc7f786d633a3}{\-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn} \hyperlink{unwind_8h_af11d37b7c622a6946cbff62e4451040e}{\-\_\-\-\_\-personality\-\_\-routine}
+\item 
+typedef \hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}($\ast$ \hyperlink{unwind_8h_a2e45c0aff89fd2fe363c62f9aafea429}{\-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn} )(struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, void $\ast$)
+\item 
+typedef struct \\*
+Sj\-Lj\-\_\-\-Function\-\_\-\-Context $\ast$ \hyperlink{unwind_8h_a964e10e5ec88b49abc68b4c54f560ba9}{\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \{ \\*
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a41ad850ae0c5b105dca3d223df38af97}{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-\_\-\-R\-E\-A\-S\-O\-N} = 0, 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a9fd826377b4f2f85771d886c1a4ce37b}{\-\_\-\-U\-R\-C\-\_\-\-F\-O\-R\-E\-I\-G\-N\-\_\-\-E\-X\-C\-E\-P\-T\-I\-O\-N\-\_\-\-C\-A\-U\-G\-H\-T} = 1, 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a30528e6b6930b75402dca7f9af05cf9c}{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E2\-\_\-\-E\-R\-R\-O\-R} = 2, 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a53bf3ead23368c90ad6a0464eb47097a}{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E1\-\_\-\-E\-R\-R\-O\-R} = 3, 
+\\*
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2afb395219565efdeddd6511bd94388586}{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-R\-M\-A\-L\-\_\-\-S\-T\-O\-P} = 4, 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2ad764c4ff93e12350f072e0cbd70398c5}{\-\_\-\-U\-R\-C\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K} = 5, 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a608f0da2ee309a1c1395063b8b6d028d}{\-\_\-\-U\-R\-C\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-O\-U\-N\-D} = 6, 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a1f57f348816bdd0564bdfd9180e50fc0}{\-\_\-\-U\-R\-C\-\_\-\-I\-N\-S\-T\-A\-L\-L\-\_\-\-C\-O\-N\-T\-E\-X\-T} = 7, 
+\\*
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2aceacf011e23d791d187b7b10b599bdb6}{\-\_\-\-U\-R\-C\-\_\-\-C\-O\-N\-T\-I\-N\-U\-E\-\_\-\-U\-N\-W\-I\-N\-D} = 8
+ \}
+\item 
+enum \hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7e}{\-\_\-\-Unwind\-\_\-\-Action} \{ \\*
+\hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7eab215256d5e0b0c14cb9f77efcaabfb77}{\-\_\-\-U\-A\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-P\-H\-A\-S\-E} = 1, 
+\hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea913b68d5f7ad8dab03b0a3e413ff9edd}{\-\_\-\-U\-A\-\_\-\-C\-L\-E\-A\-N\-U\-P\-\_\-\-P\-H\-A\-S\-E} = 2, 
+\hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea4de8dddd0b481accc0b97b221241d0e7}{\-\_\-\-U\-A\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-R\-A\-M\-E} = 4, 
+\hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea3bd812946ec378ce175951bdc4860ed3}{\-\_\-\-U\-A\-\_\-\-F\-O\-R\-C\-E\-\_\-\-U\-N\-W\-I\-N\-D} = 8, 
+\\*
+\hyperlink{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea0253ffe73d9ff0a27d0808ca39e8d11b}{\-\_\-\-U\-A\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K} = 16
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} \hyperlink{unwind_8h_ac8c21f335bc7c2f0bc6a9ddaee6b9431}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((\-\_\-\-\_\-aligned\-\_\-\-\_\-))
+\item 
+\hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word} \hyperlink{unwind_8h_af2c27f2b761efe66e15efb337a384c52}{\-\_\-\-Unwind\-\_\-\-Get\-G\-R} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, int)
+\item 
+void \hyperlink{unwind_8h_a4d9528afb24b3d38fc21fa3251ba687d}{\-\_\-\-Unwind\-\_\-\-Set\-G\-R} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, int, \hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word})
+\item 
+\hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word} \hyperlink{unwind_8h_a42b4336cb1e39088aea03f7cdd8db936}{\-\_\-\-Unwind\-\_\-\-Get\-I\-P} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\item 
+void \hyperlink{unwind_8h_a3c74f9bd2daaad3b856a71aa85b30a5f}{\-\_\-\-Unwind\-\_\-\-Set\-I\-P} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, \hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word})
+\item 
+\hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word} \hyperlink{unwind_8h_aecd1ddc1885760653bec8d9f91998ecd}{\-\_\-\-Unwind\-\_\-\-Get\-I\-P\-Info} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, int $\ast$)
+\item 
+\hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word} \hyperlink{unwind_8h_a3f54fd26ac13708ed3821227ffe93db6}{\-\_\-\-Unwind\-\_\-\-Get\-C\-F\-A} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\item 
+\hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word} \hyperlink{unwind_8h_aa3f10e09e0a0edff6c0d649c3b020caa}{\-\_\-\-Unwind\-\_\-\-Get\-B\-S\-P} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\item 
+void $\ast$ \hyperlink{unwind_8h_a9cd03f561a3295fed4c36375344af7e8}{\-\_\-\-Unwind\-\_\-\-Get\-Language\-Specific\-Data} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\item 
+\hyperlink{unwind_8h_ab566a2905df286d9520b814e80f2c23f}{\-\_\-\-Unwind\-\_\-\-Ptr} \hyperlink{unwind_8h_a39ffe47b1bc1c2f52a21ef87284f0604}{\-\_\-\-Unwind\-\_\-\-Get\-Region\-Start} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\item 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \hyperlink{unwind_8h_af3a6a80dbd24baa6cce306dc50e98b29}{\-\_\-\-Unwind\-\_\-\-Raise\-Exception} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \hyperlink{unwind_8h_a9b9a1dd062bef7608f5412e69aa7344c}{\-\_\-\-Unwind\-\_\-\-Forced\-Unwind} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$, \hyperlink{unwind_8h_a87cebf894a3002ee41685893fa87a2a1}{\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn}, void $\ast$)
+\item 
+void \hyperlink{unwind_8h_a17c82e92329af856df9ead3406350b79}{\-\_\-\-Unwind\-\_\-\-Delete\-Exception} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+void \hyperlink{unwind_8h_a64dbbb032543ff2281c6e76fd78e029b}{\-\_\-\-Unwind\-\_\-\-Resume} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \hyperlink{unwind_8h_af96691f66c978925cedb2f204b3839fd}{\-\_\-\-Unwind\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \hyperlink{unwind_8h_ae08eb87eca99f680b77204aed55b67d5}{\-\_\-\-Unwind\-\_\-\-Backtrace} (\hyperlink{unwind_8h_a2e45c0aff89fd2fe363c62f9aafea429}{\-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn}, void $\ast$)
+\item 
+void \hyperlink{unwind_8h_aa41ed590f97cd627a850d56b588117ef}{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Register} (\hyperlink{unwind_8h_a964e10e5ec88b49abc68b4c54f560ba9}{\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t})
+\item 
+void \hyperlink{unwind_8h_afba3b6df3e37c8fc216b32bdca6f828e}{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Unregister} (\hyperlink{unwind_8h_a964e10e5ec88b49abc68b4c54f560ba9}{\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t})
+\item 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \hyperlink{unwind_8h_ad614bfb0425d9201b98de250ca65a133}{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Raise\-Exception} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \hyperlink{unwind_8h_aa8afbeeea6b78adafb36a681e91e8693}{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Forced\-Unwind} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$, \hyperlink{unwind_8h_a87cebf894a3002ee41685893fa87a2a1}{\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn}, void $\ast$)
+\item 
+void \hyperlink{unwind_8h_a09d8eb4371254a854b38dcbd2ddbc1a4}{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+\hyperlink{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \hyperlink{unwind_8h_a753ed3650b7ae72a138efc973a0c3151}{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow} (struct \hyperlink{struct__Unwind__Exception}{\-\_\-\-Unwind\-\_\-\-Exception} $\ast$)
+\item 
+void $\ast$ \hyperlink{unwind_8h_a1680d664301e5e1bcb1067b0ad6662d2}{\-\_\-\-Unwind\-\_\-\-Find\-Enclosing\-Function} (void $\ast$)
+\item 
+\hyperlink{unwind_8h_ab566a2905df286d9520b814e80f2c23f}{\-\_\-\-Unwind\-\_\-\-Ptr} \hyperlink{unwind_8h_a852b60087b48edf3e86055dcaff6ad56}{\-\_\-\-Unwind\-\_\-\-Get\-Data\-Rel\-Base} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\item 
+\hyperlink{unwind_8h_ab566a2905df286d9520b814e80f2c23f}{\-\_\-\-Unwind\-\_\-\-Ptr} \hyperlink{unwind_8h_a1ee680d76f69d55c81036411d8261691}{\-\_\-\-Unwind\-\_\-\-Get\-Text\-Rel\-Base} (struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{unwind_8h_a27224c155dddee626baa8193e2443bcc}{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class} \hyperlink{unwind_8h_ae268038ce44c98f28ba55a4fd593f4e2}{exception\-\_\-class}
+\item 
+\hyperlink{unwind_8h_a780c72fc3c6627bedde5dd528e8f2813}{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn} \hyperlink{unwind_8h_a18303b9dbcb0c16693d43e92eab3f267}{exception\-\_\-cleanup}
+\item 
+\hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word} \hyperlink{unwind_8h_aa1785f5c87b51d3ad7225379bdbacbc1}{private\-\_\-1}
+\item 
+\hyperlink{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\-\_\-\-Unwind\-\_\-\-Word} \hyperlink{unwind_8h_a89ff720a977899def1a05d4eceb64076}{private\-\_\-2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{unwind_8h_af11d37b7c622a6946cbff62e4451040e}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-\_\-personality\-\_\-routine@{\-\_\-\-\_\-personality\-\_\-routine}}
+\index{\-\_\-\-\_\-personality\-\_\-routine@{\-\_\-\-\_\-personality\-\_\-routine}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-\_\-personality\-\_\-routine}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf \-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn} {\bf \-\_\-\-\_\-personality\-\_\-routine}}}\label{unwind_8h_af11d37b7c622a6946cbff62e4451040e}
+\hypertarget{unwind_8h_a6160894742067ef31c8c3c42d7443c09}{\index{unwind.\-h@{unwind.\-h}!\-\_\-sleb128\-\_\-t@{\-\_\-sleb128\-\_\-t}}
+\index{\-\_\-sleb128\-\_\-t@{\-\_\-sleb128\-\_\-t}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-sleb128\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef intptr\-\_\-t {\bf \-\_\-sleb128\-\_\-t}}}\label{unwind_8h_a6160894742067ef31c8c3c42d7443c09}
+\hypertarget{unwind_8h_a01baea92b09b8e7f1b73878ebf6bc337}{\index{unwind.\-h@{unwind.\-h}!\-\_\-uleb128\-\_\-t@{\-\_\-uleb128\-\_\-t}}
+\index{\-\_\-uleb128\-\_\-t@{\-\_\-uleb128\-\_\-t}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-uleb128\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uintptr\-\_\-t {\bf \-\_\-uleb128\-\_\-t}}}\label{unwind_8h_a01baea92b09b8e7f1b73878ebf6bc337}
+\hypertarget{unwind_8h_a27224c155dddee626baa8193e2443bcc}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class@{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}}
+\index{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class@{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint64\-\_\-t {\bf \-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}}}\label{unwind_8h_a27224c155dddee626baa8193e2443bcc}
+\hypertarget{unwind_8h_a780c72fc3c6627bedde5dd528e8f2813}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn}}
+\index{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn}]{\setlength{\rightskip}{0pt plus 5cm}typedef void($\ast$ \-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn)({\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}, struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$)}}\label{unwind_8h_a780c72fc3c6627bedde5dd528e8f2813}
+\hypertarget{unwind_8h_a964e10e5ec88b49abc68b4c54f560ba9}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t@{\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t}}
+\index{\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t@{\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef struct Sj\-Lj\-\_\-\-Function\-\_\-\-Context$\ast$ {\bf \-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t}}}\label{unwind_8h_a964e10e5ec88b49abc68b4c54f560ba9}
+\hypertarget{unwind_8h_a5ae5880809f5ad58a1b9dfe96aa46778}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Internal\-\_\-\-Ptr@{\-\_\-\-Unwind\-\_\-\-Internal\-\_\-\-Ptr}}
+\index{\-\_\-\-Unwind\-\_\-\-Internal\-\_\-\-Ptr@{\-\_\-\-Unwind\-\_\-\-Internal\-\_\-\-Ptr}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Internal\-\_\-\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}typedef uintptr\-\_\-t {\bf \-\_\-\-Unwind\-\_\-\-Internal\-\_\-\-Ptr}}}\label{unwind_8h_a5ae5880809f5ad58a1b9dfe96aa46778}
+\hypertarget{unwind_8h_a561c009e7d230c8cb52cc7f786d633a3}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn}}
+\index{\-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}($\ast$ \-\_\-\-Unwind\-\_\-\-Personality\-\_\-\-Fn)(int, {\bf \-\_\-\-Unwind\-\_\-\-Action}, {\bf \-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}, struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$, struct \-\_\-\-Unwind\-\_\-\-Context $\ast$)}}\label{unwind_8h_a561c009e7d230c8cb52cc7f786d633a3}
+\hypertarget{unwind_8h_ab566a2905df286d9520b814e80f2c23f}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Ptr@{\-\_\-\-Unwind\-\_\-\-Ptr}}
+\index{\-\_\-\-Unwind\-\_\-\-Ptr@{\-\_\-\-Unwind\-\_\-\-Ptr}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Ptr}]{\setlength{\rightskip}{0pt plus 5cm}typedef uintptr\-\_\-t {\bf \-\_\-\-Unwind\-\_\-\-Ptr}}}\label{unwind_8h_ab566a2905df286d9520b814e80f2c23f}
+\hypertarget{unwind_8h_a87cebf894a3002ee41685893fa87a2a1}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn}}
+\index{\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}($\ast$ \-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn)(int, {\bf \-\_\-\-Unwind\-\_\-\-Action}, {\bf \-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class}, struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$, struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, void $\ast$)}}\label{unwind_8h_a87cebf894a3002ee41685893fa87a2a1}
+\hypertarget{unwind_8h_ab74e3c0cafee8f2bcde6375655f7a903}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Sword@{\-\_\-\-Unwind\-\_\-\-Sword}}
+\index{\-\_\-\-Unwind\-\_\-\-Sword@{\-\_\-\-Unwind\-\_\-\-Sword}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Sword}]{\setlength{\rightskip}{0pt plus 5cm}typedef intptr\-\_\-t {\bf \-\_\-\-Unwind\-\_\-\-Sword}}}\label{unwind_8h_ab74e3c0cafee8f2bcde6375655f7a903}
+\hypertarget{unwind_8h_a2e45c0aff89fd2fe363c62f9aafea429}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn}}
+\index{\-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn@{\-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn}]{\setlength{\rightskip}{0pt plus 5cm}typedef {\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}($\ast$ \-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn)(struct \-\_\-\-Unwind\-\_\-\-Context $\ast$, void $\ast$)}}\label{unwind_8h_a2e45c0aff89fd2fe363c62f9aafea429}
+\hypertarget{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Word@{\-\_\-\-Unwind\-\_\-\-Word}}
+\index{\-\_\-\-Unwind\-\_\-\-Word@{\-\_\-\-Unwind\-\_\-\-Word}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Word}]{\setlength{\rightskip}{0pt plus 5cm}typedef uintptr\-\_\-t {\bf \-\_\-\-Unwind\-\_\-\-Word}}}\label{unwind_8h_ae926c7eabbc191bea2e4acb77adf1138}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7e}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Action@{\-\_\-\-Unwind\-\_\-\-Action}}
+\index{\-\_\-\-Unwind\-\_\-\-Action@{\-\_\-\-Unwind\-\_\-\-Action}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Action}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-Unwind\-\_\-\-Action}}}\label{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7e}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{\-\_\-\-U\-A\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-P\-H\-A\-S\-E@{\-\_\-\-U\-A\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-P\-H\-A\-S\-E}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-A\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-P\-H\-A\-S\-E@{\-\_\-\-U\-A\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-P\-H\-A\-S\-E}}\item[{\em 
+\hypertarget{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7eab215256d5e0b0c14cb9f77efcaabfb77}{\-\_\-\-U\-A\-\_\-\-S\-E\-A\-R\-C\-H\-\_\-\-P\-H\-A\-S\-E}\label{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7eab215256d5e0b0c14cb9f77efcaabfb77}
+}]\index{\-\_\-\-U\-A\-\_\-\-C\-L\-E\-A\-N\-U\-P\-\_\-\-P\-H\-A\-S\-E@{\-\_\-\-U\-A\-\_\-\-C\-L\-E\-A\-N\-U\-P\-\_\-\-P\-H\-A\-S\-E}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-A\-\_\-\-C\-L\-E\-A\-N\-U\-P\-\_\-\-P\-H\-A\-S\-E@{\-\_\-\-U\-A\-\_\-\-C\-L\-E\-A\-N\-U\-P\-\_\-\-P\-H\-A\-S\-E}}\item[{\em 
+\hypertarget{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea913b68d5f7ad8dab03b0a3e413ff9edd}{\-\_\-\-U\-A\-\_\-\-C\-L\-E\-A\-N\-U\-P\-\_\-\-P\-H\-A\-S\-E}\label{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea913b68d5f7ad8dab03b0a3e413ff9edd}
+}]\index{\-\_\-\-U\-A\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-R\-A\-M\-E@{\-\_\-\-U\-A\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-R\-A\-M\-E}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-A\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-R\-A\-M\-E@{\-\_\-\-U\-A\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-R\-A\-M\-E}}\item[{\em 
+\hypertarget{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea4de8dddd0b481accc0b97b221241d0e7}{\-\_\-\-U\-A\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-R\-A\-M\-E}\label{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea4de8dddd0b481accc0b97b221241d0e7}
+}]\index{\-\_\-\-U\-A\-\_\-\-F\-O\-R\-C\-E\-\_\-\-U\-N\-W\-I\-N\-D@{\-\_\-\-U\-A\-\_\-\-F\-O\-R\-C\-E\-\_\-\-U\-N\-W\-I\-N\-D}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-A\-\_\-\-F\-O\-R\-C\-E\-\_\-\-U\-N\-W\-I\-N\-D@{\-\_\-\-U\-A\-\_\-\-F\-O\-R\-C\-E\-\_\-\-U\-N\-W\-I\-N\-D}}\item[{\em 
+\hypertarget{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea3bd812946ec378ce175951bdc4860ed3}{\-\_\-\-U\-A\-\_\-\-F\-O\-R\-C\-E\-\_\-\-U\-N\-W\-I\-N\-D}\label{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea3bd812946ec378ce175951bdc4860ed3}
+}]\index{\-\_\-\-U\-A\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K@{\-\_\-\-U\-A\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-A\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K@{\-\_\-\-U\-A\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K}}\item[{\em 
+\hypertarget{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea0253ffe73d9ff0a27d0808ca39e8d11b}{\-\_\-\-U\-A\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K}\label{unwind_8h_ac899fd756df2ac3f2692fc3450af9f7ea0253ffe73d9ff0a27d0808ca39e8d11b}
+}]\end{description}
+\end{Desc}
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code@{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}}
+\index{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code@{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code}}}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-\_\-\-R\-E\-A\-S\-O\-N@{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-\_\-\-R\-E\-A\-S\-O\-N}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-N\-O\-\_\-\-R\-E\-A\-S\-O\-N@{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-\_\-\-R\-E\-A\-S\-O\-N}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a41ad850ae0c5b105dca3d223df38af97}{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-\_\-\-R\-E\-A\-S\-O\-N}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a41ad850ae0c5b105dca3d223df38af97}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-F\-O\-R\-E\-I\-G\-N\-\_\-\-E\-X\-C\-E\-P\-T\-I\-O\-N\-\_\-\-C\-A\-U\-G\-H\-T@{\-\_\-\-U\-R\-C\-\_\-\-F\-O\-R\-E\-I\-G\-N\-\_\-\-E\-X\-C\-E\-P\-T\-I\-O\-N\-\_\-\-C\-A\-U\-G\-H\-T}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-F\-O\-R\-E\-I\-G\-N\-\_\-\-E\-X\-C\-E\-P\-T\-I\-O\-N\-\_\-\-C\-A\-U\-G\-H\-T@{\-\_\-\-U\-R\-C\-\_\-\-F\-O\-R\-E\-I\-G\-N\-\_\-\-E\-X\-C\-E\-P\-T\-I\-O\-N\-\_\-\-C\-A\-U\-G\-H\-T}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a9fd826377b4f2f85771d886c1a4ce37b}{\-\_\-\-U\-R\-C\-\_\-\-F\-O\-R\-E\-I\-G\-N\-\_\-\-E\-X\-C\-E\-P\-T\-I\-O\-N\-\_\-\-C\-A\-U\-G\-H\-T}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a9fd826377b4f2f85771d886c1a4ce37b}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E2\-\_\-\-E\-R\-R\-O\-R@{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E2\-\_\-\-E\-R\-R\-O\-R}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E2\-\_\-\-E\-R\-R\-O\-R@{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E2\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a30528e6b6930b75402dca7f9af05cf9c}{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E2\-\_\-\-E\-R\-R\-O\-R}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a30528e6b6930b75402dca7f9af05cf9c}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E1\-\_\-\-E\-R\-R\-O\-R@{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E1\-\_\-\-E\-R\-R\-O\-R}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E1\-\_\-\-E\-R\-R\-O\-R@{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E1\-\_\-\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a53bf3ead23368c90ad6a0464eb47097a}{\-\_\-\-U\-R\-C\-\_\-\-F\-A\-T\-A\-L\-\_\-\-P\-H\-A\-S\-E1\-\_\-\-E\-R\-R\-O\-R}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a53bf3ead23368c90ad6a0464eb47097a}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-R\-M\-A\-L\-\_\-\-S\-T\-O\-P@{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-R\-M\-A\-L\-\_\-\-S\-T\-O\-P}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-N\-O\-R\-M\-A\-L\-\_\-\-S\-T\-O\-P@{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-R\-M\-A\-L\-\_\-\-S\-T\-O\-P}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2afb395219565efdeddd6511bd94388586}{\-\_\-\-U\-R\-C\-\_\-\-N\-O\-R\-M\-A\-L\-\_\-\-S\-T\-O\-P}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2afb395219565efdeddd6511bd94388586}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K@{\-\_\-\-U\-R\-C\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K@{\-\_\-\-U\-R\-C\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2ad764c4ff93e12350f072e0cbd70398c5}{\-\_\-\-U\-R\-C\-\_\-\-E\-N\-D\-\_\-\-O\-F\-\_\-\-S\-T\-A\-C\-K}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2ad764c4ff93e12350f072e0cbd70398c5}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-O\-U\-N\-D@{\-\_\-\-U\-R\-C\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-O\-U\-N\-D}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-O\-U\-N\-D@{\-\_\-\-U\-R\-C\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-O\-U\-N\-D}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a608f0da2ee309a1c1395063b8b6d028d}{\-\_\-\-U\-R\-C\-\_\-\-H\-A\-N\-D\-L\-E\-R\-\_\-\-F\-O\-U\-N\-D}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a608f0da2ee309a1c1395063b8b6d028d}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-I\-N\-S\-T\-A\-L\-L\-\_\-\-C\-O\-N\-T\-E\-X\-T@{\-\_\-\-U\-R\-C\-\_\-\-I\-N\-S\-T\-A\-L\-L\-\_\-\-C\-O\-N\-T\-E\-X\-T}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-I\-N\-S\-T\-A\-L\-L\-\_\-\-C\-O\-N\-T\-E\-X\-T@{\-\_\-\-U\-R\-C\-\_\-\-I\-N\-S\-T\-A\-L\-L\-\_\-\-C\-O\-N\-T\-E\-X\-T}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a1f57f348816bdd0564bdfd9180e50fc0}{\-\_\-\-U\-R\-C\-\_\-\-I\-N\-S\-T\-A\-L\-L\-\_\-\-C\-O\-N\-T\-E\-X\-T}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2a1f57f348816bdd0564bdfd9180e50fc0}
+}]\index{\-\_\-\-U\-R\-C\-\_\-\-C\-O\-N\-T\-I\-N\-U\-E\-\_\-\-U\-N\-W\-I\-N\-D@{\-\_\-\-U\-R\-C\-\_\-\-C\-O\-N\-T\-I\-N\-U\-E\-\_\-\-U\-N\-W\-I\-N\-D}!unwind.\-h@{unwind.\-h}}\index{unwind.\-h@{unwind.\-h}!\-\_\-\-U\-R\-C\-\_\-\-C\-O\-N\-T\-I\-N\-U\-E\-\_\-\-U\-N\-W\-I\-N\-D@{\-\_\-\-U\-R\-C\-\_\-\-C\-O\-N\-T\-I\-N\-U\-E\-\_\-\-U\-N\-W\-I\-N\-D}}\item[{\em 
+\hypertarget{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2aceacf011e23d791d187b7b10b599bdb6}{\-\_\-\-U\-R\-C\-\_\-\-C\-O\-N\-T\-I\-N\-U\-E\-\_\-\-U\-N\-W\-I\-N\-D}\label{unwind_8h_a26f33dc6f6d23dc64517389b6b786ac2aceacf011e23d791d187b7b10b599bdb6}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{unwind_8h_ac8c21f335bc7c2f0bc6a9ddaee6b9431}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(\-\_\-\-\_\-aligned\-\_\-\-\_\-)}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_ac8c21f335bc7c2f0bc6a9ddaee6b9431}
+\hypertarget{unwind_8h_ae08eb87eca99f680b77204aed55b67d5}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Backtrace@{\-\_\-\-Unwind\-\_\-\-Backtrace}}
+\index{\-\_\-\-Unwind\-\_\-\-Backtrace@{\-\_\-\-Unwind\-\_\-\-Backtrace}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Backtrace}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \-\_\-\-Unwind\-\_\-\-Backtrace (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-Unwind\-\_\-\-Trace\-\_\-\-Fn}}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_ae08eb87eca99f680b77204aed55b67d5}
+\hypertarget{unwind_8h_a17c82e92329af856df9ead3406350b79}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Delete\-Exception@{\-\_\-\-Unwind\-\_\-\-Delete\-Exception}}
+\index{\-\_\-\-Unwind\-\_\-\-Delete\-Exception@{\-\_\-\-Unwind\-\_\-\-Delete\-Exception}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Delete\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-Unwind\-\_\-\-Delete\-Exception (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a17c82e92329af856df9ead3406350b79}
+\hypertarget{unwind_8h_a1680d664301e5e1bcb1067b0ad6662d2}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Find\-Enclosing\-Function@{\-\_\-\-Unwind\-\_\-\-Find\-Enclosing\-Function}}
+\index{\-\_\-\-Unwind\-\_\-\-Find\-Enclosing\-Function@{\-\_\-\-Unwind\-\_\-\-Find\-Enclosing\-Function}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Find\-Enclosing\-Function}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \-\_\-\-Unwind\-\_\-\-Find\-Enclosing\-Function (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a1680d664301e5e1bcb1067b0ad6662d2}
+\hypertarget{unwind_8h_a9b9a1dd062bef7608f5412e69aa7344c}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Forced\-Unwind@{\-\_\-\-Unwind\-\_\-\-Forced\-Unwind}}
+\index{\-\_\-\-Unwind\-\_\-\-Forced\-Unwind@{\-\_\-\-Unwind\-\_\-\-Forced\-Unwind}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Forced\-Unwind}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \-\_\-\-Unwind\-\_\-\-Forced\-Unwind (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{, }
+\item[{{\bf \-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn}}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a9b9a1dd062bef7608f5412e69aa7344c}
+\hypertarget{unwind_8h_aa3f10e09e0a0edff6c0d649c3b020caa}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-B\-S\-P@{\-\_\-\-Unwind\-\_\-\-Get\-B\-S\-P}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-B\-S\-P@{\-\_\-\-Unwind\-\_\-\-Get\-B\-S\-P}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-B\-S\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Word} \-\_\-\-Unwind\-\_\-\-Get\-B\-S\-P (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_aa3f10e09e0a0edff6c0d649c3b020caa}
+\hypertarget{unwind_8h_a3f54fd26ac13708ed3821227ffe93db6}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-C\-F\-A@{\-\_\-\-Unwind\-\_\-\-Get\-C\-F\-A}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-C\-F\-A@{\-\_\-\-Unwind\-\_\-\-Get\-C\-F\-A}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-C\-F\-A}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Word} \-\_\-\-Unwind\-\_\-\-Get\-C\-F\-A (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a3f54fd26ac13708ed3821227ffe93db6}
+\hypertarget{unwind_8h_a852b60087b48edf3e86055dcaff6ad56}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-Data\-Rel\-Base@{\-\_\-\-Unwind\-\_\-\-Get\-Data\-Rel\-Base}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-Data\-Rel\-Base@{\-\_\-\-Unwind\-\_\-\-Get\-Data\-Rel\-Base}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-Data\-Rel\-Base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Ptr} \-\_\-\-Unwind\-\_\-\-Get\-Data\-Rel\-Base (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a852b60087b48edf3e86055dcaff6ad56}
+\hypertarget{unwind_8h_af2c27f2b761efe66e15efb337a384c52}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-G\-R@{\-\_\-\-Unwind\-\_\-\-Get\-G\-R}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-G\-R@{\-\_\-\-Unwind\-\_\-\-Get\-G\-R}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-G\-R}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Word} \-\_\-\-Unwind\-\_\-\-Get\-G\-R (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{, }
+\item[{int}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_af2c27f2b761efe66e15efb337a384c52}
+\hypertarget{unwind_8h_a42b4336cb1e39088aea03f7cdd8db936}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-I\-P@{\-\_\-\-Unwind\-\_\-\-Get\-I\-P}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-I\-P@{\-\_\-\-Unwind\-\_\-\-Get\-I\-P}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Word} \-\_\-\-Unwind\-\_\-\-Get\-I\-P (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a42b4336cb1e39088aea03f7cdd8db936}
+\hypertarget{unwind_8h_aecd1ddc1885760653bec8d9f91998ecd}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-I\-P\-Info@{\-\_\-\-Unwind\-\_\-\-Get\-I\-P\-Info}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-I\-P\-Info@{\-\_\-\-Unwind\-\_\-\-Get\-I\-P\-Info}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-I\-P\-Info}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Word} \-\_\-\-Unwind\-\_\-\-Get\-I\-P\-Info (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{, }
+\item[{int $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_aecd1ddc1885760653bec8d9f91998ecd}
+\hypertarget{unwind_8h_a9cd03f561a3295fed4c36375344af7e8}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-Language\-Specific\-Data@{\-\_\-\-Unwind\-\_\-\-Get\-Language\-Specific\-Data}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-Language\-Specific\-Data@{\-\_\-\-Unwind\-\_\-\-Get\-Language\-Specific\-Data}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-Language\-Specific\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void$\ast$ \-\_\-\-Unwind\-\_\-\-Get\-Language\-Specific\-Data (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a9cd03f561a3295fed4c36375344af7e8}
+\hypertarget{unwind_8h_a39ffe47b1bc1c2f52a21ef87284f0604}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-Region\-Start@{\-\_\-\-Unwind\-\_\-\-Get\-Region\-Start}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-Region\-Start@{\-\_\-\-Unwind\-\_\-\-Get\-Region\-Start}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-Region\-Start}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Ptr} \-\_\-\-Unwind\-\_\-\-Get\-Region\-Start (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a39ffe47b1bc1c2f52a21ef87284f0604}
+\hypertarget{unwind_8h_a1ee680d76f69d55c81036411d8261691}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Get\-Text\-Rel\-Base@{\-\_\-\-Unwind\-\_\-\-Get\-Text\-Rel\-Base}}
+\index{\-\_\-\-Unwind\-\_\-\-Get\-Text\-Rel\-Base@{\-\_\-\-Unwind\-\_\-\-Get\-Text\-Rel\-Base}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Get\-Text\-Rel\-Base}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Ptr} \-\_\-\-Unwind\-\_\-\-Get\-Text\-Rel\-Base (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a1ee680d76f69d55c81036411d8261691}
+\hypertarget{unwind_8h_af3a6a80dbd24baa6cce306dc50e98b29}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Raise\-Exception@{\-\_\-\-Unwind\-\_\-\-Raise\-Exception}}
+\index{\-\_\-\-Unwind\-\_\-\-Raise\-Exception@{\-\_\-\-Unwind\-\_\-\-Raise\-Exception}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Raise\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \-\_\-\-Unwind\-\_\-\-Raise\-Exception (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_af3a6a80dbd24baa6cce306dc50e98b29}
+\hypertarget{unwind_8h_a64dbbb032543ff2281c6e76fd78e029b}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Resume@{\-\_\-\-Unwind\-\_\-\-Resume}}
+\index{\-\_\-\-Unwind\-\_\-\-Resume@{\-\_\-\-Unwind\-\_\-\-Resume}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Resume}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-Unwind\-\_\-\-Resume (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a64dbbb032543ff2281c6e76fd78e029b}
+\hypertarget{unwind_8h_af96691f66c978925cedb2f204b3839fd}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow@{\-\_\-\-Unwind\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow}}
+\index{\-\_\-\-Unwind\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow@{\-\_\-\-Unwind\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \-\_\-\-Unwind\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_af96691f66c978925cedb2f204b3839fd}
+\hypertarget{unwind_8h_a4d9528afb24b3d38fc21fa3251ba687d}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Set\-G\-R@{\-\_\-\-Unwind\-\_\-\-Set\-G\-R}}
+\index{\-\_\-\-Unwind\-\_\-\-Set\-G\-R@{\-\_\-\-Unwind\-\_\-\-Set\-G\-R}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Set\-G\-R}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-Unwind\-\_\-\-Set\-G\-R (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{, }
+\item[{int}]{, }
+\item[{{\bf \-\_\-\-Unwind\-\_\-\-Word}}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a4d9528afb24b3d38fc21fa3251ba687d}
+\hypertarget{unwind_8h_a3c74f9bd2daaad3b856a71aa85b30a5f}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Set\-I\-P@{\-\_\-\-Unwind\-\_\-\-Set\-I\-P}}
+\index{\-\_\-\-Unwind\-\_\-\-Set\-I\-P@{\-\_\-\-Unwind\-\_\-\-Set\-I\-P}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Set\-I\-P}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-Unwind\-\_\-\-Set\-I\-P (
+\begin{DoxyParamCaption}
+\item[{struct \-\_\-\-Unwind\-\_\-\-Context $\ast$}]{, }
+\item[{{\bf \-\_\-\-Unwind\-\_\-\-Word}}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a3c74f9bd2daaad3b856a71aa85b30a5f}
+\hypertarget{unwind_8h_aa8afbeeea6b78adafb36a681e91e8693}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Forced\-Unwind@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Forced\-Unwind}}
+\index{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Forced\-Unwind@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Forced\-Unwind}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Forced\-Unwind}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Forced\-Unwind (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{, }
+\item[{{\bf \-\_\-\-Unwind\-\_\-\-Stop\-\_\-\-Fn}}]{, }
+\item[{void $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_aa8afbeeea6b78adafb36a681e91e8693}
+\hypertarget{unwind_8h_ad614bfb0425d9201b98de250ca65a133}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Raise\-Exception@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Raise\-Exception}}
+\index{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Raise\-Exception@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Raise\-Exception}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Raise\-Exception}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Raise\-Exception (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_ad614bfb0425d9201b98de250ca65a133}
+\hypertarget{unwind_8h_aa41ed590f97cd627a850d56b588117ef}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Register@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Register}}
+\index{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Register@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Register}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Register}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Register (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t}}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_aa41ed590f97cd627a850d56b588117ef}
+\hypertarget{unwind_8h_a09d8eb4371254a854b38dcbd2ddbc1a4}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume}}
+\index{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a09d8eb4371254a854b38dcbd2ddbc1a4}
+\hypertarget{unwind_8h_a753ed3650b7ae72a138efc973a0c3151}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow}}
+\index{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Reason\-\_\-\-Code} \-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Resume\-\_\-or\-\_\-\-Rethrow (
+\begin{DoxyParamCaption}
+\item[{struct {\bf \-\_\-\-Unwind\-\_\-\-Exception} $\ast$}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_a753ed3650b7ae72a138efc973a0c3151}
+\hypertarget{unwind_8h_afba3b6df3e37c8fc216b32bdca6f828e}{\index{unwind.\-h@{unwind.\-h}!\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Unregister@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Unregister}}
+\index{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Unregister@{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Unregister}!unwind.h@{unwind.\-h}}
+\subsubsection[{\-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Unregister}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-Unwind\-\_\-\-Sj\-Lj\-\_\-\-Unregister (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-Unwind\-\_\-\-Function\-Context\-\_\-t}}]{}
+\end{DoxyParamCaption}
+)}}\label{unwind_8h_afba3b6df3e37c8fc216b32bdca6f828e}
+
+
+\subsection{Variable Documentation}
+\hypertarget{unwind_8h_ae268038ce44c98f28ba55a4fd593f4e2}{\index{unwind.\-h@{unwind.\-h}!exception\-\_\-class@{exception\-\_\-class}}
+\index{exception\-\_\-class@{exception\-\_\-class}!unwind.h@{unwind.\-h}}
+\subsubsection[{exception\-\_\-class}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Class} exception\-\_\-class}}\label{unwind_8h_ae268038ce44c98f28ba55a4fd593f4e2}
+\hypertarget{unwind_8h_a18303b9dbcb0c16693d43e92eab3f267}{\index{unwind.\-h@{unwind.\-h}!exception\-\_\-cleanup@{exception\-\_\-cleanup}}
+\index{exception\-\_\-cleanup@{exception\-\_\-cleanup}!unwind.h@{unwind.\-h}}
+\subsubsection[{exception\-\_\-cleanup}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Exception\-\_\-\-Cleanup\-\_\-\-Fn} exception\-\_\-cleanup}}\label{unwind_8h_a18303b9dbcb0c16693d43e92eab3f267}
+\hypertarget{unwind_8h_aa1785f5c87b51d3ad7225379bdbacbc1}{\index{unwind.\-h@{unwind.\-h}!private\-\_\-1@{private\-\_\-1}}
+\index{private\-\_\-1@{private\-\_\-1}!unwind.h@{unwind.\-h}}
+\subsubsection[{private\-\_\-1}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Word} private\-\_\-1}}\label{unwind_8h_aa1785f5c87b51d3ad7225379bdbacbc1}
+\hypertarget{unwind_8h_a89ff720a977899def1a05d4eceb64076}{\index{unwind.\-h@{unwind.\-h}!private\-\_\-2@{private\-\_\-2}}
+\index{private\-\_\-2@{private\-\_\-2}!unwind.h@{unwind.\-h}}
+\subsubsection[{private\-\_\-2}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-Unwind\-\_\-\-Word} private\-\_\-2}}\label{unwind_8h_a89ff720a977899def1a05d4eceb64076}

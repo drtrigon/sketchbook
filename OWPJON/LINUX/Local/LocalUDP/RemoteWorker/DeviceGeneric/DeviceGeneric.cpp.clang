@@ -1,0 +1,37 @@
+9 warnings and 1 error generated.
+Error while processing /home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp.
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:77:10: error: 'PJON.h' file not found [clang-diagnostic-error]
+#include <PJON.h>
+         ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:87:33: warning: parameter 'payload' is unused [misc-unused-parameters]
+void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+                                ^~~~~~~~
+                                 /*payload*/
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:87:51: warning: parameter 'length' is unused [misc-unused-parameters]
+void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+                                                  ^~~~~~~
+                                                   /*length*/
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:87:83: warning: parameter 'packet_info' is unused [misc-unused-parameters]
+void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+                                                                                  ^~~~~~~~~~~~
+                                                                                   /*packet_info*/
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:93:28: warning: parameter 'code' is unused [misc-unused-parameters]
+void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
+                           ^~~~~
+                            /*code*/
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:93:43: warning: parameter 'data' is unused [misc-unused-parameters]
+void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
+                                          ^~~~~
+                                           /*data*/
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:93:55: warning: parameter 'custom_pointer' is unused [misc-unused-parameters]
+void error_handler(uint8_t code, uint16_t data, void *custom_pointer)
+                                                      ^~~~~~~~~~~~~~~
+                                                       /*custom_pointer*/
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:132:15: warning: statement should be inside braces [google-readability-braces-around-statements]
+  if(argc < 5)  // get data to send from stdin or command line (stdin allows \0)
+              ^
+               {
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp:182:1: warning: missing username/bug in TODO [google-readability-todo]
+// TODO: restric maximum number of timeout resets
+^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
+// TODO(travis): restric maximum number of timeout resets

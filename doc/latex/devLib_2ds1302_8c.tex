@@ -1,0 +1,148 @@
+\hypertarget{devLib_2ds1302_8c}{\section{wiring\-Pi/dev\-Lib/ds1302.c File Reference}
+\label{devLib_2ds1302_8c}\index{wiring\-Pi/dev\-Lib/ds1302.\-c@{wiring\-Pi/dev\-Lib/ds1302.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}ds1302.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_aa86f159915dace411e5a7b74ecc130bd}{R\-T\-C\-\_\-\-S\-E\-C\-S}~0
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_a1bad17ef559ad960bba47fe87643b4c7}{R\-T\-C\-\_\-\-M\-I\-N\-S}~1
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_a4d74cdb9a956c4f1783ad5aff00dc2b8}{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}~2
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_a6f25f228247dc102195a2adf70311dc5}{R\-T\-C\-\_\-\-D\-A\-T\-E}~3
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_abda0c877ee1a02b8351c0cfe72838088}{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}~4
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_a8645ae13bb42ddf10d3ca762a8754160}{R\-T\-C\-\_\-\-D\-A\-Y}~5
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_a1df5568e6774b73aa4c6e59fc40e9147}{R\-T\-C\-\_\-\-Y\-E\-A\-R}~6
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_ae2d15d948251b0517e7f394e90a75c42}{R\-T\-C\-\_\-\-W\-P}~7
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_a762ea88389274bf9a017f665635f1f94}{R\-T\-C\-\_\-\-T\-C}~8
+\item 
+\#define \hyperlink{devLib_2ds1302_8c_a665b64be64122b340468dcd75141d841}{R\-T\-C\-\_\-\-B\-M}~31
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned int \hyperlink{devLib_2ds1302_8c_a4a8b6d67f123d048d3e7622134003e80}{ds1302rtc\-Read} (const int reg)
+\item 
+void \hyperlink{devLib_2ds1302_8c_a8adff8b68f381e18e267c00b82f1a106}{ds1302rtc\-Write} (int reg, unsigned int \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+unsigned int \hyperlink{devLib_2ds1302_8c_a3d3772fdf8340a78f06af56752269c92}{ds1302ram\-Read} (const int \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+void \hyperlink{devLib_2ds1302_8c_ad021f3ec41e3a0e813878b3ee8993ecd}{ds1302ram\-Write} (const int \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr}, const unsigned int \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+void \hyperlink{devLib_2ds1302_8c_a2fcb0de9f75e33e34257a0d36e02ecff}{ds1302clock\-Read} (int clock\-Data\mbox{[}8\mbox{]})
+\item 
+void \hyperlink{devLib_2ds1302_8c_a616aade6583f9c56358fe33ebcb772c6}{ds1302clock\-Write} (const int clock\-Data\mbox{[}8\mbox{]})
+\item 
+void \hyperlink{devLib_2ds1302_8c_a5fa30cc936724b383943810d6a553a1f}{ds1302trickle\-Charge} (const int diodes, const int resistors)
+\item 
+void \hyperlink{devLib_2ds1302_8c_a88c181a486fca25496ecad4073723e18}{ds1302setup} (const int clock\-Pin, const int data\-Pin, const int cs\-Pin)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{devLib_2ds1302_8c_a665b64be64122b340468dcd75141d841}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-B\-M@{R\-T\-C\-\_\-\-B\-M}}
+\index{R\-T\-C\-\_\-\-B\-M@{R\-T\-C\-\_\-\-B\-M}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-B\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-B\-M~31}}\label{devLib_2ds1302_8c_a665b64be64122b340468dcd75141d841}
+\hypertarget{devLib_2ds1302_8c_a6f25f228247dc102195a2adf70311dc5}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-D\-A\-T\-E@{R\-T\-C\-\_\-\-D\-A\-T\-E}}
+\index{R\-T\-C\-\_\-\-D\-A\-T\-E@{R\-T\-C\-\_\-\-D\-A\-T\-E}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-D\-A\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-D\-A\-T\-E~3}}\label{devLib_2ds1302_8c_a6f25f228247dc102195a2adf70311dc5}
+\hypertarget{devLib_2ds1302_8c_a8645ae13bb42ddf10d3ca762a8754160}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-D\-A\-Y@{R\-T\-C\-\_\-\-D\-A\-Y}}
+\index{R\-T\-C\-\_\-\-D\-A\-Y@{R\-T\-C\-\_\-\-D\-A\-Y}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-D\-A\-Y}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-D\-A\-Y~5}}\label{devLib_2ds1302_8c_a8645ae13bb42ddf10d3ca762a8754160}
+\hypertarget{devLib_2ds1302_8c_a4d74cdb9a956c4f1783ad5aff00dc2b8}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-H\-O\-U\-R\-S@{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}}
+\index{R\-T\-C\-\_\-\-H\-O\-U\-R\-S@{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-H\-O\-U\-R\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-H\-O\-U\-R\-S~2}}\label{devLib_2ds1302_8c_a4d74cdb9a956c4f1783ad5aff00dc2b8}
+\hypertarget{devLib_2ds1302_8c_a1bad17ef559ad960bba47fe87643b4c7}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-M\-I\-N\-S@{R\-T\-C\-\_\-\-M\-I\-N\-S}}
+\index{R\-T\-C\-\_\-\-M\-I\-N\-S@{R\-T\-C\-\_\-\-M\-I\-N\-S}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-M\-I\-N\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-M\-I\-N\-S~1}}\label{devLib_2ds1302_8c_a1bad17ef559ad960bba47fe87643b4c7}
+\hypertarget{devLib_2ds1302_8c_abda0c877ee1a02b8351c0cfe72838088}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-M\-O\-N\-T\-H@{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}}
+\index{R\-T\-C\-\_\-\-M\-O\-N\-T\-H@{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-M\-O\-N\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-M\-O\-N\-T\-H~4}}\label{devLib_2ds1302_8c_abda0c877ee1a02b8351c0cfe72838088}
+\hypertarget{devLib_2ds1302_8c_aa86f159915dace411e5a7b74ecc130bd}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-S\-E\-C\-S@{R\-T\-C\-\_\-\-S\-E\-C\-S}}
+\index{R\-T\-C\-\_\-\-S\-E\-C\-S@{R\-T\-C\-\_\-\-S\-E\-C\-S}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-S\-E\-C\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-S\-E\-C\-S~0}}\label{devLib_2ds1302_8c_aa86f159915dace411e5a7b74ecc130bd}
+\hypertarget{devLib_2ds1302_8c_a762ea88389274bf9a017f665635f1f94}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-T\-C@{R\-T\-C\-\_\-\-T\-C}}
+\index{R\-T\-C\-\_\-\-T\-C@{R\-T\-C\-\_\-\-T\-C}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-T\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-T\-C~8}}\label{devLib_2ds1302_8c_a762ea88389274bf9a017f665635f1f94}
+\hypertarget{devLib_2ds1302_8c_ae2d15d948251b0517e7f394e90a75c42}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-W\-P@{R\-T\-C\-\_\-\-W\-P}}
+\index{R\-T\-C\-\_\-\-W\-P@{R\-T\-C\-\_\-\-W\-P}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-W\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-W\-P~7}}\label{devLib_2ds1302_8c_ae2d15d948251b0517e7f394e90a75c42}
+\hypertarget{devLib_2ds1302_8c_a1df5568e6774b73aa4c6e59fc40e9147}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!R\-T\-C\-\_\-\-Y\-E\-A\-R@{R\-T\-C\-\_\-\-Y\-E\-A\-R}}
+\index{R\-T\-C\-\_\-\-Y\-E\-A\-R@{R\-T\-C\-\_\-\-Y\-E\-A\-R}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{R\-T\-C\-\_\-\-Y\-E\-A\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-T\-C\-\_\-\-Y\-E\-A\-R~6}}\label{devLib_2ds1302_8c_a1df5568e6774b73aa4c6e59fc40e9147}
+
+
+\subsection{Function Documentation}
+\hypertarget{devLib_2ds1302_8c_a2fcb0de9f75e33e34257a0d36e02ecff}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302clock\-Read@{ds1302clock\-Read}}
+\index{ds1302clock\-Read@{ds1302clock\-Read}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302clock\-Read}]{\setlength{\rightskip}{0pt plus 5cm}void ds1302clock\-Read (
+\begin{DoxyParamCaption}
+\item[{int}]{clock\-Data\mbox{[}8\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_a2fcb0de9f75e33e34257a0d36e02ecff}
+\hypertarget{devLib_2ds1302_8c_a616aade6583f9c56358fe33ebcb772c6}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302clock\-Write@{ds1302clock\-Write}}
+\index{ds1302clock\-Write@{ds1302clock\-Write}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302clock\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void ds1302clock\-Write (
+\begin{DoxyParamCaption}
+\item[{const int}]{clock\-Data\mbox{[}8\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_a616aade6583f9c56358fe33ebcb772c6}
+\hypertarget{devLib_2ds1302_8c_a3d3772fdf8340a78f06af56752269c92}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302ram\-Read@{ds1302ram\-Read}}
+\index{ds1302ram\-Read@{ds1302ram\-Read}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302ram\-Read}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ds1302ram\-Read (
+\begin{DoxyParamCaption}
+\item[{const int}]{addr}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_a3d3772fdf8340a78f06af56752269c92}
+\hypertarget{devLib_2ds1302_8c_ad021f3ec41e3a0e813878b3ee8993ecd}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302ram\-Write@{ds1302ram\-Write}}
+\index{ds1302ram\-Write@{ds1302ram\-Write}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302ram\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void ds1302ram\-Write (
+\begin{DoxyParamCaption}
+\item[{const int}]{addr, }
+\item[{const unsigned int}]{data}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_ad021f3ec41e3a0e813878b3ee8993ecd}
+\hypertarget{devLib_2ds1302_8c_a4a8b6d67f123d048d3e7622134003e80}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302rtc\-Read@{ds1302rtc\-Read}}
+\index{ds1302rtc\-Read@{ds1302rtc\-Read}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302rtc\-Read}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int ds1302rtc\-Read (
+\begin{DoxyParamCaption}
+\item[{const int}]{reg}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_a4a8b6d67f123d048d3e7622134003e80}
+\hypertarget{devLib_2ds1302_8c_a8adff8b68f381e18e267c00b82f1a106}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302rtc\-Write@{ds1302rtc\-Write}}
+\index{ds1302rtc\-Write@{ds1302rtc\-Write}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302rtc\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void ds1302rtc\-Write (
+\begin{DoxyParamCaption}
+\item[{int}]{reg, }
+\item[{unsigned int}]{data}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_a8adff8b68f381e18e267c00b82f1a106}
+\hypertarget{devLib_2ds1302_8c_a88c181a486fca25496ecad4073723e18}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302setup@{ds1302setup}}
+\index{ds1302setup@{ds1302setup}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302setup}]{\setlength{\rightskip}{0pt plus 5cm}void ds1302setup (
+\begin{DoxyParamCaption}
+\item[{const int}]{clock\-Pin, }
+\item[{const int}]{data\-Pin, }
+\item[{const int}]{cs\-Pin}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_a88c181a486fca25496ecad4073723e18}
+\hypertarget{devLib_2ds1302_8c_a5fa30cc936724b383943810d6a553a1f}{\index{dev\-Lib/ds1302.\-c@{dev\-Lib/ds1302.\-c}!ds1302trickle\-Charge@{ds1302trickle\-Charge}}
+\index{ds1302trickle\-Charge@{ds1302trickle\-Charge}!devLib/ds1302.c@{dev\-Lib/ds1302.\-c}}
+\subsubsection[{ds1302trickle\-Charge}]{\setlength{\rightskip}{0pt plus 5cm}void ds1302trickle\-Charge (
+\begin{DoxyParamCaption}
+\item[{const int}]{diodes, }
+\item[{const int}]{resistors}
+\end{DoxyParamCaption}
+)}}\label{devLib_2ds1302_8c_a5fa30cc936724b383943810d6a553a1f}

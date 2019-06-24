@@ -1,0 +1,112 @@
+\hypertarget{clock_8c}{\section{wiring\-Pi/examples/clock.c File Reference}
+\label{clock_8c}\index{wiring\-Pi/examples/clock.\-c@{wiring\-Pi/examples/clock.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$unistd.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$errno.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$math.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$lcd128x64.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{clock_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{T\-R\-U\-E}~(1==1)
+\item 
+\#define \hyperlink{clock_8c_aa93f0eb578d23995850d61f7d61c55c1}{F\-A\-L\-S\-E}~(1==2)
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{clock_8c_af400cdc4bab8c9ecbd6381c8e20d560d}{rads} (double degs)
+\item 
+void \hyperlink{clock_8c_acc8f4ad807df352cb10c4d30b24b4f54}{draw\-Clock\-Hands} (void)
+\item 
+void \hyperlink{clock_8c_a39bc65fd82cc15be96e6dc9af101a1fe}{draw\-Clock\-Face} (void)
+\item 
+void \hyperlink{clock_8c_a7dfd9b79bc5a37d7df40207afbc5431f}{setup} (void)
+\item 
+int \hyperlink{clock_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+double \hyperlink{clock_8c_a182450c1044bf95b848d4f8380400238}{clock\-Radius}
+\item 
+double \hyperlink{clock_8c_a20238819f2c84ce6d3f083ded9ac612d}{thickness}
+\item 
+double \hyperlink{clock_8c_af3cf71dfdd6f281c286950e6ceee392d}{bar\-Len}
+\item 
+int \hyperlink{clock_8c_af601b4da58f07b53cf6cf36ad5b8cd50}{max\-X}
+\item 
+int \hyperlink{clock_8c_ae853146681224745b378959c65ee98ce}{max\-Y}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{clock_8c_aa93f0eb578d23995850d61f7d61c55c1}{\index{clock.\-c@{clock.\-c}!F\-A\-L\-S\-E@{F\-A\-L\-S\-E}}
+\index{F\-A\-L\-S\-E@{F\-A\-L\-S\-E}!clock.c@{clock.\-c}}
+\subsubsection[{F\-A\-L\-S\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-A\-L\-S\-E~(1==2)}}\label{clock_8c_aa93f0eb578d23995850d61f7d61c55c1}
+\hypertarget{clock_8c_aa8cecfc5c5c054d2875c03e77b7be15d}{\index{clock.\-c@{clock.\-c}!T\-R\-U\-E@{T\-R\-U\-E}}
+\index{T\-R\-U\-E@{T\-R\-U\-E}!clock.c@{clock.\-c}}
+\subsubsection[{T\-R\-U\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-R\-U\-E~(1==1)}}\label{clock_8c_aa8cecfc5c5c054d2875c03e77b7be15d}
+
+
+\subsection{Function Documentation}
+\hypertarget{clock_8c_a39bc65fd82cc15be96e6dc9af101a1fe}{\index{clock.\-c@{clock.\-c}!draw\-Clock\-Face@{draw\-Clock\-Face}}
+\index{draw\-Clock\-Face@{draw\-Clock\-Face}!clock.c@{clock.\-c}}
+\subsubsection[{draw\-Clock\-Face}]{\setlength{\rightskip}{0pt plus 5cm}void draw\-Clock\-Face (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{clock_8c_a39bc65fd82cc15be96e6dc9af101a1fe}
+\hypertarget{clock_8c_acc8f4ad807df352cb10c4d30b24b4f54}{\index{clock.\-c@{clock.\-c}!draw\-Clock\-Hands@{draw\-Clock\-Hands}}
+\index{draw\-Clock\-Hands@{draw\-Clock\-Hands}!clock.c@{clock.\-c}}
+\subsubsection[{draw\-Clock\-Hands}]{\setlength{\rightskip}{0pt plus 5cm}void draw\-Clock\-Hands (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{clock_8c_acc8f4ad807df352cb10c4d30b24b4f54}
+\hypertarget{clock_8c_a0ddf1224851353fc92bfbff6f499fa97}{\index{clock.\-c@{clock.\-c}!main@{main}}
+\index{main@{main}!clock.c@{clock.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{clock_8c_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{clock_8c_af400cdc4bab8c9ecbd6381c8e20d560d}{\index{clock.\-c@{clock.\-c}!rads@{rads}}
+\index{rads@{rads}!clock.c@{clock.\-c}}
+\subsubsection[{rads}]{\setlength{\rightskip}{0pt plus 5cm}double rads (
+\begin{DoxyParamCaption}
+\item[{double}]{degs}
+\end{DoxyParamCaption}
+)}}\label{clock_8c_af400cdc4bab8c9ecbd6381c8e20d560d}
+\hypertarget{clock_8c_a7dfd9b79bc5a37d7df40207afbc5431f}{\index{clock.\-c@{clock.\-c}!setup@{setup}}
+\index{setup@{setup}!clock.c@{clock.\-c}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{clock_8c_a7dfd9b79bc5a37d7df40207afbc5431f}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{clock_8c_af3cf71dfdd6f281c286950e6ceee392d}{\index{clock.\-c@{clock.\-c}!bar\-Len@{bar\-Len}}
+\index{bar\-Len@{bar\-Len}!clock.c@{clock.\-c}}
+\subsubsection[{bar\-Len}]{\setlength{\rightskip}{0pt plus 5cm}double bar\-Len}}\label{clock_8c_af3cf71dfdd6f281c286950e6ceee392d}
+\hypertarget{clock_8c_a182450c1044bf95b848d4f8380400238}{\index{clock.\-c@{clock.\-c}!clock\-Radius@{clock\-Radius}}
+\index{clock\-Radius@{clock\-Radius}!clock.c@{clock.\-c}}
+\subsubsection[{clock\-Radius}]{\setlength{\rightskip}{0pt plus 5cm}double clock\-Radius}}\label{clock_8c_a182450c1044bf95b848d4f8380400238}
+\hypertarget{clock_8c_af601b4da58f07b53cf6cf36ad5b8cd50}{\index{clock.\-c@{clock.\-c}!max\-X@{max\-X}}
+\index{max\-X@{max\-X}!clock.c@{clock.\-c}}
+\subsubsection[{max\-X}]{\setlength{\rightskip}{0pt plus 5cm}int max\-X}}\label{clock_8c_af601b4da58f07b53cf6cf36ad5b8cd50}
+\hypertarget{clock_8c_ae853146681224745b378959c65ee98ce}{\index{clock.\-c@{clock.\-c}!max\-Y@{max\-Y}}
+\index{max\-Y@{max\-Y}!clock.c@{clock.\-c}}
+\subsubsection[{max\-Y}]{\setlength{\rightskip}{0pt plus 5cm}int max\-Y}}\label{clock_8c_ae853146681224745b378959c65ee98ce}
+\hypertarget{clock_8c_a20238819f2c84ce6d3f083ded9ac612d}{\index{clock.\-c@{clock.\-c}!thickness@{thickness}}
+\index{thickness@{thickness}!clock.c@{clock.\-c}}
+\subsubsection[{thickness}]{\setlength{\rightskip}{0pt plus 5cm}double thickness}}\label{clock_8c_a20238819f2c84ce6d3f083ded9ac612d}

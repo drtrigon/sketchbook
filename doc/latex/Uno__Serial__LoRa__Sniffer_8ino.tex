@@ -1,0 +1,213 @@
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino}{\section{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer/\-Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.ino File Reference}
+\label{Uno__Serial__LoRa__Sniffer_8ino}\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer/\-Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer/\-Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+}
+{\ttfamily \#include $<$S\-P\-I.\-h$>$}\\*
+{\ttfamily \#include $<$R\-H\-\_\-\-R\-F95.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_ae8853e200bea46f5279ccc9060c3ac9f}{E\-N\-A\-B\-L\-E\-\_\-\-B\-W\-\_\-\-S\-C\-A\-N}
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a80c74eab2529f239d24f54e68d7dfca8}{E\-N\-A\-B\-L\-E\-\_\-\-S\-F\-\_\-\-S\-C\-A\-N}
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_aeb7a7ba1ab7e0406f1b5ab36d579f585}{L\-E\-D}~\hyperlink{Helvetiny__Blink__CDC_8ino_a450a7c16ead7b3c7b882536b08f30a00}{L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_aaa142aefbb4b2665e2ac26f5922228d7}{R\-H\-\_\-\-F\-L\-A\-G\-S\-\_\-\-A\-C\-K}~0x80
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_ad17aede54a50ee40840cd567946cdd40}{F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T}~3
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a77c97ad595d6a698495d283ebccb9ec6}{B\-W\-\_\-\-C\-O\-U\-N\-T}~2
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_af76f3b8a859dbeb2fbd4a478dd3f4301}{S\-F\-\_\-\-C\-O\-U\-N\-T}~2
+\item 
+\#define \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a549b09ef451f4afb4cc98ec7d945cf69}{F\-R\-E\-Q\-\_\-\-T\-I\-M\-E\-\_\-\-M\-S}~4000
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a3bb8f066b00f812ee5e2829024ec9e92}{rf95\-\_\-set\-Frequency} (uint32\-\_\-t index)
+\item 
+void \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a3c1c24188350866381dafdbe21edf627}{rf95\-\_\-set\-Bandwidth} (uint32\-\_\-t index)
+\item 
+void \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a55c1e7e148f07d943c9843ef02009cd2}{rf95\-\_\-set\-Spreading\-Factor} (uint32\-\_\-t index)
+\item 
+void \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+float \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a12522e3ab50a857130288fdb3eb7d57e}{\-\_\-frequencies} \mbox{[}$\,$\mbox{]}
+\item 
+long int \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_acfd965074b1c957f883e42051264b8af}{\-\_\-bandwidths} \mbox{[}$\,$\mbox{]}
+\item 
+int \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a37b226555fa4c17b0735c0d209d6978b}{\-\_\-spreadingfactors} \mbox{[}$\,$\mbox{]}
+\item 
+uint16\-\_\-t \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a68c7ae5ce5e529203df1ea6609b5eed1}{\-\_\-packet\-Counts} \mbox{[}\hyperlink{Uno__Serial__LoRa__Sniffer_8ino_ad17aede54a50ee40840cd567946cdd40}{F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T}\mbox{]}\mbox{[}\hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a77c97ad595d6a698495d283ebccb9ec6}{B\-W\-\_\-\-C\-O\-U\-N\-T}\mbox{]}\mbox{[}\hyperlink{Uno__Serial__LoRa__Sniffer_8ino_af76f3b8a859dbeb2fbd4a478dd3f4301}{S\-F\-\_\-\-C\-O\-U\-N\-T}\mbox{]}
+\item 
+R\-H\-\_\-\-R\-F95 \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_ac741fa4056d5cbbcc0ab38fa7d8c6ce3}{rf95}
+\item 
+uint8\-\_\-t \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a3e4574cc98a87f4099359ed1324a568c}{\-\_\-rx\-Buffer} \mbox{[}R\-H\-\_\-\-R\-F95\-\_\-\-M\-A\-X\-\_\-\-M\-E\-S\-S\-A\-G\-E\-\_\-\-L\-E\-N\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a0e117effc6ddd58d710660c85914a95a}{\-\_\-rx\-Recv\-Len}
+\item 
+uint32\-\_\-t \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a24df36067882894b1d20915dabba6da4}{\-\_\-freq\-Expire} = 0
+\item 
+uint32\-\_\-t \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_aa9301986ea3e70801904faa1215ec9b7}{\-\_\-freq\-Index} = 0
+\item 
+\hyperlink{stdbool_8h_abb452686968e48b67397da5f97445f5b}{bool} \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a1d75ade2c180ea5f384c54d08a09c014}{\-\_\-sd\-Ready} = \hyperlink{stdbool_8h_a65e9886d74aaee76545e83dd09011727}{false}
+\item 
+uint32\-\_\-t \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_ae4f624cc4cbd0cdf62f44620a0228120}{\-\_\-bw\-Index} = 0
+\item 
+uint32\-\_\-t \hyperlink{Uno__Serial__LoRa__Sniffer_8ino_a16335a7be6509c46683fe6be4a399838}{\-\_\-sf\-Index} = 0
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a77c97ad595d6a698495d283ebccb9ec6}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!B\-W\-\_\-\-C\-O\-U\-N\-T@{B\-W\-\_\-\-C\-O\-U\-N\-T}}
+\index{B\-W\-\_\-\-C\-O\-U\-N\-T@{B\-W\-\_\-\-C\-O\-U\-N\-T}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{B\-W\-\_\-\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-W\-\_\-\-C\-O\-U\-N\-T~2}}\label{Uno__Serial__LoRa__Sniffer_8ino_a77c97ad595d6a698495d283ebccb9ec6}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_ae8853e200bea46f5279ccc9060c3ac9f}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!E\-N\-A\-B\-L\-E\-\_\-\-B\-W\-\_\-\-S\-C\-A\-N@{E\-N\-A\-B\-L\-E\-\_\-\-B\-W\-\_\-\-S\-C\-A\-N}}
+\index{E\-N\-A\-B\-L\-E\-\_\-\-B\-W\-\_\-\-S\-C\-A\-N@{E\-N\-A\-B\-L\-E\-\_\-\-B\-W\-\_\-\-S\-C\-A\-N}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{E\-N\-A\-B\-L\-E\-\_\-\-B\-W\-\_\-\-S\-C\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-A\-B\-L\-E\-\_\-\-B\-W\-\_\-\-S\-C\-A\-N}}\label{Uno__Serial__LoRa__Sniffer_8ino_ae8853e200bea46f5279ccc9060c3ac9f}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a80c74eab2529f239d24f54e68d7dfca8}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!E\-N\-A\-B\-L\-E\-\_\-\-S\-F\-\_\-\-S\-C\-A\-N@{E\-N\-A\-B\-L\-E\-\_\-\-S\-F\-\_\-\-S\-C\-A\-N}}
+\index{E\-N\-A\-B\-L\-E\-\_\-\-S\-F\-\_\-\-S\-C\-A\-N@{E\-N\-A\-B\-L\-E\-\_\-\-S\-F\-\_\-\-S\-C\-A\-N}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{E\-N\-A\-B\-L\-E\-\_\-\-S\-F\-\_\-\-S\-C\-A\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-A\-B\-L\-E\-\_\-\-S\-F\-\_\-\-S\-C\-A\-N}}\label{Uno__Serial__LoRa__Sniffer_8ino_a80c74eab2529f239d24f54e68d7dfca8}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_ad17aede54a50ee40840cd567946cdd40}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T@{F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T}}
+\index{F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T@{F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T~3}}\label{Uno__Serial__LoRa__Sniffer_8ino_ad17aede54a50ee40840cd567946cdd40}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a549b09ef451f4afb4cc98ec7d945cf69}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!F\-R\-E\-Q\-\_\-\-T\-I\-M\-E\-\_\-\-M\-S@{F\-R\-E\-Q\-\_\-\-T\-I\-M\-E\-\_\-\-M\-S}}
+\index{F\-R\-E\-Q\-\_\-\-T\-I\-M\-E\-\_\-\-M\-S@{F\-R\-E\-Q\-\_\-\-T\-I\-M\-E\-\_\-\-M\-S}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{F\-R\-E\-Q\-\_\-\-T\-I\-M\-E\-\_\-\-M\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define F\-R\-E\-Q\-\_\-\-T\-I\-M\-E\-\_\-\-M\-S~4000}}\label{Uno__Serial__LoRa__Sniffer_8ino_a549b09ef451f4afb4cc98ec7d945cf69}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_aeb7a7ba1ab7e0406f1b5ab36d579f585}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!L\-E\-D@{L\-E\-D}}
+\index{L\-E\-D@{L\-E\-D}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define L\-E\-D~{\bf L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}}}\label{Uno__Serial__LoRa__Sniffer_8ino_aeb7a7ba1ab7e0406f1b5ab36d579f585}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_aaa142aefbb4b2665e2ac26f5922228d7}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!R\-H\-\_\-\-F\-L\-A\-G\-S\-\_\-\-A\-C\-K@{R\-H\-\_\-\-F\-L\-A\-G\-S\-\_\-\-A\-C\-K}}
+\index{R\-H\-\_\-\-F\-L\-A\-G\-S\-\_\-\-A\-C\-K@{R\-H\-\_\-\-F\-L\-A\-G\-S\-\_\-\-A\-C\-K}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{R\-H\-\_\-\-F\-L\-A\-G\-S\-\_\-\-A\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-H\-\_\-\-F\-L\-A\-G\-S\-\_\-\-A\-C\-K~0x80}}\label{Uno__Serial__LoRa__Sniffer_8ino_aaa142aefbb4b2665e2ac26f5922228d7}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_af76f3b8a859dbeb2fbd4a478dd3f4301}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!S\-F\-\_\-\-C\-O\-U\-N\-T@{S\-F\-\_\-\-C\-O\-U\-N\-T}}
+\index{S\-F\-\_\-\-C\-O\-U\-N\-T@{S\-F\-\_\-\-C\-O\-U\-N\-T}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{S\-F\-\_\-\-C\-O\-U\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-F\-\_\-\-C\-O\-U\-N\-T~2}}\label{Uno__Serial__LoRa__Sniffer_8ino_af76f3b8a859dbeb2fbd4a478dd3f4301}
+
+
+\subsection{Function Documentation}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!loop@{loop}}
+\index{loop@{loop}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Serial__LoRa__Sniffer_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void)
+\end{DoxyReturn}
+Arduino I\-D\-E\-: put your main code here, to run repeatedly. \hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a3c1c24188350866381dafdbe21edf627}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!rf95\-\_\-set\-Bandwidth@{rf95\-\_\-set\-Bandwidth}}
+\index{rf95\-\_\-set\-Bandwidth@{rf95\-\_\-set\-Bandwidth}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{rf95\-\_\-set\-Bandwidth}]{\setlength{\rightskip}{0pt plus 5cm}void rf95\-\_\-set\-Bandwidth (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)}}\label{Uno__Serial__LoRa__Sniffer_8ino_a3c1c24188350866381dafdbe21edf627}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a3bb8f066b00f812ee5e2829024ec9e92}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!rf95\-\_\-set\-Frequency@{rf95\-\_\-set\-Frequency}}
+\index{rf95\-\_\-set\-Frequency@{rf95\-\_\-set\-Frequency}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{rf95\-\_\-set\-Frequency}]{\setlength{\rightskip}{0pt plus 5cm}void rf95\-\_\-set\-Frequency (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)}}\label{Uno__Serial__LoRa__Sniffer_8ino_a3bb8f066b00f812ee5e2829024ec9e92}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a55c1e7e148f07d943c9843ef02009cd2}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!rf95\-\_\-set\-Spreading\-Factor@{rf95\-\_\-set\-Spreading\-Factor}}
+\index{rf95\-\_\-set\-Spreading\-Factor@{rf95\-\_\-set\-Spreading\-Factor}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{rf95\-\_\-set\-Spreading\-Factor}]{\setlength{\rightskip}{0pt plus 5cm}void rf95\-\_\-set\-Spreading\-Factor (
+\begin{DoxyParamCaption}
+\item[{uint32\-\_\-t}]{index}
+\end{DoxyParamCaption}
+)}}\label{Uno__Serial__LoRa__Sniffer_8ino_a55c1e7e148f07d943c9843ef02009cd2}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!setup@{setup}}
+\index{setup@{setup}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Serial__LoRa__Sniffer_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_acfd965074b1c957f883e42051264b8af}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-bandwidths@{\-\_\-bandwidths}}
+\index{\-\_\-bandwidths@{\-\_\-bandwidths}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-bandwidths}]{\setlength{\rightskip}{0pt plus 5cm}long int \-\_\-bandwidths\mbox{[}$\,$\mbox{]}}}\label{Uno__Serial__LoRa__Sniffer_8ino_acfd965074b1c957f883e42051264b8af}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+\{
+    500000,
+    250000,
+
+    
+\}
+\end{DoxyCode}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_ae4f624cc4cbd0cdf62f44620a0228120}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-bw\-Index@{\-\_\-bw\-Index}}
+\index{\-\_\-bw\-Index@{\-\_\-bw\-Index}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-bw\-Index}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-bw\-Index = 0}}\label{Uno__Serial__LoRa__Sniffer_8ino_ae4f624cc4cbd0cdf62f44620a0228120}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a24df36067882894b1d20915dabba6da4}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-freq\-Expire@{\-\_\-freq\-Expire}}
+\index{\-\_\-freq\-Expire@{\-\_\-freq\-Expire}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-freq\-Expire}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-freq\-Expire = 0}}\label{Uno__Serial__LoRa__Sniffer_8ino_a24df36067882894b1d20915dabba6da4}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_aa9301986ea3e70801904faa1215ec9b7}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-freq\-Index@{\-\_\-freq\-Index}}
+\index{\-\_\-freq\-Index@{\-\_\-freq\-Index}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-freq\-Index}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-freq\-Index = 0}}\label{Uno__Serial__LoRa__Sniffer_8ino_aa9301986ea3e70801904faa1215ec9b7}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a12522e3ab50a857130288fdb3eb7d57e}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-frequencies@{\-\_\-frequencies}}
+\index{\-\_\-frequencies@{\-\_\-frequencies}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-frequencies}]{\setlength{\rightskip}{0pt plus 5cm}float \-\_\-frequencies\mbox{[}$\,$\mbox{]}}}\label{Uno__Serial__LoRa__Sniffer_8ino_a12522e3ab50a857130288fdb3eb7d57e}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+\{
+    
+    
+
+    865.4,
+    866.6,
+    869.2,
+    
+    
+    
+
+
+    
+    
+    
+\}
+\end{DoxyCode}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a68c7ae5ce5e529203df1ea6609b5eed1}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-packet\-Counts@{\-\_\-packet\-Counts}}
+\index{\-\_\-packet\-Counts@{\-\_\-packet\-Counts}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-packet\-Counts}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t \-\_\-packet\-Counts\mbox{[}{\bf F\-R\-E\-Q\-\_\-\-C\-O\-U\-N\-T}\mbox{]}\mbox{[}{\bf B\-W\-\_\-\-C\-O\-U\-N\-T}\mbox{]}\mbox{[}{\bf S\-F\-\_\-\-C\-O\-U\-N\-T}\mbox{]}}}\label{Uno__Serial__LoRa__Sniffer_8ino_a68c7ae5ce5e529203df1ea6609b5eed1}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a3e4574cc98a87f4099359ed1324a568c}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-rx\-Buffer@{\-\_\-rx\-Buffer}}
+\index{\-\_\-rx\-Buffer@{\-\_\-rx\-Buffer}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-rx\-Buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t \-\_\-rx\-Buffer\mbox{[}R\-H\-\_\-\-R\-F95\-\_\-\-M\-A\-X\-\_\-\-M\-E\-S\-S\-A\-G\-E\-\_\-\-L\-E\-N\mbox{]}}}\label{Uno__Serial__LoRa__Sniffer_8ino_a3e4574cc98a87f4099359ed1324a568c}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a0e117effc6ddd58d710660c85914a95a}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-rx\-Recv\-Len@{\-\_\-rx\-Recv\-Len}}
+\index{\-\_\-rx\-Recv\-Len@{\-\_\-rx\-Recv\-Len}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-rx\-Recv\-Len}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t \-\_\-rx\-Recv\-Len}}\label{Uno__Serial__LoRa__Sniffer_8ino_a0e117effc6ddd58d710660c85914a95a}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a1d75ade2c180ea5f384c54d08a09c014}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-sd\-Ready@{\-\_\-sd\-Ready}}
+\index{\-\_\-sd\-Ready@{\-\_\-sd\-Ready}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-sd\-Ready}]{\setlength{\rightskip}{0pt plus 5cm}{\bf bool} \-\_\-sd\-Ready = {\bf false}}}\label{Uno__Serial__LoRa__Sniffer_8ino_a1d75ade2c180ea5f384c54d08a09c014}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a16335a7be6509c46683fe6be4a399838}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-sf\-Index@{\-\_\-sf\-Index}}
+\index{\-\_\-sf\-Index@{\-\_\-sf\-Index}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-sf\-Index}]{\setlength{\rightskip}{0pt plus 5cm}uint32\-\_\-t \-\_\-sf\-Index = 0}}\label{Uno__Serial__LoRa__Sniffer_8ino_a16335a7be6509c46683fe6be4a399838}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_a37b226555fa4c17b0735c0d209d6978b}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!\-\_\-spreadingfactors@{\-\_\-spreadingfactors}}
+\index{\-\_\-spreadingfactors@{\-\_\-spreadingfactors}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{\-\_\-spreadingfactors}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-spreadingfactors\mbox{[}$\,$\mbox{]}}}\label{Uno__Serial__LoRa__Sniffer_8ino_a37b226555fa4c17b0735c0d209d6978b}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+\{
+    6,
+    7,
+
+    
+\}
+\end{DoxyCode}
+\hypertarget{Uno__Serial__LoRa__Sniffer_8ino_ac741fa4056d5cbbcc0ab38fa7d8c6ce3}{\index{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}!rf95@{rf95}}
+\index{rf95@{rf95}!Uno_Serial_LoRa_Sniffer.ino@{Uno\-\_\-\-Serial\-\_\-\-Lo\-Ra\-\_\-\-Sniffer.\-ino}}
+\subsubsection[{rf95}]{\setlength{\rightskip}{0pt plus 5cm}R\-H\-\_\-\-R\-F95 rf95}}\label{Uno__Serial__LoRa__Sniffer_8ino_ac741fa4056d5cbbcc0ab38fa7d8c6ce3}

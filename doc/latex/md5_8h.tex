@@ -1,0 +1,60 @@
+\hypertarget{md5_8h}{\section{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/md5.h File Reference}
+\label{md5_8h}\index{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/md5.\-h@{tools/\-Atmega\-\_\-\-Board\-\_\-\-Detector/md5.\-h}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structmd5__context}{md5\-\_\-context}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8}~unsigned char
+\item 
+\#define \hyperlink{md5_8h_a9695cf1104606879c5d3f0221635a069}{uint32}~unsigned long int
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{md5_8h_ac6e9fda1d8fda7d51fd1c0c036f87cfe}{md5\-\_\-starts} (\hyperlink{structmd5__context}{md5\-\_\-context} $\ast$ctx)
+\item 
+void \hyperlink{md5_8h_a7b10388405325509389ea7b2d0ddfa34}{md5\-\_\-update} (\hyperlink{structmd5__context}{md5\-\_\-context} $\ast$ctx, \hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8} $\ast$input, \hyperlink{md5_8h_a9695cf1104606879c5d3f0221635a069}{uint32} length)
+\item 
+void \hyperlink{md5_8h_a2ab0d298634ade679428ed07b39fc505}{md5\-\_\-finish} (\hyperlink{structmd5__context}{md5\-\_\-context} $\ast$ctx, \hyperlink{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{uint8} digest\mbox{[}16\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{md5_8h_a9695cf1104606879c5d3f0221635a069}{\index{md5.\-h@{md5.\-h}!uint32@{uint32}}
+\index{uint32@{uint32}!md5.h@{md5.\-h}}
+\subsubsection[{uint32}]{\setlength{\rightskip}{0pt plus 5cm}\#define uint32~unsigned long int}}\label{md5_8h_a9695cf1104606879c5d3f0221635a069}
+\hypertarget{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}{\index{md5.\-h@{md5.\-h}!uint8@{uint8}}
+\index{uint8@{uint8}!md5.h@{md5.\-h}}
+\subsubsection[{uint8}]{\setlength{\rightskip}{0pt plus 5cm}\#define uint8~unsigned char}}\label{md5_8h_a2d25bcd37166cc98f0d823cdb8c553ef}
+
+
+\subsection{Function Documentation}
+\hypertarget{md5_8h_a2ab0d298634ade679428ed07b39fc505}{\index{md5.\-h@{md5.\-h}!md5\-\_\-finish@{md5\-\_\-finish}}
+\index{md5\-\_\-finish@{md5\-\_\-finish}!md5.h@{md5.\-h}}
+\subsubsection[{md5\-\_\-finish}]{\setlength{\rightskip}{0pt plus 5cm}void md5\-\_\-finish (
+\begin{DoxyParamCaption}
+\item[{{\bf md5\-\_\-context} $\ast$}]{ctx, }
+\item[{{\bf uint8}}]{digest\mbox{[}16\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{md5_8h_a2ab0d298634ade679428ed07b39fc505}
+\hypertarget{md5_8h_ac6e9fda1d8fda7d51fd1c0c036f87cfe}{\index{md5.\-h@{md5.\-h}!md5\-\_\-starts@{md5\-\_\-starts}}
+\index{md5\-\_\-starts@{md5\-\_\-starts}!md5.h@{md5.\-h}}
+\subsubsection[{md5\-\_\-starts}]{\setlength{\rightskip}{0pt plus 5cm}void md5\-\_\-starts (
+\begin{DoxyParamCaption}
+\item[{{\bf md5\-\_\-context} $\ast$}]{ctx}
+\end{DoxyParamCaption}
+)}}\label{md5_8h_ac6e9fda1d8fda7d51fd1c0c036f87cfe}
+\hypertarget{md5_8h_a7b10388405325509389ea7b2d0ddfa34}{\index{md5.\-h@{md5.\-h}!md5\-\_\-update@{md5\-\_\-update}}
+\index{md5\-\_\-update@{md5\-\_\-update}!md5.h@{md5.\-h}}
+\subsubsection[{md5\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}void md5\-\_\-update (
+\begin{DoxyParamCaption}
+\item[{{\bf md5\-\_\-context} $\ast$}]{ctx, }
+\item[{{\bf uint8} $\ast$}]{input, }
+\item[{{\bf uint32}}]{length}
+\end{DoxyParamCaption}
+)}}\label{md5_8h_a7b10388405325509389ea7b2d0ddfa34}

@@ -1,0 +1,105 @@
+\hypertarget{RX_8cpp}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-R\-X.cpp File Reference}
+\label{RX_8cpp}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-R\-X.\-cpp@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-R\-X.\-cpp}}
+}
+{\ttfamily \#include \char`\"{}Arduino.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}config.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}def.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}types.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Serial.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Protocol.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Multi\-Wii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}Alarms.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{RX_8cpp_a2841d5114bc3ac579cc1e6bea9b5e01d}{R\-X\-\_\-\-P\-I\-N\-\_\-\-C\-H\-E\-C\-K}(pin\-\_\-pos, rc\-\_\-value\-\_\-pos)
+\item 
+\#define \hyperlink{RX_8cpp_a1986fc2ecddc8ec785460997ea32e3a0}{A\-V\-E\-R\-A\-G\-I\-N\-G\-\_\-\-A\-R\-R\-A\-Y\-\_\-\-L\-E\-N\-G\-T\-H}~4
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{RX_8cpp_a85fb03973dc20fa5ded67afabaeb6d7d}{rx\-Int} (void)
+\item 
+void \hyperlink{RX_8cpp_a6aa0e3dadefea67192c7a5bbafc0304b}{configure\-Receiver} ()
+\item 
+\hyperlink{RX_8cpp_a0d2672ec7a900e747ee3e53ab28791a2}{I\-S\-R} (R\-X\-\_\-\-P\-C\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T)
+\item 
+uint16\-\_\-t \hyperlink{RX_8cpp_acc08f1ff4cb0cea74f452688a99d45d2}{read\-Raw\-R\-C} (uint8\-\_\-t chan)
+\item 
+void \hyperlink{RX_8cpp_afb531b745a0b3985a6f30b415dbe322b}{compute\-R\-C} ()
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+volatile uint16\-\_\-t \hyperlink{RX_8cpp_a221554286237f6759451e941c4a44ab2}{rc\-Value} \mbox{[}\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2def_8h_a6942cd309a346b72a0f92791bba0772f}{R\-C\-\_\-\-C\-H\-A\-N\-S}\mbox{]} = \{1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502\}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{RX_8cpp_a1986fc2ecddc8ec785460997ea32e3a0}{\index{R\-X.\-cpp@{R\-X.\-cpp}!A\-V\-E\-R\-A\-G\-I\-N\-G\-\_\-\-A\-R\-R\-A\-Y\-\_\-\-L\-E\-N\-G\-T\-H@{A\-V\-E\-R\-A\-G\-I\-N\-G\-\_\-\-A\-R\-R\-A\-Y\-\_\-\-L\-E\-N\-G\-T\-H}}
+\index{A\-V\-E\-R\-A\-G\-I\-N\-G\-\_\-\-A\-R\-R\-A\-Y\-\_\-\-L\-E\-N\-G\-T\-H@{A\-V\-E\-R\-A\-G\-I\-N\-G\-\_\-\-A\-R\-R\-A\-Y\-\_\-\-L\-E\-N\-G\-T\-H}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{A\-V\-E\-R\-A\-G\-I\-N\-G\-\_\-\-A\-R\-R\-A\-Y\-\_\-\-L\-E\-N\-G\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define A\-V\-E\-R\-A\-G\-I\-N\-G\-\_\-\-A\-R\-R\-A\-Y\-\_\-\-L\-E\-N\-G\-T\-H~4}}\label{RX_8cpp_a1986fc2ecddc8ec785460997ea32e3a0}
+\hypertarget{RX_8cpp_a2841d5114bc3ac579cc1e6bea9b5e01d}{\index{R\-X.\-cpp@{R\-X.\-cpp}!R\-X\-\_\-\-P\-I\-N\-\_\-\-C\-H\-E\-C\-K@{R\-X\-\_\-\-P\-I\-N\-\_\-\-C\-H\-E\-C\-K}}
+\index{R\-X\-\_\-\-P\-I\-N\-\_\-\-C\-H\-E\-C\-K@{R\-X\-\_\-\-P\-I\-N\-\_\-\-C\-H\-E\-C\-K}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{R\-X\-\_\-\-P\-I\-N\-\_\-\-C\-H\-E\-C\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-X\-\_\-\-P\-I\-N\-\_\-\-C\-H\-E\-C\-K(
+\begin{DoxyParamCaption}
+\item[{}]{pin\-\_\-pos, }
+\item[{}]{rc\-\_\-value\-\_\-pos}
+\end{DoxyParamCaption}
+)}}\label{RX_8cpp_a2841d5114bc3ac579cc1e6bea9b5e01d}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{if} (mask & PCInt\_RX\_Pins[pin\_pos]) \{                             \hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{\(\backslash\)}
+\hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{      if} (!(pin & PCInt\_RX\_Pins[pin\_pos])) \{                         \(\backslash\)
+        dTime = cTime-edgeTime[pin\_pos];                             \hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{\(\backslash\)}
+\hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{        if} (900<dTime && dTime<2200) \{                               \hyperlink{RX_8cpp_a221554286237f6759451e941c4a44ab2}{\(\backslash\)}
+\hyperlink{RX_8cpp_a221554286237f6759451e941c4a44ab2}{          rcValue}[rc\_value\_pos] = dTime;                             \(\backslash\)
+        \}                                                            \(\backslash\)
+      \} \textcolor{keywordflow}{else} edgeTime[pin\_pos] = cTime;                              \(\backslash\)
+    \}
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{RX_8cpp_afb531b745a0b3985a6f30b415dbe322b}{\index{R\-X.\-cpp@{R\-X.\-cpp}!compute\-R\-C@{compute\-R\-C}}
+\index{compute\-R\-C@{compute\-R\-C}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{compute\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}void compute\-R\-C (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{RX_8cpp_afb531b745a0b3985a6f30b415dbe322b}
+\hypertarget{RX_8cpp_a6aa0e3dadefea67192c7a5bbafc0304b}{\index{R\-X.\-cpp@{R\-X.\-cpp}!configure\-Receiver@{configure\-Receiver}}
+\index{configure\-Receiver@{configure\-Receiver}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{configure\-Receiver}]{\setlength{\rightskip}{0pt plus 5cm}void configure\-Receiver (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{RX_8cpp_a6aa0e3dadefea67192c7a5bbafc0304b}
+\hypertarget{RX_8cpp_a0d2672ec7a900e747ee3e53ab28791a2}{\index{R\-X.\-cpp@{R\-X.\-cpp}!I\-S\-R@{I\-S\-R}}
+\index{I\-S\-R@{I\-S\-R}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{I\-S\-R}]{\setlength{\rightskip}{0pt plus 5cm}I\-S\-R (
+\begin{DoxyParamCaption}
+\item[{R\-X\-\_\-\-P\-C\-\_\-\-I\-N\-T\-E\-R\-R\-U\-P\-T}]{}
+\end{DoxyParamCaption}
+)}}\label{RX_8cpp_a0d2672ec7a900e747ee3e53ab28791a2}
+\hypertarget{RX_8cpp_acc08f1ff4cb0cea74f452688a99d45d2}{\index{R\-X.\-cpp@{R\-X.\-cpp}!read\-Raw\-R\-C@{read\-Raw\-R\-C}}
+\index{read\-Raw\-R\-C@{read\-Raw\-R\-C}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{read\-Raw\-R\-C}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t read\-Raw\-R\-C (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{chan}
+\end{DoxyParamCaption}
+)}}\label{RX_8cpp_acc08f1ff4cb0cea74f452688a99d45d2}
+\hypertarget{RX_8cpp_a85fb03973dc20fa5ded67afabaeb6d7d}{\index{R\-X.\-cpp@{R\-X.\-cpp}!rx\-Int@{rx\-Int}}
+\index{rx\-Int@{rx\-Int}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{rx\-Int}]{\setlength{\rightskip}{0pt plus 5cm}void rx\-Int (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{RX_8cpp_a85fb03973dc20fa5ded67afabaeb6d7d}
+
+
+\subsection{Variable Documentation}
+\hypertarget{RX_8cpp_a221554286237f6759451e941c4a44ab2}{\index{R\-X.\-cpp@{R\-X.\-cpp}!rc\-Value@{rc\-Value}}
+\index{rc\-Value@{rc\-Value}!RX.cpp@{R\-X.\-cpp}}
+\subsubsection[{rc\-Value}]{\setlength{\rightskip}{0pt plus 5cm}volatile uint16\-\_\-t rc\-Value\mbox{[}{\bf R\-C\-\_\-\-C\-H\-A\-N\-S}\mbox{]} = \{1502, 1502, 1502, 1502, 1502, 1502, 1502, 1502\}}}\label{RX_8cpp_a221554286237f6759451e941c4a44ab2}

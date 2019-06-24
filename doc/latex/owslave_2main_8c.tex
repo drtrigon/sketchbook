@@ -1,0 +1,70 @@
+\hypertarget{owslave_2main_8c}{\section{cli/owslave/main.c File Reference}
+\label{owslave_2main_8c}\index{cli/owslave/main.\-c@{cli/owslave/main.\-c}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}features.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}onewire.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}uart.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}console.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}timer.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}dev\-\_\-data.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debug.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}moat.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}jmp.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}status.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}unused.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{owslave_2main_8c_a34b04bd23b07b485921a728ad0805ac4}{M\-A\-I\-N}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t mcusr \hyperlink{owslave_2main_8c_a3b9a4207d68f9debcab2baf7f6c10b5d}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((section(\char`\"{}.noinit\char`\"{})))
+\item 
+void \hyperlink{owslave_2main_8c_aba8ce2757045fc4f10ff965db900e986}{setup\-\_\-watchdog} (void)
+\item 
+void \hyperlink{owslave_2main_8c_a8d5260f5764f8b1a331f8a243cd6c0b9}{poll\-\_\-all} (void)
+\item 
+int \hyperlink{owslave_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{main} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{owslave_2main_8c_a34b04bd23b07b485921a728ad0805ac4}{\index{owslave/main.\-c@{owslave/main.\-c}!M\-A\-I\-N@{M\-A\-I\-N}}
+\index{M\-A\-I\-N@{M\-A\-I\-N}!owslave/main.c@{owslave/main.\-c}}
+\subsubsection[{M\-A\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define M\-A\-I\-N}}\label{owslave_2main_8c_a34b04bd23b07b485921a728ad0805ac4}
+
+
+\subsection{Function Documentation}
+\hypertarget{owslave_2main_8c_a3b9a4207d68f9debcab2baf7f6c10b5d}{\index{owslave/main.\-c@{owslave/main.\-c}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!owslave/main.c@{owslave/main.\-c}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mcusr \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(section(\char`\"{}.noinit\char`\"{}))}]{}
+\end{DoxyParamCaption}
+)}}\label{owslave_2main_8c_a3b9a4207d68f9debcab2baf7f6c10b5d}
+\hypertarget{owslave_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}{\index{owslave/main.\-c@{owslave/main.\-c}!main@{main}}
+\index{main@{main}!owslave/main.c@{owslave/main.\-c}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{owslave_2main_8c_a840291bc02cba5474a4cb46a9b9566fe}
+\hypertarget{owslave_2main_8c_a8d5260f5764f8b1a331f8a243cd6c0b9}{\index{owslave/main.\-c@{owslave/main.\-c}!poll\-\_\-all@{poll\-\_\-all}}
+\index{poll\-\_\-all@{poll\-\_\-all}!owslave/main.c@{owslave/main.\-c}}
+\subsubsection[{poll\-\_\-all}]{\setlength{\rightskip}{0pt plus 5cm}void poll\-\_\-all (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{owslave_2main_8c_a8d5260f5764f8b1a331f8a243cd6c0b9}
+\hypertarget{owslave_2main_8c_aba8ce2757045fc4f10ff965db900e986}{\index{owslave/main.\-c@{owslave/main.\-c}!setup\-\_\-watchdog@{setup\-\_\-watchdog}}
+\index{setup\-\_\-watchdog@{setup\-\_\-watchdog}!owslave/main.c@{owslave/main.\-c}}
+\subsubsection[{setup\-\_\-watchdog}]{\setlength{\rightskip}{0pt plus 5cm}void setup\-\_\-watchdog (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{owslave_2main_8c_aba8ce2757045fc4f10ff965db900e986}

@@ -1,0 +1,44 @@
+\hyperlink{dir_70ab0fae7e5055fbfca9f7577f8ee654}{Uno\-\_\-ppm\-U\-S\-Bjoy} shows how to implement a H\-I\-D Joystick (no need for driver on most O\-Ses) on A\-V\-R platform using V\-U\-S\-B. That project uses an A\-T\-Mega328 (Arduino Uno) to connect a P\-P\-M source (R/\-C Transmitter) to a P\-C.
+
+This project should do the same using a N64 Controller on the input. As we want to improve we aim at using minimal hardware and ressources and thus want to replace the Arduino Uno by an A\-T\-Tiny (\href{https://github.com/boxtec/helvetiny85}{\tt Helvetiny}).
+
+As it turns out somebody was faster\-:
+\begin{DoxyItemize}
+\item attiny45 n64-\/usb (new version)\-: \href{https://matthiaslinder.com/?view=attiny45+n64-usb}{\tt https\-://matthiaslinder.\-com/?view=attiny45+n64-\/usb}
+\item n64, gc to usb (old version)\-: \href{https://matthiaslinder.com/?view=n64%2C+gc+to+usb}{\tt https\-://matthiaslinder.\-com/?view=n64\%2\-C+gc+to+usb}
+\end{DoxyItemize}
+
+By the way it exists for (S)N\-E\-S also\-:
+\begin{DoxyItemize}
+\item tinyntendo\-: \href{https://github.com/kunaakos/tinyntendo}{\tt https\-://github.\-com/kunaakos/tinyntendo}
+\end{DoxyItemize}
+
+\subsection*{attiny45 n64-\/usb (works on 85 as it has 8k mem)}
+
+First need to change some settings in the Makefile\-: \begin{DoxyVerb}#DEVICE  = attiny45
+DEVICE  = attiny85
+...
+#PROGRAMMER = usbasp
+PROGRAMMER = avrisp -b 19200 -P /dev/ttyACM0
+\end{DoxyVerb}
+
+
+This will compile and upload the code to an A\-T\-Tiny85 using an Arduino Uno as I\-S\-P (avrisp).
+
+delete objects and hex file (the ones in the repo are for attiny45, we need attiny85) \begin{DoxyVerb}$ make clean
+\end{DoxyVerb}
+
+
+compile and flash \begin{DoxyVerb}$ make all
+\end{DoxyVerb}
+
+
+Compilling and programming worked like a charm.
+
+\subsection*{P\-C\-B (design based on Helvetiny 1.\-0)}
+
+Built using the Helvetiny85 eagle source files. Now ready to verify and compare with original (parts size/placing etc.) and finally production (at jlcpcb).
+
+n64dual\-\_\-schematic.\-png
+
+\href{https://github.com/drtrigon/eagle/blob/master/projects/N64TinyUSB/}{\tt https\-://github.\-com/drtrigon/eagle/blob/master/projects/\-N64\-Tiny\-U\-S\-B/} 

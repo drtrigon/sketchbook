@@ -1,0 +1,104 @@
+\hypertarget{ds2408_8c}{\section{cli/owslave/ds2408.c File Reference}
+\label{ds2408_8c}\index{cli/owslave/ds2408.\-c@{cli/owslave/ds2408.\-c}}
+}
+{\ttfamily \#include \char`\"{}onewire.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}debug.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{ds2408_8c_a7e8168fe3e52b2c57f9cd54bc2264ba7}{C\-\_\-\-R\-E\-A\-D\-\_\-\-P\-I\-O}~0x\-F0
+\item 
+\#define \hyperlink{ds2408_8c_abb33bb1ba821f32d2ee280a17c8b6f28}{C\-\_\-\-R\-E\-A\-D\-\_\-\-C\-H\-A\-N\-N\-E\-L}~0x\-F5
+\item 
+\#define \hyperlink{ds2408_8c_a4974f8d9aed66c7d3356455413f9fbcf}{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L}~0x5\-A
+\item 
+\#define \hyperlink{ds2408_8c_ada3c63c6e5dffbdeb81a1d2aa2a6d4aa}{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-O\-N\-D\-S\-E\-A\-R\-C\-H}~0x\-C\-C
+\item 
+\#define \hyperlink{ds2408_8c_afa6b59a9ba4380f64a747afaf4e4e2f8}{C\-\_\-\-R\-E\-S\-E\-T\-\_\-\-L\-A\-T\-C\-H\-E\-S}~0x\-C3
+\item 
+\#define \hyperlink{ds2408_8c_a2269c17d9ca0935042f35343e7429a19}{X\-M\-I\-T}(\hyperlink{Uno__Read__CurrentTransformer__SCT__013__030_8ino_aa0ccb5ee6d882ee3605ff47745c6467b}{val})
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{ds2408_8c_a4bd65f126b3aae019262a415cdea9398}{do\-\_\-read\-\_\-pio} (void)
+\item 
+void \hyperlink{ds2408_8c_a9ce57c9d3ab84cf5b546b26b7c4c4c00}{do\-\_\-command} (uint8\-\_\-t cmd)
+\item 
+void \hyperlink{ds2408_8c_a209e23c093737f3310b44f45f1a11210}{update\-\_\-idle} (uint8\-\_\-t bits)
+\item 
+void \hyperlink{ds2408_8c_ab1e61373f6640f42224588e4bd4f3db6}{init\-\_\-state} (void)
+\item 
+void \hyperlink{ds2408_8c_a5fe2749decbc9e4b882aa0aabb649fa4}{mainloop} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{ds2408_8c_abb33bb1ba821f32d2ee280a17c8b6f28}{\index{ds2408.\-c@{ds2408.\-c}!C\-\_\-\-R\-E\-A\-D\-\_\-\-C\-H\-A\-N\-N\-E\-L@{C\-\_\-\-R\-E\-A\-D\-\_\-\-C\-H\-A\-N\-N\-E\-L}}
+\index{C\-\_\-\-R\-E\-A\-D\-\_\-\-C\-H\-A\-N\-N\-E\-L@{C\-\_\-\-R\-E\-A\-D\-\_\-\-C\-H\-A\-N\-N\-E\-L}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{C\-\_\-\-R\-E\-A\-D\-\_\-\-C\-H\-A\-N\-N\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-\_\-\-R\-E\-A\-D\-\_\-\-C\-H\-A\-N\-N\-E\-L~0x\-F5}}\label{ds2408_8c_abb33bb1ba821f32d2ee280a17c8b6f28}
+\hypertarget{ds2408_8c_a7e8168fe3e52b2c57f9cd54bc2264ba7}{\index{ds2408.\-c@{ds2408.\-c}!C\-\_\-\-R\-E\-A\-D\-\_\-\-P\-I\-O@{C\-\_\-\-R\-E\-A\-D\-\_\-\-P\-I\-O}}
+\index{C\-\_\-\-R\-E\-A\-D\-\_\-\-P\-I\-O@{C\-\_\-\-R\-E\-A\-D\-\_\-\-P\-I\-O}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{C\-\_\-\-R\-E\-A\-D\-\_\-\-P\-I\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-\_\-\-R\-E\-A\-D\-\_\-\-P\-I\-O~0x\-F0}}\label{ds2408_8c_a7e8168fe3e52b2c57f9cd54bc2264ba7}
+\hypertarget{ds2408_8c_afa6b59a9ba4380f64a747afaf4e4e2f8}{\index{ds2408.\-c@{ds2408.\-c}!C\-\_\-\-R\-E\-S\-E\-T\-\_\-\-L\-A\-T\-C\-H\-E\-S@{C\-\_\-\-R\-E\-S\-E\-T\-\_\-\-L\-A\-T\-C\-H\-E\-S}}
+\index{C\-\_\-\-R\-E\-S\-E\-T\-\_\-\-L\-A\-T\-C\-H\-E\-S@{C\-\_\-\-R\-E\-S\-E\-T\-\_\-\-L\-A\-T\-C\-H\-E\-S}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{C\-\_\-\-R\-E\-S\-E\-T\-\_\-\-L\-A\-T\-C\-H\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-\_\-\-R\-E\-S\-E\-T\-\_\-\-L\-A\-T\-C\-H\-E\-S~0x\-C3}}\label{ds2408_8c_afa6b59a9ba4380f64a747afaf4e4e2f8}
+\hypertarget{ds2408_8c_a4974f8d9aed66c7d3356455413f9fbcf}{\index{ds2408.\-c@{ds2408.\-c}!C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L@{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L}}
+\index{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L@{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-H\-A\-N\-N\-E\-L~0x5\-A}}\label{ds2408_8c_a4974f8d9aed66c7d3356455413f9fbcf}
+\hypertarget{ds2408_8c_ada3c63c6e5dffbdeb81a1d2aa2a6d4aa}{\index{ds2408.\-c@{ds2408.\-c}!C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-O\-N\-D\-S\-E\-A\-R\-C\-H@{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-O\-N\-D\-S\-E\-A\-R\-C\-H}}
+\index{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-O\-N\-D\-S\-E\-A\-R\-C\-H@{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-O\-N\-D\-S\-E\-A\-R\-C\-H}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-O\-N\-D\-S\-E\-A\-R\-C\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-\_\-\-W\-R\-I\-T\-E\-\_\-\-C\-O\-N\-D\-S\-E\-A\-R\-C\-H~0x\-C\-C}}\label{ds2408_8c_ada3c63c6e5dffbdeb81a1d2aa2a6d4aa}
+\hypertarget{ds2408_8c_a2269c17d9ca0935042f35343e7429a19}{\index{ds2408.\-c@{ds2408.\-c}!X\-M\-I\-T@{X\-M\-I\-T}}
+\index{X\-M\-I\-T@{X\-M\-I\-T}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{X\-M\-I\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define X\-M\-I\-T(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf val}}
+\end{DoxyParamCaption}
+)}}\label{ds2408_8c_a2269c17d9ca0935042f35343e7429a19}
+{\bfseries Value\-:}
+\begin{DoxyCode}
+\textcolor{keywordflow}{do} \{                                     \hyperlink{onewire_8c_a299e69dcb51cd08bb46c2fcc0f3bc011}{\(\backslash\)}
+\hyperlink{onewire_8c_a299e69dcb51cd08bb46c2fcc0f3bc011}{        xmit\_byte}(val);                            \hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{\(\backslash\)}
+\hyperlink{onewire_8c_a419aa918b6754a119e89d90a7c053500}{        if}(bcrc) \{ crc = \hyperlink{crc_8c_a7b8d37481c3d64fc435db0f50d1f98ac}{crc16}(crc,\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}); bcrc = 0; \} \(\backslash\)
+        crc = \hyperlink{crc_8c_a7b8d37481c3d64fc435db0f50d1f98ac}{crc16}(crc,val);                      \(\backslash\)
+    \} \textcolor{keywordflow}{while}(0)
+\end{DoxyCode}
+
+
+\subsection{Function Documentation}
+\hypertarget{ds2408_8c_a9ce57c9d3ab84cf5b546b26b7c4c4c00}{\index{ds2408.\-c@{ds2408.\-c}!do\-\_\-command@{do\-\_\-command}}
+\index{do\-\_\-command@{do\-\_\-command}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{do\-\_\-command}]{\setlength{\rightskip}{0pt plus 5cm}void do\-\_\-command (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{cmd}
+\end{DoxyParamCaption}
+)}}\label{ds2408_8c_a9ce57c9d3ab84cf5b546b26b7c4c4c00}
+\hypertarget{ds2408_8c_a4bd65f126b3aae019262a415cdea9398}{\index{ds2408.\-c@{ds2408.\-c}!do\-\_\-read\-\_\-pio@{do\-\_\-read\-\_\-pio}}
+\index{do\-\_\-read\-\_\-pio@{do\-\_\-read\-\_\-pio}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{do\-\_\-read\-\_\-pio}]{\setlength{\rightskip}{0pt plus 5cm}void do\-\_\-read\-\_\-pio (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ds2408_8c_a4bd65f126b3aae019262a415cdea9398}
+\hypertarget{ds2408_8c_ab1e61373f6640f42224588e4bd4f3db6}{\index{ds2408.\-c@{ds2408.\-c}!init\-\_\-state@{init\-\_\-state}}
+\index{init\-\_\-state@{init\-\_\-state}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{init\-\_\-state}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-state (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ds2408_8c_ab1e61373f6640f42224588e4bd4f3db6}
+\hypertarget{ds2408_8c_a5fe2749decbc9e4b882aa0aabb649fa4}{\index{ds2408.\-c@{ds2408.\-c}!mainloop@{mainloop}}
+\index{mainloop@{mainloop}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{mainloop}]{\setlength{\rightskip}{0pt plus 5cm}void mainloop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{ds2408_8c_a5fe2749decbc9e4b882aa0aabb649fa4}
+\hypertarget{ds2408_8c_a209e23c093737f3310b44f45f1a11210}{\index{ds2408.\-c@{ds2408.\-c}!update\-\_\-idle@{update\-\_\-idle}}
+\index{update\-\_\-idle@{update\-\_\-idle}!ds2408.c@{ds2408.\-c}}
+\subsubsection[{update\-\_\-idle}]{\setlength{\rightskip}{0pt plus 5cm}void update\-\_\-idle (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{bits}
+\end{DoxyParamCaption}
+)}}\label{ds2408_8c_a209e23c093737f3310b44f45f1a11210}

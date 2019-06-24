@@ -1,0 +1,122 @@
+\hypertarget{dev__data_8h}{\section{cli/owslave/dev\-\_\-data.h File Reference}
+\label{dev__data_8h}\index{cli/owslave/dev\-\_\-data.\-h@{cli/owslave/dev\-\_\-data.\-h}}
+}
+{\ttfamily \#include $<$inttypes.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}dev\-\_\-config.\-h\char`\"{}}\\*
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \hyperlink{structconfig__rf12}{config\-\_\-rf12}
+\item 
+struct \hyperlink{structconfig__euid}{config\-\_\-euid}
+\item 
+struct \hyperlink{structconfig__crypto}{config\-\_\-crypto}
+\item 
+struct \hyperlink{structconfig__owid}{config\-\_\-owid}
+\item 
+struct \hyperlink{structconfig__loader}{config\-\_\-loader}
+\end{DoxyCompactItemize}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{dev__data_8h_af380621fde5834c453e4b42ec0f813fb}{E\-U\-I\-D\-\_\-\-L\-E\-N}~8
+\item 
+\#define \hyperlink{dev__data_8h_a671d1c39b710f18462e575d2458fe6c1}{C\-F\-G\-\_\-\-D\-A\-T\-A}(\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})~struct config\-\_\-\#\#\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}
+\item 
+\#define \hyperlink{dev__data_8h_a0c01ebe609a6125512d325b9f912d0f3}{cfg\-\_\-read}(\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}, \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x})~\hyperlink{dev__data_8h_a719ade9ff1dbf50da0ec40af6f177b1f}{\-\_\-cfg\-\_\-read}(\&\hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, sizeof(struct config\-\_\-\#\#\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n}), Cfg\-I\-D\-\_\-\#\#\hyperlink{OWGeneric__SensorStation_8ino_a7f72c6c4ce2ae87fa6fe5f6f22cd9d67}{n})
+\item 
+\#define \hyperlink{dev__data_8h_ae9041884af0060f183e2e954d6dbb212}{eeprom\-\_\-init}()~do \{\} \hyperlink{arm__acle_8h_ac7c3d8fa3689206398783748da75f97f}{while}(0)
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef uint16\-\_\-t \hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{dev__data_8h_a719ade9ff1dbf50da0ec40af6f177b1f}{\-\_\-cfg\-\_\-read} (void $\ast$\hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, uint8\-\_\-t size, Config\-I\-D id)
+\item 
+\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} \hyperlink{dev__data_8h_a75724efe80006447f420fa1f32ba405c}{cfg\-\_\-addr} (uint8\-\_\-t $\ast$size, Config\-I\-D id)
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8h_aed5b84cf3c000c1546d8dcc7b9485c91}{cfg\-\_\-byte} (\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} \hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8h_afeb80fbadb97c578bcc8f55776b58a6c}{cfg\-\_\-count} (\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\item 
+uint8\-\_\-t \hyperlink{dev__data_8h_a746f4f97b4739e40a224988162a3ac03}{cfg\-\_\-type} (\hyperlink{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{cfg\-\_\-addr\-\_\-t} $\ast$\hyperlink{OWP__DG__1w-adaptor_8ino_a0fc5da2e63a94559429ec9aec32f1831}{addr})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{dev__data_8h_a671d1c39b710f18462e575d2458fe6c1}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!C\-F\-G\-\_\-\-D\-A\-T\-A@{C\-F\-G\-\_\-\-D\-A\-T\-A}}
+\index{C\-F\-G\-\_\-\-D\-A\-T\-A@{C\-F\-G\-\_\-\-D\-A\-T\-A}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{C\-F\-G\-\_\-\-D\-A\-T\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define C\-F\-G\-\_\-\-D\-A\-T\-A(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf n}}
+\end{DoxyParamCaption}
+)~struct config\-\_\-\#\#{\bf n}}}\label{dev__data_8h_a671d1c39b710f18462e575d2458fe6c1}
+\hypertarget{dev__data_8h_a0c01ebe609a6125512d325b9f912d0f3}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!cfg\-\_\-read@{cfg\-\_\-read}}
+\index{cfg\-\_\-read@{cfg\-\_\-read}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{cfg\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}\#define cfg\-\_\-read(
+\begin{DoxyParamCaption}
+\item[{}]{{\bf n}, }
+\item[{}]{{\bf x}}
+\end{DoxyParamCaption}
+)~{\bf \-\_\-cfg\-\_\-read}(\&{\bf x}, sizeof(struct config\-\_\-\#\#{\bf n}), Cfg\-I\-D\-\_\-\#\#{\bf n})}}\label{dev__data_8h_a0c01ebe609a6125512d325b9f912d0f3}
+\hypertarget{dev__data_8h_ae9041884af0060f183e2e954d6dbb212}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!eeprom\-\_\-init@{eeprom\-\_\-init}}
+\index{eeprom\-\_\-init@{eeprom\-\_\-init}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{eeprom\-\_\-init}]{\setlength{\rightskip}{0pt plus 5cm}\#define eeprom\-\_\-init(
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)~do \{\} {\bf while}(0)}}\label{dev__data_8h_ae9041884af0060f183e2e954d6dbb212}
+\hypertarget{dev__data_8h_af380621fde5834c453e4b42ec0f813fb}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!E\-U\-I\-D\-\_\-\-L\-E\-N@{E\-U\-I\-D\-\_\-\-L\-E\-N}}
+\index{E\-U\-I\-D\-\_\-\-L\-E\-N@{E\-U\-I\-D\-\_\-\-L\-E\-N}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{E\-U\-I\-D\-\_\-\-L\-E\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-U\-I\-D\-\_\-\-L\-E\-N~8}}\label{dev__data_8h_af380621fde5834c453e4b42ec0f813fb}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!cfg\-\_\-addr\-\_\-t@{cfg\-\_\-addr\-\_\-t}}
+\index{cfg\-\_\-addr\-\_\-t@{cfg\-\_\-addr\-\_\-t}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{cfg\-\_\-addr\-\_\-t}]{\setlength{\rightskip}{0pt plus 5cm}typedef uint16\-\_\-t {\bf cfg\-\_\-addr\-\_\-t}}}\label{dev__data_8h_ac9b945d21fa038aa3203ba277e477a86}
+
+
+\subsection{Function Documentation}
+\hypertarget{dev__data_8h_a719ade9ff1dbf50da0ec40af6f177b1f}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!\-\_\-cfg\-\_\-read@{\-\_\-cfg\-\_\-read}}
+\index{\-\_\-cfg\-\_\-read@{\-\_\-cfg\-\_\-read}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{\-\_\-cfg\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}char \-\_\-cfg\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{void $\ast$}]{data, }
+\item[{uint8\-\_\-t}]{size, }
+\item[{Config\-I\-D}]{id}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8h_a719ade9ff1dbf50da0ec40af6f177b1f}
+\hypertarget{dev__data_8h_a75724efe80006447f420fa1f32ba405c}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!cfg\-\_\-addr@{cfg\-\_\-addr}}
+\index{cfg\-\_\-addr@{cfg\-\_\-addr}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{cfg\-\_\-addr}]{\setlength{\rightskip}{0pt plus 5cm}{\bf cfg\-\_\-addr\-\_\-t} cfg\-\_\-addr (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{size, }
+\item[{Config\-I\-D}]{id}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8h_a75724efe80006447f420fa1f32ba405c}
+\hypertarget{dev__data_8h_aed5b84cf3c000c1546d8dcc7b9485c91}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!cfg\-\_\-byte@{cfg\-\_\-byte}}
+\index{cfg\-\_\-byte@{cfg\-\_\-byte}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{cfg\-\_\-byte}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t cfg\-\_\-byte (
+\begin{DoxyParamCaption}
+\item[{{\bf cfg\-\_\-addr\-\_\-t}}]{addr}
+\end{DoxyParamCaption}
+)\hspace{0.3cm}{\ttfamily [inline]}}}\label{dev__data_8h_aed5b84cf3c000c1546d8dcc7b9485c91}
+\hypertarget{dev__data_8h_afeb80fbadb97c578bcc8f55776b58a6c}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!cfg\-\_\-count@{cfg\-\_\-count}}
+\index{cfg\-\_\-count@{cfg\-\_\-count}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{cfg\-\_\-count}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t cfg\-\_\-count (
+\begin{DoxyParamCaption}
+\item[{{\bf cfg\-\_\-addr\-\_\-t} $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8h_afeb80fbadb97c578bcc8f55776b58a6c}
+enumerate config entries. Zero == no more. Usage\-: len = cfg\-\_\-count(\&adr); while (len--) typ = cfg\-\_\-type(\&adr); \hypertarget{dev__data_8h_a746f4f97b4739e40a224988162a3ac03}{\index{dev\-\_\-data.\-h@{dev\-\_\-data.\-h}!cfg\-\_\-type@{cfg\-\_\-type}}
+\index{cfg\-\_\-type@{cfg\-\_\-type}!dev_data.h@{dev\-\_\-data.\-h}}
+\subsubsection[{cfg\-\_\-type}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t cfg\-\_\-type (
+\begin{DoxyParamCaption}
+\item[{{\bf cfg\-\_\-addr\-\_\-t} $\ast$}]{addr}
+\end{DoxyParamCaption}
+)}}\label{dev__data_8h_a746f4f97b4739e40a224988162a3ac03}

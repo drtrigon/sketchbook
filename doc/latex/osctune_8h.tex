@@ -1,0 +1,34 @@
+\hypertarget{osctune_8h}{\section{cli/n64dual\-\_\-tiny45/usbdrv/osctune.h File Reference}
+\label{osctune_8h}\index{cli/n64dual\-\_\-tiny45/usbdrv/osctune.\-h@{cli/n64dual\-\_\-tiny45/usbdrv/osctune.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{osctune_8h_a4c16d0cd9cff5d782fdede0338f4af03}{T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G}~64 /$\ast$ must match the configuration for T\-I\-M\-E\-R0 in \hyperlink{wiringpid_8c_a0ddf1224851353fc92bfbff6f499fa97}{main} $\ast$/
+\item 
+\#define \hyperlink{osctune_8h_ac6d67693a663f92b06040d7b47ee5258}{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T}~5  /$\ast$ \hyperlink{Arduino_8h_affe776513b24d84b39af8ab0930fef7f}{max} clock deviation before we tune in 1/10 \% $\ast$/
+\item 
+\#define \hyperlink{osctune_8h_a4086b1d7b5c69bdf61b8429d8908e381}{E\-X\-P\-E\-C\-T\-E\-D\-\_\-\-T\-I\-M\-E\-R0\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}~((\hyperlink{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U} / (1000 $\ast$ \hyperlink{osctune_8h_a4c16d0cd9cff5d782fdede0338f4af03}{T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G})) \& 0xff)
+\item 
+\#define \hyperlink{osctune_8h_a0522b7f371916e19cd7fcf788e6e6795}{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N}~(\hyperlink{osctune_8h_ac6d67693a663f92b06040d7b47ee5258}{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T} $\ast$ \hyperlink{Arduino_8h_a43bafb28b29491ec7f871319b5a3b2f8}{F\-\_\-\-C\-P\-U} / (1000000 $\ast$ \hyperlink{osctune_8h_a4c16d0cd9cff5d782fdede0338f4af03}{T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G}))
+\item 
+\#define \hyperlink{osctune_8h_a1f1cfe119ec5dc2bd9d75335e6215bed}{U\-S\-B\-\_\-\-S\-O\-F\-\_\-\-H\-O\-O\-K}~tune\-Osccal
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{osctune_8h_a4086b1d7b5c69bdf61b8429d8908e381}{\index{osctune.\-h@{osctune.\-h}!E\-X\-P\-E\-C\-T\-E\-D\-\_\-\-T\-I\-M\-E\-R0\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T@{E\-X\-P\-E\-C\-T\-E\-D\-\_\-\-T\-I\-M\-E\-R0\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}}
+\index{E\-X\-P\-E\-C\-T\-E\-D\-\_\-\-T\-I\-M\-E\-R0\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T@{E\-X\-P\-E\-C\-T\-E\-D\-\_\-\-T\-I\-M\-E\-R0\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}!osctune.h@{osctune.\-h}}
+\subsubsection[{E\-X\-P\-E\-C\-T\-E\-D\-\_\-\-T\-I\-M\-E\-R0\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-X\-P\-E\-C\-T\-E\-D\-\_\-\-T\-I\-M\-E\-R0\-\_\-\-I\-N\-C\-R\-E\-M\-E\-N\-T~(({\bf F\-\_\-\-C\-P\-U} / (1000 $\ast$ {\bf T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G})) \& 0xff)}}\label{osctune_8h_a4086b1d7b5c69bdf61b8429d8908e381}
+\hypertarget{osctune_8h_a4c16d0cd9cff5d782fdede0338f4af03}{\index{osctune.\-h@{osctune.\-h}!T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G@{T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G}}
+\index{T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G@{T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G}!osctune.h@{osctune.\-h}}
+\subsubsection[{T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G~64 /$\ast$ must match the configuration for T\-I\-M\-E\-R0 in {\bf main} $\ast$/}}\label{osctune_8h_a4c16d0cd9cff5d782fdede0338f4af03}
+\hypertarget{osctune_8h_a0522b7f371916e19cd7fcf788e6e6795}{\index{osctune.\-h@{osctune.\-h}!T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N@{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N}}
+\index{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N@{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N}!osctune.h@{osctune.\-h}}
+\subsubsection[{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N~({\bf T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T} $\ast$ {\bf F\-\_\-\-C\-P\-U} / (1000000 $\ast$ {\bf T\-I\-M\-E\-R0\-\_\-\-P\-R\-E\-S\-C\-A\-L\-I\-N\-G}))}}\label{osctune_8h_a0522b7f371916e19cd7fcf788e6e6795}
+\hypertarget{osctune_8h_ac6d67693a663f92b06040d7b47ee5258}{\index{osctune.\-h@{osctune.\-h}!T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T@{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T}}
+\index{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T@{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T}!osctune.h@{osctune.\-h}}
+\subsubsection[{T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define T\-O\-L\-E\-R\-A\-T\-E\-D\-\_\-\-D\-E\-V\-I\-A\-T\-I\-O\-N\-\_\-\-P\-P\-T~5  /$\ast$ {\bf max} clock deviation before we tune in 1/10 \% $\ast$/}}\label{osctune_8h_ac6d67693a663f92b06040d7b47ee5258}
+\hypertarget{osctune_8h_a1f1cfe119ec5dc2bd9d75335e6215bed}{\index{osctune.\-h@{osctune.\-h}!U\-S\-B\-\_\-\-S\-O\-F\-\_\-\-H\-O\-O\-K@{U\-S\-B\-\_\-\-S\-O\-F\-\_\-\-H\-O\-O\-K}}
+\index{U\-S\-B\-\_\-\-S\-O\-F\-\_\-\-H\-O\-O\-K@{U\-S\-B\-\_\-\-S\-O\-F\-\_\-\-H\-O\-O\-K}!osctune.h@{osctune.\-h}}
+\subsubsection[{U\-S\-B\-\_\-\-S\-O\-F\-\_\-\-H\-O\-O\-K}]{\setlength{\rightskip}{0pt plus 5cm}\#define U\-S\-B\-\_\-\-S\-O\-F\-\_\-\-H\-O\-O\-K~tune\-Osccal}}\label{osctune_8h_a1f1cfe119ec5dc2bd9d75335e6215bed}

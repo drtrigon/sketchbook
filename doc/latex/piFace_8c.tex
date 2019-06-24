@@ -1,0 +1,55 @@
+\hypertarget{piFace_8c}{\section{wiring\-Pi/dev\-Lib/pi\-Face.c File Reference}
+\label{piFace_8c}\index{wiring\-Pi/dev\-Lib/pi\-Face.\-c@{wiring\-Pi/dev\-Lib/pi\-Face.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$mcp23s17.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}pi\-Face.\-h\char`\"{}}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{piFace_8c_ae153aa4fc171daed00eec55910f8b357}{my\-Digital\-Write} (struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct} $\ast$node, int pin, int value)
+\item 
+int \hyperlink{piFace_8c_ae24d689b17128df40054446d6dfb4c39}{my\-Digital\-Read} (struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct} $\ast$node, int pin)
+\item 
+void \hyperlink{piFace_8c_a58b92950f39ec59f15ceaf5c6031b1f9}{my\-Pull\-Up\-Dn\-Control} (struct \hyperlink{structwiringPiNodeStruct}{wiring\-Pi\-Node\-Struct} $\ast$node, int pin, int pud)
+\item 
+int \hyperlink{piFace_8c_ae44a1f26aa5454ffe98805200f876496}{pi\-Face\-Setup} (const int pin\-Base)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{piFace_8c_ae24d689b17128df40054446d6dfb4c39}{\index{pi\-Face.\-c@{pi\-Face.\-c}!my\-Digital\-Read@{my\-Digital\-Read}}
+\index{my\-Digital\-Read@{my\-Digital\-Read}!piFace.c@{pi\-Face.\-c}}
+\subsubsection[{my\-Digital\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int my\-Digital\-Read (
+\begin{DoxyParamCaption}
+\item[{struct {\bf wiring\-Pi\-Node\-Struct} $\ast$}]{node, }
+\item[{int}]{pin}
+\end{DoxyParamCaption}
+)}}\label{piFace_8c_ae24d689b17128df40054446d6dfb4c39}
+\hypertarget{piFace_8c_ae153aa4fc171daed00eec55910f8b357}{\index{pi\-Face.\-c@{pi\-Face.\-c}!my\-Digital\-Write@{my\-Digital\-Write}}
+\index{my\-Digital\-Write@{my\-Digital\-Write}!piFace.c@{pi\-Face.\-c}}
+\subsubsection[{my\-Digital\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void my\-Digital\-Write (
+\begin{DoxyParamCaption}
+\item[{struct {\bf wiring\-Pi\-Node\-Struct} $\ast$}]{node, }
+\item[{int}]{pin, }
+\item[{int}]{value}
+\end{DoxyParamCaption}
+)}}\label{piFace_8c_ae153aa4fc171daed00eec55910f8b357}
+\hypertarget{piFace_8c_a58b92950f39ec59f15ceaf5c6031b1f9}{\index{pi\-Face.\-c@{pi\-Face.\-c}!my\-Pull\-Up\-Dn\-Control@{my\-Pull\-Up\-Dn\-Control}}
+\index{my\-Pull\-Up\-Dn\-Control@{my\-Pull\-Up\-Dn\-Control}!piFace.c@{pi\-Face.\-c}}
+\subsubsection[{my\-Pull\-Up\-Dn\-Control}]{\setlength{\rightskip}{0pt plus 5cm}void my\-Pull\-Up\-Dn\-Control (
+\begin{DoxyParamCaption}
+\item[{struct {\bf wiring\-Pi\-Node\-Struct} $\ast$}]{node, }
+\item[{int}]{pin, }
+\item[{int}]{pud}
+\end{DoxyParamCaption}
+)}}\label{piFace_8c_a58b92950f39ec59f15ceaf5c6031b1f9}
+\hypertarget{piFace_8c_ae44a1f26aa5454ffe98805200f876496}{\index{pi\-Face.\-c@{pi\-Face.\-c}!pi\-Face\-Setup@{pi\-Face\-Setup}}
+\index{pi\-Face\-Setup@{pi\-Face\-Setup}!piFace.c@{pi\-Face.\-c}}
+\subsubsection[{pi\-Face\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int pi\-Face\-Setup (
+\begin{DoxyParamCaption}
+\item[{const int}]{pin\-Base}
+\end{DoxyParamCaption}
+)}}\label{piFace_8c_ae44a1f26aa5454ffe98805200f876496}

@@ -1,0 +1,56 @@
+537 warnings and 1 error generated.
+Error while processing /home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp.
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:24:10: warning: inclusion of deprecated C++ header 'stdio.h'; consider using 'cstdio' instead [modernize-deprecated-headers]
+#include <stdio.h>
+         ^~~~~~~~~
+         <cstdio>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:26:10: warning: inclusion of deprecated C++ header 'inttypes.h'; consider using 'cinttypes' instead [modernize-deprecated-headers]
+#include <inttypes.h>
+         ^~~~~~~~~~~~
+         <cinttypes>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:27:10: warning: inclusion of deprecated C++ header 'stdlib.h'; consider using 'cstdlib' instead [modernize-deprecated-headers]
+#include <stdlib.h>
+         ^~~~~~~~~~
+         <cstdlib>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:28:10: warning: inclusion of deprecated C++ header 'string.h'; consider using 'cstring' instead [modernize-deprecated-headers]
+#include <string.h>
+         ^~~~~~~~~~
+         <cstring>
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:48:10: error: 'PJON.h' file not found [clang-diagnostic-error]
+#include <PJON.h>
+         ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:53:40: warning: parameter 'payload' is unused [misc-unused-parameters]
+static void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+                              ~~~~~~~~~^~~~~~~~~~~~~~~~~~
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:53:58: warning: parameter 'length' is unused [misc-unused-parameters]
+static void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+                                                         ^
+note: this fix will not be applied because it overlaps with another fix
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:53:90: warning: parameter 'packet_info' is unused [misc-unused-parameters]
+static void receiver_function(uint8_t *payload, uint16_t length, const PJON_Packet_Info &packet_info)
+                                                                                         ^
+note: this fix will not be applied because it overlaps with another fix
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:55:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("BLINK\n");
+  ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:74:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Welcome to RemoteWorker 1 (Transmitter).\n");
+  ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:83:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Opening serial... \n");
+  ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:86:5: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+    printf("Serial open fail!\n");
+    ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:90:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Setting serial... \n");
+  ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:97:3: warning: do not call c-style vararg functions [cppcoreguidelines-pro-type-vararg]
+  printf("Success, initiating BlinkTest repeated transmission... \n");
+  ^
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/Transmitter/Transmitter.cpp:100:15: warning: statement should be inside braces [readability-braces-around-statements]
+  while (true) loop();
+              ^
+               {
+Suppressed 523 warnings (523 in non-user code).
+Use -header-filter=.* to display errors from all non-system headers. Use -system-headers to display errors from system headers as well.

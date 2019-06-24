@@ -1,0 +1,86 @@
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/pack.py:1:1: D100 Missing docstring in public module
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:1:1: D100 Missing docstring in public module
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:10:1: S404 Consider possible security implications associated with subprocess module.
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:23:35: E231 missing whitespace after ','
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:26:25: E231 missing whitespace after ','
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:29:1: D101 Missing docstring in public class
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:36:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:42:1: S602 subprocess call with shell=True identified, security issue.
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:42:80: E501 line too long (94 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:61:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:63:80: E501 line too long (106 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:65:80: E501 line too long (82 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:66:80: E501 line too long (94 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:69:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:71:80: E501 line too long (140 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:72:80: E501 line too long (97 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:73:80: E501 line too long (114 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:76:80: E501 line too long (96 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:78:80: E501 line too long (89 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:82:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:90:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:92:80: E501 line too long (85 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:93:80: E501 line too long (95 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:94:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:98:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:100:80: E501 line too long (85 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:101:80: E501 line too long (95 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:102:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:106:80: E501 line too long (85 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:107:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:115:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:117:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:118:80: E501 line too long (115 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:119:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:121:80: E501 line too long (91 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:122:9: F841 local variable 'resul_' is assigned to but never used
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:122:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:123:80: E501 line too long (111 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:127:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:129:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:130:80: E501 line too long (115 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:131:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:139:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:140:80: E501 line too long (126 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:141:80: E501 line too long (91 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:142:9: F841 local variable 'resul_' is assigned to but never used
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:142:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:143:80: E501 line too long (111 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:144:80: E501 line too long (101 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:146:1: D102 Missing docstring in public method
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:149:80: E501 line too long (107 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:150:80: E501 line too long (117 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:151:80: E501 line too long (88 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:156:1: D101 Missing docstring in public class
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:161:1: D101 Missing docstring in public class
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:170:1: D101 Missing docstring in public class
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:178:80: E501 line too long (86 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:183:1: D103 Missing docstring in public function
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:184:80: E501 line too long (102 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:187:80: E501 line too long (107 > 79 characters)
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:189:1: E302 expected 2 blank lines, found 1
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/test.py:189:1: D103 Missing docstring in public function
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py:1:1: D100 Missing docstring in public module
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py:11:1: E722 do not use bare 'except'
+/home/travis/build/drtrigon/sketchbook/OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py:13:20: W292 no newline at end of file
+3     D100 Missing docstring in public module
+4     D101 Missing docstring in public class
+10    D102 Missing docstring in public method
+2     D103 Missing docstring in public function
+2     E231 missing whitespace after ','
+1     E302 expected 2 blank lines, found 1
+37    E501 line too long (94 > 79 characters)
+1     E722 do not use bare 'except'
+2     F841 local variable 'resul_' is assigned to but never used
+1     S404 Consider possible security implications associated with subprocess module.
+1     S602 subprocess call with shell=True identified, security issue.
+1     W292 no newline at end of file
+1.26       seconds elapsed
+178        total logical lines processed
+141        logical lines processed per second
+239        total physical lines processed
+189        physical lines processed per second
+1341       total tokens processed
+1062       tokens processed per second
+3          total files processed
+2          files processed per second

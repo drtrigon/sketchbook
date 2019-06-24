@@ -1,0 +1,227 @@
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Lo\-Ra/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.ino File Reference}
+\label{OWP__DG__GPS__WeatherStation_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Lo\-Ra/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Through\-Lo\-Ra/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+}
+{\ttfamily \#include $<$B\-M\-E280\-I2\-C.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}i2c.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}i2c\-\_\-\-M\-A\-X44009.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a84f1ead330bbcc83a63929c4726080d7}{S\-E\-N\-S\-O\-R}~\char`\"{}owp\-:ws\-:v1\char`\"{}
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}~0x01
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a3563b296d5f60635a1256e8a12261d74}{R\-E\-A\-D\-\_\-\-V\-C\-C}~0x11
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_ac8c23082885adeec4834469b64e00bb9}{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}~0x12
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_ada74e7db007a68e763f20c17f2985356}{R\-E\-A\-D}~0x21
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_aa10f470e996d0f51210d24f442d25e1e}{W\-R\-I\-T\-E}~0x22
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a9418b096dba157494f523dc01b82a760}{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}~0x32
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_af12022724a30608d5904c0821531d798}{R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-X\-X\-X}~0x\-F\-F
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a122352b1f649325157c324dfce67f012}{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-T\-E\-M\-P}~0x\-F\-E
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a06680f58811d8e62bc6cb33810199fda}{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-H\-U\-M}~0x\-F\-D
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_aed61342a5c1e3abd11d9cd471a428792}{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-P\-R\-E\-S}~0x\-F\-C
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_ae5653bac0d4c4a230cf21f8bf729d329}{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-I\-L\-L\-U}~0x\-F\-B
+\item 
+\#define \hyperlink{OWP__DG__GPS__WeatherStation_8ino_aeebf956fc71944a6237c3af6a038ff70}{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+B\-M\-E280\-I2\-C\-::\-Settings \hyperlink{OWP__DG__GPS__WeatherStation_8ino_ae54fb4a36d3e9da55d7a93e650f85da0}{settings} (B\-M\-E280\-::\-O\-S\-R\-\_\-\-X1, B\-M\-E280\-::\-O\-S\-R\-\_\-\-X1, B\-M\-E280\-::\-O\-S\-R\-\_\-\-X1, B\-M\-E280\-::\-Mode\-\_\-\-Forced, B\-M\-E280\-::\-Standby\-Time\-\_\-1000ms, B\-M\-E280\-::\-Filter\-\_\-\-Off, B\-M\-E280\-::\-Spi\-Enable\-\_\-\-False, 0x76)
+\item 
+B\-M\-E280\-I2\-C \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a8b01163c0321eb4ba39ffbb69d7f26e0}{bme} (\hyperlink{OWP__DG__GPS__WeatherStation_8ino_ae54fb4a36d3e9da55d7a93e650f85da0}{settings})
+\item 
+P\-J\-O\-N$<$ Through\-Lora $>$ \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a4bac4a027aee24f4f811fbd2cfba7541}{bus} (43)
+\item 
+void \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{OWP__DG__GPS__WeatherStation_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a0b3195c3893f02cb1b80d878b89549d6}{read\-Vcc} ()
+\item 
+float \hyperlink{OWP__DG__GPS__WeatherStation_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{read\-Temp} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a02235b4e96743403348a58d554caa3dc}{mem\-\_\-buffer} \mbox{[}256\mbox{]}
+\item 
+M\-A\-X44009 \hyperlink{OWP__DG__GPS__WeatherStation_8ino_a36efcbcdbef8e49786cb0095ffb923fb}{max44009}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a06680f58811d8e62bc6cb33810199fda}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-H\-U\-M@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-H\-U\-M}}
+\index{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-H\-U\-M@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-H\-U\-M}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-H\-U\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-H\-U\-M~0x\-F\-D}}\label{OWP__DG__GPS__WeatherStation_8ino_a06680f58811d8e62bc6cb33810199fda}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_ae5653bac0d4c4a230cf21f8bf729d329}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-I\-L\-L\-U@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-I\-L\-L\-U}}
+\index{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-I\-L\-L\-U@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-I\-L\-L\-U}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-I\-L\-L\-U}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-I\-L\-L\-U~0x\-F\-B}}\label{OWP__DG__GPS__WeatherStation_8ino_ae5653bac0d4c4a230cf21f8bf729d329}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_aed61342a5c1e3abd11d9cd471a428792}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-P\-R\-E\-S@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-P\-R\-E\-S}}
+\index{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-P\-R\-E\-S@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-P\-R\-E\-S}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-P\-R\-E\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-P\-R\-E\-S~0x\-F\-C}}\label{OWP__DG__GPS__WeatherStation_8ino_aed61342a5c1e3abd11d9cd471a428792}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a122352b1f649325157c324dfce67f012}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-T\-E\-M\-P@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-T\-E\-M\-P}}
+\index{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-T\-E\-M\-P@{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-T\-E\-M\-P}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{\-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-T\-E\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-T\-E\-M\-P~0x\-F\-E}}\label{OWP__DG__GPS__WeatherStation_8ino_a122352b1f649325157c324dfce67f012}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_aeebf956fc71944a6237c3af6a038ff70}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}}
+\index{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}}\label{OWP__DG__GPS__WeatherStation_8ino_aeebf956fc71944a6237c3af6a038ff70}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_ada74e7db007a68e763f20c17f2985356}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!R\-E\-A\-D@{R\-E\-A\-D}}
+\index{R\-E\-A\-D@{R\-E\-A\-D}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D~0x21}}\label{OWP__DG__GPS__WeatherStation_8ino_ada74e7db007a68e763f20c17f2985356}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}}
+\index{R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-I\-N\-F\-O~0x01}}\label{OWP__DG__GPS__WeatherStation_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_ac8c23082885adeec4834469b64e00bb9}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!R\-E\-A\-D\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}}
+\index{R\-E\-A\-D\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-T\-E\-M\-P~0x12}}\label{OWP__DG__GPS__WeatherStation_8ino_ac8c23082885adeec4834469b64e00bb9}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_af12022724a30608d5904c0821531d798}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-X\-X\-X@{R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-X\-X\-X}}
+\index{R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-X\-X\-X@{R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-X\-X\-X}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-X\-X\-X}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-V\-A\-L\-U\-E\-\_\-\-X\-X\-X~0x\-F\-F}}\label{OWP__DG__GPS__WeatherStation_8ino_af12022724a30608d5904c0821531d798}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a3563b296d5f60635a1256e8a12261d74}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!R\-E\-A\-D\-\_\-\-V\-C\-C@{R\-E\-A\-D\-\_\-\-V\-C\-C}}
+\index{R\-E\-A\-D\-\_\-\-V\-C\-C@{R\-E\-A\-D\-\_\-\-V\-C\-C}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-V\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-V\-C\-C~0x11}}\label{OWP__DG__GPS__WeatherStation_8ino_a3563b296d5f60635a1256e8a12261d74}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a84f1ead330bbcc83a63929c4726080d7}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}}
+\index{S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{S\-E\-N\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-N\-S\-O\-R~\char`\"{}owp\-:ws\-:v1\char`\"{}}}\label{OWP__DG__GPS__WeatherStation_8ino_a84f1ead330bbcc83a63929c4726080d7}
+needs doxygen docu -\/ derived from Through\-Lo\-Ra/\-Device\-Generic, Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N and \href{https://github.com/Play-Zone/BME280_MAX44009/blob/master/example.ino}{\tt https\-://github.\-com/\-Play-\/\-Zone/\-B\-M\-E280\-\_\-\-M\-A\-X44009/blob/master/example.\-ino} also derived from \href{https://www.arduinolibraries.info/libraries/bme280}{\tt https\-://www.\-arduinolibraries.\-info/libraries/bme280} and \href{https://www.arduinolibraries.info/libraries/i2-c-sensor-lib-i-lib}{\tt https\-://www.\-arduinolibraries.\-info/libraries/i2-\/c-\/sensor-\/lib-\/i-\/lib} ...
+
+Arduino Uno (5\-V)\-: use it with dragino lora gps shield (set E\-N\-A\-B\-L\-E\-\_\-\-G\-P\-S) or with lorabee only (do not set E\-N\-A\-B\-L\-E\-\_\-\-G\-P\-S) weatherstation breakout is always needed consider using hardware serial for gps (if gps used in O\-W\-P\-J\-O\-N device)
+
+Arduino Mini 3.\-3\-V\-: It is a minial atmega328 w. 8\-M\-Hz oscil. so a procedure similar to \char`\"{}\-Using on (minimal/raw) atmega328 w. 16\-M\-Hz oscil.\char`\"{} as mentioned in \begin{DoxySeeAlso}{See Also}
+\hyperlink{OWP__DG__1w-adaptor_8ino}{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor/\-O\-W\-P\-\_\-\-D\-G\-\_\-1w-\/adaptor.\-ino} works here also (this uses 5\-V so board needs to be taken out of 3.\-3\-V circuit!)\-: use Uno with Arduino\-I\-S\-P Example \hyperlink{iso646_8h_aa3d7d535cf450b91b9cb6d9cee2edbb9}{and} \char`\"{}\-Arduino as I\-S\-P\char`\"{} connect (like attiny85) for I\-S\-P (S\-P\-I) programming (13-\/13, 12-\/12, 11-\/11, 10-\/\-R\-E\-S\-E\-T, 5\-V-\/\-V\-C\-C, G\-N\-D-\/\-G\-N\-D -\/ 5\-V also for 3.\-3\-V boards possible!) see e.\-g. \href{https://www.arduino.cc/en/tutorial/arduinoISP}{\tt https\-://www.\-arduino.\-cc/en/tutorial/arduino\-I\-S\-P} \href{https://www.arduino.cc/en/Hacking/MiniBootloader}{\tt https\-://www.\-arduino.\-cc/en/\-Hacking/\-Mini\-Bootloader} \href{http://www.gammon.com.au/breadboard}{\tt http\-://www.\-gammon.\-com.\-au/breadboard} \href{https://github.com/nickgammon/arduino_sketches}{\tt https\-://github.\-com/nickgammon/arduino\-\_\-sketches} (for debugging see \char`\"{}\-Chip not detected\char`\"{}, \char`\"{}\-Alternate clock source\char`\"{}) select \char`\"{}\-Arduino Pro or Pro Mini\char`\"{} board, select the correct \char`\"{}\-Procesor\char`\"{} (depending \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on} \hyperlink{Uno__Read__HumidityCapacitor__KFS140-D_8ino_a003bbb537dac1547ff44bac4bf180a73}{voltage} \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on} clock) \hyperlink{iso646_8h_aa3d7d535cf450b91b9cb6d9cee2edbb9}{and} Tools $>$ Burn Bootloader then compile \hyperlink{iso646_8h_aa3d7d535cf450b91b9cb6d9cee2edbb9}{and} upload sketch with (Upload \hyperlink{Uno__N64__Controller__Pak__Reader_8ino_a0a7e6169ae96e651da0b37fae3034554}{button} doesn'\hyperlink{Yun__Log__BatteryDisCharging_8ino_a1ffe6f4d89de83b8119fa91af85fcacc}{t} work) Sketch $>$ Upload Using Programmer (selecting othe 328 board like Uno \hyperlink{iso646_8h_a339a611d7f9dc3a59c359f0da7beaf3c}{or} Nano would work also but \hyperlink{iso646_8h_a31739c27bdcfdac9faae7bf7a5df49e4}{not} allow to select 8\-M\-Hz clock) info \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on} (Robot\-Dyn) Arduino (Pro) Mini (3.\-3\-V)\-: \href{https://learn.sparkfun.com/tutorials/using-the-arduino-pro-mini-33v/all}{\tt https\-://learn.\-sparkfun.\-com/tutorials/using-\/the-\/arduino-\/pro-\/mini-\/33v/all} \href{https://robotdyn.com/catalog/promini-atmega328p.html}{\tt https\-://robotdyn.\-com/catalog/promini-\/atmega328p.\-html} pinout\-: \href{https://robotdyn.com/pub/media/0G-00006155==ProMINI-ATmega328P(10PCS)-USBCH340-KIT/DOCS/PINOUT==0G-00004034==ProMINI-ATmega328P.pdf}{\tt https\-://robotdyn.\-com/pub/media/0\-G-\/00006155==\-Pro\-M\-I\-N\-I-\/\-A\-Tmega328\-P(10\-P\-C\-S)-\/\-U\-S\-B\-C\-H340-\/\-K\-I\-T/\-D\-O\-C\-S/\-P\-I\-N\-O\-U\-T==0\-G-\/00004034==\-Pro\-M\-I\-N\-I-\/\-A\-Tmega328\-P.\-pdf} schematic\-: \href{https://robotdyn.com/pub/media/0G-00006155==ProMINI-ATmega328P(10PCS)-USBCH340-KIT/DOCS/Schematic==0G-00004034==ProMINI-ATmega328P.pdf}{\tt https\-://robotdyn.\-com/pub/media/0\-G-\/00006155==\-Pro\-M\-I\-N\-I-\/\-A\-Tmega328\-P(10\-P\-C\-S)-\/\-U\-S\-B\-C\-H340-\/\-K\-I\-T/\-D\-O\-C\-S/\-Schematic==0\-G-\/00004034==\-Pro\-M\-I\-N\-I-\/\-A\-Tmega328\-P.\-pdf}
+\end{DoxySeeAlso}
+For a plain 3.\-3\-V operation we can use a Due\-: use Due with Arduino\-I\-S\-P Example and \char`\"{}\-Arduino as I\-S\-P\char`\"{} uncomment '\#define U\-S\-E\-\_\-\-O\-L\-D\-\_\-\-S\-T\-Y\-L\-E\-\_\-\-W\-I\-R\-I\-N\-G' (line 81) in order to use same wiring as mentioned before (using the S\-P\-I/\-I\-C\-S\-P header does not work (yet)) for programming the Due with Arduino\-I\-S\-P use the \char`\"{}\-Programming Port\char`\"{} (U\-S\-B connector in middle of board) for programming the target (Arduino Mini) and use as \char`\"{}\-Arduino as I\-S\-P\char`\"{}, use the \char`\"{}\-Native Port\char`\"{} (U\-S\-B connector at the edge of the board) \href{https://petervanhoyweghen.wordpress.com/2015/07/21/arduinoisp-reliability-and-portability-improvements/}{\tt https\-://petervanhoyweghen.\-wordpress.\-com/2015/07/21/arduinoisp-\/reliability-\/and-\/portability-\/improvements/} in case of issues reset the Due by pressing the button and re-\/select U\-S\-B port in case Burn Bootloader fails check enable verbose output (Preferences) and check it, sometimes it tries to burn twice and only 2nd time fails (ignore it) select \char`\"{}\-Arduino Pro or Pro Mini\char`\"{} board etc. as mentioned before
+
+Upload using bootloader with Due R\-X/\-T\-X as mentioned in \begin{DoxySeeAlso}{See Also}
+\hyperlink{ESP8266__SHT31__WiFi__REST_8ino}{E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T/\-E\-S\-P8266\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T.\-ino} does \hyperlink{iso646_8h_a31739c27bdcfdac9faae7bf7a5df49e4}{not} work yet need to investigate the signals, may be the bootloader (Mini\-Core?), etc.
+\end{DoxySeeAlso}
+Direct Pinout (not using shields, e.\-g. for Arduino Mini 3.\-3\-V)\-: Arduino Mini 3.\-3\-V Peripherial V\-C\-C supply\-: 3.\-3\-V V\-C\-C Lo\-Ra Bee\-: 1 (3.\-3\-V) V\-C\-C Weather St.\-: V\-C\-C G\-N\-D supply\-: G\-N\-D G\-N\-D Lo\-Ra Bee\-: 10 (G\-N\-D) G\-N\-D Weather St.\-: G\-N\-D 9 Lo\-Ra Bee\-: 5 (R\-E\-S\-E\-T) -\/ S\-P\-I 10 Lo\-Ra Bee\-: 17 (C\-S/\-N\-S\-S) 11 Lo\-Ra Bee\-: 11 (D\-I/\-M\-O\-S\-I) -\/ S\-P\-I 12 Lo\-Ra Bee\-: 4 (D\-O/\-M\-I\-S\-O) -\/ S\-P\-I 13 Lo\-Ra Bee\-: 18 (C\-L\-K/\-S\-C\-K) -\/ S\-P\-I A4 Weather St.\-: S\-D\-A -\/ I2\-C A5 Weather St.\-: S\-C\-L -\/ I2\-C optional\-: R\-A\-W supply\-: 5\-V (+2.5\-V...+16\-V) (optionally replaces 3.\-3\-V supply e.\-g. by 5\-V or 3.\-7\-V Li\-Po, Lora Bee and Weather St. still need to be connected to V\-C\-C, V\-C\-C then gives max. 180 m\-A!) \begin{DoxySeeAlso}{See Also}
+Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N/\-Lora \hyperlink{Uno__MultiWii__HardwarePlatform__Test_2def_8h_a36b40d732683cffecbede218f332e321}{G\-P\-S} Shield v1.\-3.\-sch.\-pdf  \href{https://robotdyn.com/pub/media/0G-00006155==ProMINI-ATmega328P(10PCS)-USBCH340-KIT/DOCS/Schematic==0G-00004034==ProMINI-ATmega328P.pdf}{\tt https\-://robotdyn.\-com/pub/media/0\-G-\/00006155==\-Pro\-M\-I\-N\-I-\/\-A\-Tmega328\-P(10\-P\-C\-S)-\/\-U\-S\-B\-C\-H340-\/\-K\-I\-T/\-D\-O\-C\-S/\-Schematic==0\-G-\/00004034==\-Pro\-M\-I\-N\-I-\/\-A\-Tmega328\-P.\-pdf}  \href{http://ww1.microchip.com/downloads/en/DeviceDoc/20005719A.pdf}{\tt http\-://ww1.\-microchip.\-com/downloads/en/\-Device\-Doc/20005719\-A.\-pdf}  \href{https://robotdyn.com/promini-atmega328p.html}{\tt https\-://robotdyn.\-com/promini-\/atmega328p.\-html} For programming of Arduino Mini as described above it has either to be removed from circuit (socket) \hyperlink{iso646_8h_a339a611d7f9dc3a59c359f0da7beaf3c}{or} the Lora Bee S\-P\-I connections (pin 10-\/13) have to be removed \hyperlink{iso646_8h_aa3d7d535cf450b91b9cb6d9cee2edbb9}{and} connected to programmer. 
+\end{DoxySeeAlso}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_aa10f470e996d0f51210d24f442d25e1e}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!W\-R\-I\-T\-E@{W\-R\-I\-T\-E}}
+\index{W\-R\-I\-T\-E@{W\-R\-I\-T\-E}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{W\-R\-I\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-R\-I\-T\-E~0x22}}\label{OWP__DG__GPS__WeatherStation_8ino_aa10f470e996d0f51210d24f442d25e1e}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a9418b096dba157494f523dc01b82a760}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!W\-R\-I\-T\-E\-\_\-\-C\-A\-L@{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}}
+\index{W\-R\-I\-T\-E\-\_\-\-C\-A\-L@{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-R\-I\-T\-E\-\_\-\-C\-A\-L~0x32}}\label{OWP__DG__GPS__WeatherStation_8ino_a9418b096dba157494f523dc01b82a760}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a8b01163c0321eb4ba39ffbb69d7f26e0}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!bme@{bme}}
+\index{bme@{bme}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{bme}]{\setlength{\rightskip}{0pt plus 5cm}B\-M\-E280\-I2\-C bme (
+\begin{DoxyParamCaption}
+\item[{{\bf settings}}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_a8b01163c0321eb4ba39ffbb69d7f26e0}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a4bac4a027aee24f4f811fbd2cfba7541}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!bus@{bus}}
+\index{bus@{bus}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Through\-Lora$>$ bus (
+\begin{DoxyParamCaption}
+\item[{43}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_a4bac4a027aee24f4f811fbd2cfba7541}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!read\-Temp@{read\-Temp}}
+\index{read\-Temp@{read\-Temp}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{read\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_ada109bb0cdc12131465dfe7a74f93b1e}
+Internal Temperature Sensor for A\-Tmega328 types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWP__DG__GPS__WeatherStation_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{https://playground.arduino.cc/Main/InternalTemperatureSensor}{\tt https\-://playground.\-arduino.\-cc/\-Main/\-Internal\-Temperature\-Sensor} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The chip temperature in \mbox{[}°\-C\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a0b3195c3893f02cb1b80d878b89549d6}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_a0b3195c3893f02cb1b80d878b89549d6}
+Accessing the secret voltmeter on the Arduino 168 or 328.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWP__DG__GPS__WeatherStation_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{http://code.google.com/p/tinkerit/wiki/SecretVoltmeter}{\tt http\-://code.\-google.\-com/p/tinkerit/wiki/\-Secret\-Voltmeter} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The supply voltage in \mbox{[}V\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!receiver\-\_\-function@{receiver\-\_\-function}}
+\index{receiver\-\_\-function@{receiver\-\_\-function}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{receiver\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_a76fc5e73c141f748dcc1809fdcfa1714}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_ae54fb4a36d3e9da55d7a93e650f85da0}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!settings@{settings}}
+\index{settings@{settings}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{settings}]{\setlength{\rightskip}{0pt plus 5cm}B\-M\-E280\-I2\-C\-::\-Settings settings (
+\begin{DoxyParamCaption}
+\item[{B\-M\-E280\-::\-O\-S\-R\-\_\-\-X1}]{, }
+\item[{B\-M\-E280\-::\-O\-S\-R\-\_\-\-X1}]{, }
+\item[{B\-M\-E280\-::\-O\-S\-R\-\_\-\-X1}]{, }
+\item[{B\-M\-E280\-::\-Mode\-\_\-\-Forced}]{, }
+\item[{B\-M\-E280\-::\-Standby\-Time\-\_\-1000ms}]{, }
+\item[{B\-M\-E280\-::\-Filter\-\_\-\-Off}]{, }
+\item[{B\-M\-E280\-::\-Spi\-Enable\-\_\-\-False}]{, }
+\item[{0x76}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_ae54fb4a36d3e9da55d7a93e650f85da0}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__GPS__WeatherStation_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a36efcbcdbef8e49786cb0095ffb923fb}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!max44009@{max44009}}
+\index{max44009@{max44009}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{max44009}]{\setlength{\rightskip}{0pt plus 5cm}M\-A\-X44009 max44009}}\label{OWP__DG__GPS__WeatherStation_8ino_a36efcbcdbef8e49786cb0095ffb923fb}
+\hypertarget{OWP__DG__GPS__WeatherStation_8ino_a02235b4e96743403348a58d554caa3dc}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}!mem\-\_\-buffer@{mem\-\_\-buffer}}
+\index{mem\-\_\-buffer@{mem\-\_\-buffer}!OWP_DG_GPS_WeatherStation.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-G\-P\-S\-\_\-\-Weather\-Station.\-ino}}
+\subsubsection[{mem\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mem\-\_\-buffer\mbox{[}256\mbox{]}}}\label{OWP__DG__GPS__WeatherStation_8ino_a02235b4e96743403348a58d554caa3dc}

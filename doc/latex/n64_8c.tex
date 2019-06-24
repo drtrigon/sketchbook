@@ -1,0 +1,116 @@
+\hypertarget{n64_8c}{\section{cli/n64dual\-\_\-tiny45/n64.c File Reference}
+\label{n64_8c}\index{cli/n64dual\-\_\-tiny45/n64.\-c@{cli/n64dual\-\_\-tiny45/n64.\-c}}
+}
+{\ttfamily \#include $<$avr/io.\-h$>$}\\*
+{\ttfamily \#include $<$avr/interrupt.\-h$>$}\\*
+{\ttfamily \#include $<$util/delay.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}gamepad.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}n64.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$usbdrv.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{n64_8c_a4edf268793b93158db7c8072024d6b2e}{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-R\-T}~P\-O\-R\-T\-B
+\item 
+\#define \hyperlink{n64_8c_ae4da5d9cd69dd4e1617aa8216e8a5996}{N64\-\_\-\-D\-A\-T\-A\-\_\-\-D\-D\-R}~D\-D\-R\-B
+\item 
+\#define \hyperlink{n64_8c_a94da187ca881cda73ce43c570e687ef9}{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-I\-N}~P\-I\-N\-B
+\item 
+\#define \hyperlink{n64_8c_a92b9aadea8903737cea7e5d7c4a2f386}{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-A}~(1$<$$<$3)
+\item 
+\#define \hyperlink{n64_8c_a9ffabfb885e6e5eeaf5cf35a9b5f2625}{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-B}~(1$<$$<$4)
+\item 
+\#define \hyperlink{n64_8c_a9a65f8b1e1a477bc3c4c77a93a170faf}{N64\-\_\-\-C\-A\-L}~95
+\item 
+\#define \hyperlink{n64_8c_a39717d0f902b242023638cc093f80062}{G\-C\-N64\-\_\-\-R\-E\-P\-O\-R\-T\-\_\-\-S\-I\-Z\-E}~5
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{n64_8c_af1e2f046da953804d22b2f38791154e5}{\-\_\-tmpdata2report} (unsigned volatile char results\mbox{[}65\mbox{]}, uint8\-\_\-t report\-I\-D)
+\item 
+void \hyperlink{n64_8c_ac9bfb759549526317b152083431c12c7}{\-\_\-n64\-Update\-A} (unsigned char tmp)
+\item 
+void \hyperlink{n64_8c_a95d2794ed87af96424a5a91b4d93cef3}{\-\_\-n64\-Update\-B} (unsigned char tmp)
+\item 
+\hyperlink{structGamepad}{Gamepad} $\ast$ \hyperlink{n64_8c_aad87fb78c6109a2cbeeef9d6a85b3238}{n64\-Get\-Gamepad} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{structGamepad}{Gamepad} \hyperlink{n64_8c_a8d5fa4f8bff99e7a051a415eafd72f24}{N64\-Gamepad}
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{n64_8c_a39717d0f902b242023638cc093f80062}{\index{n64.\-c@{n64.\-c}!G\-C\-N64\-\_\-\-R\-E\-P\-O\-R\-T\-\_\-\-S\-I\-Z\-E@{G\-C\-N64\-\_\-\-R\-E\-P\-O\-R\-T\-\_\-\-S\-I\-Z\-E}}
+\index{G\-C\-N64\-\_\-\-R\-E\-P\-O\-R\-T\-\_\-\-S\-I\-Z\-E@{G\-C\-N64\-\_\-\-R\-E\-P\-O\-R\-T\-\_\-\-S\-I\-Z\-E}!n64.c@{n64.\-c}}
+\subsubsection[{G\-C\-N64\-\_\-\-R\-E\-P\-O\-R\-T\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define G\-C\-N64\-\_\-\-R\-E\-P\-O\-R\-T\-\_\-\-S\-I\-Z\-E~5}}\label{n64_8c_a39717d0f902b242023638cc093f80062}
+\hypertarget{n64_8c_a9a65f8b1e1a477bc3c4c77a93a170faf}{\index{n64.\-c@{n64.\-c}!N64\-\_\-\-C\-A\-L@{N64\-\_\-\-C\-A\-L}}
+\index{N64\-\_\-\-C\-A\-L@{N64\-\_\-\-C\-A\-L}!n64.c@{n64.\-c}}
+\subsubsection[{N64\-\_\-\-C\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-C\-A\-L~95}}\label{n64_8c_a9a65f8b1e1a477bc3c4c77a93a170faf}
+\hypertarget{n64_8c_a92b9aadea8903737cea7e5d7c4a2f386}{\index{n64.\-c@{n64.\-c}!N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-A@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-A}}
+\index{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-A@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-A}!n64.c@{n64.\-c}}
+\subsubsection[{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-A~(1$<$$<$3)}}\label{n64_8c_a92b9aadea8903737cea7e5d7c4a2f386}
+\hypertarget{n64_8c_a9ffabfb885e6e5eeaf5cf35a9b5f2625}{\index{n64.\-c@{n64.\-c}!N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-B@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-B}}
+\index{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-B@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-B}!n64.c@{n64.\-c}}
+\subsubsection[{N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-B}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-D\-A\-T\-A\-\_\-\-B\-I\-T\-\_\-\-B~(1$<$$<$4)}}\label{n64_8c_a9ffabfb885e6e5eeaf5cf35a9b5f2625}
+\hypertarget{n64_8c_ae4da5d9cd69dd4e1617aa8216e8a5996}{\index{n64.\-c@{n64.\-c}!N64\-\_\-\-D\-A\-T\-A\-\_\-\-D\-D\-R@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-D\-D\-R}}
+\index{N64\-\_\-\-D\-A\-T\-A\-\_\-\-D\-D\-R@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-D\-D\-R}!n64.c@{n64.\-c}}
+\subsubsection[{N64\-\_\-\-D\-A\-T\-A\-\_\-\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-D\-A\-T\-A\-\_\-\-D\-D\-R~D\-D\-R\-B}}\label{n64_8c_ae4da5d9cd69dd4e1617aa8216e8a5996}
+\hypertarget{n64_8c_a94da187ca881cda73ce43c570e687ef9}{\index{n64.\-c@{n64.\-c}!N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-I\-N@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-I\-N}}
+\index{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-I\-N@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-I\-N}!n64.c@{n64.\-c}}
+\subsubsection[{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-I\-N~P\-I\-N\-B}}\label{n64_8c_a94da187ca881cda73ce43c570e687ef9}
+\hypertarget{n64_8c_a4edf268793b93158db7c8072024d6b2e}{\index{n64.\-c@{n64.\-c}!N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-R\-T@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-R\-T}}
+\index{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-R\-T@{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-R\-T}!n64.c@{n64.\-c}}
+\subsubsection[{N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-R\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define N64\-\_\-\-D\-A\-T\-A\-\_\-\-P\-O\-R\-T~P\-O\-R\-T\-B}}\label{n64_8c_a4edf268793b93158db7c8072024d6b2e}
+
+
+\subsection{Function Documentation}
+\hypertarget{n64_8c_ac9bfb759549526317b152083431c12c7}{\index{n64.\-c@{n64.\-c}!\-\_\-n64\-Update\-A@{\-\_\-n64\-Update\-A}}
+\index{\-\_\-n64\-Update\-A@{\-\_\-n64\-Update\-A}!n64.c@{n64.\-c}}
+\subsubsection[{\-\_\-n64\-Update\-A}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-n64\-Update\-A (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{tmp}
+\end{DoxyParamCaption}
+)}}\label{n64_8c_ac9bfb759549526317b152083431c12c7}
+\hypertarget{n64_8c_a95d2794ed87af96424a5a91b4d93cef3}{\index{n64.\-c@{n64.\-c}!\-\_\-n64\-Update\-B@{\-\_\-n64\-Update\-B}}
+\index{\-\_\-n64\-Update\-B@{\-\_\-n64\-Update\-B}!n64.c@{n64.\-c}}
+\subsubsection[{\-\_\-n64\-Update\-B}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-n64\-Update\-B (
+\begin{DoxyParamCaption}
+\item[{unsigned char}]{tmp}
+\end{DoxyParamCaption}
+)}}\label{n64_8c_a95d2794ed87af96424a5a91b4d93cef3}
+\hypertarget{n64_8c_af1e2f046da953804d22b2f38791154e5}{\index{n64.\-c@{n64.\-c}!\-\_\-tmpdata2report@{\-\_\-tmpdata2report}}
+\index{\-\_\-tmpdata2report@{\-\_\-tmpdata2report}!n64.c@{n64.\-c}}
+\subsubsection[{\-\_\-tmpdata2report}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-tmpdata2report (
+\begin{DoxyParamCaption}
+\item[{unsigned volatile char}]{results\mbox{[}65\mbox{]}, }
+\item[{uint8\-\_\-t}]{report\-I\-D}
+\end{DoxyParamCaption}
+)}}\label{n64_8c_af1e2f046da953804d22b2f38791154e5}
+\hypertarget{n64_8c_aad87fb78c6109a2cbeeef9d6a85b3238}{\index{n64.\-c@{n64.\-c}!n64\-Get\-Gamepad@{n64\-Get\-Gamepad}}
+\index{n64\-Get\-Gamepad@{n64\-Get\-Gamepad}!n64.c@{n64.\-c}}
+\subsubsection[{n64\-Get\-Gamepad}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Gamepad}$\ast$ n64\-Get\-Gamepad (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{n64_8c_aad87fb78c6109a2cbeeef9d6a85b3238}
+
+
+\subsection{Variable Documentation}
+\hypertarget{n64_8c_a8d5fa4f8bff99e7a051a415eafd72f24}{\index{n64.\-c@{n64.\-c}!N64\-Gamepad@{N64\-Gamepad}}
+\index{N64\-Gamepad@{N64\-Gamepad}!n64.c@{n64.\-c}}
+\subsubsection[{N64\-Gamepad}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Gamepad} N64\-Gamepad}}\label{n64_8c_a8d5fa4f8bff99e7a051a415eafd72f24}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    .report\_size            = \hyperlink{n64_8c_a39717d0f902b242023638cc093f80062}{GCN64\_REPORT\_SIZE},
+    .init                   = n64Init,
+    .update                 = n64Update,
+    .changed                = n64Changed,
+    .buildReport            = n64BuildReport,
+    .probe                  = n64Probe,
+\}
+\end{DoxyCode}

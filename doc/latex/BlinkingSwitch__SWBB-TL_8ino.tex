@@ -1,0 +1,185 @@
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.ino File Reference}
+\label{BlinkingSwitch__SWBB-TL_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+}
+
+
+Switch/\-Tunnel for Through\-Lo\-Ra-\/\-Software\-Bit\-Bang.  
+
+
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include $<$P\-J\-O\-N\-Interactive\-Router.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL_8ino_a4a71aecac635579082c10addb16df4a0}{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}~\hyperlink{Helvetiny__Blink__CDC_8ino_a450a7c16ead7b3c7b882536b08f30a00}{L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL_8ino_aae3f0b4211ba45d265973d40ccbb5fd1}{S\-E\-R\-I\-A\-L}~\hyperlink{HardwareSerial_8h_a7b8c4a195c58f9eb8750e94955c5aa4b}{Serial}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL_8ino_a34fea28a7531677453da5e072f172a78}{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}~4
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL_8ino_aeebf956fc71944a6237c3af6a038ff70}{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}
+\item 
+\#define \hyperlink{BlinkingSwitch__SWBB-TL_8ino_af093da5eac99580be6ba61b4dc79f2c1}{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}~3
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N\-Interactive\-Router\\*
+$<$ P\-J\-O\-N\-Virtual\-Bus\-Router\\*
+$<$ P\-J\-O\-N\-Switch $>$ $>$ \hyperlink{BlinkingSwitch__SWBB-TL_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{router} (2,(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\})
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TL_8ino_af488e931618139cd40b126dabfe9b6bb}{sendnotification\-\_\-function} (const uint8\-\_\-t $\ast$const \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, const uint16\-\_\-t length, const uint8\-\_\-t receiver\-\_\-bus, const uint8\-\_\-t sender\-\_\-bus, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long \hyperlink{BlinkingSwitch__SWBB-TL_8ino_a9ba8dfc203186a2f0979d11ff6b9036b}{time\-\_\-last\-\_\-message}
+\item 
+Strategy\-Link$<$ Software\-Bit\-Bang $>$ \hyperlink{BlinkingSwitch__SWBB-TL_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}{link1}
+\item 
+Strategy\-Link$<$ Through\-Lora $>$ \hyperlink{BlinkingSwitch__SWBB-TL_8ino_a6ab0c6e3e6ae04f06e58b38531729623}{link2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Switch/\-Tunnel for Through\-Lo\-Ra-\/\-Software\-Bit\-Bang. \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/08-\/08 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-1 \begin{DoxyItemize}
+\item added missing default to switch cases \item added watchdog for recovery from heavy failures \item changed Lo\-Ra frequency/channel \end{DoxyItemize}
+
+
+1.\-0 \begin{DoxyItemize}
+\item first version derived from \hyperlink{BlinkingSwitch_8ino}{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch/\-Blinking\-Switch.\-ino} \hyperlink{Yun__Dragino__Server__LoRa__WAN_8ino}{Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N/\-Yun\-\_\-\-Dragino\-\_\-\-Server\-\_\-\-Lo\-Ra\-\_\-\-W\-A\-N.\-ino} \end{DoxyItemize}
+
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See Also}
+\href{https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa}{\tt https\-://github.\-com/gioblu/\-P\-J\-O\-N/tree/master/src/strategies/\-Through\-Lo\-Ra}
+\end{DoxySeeAlso}
+\begin{DoxyVerb}* OneWire PJON Generic "OWPG" scheme:
+*   @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+* For isolated remote SWBB networks on the same bus use e.g. LoRa and setup 2 tunnels/switches
+*   OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/ (this sketch)
+*
+* Compatible with: atmega328 (Uno, Nano, Uno/Yun combo Dragino LG01-S), atmega32u4 (Yun)
+*
+* Pinout:
+*   1wire PJON data bus (OWPJON SWBB):
+*        1WIRE DATA    -> Arduino Pin D4
+*        GND black     -> Arduino GND
+*   1wire Sniffer/Master/Client Shield
+*   Dragino Lora Shield Shield or Dragino LG01-S
+*   @see https://github.com/gioblu/PJON/tree/master/src/strategies/ThroughLoRa#supported-shieldsmodules
+*
+* Dragino LG01-S:
+*   - Dragino is recognized as "Yun" but contains an "Uno" (m328p); select "Arduino/Genuino Uno"
+*     @see http://192.168.11.16/cgi-bin/luci//admin/sensor/mcu
+*     correct but not needed would be to use
+*     http://www.dragino.com/downloads/downloads/YunShield/package_dragino_yun_test_index.json
+*     and select "Dragino Yun + UNO or LG01/OLG01"
+*   - Disable Dargino wifi; like Yun use WebInterface to configure LAN, DHCP, DISABLE WIFI
+*     also see comments, hints, etc. in @ref Yun_Dragino_Server_LoRa_WAN/Yun_Dragino_Server_LoRa_WAN.ino
+*   - Bidirectional Level Shifting 3.3V<->5V needed for SWBB; 3v6 Zener and 4k7 resistor voltage divider
+*     (consider using @ref OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_3way/BlinkingSwitch_3way.ino
+*     to isolate 3.3V and 5V bus from each other - also consider LUDP-SWBB-TL 3way tunnel)
+*     @ref OWPJON/README.md
+*     @see http://vusb.wikidot.com/hardware
+*     @see http://www.partsim.com/simulator/#148247
+*   - LoRa tx power 10..17 dBm; @see https://www.digitalairwireless.com/articles/blog/wifi-transmit-power-calculations-made-simples
+*   - LoRa settings vs. datarate; @see http://www.rfwireless-world.com/calculators/LoRa-Data-Rate-Calculator.html
+*   - LoRa settings for max. datarate; lowest SF, CR - highest BW. For max. range; highest SF, (CR for reliability) - lowest BW
+*   - LoRa frequency and debug; scan for free before using, @see Uno_Serial_LoRa_Sniffer/Uno_Serial_LoRa_Sniffer.ino
+*   - Debug Dragino; @see http://www.dragino.com/downloads/downloads/YunShield/YUN_SHIELD_QUICK_START_GUIDE_v1.0.pdf
+*                    For reboot via network @see http://192.168.11.16/cgi-bin/luci//admin.
+*
+* Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
+* following files:
+*   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*
+* Thanks to:
+* gioblu - PJON 11.0 and support
+*          @see https://www.pjon.org/
+*          @see https://github.com/gioblu/PJON
+* fredilarsen - support
+* Matheus-Garbelini - support
+* \end{DoxyVerb}
+ 
+
+\subsection{Macro Definition Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_a4a71aecac635579082c10addb16df4a0}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D@{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}}
+\index{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D@{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-U\-I\-L\-T\-I\-N\-\_\-\-L\-E\-D~{\bf L\-E\-D\-\_\-\-B\-U\-I\-L\-T\-I\-N}}}\label{BlinkingSwitch__SWBB-TL_8ino_a4a71aecac635579082c10addb16df4a0}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_a34fea28a7531677453da5e072f172a78}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N@{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}}
+\index{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N@{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N}]{\setlength{\rightskip}{0pt plus 5cm}\#define O\-W\-P\-J\-O\-N\-\_\-\-P\-I\-N~4}}\label{BlinkingSwitch__SWBB-TL_8ino_a34fea28a7531677453da5e072f172a78}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_aeebf956fc71944a6237c3af6a038ff70}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}}
+\index{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-T\-L}}\label{BlinkingSwitch__SWBB-TL_8ino_aeebf956fc71944a6237c3af6a038ff70}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_af093da5eac99580be6ba61b4dc79f2c1}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}}
+\index{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S@{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-M\-A\-X\-\_\-\-P\-A\-C\-K\-E\-T\-S~3}}\label{BlinkingSwitch__SWBB-TL_8ino_af093da5eac99580be6ba61b4dc79f2c1}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_aae3f0b4211ba45d265973d40ccbb5fd1}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!S\-E\-R\-I\-A\-L@{S\-E\-R\-I\-A\-L}}
+\index{S\-E\-R\-I\-A\-L@{S\-E\-R\-I\-A\-L}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{S\-E\-R\-I\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-R\-I\-A\-L~{\bf Serial}}}\label{BlinkingSwitch__SWBB-TL_8ino_aae3f0b4211ba45d265973d40ccbb5fd1}
+
+
+\subsection{Function Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!loop@{loop}}
+\index{loop@{loop}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!router@{router}}
+\index{router@{router}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{router}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Interactive\-Router$<$P\-J\-O\-N\-Virtual\-Bus\-Router$<$P\-J\-O\-N\-Switch$>$ $>$ router (
+\begin{DoxyParamCaption}
+\item[{2}]{, }
+\item[{(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\}}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_af488e931618139cd40b126dabfe9b6bb}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!sendnotification\-\_\-function@{sendnotification\-\_\-function}}
+\index{sendnotification\-\_\-function@{sendnotification\-\_\-function}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{sendnotification\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void sendnotification\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{const uint8\-\_\-t $\ast$const}]{payload, }
+\item[{const uint16\-\_\-t}]{length, }
+\item[{const uint8\-\_\-t}]{receiver\-\_\-bus, }
+\item[{const uint8\-\_\-t}]{sender\-\_\-bus, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL_8ino_af488e931618139cd40b126dabfe9b6bb}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!setup@{setup}}
+\index{setup@{setup}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TL_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!link1@{link1}}
+\index{link1@{link1}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{link1}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus1\& link1}}\label{BlinkingSwitch__SWBB-TL_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_a6ab0c6e3e6ae04f06e58b38531729623}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!link2@{link2}}
+\index{link2@{link2}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{link2}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus2\& link2}}\label{BlinkingSwitch__SWBB-TL_8ino_a6ab0c6e3e6ae04f06e58b38531729623}
+\hypertarget{BlinkingSwitch__SWBB-TL_8ino_a9ba8dfc203186a2f0979d11ff6b9036b}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}!time\-\_\-last\-\_\-message@{time\-\_\-last\-\_\-message}}
+\index{time\-\_\-last\-\_\-message@{time\-\_\-last\-\_\-message}!BlinkingSwitch_SWBB-TL.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-L.\-ino}}
+\subsubsection[{time\-\_\-last\-\_\-message}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long time\-\_\-last\-\_\-message}}\label{BlinkingSwitch__SWBB-TL_8ino_a9ba8dfc203186a2f0979d11ff6b9036b}

@@ -1,0 +1,92 @@
+\hypertarget{allocator__interface_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/sanitizer/allocator\-\_\-interface.h File Reference}
+\label{allocator__interface_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/allocator\-\_\-interface.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/allocator\-\_\-interface.\-h}}
+}
+{\ttfamily \#include $<$stddef.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{allocator__interface_8h_ae1adf9e670cb84671a3232b15dd2d8da}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-estimated\-\_\-allocated\-\_\-size} (\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+int \hyperlink{allocator__interface_8h_aa1bf6b40cc22d2564a7385ec542822c1}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-ownership} (const volatile void $\ast$\hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p})
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{allocator__interface_8h_ac274508f6ce0869bd991e117716e1d4e}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-allocated\-\_\-size} (const volatile void $\ast$\hyperlink{arm__acle_8h_a17729ed10bd08e58e27292b8429a1a76}{p})
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{allocator__interface_8h_a5dd2eb26b50257d7312f92f23aac0aab}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-current\-\_\-allocated\-\_\-bytes} ()
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{allocator__interface_8h_ae71608c349b059d0c00e6a94ae55da57}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-heap\-\_\-size} ()
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{allocator__interface_8h_a884c6606fbdc29300c7c8942f7ac70b8}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-free\-\_\-bytes} ()
+\item 
+\hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} \hyperlink{allocator__interface_8h_a593bcdea4eaa9697e68b89e05f8919d1}{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-unmapped\-\_\-bytes} ()
+\item 
+void \hyperlink{allocator__interface_8h_a374efbaefcc3fe7c016c8e2cb528f0d3}{\-\_\-\-\_\-sanitizer\-\_\-malloc\-\_\-hook} (const volatile void $\ast$ptr, \hyperlink{stddef_8h_aa9d55e2f20e580b7445617d0d12fff6e}{size\-\_\-t} size)
+\item 
+void \hyperlink{allocator__interface_8h_a68aee52430d5d20ee48c7988e3e7d73a}{\-\_\-\-\_\-sanitizer\-\_\-free\-\_\-hook} (const volatile void $\ast$ptr)
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{allocator__interface_8h_a68aee52430d5d20ee48c7988e3e7d73a}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-free\-\_\-hook@{\-\_\-\-\_\-sanitizer\-\_\-free\-\_\-hook}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-free\-\_\-hook@{\-\_\-\-\_\-sanitizer\-\_\-free\-\_\-hook}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-free\-\_\-hook}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-sanitizer\-\_\-free\-\_\-hook (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{ptr}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_a68aee52430d5d20ee48c7988e3e7d73a}
+\hypertarget{allocator__interface_8h_ac274508f6ce0869bd991e117716e1d4e}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-allocated\-\_\-size@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-allocated\-\_\-size}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-allocated\-\_\-size@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-allocated\-\_\-size}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-allocated\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-allocated\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_ac274508f6ce0869bd991e117716e1d4e}
+\hypertarget{allocator__interface_8h_a5dd2eb26b50257d7312f92f23aac0aab}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-current\-\_\-allocated\-\_\-bytes@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-current\-\_\-allocated\-\_\-bytes}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-current\-\_\-allocated\-\_\-bytes@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-current\-\_\-allocated\-\_\-bytes}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-current\-\_\-allocated\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-current\-\_\-allocated\-\_\-bytes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_a5dd2eb26b50257d7312f92f23aac0aab}
+\hypertarget{allocator__interface_8h_ae1adf9e670cb84671a3232b15dd2d8da}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-estimated\-\_\-allocated\-\_\-size@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-estimated\-\_\-allocated\-\_\-size}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-estimated\-\_\-allocated\-\_\-size@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-estimated\-\_\-allocated\-\_\-size}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-estimated\-\_\-allocated\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-estimated\-\_\-allocated\-\_\-size (
+\begin{DoxyParamCaption}
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_ae1adf9e670cb84671a3232b15dd2d8da}
+\hypertarget{allocator__interface_8h_a884c6606fbdc29300c7c8942f7ac70b8}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-free\-\_\-bytes@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-free\-\_\-bytes}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-free\-\_\-bytes@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-free\-\_\-bytes}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-free\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-free\-\_\-bytes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_a884c6606fbdc29300c7c8942f7ac70b8}
+\hypertarget{allocator__interface_8h_ae71608c349b059d0c00e6a94ae55da57}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-heap\-\_\-size@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-heap\-\_\-size}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-heap\-\_\-size@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-heap\-\_\-size}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-heap\-\_\-size}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-heap\-\_\-size (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_ae71608c349b059d0c00e6a94ae55da57}
+\hypertarget{allocator__interface_8h_aa1bf6b40cc22d2564a7385ec542822c1}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-ownership@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-ownership}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-ownership@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-ownership}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-ownership}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-ownership (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{p}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_aa1bf6b40cc22d2564a7385ec542822c1}
+\hypertarget{allocator__interface_8h_a593bcdea4eaa9697e68b89e05f8919d1}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-unmapped\-\_\-bytes@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-unmapped\-\_\-bytes}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-unmapped\-\_\-bytes@{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-unmapped\-\_\-bytes}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-get\-\_\-unmapped\-\_\-bytes}]{\setlength{\rightskip}{0pt plus 5cm}{\bf size\-\_\-t} \-\_\-\-\_\-sanitizer\-\_\-get\-\_\-unmapped\-\_\-bytes (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_a593bcdea4eaa9697e68b89e05f8919d1}
+\hypertarget{allocator__interface_8h_a374efbaefcc3fe7c016c8e2cb528f0d3}{\index{allocator\-\_\-interface.\-h@{allocator\-\_\-interface.\-h}!\-\_\-\-\_\-sanitizer\-\_\-malloc\-\_\-hook@{\-\_\-\-\_\-sanitizer\-\_\-malloc\-\_\-hook}}
+\index{\-\_\-\-\_\-sanitizer\-\_\-malloc\-\_\-hook@{\-\_\-\-\_\-sanitizer\-\_\-malloc\-\_\-hook}!allocator_interface.h@{allocator\-\_\-interface.\-h}}
+\subsubsection[{\-\_\-\-\_\-sanitizer\-\_\-malloc\-\_\-hook}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-sanitizer\-\_\-malloc\-\_\-hook (
+\begin{DoxyParamCaption}
+\item[{const volatile void $\ast$}]{ptr, }
+\item[{{\bf size\-\_\-t}}]{size}
+\end{DoxyParamCaption}
+)}}\label{allocator__interface_8h_a374efbaefcc3fe7c016c8e2cb528f0d3}

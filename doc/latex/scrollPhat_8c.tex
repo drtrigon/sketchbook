@@ -1,0 +1,160 @@
+\hypertarget{scrollPhat_8c}{\section{wiring\-Pi/dev\-Lib/scroll\-Phat.c File Reference}
+\label{scrollPhat_8c}\index{wiring\-Pi/dev\-Lib/scroll\-Phat.\-c@{wiring\-Pi/dev\-Lib/scroll\-Phat.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdlib.\-h$>$}\\*
+{\ttfamily \#include $<$stdarg.\-h$>$}\\*
+{\ttfamily \#include $<$string.\-h$>$}\\*
+{\ttfamily \#include $<$time.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi\-I2\-C.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}scroll\-Phat\-Font.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}scroll\-Phat.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{scrollPhat_8c_a8e4d5dac55814b48db131d105ded3fc8}{S\-P\-\_\-\-W\-I\-D\-T\-H}~11
+\item 
+\#define \hyperlink{scrollPhat_8c_a633aeb1d6bd23400da5f260a2cc2344f}{S\-P\-\_\-\-H\-E\-I\-G\-H\-T}~5
+\item 
+\#define \hyperlink{scrollPhat_8c_a6e343f290a0d4f37d741d07cccf52009}{P\-H\-A\-T\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}~0x60
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{scrollPhat_8c_a218e20b4e6dcb4af8adfeb7279fc1576}{scroll\-Phat\-Update} (void)
+\item 
+void \hyperlink{scrollPhat_8c_ab19a740ab63e68007e80f4a01507b2c9}{scroll\-Phat\-Point} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, int colour)
+\item 
+void \hyperlink{scrollPhat_8c_a2d871f791121443575c28313304ec961}{scroll\-Phat\-Line} (int x0, int y0, int x1, int y1, int colour)
+\item 
+void \hyperlink{scrollPhat_8c_a1723e8457336eaacde94fb8e41248e2c}{scroll\-Phat\-Line\-To} (int \hyperlink{OWGeneric__SensorStation_8ino_ad0da36b2558901e21e7a30f6c227a45e}{x}, int \hyperlink{OWGeneric__SensorStation_8ino_aa4f0d3eebc3c443f9be81bf48561a217}{y}, int colour)
+\item 
+void \hyperlink{scrollPhat_8c_a5b20f66adebaaf66f9a1af060d0f888a}{scroll\-Phat\-Rectangle} (int x1, int y1, int x2, int y2, int colour, int filled)
+\item 
+int \hyperlink{scrollPhat_8c_ae2f301788e685c39110ea200946f83df}{scroll\-Phat\-Putchar} (int c)
+\item 
+void \hyperlink{scrollPhat_8c_a195d7445c31e71c34ea4625b5fbca5e3}{scroll\-Phat\-Puts} (const char $\ast$\hyperlink{General__Stuff_8h_ad8ab729381f270b100f3d05b6c6676fc}{str})
+\item 
+void \hyperlink{scrollPhat_8c_a7e3f1eadd3862d374d53db0439a45455}{scroll\-Phat\-Printf} (const char $\ast$message,...)
+\item 
+void \hyperlink{scrollPhat_8c_ae4bf749deb9f32edb1641e8da61104c8}{scroll\-Phat\-Print\-Speed} (const int pps)
+\item 
+void \hyperlink{scrollPhat_8c_a2fb46198a076f7377944a916623ce02a}{scroll\-Phat\-Clear} (void)
+\item 
+void \hyperlink{scrollPhat_8c_a26a191d52615e178147866f0cf3df215}{scroll\-Phat\-Intensity} (const int percent)
+\item 
+int \hyperlink{scrollPhat_8c_add533d57cc477067645300dc55b0278c}{scroll\-Phat\-Setup} (void)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{scrollPhat_8c_a6e343f290a0d4f37d741d07cccf52009}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!P\-H\-A\-T\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{P\-H\-A\-T\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}}
+\index{P\-H\-A\-T\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R@{P\-H\-A\-T\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{P\-H\-A\-T\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-H\-A\-T\-\_\-\-I2\-C\-\_\-\-A\-D\-D\-R~0x60}}\label{scrollPhat_8c_a6e343f290a0d4f37d741d07cccf52009}
+\hypertarget{scrollPhat_8c_a633aeb1d6bd23400da5f260a2cc2344f}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!S\-P\-\_\-\-H\-E\-I\-G\-H\-T@{S\-P\-\_\-\-H\-E\-I\-G\-H\-T}}
+\index{S\-P\-\_\-\-H\-E\-I\-G\-H\-T@{S\-P\-\_\-\-H\-E\-I\-G\-H\-T}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{S\-P\-\_\-\-H\-E\-I\-G\-H\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-\_\-\-H\-E\-I\-G\-H\-T~5}}\label{scrollPhat_8c_a633aeb1d6bd23400da5f260a2cc2344f}
+\hypertarget{scrollPhat_8c_a8e4d5dac55814b48db131d105ded3fc8}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!S\-P\-\_\-\-W\-I\-D\-T\-H@{S\-P\-\_\-\-W\-I\-D\-T\-H}}
+\index{S\-P\-\_\-\-W\-I\-D\-T\-H@{S\-P\-\_\-\-W\-I\-D\-T\-H}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{S\-P\-\_\-\-W\-I\-D\-T\-H}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-\_\-\-W\-I\-D\-T\-H~11}}\label{scrollPhat_8c_a8e4d5dac55814b48db131d105ded3fc8}
+
+
+\subsection{Function Documentation}
+\hypertarget{scrollPhat_8c_a2fb46198a076f7377944a916623ce02a}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Clear@{scroll\-Phat\-Clear}}
+\index{scroll\-Phat\-Clear@{scroll\-Phat\-Clear}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Clear}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Clear (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a2fb46198a076f7377944a916623ce02a}
+\hypertarget{scrollPhat_8c_a26a191d52615e178147866f0cf3df215}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Intensity@{scroll\-Phat\-Intensity}}
+\index{scroll\-Phat\-Intensity@{scroll\-Phat\-Intensity}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Intensity}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Intensity (
+\begin{DoxyParamCaption}
+\item[{const int}]{percent}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a26a191d52615e178147866f0cf3df215}
+\hypertarget{scrollPhat_8c_a2d871f791121443575c28313304ec961}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Line@{scroll\-Phat\-Line}}
+\index{scroll\-Phat\-Line@{scroll\-Phat\-Line}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Line}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Line (
+\begin{DoxyParamCaption}
+\item[{int}]{x0, }
+\item[{int}]{y0, }
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{colour}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a2d871f791121443575c28313304ec961}
+\hypertarget{scrollPhat_8c_a1723e8457336eaacde94fb8e41248e2c}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Line\-To@{scroll\-Phat\-Line\-To}}
+\index{scroll\-Phat\-Line\-To@{scroll\-Phat\-Line\-To}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Line\-To}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Line\-To (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{colour}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a1723e8457336eaacde94fb8e41248e2c}
+\hypertarget{scrollPhat_8c_ab19a740ab63e68007e80f4a01507b2c9}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Point@{scroll\-Phat\-Point}}
+\index{scroll\-Phat\-Point@{scroll\-Phat\-Point}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Point}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Point (
+\begin{DoxyParamCaption}
+\item[{int}]{x, }
+\item[{int}]{y, }
+\item[{int}]{colour}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_ab19a740ab63e68007e80f4a01507b2c9}
+\hypertarget{scrollPhat_8c_a7e3f1eadd3862d374d53db0439a45455}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Printf@{scroll\-Phat\-Printf}}
+\index{scroll\-Phat\-Printf@{scroll\-Phat\-Printf}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Printf}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Printf (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{message, }
+\item[{}]{...}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a7e3f1eadd3862d374d53db0439a45455}
+\hypertarget{scrollPhat_8c_ae4bf749deb9f32edb1641e8da61104c8}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Print\-Speed@{scroll\-Phat\-Print\-Speed}}
+\index{scroll\-Phat\-Print\-Speed@{scroll\-Phat\-Print\-Speed}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Print\-Speed}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Print\-Speed (
+\begin{DoxyParamCaption}
+\item[{const int}]{pps}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_ae4bf749deb9f32edb1641e8da61104c8}
+\hypertarget{scrollPhat_8c_ae2f301788e685c39110ea200946f83df}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Putchar@{scroll\-Phat\-Putchar}}
+\index{scroll\-Phat\-Putchar@{scroll\-Phat\-Putchar}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Putchar}]{\setlength{\rightskip}{0pt plus 5cm}int scroll\-Phat\-Putchar (
+\begin{DoxyParamCaption}
+\item[{int}]{c}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_ae2f301788e685c39110ea200946f83df}
+\hypertarget{scrollPhat_8c_a195d7445c31e71c34ea4625b5fbca5e3}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Puts@{scroll\-Phat\-Puts}}
+\index{scroll\-Phat\-Puts@{scroll\-Phat\-Puts}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Puts}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Puts (
+\begin{DoxyParamCaption}
+\item[{const char $\ast$}]{str}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a195d7445c31e71c34ea4625b5fbca5e3}
+\hypertarget{scrollPhat_8c_a5b20f66adebaaf66f9a1af060d0f888a}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Rectangle@{scroll\-Phat\-Rectangle}}
+\index{scroll\-Phat\-Rectangle@{scroll\-Phat\-Rectangle}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Rectangle}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Rectangle (
+\begin{DoxyParamCaption}
+\item[{int}]{x1, }
+\item[{int}]{y1, }
+\item[{int}]{x2, }
+\item[{int}]{y2, }
+\item[{int}]{colour, }
+\item[{int}]{filled}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a5b20f66adebaaf66f9a1af060d0f888a}
+\hypertarget{scrollPhat_8c_add533d57cc477067645300dc55b0278c}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Setup@{scroll\-Phat\-Setup}}
+\index{scroll\-Phat\-Setup@{scroll\-Phat\-Setup}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int scroll\-Phat\-Setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_add533d57cc477067645300dc55b0278c}
+\hypertarget{scrollPhat_8c_a218e20b4e6dcb4af8adfeb7279fc1576}{\index{scroll\-Phat.\-c@{scroll\-Phat.\-c}!scroll\-Phat\-Update@{scroll\-Phat\-Update}}
+\index{scroll\-Phat\-Update@{scroll\-Phat\-Update}!scrollPhat.c@{scroll\-Phat.\-c}}
+\subsubsection[{scroll\-Phat\-Update}]{\setlength{\rightskip}{0pt plus 5cm}void scroll\-Phat\-Update (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{scrollPhat_8c_a218e20b4e6dcb4af8adfeb7279fc1576}

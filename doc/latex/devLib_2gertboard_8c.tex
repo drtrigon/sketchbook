@@ -1,0 +1,80 @@
+\hypertarget{devLib_2gertboard_8c}{\section{wiring\-Pi/dev\-Lib/gertboard.c File Reference}
+\label{devLib_2gertboard_8c}\index{wiring\-Pi/dev\-Lib/gertboard.\-c@{wiring\-Pi/dev\-Lib/gertboard.\-c}}
+}
+{\ttfamily \#include $<$stdio.\-h$>$}\\*
+{\ttfamily \#include $<$stdint.\-h$>$}\\*
+{\ttfamily \#include $<$fcntl.\-h$>$}\\*
+{\ttfamily \#include $<$sys/ioctl.\-h$>$}\\*
+{\ttfamily \#include $<$linux/spi/spidev.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi.\-h$>$}\\*
+{\ttfamily \#include $<$wiring\-Pi\-S\-P\-I.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}gertboard.\-h\char`\"{}}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{devLib_2gertboard_8c_a2ace2efd4ac36cdea25c4df82e364148}{S\-P\-I\-\_\-\-A\-D\-C\-\_\-\-S\-P\-E\-E\-D}~1000000
+\item 
+\#define \hyperlink{devLib_2gertboard_8c_a57752121fba0c79631faa97b5097a920}{S\-P\-I\-\_\-\-D\-A\-C\-\_\-\-S\-P\-E\-E\-D}~1000000
+\item 
+\#define \hyperlink{devLib_2gertboard_8c_ab69e641c105dc85153fd824678379be0}{S\-P\-I\-\_\-\-A2\-D}~0
+\item 
+\#define \hyperlink{devLib_2gertboard_8c_a9fa63f596d6cf04124fb904aeb97e210}{S\-P\-I\-\_\-\-D2\-A}~1
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{devLib_2gertboard_8c_a5e6873d5a09fd185863cfc0326bc1dc1}{gertboard\-Analog\-Write} (const int chan, const int value)
+\item 
+int \hyperlink{devLib_2gertboard_8c_a3155b10166886776a0078106d578aa63}{gertboard\-Analog\-Read} (const int chan)
+\item 
+int \hyperlink{devLib_2gertboard_8c_ab068c09191d166e21e02ef379e3b60a0}{gertboard\-S\-P\-I\-Setup} (void)
+\item 
+int \hyperlink{devLib_2gertboard_8c_a3d7a414c65f748a612b7548beef1ee71}{gertboard\-Analog\-Setup} (const int pin\-Base)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{devLib_2gertboard_8c_ab69e641c105dc85153fd824678379be0}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!S\-P\-I\-\_\-\-A2\-D@{S\-P\-I\-\_\-\-A2\-D}}
+\index{S\-P\-I\-\_\-\-A2\-D@{S\-P\-I\-\_\-\-A2\-D}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{S\-P\-I\-\_\-\-A2\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-A2\-D~0}}\label{devLib_2gertboard_8c_ab69e641c105dc85153fd824678379be0}
+\hypertarget{devLib_2gertboard_8c_a2ace2efd4ac36cdea25c4df82e364148}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!S\-P\-I\-\_\-\-A\-D\-C\-\_\-\-S\-P\-E\-E\-D@{S\-P\-I\-\_\-\-A\-D\-C\-\_\-\-S\-P\-E\-E\-D}}
+\index{S\-P\-I\-\_\-\-A\-D\-C\-\_\-\-S\-P\-E\-E\-D@{S\-P\-I\-\_\-\-A\-D\-C\-\_\-\-S\-P\-E\-E\-D}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{S\-P\-I\-\_\-\-A\-D\-C\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-A\-D\-C\-\_\-\-S\-P\-E\-E\-D~1000000}}\label{devLib_2gertboard_8c_a2ace2efd4ac36cdea25c4df82e364148}
+\hypertarget{devLib_2gertboard_8c_a9fa63f596d6cf04124fb904aeb97e210}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!S\-P\-I\-\_\-\-D2\-A@{S\-P\-I\-\_\-\-D2\-A}}
+\index{S\-P\-I\-\_\-\-D2\-A@{S\-P\-I\-\_\-\-D2\-A}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{S\-P\-I\-\_\-\-D2\-A}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-D2\-A~1}}\label{devLib_2gertboard_8c_a9fa63f596d6cf04124fb904aeb97e210}
+\hypertarget{devLib_2gertboard_8c_a57752121fba0c79631faa97b5097a920}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!S\-P\-I\-\_\-\-D\-A\-C\-\_\-\-S\-P\-E\-E\-D@{S\-P\-I\-\_\-\-D\-A\-C\-\_\-\-S\-P\-E\-E\-D}}
+\index{S\-P\-I\-\_\-\-D\-A\-C\-\_\-\-S\-P\-E\-E\-D@{S\-P\-I\-\_\-\-D\-A\-C\-\_\-\-S\-P\-E\-E\-D}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{S\-P\-I\-\_\-\-D\-A\-C\-\_\-\-S\-P\-E\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-P\-I\-\_\-\-D\-A\-C\-\_\-\-S\-P\-E\-E\-D~1000000}}\label{devLib_2gertboard_8c_a57752121fba0c79631faa97b5097a920}
+
+
+\subsection{Function Documentation}
+\hypertarget{devLib_2gertboard_8c_a3155b10166886776a0078106d578aa63}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!gertboard\-Analog\-Read@{gertboard\-Analog\-Read}}
+\index{gertboard\-Analog\-Read@{gertboard\-Analog\-Read}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{gertboard\-Analog\-Read}]{\setlength{\rightskip}{0pt plus 5cm}int gertboard\-Analog\-Read (
+\begin{DoxyParamCaption}
+\item[{const int}]{chan}
+\end{DoxyParamCaption}
+)}}\label{devLib_2gertboard_8c_a3155b10166886776a0078106d578aa63}
+\hypertarget{devLib_2gertboard_8c_a3d7a414c65f748a612b7548beef1ee71}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!gertboard\-Analog\-Setup@{gertboard\-Analog\-Setup}}
+\index{gertboard\-Analog\-Setup@{gertboard\-Analog\-Setup}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{gertboard\-Analog\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int gertboard\-Analog\-Setup (
+\begin{DoxyParamCaption}
+\item[{const int}]{pin\-Base}
+\end{DoxyParamCaption}
+)}}\label{devLib_2gertboard_8c_a3d7a414c65f748a612b7548beef1ee71}
+\hypertarget{devLib_2gertboard_8c_a5e6873d5a09fd185863cfc0326bc1dc1}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!gertboard\-Analog\-Write@{gertboard\-Analog\-Write}}
+\index{gertboard\-Analog\-Write@{gertboard\-Analog\-Write}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{gertboard\-Analog\-Write}]{\setlength{\rightskip}{0pt plus 5cm}void gertboard\-Analog\-Write (
+\begin{DoxyParamCaption}
+\item[{const int}]{chan, }
+\item[{const int}]{value}
+\end{DoxyParamCaption}
+)}}\label{devLib_2gertboard_8c_a5e6873d5a09fd185863cfc0326bc1dc1}
+\hypertarget{devLib_2gertboard_8c_ab068c09191d166e21e02ef379e3b60a0}{\index{dev\-Lib/gertboard.\-c@{dev\-Lib/gertboard.\-c}!gertboard\-S\-P\-I\-Setup@{gertboard\-S\-P\-I\-Setup}}
+\index{gertboard\-S\-P\-I\-Setup@{gertboard\-S\-P\-I\-Setup}!devLib/gertboard.c@{dev\-Lib/gertboard.\-c}}
+\subsubsection[{gertboard\-S\-P\-I\-Setup}]{\setlength{\rightskip}{0pt plus 5cm}int gertboard\-S\-P\-I\-Setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{devLib_2gertboard_8c_ab068c09191d166e21e02ef379e3b60a0}

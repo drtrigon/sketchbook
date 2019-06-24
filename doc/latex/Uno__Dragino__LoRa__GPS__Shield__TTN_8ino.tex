@@ -1,0 +1,273 @@
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino}{\section{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N/\-Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.ino File Reference}
+\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino}\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N/\-Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N/\-Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+}
+
+
+Send G\-P\-S and Sensor Data as valid Lo\-Ra\-W\-A\-N packet to T\-T\-N.  
+
+
+{\ttfamily \#include $<$lmic.\-h$>$}\\*
+{\ttfamily \#include $<$hal/hal.\-h$>$}\\*
+{\ttfamily \#include $<$Software\-Serial.\-h$>$}\\*
+{\ttfamily \#include $<$Tiny\-G\-P\-S.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+Software\-Serial \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a1b73646ba668febc7062a5028603eeca}{ss} (A2, A1)
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ad00e5aa32f425c7cf5b551edbe4e2018}{os\-\_\-get\-Art\-Eui} (u1\-\_\-t $\ast$buf)
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a59f8459c9afe001b9d082b88f24bbc06}{os\-\_\-get\-Dev\-Eui} (u1\-\_\-t $\ast$buf)
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a876d512ca10c7f577c86f5dc1894bc49}{os\-\_\-get\-Dev\-Key} (u1\-\_\-t $\ast$buf)
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ab42efec0e8860ab768280a3d778b4c0e}{do\-\_\-send} (osjob\-\_\-t $\ast$j)
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_aaead836f5e0f65f5906b7ce269e92436}{on\-Event} (ev\-\_\-t ev)
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_aed5045d62c2fda212f05aace54598130}{G\-P\-S\-Read} ()
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_abc1b8327283b6705550bcee789d61711}{G\-P\-S\-Print} ()
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a0b3195c3893f02cb1b80d878b89549d6}{read\-Vcc} ()
+\item 
+float \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{read\-Temp} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+const unsigned \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a48aaa6046ac1d9b5b7172f7be7a6f7e1}{T\-X\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L} = 20
+\item 
+unsigned int \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a16ff2d8e15ade4948398b0aeb80124a8}{count} = 1
+\item 
+Tiny\-G\-P\-S \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4e2f9a5d1b23f30f530101af71f72744}{gps}
+\item 
+float \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a7704874024acbf9afb7659fe7dcc2fda}{flat}
+\item 
+float \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4384a537c9d292e9bf6fd52063daf571}{flon}
+\item 
+float \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a630497f5fdb7d5f5130835e31f23916e}{falt}
+\item 
+float \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload} \mbox{[}5\mbox{]}
+\item 
+const lmic\-\_\-pinmap \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a82b2c57ed09941537a4e8bf84b35a5eb}{lmic\-\_\-pins}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Send G\-P\-S and Sensor Data as valid Lo\-Ra\-W\-A\-N packet to T\-T\-N. \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/07-\/25 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0 \begin{DoxyItemize}
+\item first version derived from \end{DoxyItemize}
+
+\end{DoxyVersion}
+\begin{DoxySeeAlso}{See Also}
+\href{https://github.com/goodcheney/Arduino-Profile-Examples/blob/patch-4/libraries/Dragino/examples/LoRa/LoRaWAN/LoRa_GPS_Shield_TTN}{\tt https\-://github.\-com/goodcheney/\-Arduino-\/\-Profile-\/\-Examples/blob/patch-\/4/libraries/\-Dragino/examples/\-Lo\-Ra/\-Lo\-Ra\-W\-A\-N/\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N} 
+
+\href{https://github.com/dragino/Arduino-Profile-Examples/blob/master/libraries/Dragino/examples/LoRa/LoRaWAN/Arduino_LMIC/Arduino_LMIC.ino}{\tt https\-://github.\-com/dragino/\-Arduino-\/\-Profile-\/\-Examples/blob/master/libraries/\-Dragino/examples/\-Lo\-Ra/\-Lo\-Ra\-W\-A\-N/\-Arduino\-\_\-\-L\-M\-I\-C/\-Arduino\-\_\-\-L\-M\-I\-C.\-ino} 
+
+\href{https://github.com/dragino/Arduino-Profile-Examples/blob/master/libraries/Dragino/examples/GPS/tinygps_example/tinygps_example.ino}{\tt https\-://github.\-com/dragino/\-Arduino-\/\-Profile-\/\-Examples/blob/master/libraries/\-Dragino/examples/\-G\-P\-S/tinygps\-\_\-example/tinygps\-\_\-example.\-ino} 
+
+\href{http://wiki.dragino.com/index.php?title=Connect_to_TTN#Create_LoRa_end_devices}{\tt http\-://wiki.\-dragino.\-com/index.\-php?title=\-Connect\-\_\-to\-\_\-\-T\-T\-N\#\-Create\-\_\-\-Lo\-Ra\-\_\-end\-\_\-devices}
+\end{DoxySeeAlso}
+This example sends a valid Lo\-Ra\-W\-A\-N packet with binary payload, using frequency and encryption settings matching those of the (early prototype version of) The Things Network.
+
+Note\-: Lo\-Ra\-W\-A\-N per sub-\/band duty-\/cycle limitation is enforced (1\% in g1, 0.\-1\% in g2). \begin{DoxySeeAlso}{See Also}
+\href{https://www.thethingsnetwork.org/docs/lorawan/duty-cycle.html}{\tt https\-://www.\-thethingsnetwork.\-org/docs/lorawan/duty-\/cycle.\-html}
+\end{DoxySeeAlso}
+Change N\-W\-K\-S\-K\-E\-Y, A\-P\-P\-S\-K\-E\-Y and D\-E\-V\-A\-D\-D\-R to the keys given for your account and device. Currently it is defined for \begin{DoxySeeAlso}{See Also}
+\href{https://console.thethingsnetwork.org/applications/vitudurum-drtrigon/devices/test_01}{\tt https\-://console.\-thethingsnetwork.\-org/applications/vitudurum-\/drtrigon/devices/test\-\_\-01}
+\end{DoxySeeAlso}
+In order to retreive the data from T\-T\-N use the python script given \hyperlink{request-data-ttn-restful_8py}{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N/request-\/data-\/ttn-\/restful.\-py}
+
+Data from T\-T\-N can be further processed in Node-\/\-R\-E\-D. If a local install is not available consider using it online e.\-g. \href{https://fred.sensetecnic.com/}{\tt https\-://fred.\-sensetecnic.\-com/} and enable/install T\-T\-N library from menu. Currently I am not aware of any online grafana (or similar) tool.
+
+Do not forget to define the radio type correctly in config.\-h. Currently set for Dragino Lo\-Ra G\-P\-S Shield.
+
+Required Libraries\-:
+\begin{DoxyItemize}
+\item L\-M\-I\-C (Lo\-Ra\-W\-A\-N)\-: \href{https://github.com/matthijskooijman/arduino-lmic}{\tt https\-://github.\-com/matthijskooijman/arduino-\/lmic} (select \char`\"{}\-Version 1.\-5.\-0+arduino-\/2\char`\"{} otherwise sketch won't fit into 32\-K)
+\item Tiny\-G\-P\-S\-: \href{http://arduiniana.org/libraries/tinygps/}{\tt http\-://arduiniana.\-org/libraries/tinygps/}
+\end{DoxyItemize}
+
+Required Hardware\-:
+\begin{DoxyItemize}
+\item Lo\-Ra Shield + Arduino
+\item Lo\-Ra G\-P\-S Shield + Arduino \begin{DoxySeeAlso}{See Also}
+\href{https://github.com/dragino/Lora/blob/master/Lora%20GPS%20Shield/mother%20board/v1.3/Lora%20GPS%20Shield%20v1.3.sch.pdf}{\tt https\-://github.\-com/dragino/\-Lora/blob/master/\-Lora\%20\-G\-P\-S\%20\-Shield/mother\%20board/v1.\-3/\-Lora\%20\-G\-P\-S\%20\-Shield\%20v1.\-3.\-sch.\-pdf}
+\end{DoxySeeAlso}
+
+\item Lo\-Ra Mini etc.
+\end{DoxyItemize}
+
+Hardware Connection\-:
+\begin{DoxyItemize}
+\item Arduino U\-N\-O + Lo\-Ra G\-P\-S Shield (if use another shield, remove G\-P\-S parts)
+\item Wire G\-P\-S\-\_\-\-R\-X\-D to Arduino A1 (Software\-Serial T\-X is analog pin A1 -\/ connect to R\-X of other device; G\-P\-S\-\_\-\-R\-X\-D = R\-X\-D1)
+\item Wire G\-P\-S\-\_\-\-T\-X\-D to Arduino A2 (Software\-Serial R\-X is analog pin A2 -\/ connect to T\-X of other device; G\-P\-S\-\_\-\-T\-X\-D = T\-X\-D1)
+\item Remove jumper in G\-P\-S\-\_\-\-R\-X\-D/\-G\-P\-X\-\_\-\-T\-X\-D 1x3 pin header a photo for hardware configuration is here\-: \href{http://wiki.dragino.com/index.php?title=File:GPSshiwu.png}{\tt http\-://wiki.\-dragino.\-com/index.\-php?title=\-File\-:\-G\-P\-Sshiwu.\-png}
+\end{DoxyItemize}
+
+Thanks to\-: Thomas Telkamp -\/ 2015 Matthijs Kooijman -\/ 2015 Edwin Chen -\/ modified 21 Mar 2017 \href{mailto:support@dragino.com}{\tt support@dragino.\-com} Dragino Technology Co., Limited 
+
+\subsection{Function Documentation}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ab42efec0e8860ab768280a3d778b4c0e}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!do\-\_\-send@{do\-\_\-send}}
+\index{do\-\_\-send@{do\-\_\-send}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{do\-\_\-send}]{\setlength{\rightskip}{0pt plus 5cm}void do\-\_\-send (
+\begin{DoxyParamCaption}
+\item[{osjob\-\_\-t $\ast$}]{j}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ab42efec0e8860ab768280a3d778b4c0e}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_abc1b8327283b6705550bcee789d61711}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!G\-P\-S\-Print@{G\-P\-S\-Print}}
+\index{G\-P\-S\-Print@{G\-P\-S\-Print}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{G\-P\-S\-Print}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-Print (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_abc1b8327283b6705550bcee789d61711}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_aed5045d62c2fda212f05aace54598130}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!G\-P\-S\-Read@{G\-P\-S\-Read}}
+\index{G\-P\-S\-Read@{G\-P\-S\-Read}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{G\-P\-S\-Read}]{\setlength{\rightskip}{0pt plus 5cm}void G\-P\-S\-Read (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_aed5045d62c2fda212f05aace54598130}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!loop@{loop}}
+\index{loop@{loop}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_aaead836f5e0f65f5906b7ce269e92436}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!on\-Event@{on\-Event}}
+\index{on\-Event@{on\-Event}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{on\-Event}]{\setlength{\rightskip}{0pt plus 5cm}void on\-Event (
+\begin{DoxyParamCaption}
+\item[{ev\-\_\-t}]{ev}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_aaead836f5e0f65f5906b7ce269e92436}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ad00e5aa32f425c7cf5b551edbe4e2018}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!os\-\_\-get\-Art\-Eui@{os\-\_\-get\-Art\-Eui}}
+\index{os\-\_\-get\-Art\-Eui@{os\-\_\-get\-Art\-Eui}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{os\-\_\-get\-Art\-Eui}]{\setlength{\rightskip}{0pt plus 5cm}void os\-\_\-get\-Art\-Eui (
+\begin{DoxyParamCaption}
+\item[{u1\-\_\-t $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ad00e5aa32f425c7cf5b551edbe4e2018}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a59f8459c9afe001b9d082b88f24bbc06}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!os\-\_\-get\-Dev\-Eui@{os\-\_\-get\-Dev\-Eui}}
+\index{os\-\_\-get\-Dev\-Eui@{os\-\_\-get\-Dev\-Eui}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{os\-\_\-get\-Dev\-Eui}]{\setlength{\rightskip}{0pt plus 5cm}void os\-\_\-get\-Dev\-Eui (
+\begin{DoxyParamCaption}
+\item[{u1\-\_\-t $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a59f8459c9afe001b9d082b88f24bbc06}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a876d512ca10c7f577c86f5dc1894bc49}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!os\-\_\-get\-Dev\-Key@{os\-\_\-get\-Dev\-Key}}
+\index{os\-\_\-get\-Dev\-Key@{os\-\_\-get\-Dev\-Key}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{os\-\_\-get\-Dev\-Key}]{\setlength{\rightskip}{0pt plus 5cm}void os\-\_\-get\-Dev\-Key (
+\begin{DoxyParamCaption}
+\item[{u1\-\_\-t $\ast$}]{buf}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a876d512ca10c7f577c86f5dc1894bc49}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!read\-Temp@{read\-Temp}}
+\index{read\-Temp@{read\-Temp}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{read\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_ada109bb0cdc12131465dfe7a74f93b1e}
+Internal Temperature Sensor for A\-Tmega328 types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{https://playground.arduino.cc/Main/InternalTemperatureSensor}{\tt https\-://playground.\-arduino.\-cc/\-Main/\-Internal\-Temperature\-Sensor} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The chip temperature in \mbox{[}°\-C\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a0b3195c3893f02cb1b80d878b89549d6}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a0b3195c3893f02cb1b80d878b89549d6}
+Accessing the secret voltmeter on the Arduino 168 or 328.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{AnalogSampling_2BlinkTest_2Receiver_2Receiver_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{http://code.google.com/p/tinkerit/wiki/SecretVoltmeter}{\tt http\-://code.\-google.\-com/p/tinkerit/wiki/\-Secret\-Voltmeter} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The supply voltage in \mbox{[}V\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!setup@{setup}}
+\index{setup@{setup}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. \hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a1b73646ba668febc7062a5028603eeca}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!ss@{ss}}
+\index{ss@{ss}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{ss}]{\setlength{\rightskip}{0pt plus 5cm}Software\-Serial ss (
+\begin{DoxyParamCaption}
+\item[{A2}]{, }
+\item[{A1}]{}
+\end{DoxyParamCaption}
+)}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a1b73646ba668febc7062a5028603eeca}
+
+
+\subsection{Variable Documentation}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a16ff2d8e15ade4948398b0aeb80124a8}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!count@{count}}
+\index{count@{count}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned int count = 1}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a16ff2d8e15ade4948398b0aeb80124a8}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a630497f5fdb7d5f5130835e31f23916e}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!falt@{falt}}
+\index{falt@{falt}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{falt}]{\setlength{\rightskip}{0pt plus 5cm}float falt}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a630497f5fdb7d5f5130835e31f23916e}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a7704874024acbf9afb7659fe7dcc2fda}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!flat@{flat}}
+\index{flat@{flat}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{flat}]{\setlength{\rightskip}{0pt plus 5cm}float flat}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a7704874024acbf9afb7659fe7dcc2fda}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4384a537c9d292e9bf6fd52063daf571}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!flon@{flon}}
+\index{flon@{flon}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{flon}]{\setlength{\rightskip}{0pt plus 5cm}float flon}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4384a537c9d292e9bf6fd52063daf571}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4e2f9a5d1b23f30f530101af71f72744}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!gps@{gps}}
+\index{gps@{gps}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{gps}]{\setlength{\rightskip}{0pt plus 5cm}Tiny\-G\-P\-S gps}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a4e2f9a5d1b23f30f530101af71f72744}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a82b2c57ed09941537a4e8bf84b35a5eb}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!lmic\-\_\-pins@{lmic\-\_\-pins}}
+\index{lmic\-\_\-pins@{lmic\-\_\-pins}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{lmic\-\_\-pins}]{\setlength{\rightskip}{0pt plus 5cm}const lmic\-\_\-pinmap lmic\-\_\-pins}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a82b2c57ed09941537a4e8bf84b35a5eb}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+    .nss = 10,
+    .rxtx = LMIC\_UNUSED\_PIN,
+    .rst = 9,
+    .dio = \{2, 6, 7\},
+\}
+\end{DoxyCode}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!payload@{payload}}
+\index{payload@{payload}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{payload}]{\setlength{\rightskip}{0pt plus 5cm}float payload\mbox{[}5\mbox{]}}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}
+\hypertarget{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a48aaa6046ac1d9b5b7172f7be7a6f7e1}{\index{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}!T\-X\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{T\-X\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}}
+\index{T\-X\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L@{T\-X\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}!Uno_Dragino_LoRa_GPS_Shield_TTN.ino@{Uno\-\_\-\-Dragino\-\_\-\-Lo\-Ra\-\_\-\-G\-P\-S\-\_\-\-Shield\-\_\-\-T\-T\-N.\-ino}}
+\subsubsection[{T\-X\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}const unsigned T\-X\-\_\-\-I\-N\-T\-E\-R\-V\-A\-L = 20}}\label{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a48aaa6046ac1d9b5b7172f7be7a6f7e1}

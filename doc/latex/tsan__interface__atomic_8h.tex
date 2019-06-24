@@ -1,0 +1,648 @@
+\hypertarget{tsan__interface__atomic_8h}{\section{oclint-\/0.10.3/lib/clang/3.8.0/include/sanitizer/tsan\-\_\-interface\-\_\-atomic.h File Reference}
+\label{tsan__interface__atomic_8h}\index{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/tsan\-\_\-interface\-\_\-atomic.\-h@{oclint-\/0.\-10.\-3/lib/clang/3.\-8.\-0/include/sanitizer/tsan\-\_\-interface\-\_\-atomic.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{tsan__interface__atomic_8h_ab9f289f14c577bad26f5059baa4a7b84}{\-\_\-\-\_\-\-T\-S\-A\-N\-\_\-\-H\-A\-S\-\_\-\-I\-N\-T128}~0
+\end{DoxyCompactItemize}
+\subsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+typedef char \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8}
+\item 
+typedef short \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16}
+\item 
+typedef int \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32}
+\item 
+typedef long \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64}
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} \{ \\*
+\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba19d1499395853f3f9f9c010cddb86e6d}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-relaxed}, 
+\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba8788a0129a5781f5b7045cbd65a2d001}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-consume}, 
+\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6baf86fd7e5b170167b3a67ae69fcd20498}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acquire}, 
+\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba9a3db4ed84aa215c27ed1774da9c2ed9}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-release}, 
+\\*
+\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba6632d9efcc71a4ba09830fdb0a5c70bf}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acq\-\_\-rel}, 
+\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba0984a9b1b9de3b0dcd760a2e43ae66a3}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-seq\-\_\-cst}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_aa063831b40f0472a6ea3c42461fd13ac}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-load} (const volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_ac2cc2371d6627107c4c1e34e2bd763b1}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-load} (const volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a61b2f88109ce1518b4462077dee65a4c}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-load} (const volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_a6da0df883cc1f8ccae82dfc0f02f023e}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-load} (const volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+void \hyperlink{tsan__interface__atomic_8h_a86b404b38074c4c6093221deaab4bc65}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-store} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+void \hyperlink{tsan__interface__atomic_8h_a8fc50a023a6415e96127877d137fbc7b}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-store} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+void \hyperlink{tsan__interface__atomic_8h_ac2f869487b2c8955e629637b52082cef}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-store} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+void \hyperlink{tsan__interface__atomic_8h_aff9d4505f7fea3898e4d6bc5bf451597}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-store} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_a8337dd2efb1c22efc2c0b3c7b644ca1f}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-exchange} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_af52bf288ea803c6ac7589e5d188ed384}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-exchange} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_ae745c925bd154c56c7564cd8a5756e05}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-exchange} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_a01b388c427f845167c86bc8322845f9f}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-exchange} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_a78ad861c18f68b8d84e2e638e9e6c296}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-add} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_a91574cec2a635dafcf29849e89049da6}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-add} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a0b1c0ef8292b62d1bb440348236be7de}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-add} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_a014d91b2b7a63a8b95f6dabc32363e1f}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-add} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_aaf41c7ac0c64e47a2bb3992888428644}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-sub} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_a931640197151a5f2d56782571e23ae92}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-sub} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a2bb42d2dc3d13bbcd10677c0e8ae9a30}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-sub} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_abb8f74a3ce105ea623600d8862012194}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-sub} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_a48970413346071ce83a9161d472783cc}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-and} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_ae2c19f590d9272777bb5971ccce648a5}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-and} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a8e8284fb6fca0bdecd54e6ffab31fe86}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-and} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_a629ba8b35e2ad83e3ce0eb74303918d0}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-and} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_a0614a460636698bcf240832b491c4559}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-or} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_a4862fdb537e65e684713b5378a0eccf6}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-or} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a2ca5be2c1fbb96b907f794c7b29860c1}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-or} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_a5c78e5318c0fff5199384bbfd12059fc}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-or} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_a6f5f9f9a462bf69eca8d0e7f473d0be0}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-xor} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_a5cf9f9c096eca4bd41ff2655e53d52f7}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-xor} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a454a2ad822659b878567e8e269aa9df7}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-xor} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_adeb219c197cc48b38542e6275b05fdfc}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-xor} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_a948adbf33fd8aa48e64da66746f5c3b4}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-nand} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_a9316f65b56b1e08f34f0709c7205a23d}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-nand} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a262338ebd5385a8ffdba3af5bfd38dad}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-nand} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_a401c9bdfc3a13fb18e496a766533e298}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-nand} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_adb15651a685109592d795723708f6ffb}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-weak} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$c, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_a8419e4a954093b6da099ab2fc70fd3e0}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-weak} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$c, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_a76f91c2620089ef1891d645a37e8808f}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-weak} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$c, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_abdb776ebc289ac501e64ed74c5e37174}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-weak} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$c, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_a743e7b9560be323a9c5f9fcfd54c73bb}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-strong} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$c, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_af47454cc2073c2a123ee69a9e5980fc6}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-strong} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$c, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_a3f3da2d448669be67a48a3cf89cf8aad}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-strong} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$c, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+int \hyperlink{tsan__interface__atomic_8h_a7f816af97e689be33daa183f6316acd5}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-strong} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$c, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{tsan__interface__atomic_8h_a20db663c9c29738c2d8b44dbba282d19}{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-val} (volatile \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} c, \hyperlink{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\-\_\-\-\_\-tsan\-\_\-atomic8} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{tsan__interface__atomic_8h_aaf617df242dd4b7763b7e25787534bf1}{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-val} (volatile \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$a, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} c, \hyperlink{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\-\_\-\-\_\-tsan\-\_\-atomic16} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{tsan__interface__atomic_8h_a138c1117963dbe56ba979e020d87409a}{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-val} (volatile \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$a, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} c, \hyperlink{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\-\_\-\-\_\-tsan\-\_\-atomic32} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+\hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{tsan__interface__atomic_8h_ad6e442aa276d2054b59148bc25a679eb}{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-val} (volatile \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$a, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} c, \hyperlink{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\-\_\-\-\_\-tsan\-\_\-atomic64} \hyperlink{arm__acle_8h_a8603782009ff58be0587ea58013b3e52}{v}, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo, \hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} fail\-\_\-mo)
+\item 
+void \hyperlink{tsan__interface__atomic_8h_a6c1af4d5c6c1ebd1cb936684ac9640da}{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-thread\-\_\-fence} (\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\item 
+void \hyperlink{tsan__interface__atomic_8h_ae2b4eb7b471c7f6c3c10263097aa1466}{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-signal\-\_\-fence} (\hyperlink{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order} mo)
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{tsan__interface__atomic_8h_ab9f289f14c577bad26f5059baa4a7b84}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-\-T\-S\-A\-N\-\_\-\-H\-A\-S\-\_\-\-I\-N\-T128@{\-\_\-\-\_\-\-T\-S\-A\-N\-\_\-\-H\-A\-S\-\_\-\-I\-N\-T128}}
+\index{\-\_\-\-\_\-\-T\-S\-A\-N\-\_\-\-H\-A\-S\-\_\-\-I\-N\-T128@{\-\_\-\-\_\-\-T\-S\-A\-N\-\_\-\-H\-A\-S\-\_\-\-I\-N\-T128}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-\-T\-S\-A\-N\-\_\-\-H\-A\-S\-\_\-\-I\-N\-T128}]{\setlength{\rightskip}{0pt plus 5cm}\#define \-\_\-\-\_\-\-T\-S\-A\-N\-\_\-\-H\-A\-S\-\_\-\-I\-N\-T128~0}}\label{tsan__interface__atomic_8h_ab9f289f14c577bad26f5059baa4a7b84}
+
+
+\subsection{Typedef Documentation}
+\hypertarget{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16@{\-\_\-\-\_\-tsan\-\_\-atomic16}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16@{\-\_\-\-\_\-tsan\-\_\-atomic16}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16}]{\setlength{\rightskip}{0pt plus 5cm}typedef short {\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}}\label{tsan__interface__atomic_8h_adeaa1577fcb8186b9d9db3522c43d3a1}
+\hypertarget{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32@{\-\_\-\-\_\-tsan\-\_\-atomic32}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32@{\-\_\-\-\_\-tsan\-\_\-atomic32}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32}]{\setlength{\rightskip}{0pt plus 5cm}typedef int {\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}}\label{tsan__interface__atomic_8h_af8ea4247013fc51c793b4a4bfd6d6957}
+\hypertarget{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64@{\-\_\-\-\_\-tsan\-\_\-atomic64}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64@{\-\_\-\-\_\-tsan\-\_\-atomic64}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64}]{\setlength{\rightskip}{0pt plus 5cm}typedef long {\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}}\label{tsan__interface__atomic_8h_a3e97ac4ee194c56575070022d2fb0e45}
+\hypertarget{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8@{\-\_\-\-\_\-tsan\-\_\-atomic8}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8@{\-\_\-\-\_\-tsan\-\_\-atomic8}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8}]{\setlength{\rightskip}{0pt plus 5cm}typedef char {\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}}\label{tsan__interface__atomic_8h_a1ba577e29f7fa378f235f14c9fbedcc3}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}
+\index{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}}\label{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6b}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-relaxed@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-relaxed}!tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}}\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-relaxed@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-relaxed}}\item[{\em 
+\hypertarget{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba19d1499395853f3f9f9c010cddb86e6d}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-relaxed}\label{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba19d1499395853f3f9f9c010cddb86e6d}
+}]\index{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-consume@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-consume}!tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}}\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-consume@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-consume}}\item[{\em 
+\hypertarget{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba8788a0129a5781f5b7045cbd65a2d001}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-consume}\label{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba8788a0129a5781f5b7045cbd65a2d001}
+}]\index{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acquire@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acquire}!tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}}\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acquire@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acquire}}\item[{\em 
+\hypertarget{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6baf86fd7e5b170167b3a67ae69fcd20498}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acquire}\label{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6baf86fd7e5b170167b3a67ae69fcd20498}
+}]\index{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-release@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-release}!tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}}\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-release@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-release}}\item[{\em 
+\hypertarget{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba9a3db4ed84aa215c27ed1774da9c2ed9}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-release}\label{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba9a3db4ed84aa215c27ed1774da9c2ed9}
+}]\index{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acq\-\_\-rel@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acq\-\_\-rel}!tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}}\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acq\-\_\-rel@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acq\-\_\-rel}}\item[{\em 
+\hypertarget{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba6632d9efcc71a4ba09830fdb0a5c70bf}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-acq\-\_\-rel}\label{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba6632d9efcc71a4ba09830fdb0a5c70bf}
+}]\index{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-seq\-\_\-cst@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-seq\-\_\-cst}!tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}}\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-seq\-\_\-cst@{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-seq\-\_\-cst}}\item[{\em 
+\hypertarget{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba0984a9b1b9de3b0dcd760a2e43ae66a3}{\-\_\-\-\_\-tsan\-\_\-memory\-\_\-order\-\_\-seq\-\_\-cst}\label{tsan__interface__atomic_8h_ac9ef338b26d3659478c52824bb9a5e6ba0984a9b1b9de3b0dcd760a2e43ae66a3}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{tsan__interface__atomic_8h_af47454cc2073c2a123ee69a9e5980fc6}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-strong}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-strong}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-strong}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-strong (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_af47454cc2073c2a123ee69a9e5980fc6}
+\hypertarget{tsan__interface__atomic_8h_aaf617df242dd4b7763b7e25787534bf1}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-val}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-val}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_aaf617df242dd4b7763b7e25787534bf1}
+\hypertarget{tsan__interface__atomic_8h_a8419e4a954093b6da099ab2fc70fd3e0}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-weak}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-weak}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-weak}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-compare\-\_\-exchange\-\_\-weak (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a8419e4a954093b6da099ab2fc70fd3e0}
+\hypertarget{tsan__interface__atomic_8h_af52bf288ea803c6ac7589e5d188ed384}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-exchange}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-exchange}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-exchange}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-exchange (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_af52bf288ea803c6ac7589e5d188ed384}
+\hypertarget{tsan__interface__atomic_8h_a91574cec2a635dafcf29849e89049da6}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-add}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-add}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a91574cec2a635dafcf29849e89049da6}
+\hypertarget{tsan__interface__atomic_8h_ae2c19f590d9272777bb5971ccce648a5}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-and}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-and}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-and}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-and (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_ae2c19f590d9272777bb5971ccce648a5}
+\hypertarget{tsan__interface__atomic_8h_a9316f65b56b1e08f34f0709c7205a23d}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-nand}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-nand}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-nand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-nand (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a9316f65b56b1e08f34f0709c7205a23d}
+\hypertarget{tsan__interface__atomic_8h_a4862fdb537e65e684713b5378a0eccf6}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-or}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-or}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-or}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-or (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a4862fdb537e65e684713b5378a0eccf6}
+\hypertarget{tsan__interface__atomic_8h_a931640197151a5f2d56782571e23ae92}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-sub}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-sub}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-sub}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-sub (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a931640197151a5f2d56782571e23ae92}
+\hypertarget{tsan__interface__atomic_8h_a5cf9f9c096eca4bd41ff2655e53d52f7}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-xor}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-xor}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-xor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-fetch\-\_\-xor (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a5cf9f9c096eca4bd41ff2655e53d52f7}
+\hypertarget{tsan__interface__atomic_8h_ac2cc2371d6627107c4c1e34e2bd763b1}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-load}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-load}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic16} \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-load (
+\begin{DoxyParamCaption}
+\item[{const volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_ac2cc2371d6627107c4c1e34e2bd763b1}
+\hypertarget{tsan__interface__atomic_8h_a8fc50a023a6415e96127877d137fbc7b}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-store}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-store}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-store}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-tsan\-\_\-atomic16\-\_\-store (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic16} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic16}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a8fc50a023a6415e96127877d137fbc7b}
+\hypertarget{tsan__interface__atomic_8h_a3f3da2d448669be67a48a3cf89cf8aad}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-strong}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-strong}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-strong}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-strong (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a3f3da2d448669be67a48a3cf89cf8aad}
+\hypertarget{tsan__interface__atomic_8h_a138c1117963dbe56ba979e020d87409a}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-val}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-val}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a138c1117963dbe56ba979e020d87409a}
+\hypertarget{tsan__interface__atomic_8h_a76f91c2620089ef1891d645a37e8808f}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-weak}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-weak}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-weak}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-compare\-\_\-exchange\-\_\-weak (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a76f91c2620089ef1891d645a37e8808f}
+\hypertarget{tsan__interface__atomic_8h_ae745c925bd154c56c7564cd8a5756e05}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-exchange}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-exchange}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-exchange}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-exchange (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_ae745c925bd154c56c7564cd8a5756e05}
+\hypertarget{tsan__interface__atomic_8h_a0b1c0ef8292b62d1bb440348236be7de}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-add}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-add}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a0b1c0ef8292b62d1bb440348236be7de}
+\hypertarget{tsan__interface__atomic_8h_a8e8284fb6fca0bdecd54e6ffab31fe86}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-and}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-and}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-and}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-and (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a8e8284fb6fca0bdecd54e6ffab31fe86}
+\hypertarget{tsan__interface__atomic_8h_a262338ebd5385a8ffdba3af5bfd38dad}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-nand}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-nand}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-nand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-nand (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a262338ebd5385a8ffdba3af5bfd38dad}
+\hypertarget{tsan__interface__atomic_8h_a2ca5be2c1fbb96b907f794c7b29860c1}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-or}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-or}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-or}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-or (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a2ca5be2c1fbb96b907f794c7b29860c1}
+\hypertarget{tsan__interface__atomic_8h_a2bb42d2dc3d13bbcd10677c0e8ae9a30}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-sub}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-sub}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-sub}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-sub (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a2bb42d2dc3d13bbcd10677c0e8ae9a30}
+\hypertarget{tsan__interface__atomic_8h_a454a2ad822659b878567e8e269aa9df7}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-xor}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-xor}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-xor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-fetch\-\_\-xor (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a454a2ad822659b878567e8e269aa9df7}
+\hypertarget{tsan__interface__atomic_8h_a61b2f88109ce1518b4462077dee65a4c}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-load}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-load}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic32} \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-load (
+\begin{DoxyParamCaption}
+\item[{const volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a61b2f88109ce1518b4462077dee65a4c}
+\hypertarget{tsan__interface__atomic_8h_ac2f869487b2c8955e629637b52082cef}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-store}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-store}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-store}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-tsan\-\_\-atomic32\-\_\-store (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic32} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic32}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_ac2f869487b2c8955e629637b52082cef}
+\hypertarget{tsan__interface__atomic_8h_a7f816af97e689be33daa183f6316acd5}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-strong}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-strong}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-strong}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-strong (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a7f816af97e689be33daa183f6316acd5}
+\hypertarget{tsan__interface__atomic_8h_ad6e442aa276d2054b59148bc25a679eb}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-val}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-val}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_ad6e442aa276d2054b59148bc25a679eb}
+\hypertarget{tsan__interface__atomic_8h_abdb776ebc289ac501e64ed74c5e37174}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-weak}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-weak}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-weak}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-compare\-\_\-exchange\-\_\-weak (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_abdb776ebc289ac501e64ed74c5e37174}
+\hypertarget{tsan__interface__atomic_8h_a01b388c427f845167c86bc8322845f9f}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-exchange}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-exchange}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-exchange}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-exchange (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a01b388c427f845167c86bc8322845f9f}
+\hypertarget{tsan__interface__atomic_8h_a014d91b2b7a63a8b95f6dabc32363e1f}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-add}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-add}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a014d91b2b7a63a8b95f6dabc32363e1f}
+\hypertarget{tsan__interface__atomic_8h_a629ba8b35e2ad83e3ce0eb74303918d0}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-and}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-and}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-and}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-and (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a629ba8b35e2ad83e3ce0eb74303918d0}
+\hypertarget{tsan__interface__atomic_8h_a401c9bdfc3a13fb18e496a766533e298}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-nand}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-nand}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-nand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-nand (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a401c9bdfc3a13fb18e496a766533e298}
+\hypertarget{tsan__interface__atomic_8h_a5c78e5318c0fff5199384bbfd12059fc}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-or}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-or}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-or}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-or (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a5c78e5318c0fff5199384bbfd12059fc}
+\hypertarget{tsan__interface__atomic_8h_abb8f74a3ce105ea623600d8862012194}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-sub}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-sub}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-sub}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-sub (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_abb8f74a3ce105ea623600d8862012194}
+\hypertarget{tsan__interface__atomic_8h_adeb219c197cc48b38542e6275b05fdfc}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-xor}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-xor}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-xor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-fetch\-\_\-xor (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_adeb219c197cc48b38542e6275b05fdfc}
+\hypertarget{tsan__interface__atomic_8h_a6da0df883cc1f8ccae82dfc0f02f023e}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-load}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-load}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic64} \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-load (
+\begin{DoxyParamCaption}
+\item[{const volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a6da0df883cc1f8ccae82dfc0f02f023e}
+\hypertarget{tsan__interface__atomic_8h_aff9d4505f7fea3898e4d6bc5bf451597}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-store}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-store}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-store}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-tsan\-\_\-atomic64\-\_\-store (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic64} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic64}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_aff9d4505f7fea3898e4d6bc5bf451597}
+\hypertarget{tsan__interface__atomic_8h_a743e7b9560be323a9c5f9fcfd54c73bb}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-strong}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-strong@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-strong}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-strong}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-strong (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a743e7b9560be323a9c5f9fcfd54c73bb}
+\hypertarget{tsan__interface__atomic_8h_a20db663c9c29738c2d8b44dbba282d19}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-val}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-val@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-val}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-val}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-val (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a20db663c9c29738c2d8b44dbba282d19}
+\hypertarget{tsan__interface__atomic_8h_adb15651a685109592d795723708f6ffb}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-weak}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-weak@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-weak}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-weak}]{\setlength{\rightskip}{0pt plus 5cm}int \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-compare\-\_\-exchange\-\_\-weak (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{c, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{fail\-\_\-mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_adb15651a685109592d795723708f6ffb}
+\hypertarget{tsan__interface__atomic_8h_a8337dd2efb1c22efc2c0b3c7b644ca1f}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-exchange}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-exchange@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-exchange}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-exchange}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-exchange (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a8337dd2efb1c22efc2c0b3c7b644ca1f}
+\hypertarget{tsan__interface__atomic_8h_a78ad861c18f68b8d84e2e638e9e6c296}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-add}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-add@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-add}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-add}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-add (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a78ad861c18f68b8d84e2e638e9e6c296}
+\hypertarget{tsan__interface__atomic_8h_a48970413346071ce83a9161d472783cc}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-and}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-and@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-and}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-and}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-and (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a48970413346071ce83a9161d472783cc}
+\hypertarget{tsan__interface__atomic_8h_a948adbf33fd8aa48e64da66746f5c3b4}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-nand}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-nand@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-nand}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-nand}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-nand (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a948adbf33fd8aa48e64da66746f5c3b4}
+\hypertarget{tsan__interface__atomic_8h_a0614a460636698bcf240832b491c4559}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-or}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-or@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-or}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-or}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-or (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a0614a460636698bcf240832b491c4559}
+\hypertarget{tsan__interface__atomic_8h_aaf41c7ac0c64e47a2bb3992888428644}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-sub}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-sub@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-sub}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-sub}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-sub (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_aaf41c7ac0c64e47a2bb3992888428644}
+\hypertarget{tsan__interface__atomic_8h_a6f5f9f9a462bf69eca8d0e7f473d0be0}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-xor}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-xor@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-xor}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-xor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-fetch\-\_\-xor (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a6f5f9f9a462bf69eca8d0e7f473d0be0}
+\hypertarget{tsan__interface__atomic_8h_aa063831b40f0472a6ea3c42461fd13ac}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-load}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-load@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-load}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-load}]{\setlength{\rightskip}{0pt plus 5cm}{\bf \-\_\-\-\_\-tsan\-\_\-atomic8} \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-load (
+\begin{DoxyParamCaption}
+\item[{const volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_aa063831b40f0472a6ea3c42461fd13ac}
+\hypertarget{tsan__interface__atomic_8h_a86b404b38074c4c6093221deaab4bc65}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-store}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-store@{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-store}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-store}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-tsan\-\_\-atomic8\-\_\-store (
+\begin{DoxyParamCaption}
+\item[{volatile {\bf \-\_\-\-\_\-tsan\-\_\-atomic8} $\ast$}]{a, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-atomic8}}]{v, }
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a86b404b38074c4c6093221deaab4bc65}
+\hypertarget{tsan__interface__atomic_8h_ae2b4eb7b471c7f6c3c10263097aa1466}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-signal\-\_\-fence@{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-signal\-\_\-fence}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-signal\-\_\-fence@{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-signal\-\_\-fence}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-signal\-\_\-fence}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-tsan\-\_\-atomic\-\_\-signal\-\_\-fence (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_ae2b4eb7b471c7f6c3c10263097aa1466}
+\hypertarget{tsan__interface__atomic_8h_a6c1af4d5c6c1ebd1cb936684ac9640da}{\index{tsan\-\_\-interface\-\_\-atomic.\-h@{tsan\-\_\-interface\-\_\-atomic.\-h}!\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-thread\-\_\-fence@{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-thread\-\_\-fence}}
+\index{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-thread\-\_\-fence@{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-thread\-\_\-fence}!tsan_interface_atomic.h@{tsan\-\_\-interface\-\_\-atomic.\-h}}
+\subsubsection[{\-\_\-\-\_\-tsan\-\_\-atomic\-\_\-thread\-\_\-fence}]{\setlength{\rightskip}{0pt plus 5cm}void \-\_\-\-\_\-tsan\-\_\-atomic\-\_\-thread\-\_\-fence (
+\begin{DoxyParamCaption}
+\item[{{\bf \-\_\-\-\_\-tsan\-\_\-memory\-\_\-order}}]{mo}
+\end{DoxyParamCaption}
+)}}\label{tsan__interface__atomic_8h_a6c1af4d5c6c1ebd1cb936684ac9640da}

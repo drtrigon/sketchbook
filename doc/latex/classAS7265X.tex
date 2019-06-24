@@ -1,0 +1,219 @@
+\hypertarget{classAS7265X}{\section{A\-S7265\-X Class Reference}
+\label{classAS7265X}\index{A\-S7265\-X@{A\-S7265\-X}}
+}
+
+
+{\ttfamily \#include $<$A\-S7265\-X.\-h$>$}
+
+\subsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\hyperlink{classAS7265X_ab0a219e882880c6326831b023208d0e8}{A\-S7265\-X} (uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a7a47c5b8a7e1c151db910d1c2518b08d}{int\-Pin})
+\item 
+void \hyperlink{classAS7265X_a9907d240a9ea427c9dbf364abeb5befd}{init} (uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a5c9c0f59d06b7360c990c3f49be81fa7}{gain}, uint8\-\_\-t \hyperlink{USBtxEx_8ino_a1ea5d0cb93f22f7d0fdf804bd68c3326}{mode}, uint8\-\_\-t \hyperlink{Due__AS7265X__Spectrometer_8ino_a91f2d101a2ec3dda9ff42c39d3913a90}{int\-Time})
+\item 
+uint8\-\_\-t \hyperlink{classAS7265X_ac48976683ecfc39980e38a014c6bf4ca}{get\-Dev\-Type} ()
+\item 
+uint8\-\_\-t \hyperlink{classAS7265X_a459a056738954c4278ca34a0fe747218}{get\-H\-W\-Version} ()
+\item 
+uint16\-\_\-t \hyperlink{classAS7265X_a6e3d4246c80e3f83e9ddf429ce7aa91f}{get\-F\-W\-Major\-Version} ()
+\item 
+uint16\-\_\-t \hyperlink{classAS7265X_adcad0917c5364a69bdddef454d157b3c}{get\-F\-W\-Patch\-Version} ()
+\item 
+uint16\-\_\-t \hyperlink{classAS7265X_a82d5e97966bca0848ae86f825eb73d5e}{get\-F\-W\-Build\-Version} ()
+\item 
+uint8\-\_\-t \hyperlink{classAS7265X_ac6229e1348a54737db5b2304e08a93b5}{get\-Status} ()
+\item 
+float \hyperlink{classAS7265X_a0d8ed84b70b20d89c3b9015f7921a818}{get\-Temperature} (uint8\-\_\-t dev\-Num)
+\item 
+void \hyperlink{classAS7265X_a611f26fde46c536c2c81aff402ec8f6f}{configure\-Led} (uint8\-\_\-t led\-Ind\-Current, uint8\-\_\-t led\-Drv\-Current, uint8\-\_\-t dev\-Num)
+\item 
+void \hyperlink{classAS7265X_a6289ab2d63d091a5e5dd981b9dc4870c}{enable\-Ind\-Led} (uint8\-\_\-t dev\-Num)
+\item 
+void \hyperlink{classAS7265X_a51907647d522c8779ba8d822f4cfd5b0}{enable\-Drv\-Led} (uint8\-\_\-t dev\-Num)
+\item 
+void \hyperlink{classAS7265X_a85068736a2d64755d20c69ec6be49c85}{disable\-Ind\-Led} (uint8\-\_\-t dev\-Num)
+\item 
+void \hyperlink{classAS7265X_a42b1fd49af4ec4c489be4d09f1acd42c}{disable\-Drv\-Led} (uint8\-\_\-t dev\-Num)
+\item 
+void \hyperlink{classAS7265X_a51208dc621559af6e2f0c9fb831d0c12}{read\-Cal\-Data} (float $\ast$destination)
+\item 
+void \hyperlink{classAS7265X_abecfff97570322ecf82c94b03d34ed50}{read\-Raw\-Data} (int16\-\_\-t $\ast$destination)
+\item 
+void \hyperlink{classAS7265X_a879c32be83a6ddf5d9708b0bb0c040af}{I2\-Cscan} ()
+\item 
+void \hyperlink{classAS7265X_a1792f96996e3d6f3de8a9ba7a87e40d5}{i2cm\-\_\-\-A\-S72xx\-\_\-write} (uint8\-\_\-t virtual\-Reg, uint8\-\_\-t \hyperlink{OWGeneric__DangerShield_8ino_a22871ee78191bcd7676a38358795104e}{d})
+\item 
+uint8\-\_\-t \hyperlink{classAS7265X_ae3fc987880d176e148fb4ef2e55b24d0}{i2cm\-\_\-\-A\-S72xx\-\_\-read} (uint8\-\_\-t virtual\-Reg)
+\item 
+void \hyperlink{classAS7265X_a2c6be3c5bb823aa231bc1cb6e6661cf2}{write\-Byte} (uint8\-\_\-t address, uint8\-\_\-t sub\-Address, uint8\-\_\-t \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data})
+\item 
+uint8\-\_\-t \hyperlink{classAS7265X_abc7f566e8070eba600c30a81b5220dfe}{read\-Byte} (uint8\-\_\-t address, uint8\-\_\-t sub\-Address)
+\end{DoxyCompactItemize}
+
+
+\subsection{Constructor \& Destructor Documentation}
+\hypertarget{classAS7265X_ab0a219e882880c6326831b023208d0e8}{\index{A\-S7265\-X@{A\-S7265\-X}!A\-S7265\-X@{A\-S7265\-X}}
+\index{A\-S7265\-X@{A\-S7265\-X}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{A\-S7265\-X}]{\setlength{\rightskip}{0pt plus 5cm}A\-S7265\-X\-::\-A\-S7265\-X (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{int\-Pin}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_ab0a219e882880c6326831b023208d0e8}
+
+
+\subsection{Member Function Documentation}
+\hypertarget{classAS7265X_a611f26fde46c536c2c81aff402ec8f6f}{\index{A\-S7265\-X@{A\-S7265\-X}!configure\-Led@{configure\-Led}}
+\index{configure\-Led@{configure\-Led}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{configure\-Led}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::configure\-Led (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{led\-Ind\-Current, }
+\item[{uint8\-\_\-t}]{led\-Drv\-Current, }
+\item[{uint8\-\_\-t}]{dev\-Num}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a611f26fde46c536c2c81aff402ec8f6f}
+\hypertarget{classAS7265X_a42b1fd49af4ec4c489be4d09f1acd42c}{\index{A\-S7265\-X@{A\-S7265\-X}!disable\-Drv\-Led@{disable\-Drv\-Led}}
+\index{disable\-Drv\-Led@{disable\-Drv\-Led}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{disable\-Drv\-Led}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::disable\-Drv\-Led (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{dev\-Num}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a42b1fd49af4ec4c489be4d09f1acd42c}
+\hypertarget{classAS7265X_a85068736a2d64755d20c69ec6be49c85}{\index{A\-S7265\-X@{A\-S7265\-X}!disable\-Ind\-Led@{disable\-Ind\-Led}}
+\index{disable\-Ind\-Led@{disable\-Ind\-Led}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{disable\-Ind\-Led}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::disable\-Ind\-Led (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{dev\-Num}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a85068736a2d64755d20c69ec6be49c85}
+\hypertarget{classAS7265X_a51907647d522c8779ba8d822f4cfd5b0}{\index{A\-S7265\-X@{A\-S7265\-X}!enable\-Drv\-Led@{enable\-Drv\-Led}}
+\index{enable\-Drv\-Led@{enable\-Drv\-Led}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{enable\-Drv\-Led}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::enable\-Drv\-Led (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{dev\-Num}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a51907647d522c8779ba8d822f4cfd5b0}
+\hypertarget{classAS7265X_a6289ab2d63d091a5e5dd981b9dc4870c}{\index{A\-S7265\-X@{A\-S7265\-X}!enable\-Ind\-Led@{enable\-Ind\-Led}}
+\index{enable\-Ind\-Led@{enable\-Ind\-Led}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{enable\-Ind\-Led}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::enable\-Ind\-Led (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{dev\-Num}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a6289ab2d63d091a5e5dd981b9dc4870c}
+\hypertarget{classAS7265X_ac48976683ecfc39980e38a014c6bf4ca}{\index{A\-S7265\-X@{A\-S7265\-X}!get\-Dev\-Type@{get\-Dev\-Type}}
+\index{get\-Dev\-Type@{get\-Dev\-Type}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{get\-Dev\-Type}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t A\-S7265\-X\-::get\-Dev\-Type (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_ac48976683ecfc39980e38a014c6bf4ca}
+\hypertarget{classAS7265X_a82d5e97966bca0848ae86f825eb73d5e}{\index{A\-S7265\-X@{A\-S7265\-X}!get\-F\-W\-Build\-Version@{get\-F\-W\-Build\-Version}}
+\index{get\-F\-W\-Build\-Version@{get\-F\-W\-Build\-Version}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{get\-F\-W\-Build\-Version}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t A\-S7265\-X\-::get\-F\-W\-Build\-Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a82d5e97966bca0848ae86f825eb73d5e}
+\hypertarget{classAS7265X_a6e3d4246c80e3f83e9ddf429ce7aa91f}{\index{A\-S7265\-X@{A\-S7265\-X}!get\-F\-W\-Major\-Version@{get\-F\-W\-Major\-Version}}
+\index{get\-F\-W\-Major\-Version@{get\-F\-W\-Major\-Version}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{get\-F\-W\-Major\-Version}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t A\-S7265\-X\-::get\-F\-W\-Major\-Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a6e3d4246c80e3f83e9ddf429ce7aa91f}
+\hypertarget{classAS7265X_adcad0917c5364a69bdddef454d157b3c}{\index{A\-S7265\-X@{A\-S7265\-X}!get\-F\-W\-Patch\-Version@{get\-F\-W\-Patch\-Version}}
+\index{get\-F\-W\-Patch\-Version@{get\-F\-W\-Patch\-Version}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{get\-F\-W\-Patch\-Version}]{\setlength{\rightskip}{0pt plus 5cm}uint16\-\_\-t A\-S7265\-X\-::get\-F\-W\-Patch\-Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_adcad0917c5364a69bdddef454d157b3c}
+\hypertarget{classAS7265X_a459a056738954c4278ca34a0fe747218}{\index{A\-S7265\-X@{A\-S7265\-X}!get\-H\-W\-Version@{get\-H\-W\-Version}}
+\index{get\-H\-W\-Version@{get\-H\-W\-Version}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{get\-H\-W\-Version}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t A\-S7265\-X\-::get\-H\-W\-Version (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a459a056738954c4278ca34a0fe747218}
+\hypertarget{classAS7265X_ac6229e1348a54737db5b2304e08a93b5}{\index{A\-S7265\-X@{A\-S7265\-X}!get\-Status@{get\-Status}}
+\index{get\-Status@{get\-Status}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{get\-Status}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t A\-S7265\-X\-::get\-Status (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_ac6229e1348a54737db5b2304e08a93b5}
+\hypertarget{classAS7265X_a0d8ed84b70b20d89c3b9015f7921a818}{\index{A\-S7265\-X@{A\-S7265\-X}!get\-Temperature@{get\-Temperature}}
+\index{get\-Temperature@{get\-Temperature}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{get\-Temperature}]{\setlength{\rightskip}{0pt plus 5cm}float A\-S7265\-X\-::get\-Temperature (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{dev\-Num}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a0d8ed84b70b20d89c3b9015f7921a818}
+\hypertarget{classAS7265X_ae3fc987880d176e148fb4ef2e55b24d0}{\index{A\-S7265\-X@{A\-S7265\-X}!i2cm\-\_\-\-A\-S72xx\-\_\-read@{i2cm\-\_\-\-A\-S72xx\-\_\-read}}
+\index{i2cm\-\_\-\-A\-S72xx\-\_\-read@{i2cm\-\_\-\-A\-S72xx\-\_\-read}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{i2cm\-\_\-\-A\-S72xx\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t A\-S7265\-X\-::i2cm\-\_\-\-A\-S72xx\-\_\-read (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{virtual\-Reg}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_ae3fc987880d176e148fb4ef2e55b24d0}
+\hypertarget{classAS7265X_a1792f96996e3d6f3de8a9ba7a87e40d5}{\index{A\-S7265\-X@{A\-S7265\-X}!i2cm\-\_\-\-A\-S72xx\-\_\-write@{i2cm\-\_\-\-A\-S72xx\-\_\-write}}
+\index{i2cm\-\_\-\-A\-S72xx\-\_\-write@{i2cm\-\_\-\-A\-S72xx\-\_\-write}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{i2cm\-\_\-\-A\-S72xx\-\_\-write}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::i2cm\-\_\-\-A\-S72xx\-\_\-write (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{virtual\-Reg, }
+\item[{uint8\-\_\-t}]{d}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a1792f96996e3d6f3de8a9ba7a87e40d5}
+\hypertarget{classAS7265X_a879c32be83a6ddf5d9708b0bb0c040af}{\index{A\-S7265\-X@{A\-S7265\-X}!I2\-Cscan@{I2\-Cscan}}
+\index{I2\-Cscan@{I2\-Cscan}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{I2\-Cscan}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::\-I2\-Cscan (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a879c32be83a6ddf5d9708b0bb0c040af}
+\hypertarget{classAS7265X_a9907d240a9ea427c9dbf364abeb5befd}{\index{A\-S7265\-X@{A\-S7265\-X}!init@{init}}
+\index{init@{init}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{init}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::init (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{gain, }
+\item[{uint8\-\_\-t}]{mode, }
+\item[{uint8\-\_\-t}]{int\-Time}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a9907d240a9ea427c9dbf364abeb5befd}
+\hypertarget{classAS7265X_abc7f566e8070eba600c30a81b5220dfe}{\index{A\-S7265\-X@{A\-S7265\-X}!read\-Byte@{read\-Byte}}
+\index{read\-Byte@{read\-Byte}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{read\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t A\-S7265\-X\-::read\-Byte (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{address, }
+\item[{uint8\-\_\-t}]{sub\-Address}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_abc7f566e8070eba600c30a81b5220dfe}
+\hypertarget{classAS7265X_a51208dc621559af6e2f0c9fb831d0c12}{\index{A\-S7265\-X@{A\-S7265\-X}!read\-Cal\-Data@{read\-Cal\-Data}}
+\index{read\-Cal\-Data@{read\-Cal\-Data}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{read\-Cal\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::read\-Cal\-Data (
+\begin{DoxyParamCaption}
+\item[{float $\ast$}]{destination}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a51208dc621559af6e2f0c9fb831d0c12}
+\hypertarget{classAS7265X_abecfff97570322ecf82c94b03d34ed50}{\index{A\-S7265\-X@{A\-S7265\-X}!read\-Raw\-Data@{read\-Raw\-Data}}
+\index{read\-Raw\-Data@{read\-Raw\-Data}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{read\-Raw\-Data}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::read\-Raw\-Data (
+\begin{DoxyParamCaption}
+\item[{int16\-\_\-t $\ast$}]{destination}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_abecfff97570322ecf82c94b03d34ed50}
+\hypertarget{classAS7265X_a2c6be3c5bb823aa231bc1cb6e6661cf2}{\index{A\-S7265\-X@{A\-S7265\-X}!write\-Byte@{write\-Byte}}
+\index{write\-Byte@{write\-Byte}!AS7265X@{A\-S7265\-X}}
+\subsubsection[{write\-Byte}]{\setlength{\rightskip}{0pt plus 5cm}void A\-S7265\-X\-::write\-Byte (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{address, }
+\item[{uint8\-\_\-t}]{sub\-Address, }
+\item[{uint8\-\_\-t}]{data}
+\end{DoxyParamCaption}
+)}}\label{classAS7265X_a2c6be3c5bb823aa231bc1cb6e6661cf2}
+
+
+The documentation for this class was generated from the following files\-:\begin{DoxyCompactItemize}
+\item 
+Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer/\hyperlink{AS7265X_8h}{A\-S7265\-X.\-h}\item 
+Due\-\_\-\-A\-S7265\-X\-\_\-\-Spectrometer/\hyperlink{AS7265X_8cpp}{A\-S7265\-X.\-cpp}\end{DoxyCompactItemize}

@@ -1,0 +1,636 @@
+\hypertarget{term_8js}{\section{micpy/webrepl-\/master/term.js File Reference}
+\label{term_8js}\index{micpy/webrepl-\/master/term.\-js@{micpy/webrepl-\/master/term.\-js}}
+}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+function \hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} ()
+\item 
+function \hyperlink{term_8js_adc848ab281c8153bc2e0e86cfcc4b93a}{Stream} ()
+\item 
+\hyperlink{term_8js_aa5420f548d0a8b381df11c04c9e4b193}{inherits} (\hyperlink{term_8js_adc848ab281c8153bc2e0e86cfcc4b93a}{Stream}, \hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter})
+\item 
+function \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} (\hyperlink{term_8js_a35809464221af004ad18bb95a400c7fe}{options})
+\item 
+\hyperlink{term_8js_a6b59c2f7a1aa7a3e3d6ff38ff1a109a2}{each} (keys(\hyperlink{term_8js_a42c8b45d4c4ddd464ecb64f19b216177}{Terminal.\-defaults}), function(key)\{\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}\mbox{[}key\mbox{]}=\hyperlink{term_8js_a42c8b45d4c4ddd464ecb64f19b216177}{Terminal.\-defaults}\mbox{[}key\mbox{]};\hyperlink{term_8js_a35809464221af004ad18bb95a400c7fe}{Terminal.\-options}\mbox{[}key\mbox{]}=\hyperlink{term_8js_a42c8b45d4c4ddd464ecb64f19b216177}{Terminal.\-defaults}\mbox{[}key\mbox{]};\})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+function use \hyperlink{term_8js_adaae3cb0bccc65ec7679b25a06a025f1}{strict}
+\item 
+var \hyperlink{term_8js_a95d4cee469e101f76a52694f13905717}{window} = this
+\item 
+var \hyperlink{term_8js_af61dbe660d8213297c7fed5b5c99d223}{document} = this.\-document
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_add6b850fe4991ba41a1d2636a9610836}{add\-Listener}
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on} = \hyperlink{term_8js_add6b850fe4991ba41a1d2636a9610836}{Event\-Emitter.\-prototype.\-add\-Listener}
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_a066978bd94f0777d7c619d58b27eba5f}{remove\-Listener}
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_ab6259267561b7c85cc788ab12abb95e7}{off} = \hyperlink{term_8js_a066978bd94f0777d7c619d58b27eba5f}{Event\-Emitter.\-prototype.\-remove\-Listener}
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_aea530a2bc607feab659aaf6bd7aad0d9}{remove\-All\-Listeners}
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_a801b0668ecf79a79c81f75dbbabb4ebf}{once}
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_a16439605b9cd7bd34fdbf935bef49de6}{emit}
+\item 
+\hyperlink{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{Event\-Emitter} prototype \hyperlink{term_8js_aefbed4536fb9e73c5a626949dcbffbf4}{listeners}
+\item 
+\hyperlink{term_8js_adc848ab281c8153bc2e0e86cfcc4b93a}{Stream} prototype \hyperlink{term_8js_a700eaeb277876520349d50f3a658beaa}{pipe}
+\item 
+var \hyperlink{term_8js_a87107a8a905b8ed1bbfae1713d68f3b7}{normal} = 0
+\item 
+var \hyperlink{term_8js_a0ee7eab10dca9056d4ff4299b00bce22}{escaped} = 1
+\item 
+var \hyperlink{term_8js_a3fa93d85c02012aae91f3da71802f50d}{csi} = 2
+\item 
+var \hyperlink{term_8js_ac90093014e4a77f56da90fcbbf7fb8e6}{osc} = 3
+\item 
+var \hyperlink{term_8js_ac920ac1fb2720a7a73ad9b7d7b93bf87}{charset} = 4
+\item 
+var \hyperlink{term_8js_a0cb89ab2b84162d0374afd9c3a6b0693}{dcs} = 5
+\item 
+var \hyperlink{term_8js_ad906a97e5c153b04cbdc7787906aede7}{ignore} = 6
+\item 
+var \hyperlink{term_8js_a731c6c02ae26151087275ab4a52fdfbf}{U\-D\-K} = \{ type\-: 'udk' \}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_aba2878bfff0ccb2144d6c2550c1084d5}{tango\-Colors}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a18a6b21459fb1ba2bc2324780aa4bc7f}{xterm\-Colors}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a97fe156055689bd022719144edc5dfc2}{\-\_\-colors} = Terminal.\-colors.\-slice()
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a508b2ce5887d58ff399cc534242c52ea}{vcolors}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a42c8b45d4c4ddd464ecb64f19b216177}{defaults}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a35809464221af004ad18bb95a400c7fe}{options} = \{\}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a961f54df55346f242598047a6d573127}{focus} = null
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_ac734b312c57b65132146a38e2674c575}{blur}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_ac5ff9284da85c3250d2b6bca21db06a2}{init\-Global}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_aa019deeb5659a46a34689b4629764f7f}{bind\-Paste}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_a48f4025d006331bb70362e0d199dd738}{bind\-Keys}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_aec33540655c431260352a4a2d4e281a0}{bind\-Copy}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a19cb06856a854c5eb58a0d4647b7ccd7}{fix\-Mobile}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} \hyperlink{term_8js_addfc77b96a5a25d52a6a07f4206e9522}{insert\-Style}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a1a542444e56cda6325863b2dde2a2f6e}{open}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a061abfc171a8e8a87c801d54e8917341}{set\-Raw\-Mode}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a16ec08698e484eebcfb8422ac29e84da}{bind\-Mouse}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a1e6a48667873b3576059ce11383c7590}{close}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a79fb53e8a09d6301914924ac394bf295}{refresh}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a14f7189fe9b4130b0b039bf790e8802d}{\-\_\-cursor\-Blink}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a0e5bf4788a24c10b213401b8205ad166}{show\-Cursor}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_acc271e5b3337833ea6d467540349441d}{start\-Blink}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a398499dce7c7aaa8fd912d7711f0e2f4}{refresh\-Blink}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a9a601d78dc32fcfa2b34c2269eea9851}{scroll}
+\item 
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal} prototype \hyperlink{term_8js_a5f8e78850383021f6822126ded29f783}{scroll\-Disp}
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{term_8js_a6b59c2f7a1aa7a3e3d6ff38ff1a109a2}{\index{term.\-js@{term.\-js}!each@{each}}
+\index{each@{each}!term.js@{term.\-js}}
+\subsubsection[{each}]{\setlength{\rightskip}{0pt plus 5cm}each (
+\begin{DoxyParamCaption}
+\item[{keys({\bf Terminal.\-defaults})}]{, }
+\item[{function(key)\{{\bf Terminal}\mbox{[}key\mbox{]}={\bf Terminal.\-defaults}\mbox{[}key\mbox{]};{\bf Terminal.\-options}\mbox{[}key\mbox{]}={\bf Terminal.\-defaults}\mbox{[}key\mbox{]};\}}]{}
+\end{DoxyParamCaption}
+)}}\label{term_8js_a6b59c2f7a1aa7a3e3d6ff38ff1a109a2}
+\hypertarget{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}{\index{term.\-js@{term.\-js}!Event\-Emitter@{Event\-Emitter}}
+\index{Event\-Emitter@{Event\-Emitter}!term.js@{term.\-js}}
+\subsubsection[{Event\-Emitter}]{\setlength{\rightskip}{0pt plus 5cm}function Event\-Emitter (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{term_8js_a3b22e796e9e6a2c78ad5d55d7ed8b64e}
+Event\-Emitter \hypertarget{term_8js_aa5420f548d0a8b381df11c04c9e4b193}{\index{term.\-js@{term.\-js}!inherits@{inherits}}
+\index{inherits@{inherits}!term.js@{term.\-js}}
+\subsubsection[{inherits}]{\setlength{\rightskip}{0pt plus 5cm}inherits (
+\begin{DoxyParamCaption}
+\item[{{\bf Stream}}]{, }
+\item[{{\bf Event\-Emitter}}]{}
+\end{DoxyParamCaption}
+)}}\label{term_8js_aa5420f548d0a8b381df11c04c9e4b193}
+\hypertarget{term_8js_adc848ab281c8153bc2e0e86cfcc4b93a}{\index{term.\-js@{term.\-js}!Stream@{Stream}}
+\index{Stream@{Stream}!term.js@{term.\-js}}
+\subsubsection[{Stream}]{\setlength{\rightskip}{0pt plus 5cm}function Stream (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{term_8js_adc848ab281c8153bc2e0e86cfcc4b93a}
+Stream \hypertarget{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{\index{term.\-js@{term.\-js}!Terminal@{Terminal}}
+\index{Terminal@{Terminal}!term.js@{term.\-js}}
+\subsubsection[{Terminal}]{\setlength{\rightskip}{0pt plus 5cm}function Terminal (
+\begin{DoxyParamCaption}
+\item[{}]{options}
+\end{DoxyParamCaption}
+)}}\label{term_8js_a3848a9ccc555549664a7ba7bc678a81a}
+Terminal 
+
+\subsection{Variable Documentation}
+\hypertarget{term_8js_a97fe156055689bd022719144edc5dfc2}{\index{term.\-js@{term.\-js}!\-\_\-colors@{\-\_\-colors}}
+\index{\-\_\-colors@{\-\_\-colors}!term.js@{term.\-js}}
+\subsubsection[{\-\_\-colors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} \-\_\-colors = Terminal.\-colors.\-slice()}}\label{term_8js_a97fe156055689bd022719144edc5dfc2}
+\hypertarget{term_8js_a14f7189fe9b4130b0b039bf790e8802d}{\index{term.\-js@{term.\-js}!\-\_\-cursor\-Blink@{\-\_\-cursor\-Blink}}
+\index{\-\_\-cursor\-Blink@{\-\_\-cursor\-Blink}!term.js@{term.\-js}}
+\subsubsection[{\-\_\-cursor\-Blink}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype \-\_\-cursor\-Blink}}\label{term_8js_a14f7189fe9b4130b0b039bf790e8802d}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}() \{
+  \textcolor{keywordflow}{if} (\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.focus !== \textcolor{keyword}{this}) \textcolor{keywordflow}{return};
+  this.cursorState ^= 1;
+  this.\hyperlink{term_8js_a79fb53e8a09d6301914924ac394bf295}{refresh}(this.\hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y}, this.\hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y});
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_add6b850fe4991ba41a1d2636a9610836}{\index{term.\-js@{term.\-js}!add\-Listener@{add\-Listener}}
+\index{add\-Listener@{add\-Listener}!term.js@{term.\-js}}
+\subsubsection[{add\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype add\-Listener}}\label{term_8js_add6b850fe4991ba41a1d2636a9610836}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(type, listener) \{
+  this.\_events[type] = this.\_events[type] || [];
+  this.\_events[type].push(listener);
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_aec33540655c431260352a4a2d4e281a0}{\index{term.\-js@{term.\-js}!bind\-Copy@{bind\-Copy}}
+\index{bind\-Copy@{bind\-Copy}!term.js@{term.\-js}}
+\subsubsection[{bind\-Copy}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} bind\-Copy}}\label{term_8js_aec33540655c431260352a4a2d4e281a0}
+Copy Selection w/ Ctrl-\/\-C (Select Mode) \hypertarget{term_8js_a48f4025d006331bb70362e0d199dd738}{\index{term.\-js@{term.\-js}!bind\-Keys@{bind\-Keys}}
+\index{bind\-Keys@{bind\-Keys}!term.js@{term.\-js}}
+\subsubsection[{bind\-Keys}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} bind\-Keys}}\label{term_8js_a48f4025d006331bb70362e0d199dd738}
+Global Events for key handling \hypertarget{term_8js_a16ec08698e484eebcfb8422ac29e84da}{\index{term.\-js@{term.\-js}!bind\-Mouse@{bind\-Mouse}}
+\index{bind\-Mouse@{bind\-Mouse}!term.js@{term.\-js}}
+\subsubsection[{bind\-Mouse}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype bind\-Mouse}}\label{term_8js_a16ec08698e484eebcfb8422ac29e84da}
+\hypertarget{term_8js_aa019deeb5659a46a34689b4629764f7f}{\index{term.\-js@{term.\-js}!bind\-Paste@{bind\-Paste}}
+\index{bind\-Paste@{bind\-Paste}!term.js@{term.\-js}}
+\subsubsection[{bind\-Paste}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} bind\-Paste}}\label{term_8js_aa019deeb5659a46a34689b4629764f7f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(\hyperlink{term_8js_af61dbe660d8213297c7fed5b5c99d223}{document}) \{
+  
+  
+  var \hyperlink{term_8js_a95d4cee469e101f76a52694f13905717}{window} = \hyperlink{term_8js_af61dbe660d8213297c7fed5b5c99d223}{document}.defaultView;
+  \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on}(window, \textcolor{stringliteral}{'paste'}, \textcolor{keyword}{function}(ev) \{
+    var term = \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.focus;
+    \textcolor{keywordflow}{if} (!term) \textcolor{keywordflow}{return};
+    \textcolor{keywordflow}{if} (ev.clipboardData) \{
+      term.send(ev.clipboardData.getData(\textcolor{stringliteral}{'text/plain'}));
+    \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (term.context.clipboardData) \{
+      term.send(term.context.clipboardData.getData(\textcolor{stringliteral}{'Text'}));
+    \}
+    
+    term.element.contentEditable = \textcolor{stringliteral}{'inherit'};
+    \textcolor{keywordflow}{return} cancel(ev);
+  \});
+\}
+\end{DoxyCode}
+Bind to paste event \hypertarget{term_8js_ac734b312c57b65132146a38e2674c575}{\index{term.\-js@{term.\-js}!blur@{blur}}
+\index{blur@{blur}!term.js@{term.\-js}}
+\subsubsection[{blur}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype blur}}\label{term_8js_ac734b312c57b65132146a38e2674c575}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}() \{
+  \textcolor{keywordflow}{if} (\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.focus !== \textcolor{keyword}{this}) \textcolor{keywordflow}{return};
+
+  this.cursorState = 0;
+  this.\hyperlink{term_8js_a79fb53e8a09d6301914924ac394bf295}{refresh}(this.\hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y}, this.\hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y});
+  \textcolor{keywordflow}{if} (this.sendFocus) this.send(\textcolor{stringliteral}{'\(\backslash\)x1b[O'});
+
+  
+  
+  
+  
+  
+
+  
+
+  \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.focus = null;
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_ac920ac1fb2720a7a73ad9b7d7b93bf87}{\index{term.\-js@{term.\-js}!charset@{charset}}
+\index{charset@{charset}!term.js@{term.\-js}}
+\subsubsection[{charset}]{\setlength{\rightskip}{0pt plus 5cm}var charset = 4}}\label{term_8js_ac920ac1fb2720a7a73ad9b7d7b93bf87}
+\hypertarget{term_8js_a1e6a48667873b3576059ce11383c7590}{\index{term.\-js@{term.\-js}!close@{close}}
+\index{close@{close}!term.js@{term.\-js}}
+\subsubsection[{close}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype close}}\label{term_8js_a1e6a48667873b3576059ce11383c7590}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+=
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.prototype.destroySoon =
+\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.prototype.destroy = \textcolor{keyword}{function}() \{
+  \textcolor{keywordflow}{if} (this.destroyed) \{
+    \textcolor{keywordflow}{return};
+  \}
+
+  \textcolor{keywordflow}{if} (this.\_blink) \{
+    clearInterval(this.\_blink);
+    \textcolor{keyword}{delete} this.\_blink;
+  \}
+
+  this.readable = \textcolor{keyword}{false};
+  this.writable = \textcolor{keyword}{false};
+  this.destroyed = \textcolor{keyword}{true};
+  this.\_events = \{\};
+
+  this.handler = \textcolor{keyword}{function}() \{\};
+  this.\hyperlink{namespaceow-slave-test_a6208e9fac4a2985c7004148f0c6f3a0b}{write} = \textcolor{keyword}{function}() \{\};
+  this.end = \textcolor{keyword}{function}() \{\};
+
+  \textcolor{keywordflow}{if} (this.element.parentNode) \{
+    this.element.parentNode.removeChild(this.element);
+  \}
+
+  this.\hyperlink{term_8js_a16439605b9cd7bd34fdbf935bef49de6}{emit}(\textcolor{stringliteral}{'end'});
+  this.\hyperlink{term_8js_a16439605b9cd7bd34fdbf935bef49de6}{emit}(\textcolor{stringliteral}{'close'});
+  this.\hyperlink{term_8js_a16439605b9cd7bd34fdbf935bef49de6}{emit}(\textcolor{stringliteral}{'finish'});
+  this.\hyperlink{term_8js_a16439605b9cd7bd34fdbf935bef49de6}{emit}(\textcolor{stringliteral}{'destroy'});
+\}
+\end{DoxyCode}
+Destroy Terminal \hypertarget{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{\index{term.\-js@{term.\-js}!colors@{colors}}
+\index{colors@{colors}!term.js@{term.\-js}}
+\subsubsection[{colors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} colors}}\label{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= (\textcolor{keyword}{function}() \{
+  var \hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors} = \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.tangoColors.slice()
+    , \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r} = [0x00, 0x5f, 0x87, 0xaf, 0xd7, 0xff]
+    , \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i};
+
+  
+  \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} = 0;
+  \textcolor{keywordflow}{for} (; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} < 216; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}++) \{
+    \hyperlink{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{out}(\hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} / 36) % 6 | 0], \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}[(\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} / 6) % 6 | 0], \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}[\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} % 6]);
+  \}
+
+  
+  \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} = 0;
+  \textcolor{keywordflow}{for} (; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} < 24; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}++) \{
+    \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r} = 8 + \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} * 10;
+    \hyperlink{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{out}(\hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}, \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}, \hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r});
+  \}
+
+  \textcolor{keyword}{function} \hyperlink{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{out}(\hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}, g, \hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}) \{
+    colors.push(\textcolor{charliteral}{'#'} + hex(\hyperlink{IMU_8cpp_abebbd563889e01487720e640c3568788}{r}) + hex(g) + hex(\hyperlink{IMU_8cpp_a20f3a6e8a2ba2537edf801801628417b}{b}));
+  \}
+
+  \textcolor{keyword}{function} hex(c) \{
+    c = c.toString(16);
+    \textcolor{keywordflow}{return} c.length < 2 ? \textcolor{charliteral}{'0'} + c : c;
+  \}
+
+  \textcolor{keywordflow}{return} \hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors};
+\})()
+\end{DoxyCode}
+\hypertarget{term_8js_a3fa93d85c02012aae91f3da71802f50d}{\index{term.\-js@{term.\-js}!csi@{csi}}
+\index{csi@{csi}!term.js@{term.\-js}}
+\subsubsection[{csi}]{\setlength{\rightskip}{0pt plus 5cm}var csi = 2}}\label{term_8js_a3fa93d85c02012aae91f3da71802f50d}
+\hypertarget{term_8js_a0cb89ab2b84162d0374afd9c3a6b0693}{\index{term.\-js@{term.\-js}!dcs@{dcs}}
+\index{dcs@{dcs}!term.js@{term.\-js}}
+\subsubsection[{dcs}]{\setlength{\rightskip}{0pt plus 5cm}var dcs = 5}}\label{term_8js_a0cb89ab2b84162d0374afd9c3a6b0693}
+\hypertarget{term_8js_a42c8b45d4c4ddd464ecb64f19b216177}{\index{term.\-js@{term.\-js}!defaults@{defaults}}
+\index{defaults@{defaults}!term.js@{term.\-js}}
+\subsubsection[{defaults}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} defaults}}\label{term_8js_a42c8b45d4c4ddd464ecb64f19b216177}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \{
+  \hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors}: \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.colors,
+  convertEol: \textcolor{keyword}{false},
+  termName: \textcolor{stringliteral}{'xterm'},
+  geometry: [80, 24],
+  cursorBlink: \textcolor{keyword}{true},
+  visualBell: \textcolor{keyword}{false},
+  popOnBell: \textcolor{keyword}{false},
+  scrollback: 1000,
+  screenKeys: \textcolor{keyword}{false},
+  \hyperlink{MultiWii_8cpp_a999a2c92b36f24e4f4922573edfa5084}{debug}: \textcolor{keyword}{false},
+  useStyle: \textcolor{keyword}{false}
+  
+  
+\}
+\end{DoxyCode}
+Options \hypertarget{term_8js_af61dbe660d8213297c7fed5b5c99d223}{\index{term.\-js@{term.\-js}!document@{document}}
+\index{document@{document}!term.js@{term.\-js}}
+\subsubsection[{document}]{\setlength{\rightskip}{0pt plus 5cm}var document = this.\-document}}\label{term_8js_af61dbe660d8213297c7fed5b5c99d223}
+\hypertarget{term_8js_a16439605b9cd7bd34fdbf935bef49de6}{\index{term.\-js@{term.\-js}!emit@{emit}}
+\index{emit@{emit}!term.js@{term.\-js}}
+\subsubsection[{emit}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype emit}}\label{term_8js_a16439605b9cd7bd34fdbf935bef49de6}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(type) \{
+  \textcolor{keywordflow}{if} (!this.\_events[type]) \textcolor{keywordflow}{return};
+
+  var args = Array.prototype.slice.call(arguments, 1)
+    , obj = this.\_events[type]
+    , l = obj.length
+    , \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} = 0;
+
+  \textcolor{keywordflow}{for} (; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} < l; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}++) \{
+    obj[\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}].apply(\textcolor{keyword}{this}, args);
+  \}
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_a0ee7eab10dca9056d4ff4299b00bce22}{\index{term.\-js@{term.\-js}!escaped@{escaped}}
+\index{escaped@{escaped}!term.js@{term.\-js}}
+\subsubsection[{escaped}]{\setlength{\rightskip}{0pt plus 5cm}var escaped = 1}}\label{term_8js_a0ee7eab10dca9056d4ff4299b00bce22}
+\hypertarget{term_8js_a19cb06856a854c5eb58a0d4647b7ccd7}{\index{term.\-js@{term.\-js}!fix\-Mobile@{fix\-Mobile}}
+\index{fix\-Mobile@{fix\-Mobile}!term.js@{term.\-js}}
+\subsubsection[{fix\-Mobile}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype fix\-Mobile}}\label{term_8js_a19cb06856a854c5eb58a0d4647b7ccd7}
+Fix Mobile \hypertarget{term_8js_a961f54df55346f242598047a6d573127}{\index{term.\-js@{term.\-js}!focus@{focus}}
+\index{focus@{focus}!term.js@{term.\-js}}
+\subsubsection[{focus}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype focus = null}}\label{term_8js_a961f54df55346f242598047a6d573127}
+Focused Terminal \hypertarget{term_8js_ad906a97e5c153b04cbdc7787906aede7}{\index{term.\-js@{term.\-js}!ignore@{ignore}}
+\index{ignore@{ignore}!term.js@{term.\-js}}
+\subsubsection[{ignore}]{\setlength{\rightskip}{0pt plus 5cm}var ignore = 6}}\label{term_8js_ad906a97e5c153b04cbdc7787906aede7}
+\hypertarget{term_8js_ac5ff9284da85c3250d2b6bca21db06a2}{\index{term.\-js@{term.\-js}!init\-Global@{init\-Global}}
+\index{init\-Global@{init\-Global}!term.js@{term.\-js}}
+\subsubsection[{init\-Global}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype init\-Global}}\label{term_8js_ac5ff9284da85c3250d2b6bca21db06a2}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}() \{
+  var \hyperlink{term_8js_af61dbe660d8213297c7fed5b5c99d223}{document} = this.\hyperlink{term_8js_af61dbe660d8213297c7fed5b5c99d223}{document};
+
+  \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.\_boundDocs = \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.\_boundDocs || [];
+  \textcolor{keywordflow}{if} (~indexOf(\hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.\_boundDocs, document)) \{
+    \textcolor{keywordflow}{return};
+  \}
+  \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.\_boundDocs.push(document);
+
+  \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.bindPaste(document);
+
+  \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.bindKeys(document);
+
+  \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.bindCopy(document);
+
+  \textcolor{keywordflow}{if} (this.isMobile) \{
+    this.\hyperlink{term_8js_a19cb06856a854c5eb58a0d4647b7ccd7}{fixMobile}(document);
+  \}
+
+  \textcolor{keywordflow}{if} (this.useStyle) \{
+    \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.insertStyle(document, this.\hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors}[256], this.\hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors}[257]);
+  \}
+\}
+\end{DoxyCode}
+Initialize global behavior \hypertarget{term_8js_addfc77b96a5a25d52a6a07f4206e9522}{\index{term.\-js@{term.\-js}!insert\-Style@{insert\-Style}}
+\index{insert\-Style@{insert\-Style}!term.js@{term.\-js}}
+\subsubsection[{insert\-Style}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} insert\-Style}}\label{term_8js_addfc77b96a5a25d52a6a07f4206e9522}
+Insert a default style \hypertarget{term_8js_aefbed4536fb9e73c5a626949dcbffbf4}{\index{term.\-js@{term.\-js}!listeners@{listeners}}
+\index{listeners@{listeners}!term.js@{term.\-js}}
+\subsubsection[{listeners}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype listeners}}\label{term_8js_aefbed4536fb9e73c5a626949dcbffbf4}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(type) \{
+  \textcolor{keywordflow}{return} this.\_events[type] = this.\_events[type] || [];
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_a87107a8a905b8ed1bbfae1713d68f3b7}{\index{term.\-js@{term.\-js}!normal@{normal}}
+\index{normal@{normal}!term.js@{term.\-js}}
+\subsubsection[{normal}]{\setlength{\rightskip}{0pt plus 5cm}var normal = 0}}\label{term_8js_a87107a8a905b8ed1bbfae1713d68f3b7}
+States \hypertarget{term_8js_ab6259267561b7c85cc788ab12abb95e7}{\index{term.\-js@{term.\-js}!off@{off}}
+\index{off@{off}!term.js@{term.\-js}}
+\subsubsection[{off}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype off = {\bf Event\-Emitter.\-prototype.\-remove\-Listener}}}\label{term_8js_ab6259267561b7c85cc788ab12abb95e7}
+\hypertarget{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{\index{term.\-js@{term.\-js}!on@{on}}
+\index{on@{on}!term.js@{term.\-js}}
+\subsubsection[{on}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype on = {\bf Event\-Emitter.\-prototype.\-add\-Listener}}}\label{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}
+\hypertarget{term_8js_a801b0668ecf79a79c81f75dbbabb4ebf}{\index{term.\-js@{term.\-js}!once@{once}}
+\index{once@{once}!term.js@{term.\-js}}
+\subsubsection[{once}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype once}}\label{term_8js_a801b0668ecf79a79c81f75dbbabb4ebf}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(type, listener) \{
+  \textcolor{keyword}{function} \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on}() \{
+    var args = Array.prototype.slice.call(arguments);
+    this.\hyperlink{term_8js_a066978bd94f0777d7c619d58b27eba5f}{removeListener}(type, \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on});
+    \textcolor{keywordflow}{return} listener.apply(\textcolor{keyword}{this}, args);
+  \}
+  \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on}.listener = listener;
+  \textcolor{keywordflow}{return} this.\hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on}(type, \hyperlink{term_8js_ac6ebb2e1fddfd9205cff6790e2aaa3a6}{on});
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_a1a542444e56cda6325863b2dde2a2f6e}{\index{term.\-js@{term.\-js}!open@{open}}
+\index{open@{open}!term.js@{term.\-js}}
+\subsubsection[{open}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype open}}\label{term_8js_a1a542444e56cda6325863b2dde2a2f6e}
+Open Terminal \hypertarget{term_8js_a35809464221af004ad18bb95a400c7fe}{\index{term.\-js@{term.\-js}!options@{options}}
+\index{options@{options}!term.js@{term.\-js}}
+\subsubsection[{options}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} options = \{\}}}\label{term_8js_a35809464221af004ad18bb95a400c7fe}
+\hypertarget{term_8js_ac90093014e4a77f56da90fcbbf7fb8e6}{\index{term.\-js@{term.\-js}!osc@{osc}}
+\index{osc@{osc}!term.js@{term.\-js}}
+\subsubsection[{osc}]{\setlength{\rightskip}{0pt plus 5cm}var osc = 3}}\label{term_8js_ac90093014e4a77f56da90fcbbf7fb8e6}
+\hypertarget{term_8js_a700eaeb277876520349d50f3a658beaa}{\index{term.\-js@{term.\-js}!pipe@{pipe}}
+\index{pipe@{pipe}!term.js@{term.\-js}}
+\subsubsection[{pipe}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Stream} prototype pipe}}\label{term_8js_a700eaeb277876520349d50f3a658beaa}
+\hypertarget{term_8js_a79fb53e8a09d6301914924ac394bf295}{\index{term.\-js@{term.\-js}!refresh@{refresh}}
+\index{refresh@{refresh}!term.js@{term.\-js}}
+\subsubsection[{refresh}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype refresh}}\label{term_8js_a79fb53e8a09d6301914924ac394bf295}
+Rendering Engine \hypertarget{term_8js_a398499dce7c7aaa8fd912d7711f0e2f4}{\index{term.\-js@{term.\-js}!refresh\-Blink@{refresh\-Blink}}
+\index{refresh\-Blink@{refresh\-Blink}!term.js@{term.\-js}}
+\subsubsection[{refresh\-Blink}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype refresh\-Blink}}\label{term_8js_a398499dce7c7aaa8fd912d7711f0e2f4}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}() \{
+  \textcolor{keywordflow}{if} (!this.cursorBlink || !this.\_blink) \textcolor{keywordflow}{return};
+  clearInterval(this.\_blink);
+  this.\_blink = setInterval(this.\_blinker, 500);
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_aea530a2bc607feab659aaf6bd7aad0d9}{\index{term.\-js@{term.\-js}!remove\-All\-Listeners@{remove\-All\-Listeners}}
+\index{remove\-All\-Listeners@{remove\-All\-Listeners}!term.js@{term.\-js}}
+\subsubsection[{remove\-All\-Listeners}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype remove\-All\-Listeners}}\label{term_8js_aea530a2bc607feab659aaf6bd7aad0d9}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(type) \{
+  \textcolor{keywordflow}{if} (this.\_events[type]) \textcolor{keyword}{delete} this.\_events[type];
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_a066978bd94f0777d7c619d58b27eba5f}{\index{term.\-js@{term.\-js}!remove\-Listener@{remove\-Listener}}
+\index{remove\-Listener@{remove\-Listener}!term.js@{term.\-js}}
+\subsubsection[{remove\-Listener}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Event\-Emitter} prototype remove\-Listener}}\label{term_8js_a066978bd94f0777d7c619d58b27eba5f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(type, listener) \{
+  \textcolor{keywordflow}{if} (!this.\_events[type]) \textcolor{keywordflow}{return};
+
+  var obj = this.\_events[type]
+    , \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} = obj.length;
+
+  \textcolor{keywordflow}{while} (i--) \{
+    \textcolor{keywordflow}{if} (obj[i] === listener || obj[i].listener === listener) \{
+      obj.splice(i, 1);
+      \textcolor{keywordflow}{return};
+    \}
+  \}
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_a9a601d78dc32fcfa2b34c2269eea9851}{\index{term.\-js@{term.\-js}!scroll@{scroll}}
+\index{scroll@{scroll}!term.js@{term.\-js}}
+\subsubsection[{scroll}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype scroll}}\label{term_8js_a9a601d78dc32fcfa2b34c2269eea9851}
+\hypertarget{term_8js_a5f8e78850383021f6822126ded29f783}{\index{term.\-js@{term.\-js}!scroll\-Disp@{scroll\-Disp}}
+\index{scroll\-Disp@{scroll\-Disp}!term.js@{term.\-js}}
+\subsubsection[{scroll\-Disp}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype scroll\-Disp}}\label{term_8js_a5f8e78850383021f6822126ded29f783}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(disp) \{
+  this.ydisp += disp;
+
+  \textcolor{keywordflow}{if} (this.ydisp > this.ybase) \{
+    this.ydisp = this.ybase;
+  \} \textcolor{keywordflow}{else} \textcolor{keywordflow}{if} (this.ydisp < 0) \{
+    this.ydisp = 0;
+  \}
+
+  this.\hyperlink{term_8js_a79fb53e8a09d6301914924ac394bf295}{refresh}(0, this.rows - 1);
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_a061abfc171a8e8a87c801d54e8917341}{\index{term.\-js@{term.\-js}!set\-Raw\-Mode@{set\-Raw\-Mode}}
+\index{set\-Raw\-Mode@{set\-Raw\-Mode}!term.js@{term.\-js}}
+\subsubsection[{set\-Raw\-Mode}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype set\-Raw\-Mode}}\label{term_8js_a061abfc171a8e8a87c801d54e8917341}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}(value) \{
+  this.isRaw = !!value;
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_a0e5bf4788a24c10b213401b8205ad166}{\index{term.\-js@{term.\-js}!show\-Cursor@{show\-Cursor}}
+\index{show\-Cursor@{show\-Cursor}!term.js@{term.\-js}}
+\subsubsection[{show\-Cursor}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype show\-Cursor}}\label{term_8js_a0e5bf4788a24c10b213401b8205ad166}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}() \{
+  \textcolor{keywordflow}{if} (!this.cursorState) \{
+    this.cursorState = 1;
+    this.\hyperlink{term_8js_a79fb53e8a09d6301914924ac394bf295}{refresh}(this.\hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y}, this.\hyperlink{arm__acle_8h_a75efb6afc7c49139696176851998dd5f}{y});
+  \} \textcolor{keywordflow}{else} \{
+    
+    
+  \}
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_acc271e5b3337833ea6d467540349441d}{\index{term.\-js@{term.\-js}!start\-Blink@{start\-Blink}}
+\index{start\-Blink@{start\-Blink}!term.js@{term.\-js}}
+\subsubsection[{start\-Blink}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} prototype start\-Blink}}\label{term_8js_acc271e5b3337833ea6d467540349441d}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= \textcolor{keyword}{function}() \{
+  \textcolor{keywordflow}{if} (!this.cursorBlink) \textcolor{keywordflow}{return};
+  var \textcolor{keyword}{self} = \textcolor{keyword}{this};
+  this.\_blinker = \textcolor{keyword}{function}() \{
+    \textcolor{keyword}{self}.\_cursorBlink();
+  \};
+  this.\_blink = setInterval(this.\_blinker, 500);
+\}
+\end{DoxyCode}
+\hypertarget{term_8js_adaae3cb0bccc65ec7679b25a06a025f1}{\index{term.\-js@{term.\-js}!strict@{strict}}
+\index{strict@{strict}!term.js@{term.\-js}}
+\subsubsection[{strict}]{\setlength{\rightskip}{0pt plus 5cm}function use strict}}\label{term_8js_adaae3cb0bccc65ec7679b25a06a025f1}
+\hyperlink{term_8js}{term.\-js} -\/ an xterm emulator Copyright (c) 2012-\/2013, Christopher Jeffrey (M\-I\-T License) \href{https://github.com/chjj/term.js}{\tt https\-://github.\-com/chjj/term.\-js}
+
+Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the \char`\"{}\-Software\char`\"{}), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions\-:
+
+The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
+
+T\-H\-E S\-O\-F\-T\-W\-A\-R\-E I\-S P\-R\-O\-V\-I\-D\-E\-D \char`\"{}\-A\-S I\-S\char`\"{}, W\-I\-T\-H\-O\-U\-T W\-A\-R\-R\-A\-N\-T\-Y O\-F A\-N\-Y K\-I\-N\-D, E\-X\-P\-R\-E\-S\-S O\-R I\-M\-P\-L\-I\-E\-D, I\-N\-C\-L\-U\-D\-I\-N\-G B\-U\-T N\-O\-T L\-I\-M\-I\-T\-E\-D T\-O T\-H\-E W\-A\-R\-R\-A\-N\-T\-I\-E\-S O\-F M\-E\-R\-C\-H\-A\-N\-T\-A\-B\-I\-L\-I\-T\-Y, F\-I\-T\-N\-E\-S\-S F\-O\-R A P\-A\-R\-T\-I\-C\-U\-L\-A\-R P\-U\-R\-P\-O\-S\-E A\-N\-D N\-O\-N\-I\-N\-F\-R\-I\-N\-G\-E\-M\-E\-N\-T. I\-N N\-O E\-V\-E\-N\-T S\-H\-A\-L\-L T\-H\-E A\-U\-T\-H\-O\-R\-S O\-R C\-O\-P\-Y\-R\-I\-G\-H\-T H\-O\-L\-D\-E\-R\-S B\-E L\-I\-A\-B\-L\-E F\-O\-R A\-N\-Y C\-L\-A\-I\-M, D\-A\-M\-A\-G\-E\-S O\-R O\-T\-H\-E\-R L\-I\-A\-B\-I\-L\-I\-T\-Y, W\-H\-E\-T\-H\-E\-R I\-N A\-N A\-C\-T\-I\-O\-N O\-F C\-O\-N\-T\-R\-A\-C\-T, T\-O\-R\-T O\-R O\-T\-H\-E\-R\-W\-I\-S\-E, A\-R\-I\-S\-I\-N\-G F\-R\-O\-M, O\-U\-T O\-F O\-R I\-N C\-O\-N\-N\-E\-C\-T\-I\-O\-N W\-I\-T\-H T\-H\-E S\-O\-F\-T\-W\-A\-R\-E O\-R T\-H\-E U\-S\-E O\-R O\-T\-H\-E\-R D\-E\-A\-L\-I\-N\-G\-S I\-N T\-H\-E S\-O\-F\-T\-W\-A\-R\-E.
+
+Originally forked from (with the author's permission)\-: Fabrice Bellard's javascript vt100 for jslinux\-: \href{http://bellard.org/jslinux/}{\tt http\-://bellard.\-org/jslinux/} Copyright (c) 2011 Fabrice Bellard The original design remains. The terminal itself has been extended to include xterm C\-S\-I codes, among other features. Terminal Emulation References\-: \href{http://vt100.net/}{\tt http\-://vt100.\-net/} \href{http://invisible-island.net/xterm/ctlseqs/ctlseqs.txt}{\tt http\-://invisible-\/island.\-net/xterm/ctlseqs/ctlseqs.\-txt} \href{http://invisible-island.net/xterm/ctlseqs/ctlseqs.html}{\tt http\-://invisible-\/island.\-net/xterm/ctlseqs/ctlseqs.\-html} \href{http://invisible-island.net/vttest/}{\tt http\-://invisible-\/island.\-net/vttest/} \href{http://www.inwap.com/pdp10/ansicode.txt}{\tt http\-://www.\-inwap.\-com/pdp10/ansicode.\-txt} \href{http://linux.die.net/man/4/console_codes}{\tt http\-://linux.\-die.\-net/man/4/console\-\_\-codes} \href{http://linux.die.net/man/7/urxvt}{\tt http\-://linux.\-die.\-net/man/7/urxvt} \hypertarget{term_8js_aba2878bfff0ccb2144d6c2550c1084d5}{\index{term.\-js@{term.\-js}!tango\-Colors@{tango\-Colors}}
+\index{tango\-Colors@{tango\-Colors}!term.js@{term.\-js}}
+\subsubsection[{tango\-Colors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} tango\-Colors}}\label{term_8js_aba2878bfff0ccb2144d6c2550c1084d5}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= [
+  
+  \textcolor{stringliteral}{'#2e3436'},
+  \textcolor{stringliteral}{'#cc0000'},
+  \textcolor{stringliteral}{'#4e9a06'},
+  \textcolor{stringliteral}{'#c4a000'},
+  \textcolor{stringliteral}{'#3465a4'},
+  \textcolor{stringliteral}{'#75507b'},
+  \textcolor{stringliteral}{'#06989a'},
+  \textcolor{stringliteral}{'#d3d7cf'},
+  
+  \textcolor{stringliteral}{'#555753'},
+  \textcolor{stringliteral}{'#ef2929'},
+  \textcolor{stringliteral}{'#8ae234'},
+  \textcolor{stringliteral}{'#fce94f'},
+  \textcolor{stringliteral}{'#729fcf'},
+  \textcolor{stringliteral}{'#ad7fa8'},
+  \textcolor{stringliteral}{'#34e2e2'},
+  \textcolor{stringliteral}{'#eeeeec'}
+]
+\end{DoxyCode}
+Colors \hypertarget{term_8js_a731c6c02ae26151087275ab4a52fdfbf}{\index{term.\-js@{term.\-js}!U\-D\-K@{U\-D\-K}}
+\index{U\-D\-K@{U\-D\-K}!term.js@{term.\-js}}
+\subsubsection[{U\-D\-K}]{\setlength{\rightskip}{0pt plus 5cm}var U\-D\-K = \{ type\-: 'udk' \}}}\label{term_8js_a731c6c02ae26151087275ab4a52fdfbf}
+\hypertarget{term_8js_a508b2ce5887d58ff399cc534242c52ea}{\index{term.\-js@{term.\-js}!vcolors@{vcolors}}
+\index{vcolors@{vcolors}!term.js@{term.\-js}}
+\subsubsection[{vcolors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} vcolors}}\label{term_8js_a508b2ce5887d58ff399cc534242c52ea}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= (\textcolor{keyword}{function}() \{
+  var \hyperlink{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{out} = []
+    , \hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors} = \hyperlink{term_8js_a3848a9ccc555549664a7ba7bc678a81a}{Terminal}.colors
+    , \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} = 0
+    , color;
+
+  \textcolor{keywordflow}{for} (; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i} < 256; \hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}++) \{
+    color = parseInt(\hyperlink{term_8js_a7fd7b663163bdbc95d0f7bd7bd18a756}{colors}[\hyperlink{namespaceser-log_a07a12eb5896dee0953b2f34bf4e3e0d8}{i}].substring(1), 16);
+    out.push([
+      (color >> 16) & 0xff,
+      (color >> 8) & 0xff,
+      color & 0xff
+    ]);
+  \}
+
+  \textcolor{keywordflow}{return} \hyperlink{namespacerf-id-control_a340302d5b6d011871e45b3b847dab3a6}{out};
+\})()
+\end{DoxyCode}
+\hypertarget{term_8js_a95d4cee469e101f76a52694f13905717}{\index{term.\-js@{term.\-js}!window@{window}}
+\index{window@{window}!term.js@{term.\-js}}
+\subsubsection[{window}]{\setlength{\rightskip}{0pt plus 5cm}var window = this}}\label{term_8js_a95d4cee469e101f76a52694f13905717}
+Shared \hypertarget{term_8js_a18a6b21459fb1ba2bc2324780aa4bc7f}{\index{term.\-js@{term.\-js}!xterm\-Colors@{xterm\-Colors}}
+\index{xterm\-Colors@{xterm\-Colors}!term.js@{term.\-js}}
+\subsubsection[{xterm\-Colors}]{\setlength{\rightskip}{0pt plus 5cm}{\bf Terminal} xterm\-Colors}}\label{term_8js_a18a6b21459fb1ba2bc2324780aa4bc7f}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+= [
+  
+  \textcolor{stringliteral}{'#000000'}, 
+  \textcolor{stringliteral}{'#cd0000'}, 
+  \textcolor{stringliteral}{'#00cd00'}, 
+  \textcolor{stringliteral}{'#cdcd00'}, 
+  \textcolor{stringliteral}{'#0000ee'}, 
+  \textcolor{stringliteral}{'#cd00cd'}, 
+  \textcolor{stringliteral}{'#00cdcd'}, 
+  \textcolor{stringliteral}{'#e5e5e5'}, 
+  
+  \textcolor{stringliteral}{'#7f7f7f'}, 
+  \textcolor{stringliteral}{'#ff0000'}, 
+  \textcolor{stringliteral}{'#00ff00'}, 
+  \textcolor{stringliteral}{'#ffff00'}, 
+  \textcolor{stringliteral}{'#5c5cff'}, 
+  \textcolor{stringliteral}{'#ff00ff'}, 
+  \textcolor{stringliteral}{'#00ffff'}, 
+  \textcolor{stringliteral}{'#ffffff'}  
+]
+\end{DoxyCode}

@@ -1,0 +1,412 @@
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h}{\section{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.h File Reference}
+\label{MultiWii__2__4_2MultiWii_2Alarms_8h}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+}
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a2f2ab45d958a2924c76c083e31b0f430}{S\-E\-T\-\_\-\-A\-L\-A\-R\-M}(fac, level)~\hyperlink{Uno__MultiWii__HardwarePlatform__Test_8ino_ab7177fe420fbe971863c278be8d943c0}{alarm\-Array}\mbox{[}fac\mbox{]} = level
+\item 
+\#define \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_aa44997acc5b57336925f2f3433b0b93b}{S\-E\-T\-\_\-\-A\-L\-A\-R\-M\-\_\-\-B\-U\-Z\-Z\-E\-R}(fac, level)
+\item 
+\#define \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a927ee9dd58f3f894f59838aca817dbbf}{I\-S\-\_\-\-A\-L\-A\-R\-M\-\_\-\-S\-E\-T}(fac, level)~( \hyperlink{Uno__MultiWii__HardwarePlatform__Test_8ino_ab7177fe420fbe971863c278be8d943c0}{alarm\-Array}\mbox{[}fac\mbox{]} == level )
+\end{DoxyCompactItemize}
+\subsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3}{alrm\-\_\-fac} \{ \\*
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a80262173ccf7d05468523e4badeb6e93}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E} = 0, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ae0eee13c018da009f5bcefc2c25d719b}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a3fe5f7f99bd11b7c1c364fd537a56174}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3aa088f259ce9037cd20a4e9e95d58193a}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}, 
+\\*
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ad71adbec951aac798ecaed2807548938}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3addb85436055832ad4c74fd6e99119aa1}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a1917119dbb650539b760386f42bb00dc}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a8aed1b526a9f44cf2ae58cf8669c0c22}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}, 
+\\*
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a0c5db3ab7d34d72a65b020f743836df5}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3adf921a2b93267346e7ba661376a9aad4}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ab5af4495b6951e3bcec850f0f4433b2f}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a80262173ccf7d05468523e4badeb6e93}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E} = 0, 
+\\*
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ae0eee13c018da009f5bcefc2c25d719b}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a3fe5f7f99bd11b7c1c364fd537a56174}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3aa088f259ce9037cd20a4e9e95d58193a}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ad71adbec951aac798ecaed2807548938}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}, 
+\\*
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3addb85436055832ad4c74fd6e99119aa1}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a1917119dbb650539b760386f42bb00dc}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a8aed1b526a9f44cf2ae58cf8669c0c22}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a0c5db3ab7d34d72a65b020f743836df5}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}, 
+\\*
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3adf921a2b93267346e7ba661376a9aad4}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ab5af4495b6951e3bcec850f0f4433b2f}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}
+ \}
+\item 
+enum \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4}{alrm\-\_\-res} \{ \\*
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4b204600e506598e7edb49ae69353bad}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D} = 0, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4ad9b21d5eb263293c437fd31d1034943a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a6186b471286d3139a08d08cbcc9c294a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4afebf63c433dbf429bf6771a7bd575483}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}, 
+\\*
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4c587bd6598a5bc8fbf0b8f80d1d2374}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a57ab188a30b620f9316dee3fd969c79f}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a9edb9de981f354a8b9a902ad72885d39}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4b204600e506598e7edb49ae69353bad}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D} = 0, 
+\\*
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4ad9b21d5eb263293c437fd31d1034943a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a6186b471286d3139a08d08cbcc9c294a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4afebf63c433dbf429bf6771a7bd575483}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4c587bd6598a5bc8fbf0b8f80d1d2374}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}, 
+\\*
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a57ab188a30b620f9316dee3fd969c79f}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a9edb9de981f354a8b9a902ad72885d39}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}
+ \}
+\item 
+enum \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbd}{alrm\-\_\-lvl\-\_\-onoff} \{ \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbdac556d0ecba479eaf8640867a3e69ca87}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F} = 0, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbda942c480976cc3bfdfabc87fb3424d43e}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N} = 1, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbdac556d0ecba479eaf8640867a3e69ca87}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F} = 0, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbda942c480976cc3bfdfabc87fb3424d43e}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N} = 1
+ \}
+\item 
+enum \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cb}{alrm\-\_\-lvl\-\_\-failsafe} \{ \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cba09f3c2b5807c7f3965cd8bed09a4c7b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E} = 1, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cbae7902f3c3bb3d62e7621921467effd30}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cba09f3c2b5807c7f3965cd8bed09a4c7b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E} = 1, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cbae7902f3c3bb3d62e7621921467effd30}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}
+ \}
+\item 
+enum \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9e}{alrm\-\_\-lvl\-\_\-toggle} \{ \\*
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eaede1a0540620964a9c38743e44314fd7}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1} = 1, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eacf7aff2eb0814bac877db820a27eda08}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9ead3d6bbd02ea70292ffd1a589933b08b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eaede1a0540620964a9c38743e44314fd7}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1} = 1, 
+\\*
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eacf7aff2eb0814bac877db820a27eda08}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9ead3d6bbd02ea70292ffd1a589933b08b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}
+ \}
+\item 
+enum \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233f}{alrm\-\_\-lvl\-\_\-confirm} \{ \\*
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf65aa6a344e4ec330a5bdeb382b50b42}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1} = 1, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233fa10dc24e9b1623afad4f1b9f86e33830c}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}, 
+\hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf5da20627c654020fe2d82270e2f36f9}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf65aa6a344e4ec330a5bdeb382b50b42}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1} = 1, 
+\\*
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233fa10dc24e9b1623afad4f1b9f86e33830c}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}, 
+\hyperlink{Uno__MultiWii__HardwarePlatform__Test_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf5da20627c654020fe2d82270e2f36f9}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}
+ \}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a2176ca033612b0ecc1bb7e275a6b749a}{blink\-L\-E\-D} (uint8\-\_\-t num, uint8\-\_\-t ontime, uint8\-\_\-t repeat)
+\item 
+uint8\-\_\-t \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a7840aae6a09e7f9a827e556190658913}{is\-Buzzer\-O\-N} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a6afa2df7c68053f6a1ff8ad75d0c597f}{alarm\-Handler} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a99e66d9dba7afe19f3fc6aff182f74c8}{vario\-\_\-signaling} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a9e4d497e5e489636e0d93aab68b2b482}{i2\-C\-Led\-Ring\-State} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a36a87c6e82789f562498fdccbe1d504f}{blink\-Led\-Ring} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a8bfe4ec6ab2b635ee5fcf872f4c3c5f0}{auto\-\_\-switch\-\_\-led\-\_\-flasher} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a2eebe05f6921377eb34d730ddb5efb3b}{init\-\_\-led\-\_\-flasher} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a8915bcf59a07f2ec48e16a353f0fc74e}{led\-\_\-flasher\-\_\-set\-\_\-sequence} (uint8\-\_\-t s)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_ac0546d47a3227a7f0051cdecf546ee7d}{led\-\_\-flasher\-\_\-autoselect\-\_\-sequence} ()
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a482805b607aafac957a257d6c159a332}{init\-\_\-landing\-\_\-lights} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_acaa80b9fa133732d0066b777eea5c9d2}{auto\-\_\-switch\-\_\-landing\-\_\-lights} (void)
+\item 
+void \hyperlink{MultiWii__2__4_2MultiWii_2Alarms_8h_a395dec200beef27694cf08fefd3dbb40}{Pilot\-Lamp} (uint8\-\_\-t \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a16ff2d8e15ade4948398b0aeb80124a8}{count})
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a927ee9dd58f3f894f59838aca817dbbf}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!I\-S\-\_\-\-A\-L\-A\-R\-M\-\_\-\-S\-E\-T@{I\-S\-\_\-\-A\-L\-A\-R\-M\-\_\-\-S\-E\-T}}
+\index{I\-S\-\_\-\-A\-L\-A\-R\-M\-\_\-\-S\-E\-T@{I\-S\-\_\-\-A\-L\-A\-R\-M\-\_\-\-S\-E\-T}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{I\-S\-\_\-\-A\-L\-A\-R\-M\-\_\-\-S\-E\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-S\-\_\-\-A\-L\-A\-R\-M\-\_\-\-S\-E\-T(
+\begin{DoxyParamCaption}
+\item[{}]{fac, }
+\item[{}]{level}
+\end{DoxyParamCaption}
+)~( {\bf alarm\-Array}\mbox{[}fac\mbox{]} == level )}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a927ee9dd58f3f894f59838aca817dbbf}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a2f2ab45d958a2924c76c083e31b0f430}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!S\-E\-T\-\_\-\-A\-L\-A\-R\-M@{S\-E\-T\-\_\-\-A\-L\-A\-R\-M}}
+\index{S\-E\-T\-\_\-\-A\-L\-A\-R\-M@{S\-E\-T\-\_\-\-A\-L\-A\-R\-M}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{S\-E\-T\-\_\-\-A\-L\-A\-R\-M}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-T\-\_\-\-A\-L\-A\-R\-M(
+\begin{DoxyParamCaption}
+\item[{}]{fac, }
+\item[{}]{level}
+\end{DoxyParamCaption}
+)~{\bf alarm\-Array}\mbox{[}fac\mbox{]} = level}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a2f2ab45d958a2924c76c083e31b0f430}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_aa44997acc5b57336925f2f3433b0b93b}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!S\-E\-T\-\_\-\-A\-L\-A\-R\-M\-\_\-\-B\-U\-Z\-Z\-E\-R@{S\-E\-T\-\_\-\-A\-L\-A\-R\-M\-\_\-\-B\-U\-Z\-Z\-E\-R}}
+\index{S\-E\-T\-\_\-\-A\-L\-A\-R\-M\-\_\-\-B\-U\-Z\-Z\-E\-R@{S\-E\-T\-\_\-\-A\-L\-A\-R\-M\-\_\-\-B\-U\-Z\-Z\-E\-R}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{S\-E\-T\-\_\-\-A\-L\-A\-R\-M\-\_\-\-B\-U\-Z\-Z\-E\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-T\-\_\-\-A\-L\-A\-R\-M\-\_\-\-B\-U\-Z\-Z\-E\-R(
+\begin{DoxyParamCaption}
+\item[{}]{fac, }
+\item[{}]{level}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_aa44997acc5b57336925f2f3433b0b93b}
+
+
+\subsection{Enumeration Type Documentation}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!alrm\-\_\-fac@{alrm\-\_\-fac}}
+\index{alrm\-\_\-fac@{alrm\-\_\-fac}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{alrm\-\_\-fac}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alrm\-\_\-fac}}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a80262173ccf7d05468523e4badeb6e93}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a80262173ccf7d05468523e4badeb6e93}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ae0eee13c018da009f5bcefc2c25d719b}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ae0eee13c018da009f5bcefc2c25d719b}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a3fe5f7f99bd11b7c1c364fd537a56174}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a3fe5f7f99bd11b7c1c364fd537a56174}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3aa088f259ce9037cd20a4e9e95d58193a}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3aa088f259ce9037cd20a4e9e95d58193a}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ad71adbec951aac798ecaed2807548938}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ad71adbec951aac798ecaed2807548938}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3addb85436055832ad4c74fd6e99119aa1}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3addb85436055832ad4c74fd6e99119aa1}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a1917119dbb650539b760386f42bb00dc}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a1917119dbb650539b760386f42bb00dc}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a8aed1b526a9f44cf2ae58cf8669c0c22}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a8aed1b526a9f44cf2ae58cf8669c0c22}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a0c5db3ab7d34d72a65b020f743836df5}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a0c5db3ab7d34d72a65b020f743836df5}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3adf921a2b93267346e7ba661376a9aad4}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3adf921a2b93267346e7ba661376a9aad4}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ab5af4495b6951e3bcec850f0f4433b2f}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ab5af4495b6951e3bcec850f0f4433b2f}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a80262173ccf7d05468523e4badeb6e93}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-T\-O\-G\-G\-L\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a80262173ccf7d05468523e4badeb6e93}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ae0eee13c018da009f5bcefc2c25d719b}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ae0eee13c018da009f5bcefc2c25d719b}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a3fe5f7f99bd11b7c1c364fd537a56174}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-G\-P\-S}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a3fe5f7f99bd11b7c1c364fd537a56174}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3aa088f259ce9037cd20a4e9e95d58193a}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-B\-E\-E\-P\-E\-R\-O\-N}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3aa088f259ce9037cd20a4e9e95d58193a}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ad71adbec951aac798ecaed2807548938}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-P\-M\-E\-T\-E\-R}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ad71adbec951aac798ecaed2807548938}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3addb85436055832ad4c74fd6e99119aa1}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-R\-U\-N\-T\-I\-M\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3addb85436055832ad4c74fd6e99119aa1}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a1917119dbb650539b760386f42bb00dc}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-V\-B\-A\-T}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a1917119dbb650539b760386f42bb00dc}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a8aed1b526a9f44cf2ae58cf8669c0c22}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-C\-O\-N\-F\-I\-R\-M}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a8aed1b526a9f44cf2ae58cf8669c0c22}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a0c5db3ab7d34d72a65b020f743836df5}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-A\-C\-C}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3a0c5db3ab7d34d72a65b020f743836df5}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3adf921a2b93267346e7ba661376a9aad4}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-I2\-C\-E\-R\-R\-O\-R}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3adf921a2b93267346e7ba661376a9aad4}
+}]\index{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E@{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ab5af4495b6951e3bcec850f0f4433b2f}{A\-L\-R\-M\-\_\-\-F\-A\-C\-\_\-\-S\-I\-Z\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ad582dbb8c94e647a50e104dbb64f68a3ab5af4495b6951e3bcec850f0f4433b2f}
+}]\end{description}
+\end{Desc}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233f}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!alrm\-\_\-lvl\-\_\-confirm@{alrm\-\_\-lvl\-\_\-confirm}}
+\index{alrm\-\_\-lvl\-\_\-confirm@{alrm\-\_\-lvl\-\_\-confirm}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{alrm\-\_\-lvl\-\_\-confirm}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alrm\-\_\-lvl\-\_\-confirm}}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233f}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf65aa6a344e4ec330a5bdeb382b50b42}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf65aa6a344e4ec330a5bdeb382b50b42}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233fa10dc24e9b1623afad4f1b9f86e33830c}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233fa10dc24e9b1623afad4f1b9f86e33830c}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf5da20627c654020fe2d82270e2f36f9}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf5da20627c654020fe2d82270e2f36f9}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf65aa6a344e4ec330a5bdeb382b50b42}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-1}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf65aa6a344e4ec330a5bdeb382b50b42}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233fa10dc24e9b1623afad4f1b9f86e33830c}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-2}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233fa10dc24e9b1623afad4f1b9f86e33830c}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf5da20627c654020fe2d82270e2f36f9}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-C\-O\-N\-F\-I\-R\-M\-\_\-\-E\-L\-S\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a59789d38d75bd6f3729fa6a156f0233faf5da20627c654020fe2d82270e2f36f9}
+}]\end{description}
+\end{Desc}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cb}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!alrm\-\_\-lvl\-\_\-failsafe@{alrm\-\_\-lvl\-\_\-failsafe}}
+\index{alrm\-\_\-lvl\-\_\-failsafe@{alrm\-\_\-lvl\-\_\-failsafe}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{alrm\-\_\-lvl\-\_\-failsafe}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alrm\-\_\-lvl\-\_\-failsafe}}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cb}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cba09f3c2b5807c7f3965cd8bed09a4c7b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cba09f3c2b5807c7f3965cd8bed09a4c7b3}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cbae7902f3c3bb3d62e7621921467effd30}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cbae7902f3c3bb3d62e7621921467effd30}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cba09f3c2b5807c7f3965cd8bed09a4c7b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-F\-I\-N\-D\-M\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cba09f3c2b5807c7f3965cd8bed09a4c7b3}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cbae7902f3c3bb3d62e7621921467effd30}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-F\-A\-I\-L\-S\-A\-F\-E\-\_\-\-P\-A\-N\-I\-C}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ab1a6c1792900289eb8ebcce7cbc207cbae7902f3c3bb3d62e7621921467effd30}
+}]\end{description}
+\end{Desc}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbd}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!alrm\-\_\-lvl\-\_\-onoff@{alrm\-\_\-lvl\-\_\-onoff}}
+\index{alrm\-\_\-lvl\-\_\-onoff@{alrm\-\_\-lvl\-\_\-onoff}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{alrm\-\_\-lvl\-\_\-onoff}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alrm\-\_\-lvl\-\_\-onoff}}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbd}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbdac556d0ecba479eaf8640867a3e69ca87}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbdac556d0ecba479eaf8640867a3e69ca87}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbda942c480976cc3bfdfabc87fb3424d43e}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbda942c480976cc3bfdfabc87fb3424d43e}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbdac556d0ecba479eaf8640867a3e69ca87}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-F\-F}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbdac556d0ecba479eaf8640867a3e69ca87}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbda942c480976cc3bfdfabc87fb3424d43e}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-O\-N}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a18cbe9ce5417179b859430157f8a9bbda942c480976cc3bfdfabc87fb3424d43e}
+}]\end{description}
+\end{Desc}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9e}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!alrm\-\_\-lvl\-\_\-toggle@{alrm\-\_\-lvl\-\_\-toggle}}
+\index{alrm\-\_\-lvl\-\_\-toggle@{alrm\-\_\-lvl\-\_\-toggle}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{alrm\-\_\-lvl\-\_\-toggle}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alrm\-\_\-lvl\-\_\-toggle}}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9e}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eaede1a0540620964a9c38743e44314fd7}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eaede1a0540620964a9c38743e44314fd7}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eacf7aff2eb0814bac877db820a27eda08}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eacf7aff2eb0814bac877db820a27eda08}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9ead3d6bbd02ea70292ffd1a589933b08b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9ead3d6bbd02ea70292ffd1a589933b08b3}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eaede1a0540620964a9c38743e44314fd7}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-1}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eaede1a0540620964a9c38743e44314fd7}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eacf7aff2eb0814bac877db820a27eda08}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-2}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9eacf7aff2eb0814bac877db820a27eda08}
+}]\index{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E@{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9ead3d6bbd02ea70292ffd1a589933b08b3}{A\-L\-R\-M\-\_\-\-L\-V\-L\-\_\-\-T\-O\-G\-G\-L\-E\-\_\-\-E\-L\-S\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a75445f73c32e7f7994e33b448093ef9ead3d6bbd02ea70292ffd1a589933b08b3}
+}]\end{description}
+\end{Desc}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!alrm\-\_\-res@{alrm\-\_\-res}}
+\index{alrm\-\_\-res@{alrm\-\_\-res}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{alrm\-\_\-res}]{\setlength{\rightskip}{0pt plus 5cm}enum {\bf alrm\-\_\-res}}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4}
+\begin{Desc}
+\item[Enumerator]\par
+\begin{description}
+\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4b204600e506598e7edb49ae69353bad}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4b204600e506598e7edb49ae69353bad}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4ad9b21d5eb263293c437fd31d1034943a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4ad9b21d5eb263293c437fd31d1034943a}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a6186b471286d3139a08d08cbcc9c294a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a6186b471286d3139a08d08cbcc9c294a}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4afebf63c433dbf429bf6771a7bd575483}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4afebf63c433dbf429bf6771a7bd575483}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4c587bd6598a5bc8fbf0b8f80d1d2374}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4c587bd6598a5bc8fbf0b8f80d1d2374}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a57ab188a30b620f9316dee3fd969c79f}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a57ab188a30b620f9316dee3fd969c79f}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a9edb9de981f354a8b9a902ad72885d39}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a9edb9de981f354a8b9a902ad72885d39}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4b204600e506598e7edb49ae69353bad}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-L\-E\-D}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4b204600e506598e7edb49ae69353bad}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4ad9b21d5eb263293c437fd31d1034943a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-B\-U\-Z\-Z\-E\-R}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4ad9b21d5eb263293c437fd31d1034943a}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a6186b471286d3139a08d08cbcc9c294a}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-G\-R\-E\-E\-N}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a6186b471286d3139a08d08cbcc9c294a}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4afebf63c433dbf429bf6771a7bd575483}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-B\-L\-U\-E}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4afebf63c433dbf429bf6771a7bd575483}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4c587bd6598a5bc8fbf0b8f80d1d2374}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L\-\_\-\-R\-E\-D}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a4c587bd6598a5bc8fbf0b8f80d1d2374}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a57ab188a30b620f9316dee3fd969c79f}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-P\-L}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a57ab188a30b620f9316dee3fd969c79f}
+}]\index{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}!Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y@{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}}\item[{\em 
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a9edb9de981f354a8b9a902ad72885d39}{A\-L\-R\-M\-\_\-\-R\-E\-S\-\_\-\-A\-N\-Y}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ae78cf8f95ad5918eb0896c95f13bbcb4a9edb9de981f354a8b9a902ad72885d39}
+}]\end{description}
+\end{Desc}
+
+
+\subsection{Function Documentation}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a6afa2df7c68053f6a1ff8ad75d0c597f}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!alarm\-Handler@{alarm\-Handler}}
+\index{alarm\-Handler@{alarm\-Handler}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{alarm\-Handler}]{\setlength{\rightskip}{0pt plus 5cm}void alarm\-Handler (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a6afa2df7c68053f6a1ff8ad75d0c597f}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_acaa80b9fa133732d0066b777eea5c9d2}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!auto\-\_\-switch\-\_\-landing\-\_\-lights@{auto\-\_\-switch\-\_\-landing\-\_\-lights}}
+\index{auto\-\_\-switch\-\_\-landing\-\_\-lights@{auto\-\_\-switch\-\_\-landing\-\_\-lights}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{auto\-\_\-switch\-\_\-landing\-\_\-lights}]{\setlength{\rightskip}{0pt plus 5cm}void auto\-\_\-switch\-\_\-landing\-\_\-lights (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_acaa80b9fa133732d0066b777eea5c9d2}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a8bfe4ec6ab2b635ee5fcf872f4c3c5f0}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!auto\-\_\-switch\-\_\-led\-\_\-flasher@{auto\-\_\-switch\-\_\-led\-\_\-flasher}}
+\index{auto\-\_\-switch\-\_\-led\-\_\-flasher@{auto\-\_\-switch\-\_\-led\-\_\-flasher}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{auto\-\_\-switch\-\_\-led\-\_\-flasher}]{\setlength{\rightskip}{0pt plus 5cm}void auto\-\_\-switch\-\_\-led\-\_\-flasher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a8bfe4ec6ab2b635ee5fcf872f4c3c5f0}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a2176ca033612b0ecc1bb7e275a6b749a}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!blink\-L\-E\-D@{blink\-L\-E\-D}}
+\index{blink\-L\-E\-D@{blink\-L\-E\-D}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{blink\-L\-E\-D}]{\setlength{\rightskip}{0pt plus 5cm}void blink\-L\-E\-D (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{num, }
+\item[{uint8\-\_\-t}]{ontime, }
+\item[{uint8\-\_\-t}]{repeat}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a2176ca033612b0ecc1bb7e275a6b749a}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a36a87c6e82789f562498fdccbe1d504f}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!blink\-Led\-Ring@{blink\-Led\-Ring}}
+\index{blink\-Led\-Ring@{blink\-Led\-Ring}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{blink\-Led\-Ring}]{\setlength{\rightskip}{0pt plus 5cm}void blink\-Led\-Ring (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a36a87c6e82789f562498fdccbe1d504f}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a9e4d497e5e489636e0d93aab68b2b482}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!i2\-C\-Led\-Ring\-State@{i2\-C\-Led\-Ring\-State}}
+\index{i2\-C\-Led\-Ring\-State@{i2\-C\-Led\-Ring\-State}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{i2\-C\-Led\-Ring\-State}]{\setlength{\rightskip}{0pt plus 5cm}void i2\-C\-Led\-Ring\-State (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a9e4d497e5e489636e0d93aab68b2b482}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a482805b607aafac957a257d6c159a332}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!init\-\_\-landing\-\_\-lights@{init\-\_\-landing\-\_\-lights}}
+\index{init\-\_\-landing\-\_\-lights@{init\-\_\-landing\-\_\-lights}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{init\-\_\-landing\-\_\-lights}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-landing\-\_\-lights (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a482805b607aafac957a257d6c159a332}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a2eebe05f6921377eb34d730ddb5efb3b}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!init\-\_\-led\-\_\-flasher@{init\-\_\-led\-\_\-flasher}}
+\index{init\-\_\-led\-\_\-flasher@{init\-\_\-led\-\_\-flasher}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{init\-\_\-led\-\_\-flasher}]{\setlength{\rightskip}{0pt plus 5cm}void init\-\_\-led\-\_\-flasher (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a2eebe05f6921377eb34d730ddb5efb3b}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a7840aae6a09e7f9a827e556190658913}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!is\-Buzzer\-O\-N@{is\-Buzzer\-O\-N}}
+\index{is\-Buzzer\-O\-N@{is\-Buzzer\-O\-N}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{is\-Buzzer\-O\-N}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t is\-Buzzer\-O\-N (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a7840aae6a09e7f9a827e556190658913}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_ac0546d47a3227a7f0051cdecf546ee7d}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!led\-\_\-flasher\-\_\-autoselect\-\_\-sequence@{led\-\_\-flasher\-\_\-autoselect\-\_\-sequence}}
+\index{led\-\_\-flasher\-\_\-autoselect\-\_\-sequence@{led\-\_\-flasher\-\_\-autoselect\-\_\-sequence}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{led\-\_\-flasher\-\_\-autoselect\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}void led\-\_\-flasher\-\_\-autoselect\-\_\-sequence (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_ac0546d47a3227a7f0051cdecf546ee7d}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a8915bcf59a07f2ec48e16a353f0fc74e}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!led\-\_\-flasher\-\_\-set\-\_\-sequence@{led\-\_\-flasher\-\_\-set\-\_\-sequence}}
+\index{led\-\_\-flasher\-\_\-set\-\_\-sequence@{led\-\_\-flasher\-\_\-set\-\_\-sequence}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{led\-\_\-flasher\-\_\-set\-\_\-sequence}]{\setlength{\rightskip}{0pt plus 5cm}void led\-\_\-flasher\-\_\-set\-\_\-sequence (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{s}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a8915bcf59a07f2ec48e16a353f0fc74e}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a395dec200beef27694cf08fefd3dbb40}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!Pilot\-Lamp@{Pilot\-Lamp}}
+\index{Pilot\-Lamp@{Pilot\-Lamp}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{Pilot\-Lamp}]{\setlength{\rightskip}{0pt plus 5cm}void Pilot\-Lamp (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{count}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a395dec200beef27694cf08fefd3dbb40}
+\hypertarget{MultiWii__2__4_2MultiWii_2Alarms_8h_a99e66d9dba7afe19f3fc6aff182f74c8}{\index{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}!vario\-\_\-signaling@{vario\-\_\-signaling}}
+\index{vario\-\_\-signaling@{vario\-\_\-signaling}!MultiWii_2_4/MultiWii/Alarms.h@{Multi\-Wii\-\_\-2\-\_\-4/\-Multi\-Wii/\-Alarms.\-h}}
+\subsubsection[{vario\-\_\-signaling}]{\setlength{\rightskip}{0pt plus 5cm}void vario\-\_\-signaling (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{MultiWii__2__4_2MultiWii_2Alarms_8h_a99e66d9dba7afe19f3fc6aff182f74c8}

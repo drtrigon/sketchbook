@@ -1,0 +1,125 @@
+\hypertarget{BlinkingSwitch__SWBB-TS_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.ino File Reference}
+\label{BlinkingSwitch__SWBB-TS_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S/\-Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}}
+}
+
+
+Switch/\-Tunnel for Through\-Serial-\/\-Software\-Bit\-Bang.  
+
+
+{\ttfamily \#include $<$P\-J\-O\-N\-Interactive\-Router.\-h$>$}\\*
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N\-Interactive\-Router\\*
+$<$ P\-J\-O\-N\-Virtual\-Bus\-Router\\*
+$<$ P\-J\-O\-N\-Switch $>$ $>$ \hyperlink{BlinkingSwitch__SWBB-TS_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{router} (2,(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\})
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TS_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TS_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+void \hyperlink{BlinkingSwitch__SWBB-TS_8ino_af488e931618139cd40b126dabfe9b6bb}{sendnotification\-\_\-function} (const uint8\-\_\-t $\ast$const \hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, const uint16\-\_\-t length, const uint8\-\_\-t receiver\-\_\-bus, const uint8\-\_\-t sender\-\_\-bus, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+Strategy\-Link$<$ Software\-Bit\-Bang $>$ \hyperlink{BlinkingSwitch__SWBB-TS_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}{link1}
+\item 
+Strategy\-Link$<$ Through\-Serial $>$ \hyperlink{BlinkingSwitch__SWBB-TS_8ino_a6ab0c6e3e6ae04f06e58b38531729623}{link2}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Switch/\-Tunnel for Through\-Serial-\/\-Software\-Bit\-Bang. \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/07-\/06 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0 \begin{DoxyItemize}
+\item first version replacing Software\-Bit\-Bang\-Surrogate derived from \hyperlink{BlinkingSwitch_8ino}{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Tunneler/\-Blinking\-Switch/\-Blinking\-Switch.\-ino}\end{DoxyItemize}
+\begin{DoxyVerb}* OneWire PJON Generic "OWPG" scheme:
+*   Server e.g. linux machine or raspi
+*      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+*      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
+*   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/ (this sketch)
+*      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+*   Devices e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+*      ...
+*
+* Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+*
+* Pinout:
+*   1wire PJON data bus (OWPJON SWBB):
+*        1WIRE DATA    -> Arduino Pin D7
+*        GND black     -> Arduino GND
+*   1wire Sniffer/Master/Client Shield
+*
+* Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
+* following files:
+*   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*
+* Thanks to:
+* gioblu - PJON 11.0 and support
+*          @see https://www.pjon.org/
+*          @see https://github.com/gioblu/PJON
+* fredilarsen - support
+* \end{DoxyVerb}
+ 
+\end{DoxyVersion}
+
+
+\subsection{Function Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TS_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}!loop@{loop}}
+\index{loop@{loop}!BlinkingSwitch_SWBB-TS.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TS_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{BlinkingSwitch__SWBB-TS_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}!router@{router}}
+\index{router@{router}!BlinkingSwitch_SWBB-TS.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}}
+\subsubsection[{router}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Interactive\-Router$<$P\-J\-O\-N\-Virtual\-Bus\-Router$<$P\-J\-O\-N\-Switch$>$ $>$ router (
+\begin{DoxyParamCaption}
+\item[{2}]{, }
+\item[{(P\-J\-O\-N\-Any $\ast$\mbox{[}2\mbox{]})\{\&bus1,\&bus2\}}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TS_8ino_a8c8a35b003b9467f7f3b1a828c90a5b5}
+\hypertarget{BlinkingSwitch__SWBB-TS_8ino_af488e931618139cd40b126dabfe9b6bb}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}!sendnotification\-\_\-function@{sendnotification\-\_\-function}}
+\index{sendnotification\-\_\-function@{sendnotification\-\_\-function}!BlinkingSwitch_SWBB-TS.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}}
+\subsubsection[{sendnotification\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void sendnotification\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{const uint8\-\_\-t $\ast$const}]{payload, }
+\item[{const uint16\-\_\-t}]{length, }
+\item[{const uint8\-\_\-t}]{receiver\-\_\-bus, }
+\item[{const uint8\-\_\-t}]{sender\-\_\-bus, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TS_8ino_af488e931618139cd40b126dabfe9b6bb}
+\hypertarget{BlinkingSwitch__SWBB-TS_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}!setup@{setup}}
+\index{setup@{setup}!BlinkingSwitch_SWBB-TS.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{BlinkingSwitch__SWBB-TS_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{BlinkingSwitch__SWBB-TS_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}!link1@{link1}}
+\index{link1@{link1}!BlinkingSwitch_SWBB-TS.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}}
+\subsubsection[{link1}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus1\& link1}}\label{BlinkingSwitch__SWBB-TS_8ino_ae2f4f4a5ca9a8a627a5132d1868bf5c0}
+\hypertarget{BlinkingSwitch__SWBB-TS_8ino_a6ab0c6e3e6ae04f06e58b38531729623}{\index{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}!link2@{link2}}
+\index{link2@{link2}!BlinkingSwitch_SWBB-TS.ino@{Blinking\-Switch\-\_\-\-S\-W\-B\-B-\/\-T\-S.\-ino}}
+\subsubsection[{link2}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N\-Any bus2\& link2}}\label{BlinkingSwitch__SWBB-TS_8ino_a6ab0c6e3e6ae04f06e58b38531729623}

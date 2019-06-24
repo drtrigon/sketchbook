@@ -1,0 +1,152 @@
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp}{\section{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.cpp File Reference}
+\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp}\index{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+}
+
+
+Example-\/\-Code for a generic Server (e.\-g. Sensor, Display)  
+
+
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a77ceac8d6af195fe72f95f6afd87c45e}{I\-D}~45
+\item 
+\#define \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a83827e7e1ea81a80230494f397024c7f}{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-L\-U\-D\-P}
+\item 
+\#define \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad51ded0bbd705f02f73fc60c0b721ced}{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}~256
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+P\-J\-O\-N$<$ Local\-U\-D\-P $>$ \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a8071715f81d2e92e1af0186a58ead275}{bus} (\hyperlink{Uno__Dragino__Client__LoRa_8ino_a77ceac8d6af195fe72f95f6afd87c45e}{I\-D})
+\item 
+void \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_acbeb8ee6ee1960e6bba5ab9bcf75db6b}{error\-\_\-handler} (uint8\-\_\-t code, uint16\-\_\-t \hyperlink{blink6drcs_8c_abe49a82806b5db2e012bc33839af03e6}{data}, void $\ast$custom\-\_\-pointer)
+\item 
+int \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+char \hyperlink{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}{buffer} \mbox{[}\hyperlink{wiringPi_8c_ad51ded0bbd705f02f73fc60c0b721ced}{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Example-\/\-Code for a generic Server (e.\-g. Sensor, Display) \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/07-\/31 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-2 \begin{DoxyItemize}
+\item make it more reliable by considering \item network delay/latency L\-U\-D\-P\-\_\-\-R\-E\-S\-P\-O\-N\-S\-E\-\_\-\-T\-I\-M\-E\-O\-U\-T (especially when on battery powered wifi) \item a lot of switches in row (3 for outdoor part of bus) \item possibility of blocked lora channels/freq (increasing delays) \item having (u)sleep in order to reduce cpu load and give os and hardware time \item clean bus from old (hanging) messages \end{DoxyItemize}
+
+
+1.\-1 \begin{DoxyItemize}
+\item use different I\-Ds for linux/ubuntu and raspi builds (use {\ttfamily make raspi}) \item status and error handling added \item debug output to stderr added \item retrying disabled in favour of the former changes \end{DoxyItemize}
+
+
+1.\-0 \begin{DoxyItemize}
+\item first version derived from \hyperlink{ThroughSerial_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp}{O\-W\-P\-J\-O\-N/\-L\-I\-N\-U\-X/\-Local/\-Through\-Serial/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}\end{DoxyItemize}
+\begin{DoxyVerb}* OneWire PJON Generic "OWPG" scheme:
+*   Server e.g. linux machine or raspi
+*      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/ (this sketch)
+*      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
+*   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TL/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
+*      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+*   Devices e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_1w-adaptor/
+*      OWPJON/ATTINY/Local/SoftwareBitBang/DeviceGeneric/
+*      ...
+*
+* Reliability and connection issues:
+*   It seems that battery powering the notebook (connected via wifi) has heavy influence
+*   on UDP packet send delay (and thus PJON health).
+*   Increase LUDP_RESPONSE_TIMEOUT to 1000000 (1s) in @ref libraries/PJON/src/strategies/LocalUDP/LocalUDP.h
+*   Apply patch: .../sketchbook$ patch -p0 < OWPJON/20180731-udp_latency.patch
+*   Also adopting poll timings might help ... for more info in general @ee https://github.com/gioblu/PJON/issues/222
+*
+* Compatible with: ubuntu 14.04, raspi (look at the Makefile)
+*   ID 45: owpshell on linux/ubuntu (testing)
+*   ID 46: owpshell on raspi .41 (productive)
+*
+* Example sending READ_INFO 0x01 to device id 44:
+* $ printf "\x01" | ./owpshell - - 44
+* owp:dg:v1
+* $ printf "\x11" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+* 4.771999835968018,
+* $ printf "\x12" | ./owpshell - - 44 | ../../../ThroughSerial/RemoteWorker/DeviceGeneric/unpack.py f
+* 28.02459144592285,
+* More info can be found in @ref OWPJON/README.md.
+*
+* Thanks to:
+* gioblu - PJON 11.0 and support
+*          @see https://www.pjon.org/
+*          @see https://github.com/gioblu/PJON
+* fredilarsen - support
+* \end{DoxyVerb}
+ 
+\end{DoxyVersion}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad51ded0bbd705f02f73fc60c0b721ced}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}}
+\index{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E@{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E~256}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad51ded0bbd705f02f73fc60c0b721ced}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a77ceac8d6af195fe72f95f6afd87c45e}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!I\-D@{I\-D}}
+\index{I\-D@{I\-D}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{I\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define I\-D~45}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a77ceac8d6af195fe72f95f6afd87c45e}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a83827e7e1ea81a80230494f397024c7f}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-L\-U\-D\-P@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-L\-U\-D\-P}}
+\index{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-L\-U\-D\-P@{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-L\-U\-D\-P}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-L\-U\-D\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define P\-J\-O\-N\-\_\-\-I\-N\-C\-L\-U\-D\-E\-\_\-\-L\-U\-D\-P}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a83827e7e1ea81a80230494f397024c7f}
+
+
+\subsection{Function Documentation}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a8071715f81d2e92e1af0186a58ead275}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!bus@{bus}}
+\index{bus@{bus}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Local\-U\-D\-P$>$ bus (
+\begin{DoxyParamCaption}
+\item[{{\bf I\-D}}]{}
+\end{DoxyParamCaption}
+)}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a8071715f81d2e92e1af0186a58ead275}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_acbeb8ee6ee1960e6bba5ab9bcf75db6b}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!error\-\_\-handler@{error\-\_\-handler}}
+\index{error\-\_\-handler@{error\-\_\-handler}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{error\-\_\-handler}]{\setlength{\rightskip}{0pt plus 5cm}void error\-\_\-handler (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t}]{code, }
+\item[{uint16\-\_\-t}]{data, }
+\item[{void $\ast$}]{custom\-\_\-pointer}
+\end{DoxyParamCaption}
+)}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_acbeb8ee6ee1960e6bba5ab9bcf75db6b}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a0ddf1224851353fc92bfbff6f499fa97}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!main@{main}}
+\index{main@{main}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{main}]{\setlength{\rightskip}{0pt plus 5cm}int main (
+\begin{DoxyParamCaption}
+\item[{int}]{argc, }
+\item[{char $\ast$}]{argv\mbox{[}$\,$\mbox{]}}
+\end{DoxyParamCaption}
+)}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a0ddf1224851353fc92bfbff6f499fa97}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a76fc5e73c141f748dcc1809fdcfa1714}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!receiver\-\_\-function@{receiver\-\_\-function}}
+\index{receiver\-\_\-function@{receiver\-\_\-function}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{receiver\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_a76fc5e73c141f748dcc1809fdcfa1714}
+
+
+\subsection{Variable Documentation}
+\hypertarget{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}{\index{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}!buffer@{buffer}}
+\index{buffer@{buffer}!LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp@{Local\-U\-D\-P/\-Remote\-Worker/\-Device\-Generic/\-Device\-Generic.\-cpp}}
+\subsubsection[{buffer}]{\setlength{\rightskip}{0pt plus 5cm}char buffer\mbox{[}{\bf B\-L\-O\-C\-K\-\_\-\-S\-I\-Z\-E}\mbox{]}}}\label{LocalUDP_2RemoteWorker_2DeviceGeneric_2DeviceGeneric_8cpp_ad1a11643f6815853e0558861103c9a60}

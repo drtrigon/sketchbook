@@ -1,0 +1,81 @@
+\hypertarget{namespaceDeviceGeneric}{\section{Device\-Generic Namespace Reference}
+\label{namespaceDeviceGeneric}\index{Device\-Generic@{Device\-Generic}}
+}
+\subsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \hyperlink{classDeviceGeneric_1_1GenericPJON}{Generic\-P\-J\-O\-N}
+\item 
+class \hyperlink{classDeviceGeneric_1_1ThroughSerial}{Through\-Serial}
+\item 
+class \hyperlink{classDeviceGeneric_1_1LocalUDP}{Local\-U\-D\-P}
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+def \hyperlink{namespaceDeviceGeneric_a740180b8e7ba2291a07d9624fa8ec3c7}{receive\-\_\-func}
+\item 
+def \hyperlink{namespaceDeviceGeneric_a96f1d3b4a85bc641b50c041a12efa461}{error\-\_\-func}
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+int \hyperlink{namespaceDeviceGeneric_a40607bde9a8451d26d9e95c719722c14}{I\-D} = 45
+\item 
+tuple \hyperlink{namespaceDeviceGeneric_a084e2a9b523bbda45d571ea99fee0f31}{bus} = \hyperlink{classDeviceGeneric_1_1ThroughSerial}{Through\-Serial}(\hyperlink{namespaceDeviceGeneric_a40607bde9a8451d26d9e95c719722c14}{I\-D}, sys.\-argv\mbox{[}1\mbox{]}, int(sys.\-argv\mbox{[}2\mbox{]}))
+\item 
+tuple \hyperlink{namespaceDeviceGeneric_a71165b95b92225bdd6d08b826c521c8b}{buf} = sys.\-stdin.\-read()
+\item 
+tuple \hyperlink{namespaceDeviceGeneric_abd02f36eb5b20b6fcd71492463785563}{timer0} = time.\-time()
+\begin{DoxyCompactList}\small\item\em bus.\-update() bus.\-receive(1000) bus.\-loop(timeout\-\_\-us=1000) \end{DoxyCompactList}\item 
+tuple \hyperlink{namespaceDeviceGeneric_a8d2a2f778d4e748f1bd1b6c3d91d8a46}{timer1} = time.\-time()
+\item 
+int \hyperlink{namespaceDeviceGeneric_a8c6074f36f68d72fd1c72fcb62cca169}{ret} = -\/1
+\end{DoxyCompactItemize}
+
+
+\subsection{Function Documentation}
+\hypertarget{namespaceDeviceGeneric_a96f1d3b4a85bc641b50c041a12efa461}{\index{Device\-Generic@{Device\-Generic}!error\-\_\-func@{error\-\_\-func}}
+\index{error\-\_\-func@{error\-\_\-func}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{error\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}def Device\-Generic.\-error\-\_\-func (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{namespaceDeviceGeneric_a96f1d3b4a85bc641b50c041a12efa461}
+\begin{DoxyVerb}...\end{DoxyVerb}
+ \hypertarget{namespaceDeviceGeneric_a740180b8e7ba2291a07d9624fa8ec3c7}{\index{Device\-Generic@{Device\-Generic}!receive\-\_\-func@{receive\-\_\-func}}
+\index{receive\-\_\-func@{receive\-\_\-func}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{receive\-\_\-func}]{\setlength{\rightskip}{0pt plus 5cm}def Device\-Generic.\-receive\-\_\-func (
+\begin{DoxyParamCaption}
+\item[{}]{self, }
+\item[{}]{data, }
+\item[{}]{length, }
+\item[{}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{namespaceDeviceGeneric_a740180b8e7ba2291a07d9624fa8ec3c7}
+\begin{DoxyVerb}...\end{DoxyVerb}
+ 
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceDeviceGeneric_a71165b95b92225bdd6d08b826c521c8b}{\index{Device\-Generic@{Device\-Generic}!buf@{buf}}
+\index{buf@{buf}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{buf}]{\setlength{\rightskip}{0pt plus 5cm}list Device\-Generic.\-buf = sys.\-stdin.\-read()}}\label{namespaceDeviceGeneric_a71165b95b92225bdd6d08b826c521c8b}
+\hypertarget{namespaceDeviceGeneric_a084e2a9b523bbda45d571ea99fee0f31}{\index{Device\-Generic@{Device\-Generic}!bus@{bus}}
+\index{bus@{bus}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}tuple Device\-Generic.\-bus = {\bf Through\-Serial}({\bf I\-D}, sys.\-argv\mbox{[}1\mbox{]}, int(sys.\-argv\mbox{[}2\mbox{]}))}}\label{namespaceDeviceGeneric_a084e2a9b523bbda45d571ea99fee0f31}
+\hypertarget{namespaceDeviceGeneric_a40607bde9a8451d26d9e95c719722c14}{\index{Device\-Generic@{Device\-Generic}!I\-D@{I\-D}}
+\index{I\-D@{I\-D}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{I\-D}]{\setlength{\rightskip}{0pt plus 5cm}int Device\-Generic.\-I\-D = 45}}\label{namespaceDeviceGeneric_a40607bde9a8451d26d9e95c719722c14}
+\hypertarget{namespaceDeviceGeneric_a8c6074f36f68d72fd1c72fcb62cca169}{\index{Device\-Generic@{Device\-Generic}!ret@{ret}}
+\index{ret@{ret}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{ret}]{\setlength{\rightskip}{0pt plus 5cm}int Device\-Generic.\-ret = -\/1}}\label{namespaceDeviceGeneric_a8c6074f36f68d72fd1c72fcb62cca169}
+\hypertarget{namespaceDeviceGeneric_abd02f36eb5b20b6fcd71492463785563}{\index{Device\-Generic@{Device\-Generic}!timer0@{timer0}}
+\index{timer0@{timer0}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{timer0}]{\setlength{\rightskip}{0pt plus 5cm}tuple Device\-Generic.\-timer0 = time.\-time()}}\label{namespaceDeviceGeneric_abd02f36eb5b20b6fcd71492463785563}
+
+
+bus.\-update() bus.\-receive(1000) bus.\-loop(timeout\-\_\-us=1000) 
+
+bus.\-update() ret = bus.\-receive(1000) \# 1ms timeout packets\-\_\-to\-\_\-send, ret = bus.\-loop(timeout\-\_\-us=1000) \hypertarget{namespaceDeviceGeneric_a8d2a2f778d4e748f1bd1b6c3d91d8a46}{\index{Device\-Generic@{Device\-Generic}!timer1@{timer1}}
+\index{timer1@{timer1}!DeviceGeneric@{Device\-Generic}}
+\subsubsection[{timer1}]{\setlength{\rightskip}{0pt plus 5cm}tuple Device\-Generic.\-timer1 = time.\-time()}}\label{namespaceDeviceGeneric_a8d2a2f778d4e748f1bd1b6c3d91d8a46}

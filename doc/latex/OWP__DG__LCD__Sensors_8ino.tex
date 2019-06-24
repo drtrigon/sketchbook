@@ -1,0 +1,252 @@
+\hypertarget{OWP__DG__LCD__Sensors_8ino}{\section{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.ino File Reference}
+\label{OWP__DG__LCD__Sensors_8ino}\index{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors/\-O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+}
+
+
+Example-\/\-Code for a generic Display Device (e.\-g. Sensor, Display)  
+
+
+{\ttfamily \#include $<$avr/wdt.\-h$>$}\\*
+{\ttfamily \#include $<$E\-E\-P\-R\-O\-M.\-h$>$}\\*
+{\ttfamily \#include $<$Wire.\-h$>$}\\*
+{\ttfamily \#include \char`\"{}S\-S\-D1306\-Ascii.\-h\char`\"{}}\\*
+{\ttfamily \#include \char`\"{}S\-S\-D1306\-Ascii\-Wire.\-h\char`\"{}}\\*
+{\ttfamily \#include $<$P\-J\-O\-N.\-h$>$}\\*
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_a133432ca7ece04b33429e0fb94544867}{E\-N\-A\-B\-L\-E\-\_\-\-U\-N\-I\-T\-T\-E\-S\-T}
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_a84f1ead330bbcc83a63929c4726080d7}{S\-E\-N\-S\-O\-R}~\char`\"{}owp\-:lcd\-:v1\char`\"{}
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}~0x01
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_a3563b296d5f60635a1256e8a12261d74}{R\-E\-A\-D\-\_\-\-V\-C\-C}~0x11
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_ac8c23082885adeec4834469b64e00bb9}{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}~0x12
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_ada74e7db007a68e763f20c17f2985356}{R\-E\-A\-D}~0x21
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_aa10f470e996d0f51210d24f442d25e1e}{W\-R\-I\-T\-E}~0x22
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_a9418b096dba157494f523dc01b82a760}{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}~0x32
+\item 
+\#define \hyperlink{OWP__DG__LCD__Sensors_8ino_a97cbb3ad861da749fa03cd51262660ca}{pin\-\_\-onewire}~12
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+unsigned long R\-A\-M\-\_\-l\-Reboot\-Count \hyperlink{OWP__DG__LCD__Sensors_8ino_a847f3a8299d97aab23bf6c8ddb599b0c}{\-\_\-\-\_\-attribute\-\_\-\-\_\-} ((section(\char`\"{}.noinit\char`\"{})))
+\item 
+P\-J\-O\-N$<$ Software\-Bit\-Bang $>$ \hyperlink{OWP__DG__LCD__Sensors_8ino_a538cbe881a4c2d02f3bd441059c41ec4}{bus} (44)
+\item 
+void \hyperlink{OWP__DG__LCD__Sensors_8ino_a4fc01d736fe50cf5b977f755b675f11d}{setup} ()
+\item 
+void \hyperlink{OWP__DG__LCD__Sensors_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function} (uint8\-\_\-t $\ast$\hyperlink{Uno__Dragino__LoRa__GPS__Shield__TTN_8ino_a78a402d1762842473567de90b11ed256}{payload}, uint16\-\_\-t length, const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&packet\-\_\-info)
+\item 
+void \hyperlink{OWP__DG__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}{loop} ()
+\item 
+float \hyperlink{OWP__DG__LCD__Sensors_8ino_a0b3195c3893f02cb1b80d878b89549d6}{read\-Vcc} ()
+\item 
+float \hyperlink{OWP__DG__LCD__Sensors_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{read\-Temp} (void)
+\end{DoxyCompactItemize}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+uint8\-\_\-t \hyperlink{OWP__DG__LCD__Sensors_8ino_a509b1a771f43a48a82f722cd6e515b05}{mem\-\_\-read} \mbox{[}22\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{OWP__DG__LCD__Sensors_8ino_a02235b4e96743403348a58d554caa3dc}{mem\-\_\-buffer} \mbox{[}256\mbox{]}
+\item 
+uint8\-\_\-t \hyperlink{OWP__DG__LCD__Sensors_8ino_a4dd1004253345555aef9782ac96c4258}{mem\-\_\-buffer\-\_\-} \mbox{[}256\mbox{]}
+\item 
+unsigned long \hyperlink{OWP__DG__LCD__Sensors_8ino_a8e8831540fa7e8693d43b390f4d3ce84}{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count}
+\item 
+unsigned long \hyperlink{OWP__DG__LCD__Sensors_8ino_af0e04e8ff30374f495431fdaa358f8b4}{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count\-\_\-}
+\item 
+unsigned long \hyperlink{OWP__DG__LCD__Sensors_8ino_a65605eb57f7500313270f147580cf26c}{time\-\_\-last\-\_\-update}
+\item 
+S\-S\-D1306\-Ascii\-Wire \hyperlink{OWP__DG__LCD__Sensors_8ino_ad5f8b489b649f5974de70af2a799aee4}{oled}
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Example-\/\-Code for a generic Display Device (e.\-g. Sensor, Display) \begin{DoxyAuthor}{Author}
+drtrigon 
+\end{DoxyAuthor}
+\begin{DoxyDate}{Date}
+2018-\/07-\/06 
+\end{DoxyDate}
+\begin{DoxyVersion}{Version}
+1.\-0 \begin{DoxyItemize}
+\item first version derived from \hyperlink{ARDUINO_2Local_2SoftwareBitBang_2DeviceGeneric_2DeviceGeneric_8ino}{O\-W\-P\-J\-O\-N/\-A\-R\-D\-U\-I\-N\-O/\-Local/\-Software\-Bit\-Bang/\-Device\-Generic/\-Device\-Generic.\-ino}\end{DoxyItemize}
+\begin{DoxyVerb}* OneWire PJON Generic "OWPG" scheme:
+*   Server e.g. linux machine or raspi
+*      OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/
+*      OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/
+*   Tunnel(er) similar to 1wire master (similar cause we are on a multi-master bus) e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/Tunneler/BlinkingSwitch_SWBB-TS/
+*      OWPJON/ARDUINO/Local/ThroughSerial/SoftwareBitBangSurrogate/Surrogate/ (obsolete)
+*   Devices e.g. AVR
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/DeviceGeneric/
+*      OWPJON/ARDUINO/Local/SoftwareBitBang/OWP_DG_LCD_Sensors/ (this sketch)
+*      ...
+*
+* Compatible with: atmega328 (Uno, Nano), atmega32u4 (Yun)
+*
+* Pinout:
+*   1wire PJON data bus (OWPJON SWBB):
+*        1WIRE DATA    -> Arduino Pin D12
+*        GND black     -> Arduino GND
+*
+* Test on Ubuntu or Raspberry Pi Server (owpshell) confer the docu of
+* following files:
+*   - @ref OWPJON/LINUX/Local/LocalUDP/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*   - @ref OWPJON/LINUX/Local/ThroughSerial/RemoteWorker/DeviceGeneric/DeviceGeneric.cpp
+*
+* Thanks to:
+* gioblu - PJON 11.0 and support
+*          @see https://www.pjon.org/
+*          @see https://github.com/gioblu/PJON
+* fredilarsen - support
+* \end{DoxyVerb}
+ 
+\end{DoxyVersion}
+
+
+\subsection{Macro Definition Documentation}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a133432ca7ece04b33429e0fb94544867}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!E\-N\-A\-B\-L\-E\-\_\-\-U\-N\-I\-T\-T\-E\-S\-T@{E\-N\-A\-B\-L\-E\-\_\-\-U\-N\-I\-T\-T\-E\-S\-T}}
+\index{E\-N\-A\-B\-L\-E\-\_\-\-U\-N\-I\-T\-T\-E\-S\-T@{E\-N\-A\-B\-L\-E\-\_\-\-U\-N\-I\-T\-T\-E\-S\-T}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{E\-N\-A\-B\-L\-E\-\_\-\-U\-N\-I\-T\-T\-E\-S\-T}]{\setlength{\rightskip}{0pt plus 5cm}\#define E\-N\-A\-B\-L\-E\-\_\-\-U\-N\-I\-T\-T\-E\-S\-T}}\label{OWP__DG__LCD__Sensors_8ino_a133432ca7ece04b33429e0fb94544867}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a97cbb3ad861da749fa03cd51262660ca}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!pin\-\_\-onewire@{pin\-\_\-onewire}}
+\index{pin\-\_\-onewire@{pin\-\_\-onewire}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{pin\-\_\-onewire}]{\setlength{\rightskip}{0pt plus 5cm}\#define pin\-\_\-onewire~12}}\label{OWP__DG__LCD__Sensors_8ino_a97cbb3ad861da749fa03cd51262660ca}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_ada74e7db007a68e763f20c17f2985356}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!R\-E\-A\-D@{R\-E\-A\-D}}
+\index{R\-E\-A\-D@{R\-E\-A\-D}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{R\-E\-A\-D}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D~0x21}}\label{OWP__DG__LCD__Sensors_8ino_ada74e7db007a68e763f20c17f2985356}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}}
+\index{R\-E\-A\-D\-\_\-\-I\-N\-F\-O@{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-I\-N\-F\-O}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-I\-N\-F\-O~0x01}}\label{OWP__DG__LCD__Sensors_8ino_ae9d85efda88bdfdba5ca9fe92f557dd9}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_ac8c23082885adeec4834469b64e00bb9}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!R\-E\-A\-D\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}}
+\index{R\-E\-A\-D\-\_\-\-T\-E\-M\-P@{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-T\-E\-M\-P}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-T\-E\-M\-P~0x12}}\label{OWP__DG__LCD__Sensors_8ino_ac8c23082885adeec4834469b64e00bb9}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a3563b296d5f60635a1256e8a12261d74}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!R\-E\-A\-D\-\_\-\-V\-C\-C@{R\-E\-A\-D\-\_\-\-V\-C\-C}}
+\index{R\-E\-A\-D\-\_\-\-V\-C\-C@{R\-E\-A\-D\-\_\-\-V\-C\-C}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{R\-E\-A\-D\-\_\-\-V\-C\-C}]{\setlength{\rightskip}{0pt plus 5cm}\#define R\-E\-A\-D\-\_\-\-V\-C\-C~0x11}}\label{OWP__DG__LCD__Sensors_8ino_a3563b296d5f60635a1256e8a12261d74}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a84f1ead330bbcc83a63929c4726080d7}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}}
+\index{S\-E\-N\-S\-O\-R@{S\-E\-N\-S\-O\-R}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{S\-E\-N\-S\-O\-R}]{\setlength{\rightskip}{0pt plus 5cm}\#define S\-E\-N\-S\-O\-R~\char`\"{}owp\-:lcd\-:v1\char`\"{}}}\label{OWP__DG__LCD__Sensors_8ino_a84f1ead330bbcc83a63929c4726080d7}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_aa10f470e996d0f51210d24f442d25e1e}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!W\-R\-I\-T\-E@{W\-R\-I\-T\-E}}
+\index{W\-R\-I\-T\-E@{W\-R\-I\-T\-E}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{W\-R\-I\-T\-E}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-R\-I\-T\-E~0x22}}\label{OWP__DG__LCD__Sensors_8ino_aa10f470e996d0f51210d24f442d25e1e}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a9418b096dba157494f523dc01b82a760}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!W\-R\-I\-T\-E\-\_\-\-C\-A\-L@{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}}
+\index{W\-R\-I\-T\-E\-\_\-\-C\-A\-L@{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{W\-R\-I\-T\-E\-\_\-\-C\-A\-L}]{\setlength{\rightskip}{0pt plus 5cm}\#define W\-R\-I\-T\-E\-\_\-\-C\-A\-L~0x32}}\label{OWP__DG__LCD__Sensors_8ino_a9418b096dba157494f523dc01b82a760}
+
+
+\subsection{Function Documentation}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a847f3a8299d97aab23bf6c8ddb599b0c}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}}
+\index{\-\_\-\-\_\-attribute\-\_\-\-\_\-@{\-\_\-\-\_\-attribute\-\_\-\-\_\-}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{\-\_\-\-\_\-attribute\-\_\-\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long R\-A\-M\-\_\-l\-Reboot\-Count \-\_\-\-\_\-attribute\-\_\-\-\_\- (
+\begin{DoxyParamCaption}
+\item[{(section(\char`\"{}.noinit\char`\"{}))}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__LCD__Sensors_8ino_a847f3a8299d97aab23bf6c8ddb599b0c}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a538cbe881a4c2d02f3bd441059c41ec4}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!bus@{bus}}
+\index{bus@{bus}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{bus}]{\setlength{\rightskip}{0pt plus 5cm}P\-J\-O\-N$<$Software\-Bit\-Bang$>$ bus (
+\begin{DoxyParamCaption}
+\item[{44}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__LCD__Sensors_8ino_a538cbe881a4c2d02f3bd441059c41ec4}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!loop@{loop}}
+\index{loop@{loop}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{loop}]{\setlength{\rightskip}{0pt plus 5cm}void loop (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__LCD__Sensors_8ino_afe461d27b9c48d5921c00d521181f12f}
+One\-Wire\-P\-J\-O\-N device status update function.
+
+\begin{DoxyReturn}{Returns}
+(void) 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_ada109bb0cdc12131465dfe7a74f93b1e}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!read\-Temp@{read\-Temp}}
+\index{read\-Temp@{read\-Temp}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{read\-Temp}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Temp (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__LCD__Sensors_8ino_ada109bb0cdc12131465dfe7a74f93b1e}
+Internal Temperature Sensor for A\-Tmega328 types.
+
+
+\begin{DoxyParams}{Parameters}
+{\em void} & \\
+\hline
+\end{DoxyParams}
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWP__DG__LCD__Sensors_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{https://playground.arduino.cc/Main/InternalTemperatureSensor}{\tt https\-://playground.\-arduino.\-cc/\-Main/\-Internal\-Temperature\-Sensor} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The chip temperature in \mbox{[}°\-C\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a0b3195c3893f02cb1b80d878b89549d6}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!read\-Vcc@{read\-Vcc}}
+\index{read\-Vcc@{read\-Vcc}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{read\-Vcc}]{\setlength{\rightskip}{0pt plus 5cm}float read\-Vcc (
+\begin{DoxyParamCaption}
+{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__LCD__Sensors_8ino_a0b3195c3893f02cb1b80d878b89549d6}
+Accessing the secret voltmeter on the Arduino 168 or 328.
+
+\begin{DoxySeeAlso}{See Also}
+\hyperlink{OWP__DG__LCD__Sensors_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{receiver\-\_\-function()} 
+
+\href{http://code.google.com/p/tinkerit/wiki/SecretVoltmeter}{\tt http\-://code.\-google.\-com/p/tinkerit/wiki/\-Secret\-Voltmeter} 
+\end{DoxySeeAlso}
+\begin{DoxyReturn}{Returns}
+The supply voltage in \mbox{[}V\mbox{]} 
+\end{DoxyReturn}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a76fc5e73c141f748dcc1809fdcfa1714}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!receiver\-\_\-function@{receiver\-\_\-function}}
+\index{receiver\-\_\-function@{receiver\-\_\-function}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{receiver\-\_\-function}]{\setlength{\rightskip}{0pt plus 5cm}void receiver\-\_\-function (
+\begin{DoxyParamCaption}
+\item[{uint8\-\_\-t $\ast$}]{payload, }
+\item[{uint16\-\_\-t}]{length, }
+\item[{const P\-J\-O\-N\-\_\-\-Packet\-\_\-\-Info \&}]{packet\-\_\-info}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__LCD__Sensors_8ino_a76fc5e73c141f748dcc1809fdcfa1714}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a4fc01d736fe50cf5b977f755b675f11d}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!setup@{setup}}
+\index{setup@{setup}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{setup}]{\setlength{\rightskip}{0pt plus 5cm}void setup (
+\begin{DoxyParamCaption}
+\item[{void}]{}
+\end{DoxyParamCaption}
+)}}\label{OWP__DG__LCD__Sensors_8ino_a4fc01d736fe50cf5b977f755b675f11d}
+Arduino I\-D\-E\-: put your setup code here, to run once. 
+
+\subsection{Variable Documentation}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a8e8831540fa7e8693d43b390f4d3ce84}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count}}
+\index{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count}}\label{OWP__DG__LCD__Sensors_8ino_a8e8831540fa7e8693d43b390f4d3ce84}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_af0e04e8ff30374f495431fdaa358f8b4}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count\-\_\-@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count\-\_\-}}
+\index{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count\-\_\-@{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count\-\_\-}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long E\-E\-P\-R\-O\-M\-\_\-l\-Power\-Count\-\_\-}}\label{OWP__DG__LCD__Sensors_8ino_af0e04e8ff30374f495431fdaa358f8b4}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a02235b4e96743403348a58d554caa3dc}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!mem\-\_\-buffer@{mem\-\_\-buffer}}
+\index{mem\-\_\-buffer@{mem\-\_\-buffer}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{mem\-\_\-buffer}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mem\-\_\-buffer\mbox{[}256\mbox{]}}}\label{OWP__DG__LCD__Sensors_8ino_a02235b4e96743403348a58d554caa3dc}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a4dd1004253345555aef9782ac96c4258}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!mem\-\_\-buffer\-\_\-@{mem\-\_\-buffer\-\_\-}}
+\index{mem\-\_\-buffer\-\_\-@{mem\-\_\-buffer\-\_\-}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{mem\-\_\-buffer\-\_\-}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mem\-\_\-buffer\-\_\-\mbox{[}256\mbox{]}}}\label{OWP__DG__LCD__Sensors_8ino_a4dd1004253345555aef9782ac96c4258}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a509b1a771f43a48a82f722cd6e515b05}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!mem\-\_\-read@{mem\-\_\-read}}
+\index{mem\-\_\-read@{mem\-\_\-read}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{mem\-\_\-read}]{\setlength{\rightskip}{0pt plus 5cm}uint8\-\_\-t mem\-\_\-read\mbox{[}22\mbox{]}}}\label{OWP__DG__LCD__Sensors_8ino_a509b1a771f43a48a82f722cd6e515b05}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_ad5f8b489b649f5974de70af2a799aee4}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!oled@{oled}}
+\index{oled@{oled}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{oled}]{\setlength{\rightskip}{0pt plus 5cm}S\-S\-D1306\-Ascii\-Wire oled}}\label{OWP__DG__LCD__Sensors_8ino_ad5f8b489b649f5974de70af2a799aee4}
+\hypertarget{OWP__DG__LCD__Sensors_8ino_a65605eb57f7500313270f147580cf26c}{\index{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}!time\-\_\-last\-\_\-update@{time\-\_\-last\-\_\-update}}
+\index{time\-\_\-last\-\_\-update@{time\-\_\-last\-\_\-update}!OWP_DG_LCD_Sensors.ino@{O\-W\-P\-\_\-\-D\-G\-\_\-\-L\-C\-D\-\_\-\-Sensors.\-ino}}
+\subsubsection[{time\-\_\-last\-\_\-update}]{\setlength{\rightskip}{0pt plus 5cm}unsigned long time\-\_\-last\-\_\-update}}\label{OWP__DG__LCD__Sensors_8ino_a65605eb57f7500313270f147580cf26c}

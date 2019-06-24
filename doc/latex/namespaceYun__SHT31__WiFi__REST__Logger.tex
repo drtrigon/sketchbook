@@ -1,0 +1,71 @@
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger}{\section{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger Namespace Reference}
+\label{namespaceYun__SHT31__WiFi__REST__Logger}\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+}
+\subsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+dictionary \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a5091bede7a4a75e0a5c6446ceaa65f5e}{C\-O\-N\-F}
+\item 
+tuple \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a80a836a108184fb61377ed6a60dbbe06}{ax} = plt.\-gca()
+\item 
+tuple \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a8f92e4f4418b5be2b5415431929989be}{path} = subprocess.\-check\-\_\-output(\hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a5091bede7a4a75e0a5c6446ceaa65f5e}{C\-O\-N\-F}\mbox{[}'mount'\mbox{]}, shell=True)
+\item 
+tuple \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a9c232b263a08fcf2b76be10967951c4b}{spamreader} = csv.\-reader(csvfile)
+\item 
+list \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a0aae5764084004c5362d48b5fe3cc991}{data} = \mbox{[}row for row in \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a9c232b263a08fcf2b76be10967951c4b}{spamreader}\mbox{]}
+\item 
+list \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a4ef8fe44943a727c006ec1a4aa9ca85d}{p} = \mbox{[}$\,$\mbox{]}
+\begin{DoxyCompactList}\small\item\em time.\-sleep(C\-O\-N\-F\mbox{[}'interval\-\_\-update'\mbox{]}) plt.\-pause(C\-O\-N\-F\mbox{[}'interval\-\_\-update'\mbox{]}) \end{DoxyCompactList}\item 
+tuple \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a8bf98582a5c24eb1e5be5a521b717256}{t} = time.\-strptime(line\mbox{[}0\mbox{]}, \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a5091bede7a4a75e0a5c6446ceaa65f5e}{C\-O\-N\-F}\mbox{[}\char`\"{}fmt\-\_\-time\char`\"{}\mbox{]})
+\item 
+tuple \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_afcdae84a5401eb4cc3a8b3a31fd07537}{ts} = (time.\-asctime(\hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a8bf98582a5c24eb1e5be5a521b717256}{t}), time.\-mktime(\hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a8bf98582a5c24eb1e5be5a521b717256}{t}))
+\item 
+list \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_ad449e0bc29b40e813c66bfd22caee772}{output} = \hyperlink{namespaceYun__SHT31__WiFi__REST__Logger_a5091bede7a4a75e0a5c6446ceaa65f5e}{C\-O\-N\-F}\mbox{[}'fmt\-\_\-print'\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\subsection{Variable Documentation}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_a80a836a108184fb61377ed6a60dbbe06}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!ax@{ax}}
+\index{ax@{ax}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{ax}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-ax = plt.\-gca()}}\label{namespaceYun__SHT31__WiFi__REST__Logger_a80a836a108184fb61377ed6a60dbbe06}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_a5091bede7a4a75e0a5c6446ceaa65f5e}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!C\-O\-N\-F@{C\-O\-N\-F}}
+\index{C\-O\-N\-F@{C\-O\-N\-F}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{C\-O\-N\-F}]{\setlength{\rightskip}{0pt plus 5cm}dictionary Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-C\-O\-N\-F}}\label{namespaceYun__SHT31__WiFi__REST__Logger_a5091bede7a4a75e0a5c6446ceaa65f5e}
+{\bfseries Initial value\-:}
+\begin{DoxyCode}
+1 = \{
+2   \textcolor{stringliteral}{'sensor'}: \textcolor{stringliteral}{"datalog.txt"},
+3   \textcolor{stringliteral}{'mount'}: [\textcolor{stringliteral}{"lsblk | grep 'sdb1'"}],
+4 
+5   \textcolor{stringliteral}{'log\_file'}: \textcolor{stringliteral}{"Yun\_ESP8266\_SHT31\_WiFi\_REST.log"},
+6   \textcolor{stringliteral}{'fmt\_print'}: \textcolor{stringliteral}{"%s, %14.3f, %9.3f °C, %9.3f %%rf, %9.3f V"},
+7   \textcolor{stringliteral}{'fmt\_write'}: \textcolor{stringliteral}{"%s, %14.3f, %9.3f, %9.3f, %9.3f"},
+8 
+9   \textcolor{stringliteral}{'fmt\_time'}: \textcolor{stringliteral}{"%Y-%m-%d %H:%M:%S"},
+10 \}
+\end{DoxyCode}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_a0aae5764084004c5362d48b5fe3cc991}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!data@{data}}
+\index{data@{data}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{data}]{\setlength{\rightskip}{0pt plus 5cm}list Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-data = \mbox{[}row for row in {\bf spamreader}\mbox{]}}}\label{namespaceYun__SHT31__WiFi__REST__Logger_a0aae5764084004c5362d48b5fe3cc991}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_ad449e0bc29b40e813c66bfd22caee772}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!output@{output}}
+\index{output@{output}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{output}]{\setlength{\rightskip}{0pt plus 5cm}list Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-output = {\bf C\-O\-N\-F}\mbox{[}'fmt\-\_\-print'\mbox{]}}}\label{namespaceYun__SHT31__WiFi__REST__Logger_ad449e0bc29b40e813c66bfd22caee772}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_a4ef8fe44943a727c006ec1a4aa9ca85d}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!p@{p}}
+\index{p@{p}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{p}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-p = \mbox{[}$\,$\mbox{]}}}\label{namespaceYun__SHT31__WiFi__REST__Logger_a4ef8fe44943a727c006ec1a4aa9ca85d}
+
+
+time.\-sleep(C\-O\-N\-F\mbox{[}'interval\-\_\-update'\mbox{]}) plt.\-pause(C\-O\-N\-F\mbox{[}'interval\-\_\-update'\mbox{]}) 
+
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_a8f92e4f4418b5be2b5415431929989be}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!path@{path}}
+\index{path@{path}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{path}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-path = subprocess.\-check\-\_\-output({\bf C\-O\-N\-F}\mbox{[}'mount'\mbox{]}, shell=True)}}\label{namespaceYun__SHT31__WiFi__REST__Logger_a8f92e4f4418b5be2b5415431929989be}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_a9c232b263a08fcf2b76be10967951c4b}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!spamreader@{spamreader}}
+\index{spamreader@{spamreader}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{spamreader}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-spamreader = csv.\-reader(csvfile)}}\label{namespaceYun__SHT31__WiFi__REST__Logger_a9c232b263a08fcf2b76be10967951c4b}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_a8bf98582a5c24eb1e5be5a521b717256}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!t@{t}}
+\index{t@{t}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{t}]{\setlength{\rightskip}{0pt plus 5cm}list Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-t = time.\-strptime(line\mbox{[}0\mbox{]}, {\bf C\-O\-N\-F}\mbox{[}\char`\"{}fmt\-\_\-time\char`\"{}\mbox{]})}}\label{namespaceYun__SHT31__WiFi__REST__Logger_a8bf98582a5c24eb1e5be5a521b717256}
+\hypertarget{namespaceYun__SHT31__WiFi__REST__Logger_afcdae84a5401eb4cc3a8b3a31fd07537}{\index{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}!ts@{ts}}
+\index{ts@{ts}!Yun_SHT31_WiFi_REST_Logger@{Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger}}
+\subsubsection[{ts}]{\setlength{\rightskip}{0pt plus 5cm}tuple Yun\-\_\-\-S\-H\-T31\-\_\-\-Wi\-Fi\-\_\-\-R\-E\-S\-T\-\_\-\-Logger.\-ts = (time.\-asctime({\bf t}), time.\-mktime({\bf t}))}}\label{namespaceYun__SHT31__WiFi__REST__Logger_afcdae84a5401eb4cc3a8b3a31fd07537}
