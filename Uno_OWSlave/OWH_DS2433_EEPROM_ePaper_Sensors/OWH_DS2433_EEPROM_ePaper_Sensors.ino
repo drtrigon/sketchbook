@@ -1,43 +1,6 @@
-// derived from 'Uno_ePaper_Test' which was derived from "epd2in9-demo"
-// see also:
-//   https://www.bastelgarage.ch/universal-raw-driver-e-paper-shield-fur-arduino-nucleo?search=epaper
-//   https://www.waveshare.com/wiki/E-Paper_Shield
-//   https://www.waveshare.com/w/upload/c/c8/E-Paper_Shield_User_Manual_en.pdf
-//   https://www.waveshare.com/w/upload/b/bb/E-Ppaer_Shield_Schematic.pdf
-//   https://www.waveshare.com/w/upload/e-Paper_Shield_Code.7z
-//
-// Notes:
-// - main issue is memory footprint:
-//   a) disable all serial library (debug) in 'Waveshare_ePaper' rename it to 'Waveshare_ePaper_minimal' (Debug.h, DEV_Config.cpp)
-//   b) DO NOT use String class or other with dynamic memory usage (stability problems)
-//      -> needs at least ~300 bytes free SRAM in order to work
-//      -> using char array buffers and 'sprintf' works even with ~20 bytes only (as no dynamic allocations are done and nedeed)
-//   c) put strings into flash using 'strcpy_P' and 'PSTR' similar like F macro
-//      -> also use 'sprintf_P' and 'PSTR' (use '%S' instead of '%s'!)
-//      -> if needed 'strcpy_P' can be replaced by 'sprintf_P' not needing any other change
-//   see: https://forum.arduino.cc/index.php?topic=243268.0
-//        https://learn.adafruit.com/memories-of-an-arduino/optimizing-sram
-//        https://andybrown.me.uk/2011/01/01/debugging-avr-dynamic-memory-allocation/
-//        (https://ww1.microchip.com/downloads/en/AppNotes/doc8453.pdf)
-//        (https://create.arduino.cc/projecthub/john-bradnam/reducing-your-memory-usage-26ca05)
-//        (https://www.thecoderscorner.com/electronics/microcontrollers/efficiency/evaluating-static-memory-usage-in-arduino-sketch/)
-//   d) look on Arduin IDE output "Using library" parts at the end; SPI, Wire, SD - are all of them needed?
-//      also analyze SRAM usage: $ /home/osboxes/.arduino15/packages/arduino/tools/avr-gcc/5.4.0-atmel3.6.1-arduino2/bin/avr-nm -Crtd --size-sort /tmp/arduino_build_71303/OWH_DS2433_EEPROM_ePaper_Sensors.ino.elf | grep -i ' [dbv] '
-//      -> free >500 bytes by disabling all SD usage by deleting the .cpp and .h source files (in 'Waveshare_ePaper_minimal')
-// - in order to keep the working principle using line based partial update a ePaper
-//   supporting partial update is needed (however full update should work as well when
-//   following the hints about memory footprint above - ban String class, use
-//   sprintf - also full update suppresses ghosting better)
-//   -> see 'Uno_ePaper_Test' for more info on how to use full/partial update etc.
-//
-// Pinout:
-//   use ePaper shield, thus some pins needed to be changed:
-//    8 ->  4
-//   13 ->  3
-//
 // TODO:
-// - are both libraries needed? SPI AND Wire?
 // - add LED for lighting (background or foreground?)
+// - are both libraries needed? SPI AND Wire?
 // - more lines and columns available as on oled -> use that!!! (ds2433 can work with up to 512 bytes of data, not just 144 / may be use bigger font?)
 
 /**
@@ -46,7 +9,10 @@
  * @file Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
  *
  * @author drtrigon
- * @date 2018-06-21
+ * @date 2020-08-04
+ * @version 2.0
+ *   @li change display to ePaper (less power consumption, bigger display)
+ *       (derived from 'Uno_ePaper_Test' which was derived from "epd2in9-demo")
  * @version 1.1
  *   @li add led feedback indicating missing update for more than 3 mins.
  *       confer @ref FREQ_BLINK_OK and @ref FREQ_BLINK_ERR
@@ -54,6 +20,9 @@
  *   @li add supply voltage and chip temperature sensors
  *   @li first version providing all basic features
  *
+ * @see https://www.waveshare.com/wiki/E-Paper_Shield
+ * @see https://www.bastelgarage.ch/universal-raw-driver-e-paper-shield-fur-arduino-nucleo?search=epaper
+ * @see https://www.waveshare.com/w/upload/e-Paper_Shield_Code.7z
  * @see http://www.seeedstudio.com/wiki/Grove_-_OLED_Display_1.12%22
  * @see http://www.seeedstudio.com/wiki/File:Stem-diagram-sign.jpg
  * @see http://www.instructables.com/id/Arduino-1-wire-Display-144-Chars/
@@ -75,21 +44,19 @@
  *   These settings might cause issues with other sketches - be aware of that.
  *
  * Pinout:
- *   OLED (Grove Shield I2C/Wire):
- *     1: GND black     -> Arduino GND
- *     2: VCC red       -> Arduino 5V
- *     3: SDA white     -> Arduino Pin A4
- *     4: SCL yellow    -> Arduino Pin A5
+ *   ePaper (Waveshare ePaper Shield):
+ *     (uses more or less all pins from pin 5 upward)
+ *     (therefore pins for staus led and 1wire data had to be changed)
+ *     https://www.waveshare.com/w/upload/c/c8/E-Paper_Shield_User_Manual_en.pdf
+ *     https://www.waveshare.com/w/upload/b/bb/E-Ppaer_Shield_Schematic.pdf
  *   Status LED:
- *        STATUS LED    -> Arduino Pin D13
+ *        STATUS LED    -> Arduino Pin D3
  *                      -> Arduino GND via 4.7k resistor eg.
  *   Control Buttons or Switch:
  *        RESET BTN     -> Arduino Pin RST
  *                      -> Arduino GND
- *        LCD MODE BTN  -> Arduino Pin D2 (internal pullup enabled)
- *                      -> Arduino GND
  *   1wire data bus (MicroLAN):
- *        1WIRE DATA    -> Arduino Pin D8
+ *        1WIRE DATA    -> Arduino Pin D4
  *
  * Test on Raspberry Pi Server using OWFS (owshell):
  *   $ /opt/owfs/bin/owwrite 2D.00003124DA00/memory 'hello world!'
@@ -100,6 +67,30 @@
  *     LinkHubE-Master, atmega328@16MHz (Arduino Uno) as Slave
  *   - OneWire HubDS2433 4096 bits EEPROM:
  *     DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
+ *
+ * Notes:
+ * - main issue was memory footprint:
+ *   a) disable all serial library (debug) in 'Waveshare_ePaper' rename it to 'Waveshare_ePaper_minimal' (Debug.h, DEV_Config.cpp)
+ *   b) DO NOT use String class or other with dynamic memory usage (stability problems)
+ *      -> needs at least ~300 bytes free SRAM in order to work
+ *      -> using char array buffers and 'sprintf' works even with ~20 bytes only (as no dynamic allocations are done and nedeed)
+ *   c) put strings into flash using 'strcpy_P' and 'PSTR' similar like F macro
+ *      -> also use 'sprintf_P' and 'PSTR' (use '%S' instead of '%s'!)
+ *      -> if needed 'strcpy_P' can be replaced by 'sprintf_P' not needing any other change
+ *   see: https://forum.arduino.cc/index.php?topic=243268.0
+ *        https://learn.adafruit.com/memories-of-an-arduino/optimizing-sram
+ *        https://andybrown.me.uk/2011/01/01/debugging-avr-dynamic-memory-allocation/
+ *        (https://ww1.microchip.com/downloads/en/AppNotes/doc8453.pdf)
+ *        (https://create.arduino.cc/projecthub/john-bradnam/reducing-your-memory-usage-26ca05)
+ *        (https://www.thecoderscorner.com/electronics/microcontrollers/efficiency/evaluating-static-memory-usage-in-arduino-sketch/)
+ *   d) look on Arduin IDE output "Using library" parts at the end; SPI, Wire, SD - are all of them needed?
+ *      also analyze SRAM usage: $ /home/osboxes/.arduino15/packages/arduino/tools/avr-gcc/5.4.0-atmel3.6.1-arduino2/bin/avr-nm -Crtd --size-sort /tmp/arduino_build_71303/OWH_DS2433_EEPROM_ePaper_Sensors.ino.elf | grep -i ' [dbv] '
+ *      -> free >500 bytes by disabling all SD usage by deleting the .cpp and .h source files (in 'Waveshare_ePaper_minimal')
+ * - in order to keep the working principle using line based partial update a ePaper
+ *   supporting partial update is needed (however full update should work as well when
+ *   following the hints about memory footprint above - ban String class, use
+ *   sprintf - also full update suppresses ghosting better)
+ *   -> see 'Uno_ePaper_Test' for more info on how to use full/partial update etc.
  *
  * Thanks to:
  * orgua - OneWireHub OneWire slave device emulator
