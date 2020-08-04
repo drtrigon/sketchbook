@@ -139,6 +139,7 @@ unsigned long EEPROM_lPowerCount0;                                      // these
 unsigned long EEPROM_lPowerCount1;                                      // copy for checksum (first use detection)
 
 unsigned long time_last_update;
+bool display_update;
 
 auto hub = OneWireHub(pin_onewire);
 auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);  // LCD/OLED
@@ -273,14 +274,17 @@ void setup()
     strcpy_P(&mem_read[0], PSTR("config done"));  // like F() macro
     EPD_Print(0*10+10, 10*20+10, mem_read, &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
 
-    ////3.Refresh the picture in RAM to e-Paper (needed for full udate only)
-    //epd.EPD_Display();
-    //epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
-
-    delay(2000);
-
-    paint.Paint_Clear(WHITE);
+    //3.Refresh the picture in RAM to e-Paper (needed for full update only)
     epd.EPD_Display();
+    epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
+
+    delay(3000);
+
+    paint.Paint_Clear(BLACK);  // reset/reduce ghosting
+    epd.EPD_Display();
+    paint.Paint_Clear(WHITE);  // clear display
+    epd.EPD_Display();
+    epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
 
     time_last_update = millis();
 
@@ -334,6 +338,7 @@ void loop()
                 wdt_reset();
 
                 time_last_update = millis();
+                display_update = true;
 
                 EPD_Print(0*10+10, i*20+10, reinterpret_cast<const char *>(mem_read), &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
 
@@ -346,8 +351,16 @@ void loop()
         ds18b1.setTemperature(static_cast<float>(GetTemp()));          // -55...125 allowed
         //ds18b1.setTemperatureRaw(static_cast<int16_t>(GetTemp() * 16.0f));
 
-        sprintf_P(&mem_read[0], PSTR("tmr: %ld"), millis());
-        EPD_Print(0*20+10, 13*20+10, reinterpret_cast<const char *>(mem_read), &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
+//        sprintf_P(&mem_read[0], PSTR("tmr: %ld"), millis());
+//        EPD_Print(0*20+10, 13*20+10, reinterpret_cast<const char *>(mem_read), &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
+
+        if (display_update) {
+            //3.Refresh the picture in RAM to e-Paper (needed for full update only)
+            epd.EPD_Display();
+            epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
+
+            display_update = false;
+        }
     }
 }
 
@@ -392,9 +405,9 @@ void EPD_Print(UWORD Xstart, UWORD Ystart, const char * pString,
 
     paint.Paint_DrawString_EN(Xstart, Ystart, pString, Font, Color_Background, Color_Foreground);  // needs ~20 pixel in height (last line ~250)
 
-    //3.Refresh the picture in RAM to e-Paper
-    epd.EPD_Display();
-    epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
+//    //3.Refresh the picture in RAM to e-Paper
+//    epd.EPD_Display();
+//    epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
 }
 
 /**
