@@ -32,7 +32,7 @@ rmdir fpgarduino-icestorm
 # WARNING: any local changes to the files will be lost.
 #git reset --hard HEAD
 git add AlhambraII
-git add README
+git add README.md
 git reset HEAD AlhambraII/picorv32/tools/riscv32i/
 git reset HEAD AlhambraII/picorv32/picorv32-master.zip
 
