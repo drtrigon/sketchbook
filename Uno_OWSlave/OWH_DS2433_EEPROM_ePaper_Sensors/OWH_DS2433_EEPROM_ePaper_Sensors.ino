@@ -1,5 +1,7 @@
 // TODO:
-// - add LED for lighting (background or foreground?)
+// - fine tune LED front light angle (note or draw position/geometry somewhere)
+// - add picturs of device/setup for docu purposes (of old oled "lcd" device also!)
+//
 // - are both libraries needed? SPI AND Wire?
 // - more lines and columns available as on oled -> use that!!! (ds2433 can work with up to 512 bytes of data, not just 144 / may be use bigger font?)
 
@@ -50,10 +52,14 @@
  *     https://www.waveshare.com/w/upload/c/c8/E-Paper_Shield_User_Manual_en.pdf
  *     https://www.waveshare.com/w/upload/b/bb/E-Ppaer_Shield_Schematic.pdf
  *   Status LED:
+ *        LIGHT LED     -> LIGHT BTN
+ *                      -> Arduino 5V via 3.3k resistor eg.
  *        STATUS LED    -> Arduino Pin D3
- *                      -> Arduino GND via 4.7k resistor eg.
+ *        (opt.)        -> Arduino GND via 4.7k resistor eg.
  *   Control Buttons or Switch:
  *        RESET BTN     -> Arduino Pin RST
+ *                      -> Arduino GND
+ *        LIGHT BTN     -> LIGHT LED (other contact of LED to 5V via 3.3k resistor eg.)
  *                      -> Arduino GND
  *   1wire data bus (MicroLAN):
  *        1WIRE DATA    -> Arduino Pin D4
@@ -91,6 +97,10 @@
  *   following the hints about memory footprint above - ban String class, use
  *   sprintf - also full update suppresses ghosting better)
  *   -> see 'Uno_ePaper_Test' for more info on how to use full/partial update etc.
+ * - casing:
+ *   a) prototype done with LEGO - may suitable be for longer use also
+ *   b) external bright (red) LED added as ePaper front-light
+ *      (directly connected to 5V/GND via switch, not software action needed)
  *
  * Thanks to:
  * orgua - OneWireHub OneWire slave device emulator
@@ -131,6 +141,10 @@ unsigned long EEPROM_lPowerCount1;                                      // copy 
 
 unsigned long time_last_update;
 bool display_update;
+bool status_update;
+
+uint32_t interval = FREQ_BLINK_OK;  // interval at which to blink (milliseconds)
+//uint32_t nextMillis = millis();     // will store next time LED will updated
 
 auto hub = OneWireHub(pin_onewire);
 auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);  // LCD/OLED
@@ -156,6 +170,9 @@ void setup()
     //   call the bootloader in case something dumb happens during development and the WDT
     //   resets the MCU too quickly. Once the code is solid, remove this.
     wdt_disable();
+
+    mem_read[13] = 0;
+//    memset(mem_read, 0, 16);
 
 //    Serial.begin(115200);
 //    Wire.begin();
@@ -232,13 +249,11 @@ void setup()
     EPD_Print(0*10+10, 9*20+10, mem_read, &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
     ++RAM_lRebootCount0;
     ++RAM_lRebootCount1;
+// PSTR used here is used 3 times in whole code - how to re-use it? by declaring a global const (expr) pointer?
 
     pinMode(pin_led, OUTPUT);
 
 //    pinMode(pin_button, INPUT_PULLUP);
-
-    mem_read[13] = 0;
-//    memset(mem_read, 0, 16);
 
     // Setup OneWire
     hub.attach(ds2433);
@@ -271,9 +286,12 @@ void setup()
 
     delay(3000);
 
-    paint.Paint_Clear(BLACK);  // reset/reduce ghosting
-    epd.EPD_Display();
     paint.Paint_Clear(WHITE);  // clear display
+
+    sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+    EPD_Print(0*10+10, 12*20+10, mem_read, &Font12, BLACK, WHITE);  // needs ~20 pixel in height (last line ~250)
+
+    //3.Refresh the picture in RAM to e-Paper (needed for full update only)
     epd.EPD_Display();
     epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
 
@@ -292,39 +310,31 @@ void loop()
     // following function must be called periodically
     hub.poll();
 
-// SWICTH WILL NOW CONNECT TO AND LIGHT A BACKGROUND LED - no software action needed
     // Blink triggers the state-change
     if (blinking()) {
-//        // Keep in mind the pull-up means the pushbutton's logic is inverted. It goes
-//        // HIGH when it's open, and LOW when it's pressed.
-//        if (digitalRead(pin_button) == LOW) {
-//            display_mode = (display_mode+1) % 3;
-//            //SeeedGrayOled.setTextXY(0,0);           //Set the cursor to (i+4)th line, 0th Column
-//            //SeeedGrayOled.putNumber(display_mode);
-//
-//            switch (display_mode) {  // changes mode only for newly/periodically printed stuff
-//            case 1:
-//                SeeedGrayOled.setInverseDisplay();    // Set display to inverse mode
-//                SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_On_Cmd);
-//                break;
-//            case 2:
-//                SeeedGrayOled.setNormalDisplay();     // Set display to inverse mode
-//                SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_Off_Cmd);
-//                break;
-//            default:
-//                SeeedGrayOled.setNormalDisplay();     //Set display to Normal mode
-//                SeeedGrayOled.sendCommand(SeeedGrayOLED_Display_On_Cmd);
-//                break;
-//            }
-//        }
+        /*// clear screen all millis() timer overflow in order to reset shadows (ghosting?)
+        if ((nextMillis <= interval) && (interval == FREQ_BLINK_OK)) {  // timer overflow (clear display to prevent ghosting)
+            // set buffer to empty/cleared display (display filled with whitespaces) - triggers print of all data after clear
+            memset(&mem_buffer[0], ' ', 144);
+
+            wdt_reset();
+
+            // clear display
+            paint.Paint_Clear(BLACK);  // reset/reduce ghosting
+            epd.EPD_Display();
+            paint.Paint_Clear(WHITE);  // clear display
+            epd.EPD_Display();
+
+            // restore power-on/reboot status display
+            sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+            EPD_Print(0*10+10, 12*20+10, mem_read, &Font12, BLACK, WHITE);  // needs ~20 pixel in height (last line ~250)
+
+            display_update = true;
+        }*/
 
         // pages are 32 bytes each, but we read in blocks of 12 byte due to the LCD
         for(char i=0; i < 12 ; i++) {
-            //SeeedGrayOled.setTextXY(0,1);           //Set the cursor to (i+4)th line, 0th Column
-            //SeeedGrayOled.putNumber(i);
             ds2433.readMemory(mem_read, 12, i*12);
-            //SeeedGrayOled.setTextXY(0,2);           //Set the cursor to (i+4)th line, 0th Column
-            //SeeedGrayOled.putNumber(i);
             if(memcmp(mem_read, &mem_buffer[i*12], 12) != 0) {  // update display on change only otherwise 1wire becomes unresponsive due to slow output!!
                 wdt_reset();
 
@@ -337,21 +347,34 @@ void loop()
             }
         }
 
-        ds18b0.setTemperature(static_cast<float>(readVcc()/1000.));    // -55...125 allowed
-        //ds18b0.setTemperatureRaw(static_cast<int16_t>((readVcc()/1000.) * 16.0f));
-        ds18b1.setTemperature(static_cast<float>(GetTemp()));          // -55...125 allowed
-        //ds18b1.setTemperatureRaw(static_cast<int16_t>(GetTemp() * 16.0f));
-
 //        sprintf_P(&mem_read[0], PSTR("tmr: %ld"), millis());
 //        EPD_Print(0*20+10, 13*20+10, reinterpret_cast<const char *>(mem_read), &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
 
-        if (display_update) {
+        if (status_update) {
+            wdt_reset();
+
+            if (interval == FREQ_BLINK_ERR) {  // no update for >180'000ms = 3min
+                strcpy_P(&mem_read[0], PSTR("E: no update"));  // like F() macro
+                paint.Paint_DrawString_EN(0*10+10, 13*20+10, mem_read, &Font12, BLACK, WHITE);  // needs ~20 pixel in height (last line ~250)
+            } else
+                paint.Paint_ClearWindows(0*10+10, 13*20+10, 0*10+10 + Font12.Width * 12, 13*20+10 + Font12.Height, WHITE);
+        }
+
+        if (display_update or status_update) {
+            wdt_reset();
+
             //3.Refresh the picture in RAM to e-Paper (needed for full update only)
             epd.EPD_Display();
             epd.EPD_Sleep();      // prevent ghosting and other damages, e.g. due to high-voltage for long time
 
             display_update = false;
+            status_update = false;
         }
+
+        ds18b0.setTemperature(static_cast<float>(readVcc()/1000.));    // -55...125 allowed
+        //ds18b0.setTemperatureRaw(static_cast<int16_t>((readVcc()/1000.) * 16.0f));
+        ds18b1.setTemperature(static_cast<float>(GetTemp()));          // -55...125 allowed
+        //ds18b1.setTemperatureRaw(static_cast<int16_t>(GetTemp() * 16.0f));
     }
 }
 
@@ -363,21 +386,24 @@ void loop()
  */
 bool blinking(void)
 {
-    static uint32_t interval    = FREQ_BLINK_OK; // interval at which to blink (milliseconds)
+    //static uint32_t interval    = FREQ_BLINK_OK; // interval at which to blink (milliseconds)
     static uint32_t nextMillis  = millis();     // will store next time LED will updated
 
     if (millis() > nextMillis) {
         //if (nextMillis > (time_last_update + 180000))  // (would be faster...)
-        if (millis() > (time_last_update + 180000))  // no update for >180'000ms = 3min
+        if (millis() > (time_last_update + 180000)) {  // no update for >180'000ms = 3min
+            status_update = (interval != FREQ_BLINK_ERR);
             interval = FREQ_BLINK_ERR;        // ERR: interval at which to blink (milliseconds)
-        else
+        } else {
+            status_update = (interval != FREQ_BLINK_OK);
             interval = FREQ_BLINK_OK;         //  OK: interval at which to blink (milliseconds)
+        }
 
         nextMillis += interval;             // save the next time you blinked the LED
         static uint8_t ledState = LOW;      // ledState used to set the LED
         if (ledState == LOW)    ledState = HIGH;
         else                    ledState = LOW;
-        digitalWrite(pin_led, ledState);
+        //digitalWrite(pin_led, ledState);
         return 1;
     }
     return 0;
