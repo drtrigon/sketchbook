@@ -5,10 +5,11 @@
 // - are both libraries needed? SPI AND Wire?
 // - more lines and columns available as on oled -> use that!!! (ds2433 can work with up to 512 bytes of data, not just 144 / may be use bigger font?)
 
+// ATTENTION: BE AWARE THAT THIS CODE USES THE CHIPS EEPROM WHICH IS LIMITED !!!
 /**
  * @brief Code that emulates a 1wire LCD/OLED Display (DS2433 4096 bits EEPROM)
  *
- * @file Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+ * @file Uno_OWSlave/OWH_DS2433_EEPROM_ePaper_Sensors/OWH_DS2433_EEPROM_ePaper_Sensors.ino
  *
  * @author drtrigon
  * @date 2020-08-04
@@ -130,6 +131,8 @@ constexpr uint8_t pin_onewire   { 4 };
 constexpr uint8_t pin_led       { 3 };
 //constexpr uint8_t pin_button    { 2 };
 
+const char PROGMEM fmt_status[] = "P: %2ld  B: %2ld";
+
 uint8_t mem_read[16];
 //uint8_t display_mode = 0;  // 0: normal, 1: inverse; 2: off
 uint8_t mem_buffer[144];
@@ -145,6 +148,7 @@ bool status_update;
 
 uint32_t interval = FREQ_BLINK_OK;  // interval at which to blink (milliseconds)
 //uint32_t nextMillis = millis();     // will store next time LED will updated
+//uint32_t lastMillis  = 0;     // will store last time LED was updated
 
 auto hub = OneWireHub(pin_onewire);
 auto ds2433 = DS2433(DS2433::family_code, 0x00, 0x00, 0x33, 0x24, 0xDA, 0x00);  // LCD/OLED
@@ -237,19 +241,16 @@ void setup()
         //++EEPROM_lPowerCount0; ++EEPROM_lPowerCount1;
         ++EEPROM_lPowerCount1;
         //EEPROM.put(sizeof(unsigned long)*0, EEPROM_lPowerCount0);
-// writing to eeprom limited to ~100'000 times thus disabled
-//        EEPROM.put(sizeof(unsigned long)*0, EEPROM_lPowerCount1);
-//        EEPROM.put(sizeof(unsigned long)*1, EEPROM_lPowerCount1);
-// writing to eeprom disabled
+        // writing to eeprom limited to ~100'000 times
+        EEPROM.put(sizeof(unsigned long)*0, EEPROM_lPowerCount1);
+        EEPROM.put(sizeof(unsigned long)*1, EEPROM_lPowerCount1);
     }
-// writing to eeprom limited to ~100'000 times thus disabled
-//    sprintf(&mem_read[0],"P: %2ld  R: %2ld", EEPROM_lPowerCount0, RAM_lRebootCount0);
-    sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
-// writing to eeprom disabled
-    EPD_Print(0*10+10, 9*20+10, mem_read, &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
     ++RAM_lRebootCount0;
     ++RAM_lRebootCount1;
-// PSTR used here is used 3 times in whole code - how to re-use it? by declaring a global const (expr) pointer?
+    //sprintf(&mem_read[0],"P: %2ld  R: %2ld", EEPROM_lPowerCount0, RAM_lRebootCount0);
+    //sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+    sprintf_P(&mem_read[0], fmt_status, EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+    EPD_Print(0*10+10, 9*20+10, mem_read, &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
 
     pinMode(pin_led, OUTPUT);
 
@@ -286,9 +287,13 @@ void setup()
 
     delay(3000);
 
+    paint.Paint_Clear(BLACK);  // reset/reduce ghosting (this reset lasts for rest of operation)
+    epd.EPD_Display();
     paint.Paint_Clear(WHITE);  // clear display
+    //epd.EPD_Display();
 
-    sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+    //sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+    sprintf_P(&mem_read[0], fmt_status, EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
     EPD_Print(0*10+10, 12*20+10, mem_read, &Font12, BLACK, WHITE);  // needs ~20 pixel in height (last line ~250)
 
     //3.Refresh the picture in RAM to e-Paper (needed for full update only)
@@ -312,8 +317,9 @@ void loop()
 
     // Blink triggers the state-change
     if (blinking()) {
-        /*// clear screen all millis() timer overflow in order to reset shadows (ghosting?)
-        if ((nextMillis <= interval) && (interval == FREQ_BLINK_OK)) {  // timer overflow (clear display to prevent ghosting)
+        /*// clear display all millis() timer overflow in order to reset shadows (ghosting?)
+//        if ((nextMillis <= interval) && (interval == FREQ_BLINK_OK)) {  // timer overflow (clear display to prevent ghosting)
+        if ((lastMillis > millis()) && (interval == FREQ_BLINK_OK)) {  // timer overflow (clear display to prevent ghosting)
             // set buffer to empty/cleared display (display filled with whitespaces) - triggers print of all data after clear
             memset(&mem_buffer[0], ' ', 144);
 
@@ -326,13 +332,14 @@ void loop()
             epd.EPD_Display();
 
             // restore power-on/reboot status display
-            sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+            //sprintf_P(&mem_read[0], PSTR("P: %2ld  R: %2ld"), EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
+            sprintf_P(&mem_read[0], fmt_status, EEPROM_lPowerCount1, RAM_lRebootCount0);  // while eeprom writing disabled
             EPD_Print(0*10+10, 12*20+10, mem_read, &Font12, BLACK, WHITE);  // needs ~20 pixel in height (last line ~250)
 
             display_update = true;
         }*/
 
-        // pages are 32 bytes each, but we read in blocks of 12 byte due to the LCD
+        // update data; pages are 32 bytes each, but we read in blocks of 12 byte due to the LCD
         for(char i=0; i < 12 ; i++) {
             ds2433.readMemory(mem_read, 12, i*12);
             if(memcmp(mem_read, &mem_buffer[i*12], 12) != 0) {  // update display on change only otherwise 1wire becomes unresponsive due to slow output!!
@@ -349,7 +356,9 @@ void loop()
 
 //        sprintf_P(&mem_read[0], PSTR("tmr: %ld"), millis());
 //        EPD_Print(0*20+10, 13*20+10, reinterpret_cast<const char *>(mem_read), &Font12, WHITE, BLACK);  // needs ~20 pixel in height (last line ~250)
+//        display_update = true;
 
+        // update status
         if (status_update) {
             wdt_reset();
 
@@ -357,9 +366,10 @@ void loop()
                 strcpy_P(&mem_read[0], PSTR("E: no update"));  // like F() macro
                 paint.Paint_DrawString_EN(0*10+10, 13*20+10, mem_read, &Font12, BLACK, WHITE);  // needs ~20 pixel in height (last line ~250)
             } else
-                paint.Paint_ClearWindows(0*10+10, 13*20+10, 0*10+10 + Font12.Width * 12, 13*20+10 + Font12.Height, WHITE);
+                paint.Paint_ClearWindows(0*10+10-1, 13*20+10-1, 0*10+10-1 + Font12.Width * 12, 13*20+10-1 + Font12.Height, WHITE);
         }
 
+        // show updated data and status
         if (display_update or status_update) {
             wdt_reset();
 
@@ -371,6 +381,7 @@ void loop()
             status_update = false;
         }
 
+        // update sensors
         ds18b0.setTemperature(static_cast<float>(readVcc()/1000.));    // -55...125 allowed
         //ds18b0.setTemperatureRaw(static_cast<int16_t>((readVcc()/1000.) * 16.0f));
         ds18b1.setTemperature(static_cast<float>(GetTemp()));          // -55...125 allowed
@@ -387,11 +398,15 @@ void loop()
 bool blinking(void)
 {
     //static uint32_t interval    = FREQ_BLINK_OK; // interval at which to blink (milliseconds)
-    static uint32_t nextMillis  = millis();     // will store next time LED will updated
+//    static uint32_t nextMillis  = millis();     // will store next time LED will updated
+    static uint32_t lastMillis  = 0;     // will store last time LED was updated
 
-    if (millis() > nextMillis) {
+//    if (millis() > nextMillis) {
+    if ((millis() - lastMillis) > interval) {
+        lastMillis = millis();             // save the last time you blinked the LED
         //if (nextMillis > (time_last_update + 180000))  // (would be faster...)
-        if (millis() > (time_last_update + 180000)) {  // no update for >180'000ms = 3min
+//        if (millis() > (time_last_update + 180000)) {  // no update for >180'000ms = 3min
+        if (lastMillis > (time_last_update + 180000)) {  // no update for >180'000ms = 3min
             status_update = (interval != FREQ_BLINK_ERR);
             interval = FREQ_BLINK_ERR;        // ERR: interval at which to blink (milliseconds)
         } else {
@@ -399,7 +414,7 @@ bool blinking(void)
             interval = FREQ_BLINK_OK;         //  OK: interval at which to blink (milliseconds)
         }
 
-        nextMillis += interval;             // save the next time you blinked the LED
+//        nextMillis += interval;             // save the next time you blinked the LED
         static uint8_t ledState = LOW;      // ledState used to set the LED
         if (ledState == LOW)    ledState = HIGH;
         else                    ledState = LOW;
@@ -418,7 +433,7 @@ void EPD_Print(UWORD Xstart, UWORD Ystart, const char * pString,
                                    sFONT* Font, UWORD Color_Background, UWORD Color_Foreground)
 {
     // ClearWindows needed for partial update
-    paint.Paint_ClearWindows(Xstart, Ystart, Xstart + Font->Width * 12, Ystart + Font->Height, WHITE);
+    paint.Paint_ClearWindows(Xstart-1, Ystart-1, Xstart-1 + Font->Width * 12, Ystart-1 + Font->Height, WHITE);
 
     paint.Paint_DrawString_EN(Xstart, Ystart, pString, Font, Color_Background, Color_Foreground);  // needs ~20 pixel in height (last line ~250)
 
