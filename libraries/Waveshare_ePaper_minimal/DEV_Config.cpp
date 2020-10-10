@@ -36,7 +36,7 @@ UBYTE DEV::System_Init(void)
     SPIRAM_CS_1;
     
     //set Serial
-    Serial.begin(115200);
+//    Serial.begin(115200);
       
     //set OLED SPI
     // SPI.beginTransaction(SPISettings(2000000, MSBFIRST, SPI_MODE0));

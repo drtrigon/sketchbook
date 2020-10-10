@@ -16,7 +16,7 @@
 
 #include <Wire.h>
 
-#define USE_DEBUG 1
+//#define USE_DEBUG 1
 #if USE_DEBUG
 	#define DEBUG(__info) Serial.print(__info)
 #else
