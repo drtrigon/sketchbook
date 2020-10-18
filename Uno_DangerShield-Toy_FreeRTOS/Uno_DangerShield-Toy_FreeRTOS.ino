@@ -133,15 +133,23 @@ void setup() {
   xTaskCreate(
     TaskLightAlarm
     ,  "LightAlarm"   // A name just for humans
-    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater
+    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
     ,  NULL
     ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
     ,  NULL );
 
-  xTaskCreate(
+/*  xTaskCreate(
     TaskTempWarning
     ,  "TempWarning"   // A name just for humans
     ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater
+    ,  NULL
+    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+    ,  NULL );*/
+
+  xTaskCreate(
+    TaskCapSenseWarning
+    ,  "CapSenseWarning"   // A name just for humans
+    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
     ,  NULL
     ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
     ,  NULL );
@@ -153,6 +161,14 @@ void setup() {
     ,  NULL
     ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
     ,  NULL );*/
+
+  xTaskCreate(
+    TaskButtonBuzzer
+    ,  "ButtonBuzzer"   // A name just for humans
+    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
+    ,  NULL
+    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+    ,  NULL );
 
   // Now the task scheduler, which takes over control of scheduling individual tasks, is automatically started.
 }
@@ -363,8 +379,9 @@ void TaskTempWarning(void *pvParameters)  // This is a task.
     vTaskSuspendAll();
 
     //If light sensor is less than 3/4 of the average (covered up) then freak out
-    while(((float)temperature/10) > 25.0)
+    while(((float)temperature/10) > 30.0)
     {
+
       digitalWrite(LED1, LOW);
       digitalWrite(LED2, LOW);
       digitalWrite(LATCH, LOW);
@@ -391,6 +408,39 @@ void TaskTempWarning(void *pvParameters)  // This is a task.
    }
 }
 
+void TaskCapSenseWarning(void *pvParameters)  // This is a task.
+{
+  (void) pvParameters;
+
+  for (;;) // A Task shall never return or exit.
+  {
+    long capLevel = capPadOn92.capacitiveSensor(30);
+
+    vTaskSuspendAll();
+
+    //If light sensor is less than 3/4 of the average (covered up) then freak out
+    while(capLevel > 1000)
+    {
+
+      digitalWrite(LED1, LOW);
+      digitalWrite(LED2, LOW);
+      digitalWrite(LATCH, LOW);
+      shiftOut(DATA, CLOCK, MSBFIRST, ~B00000000);
+      digitalWrite(LATCH, HIGH);
+      noTone(BUZZER);
+
+      //vTaskDelay( 25 / portTICK_PERIOD_MS ); // wait for one second
+      delay(25);
+
+      capLevel = capPadOn92.capacitiveSensor(30);
+    }
+
+    xTaskResumeAll();
+
+    vTaskDelay( 500 / portTICK_PERIOD_MS ); // wait for one second
+   }
+}
+
 void TaskCapSenseLED(void *pvParameters)  // This is a task.
 {
   (void) pvParameters;
@@ -409,5 +459,31 @@ void TaskCapSenseLED(void *pvParameters)  // This is a task.
     value lower than when it was called on entering the task. */
 /*    UBaseType_t uxHighWaterMark = uxTaskGetStackHighWaterMark( NULL );
     Serial.println(uxHighWaterMark);*/
+  }
+}
+
+void TaskButtonBuzzer(void *pvParameters)  // This is a task.
+{
+  (void) pvParameters;
+
+  for (;;) // A Task shall never return or exit.
+  {
+    if(digitalRead(BUTTON2) == LOW) {
+        vTaskSuspendAll();
+        tone(BUZZER, 1000);
+        delay( 500 ); // wait for one second
+        noTone(BUZZER);
+        delay( 100 ); // wait for one second
+        tone(BUZZER, 1000);
+        delay( 500 ); // wait for one second
+        noTone(BUZZER);
+        delay( 100 ); // wait for one second
+        tone(BUZZER, 1000);
+        delay( 500 ); // wait for one second
+        noTone(BUZZER);
+        delay( 100 ); // wait for one second
+        xTaskResumeAll();
+    }
+    vTaskDelay( 50 / portTICK_PERIOD_MS ); // wait for one second
   }
 }
