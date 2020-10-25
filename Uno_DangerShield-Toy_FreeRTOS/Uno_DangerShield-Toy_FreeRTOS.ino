@@ -2,6 +2,31 @@
 // 1. https://raw.githubusercontent.com/sparkfun/DangerShield/master/Firmware/DangerShield/DangerShield.ino
 // 2. File > Examples > FreeRTOS > Blink_AnalogRead
 
+// FreeRTOS hints:
+// - memory is VERY limited, in order to make "all" tasks work, disable serial
+//   (in order to use serial, disable at least one task)
+// - in order to check stack (memory) requirements use:
+//   - uxTaskGetStackHighWaterMark()
+//   - vApplicationStackOverflowHook callback (fast blinking LED)
+// - for shared ressources (e.g. Buzzer or Alarm tasks) use either:
+//   - full blocking: vTaskSuspendAll(), xTaskResumeAll()
+//   - non-blocking: xSemaphoreTake(), xSemaphoreGive()
+//                   (seems you can use both delay() or vTaskDelay() here...)
+
+// Configurations:
+// 1. "Enhanced default config" similar to DangerShield demo:
+//   - TaskBlink
+//   - TaskSliderLED
+//   - TaskSliderNumber
+//   - TaskButtonLED
+//   - TaskSliderButtonBuzzer
+//   - TaskLightAlarm
+//   - TaskCapSenseWarning
+//   - TaskButtonBuzzer
+// 2. "..."
+//   - ...
+
+
 // Shift register bit values to display 0-9 on the seven-segment display
 const PROGMEM byte ledCharSet[10] = {
   B00111111, 
@@ -43,8 +68,11 @@ CapacitiveSensor capPadOn92 = CapacitiveSensor(9, 2);   //Use digital pins 2 and
 //-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=-=
 
 #include <Arduino_FreeRTOS.h>
+#include <semphr.h>
 
 #define configCHECK_FOR_STACK_OVERFLOW    2
+
+SemaphoreHandle_t xSemaphore = xSemaphoreCreateMutex();  // the Buzzer is a shared ressource - use Semaphore to protect it
 
 int avgLightLevel;
 
@@ -152,7 +180,7 @@ void setup() {
     ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
     ,  NULL
     ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );
+    ,  NULL );/**/
 
 /*  xTaskCreate(
     TaskCapSenseLED
@@ -298,10 +326,14 @@ void TaskSliderButtonBuzzer(void *pvParameters)  // This is a task.
     int val3 = analogRead(SLIDER3);
     //Set the sound based on the 3rd slider
     long buzSound = map(val3, 0, 1023, 1000, 10000); //Map the slider value to an audible frequency
-    if((buzSound > 1100) && (digitalRead(BUTTON3) == LOW))
-      tone(BUZZER, buzSound); //Set sound value
-    else
-      noTone(BUZZER);
+    if(xSemaphoreTake( xSemaphore, (TickType_t)10) == pdTRUE) {
+      if((buzSound > 1100) && (digitalRead(BUTTON3) == LOW))
+        tone(BUZZER, buzSound); //Set sound value
+      else
+        noTone(BUZZER);
+
+      xSemaphoreGive( xSemaphore );
+    }
     vTaskDelay( 50 / portTICK_PERIOD_MS ); // wait for one second
   }
 }
@@ -416,7 +448,7 @@ void TaskCapSenseWarning(void *pvParameters)  // This is a task.
   {
     long capLevel = capPadOn92.capacitiveSensor(30);
 
-    vTaskSuspendAll();
+    vTaskSuspendAll();  // instead of using Semaphore just stop all other tasks (lot of ressources)
 
     //If light sensor is less than 3/4 of the average (covered up) then freak out
     while(capLevel > 1000)
@@ -468,21 +500,23 @@ void TaskButtonBuzzer(void *pvParameters)  // This is a task.
 
   for (;;) // A Task shall never return or exit.
   {
-    if(digitalRead(BUTTON2) == LOW) {
-        vTaskSuspendAll();
-        tone(BUZZER, 1000);
-        delay( 500 ); // wait for one second
-        noTone(BUZZER);
-        delay( 100 ); // wait for one second
-        tone(BUZZER, 1000);
-        delay( 500 ); // wait for one second
-        noTone(BUZZER);
-        delay( 100 ); // wait for one second
-        tone(BUZZER, 1000);
-        delay( 500 ); // wait for one second
-        noTone(BUZZER);
-        delay( 100 ); // wait for one second
-        xTaskResumeAll();
+    if(xSemaphoreTake( xSemaphore, (TickType_t)10) == pdTRUE) {
+      if(digitalRead(BUTTON2) == LOW) {
+          tone(BUZZER, 1000);
+          delay( 500 ); // wait for one second
+          noTone(BUZZER);
+          delay( 100 ); // wait for one second
+          tone(BUZZER, 1000);
+          delay( 500 ); // wait for one second
+          noTone(BUZZER);
+          delay( 100 ); // wait for one second
+          tone(BUZZER, 1000);
+          delay( 500 ); // wait for one second
+          noTone(BUZZER);
+          delay( 100 ); // wait for one second
+      }
+
+      xSemaphoreGive( xSemaphore );
     }
     vTaskDelay( 50 / portTICK_PERIOD_MS ); // wait for one second
   }
