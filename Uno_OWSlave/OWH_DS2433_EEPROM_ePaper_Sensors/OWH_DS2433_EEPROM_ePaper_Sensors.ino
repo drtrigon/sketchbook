@@ -1,10 +1,3 @@
-// TODO:
-// - fine tune LED front light angle (note or draw position/geometry somewhere)
-// - add picturs of device/setup for docu purposes (of old oled "lcd" device also!)
-//
-// - are both libraries needed? SPI AND Wire?
-// - more lines and columns available as on oled -> use that!!! (ds2433 can work with up to 512 bytes of data, not just 144 / may be use bigger font?)
-
 // ATTENTION: BE AWARE THAT THIS CODE USES THE CHIPS EEPROM WHICH IS LIMITED !!!
 /**
  * @brief Code that emulates a 1wire LCD/OLED Display (DS2433 4096 bits EEPROM)
@@ -13,15 +6,13 @@
  *
  * @author drtrigon
  * @date 2020-08-04
- * @version 2.0
- *   @li change display to ePaper (less power consumption, bigger display)
- *       (derived from 'Uno_ePaper_Test' which was derived from "epd2in9-demo")
- * @version 1.1
- *   @li add led feedback indicating missing update for more than 3 mins.
- *       confer @ref FREQ_BLINK_OK and @ref FREQ_BLINK_ERR
  * @version 1.0
- *   @li add supply voltage and chip temperature sensors
- *   @li first version providing all basic features
+ *   @li change display to ePaper (less power consumption, bigger display)
+ *   @li first version derived from Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors
+ *       and 'Uno_ePaper_Test' (which was derived from "epd2in9-demo")
+ *
+ * @ref Uno_OWSlave/OWH_DS2433_EEPROM_LCD_Sensors/OWH_DS2433_EEPROM_LCD_Sensors.ino
+ * @ref Uno_ePaper_Test/Uno_ePaper_Test.ino
  *
  * @see https://www.waveshare.com/wiki/E-Paper_Shield
  * @see https://www.bastelgarage.ch/universal-raw-driver-e-paper-shield-fur-arduino-nucleo?search=epaper
@@ -31,6 +22,8 @@
  * @see http://www.instructables.com/id/Arduino-1-wire-Display-144-Chars/
  *
  * @verbatim
+ * ATTENTION: BE AWARE THAT THIS CODE USES THE CHIPS EEPROM WHICH IS LIMITED !!!
+ *
  * OneWireHub library compilation for v2.2.0:
  *   Needs for compilation Arduino IDE version >= 1.8.3 due to used syntax.
  * OneWireHub library settings for v2.2.0:
@@ -76,6 +69,12 @@
  *     DS9490R-Master, atmega328@16MHz and teensy3.2@96MHz as Slave
  *
  * Notes:
+ * - TODO (future):
+ *   - fine tune LED front light angle (note or draw position/geometry somewhere)
+ *   - add picturs of device/setup for docu purposes (of old oled "lcd" device also!)
+ *   - (are both libraries needed? SPI AND Wire?)
+ *   - (more lines and columns available as on oled -> use that!!!)
+ *     (ds2433 can work with up to 512 bytes of data, not just 144 / may be use bigger font?)
  * - main issue was memory footprint:
  *   a) disable all serial library (debug) in 'Waveshare_ePaper' rename it to 'Waveshare_ePaper_minimal' (Debug.h, DEV_Config.cpp)
  *   b) DO NOT use String class or other with dynamic memory usage (stability problems)
@@ -84,12 +83,12 @@
  *   c) put strings into flash using 'strcpy_P' and 'PSTR' similar like F macro
  *      -> also use 'sprintf_P' and 'PSTR' (use '%S' instead of '%s'!)
  *      -> if needed 'strcpy_P' can be replaced by 'sprintf_P' not needing any other change
- *   see: https://forum.arduino.cc/index.php?topic=243268.0
- *        https://learn.adafruit.com/memories-of-an-arduino/optimizing-sram
- *        https://andybrown.me.uk/2011/01/01/debugging-avr-dynamic-memory-allocation/
- *        (https://ww1.microchip.com/downloads/en/AppNotes/doc8453.pdf)
- *        (https://create.arduino.cc/projecthub/john-bradnam/reducing-your-memory-usage-26ca05)
- *        (https://www.thecoderscorner.com/electronics/microcontrollers/efficiency/evaluating-static-memory-usage-in-arduino-sketch/)
+ *      @see https://forum.arduino.cc/index.php?topic=243268.0
+ *      @see https://learn.adafruit.com/memories-of-an-arduino/optimizing-sram
+ *      @see https://andybrown.me.uk/2011/01/01/debugging-avr-dynamic-memory-allocation/
+ *      @see (https://ww1.microchip.com/downloads/en/AppNotes/doc8453.pdf)
+ *      @see (https://create.arduino.cc/projecthub/john-bradnam/reducing-your-memory-usage-26ca05)
+ *      @see (https://www.thecoderscorner.com/electronics/microcontrollers/efficiency/evaluating-static-memory-usage-in-arduino-sketch/)
  *   d) look on Arduin IDE output "Using library" parts at the end; SPI, Wire, SD - are all of them needed?
  *      also analyze SRAM usage: $ /home/osboxes/.arduino15/packages/arduino/tools/avr-gcc/5.4.0-atmel3.6.1-arduino2/bin/avr-nm -Crtd --size-sort /tmp/arduino_build_71303/OWH_DS2433_EEPROM_ePaper_Sensors.ino.elf | grep -i ' [dbv] '
  *      -> free >500 bytes by disabling all SD usage by deleting the .cpp and .h source files (in 'Waveshare_ePaper_minimal')
