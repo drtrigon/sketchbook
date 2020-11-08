@@ -1,31 +1,56 @@
-// DangerShield Examples:
-// 1. https://raw.githubusercontent.com/sparkfun/DangerShield/master/Firmware/DangerShield/DangerShield.ino
-// 2. File > Examples > FreeRTOS > Blink_AnalogRead
-
-// FreeRTOS hints:
-// - memory is VERY limited, in order to make "all" tasks work, disable serial
-//   (in order to use serial, disable at least one task)
-// - in order to check stack (memory) requirements use:
-//   - uxTaskGetStackHighWaterMark()
-//   - vApplicationStackOverflowHook callback (fast blinking LED)
-// - for shared ressources (e.g. Buzzer or Alarm tasks) use either:
-//   - full blocking: vTaskSuspendAll(), xTaskResumeAll()
-//   - non-blocking: xSemaphoreTake(), xSemaphoreGive()
-//                   (seems you can use both delay() or vTaskDelay() here...)
-
-// Configurations:
-// 1. "Enhanced default config" similar to DangerShield demo:
-//   - TaskBlink
-//   - TaskSliderLED
-//   - TaskSliderNumber
-//   - TaskButtonLED
-//   - TaskSliderButtonBuzzer
-//   - TaskLightAlarm
-//   - TaskCapSenseWarning
-//   - TaskButtonBuzzer
-// 2. "..."
-//   - ...
-
+/**
+ * @brief Code that uses the Danger Shield as a children/baby toy (using FreeRTOS)
+ *
+ * @file Uno_DangerShield-Toy_FreeRTOS/Uno_DangerShield-Toy_FreeRTOS.ino
+ *
+ * @author drtrigon
+ * @date 2020-10-10
+ * @version 1.0
+ *   @li first version featuring 2 programs
+ *   @li first version derived from Uno_DangerShield-Toy (Danger Shield Example Sketch)
+ *       and 'Uno_ePaper_Test' (which was derived from "epd2in9-demo")
+ *
+ * @ref Uno_DangerShield-Toy/Uno_DangerShield-Toy.ino
+ * @ref File > Examples > FreeRTOS > Blink_AnalogRead
+ *
+ * @see https://raw.githubusercontent.com/sparkfun/DangerShield/master/Firmware/DangerShield/DangerShield.ino
+ * @see https://www.freertos.org/a00106.html
+ *
+ * @verbatim
+ * Configurations (default is prog 0):
+ *   1. prog 0: "Enhanced default config" similar to Danger Shield demo with some additions:
+ *     - TaskBlink
+ *     - TaskSliderLED
+ *     - TaskSliderNumber
+ *     - TaskButtonLED
+ *     - TaskSliderButtonBuzzer (BUTTON3, SLIDER3)
+ *     - TaskLightAlarm
+ *     - TaskCapSenseWarning
+ *     - TaskButtonBuzzer
+ *   2. prog 1 "Sound Machine"
+ *     - TaskSliderButtonBuzzer (BUTTON1, SLIDER1)
+ *     - TaskSliderButtonBuzzer (BUTTON2, SLIDER2)
+ *     - TaskSliderButtonBuzzer (BUTTON3, SLIDER3)
+ * FreeRTOS hints:
+ *   - memory is VERY limited, in order to make "all" tasks work, disable serial
+ *     (in order to use serial, disable at least one task)
+ *   - in order to check stack (memory) requirements use:
+ *     - uxTaskGetStackHighWaterMark()
+ *     - vApplicationStackOverflowHook callback (fast blinking LED)
+ *   - for shared ressources (e.g. Buzzer or Alarm tasks) use either:
+ *     - full blocking: vTaskSuspendAll(), xTaskResumeAll()
+ *     - non-blocking: xSemaphoreTake(), xSemaphoreGive()
+ *                     (seems you can use both delay() or vTaskDelay() here...)
+ *
+ * Pinout:
+ *   Danger Shield v1.7 pin definitions (see code below)
+ *
+ * Thanks to:
+ * Danger Shield Example Sketch
+ * Chris Taylor, Nathan Seidle
+ * Spark Fun Electronics
+ * @endverbatim
+ */
 
 // Shift register bit values to display 0-9 on the seven-segment display
 const PROGMEM byte ledCharSet[10] = {
@@ -117,86 +142,122 @@ void setup() {
     avgLightLevel += analogRead(LIGHT);
   avgLightLevel /= 16;
 
-  // Now set up tasks to run independently.
-  xTaskCreate(
-    TaskBlink
-    ,  "Blink"   // A name just for humans
-    ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );/**/
+  int val2 = analogRead(SLIDER2);
+  //int numToDisplay = map(val2, 0, 1023, 0, 9); //Map the slider value to a displayable value
+  int numToDisplay = map(val2, 0, 1000, 0, 9); //Map the slider value to a displayable value
 
-  xTaskCreate(
-    TaskSliderLED
-    ,  "SliderLED"   // A name just for humans
-    ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );
+  // select (sub)program to run
+  switch(numToDisplay) {
+    case 1:   // prog 1: Sound Machine
+      xTaskCreate(
+        TaskSliderButtonBuzzer
+        ,  "SliderButtonBuzzer"   // A name just for humans
+        ,  90  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  ( void * ) BUTTON1  // Parameter passed into the task.
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
 
-  xTaskCreate(
-    TaskSliderNumber
-    ,  "SliderNumber"   // A name just for humans
-    ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );
+      xTaskCreate(
+        TaskSliderButtonBuzzer
+        ,  "SliderButtonBuzzer"   // A name just for humans
+        ,  90  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  ( void * ) BUTTON2  // Parameter passed into the task.
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
 
-  xTaskCreate(
-    TaskButtonLED
-    ,  "ButtonLED"   // A name just for humans
-    ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );
+      xTaskCreate(
+        TaskSliderButtonBuzzer
+        ,  "SliderButtonBuzzer"   // A name just for humans
+        ,  90  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  ( void * ) BUTTON3  // Parameter passed into the task.
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
 
-  xTaskCreate(
-    TaskSliderButtonBuzzer
-    ,  "SliderButtonBuzzer"   // A name just for humans
-    ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );
+      break;
+    default:  // prog 0 (default): Danger Shield demo with some additions
+      // Now set up tasks to run independently.
+      xTaskCreate(
+        TaskBlink
+        ,  "Blink"   // A name just for humans
+        ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );/**/
 
-  xTaskCreate(
-    TaskLightAlarm
-    ,  "LightAlarm"   // A name just for humans
-    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );
+      xTaskCreate(
+        TaskSliderLED
+        ,  "SliderLED"   // A name just for humans
+        ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
 
-/*  xTaskCreate(
-    TaskTempWarning
-    ,  "TempWarning"   // A name just for humans
-    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );*/
+      xTaskCreate(
+        TaskSliderNumber
+        ,  "SliderNumber"   // A name just for humans
+        ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
 
-  xTaskCreate(
-    TaskCapSenseWarning
-    ,  "CapSenseWarning"   // A name just for humans
-    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );/**/
+      xTaskCreate(
+        TaskButtonLED
+        ,  "ButtonLED"   // A name just for humans
+        ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
 
-/*  xTaskCreate(
-    TaskCapSenseLED
-    ,  "CapSenseLED"   // A name just for humans
-    ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );*/
+      xTaskCreate(
+        TaskSliderButtonBuzzer
+        ,  "SliderButtonBuzzer"   // A name just for humans
+        ,  90  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  ( void * ) BUTTON3  // Parameter passed into the task.
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
 
-  xTaskCreate(
-    TaskButtonBuzzer
-    ,  "ButtonBuzzer"   // A name just for humans
-    ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
-    ,  NULL
-    ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
-    ,  NULL );
+      xTaskCreate(
+        TaskLightAlarm
+        ,  "LightAlarm"   // A name just for humans
+        ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
+
+    /*  xTaskCreate(
+        TaskTempWarning
+        ,  "TempWarning"   // A name just for humans
+        ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );*/
+
+      xTaskCreate(
+        TaskCapSenseWarning
+        ,  "CapSenseWarning"   // A name just for humans
+        ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );/**/
+
+    /*  xTaskCreate(
+        TaskCapSenseLED
+        ,  "CapSenseLED"   // A name just for humans
+        ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );*/
+
+      xTaskCreate(
+        TaskButtonBuzzer
+        ,  "ButtonBuzzer"   // A name just for humans
+        ,  96  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );
+
+      break;
+  }
 
   // Now the task scheduler, which takes over control of scheduling individual tasks, is automatically started.
 }
@@ -319,15 +380,35 @@ void TaskButtonLED(void *pvParameters)  // This is a task.
 
 void TaskSliderButtonBuzzer(void *pvParameters)  // This is a task.
 {
-  (void) pvParameters;
+//  (void) pvParameters;
+
+//  /* The parameter value is expected to be 1 as 1 is passed in the
+//  pvParameters value in the call to xTaskCreate() below. */
+//  configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
+
+  int button, slider;
+  switch(( ( uint8_t ) pvParameters )) {
+    case BUTTON1:   // BUTTON1
+      button = BUTTON1;
+      slider = SLIDER1;
+      break;
+    case BUTTON2:   // BUTTON2
+      button = BUTTON2;
+      slider = SLIDER3;
+      break;
+    default:        // BUTTON3
+      button = BUTTON3;
+      slider = SLIDER3;
+      break;
+  }
 
   for (;;) // A Task shall never return or exit.
   {
-    int val3 = analogRead(SLIDER3);
+    int val3 = analogRead(slider);
     //Set the sound based on the 3rd slider
     long buzSound = map(val3, 0, 1023, 1000, 10000); //Map the slider value to an audible frequency
     if(xSemaphoreTake( xSemaphore, (TickType_t)10) == pdTRUE) {
-      if((buzSound > 1100) && (digitalRead(BUTTON3) == LOW))
+      if((buzSound > 1100) && (digitalRead(button) == LOW))
         tone(BUZZER, buzSound); //Set sound value
       else
         noTone(BUZZER);
@@ -335,6 +416,12 @@ void TaskSliderButtonBuzzer(void *pvParameters)  // This is a task.
       xSemaphoreGive( xSemaphore );
     }
     vTaskDelay( 50 / portTICK_PERIOD_MS ); // wait for one second
+
+    /* Calling the function will have used some stack space, we would
+    therefore now expect uxTaskGetStackHighWaterMark() to return a
+    value lower than when it was called on entering the task. */
+/*    UBaseType_t uxHighWaterMark = uxTaskGetStackHighWaterMark( NULL );
+    Serial.println(uxHighWaterMark);*/
   }
 }
 
@@ -485,12 +572,6 @@ void TaskCapSenseLED(void *pvParameters)  // This is a task.
     int ledLevel = map(max(capLevel, 20), 20, 1250, 0, 255); //Map the slider level to a value we can set on the LED
     analogWrite(LED1, ledLevel); //Set LED brightness
     vTaskDelay( 50 / portTICK_PERIOD_MS ); // wait for one second
-
-    /* Calling the function will have used some stack space, we would 
-    therefore now expect uxTaskGetStackHighWaterMark() to return a 
-    value lower than when it was called on entering the task. */
-/*    UBaseType_t uxHighWaterMark = uxTaskGetStackHighWaterMark( NULL );
-    Serial.println(uxHighWaterMark);*/
   }
 }
 
@@ -501,7 +582,7 @@ void TaskButtonBuzzer(void *pvParameters)  // This is a task.
   for (;;) // A Task shall never return or exit.
   {
     if(xSemaphoreTake( xSemaphore, (TickType_t)10) == pdTRUE) {
-      if(digitalRead(BUTTON2) == LOW) {
+      if(digitalRead(BUTTON1) == LOW) {
           tone(BUZZER, 1000);
           delay( 500 ); // wait for one second
           noTone(BUZZER);
