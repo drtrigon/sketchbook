@@ -1,21 +1,50 @@
-/*
-  Fade
-
-  This example shows how to fade an LED on pin 9 using the analogWrite()
-  function.
-
-  The analogWrite() function uses PWM, so if you want to change the pin you're
-  using, be sure to use another PWM capable pin. On most Arduino, the PWM pins
-  are identified with a "~" sign, like ~3, ~5, ~6, ~9, ~10 and ~11.
-
-  This example code is in the public domain.
-
-  http://www.arduino.cc/en/Tutorial/Fade
-*/
-
-// - connect AREF (AR) to 5V
-// - switch1 changes to display average (of last 100 values taken over 1000s)
-
+/**
+ * @brief Code for picorv32 in an Alhambra II for determing and displaying Air Quality
+ *
+ * @file Alhambra-picorv32_AirQuality/Alhambra-picorv32_AirQuality.ino
+ *
+ * @author drtrigon
+ * @date 2020-10-18
+ * @version 1.0
+ *   @li connect AREF (AR) to 5V
+ *   @li switch1 changes to display average (of last 100 values taken over 1000s)
+ *   @li first version derived from Fade example
+ *
+ * @see https://github.com/drtrigon/fpgarduino-icestorm
+ * @see https://github.com/FPGAwars/Alhambra-II-FPGA/tree/master/doc
+ * @see https://www.codrey.com/electronic-circuits/how-to-use-mq-135-gas-sensor/
+ *
+ * @verbatim
+ * Pinout:
+ *   connect AREF (AR) to 5V
+ *   MQ 135:
+ *        5V            -> Alhambra 5V
+ *       GND            -> Alhambra GND
+ *     SENSE            -> Alhambra A0
+ *
+ * Tested with:
+ *   - lighter gas
+ *   - breath
+ *   (no calibration available)
+ *
+ * Notes (future todo):
+ * - is there an adc block that works with 2 channels (ADC0 and ADC1)? else
+ *   use a multiplexer
+ * - also add flammable (which?) sensor to detect "Diesel Dämpfe von Heizung"
+ * - Diesel:
+ *   - To put this in perspective, less than 4% of the molecules in a bucket
+ *     of diesel fuel are small enough to pass through the flame
+ *     arrestor and enter the sensor.
+ *     @see http://www.goodforgas.com/documents/appnotes/AP1001_Choosing_best_technologies_for_comb_gas_and_voc_measurement_1_15_13.pdf
+ *   - Die Hauptbestandteile des Dieselkraftstoffes sind vorwiegend Alkane,
+ *     Cycloalkane und aromatische Kohlenwasserstoffe mit jeweils etwa 9 bis
+ *     22 Kohlenstoff-Atomen pro Molekül [...]
+ *     @see https://de.wikipedia.org/wiki/Dieselkraftstoff
+ *
+ * Thanks to:
+ * fpgawars, icestorm, icestudio
+ * @endverbatim
+ */
 
 int led = LED_BUILTIN;           // the PWM pin the LED is attached to
 int brightness = 0;    // how bright the LED is
