@@ -386,19 +386,25 @@ void TaskSliderButtonBuzzer(void *pvParameters)  // This is a task.
 //  pvParameters value in the call to xTaskCreate() below. */
 //  configASSERT( ( ( uint32_t ) pvParameters ) == 1 );
 
-  int button, slider;
+  int button, slider;  // button variable could be re-placed by pvParameters
   switch(( ( uint8_t ) pvParameters )) {
     case BUTTON1:   // BUTTON1
       button = BUTTON1;
       slider = SLIDER1;
+      // arbitrary delay do de-sync tasks in order to give every tone some time before next task runs
+      vTaskDelay( 20 / portTICK_PERIOD_MS ); // wait for one second
       break;
     case BUTTON2:   // BUTTON2
       button = BUTTON2;
-      slider = SLIDER3;
+      slider = SLIDER2;
+      // arbitrary delay do de-sync tasks ...
+      vTaskDelay( 40 / portTICK_PERIOD_MS ); // wait for one second
       break;
     default:        // BUTTON3
       button = BUTTON3;
       slider = SLIDER3;
+      // arbitrary delay do de-sync tasks ...
+      vTaskDelay( 60 / portTICK_PERIOD_MS ); // wait for one second
       break;
   }
 
