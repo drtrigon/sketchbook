@@ -5,6 +5,14 @@
  *
  * @author drtrigon
  * @date 2020-10-10
+ * @version 2.1
+ *   @li (TODO: use captouch as alias for all 3 buttons in prog 1)
+ *   @li (TODO: use 2 slider and buttons to select and display range max and min in prog 2)
+ * @version 2.0
+ *   @li first version featuring 4 programs
+ *   @li fixed alarm loop freezing behaviour by using 'pgm_read_word_near' and init 'buzSound'
+ *   @li use new mapping ranges for buzzer frequencies/slider
+ *   @li eliminate all unneeded 'noTone' in 'TaskSliderButtonBuzzer' to make tone output smoother
  * @version 1.0
  *   @li first version featuring 2 programs
  *   @li first version derived from Uno_DangerShield-Toy (Danger Shield Example Sketch)
@@ -31,6 +39,11 @@
  *     - TaskSliderButtonBuzzer (BUTTON1, SLIDER1)
  *     - TaskSliderButtonBuzzer (BUTTON2, SLIDER2)
  *     - TaskSliderButtonBuzzer (BUTTON3, SLIDER3)
+ *   3. prog 2 "Die" (using CapSense for speed)
+ *     - TaskCapSenseDie
+ *   4. prog 3 "Counter" (using CapSense for speed)
+ *     - TaskCapSenseCount
+ *
  * FreeRTOS hints:
  *   - memory is VERY limited, in order to make "all" tasks work, disable serial
  *     (in order to use serial, disable at least one task)
@@ -101,6 +114,8 @@ SemaphoreHandle_t xSemaphore = xSemaphoreCreateMutex();  // the Buzzer is a shar
 
 int avgLightLevel;
 
+uint8_t toneStatus;
+
 // the setup function runs once when you press reset or power the board
 void setup() {
 
@@ -157,6 +172,8 @@ void setup() {
         ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
         ,  NULL );
 
+      // delaying here using 'vTaskDelay(..)' to de-sync does not work!
+
       xTaskCreate(
         TaskSliderButtonBuzzer
         ,  "SliderButtonBuzzer"   // A name just for humans
@@ -165,6 +182,8 @@ void setup() {
         ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
         ,  NULL );
 
+      // (delaying here using 'vTaskDelay(..)' to de-sync does not work!)
+
       xTaskCreate(
         TaskSliderButtonBuzzer
         ,  "SliderButtonBuzzer"   // A name just for humans
@@ -172,6 +191,26 @@ void setup() {
         ,  ( void * ) BUTTON3  // Parameter passed into the task.
         ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
         ,  NULL );
+
+      break;
+    case 2:   // prog 2: Die
+      xTaskCreate(
+        TaskCapSenseDie
+        ,  "TaskCapSenseDie"   // A name just for humans
+        ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );/**/
+
+      break;
+    case 3:   // prog 3: Counter
+      xTaskCreate(
+        TaskCapSenseCount
+        ,  "TaskCapSenseCount"   // A name just for humans
+        ,  80  // This stack size can be checked & adjusted by reading the Stack Highwater (10 free)
+        ,  NULL
+        ,  2  // Priority, with 3 (configMAX_PRIORITIES - 1) being the highest, and 0 being the lowest.
+        ,  NULL );/**/
 
       break;
     default:  // prog 0 (default): Danger Shield demo with some additions
@@ -412,12 +451,19 @@ void TaskSliderButtonBuzzer(void *pvParameters)  // This is a task.
   {
     int val3 = analogRead(slider);
     //Set the sound based on the 3rd slider
-    long buzSound = map(val3, 0, 1023, 1000, 10000); //Map the slider value to an audible frequency
+    //long buzSound = map(val3, 0, 1023, 1000, 10000); //Map the slider value to an audible frequency
+    long buzSound = map(val3, 0, 1023, 50, 10000); //Map the slider value to an audible frequency
+    //long buzSound = map(val3, 0, 1023, 4000, 10000); //Map the slider value to an audible frequency
     if(xSemaphoreTake( xSemaphore, (TickType_t)10) == pdTRUE) {
-      if((buzSound > 1100) && (digitalRead(button) == LOW))
+      //if(buzSound > 1100) {
+      if(digitalRead(button) == LOW) {
+        toneStatus = toneStatus |   (B00000001 << (button - 10));
         tone(BUZZER, buzSound); //Set sound value
-      else
-        noTone(BUZZER);
+      } else {
+        toneStatus = toneStatus & (~(B00000001 << (button - 10)));
+        if(toneStatus == 0)  // switch tone output off ONLY IF ALL channels/outputs are off (smooth audible output)
+          noTone(BUZZER);
+      }
 
       xSemaphoreGive( xSemaphore );
     }
@@ -439,7 +485,7 @@ void TaskLightAlarm(void *pvParameters)  // This is a task.
   {
     int lightLevel = analogRead(LIGHT);
     int numToDisplay; //Map the slider value to a displayable value
-    long buzSound; //Map the slider value to an audible frequency
+    long buzSound = 1000; //Map the slider value to an audible frequency
 
     vTaskSuspendAll();
 
@@ -460,7 +506,8 @@ void TaskLightAlarm(void *pvParameters)  // This is a task.
   
       //Display an increasing number on the 7-segment display
       digitalWrite(LATCH, LOW);
-      shiftOut(DATA, CLOCK, MSBFIRST, ~(ledCharSet[numToDisplay]));
+      //shiftOut(DATA, CLOCK, MSBFIRST, ~(ledCharSet[numToDisplay]));
+      shiftOut(DATA, CLOCK, MSBFIRST, ~(pgm_read_word_near(ledCharSet + numToDisplay)));
       digitalWrite(LATCH, HIGH);
       numToDisplay++; //Goto next number
       if(numToDisplay > 9) numToDisplay = 0; //Loop number
@@ -608,3 +655,56 @@ void TaskButtonBuzzer(void *pvParameters)  // This is a task.
     vTaskDelay( 50 / portTICK_PERIOD_MS ); // wait for one second
   }
 }
+
+void TaskCapSenseDie(void *pvParameters)  // This is a task.
+{
+  (void) pvParameters;
+
+  // as analog input pin A5 is unconnected, random analog
+  // noise will cause the call to randomSeed() to generate
+  // different seed numbers each time the sketch runs.
+  // randomSeed() will then shuffle the random function.
+  randomSeed(analogRead(A5));
+
+  for (;;) // A Task shall never return or exit.
+  {
+    long capLevel = capPadOn92.capacitiveSensor(30);
+    capLevel = 1800-capLevel;
+
+    if(capLevel < 1500) {
+      // print a random number from 0 to 9
+//      long randNumber = random(0, 9);
+      long randNumber = random(1, 6);
+
+      digitalWrite(LATCH, LOW);
+      shiftOut(DATA, CLOCK, MSBFIRST, ~(pgm_read_word_near(ledCharSet + randNumber)));
+      digitalWrite(LATCH, HIGH);
+    }
+
+    vTaskDelay( (capLevel/10) / portTICK_PERIOD_MS ); // wait for one second
+   }
+}
+
+void TaskCapSenseCount(void *pvParameters)  // This is a task.
+{
+  (void) pvParameters;
+
+  long counterNumber = 0;
+
+  for (;;) // A Task shall never return or exit.
+  {
+    long capLevel = capPadOn92.capacitiveSensor(30);
+    capLevel = 1800-capLevel;
+
+    if(capLevel < 1500) {
+      counterNumber = (counterNumber + 1) % 10;
+
+      digitalWrite(LATCH, LOW);
+      shiftOut(DATA, CLOCK, MSBFIRST, ~(pgm_read_word_near(ledCharSet + counterNumber)));
+      digitalWrite(LATCH, HIGH);
+    }
+
+    vTaskDelay( (capLevel/10) / portTICK_PERIOD_MS ); // wait for one second
+   }
+}
+
