@@ -162,3 +162,6 @@ What does work:
 * [8] https://github.com/FPGAwars/icestudio/issues/321
 * [9] https://discourse.tinyfpga.com/t/programming-the-tinyfpga-bx-with-arduino/898
 * [10] https://github.com/emard/prjtrellis-picorv32 (mentioned in [7,9])
+* [11] http://fpgalibre.sourceforge.net/Lattuino_en/index.html (no Arduino IDE support)
+* [12] https://github.com/Alhambra-bits/Lattuino-studio
+* [13] https://github.com/INTI-CMNB/Lattuino_IP_Core
