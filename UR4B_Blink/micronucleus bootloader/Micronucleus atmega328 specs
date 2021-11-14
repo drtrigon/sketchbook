@@ -1,0 +1,91 @@
+
+https://github.com/micronucleus/micronucleus/blob/master/firmware/configuration/m328p_extclock/bootloaderconfig.h
+
+ * Controller type: ATmega328P - with external crystal
+ * Configuration:   Aggresively size optimized configuration
+ *       USB D- :   PC1
+ *       USB D+ :   PC2
+ *       Entry  :   Always
+ *       LED    :   ACTIVE_HIGH at pin PD0
+ *       OSCCAL :   Stays at 16 MHz
+ * Note: Uses 16 MHz V-USB implementation.
+ * Last Change:     Nov. 20, 2017
+
+
+https://github.com/micronucleus/micronucleus/blob/master/firmware/configuration/m328p_extclock/Makefile.inc
+
+#---------------------------------------------------------------------
+# ATmega328p
+#---------------------------------------------------------------------
+# Fuse low byte:
+# 0xff = 1 1 1 1   1 1 1 1
+#        ^ ^ \+/   \--+--/
+#        | |  |       +------- CKSEL 3..0 (clock selection -> Ext. Crystal > 8MHz)
+#        | |  +--------------- SUT 1..0 (Start up time -> (with CKSEL0) slowly rising power)
+#        | +------------------ CKOUT (clock output on CKOUT pin -> disabled)
+#        +-------------------- CKDIV8 (divide clock by 8 -> don't divide)
+#
+# Fuse high byte:
+# 0xd9 = 1 1 0 1   1 0 0 1
+#        ^ ^ ^ ^   ^ \-/ ^
+#        | | | |   |  |  +---- BOOTRST (Select reset vector -> start at address 0x0000)
+#        | | | |   |  +------- BOOTSZ 1..0 (Bootloader flash size -> 2048 Bytes)
+#        | | | |   +---------- EESAVE (preserve EEPROM on Chip Erase -> not preserved)
+#        | | | +-------------- WDTON (watchdog timer always on -> disable)
+#        | | +---------------- SPIEN (enable serial programming -> enabled)
+#        | +------------------ DWEN (debug wire enable)
+#        +-------------------- RSTDISBL (disable external reset -> reset is enabled)
+#
+# Fuse high byte ("no reset": external reset disabled, can't program through SPI anymore)
+# 0x59 = 0 1 0 1   1 0 0 1
+#        ^ ^ ^ ^   ^ \-/ ^
+#        | | | |   |  |  +---- BOOTRST (Select reset vector -> start at address 0x0000)
+#        | | | |   |  +------- BOOTSZ 1..0 (Bootloader flash size -> 2048 Bytes)
+#        | | | |   +---------- EESAVE (preserve EEPROM on Chip Erase -> not preserved)
+#        | | | +-------------- WDTON (watchdog timer always on -> disable)
+#        | | +---------------- SPIEN (enable serial programming -> enabled)
+#        | +------------------ DWEN (debug wire enable)
+#        +-------------------- RSTDISBL (disable external reset -> reset is disabled)
+#
+# Fuse extended byte:
+# 0xff = - - - -   - 1 0 1
+#        ^ ^ ^ ^   ^ \-+-/
+#        \---------/   +------ BODLEVEL 2..0 (brownout trigger level -> brownout detection at 2.7 V)
+#             +--------------- Unused
+###############################################################################
+
+
+https://github.com/micronucleus/micronucleus/blob/master/firmware/usbdrv/usbconfig-prototype.h
+
+General Description:
+This file is an example configuration (with inline documentation) for the USB
+driver. It configures V-USB for USB D+ connected to Port D bit 2 (which is
+also hardware interrupt 0 on many devices) and USB D- to Port D bit 4. You may
+wire the lines to any other port, as long as D+ is also wired to INT0 (or any
+other hardware interrupt, as long as it is the highest level interrupt, see
+section at the end of this file).
++ To create your own usbconfig.h file, copy this file to your project's
++ firmware source directory) and rename it to "usbconfig.h".
++ Then edit it accordingly.
+*/
+
+/* ---------------------------- Hardware Config ---------------------------- */
+
+#define USB_CFG_IOPORTNAME      D
+/* This is the port where the USB bus is connected. When you configure it to
+ * "B", the registers PORTB, PINB and DDRB will be used.
+ */
+#define USB_CFG_DMINUS_BIT      4
+/* This is the bit number in USB_CFG_IOPORT where the USB D- line is connected.
+ * This may be any bit in the port.
+ * USB- has a 1.5k pullup resistor to indicate a low-speed device.
+ */
+#define USB_CFG_DPLUS_BIT       2
+/* This is the bit number in USB_CFG_IOPORT where the USB D+ line is connected.
+ * This may be any bit in the port. Please note that D+ must also be connected
+ * to interrupt pin INT0! [You can also use other interrupts, see section
+ * "Optional MCU Description" below, or you can connect D- to the interrupt, as
+ * it is required if you use the USB_COUNT_SOF feature. If you use D- for the
+ * interrupt, the USB interrupt will also be triggered at Start-Of-Frame
+ * markers every millisecond.]
+ */
