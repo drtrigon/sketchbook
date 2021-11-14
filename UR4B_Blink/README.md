@@ -63,7 +63,7 @@ UR4B alternative (optiboot - but Ardino Mini Pro can als be used for all other v
 
 Arduino Uno = Arduino Micro (HoodLoader2 or USB-Serial) + Arduino Mini Pro (Micro = 32u4 and is better than Uno's USB chip, Nano has FTDI -> not prog.able)
 
-Price: CHF ~30 > CHF ~12 + CHF ~10 (true? else use UR4B instead of Mini Pro)
+Price: CHF ~30 > CHF ~12 + CHF ~10 (true? else use UR4B instead of Mini Pro - recently found Micros for CHF 30?!..)
 
 Usually only 1 of both has to be buyed!
 
@@ -87,7 +87,7 @@ Also add the pull-up 10k res. between Mini Pro/UR4B RESET and VCC (5V) - otherwi
 (Another alternative is to use Gscheiduino's avr-isp-mkII-clone: https://github.com/ehajo/mkII that can be switched between 
 USB nach Seriell-Wandler (Jumper offen) and AVR ISP mkII Clone (Jumper geschlossen), see https://www.ehajo.de/dokuwiki/bausaetze:gscheiduino-firmware)
 
-!TODO: Issue/Problem with programing cable - may be the cap should go next to the reset pin (close the 328 instead of close to the 32u4)...?!
+(Again another alternative is LUFA USBtoSerial: https://github.com/abcminiuser/lufa/tree/master/Projects/USBtoSerial)
 
 
 (AVR-CDC on 328 as serial USB TTL interface is to slow ~38400: http://www.recursion.jp/prose/avrcdc/cdc-232.html#schematic)
