@@ -63,7 +63,7 @@ UR4B alternative (optiboot - but Ardino Mini Pro can als be used for all other v
 
 Arduino Uno = Arduino Micro (HoodLoader2 or USB-Serial) + Arduino Mini Pro (Micro = 32u4 and is better than Uno's USB chip, Nano has FTDI -> not prog.able)
 
-Price: CHF ~30 > CHF ~12 + CHF ~10 (true? else use UR4B instead of Mini Pro - recently found Micros for CHF 30?!..)
+Price: CHF ~30 > CHF ~12 + CHF ~10 (true? else use UR4B instead of Mini Pro - recently found Micros and Micro Pro for CHF 30?!..)
 
 Usually only 1 of both has to be buyed!
 
@@ -93,3 +93,5 @@ USB nach Seriell-Wandler (Jumper offen) and AVR ISP mkII Clone (Jumper geschloss
 (AVR-CDC on 328 as serial USB TTL interface is to slow ~38400: http://www.recursion.jp/prose/avrcdc/cdc-232.html#schematic)
 
 (UPDI Programmer: https://github.com/permaBox/picoTinyCore/blob/master/MakeUPDIProgrammer.md)
+
+(UR4B Board: https://www.tindie.com/products/DrTrigon/ur4b-v1-pcb-only/)
