@@ -11,16 +11,18 @@ Derived from ppmUSBjoy and allows to:
 
 EV GAR KEIN NEUES PROJEKT SONDERN NUR IN PPMUSBJOY integrieren:
 
-- delay befor umschalten des Serial Ports - um programmierung zu ermöglichen
+- delay bevor umschalten des Serial Ports - um programmierung zu ermöglichen
 - ev. led als button für weitere funktionen
 - led muss anzeigen ob ppm oder sbus
+- disable USB chip with jumper on reset (on ICSP header)
 
 
-
+--- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
 https://github.com/bolderflight/sbus-arduino
 
 https://github.com/BrushlessPower/SBUS2-Telemetry
+https://www.arduino.cc/reference/en/libraries/sbus2/
 
 (https://github.com/fdivitto/sbus)
 
@@ -28,15 +30,15 @@ https://github.com/BrushlessPower/SBUS2-Telemetry
 https://www.arduino.cc/reference/en/libraries/s.port-sensor-library-for-frsky/
 
 
+https://www.arduino.cc/reference/en/libraries/ibusbm/
+
+
 http://vusb.wikidot.com/project:ppm-rc-to-usb-interface
 oder
 https://www.obdev.at/products/vusb/projects.html
 
---- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
-https://www.arduino.cc/reference/en/libraries/sbus2/
- 
-https://www.arduino.cc/reference/en/libraries/s.port-sensor-library-for-frsky/
+http://thomaspfeifer.net/ppm2usb_adapter_en.htm
 
 --- --- --- --- --- --- --- --- --- --- --- --- --- --- ---
 
